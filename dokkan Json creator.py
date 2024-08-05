@@ -131,7 +131,8 @@ for unit in cardsToCheck:
 
             if(CALCLINKS):
                 linksStart=time.time()
-                unitDictionary["Links"]=getalllinkswithbuffs(unit)
+                #unitDictionary["Links"]=getalllinkswithbuffs(unit)
+                unitDictionary["Links"]=getalllinks(unit)
                 linksTime+=time.time()-linksStart
 
             unitDictionary["Resource ID"]=unit[0]
