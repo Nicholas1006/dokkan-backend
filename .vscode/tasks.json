@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Open Farmbot",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "cd Smile Farmbot && Dokkan-FarmBot.exe"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Use new database",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python 'Use_after_DDL.py'"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    
+  ]
+}

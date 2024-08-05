@@ -28,9 +28,9 @@ print("Character id's retrieved")
 
 print("Retrieving icons and misc. assets")
 
-filterIncompletePngs("assets/", 1000)
+filterIncompletePngs("../frontend/dbManagement/assets/", 1000)
 
-acquiredlist = os.listdir(r'./assets/misc')
+acquiredlist = os.listdir(r'../frontend/dbManagement/assets/misc')
 for asset in misc_assets_urls:
     assetid=asset[0]
     url=(assetid)
@@ -38,7 +38,7 @@ for asset in misc_assets_urls:
     #if temp not in acquiredlist:  
     if url.split('/')[-1] not in acquiredlist:
         print(url)
-        filename = ("assets/misc/"+url.split('/')[-1])
+        filename = ("../frontend/dbManagement/assets/misc/"+url.split('/')[-1])
         r = requests.get(url, allow_redirects=True, timeout=300)
         if("404 Not Found" not in str(r._content)):
             open(filename, 'wb').write(r.content)
@@ -48,15 +48,15 @@ for asset in misc_assets_urls:
 print("all misc. assets acquired")
 
 
-filterIncompletePngs("assets/final_assets", 1000)
+filterIncompletePngs("../frontend/dbManagement/assets/final_assets", 1000)
 print("Creating final assets")
-acquiredlist = os.listdir(r'./assets/final_assets')
+acquiredlist = os.listdir(r'../frontend/dbManagement/assets/final_assets')
 leader_skills=storedatabase(directory,"leader_skills.csv")
 total=1
 
 for card in cards:
-    #if qualifyUsable(card) and (((card[0]+".png") not in acquiredlist)):
-    if(qualifyUsable(card)):
+    if qualifyUsable(card) and (((card[0]+".png") not in acquiredlist)):
+    #if(qualifyUsable(card)):
         if total%100==0:
             print(total)
         total+=1

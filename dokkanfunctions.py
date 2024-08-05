@@ -2744,7 +2744,7 @@ def createEZAWallpapers(cards, directory,printing=True):
             mainunit=card
 
         #background
-            cframeurl=("assets/misc/cha_base_0")
+            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
         #element
             cframeurl+=(mainunit[12][-1])
             cframeurl+=("_0")
@@ -2757,7 +2757,7 @@ def createEZAWallpapers(cards, directory,printing=True):
             cframe=cframe.resize((200,200))
 
         #character icon
-            ciconurl=("assets/thumb/")
+            ciconurl=("../frontend/dbManagement/assets/thumb/")
             if card[48]=="" or card[48]=="0.0":
                 ciconurl+=unitid
             else:
@@ -2768,7 +2768,7 @@ def createEZAWallpapers(cards, directory,printing=True):
 
 
         #rarity
-            crarityurl=("assets/misc/cha_rare_")
+            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
             crarityurl+=(getrarity(mainunit))
             crarityurl+=(".png")
             crarity = Image.open(crarityurl).convert("RGBA")
@@ -2778,7 +2778,7 @@ def createEZAWallpapers(cards, directory,printing=True):
                 crarity=crarity.resize((160,96))
 
         #element
-            celementurl=("assets/misc/cha_type_icon_")
+            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
             if len(mainunit[12])==1:
                 celementurl+=("0")
             celementurl+=(mainunit[12])
@@ -2821,7 +2821,7 @@ def createEZAWallpapers(cards, directory,printing=True):
             cfinal.paste(celement, (170,5),celement)
             
             if(printing): print(mainunit[1])
-            wallpapername=("assets/EZA wallpapers/final_")
+            wallpapername=("../frontend/dbManagement/assets/EZA wallpapers/final_")
             wallpapername+=(unitid)
             wallpapername+=(".png")
             cfinal.save(wallpapername)
@@ -3018,7 +3018,7 @@ def createDFEWallpapers(cards, directory,printing=True):
             mainunit=card
 
         #background
-            cframeurl=("assets/misc/cha_base_0")
+            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
         #element
             cframeurl+=(mainunit[12][-1])
             cframeurl+=("_0")
@@ -3031,7 +3031,7 @@ def createDFEWallpapers(cards, directory,printing=True):
             cframe=cframe.resize((200,200))
 
         #character icon
-            ciconurl=("assets/thumb/")
+            ciconurl=("../frontend/dbManagement/assets/thumb/")
             if card[48]=="" or card[48]=="0.0":
                 ciconurl+=unitid
             else:
@@ -3042,7 +3042,7 @@ def createDFEWallpapers(cards, directory,printing=True):
 
 
         #rarity
-            crarityurl=("assets/misc/cha_rare_")
+            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
             crarityurl+=(getrarity(mainunit))
             crarityurl+=(".png")
             crarity = Image.open(crarityurl).convert("RGBA")
@@ -3052,7 +3052,7 @@ def createDFEWallpapers(cards, directory,printing=True):
                 crarity=crarity.resize((160,96))
 
         #element
-            celementurl=("assets/misc/cha_type_icon_")
+            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
             if len(mainunit[12])==1:
                 celementurl+=("0")
             celementurl+=(mainunit[12])
@@ -3095,7 +3095,7 @@ def createDFEWallpapers(cards, directory,printing=True):
             cfinal.paste(celement, (170,5),celement)
             
             
-            wallpapername=("assets/DFE wallpapers/")
+            wallpapername=("../frontend/dbManagement/assets/DFE wallpapers/")
             wallpapername+=(unitid)
             wallpapername+=(".png")
             if(printing): print(mainunit[1])
@@ -3119,7 +3119,7 @@ def createLRWallpapers(cards,directory,printing=True):
             mainunit=card
 
         #background
-            cframeurl=("assets/misc/cha_base_0")
+            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
         #element
             cframeurl+=(mainunit[12][-1])
             cframeurl+=("_0")
@@ -3131,7 +3131,7 @@ def createLRWallpapers(cards,directory,printing=True):
             cframe=cframe.resize((200,200))
 
         #character icon
-            ciconurl=("assets/thumb/")
+            ciconurl=("../frontend/dbManagement/assets/thumb/")
             if card[48]=="" or card[48]=="0.0":
                 ciconurl+=unitid
             else:
@@ -3142,7 +3142,7 @@ def createLRWallpapers(cards,directory,printing=True):
 
 
         #rarity
-            crarityurl=("assets/misc/cha_rare_")
+            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
             crarityurl+=(getrarity(mainunit))
             crarityurl+=(".png")
             crarity = Image.open(crarityurl).convert("RGBA")
@@ -3152,7 +3152,7 @@ def createLRWallpapers(cards,directory,printing=True):
                 crarity=crarity.resize((160,96))
 
         #element
-            celementurl=("assets/misc/cha_type_icon_")
+            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
             if len(mainunit[12])==1:
                 celementurl+=("0")
             celementurl+=(mainunit[12])
@@ -3196,7 +3196,7 @@ def createLRWallpapers(cards,directory,printing=True):
             
             
             if(printing): print(mainunit[1])
-            wallpapername=("assets/LR wallpapers/final_")
+            wallpapername=("../frontend/dbManagement/assets/LR wallpapers/final_")
             wallpapername+=(unitid)
             wallpapername+=(".png")
             cfinal.save(wallpapername)
@@ -3246,7 +3246,7 @@ def createFinalAsset(card,printing=True):
         mainunit=card
 
     #background
-        cframeurl=("assets/misc/cha_base_0")
+        cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
     #element
         cframeurl+=(mainunit[12][-1])
         cframeurl+=("_0")
@@ -3259,7 +3259,7 @@ def createFinalAsset(card,printing=True):
         cframe=cframe.resize((200,200))
 
     #character icon
-        ciconurl=("assets/thumb/")
+        ciconurl=("../frontend/dbManagement/assets/thumb/")
         ciconurl+=resource_id
         ciconurl+=(".png")
         cicon = Image.open(ciconurl).convert("RGBA")
@@ -3267,7 +3267,7 @@ def createFinalAsset(card,printing=True):
 
 
     #rarity
-        crarityurl=("assets/misc/cha_rare_")
+        crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
         crarityurl+=(getrarity(mainunit))
         crarityurl+=(".png")
         crarity = Image.open(crarityurl).convert("RGBA")
@@ -3277,7 +3277,7 @@ def createFinalAsset(card,printing=True):
             crarity=crarity.resize((160,96))
 
     #element
-        celementurl=("assets/misc/cha_type_icon_")
+        celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
         if len(mainunit[12])==1:
             celementurl+=("0")
         celementurl+=(mainunit[12])
@@ -3305,7 +3305,7 @@ def createFinalAsset(card,printing=True):
         
         cfinal=cfinal.crop((10,10,256,235))
         
-        name=("assets/final_assets/")
+        name=("../frontend/dbManagement/assets/final_assets/")
         name+=(unitid)
         name+=(".png")
         
@@ -3344,9 +3344,9 @@ def scrapeallunitassetsv2(cards,thumb=False,full=False,bg=False,character=False,
             allAssetsDownloaded=True
             for dataType in assetsNeeded:
                 if(allAssetsDownloaded==True):
-                    temp=os.path.join("assets",dataType)
+                    temp=os.path.join("../frontend/dbManagement/assets",dataType)
                     if(dataType=="sp_name"):
-                        temp=os.path.join("assets",dataType+"_00")
+                        temp=os.path.join("../frontend/dbManagement/assets",dataType+"_00")
                     temp=os.path.join(temp,assetid+".png")
                     temp2=os.path.exists(temp)
                     if (temp2==False):
@@ -3402,7 +3402,7 @@ def screpeassetlineant(fileID, fileType,printing=True):
     #piece
     #sticker_mask
     #sp_cutin_1
-    fileDest="assets/"+fileType+"/"+fileID+".png"
+    fileDest="../frontend/dbManagement/assets/"+fileType+"/"+fileID+".png"
     
     if(os.path.isfile(fileDest)==False):
         if fileType=="thumb":filesource="https://glben.dokkaninfo.com/assets/global/en/character/thumb/card_"+fileID+"_thumb.png"
@@ -3428,7 +3428,7 @@ def screpeassetlineant(fileID, fileType,printing=True):
                     filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/en/card_"+fileID+"_sp_name.png"
                 else:
                     filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/en/card_"+fileID+"_sp0"+str(SAcount)+"_name.png"
-                fileDest="assets/"+fileType+"_0"+str(SAcount)+"/"+fileID+".png"
+                fileDest="../frontend/dbManagement/assets/"+fileType+"_0"+str(SAcount)+"/"+fileID+".png"
                 SAcount+=1
                 r = requests.get(filesource, allow_redirects=True, timeout=120)
                 if("404 Not Found" not in str(r._content)):

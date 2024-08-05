@@ -38,7 +38,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["4027301"]
+cardIDsToCheck=["1028811"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -46,9 +46,9 @@ cardsToCheck=[]
 
 
 if(GLOBALREFRESH and GLOBALPARSE):
-    emptyFolder("jsons")
-    emptyFolder("jsonsEZA")
-    emptyFolder("jsonsSEZA")
+    #emptyFolder("../frontend/dbManagement/jsons")
+    #emptyFolder("../frontend/dbManagement/jsonsEZA")
+    emptyFolder("../frontend/dbManagement/jsonsSEZA")
     
 
 
@@ -311,11 +311,11 @@ for unit in cardsToCheck:
             if(MAKEJSON):
                 jsonStart=time.time()
                 if(seza):
-                    directoryName="jsonsSEZA"
+                    directoryName="../frontend/dbManagement/jsonsSEZA"
                 elif(eza):
-                    directoryName="jsonsEZA"
+                    directoryName="../frontend/dbManagement/jsonsEZA"
                 else:
-                    directoryName="jsons"
+                    directoryName="../frontend/dbManagement/jsons"
                 turnintoJson(unitDictionary, jsonName,directoryName=directoryName)
                 jsonTime+=time.time()-jsonStart
         
