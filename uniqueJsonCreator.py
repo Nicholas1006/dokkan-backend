@@ -10,6 +10,10 @@ links_dictionary={}
 
 for link in link_skills_name:
     linkBuffs=getlinkBuffsAtAllLevel(link)
+    for level in linkBuffs:
+        for buff in linkBuffs[level].copy():
+            if(linkBuffs[level][buff]==0):
+                del linkBuffs[level][buff]
     links_dictionary[link]=linkBuffs
 
 turnintoJson(links_dictionary, "links",directoryName="../frontend/dbManagement/uniqueJsons")
