@@ -94,6 +94,60 @@ def getMaxLevel(unit,eza=False):
     else:
         return(int(unit[13]))
 
+def parse_domain_efficiacy(efficiacy):
+    output={}
+    output["ID"]=efficiacy[0]
+    if(efficiacy[2]=="1"):
+        output["Timing"]="At the start of turn"
+    elif(efficiacy[2]=="18"):
+        output["Timing"]="On domain Being out"
+    else:
+        print("UNKNOWN DOMAIN EFFICIACY TIMING:",efficiacy[2])
+
+    #NO DEFENSE BUFF
+    if(efficiacy[3]=="1"):
+        output["Effect"]={"Type":"ATK & DEF","ATK":max(int(efficiacy[8]),int(efficiacy[9])),"DEF":0}
+    #PRESUMABLY NO ATTACK BUFF
+    if(efficiacy[3]=="2"):
+        output["Effect"]={"Type":"ATK & DEF","ATK":0,"DEF":max(int(efficiacy[8]),int(efficiacy[9]))}
+    elif(efficiacy[3]=="3"):
+        output["Effect"]={"Type":"ATK & DEF","ATK":int(efficiacy[8]),"DEF":int(efficiacy[9])}
+    elif(efficiacy[3]=="121"):
+        output["Effect"]={"Type":"Closes domain"}
+    elif(efficiacy[3]=="122"):
+        output["Effect"]={"Type":"Increases damage recieved","Amount":int(efficiacy[8])}
+    elif(efficiacy[3]=="129"):
+        output["Effect"]={"Type":"Disables guaranteed hit effect"}
+    else:
+        print("UNKNOWN DOMAIN EFFICIACY TYPE:",efficiacy[3])
+
+    if(efficiacy[4]=="0"):
+        pass
+    elif(efficiacy[4]=="2"):
+        pass
+    else:
+        print("UNKNOWN DOMAIN EFFICIACY TARGET:",efficiacy[4])
+
+    output["Turn activation"]=efficiacy[5]
+
+    if(efficiacy[6]=="0"):
+        pass
+    else:
+        output["Is Once Only"]=True
+
+    if(efficiacy[7]=="100"):
+        pass
+    else:
+        output["Chance to activate"]=efficiacy[7]
+
+    if(efficiacy[12]!=""):
+        causalityCondition=logicalCausalityExtractor(efficiacy[12])
+        causalityCondition=CausalityLogicalExtractor(unit=[],causality=causalityCondition,DEVEXCEPTIONS=False)
+        output["superCondition"]=causalityCondition
+
+
+    return(output)
+
 def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
     output={}
 
@@ -2494,6 +2548,27 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]+=(" active")
             elif(CausalityRow[1]=="58"):
                 output["Button"]["Name"]=("Is no domain active?")
+            elif(CausalityRow[1]=="59"):
+                if(CausalityRow[2]=="1"):
+                    output["Button"]["Name"]=("Is this character super class?")
+                elif(CausalityRow[2]=="2"):
+                    output["Button"]["Name"]=("Is this character extreme class?")
+            elif(CausalityRow[1]=="60"):
+                Categories=sub_target_types_extractor(CausalityRow[2])
+                output["Button"]["Name"]="Is this character on the "
+                for category in Categories["Category"]:
+                    output["Button"]["Name"]+=category
+                    output["Button"]["Name"]+=(" or ")
+                output["Button"]["Name"]=output["Button"]["Name"][:-3]
+                output["Button"]["Name"]+="category?"
+
+                if(Categories["Excluded Category"]!=[]):
+                    output["Button"]["Name"]+=" (Excluding "
+                    for category in Categories["Excluded Category"]:
+                        output["Button"]["Name"]+=category
+                        output["Button"]["Name"]+=(" or ")
+                    output["Button"]["Name"]=output["Button"]["Name"][:-3]
+                    output["Button"]["Name"]+="category)"
             elif(CausalityRow[1]=="61"):
                 output["Button"]["Name"]=("Did the character recieve an attack on this turn?")
             else:
