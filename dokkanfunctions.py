@@ -143,6 +143,14 @@ def parse_domain_efficiacy(efficiacy):
     if(efficiacy[12]!=""):
         causalityCondition=logicalCausalityExtractor(efficiacy[12])
         causalityCondition=CausalityLogicalExtractor(unit=[],causality=causalityCondition,DEVEXCEPTIONS=False)
+        for CausalityKey in causalityCondition["Causalities"].keys():
+            ButtonName=causalityCondition["Causalities"][CausalityKey]["Button"]["Name"]
+            if("category" in ButtonName):
+                CategoryName=ButtonName.split(" on the ")[1].split(" category")[0]
+                causalityCondition["Causalities"][CausalityKey]={"Class": "any","Category":CategoryName}
+            else:
+                ClassName=ButtonName.split(" character ")[1].split(" class")[0]
+                causalityCondition["Causalities"][CausalityKey]={"Class": ClassName,"Category":"any"}
         output["superCondition"]=causalityCondition
 
 
