@@ -79,10 +79,6 @@ HiPoBoards={}
 
 if GLOBALPARSE:
     bar = Bar('Parsing units', max=len(cardsToCheck))
-    allUnitsDictionary=[]
-    for unit in cardsToCheck:
-        allUnitsDictionary.append(unit[0])
-    turnintoJson(allUnitsDictionary, "allUnits",directoryName="jsons")
 
 
 dokkanAwakenings={}

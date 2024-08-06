@@ -40,3 +40,40 @@ for domain in dokkan_fields:
 
 
 turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uniqueJsons")
+
+print("Creating all units json")
+relevantCards=[]
+for unit in cardsJP:
+        if qualifyUsable(unit):
+            relevantCards.append(unit)
+allUnitsDictionary=[]
+for unit in relevantCards:
+    allUnitsDictionary.append(unit[0])
+turnintoJson(allUnitsDictionary, "allUnits",directoryName="jsons")
+
+print("Creating all unit basics")
+unitBasics={}
+for unit in relevantCards:
+    unitGB=switchUnitToGlobal(unit)
+    unitDictionary={}
+    unitDictionary["ID"]=unit[0]
+    unitDictionary["Typing"]=getUnitTyping(unit)
+    unitDictionary["Class"]=getUnitClass(unit)
+    if(unitGB!=None):
+        unitDictionary["Name"]=unitGB[1]
+    else:
+        card_unique_info_id=unit[3]
+        temp=searchbyid(code=card_unique_info_id,codecolumn=3,database=cardsGB,column=1)
+        if(temp!=None):
+            likelyName=longestCommonSubstring(temp)
+            if(likelyName!=""):
+                unitDictionary["Name"]=likelyName
+            else:
+                unitDictionary["Name"]=unit[1]
+        else:
+            unitDictionary["Name"]=unit[1]
+    unitDictionary["Rarity"]=getrarity(unit)
+    unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
+    unitBasics[unit[0]]=unitDictionary
+
+turnintoJson(unitBasics, "unitBasics",directoryName="../frontend/dbManagement/uniqueJsons")
