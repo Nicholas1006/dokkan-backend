@@ -36,7 +36,7 @@ for domain in dokkan_fields:
     for efficiacy in relevant_efficiacies:
         domain_dictionary["Efficiacies"][efficiacy[0]]=parse_domain_efficiacy(efficiacy)
 
-    domains_json[domain[2]]=domain_dictionary
+    domains_json[domain[1]]=domain_dictionary
 
 
 turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uniqueJsons")
