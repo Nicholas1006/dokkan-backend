@@ -108,7 +108,7 @@ def parse_domain_efficiacy(efficiacy):
     if(efficiacy[3]=="1"):
         output["Effect"]={"Type":"ATK & DEF","ATK":max(int(efficiacy[8]),int(efficiacy[9])),"DEF":0}
     #PRESUMABLY NO ATTACK BUFF
-    if(efficiacy[3]=="2"):
+    elif(efficiacy[3]=="2"):
         output["Effect"]={"Type":"ATK & DEF","ATK":0,"DEF":max(int(efficiacy[8]),int(efficiacy[9]))}
     elif(efficiacy[3]=="3"):
         output["Effect"]={"Type":"ATK & DEF","ATK":int(efficiacy[8]),"DEF":int(efficiacy[9])}
