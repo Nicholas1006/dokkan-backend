@@ -150,6 +150,7 @@ def parse_domain_efficiacy(efficiacy):
                 causalityCondition["Causalities"][CausalityKey]={"Class": "any","Category":CategoryName}
             else:
                 ClassName=ButtonName.split(" character ")[1].split(" class")[0]
+                ClassName.replace("super","Super").replace("extreme","Extreme")
                 causalityCondition["Causalities"][CausalityKey]={"Class": ClassName,"Category":"any"}
         output["superCondition"]=causalityCondition
 
@@ -361,11 +362,11 @@ def parseHiddenPotential(Potential_board_id,DEVEXCEPTIONS=False):
 
 
     output={}
-    output[0]={"HP":0,"ATK":0,"DEF":0}
-    output[1]={"HP":0,"ATK":0,"DEF":0}
-    output[2]={"HP":0,"ATK":0,"DEF":0}
-    output[3]={"HP":0,"ATK":0,"DEF":0}
-    output[4]={"HP":0,"ATK":0,"DEF":0}
+    output[0]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
+    output[1]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
+    output[2]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
+    output[3]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
+    output[4]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
     for node in nodesSearched:
         eventid=searchbyid(code=node,codecolumn=0,database=potential_squaresJP,column=2)[0]
         event=searchbycolumn(code=eventid,database=potential_eventsJP,column=0)[0]
@@ -375,6 +376,20 @@ def parseHiddenPotential(Potential_board_id,DEVEXCEPTIONS=False):
             output[nodesSearched[node]]["ATK"]+=int(event[3])
         elif(event[1]=="PotentialEvent::Defense"):
             output[nodesSearched[node]]["DEF"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="1.0"):
+            output[nodesSearched[node]]["Additional"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="2.0"):
+            output[nodesSearched[node]]["Crit"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="3.0"):
+            output[nodesSearched[node]]["Evasion"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="4.0"):
+            output[nodesSearched[node]]["Type ATK"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="5.0"):
+            output[nodesSearched[node]]["Type DEF"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="6.0"):
+            output[nodesSearched[node]]["Super Attack boost"]+=int(event[3])
+        elif(event[1]=="PotentialEvent::Skill" and event[2]=="7.0"):
+            output[nodesSearched[node]]["Recovery boost"]+=int(event[3])
     return(output)
 
 def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
