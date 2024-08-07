@@ -1,3 +1,4 @@
+from ast import parse
 from globals import *
 from calendar import c
 import csv
@@ -10,6 +11,8 @@ import time
 import math
 import json
 import shutil
+
+from sqlalchemy import false
 
 
 def sub_target_types_extractor(sub_target_type_set_id,DEVELOPEREXCEPTIONS=False):
@@ -1907,13 +1910,13 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Max"]=100
     elif(CausalityRow[1]=="34"):
         if(CausalityRow[2]=="0"):
-            target="allies on the team "
+            target="units on the team "
             output["Slider"]["Max"]=7
         elif(CausalityRow[2]=="1"):
             target="enemies "
             output["Slider"]["Max"]=7
         elif(CausalityRow[2]=="2"):
-            target="allies on the same turn "
+            target="units on the same turn "
             output["Slider"]["Max"]=3
         categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
@@ -1985,11 +1988,11 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]="Is a super being performed?"
     elif(CausalityRow[1]=="41"):
         if(CausalityRow[2]=="0"):
-            output["Button"]["Name"]="Is there is an ally on the team whose name includes "
+            output["Button"]["Name"]="Is there an ally on the team whose name includes "
         elif(CausalityRow[2]=="1"):
-            output["Button"]["Name"]="Is there is an enemy whose name includes "
+            output["Button"]["Name"]="Is there an enemy whose name includes "
         elif(CausalityRow[2]=="2"):
-            output["Button"]["Name"]="Is there is an ally attacking in the same turn whose name includes "
+            output["Button"]["Name"]="Is there an ally attacking in the same turn whose name includes "
         else:
             output+=("UNKNOWN NAME TYPE")
             if(DEVEXCEPTIONS==True):
@@ -2067,7 +2070,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             output["Button"]["Name"]+=(ordinalise(CausalityRow[3]))
             output["Button"]["Name"]+=(" times in battle?")
 
-            output["Slider"]["Name"]="How many times has this character evaded attacks?"
+            output["Slider"]["Name"]="How many attacks have been evaded?"
             output["Slider"]["Logic"]=">="
             output["Slider"]["Logic"]+=CausalityRow[3]
             output["Slider"]["Min"]=0
@@ -2316,13 +2319,13 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Max"]=100
             elif(CausalityRow[1]=="34"):
                 if(CausalityRow[2]=="0"):
-                    target="allies on the team "
+                    target="units on the team "
                     output["Slider"]["Max"]=7
                 elif(CausalityRow[2]=="1"):
                     target="enemies "
                     output["Slider"]["Max"]=7
                 elif(CausalityRow[2]=="2"):
-                    target="allies on the same turn "
+                    target="units on the same turn "
                     output["Slider"]["Max"]=3
                 categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
@@ -2394,11 +2397,11 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]="Is a super being performed?"
             elif(CausalityRow[1]=="41"):
                 if(CausalityRow[2]=="0"):
-                    output["Button"]["Name"]="Is there is an ally on the team whose name includes "
+                    output["Button"]["Name"]="Is there an ally on the team whose name includes "
                 elif(CausalityRow[2]=="1"):
-                    output["Button"]["Name"]="Is there is an enemy whose name includes "
+                    output["Button"]["Name"]="Is there an enemy whose name includes "
                 elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]="Is there is an ally attacking in the same turn whose name includes "
+                    output["Button"]["Name"]="Is there an ally attacking in the same turn whose name includes "
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -2476,7 +2479,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+=(ordinalise(CausalityRow[3]))
                     output["Button"]["Name"]+=(" times in battle?")
 
-                    output["Slider"]["Name"]="How many times has this character evaded attacks?"
+                    output["Slider"]["Name"]="How many attacks have been evaded?"
                     output["Slider"]["Logic"]=">="
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
@@ -2937,10 +2940,168 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
             if (passiveskill[0] in passiveIdList):
                 parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
                 #output=shortenPassiveDictionary(output)
+                parsedLine=shortenPassiveDictionary(parsedLine)
+                if("Building Stat" in parsedLine):
+                    if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
+                        parsedLine=removeLookElseWhere(parsedLine,True)
                 output[passiveskill[0]]=parsedLine
     return(output)
 
+def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
+    output=parsedLine
+    causalities=[""]
+    if("Condition" in parsedLine):
+        causalities=[]
+        for causalityKey in parsedLine["Condition"]["Causalities"]:
+            causalities.append(parsedLine["Condition"]["Causalities"][causalityKey]["Button"]["Name"])
 
+    if(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0]=="Has this unit evaded an attack? "):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks evaded"
+        output["Building Stat"]["Slider"]="How many attacks have been evaded?"
+
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0][:33]=='Has this character recieved their'):
+        quantity=causalities[0][34]
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]=quantity+" attacks recieved"
+        output["Building Stat"]["Slider"]="How many times has this character recieved "+quantity+" attacks?"
+    
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0]=='Is HP 80 % or less?'):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="HP 80% or less"
+        output["Building Stat"]["Slider"]="How many times has HP been 80% or less?"
+
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0]=='Has attack been recieved?'):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved"
+        output["Building Stat"]["Slider"]="How many attacks has this character recieved?"
+
+    elif(parsedLine["Timing"]=="Attacking the enemy" and causalities[0]==""):
+        output["Building Stat"]["Cause"]["Cause"]="Attacks performed"
+        output["Building Stat"]["Slider"]="How many attacks has this character performed in battle?"
+
+    elif(parsedLine["Timing"]=="Start of turn" and causalities[0]==""):
+        output["Building Stat"]["Cause"]["Cause"]="Start of turn"
+        output["Building Stat"]["Slider"]="How many turns has this character been on?"
+
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:63]=='Is there an ally attacking in the same turn whose name includes'):
+        del output["Condition"]
+        allyName=causalities[0][64:-1]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with ally "+allyName
+        output["Building Stat"]["Slider"]="How many turns has this character been on with an ally whose name includes "+allyName+"?"
+
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:48]=='Is there an ally on the team whose name includes'):
+        del output["Condition"]
+        allyName=causalities[0][49:-1]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with ally on the team whose name includes "+allyName
+        output["Building Stat"]["Slider"]="How many turns has this character been on with an ally on the team whose name includes "+allyName+"?"
+
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:63]=='Is there an ally attacking in the same turn whose name includes' and causalities[1][:63]=='Is there an ally attacking in the same turn whose name includes'):
+        del output["Condition"]
+        ally1Name=causalities[0][64:-1]
+        ally2Name=causalities[1][64:-1]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with ally "+ally1Name+" or "+ally2Name
+        output["Building Stat"]["Slider"]="How many turns has this character been on with an ally whose name includes "+ally1Name+" or "+ally2Name+"?"
+    
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][-17:]=='category enemies ' and causalities[0][:20]=='Are there 1 or more '):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with a "+causalities[0][20:-18]+" category enemy"
+        output["Building Stat"]["Slider"]="How many turns has this character been on with a "+causalities[0][20:-18]+" category enemy?"
+
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:20]=='Are there 1 or more ' and causalities[0][-17:]=='category enemies ' and causalities[1][:20]=='Are there 1 or more ' and causalities[1][-17:]=='category enemies '):
+        del output["Condition"]
+        enemy1=causalities[0][20:-18]
+        enemy2=causalities[1][20:-18]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with a "+enemy1+""+" or "+enemy2+" category enemy"
+        output["Building Stat"]["Slider"]="How many turns has this character been on with a "+enemy1+" or "+enemy2+" category enemy?"
+    
+    elif((parsedLine["Timing"]=="Being hit" or parsedLine["Timing"]=="Hit recieved") and len(causalities)==1 and causalities[0]=='Has guard been activated?'):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Guard activated"
+        output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
+    
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1][-32:]=='category units on the same turn '):
+        del output["Condition"]
+        category=causalities[1][20:-34]
+        quantity=causalities[1][10]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on the same turn"
+        output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on the same turn?"
+    
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack? " and causalities[1][:48]=='Is there an ally on the team whose name includes'):
+        del output["Condition"]
+        allyName=causalities[1][49:-1]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
+        output["Building Stat"]["Slider"]="How many attacks has this unit evaded with an ally on the team whose name includes "+allyName+"?"
+
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1]=='Has this unit evaded an attack? '):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
+        output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
+
+    elif(parsedLine["Timing"]=="When final blow delivered" and len(causalities)==1 and causalities[0]=='Has this character delivered the final blow?'):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Final blow delivered"
+        
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:12]=='Is there an ' and causalities[0][-13:]=='class enemy? '):
+        del output["Condition"]
+        enemyClass=causalities[0][12:-14]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with a "+enemyClass+" class enemy"
+        output["Building Stat"]["Slider"]="How many turns has this character been on with a "+enemyClass+" class enemy?"
+
+    elif(parsedLine["Timing"]=="Attacking the enemy" and len(causalities)<=2 and causalities[0][:12]=="Is this the " and causalities[0][-21:]=="attacker in the turn?"):
+        del output["Condition"]
+        firstSlot=causalities[0][12:-22]
+        if(len(causalities)==2):
+            secondSlot=causalities[1][12:-22]
+            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" or "+secondSlot+"attacker in the turn"
+            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" or "+secondSlot+"attacker in the turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+"attacker in the turn"
+            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+"attacker in the turn?"
+
+    elif(parsedLine["Timing"]=="Hit recieved" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ' and causalities[2][:9]=='Are there' and causalities[2][-27:]=='category units on the team ' and causalities[1]=="Has guard been activated?"):
+        del output["Condition"]
+        quantity1=causalities[0][10]
+        quantity2=causalities[2][10]
+        category1=causalities[0][20:-28]
+        category2=causalities[2][20:-28]
+        output["Building Stat"]["Cause"]["Cause"]="Guard activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team"
+        output["Building Stat"]["Slider"]="How many times has this character's guard been activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team?"
+
+    elif(parsedLine["Timing"]=="Start of turn" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team '):
+        del output["Condition"]
+        quantity=causalities[0][10]
+        category=causalities[0][20:-28]
+        output["Building Stat"]["Cause"]["Cause"]="Turns with "+quantity+" or more "+category+" category units on the team"
+        output["Building Stat"]["Slider"]="How many turns has this character been on with "+quantity+" or more "+category+" category units on the team?"
+
+    elif(parsedLine["Timing"]=="Attacking the enemy" and len(causalities)==1 and causalities[0][:22]=='Is the target enemy in'):
+        del output["Condition"]
+        condition=causalities[0][23:-1]
+        output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition
+        output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition+"?"
+
+    elif(parsedLine["Timing"]=="Being hit" and len(causalities)==1 and causalities[0]=="Is a super being performed?"):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Super attack recieved"
+        output["Building Stat"]["Slider"]="How many super attacks has this character recieved?"
+
+    elif((parsedLine["Timing"]=="Attacking the enemy" and len(causalities)==1 and causalities[0]=='Is a super being performed?') or (parsedLine["Timing"]=="On Super" and len(causalities)==1 and causalities[0]=='') or (parsedLine["Timing"]=='On Super' and len(causalities)==1 and causalities[0]=='Is a super being performed?')):
+        if("Condition" in output):
+            del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Super being performed"
+        output["Building Stat"]["Slider"]="How many super attacks has this character performed?"
+
+
+
+    else:
+        print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
+        if(DEVECXEPTION):
+            raise Exception("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
+
+
+
+    return(output)
 
 def parseActiveSkill(unit,DEVEXCEPTIONS=False):
     active_id=searchbyid(unit[0],codecolumn=1,database=card_active_skillsJP,column=2)

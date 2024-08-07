@@ -38,7 +38,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1028811"]
+cardIDsToCheck=["4027991"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -141,8 +141,6 @@ for unit in cardsToCheck:
             if(CALCPASSIVE):
                 passiveStart=time.time()
                 parsedPassive=parsePassiveSkill(unit,eza,seza,DEVEXCEPTIONS)
-                for passiveLine in parsedPassive:
-                    parsedPassive[passiveLine]=shortenPassiveDictionary(parsedPassive[passiveLine])
                 unitDictionary["Passive"]=parsedPassive
                 passiveTime+=time.time()-passiveStart
 
