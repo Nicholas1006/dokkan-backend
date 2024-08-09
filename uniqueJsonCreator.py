@@ -1,4 +1,5 @@
 from dokkanfunctions import *
+from progress.bar import Bar
 
 print("Creating links json")
 
@@ -51,29 +52,89 @@ for unit in relevantCards:
     allUnitsDictionary.append(unit[0])
 turnintoJson(allUnitsDictionary, "allUnits",directoryName="jsons")
 
-print("Creating all unit basics")
 unitBasics={}
+bar = Bar('Creating all unit basics', max=len(relevantCards))
 for unit in relevantCards:
-    unitGB=switchUnitToGlobal(unit)
-    unitDictionary={}
-    unitDictionary["ID"]=unit[0]
-    unitDictionary["Typing"]=getUnitTyping(unit)
-    unitDictionary["Class"]=getUnitClass(unit)
-    if(unitGB!=None):
-        unitDictionary["Name"]=unitGB[1]
-    else:
-        card_unique_info_id=unit[3]
-        temp=searchbyid(code=card_unique_info_id,codecolumn=3,database=cardsGB,column=1)
-        if(temp!=None):
-            likelyName=longestCommonSubstring(temp)
-            if(likelyName!=""):
-                unitDictionary["Name"]=likelyName
+    bar.next()
+    ezaTrueFalse=["None"]
+    if(checkeza(relevantCards[0])):
+        ezaTrueFalse.append("EZA")
+    if(checkSeza(unit[0])):
+        ezaTrueFalse.append("SEZA")
+    for ezaCheck in ezaTrueFalse:
+        if(ezaCheck)=="None":
+            eza=False
+            seza=False
+        elif(ezaCheck)=="EZA":
+            eza=True
+            seza=False
+        elif(ezaCheck)=="SEZA":
+            eza=False
+            seza=True
+        unitGB=switchUnitToGlobal(unit)
+        unit1=swapToUnitWith1(unit)
+        unitDictionary={}
+
+        #Sort conditions
+        unitDictionary["ID"]=unit[0]
+        unitDictionary["Type"]=getUnitTyping(unit)
+        unitDictionary["Level"]=getMaxLevel(unit,eza)
+        unitDictionary["Rarity"]=getrarity(unit)
+        unitDictionary["Cost"]=getUnitCost(unit)
+        maxLevelStats=getUnitStats(unit,unitDictionary["Level"])
+        unitDictionary["HP"]=maxLevelStats["HP"]
+        unitDictionary["Attack"]=maxLevelStats["ATK"]
+        unitDictionary["Defense"]=maxLevelStats["DEF"]
+        unitDictionary["Acquired"]=getUnitReleaseTime(unit)
+        unitDictionary["Character"]=getCharacterNameID(unit)
+        unitDictionary["Sp Atk Lv"]=unit[14]
+        if(eza):
+            unitDictionary["Sp ATK Lv"]=str(5+int(unit[14]))
+        unitDictionary["Activation"]=0
+        if(unitDictionary["Rarity"]=="ur" or unitDictionary["Rarity"]=="lr"):
+            unitDictionary["Activation"]=1
+        unitDictionary["Max Level"]=getMaxLevel(unit,eza)
+
+        
+        #filter conditions(many are within sort)
+        unitDictionary["Class"]=getUnitClass(unit)
+        if(unitGB!=None):
+            unitDictionary["Name"]=unitGB[1]
+        else:
+            card_unique_info_id=unit[3]
+            temp=searchbyid(code=card_unique_info_id,codecolumn=3,database=cardsGB,column=1)
+            if(temp!=None):
+                likelyName=longestCommonSubstring(temp)
+                if(likelyName!=""):
+                    unitDictionary["Name"]=likelyName
+                else:
+                    unitDictionary["Name"]=unit[1]
             else:
                 unitDictionary["Name"]=unit[1]
-        else:
-            unitDictionary["Name"]=unit[1]
-    unitDictionary["Rarity"]=getrarity(unit)
-    unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
-    unitBasics[unit[0]]=unitDictionary
+        unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
 
+        unitDictionary["Awakening"]={"Dokkan Awakening":False, "Awakening to LR":False, "Extreme Z-Awakening":False, "Super Extreme Z-Awakening":False}
+        relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesJP,column=2)
+        relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
+        if(len(relevant_awakenings)>0):
+            unitDictionary["Awakening"]["Dokkan Awakening"]=True
+
+
+        for awakening in relevant_awakenings:
+            if(getrarity(awakening[3])=="lr"):
+                unitDictionary["Awakening"]["Awakening to LR"]=True
+
+        if(eza==False and seza==False and "EZA" in ezaTrueFalse):
+            unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
+        elif(seza==False and "SEZA" in ezaTrueFalse):
+            unitDictionary["Awakening"]["Super Extreme Z-Awakening"]=True
+
+        superAttackTypes=getSuperAttackTypes(unit,eza)
+        superAttackTypes=list(set(superAttackTypes))
+
+        unitDictionary["Super Attack Types"]=superAttackTypes
+        unitBasics[unit[0]]=unitDictionary
+        
+bar.finish()
+print("Turning unitBasics into json")
 turnintoJson(unitBasics, "unitBasics",directoryName="../frontend/dbManagement/uniqueJsons")

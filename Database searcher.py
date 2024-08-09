@@ -4,9 +4,9 @@ from dokkanfunctions import *
 from numpy import source
 
 
-stringToFind = '13669'
+stringToFind = 'sp2523'
 
-includeAsElementOf=False
+includeAsElementOf=True
 
 CSVtoExclude = []
 

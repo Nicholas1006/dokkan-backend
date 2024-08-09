@@ -11,9 +11,21 @@ import time
 import math
 import json
 import shutil
+from datetime import datetime
 
 from sqlalchemy import false
 
+
+def getUnitCost(unit):
+    return(unit[4])
+
+def getUnitReleaseTime(card):
+    releaseDateTime=card[53]
+    releaseInt=int(datetime.strptime(releaseDateTime, "%Y-%m-%d %H:%M:%S").timestamp())
+    return(releaseInt)
+
+def getCharacterNameID(unit):
+    return(unit[3])
 
 def sub_target_types_extractor(sub_target_type_set_id,DEVELOPEREXCEPTIONS=False):
     temp=searchbycolumn(code=sub_target_type_set_id,database=sub_target_typesJP,column=1)
@@ -160,6 +172,27 @@ def parse_domain_efficiacy(efficiacy):
 
     return(output)
 
+def getSuperAttackTypes(unit, eza=False):
+    output=[]
+    card_specialss=searchbycolumn(code=unit[0],column=1,database=card_specialsJP)
+    card_specialss=removeDuplicatesUltraList(ultraList=card_specialss,slot=0)
+    for card_special in card_specialss:
+        if((eza and int(unit[14])<int(card_special[5])) or (eza==False and int(unit[14])>=int(card_special[5]))):
+            output.append(getSuperAttackType(card_special))
+    return output
+
+def getSuperAttackType(card_special):
+    view_id=card_special[7]
+    special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_viewsJP,column=7)[0]
+    if(special_category_id==""):
+        return "Other"
+    elif(special_category_id=="1.0"):
+        return "Ki blast"
+    elif(special_category_id=="2.0"):
+        return "Unarmed"
+    elif(special_category_id=="3.0"):
+        return "Physical"
+
 def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
     output={}
 
@@ -175,7 +208,15 @@ def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
             superSet=searchbycolumn(code=card_special[2],column=0,database=special_setsJP)
             superAttackDictionary["superID"]=superSet[0][0]
             view_id=card_special[7]
-
+            special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_viewsJP,column=7)[0]
+            if(special_category_id==""):
+                superAttackDictionary["Type"]="Other"
+            elif(special_category_id=="1.0"):
+                superAttackDictionary["Type"]="Ki blast"
+            elif(special_category_id=="2.0"):
+                superAttackDictionary["Type"]="Unarmed"
+            elif(special_category_id=="3.0"):
+                superAttackDictionary["Type"]="Physical"
 
 
             superAttackDictionary["special_name_no"]=searchbyid(code=view_id,codecolumn=0,database=special_viewsJP,column=3)[0]
@@ -3993,19 +4034,25 @@ def typefinder(element,printing=True):
         return("NO TYPING!!!!!!!!!!!!!")
 
 def getrarity(unit,printing=True):
-    #add if LR
-    if unit[5]=="5":
-        return("lr")
-    elif unit[5]=="4":
-        return("ur")
-    elif unit[5]=="3":
-        return("ssr")
-    elif unit[5]=="2":
-        return("sr")
-    elif unit[5]=="1":
-        return("r")
-    elif unit[5]=="0":
-        return("n")
+    
+    if(type(unit)==list):
+        if unit[5]=="5":
+            return("lr")
+        elif unit[5]=="4":
+            return("ur")
+        elif unit[5]=="3":
+            return("ssr")
+        elif unit[5]=="2":
+            return("sr")
+        elif unit[5]=="1":
+            return("r")
+        elif unit[5]=="0":
+            return("n")
+
+    elif(type(unit)==str):
+        unitDetails=searchbycolumn(code=unit,column=0,database=cardsJP)[0]
+        return(getrarity(unitDetails))
+
         
     
     return("ERROR IN GETRARITY UNIT MAX LEVEL IS",unit[13])
