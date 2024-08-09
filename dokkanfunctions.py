@@ -2204,6 +2204,10 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 unit31=int(unit[31])
                 kiAmount=(Ca2*unit31)//99
 
+                output["Button"]["Name"]="Is Ki at least "
+                output["Button"]["Name"]+=str(kiAmount)
+                output["Button"]["Name"]+="?"
+
                 output["Slider"]["Name"]="How much ki is there"
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=str(kiAmount)
@@ -2216,6 +2220,10 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 Ca2=int(CausalityRow[2])
                 unit31=int(unit[31])
                 kiAmount=(Ca2*unit31)//99
+
+                output["Button"]["Name"]="Is Ki at least "
+                output["Button"]["Name"]+=str(kiAmount)
+                output["Button"]["Name"]+="?"
 
 
                 output["Slider"]["Name"]="How much ki is there"
