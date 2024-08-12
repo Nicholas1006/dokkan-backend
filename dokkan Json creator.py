@@ -1,7 +1,6 @@
 
 from globals import *
 from dokkanfunctions import *
-from numpy import source
 from progress.bar import Bar
 directory="dataJP/"
 cardsJP=storedatabase(directory,"cards.csv")
@@ -38,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1028021"]
+cardIDsToCheck=["1029051"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 

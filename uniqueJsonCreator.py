@@ -134,6 +134,8 @@ for unit in relevantCards:
 
         unitDictionary["Super Attack Types"]=superAttackTypes
         unitBasics[unit[0]]=unitDictionary
+
+        unitDictionary["Links"]=getalllinks(unit)
         
 bar.finish()
 print("Turning unitBasics into json")

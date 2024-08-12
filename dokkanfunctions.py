@@ -13,8 +13,6 @@ import json
 import shutil
 from datetime import datetime
 
-from sqlalchemy import false
-
 
 def getUnitCost(unit):
     return(unit[4])
@@ -256,7 +254,7 @@ def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
             output[card_special[2]]=superAttackDictionary
 
             if(superAttackDictionary["SpecialBonus"]["ID"]!="0"):
-                superAttackDictionary["Multiplier"]=superAttackMultiplierExtractor(superAttackID=superAttackDictionary["superID"],super_attack_lvl=int(unit[14]),DEVEXCEPTIONS=DEVEXCEPTIONS)
+                superAttackDictionary["Multiplier"]=superAttackMultiplierExtractor(superAttackID=superAttackDictionary["superID"],super_attack_lvl=SALevel,DEVEXCEPTIONS=DEVEXCEPTIONS)
                 special_bonus=searchbycolumn(code=superAttackDictionary["SpecialBonus"]["ID"],column=0,database=special_bonusesJP)
                 if(JPExclusiveCheck(unit[0])==False):
                     special_bonus=searchbycolumn(code=superAttackDictionary["SpecialBonus"]["ID"],column=0,database=special_bonusesGB)
@@ -933,7 +931,6 @@ def standbylogicalCausalityExtractor(compiled_causality_conditions):
 
 
 def getKiMultipliers(unit):
-    maxMultiplier=float(unit[34])
     multipliers={}
     if(getrarity(unit)=="lr"):
         eball_mod_max=float(unit[34])
@@ -1073,6 +1070,7 @@ def shortenPassiveDictionary(oldPassiveDictionary):
 def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     effects={
         "ID": passiveskill[0],
+        "Calc option": passiveskill[8],
         "Domain expansion": {
             "Activated": False,
             "ID": None,
