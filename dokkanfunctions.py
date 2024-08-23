@@ -3033,7 +3033,15 @@ def polishPassiveLine(parsedLine):
                     currentCausality+=char
                 elif char==" " and currentCausality!="":
                     #use current char
-                    CausalitiesLogic=CausalitiesLogic.replace(" "+      currentCausality      +" ",              " "+  parsedLine["Condition"]["Causalities"][currentCausality]["Button"]["Name"][:-1]   +" ")
+                    if("Button" in parsedLine["Condition"]["Causalities"][currentCausality]):
+                        new_logic=parsedLine["Condition"]["Causalities"][currentCausality]["Button"]["Name"][:-1]
+                    else:
+                        new_logic=parsedLine["Condition"]["Causalities"][currentCausality]["Slider"]["Name"][:-1]
+                        logicalOperation=parsedLine["Condition"]["Causalities"][currentCausality]["Slider"]["Logic"]
+                        logicalOperation=logicalOperation.replace(">="," is greater than or equal to ").replace(">"," is greater than ").replace("<=", " is less than or equal to ").replace("<"," is less than ")
+                        new_logic+=logicalOperation
+
+                    CausalitiesLogic=CausalitiesLogic.replace(" "+      currentCausality      +" ",              " "+  new_logic   +" ")
                     currentCausality=""
             newCausality["Button"]+=CausalitiesLogic
             CausalityKeys=list(output["Condition"]["Causalities"].keys()).copy()
@@ -3041,7 +3049,8 @@ def polishPassiveLine(parsedLine):
                 del output["Condition"]["Causalities"][oldCausality]
             if(parsedLine["Length"]!="1"):
                 newCausality["Button"]+=" within the last "+parsedLine["Length"]+" turns"
-
+            while "  " in newCausality["Button"]:
+                newCausality["Button"]=newCausality["Button"].replace("  "," ")
             output["Condition"]["Logic"]=output["ID"]
             output["Condition"]["Causalities"][output["ID"]]=newCausality
         #Once only, no condition
