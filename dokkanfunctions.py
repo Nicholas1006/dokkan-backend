@@ -80,7 +80,6 @@ def superAttackMultiplierExtractor(superAttackID,super_attack_lvl,DEVEXCEPTIONS=
     growth_rate=int(specialRow[0][6])
     increase_rate=int(specialRow[0][5])
     multiplier=(100)+(increase_rate)+(growth_rate*(super_attack_lvl-1))
-    special_bonus=searchbycolumn(code=specialRow[0][6],database=special_bonusesJP,column=0)
 
     return(multiplier)
     
@@ -1066,6 +1065,11 @@ def shortenPassiveDictionary(oldPassiveDictionary):
         
 
     return(passiveDictionary)
+
+def getSuperMinKi(kiCircleSegments):
+    for segment in kiCircleSegments:
+        if kiCircleSegments[segment]=="super":
+            return segment
 
 def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     effects={
@@ -2874,6 +2878,19 @@ def getKiCircleSegments(unitDictionary):
 
     return(circleSegments)
         
+
+def getAdditionalSuperID(unitDictionary):
+    lowestConditionSuperID=None
+    lowestKiRequired=24
+    for super in unitDictionary["Super Attack"]:
+        if(unitDictionary["Super Attack"][super]["superStyle"]=="Normal"):
+            kiRequired=int(unitDictionary["Super Attack"][super]["superMinKi"])
+            if(kiRequired<lowestKiRequired):
+                lowestKiRequired=kiRequired
+                lowestConditionSuperID=super
+    return(lowestConditionSuperID)
+
+
         
 
         
@@ -2991,7 +3008,54 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
                 if("Building Stat" in parsedLine):
                     if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
                         parsedLine=removeLookElseWhere(parsedLine,True)
+                parsedLine=polishPassiveLine(parsedLine)
                 output[passiveskill[0]]=parsedLine
+    return(output)
+
+
+def polishPassiveLine(parsedLine):
+    output=parsedLine.copy()
+    if("Once only" in parsedLine):
+        if("Condition" in parsedLine):
+            output["Condition"]["Causalities"]=parsedLine["Condition"]["Causalities"].copy()
+            newCausality={}
+            newCausality["Button"]=""
+            
+            if(parsedLine["Length"]!="1"):
+                newCausality["Button"]+="Was it the first time that the following is true:"
+            else:
+                newCausality["Button"]+="Is it the first time that the following is true:"
+
+            CausalitiesLogic=(" "+parsedLine["Condition"]["Logic"]+" ").replace("&&","and").replace("||","or").replace("("," ( ").replace(")"," ) ")
+            currentCausality=""
+            for char in parsedLine["Condition"]["Logic"]+" ":
+                if char!=" " and char.isdigit():
+                    currentCausality+=char
+                elif char==" " and currentCausality!="":
+                    #use current char
+                    CausalitiesLogic=CausalitiesLogic.replace(" "+      currentCausality      +" ",              " "+  parsedLine["Condition"]["Causalities"][currentCausality]["Button"]["Name"][:-1]   +" ")
+                    currentCausality=""
+            newCausality["Button"]+=CausalitiesLogic
+            CausalityKeys=list(output["Condition"]["Causalities"].keys()).copy()
+            for oldCausality in CausalityKeys:
+                del output["Condition"]["Causalities"][oldCausality]
+            if(parsedLine["Length"]!="1"):
+                newCausality["Button"]+=" within the last "+parsedLine["Length"]+" turns"
+
+            output["Condition"]["Logic"]=output["ID"]
+            output["Condition"]["Causalities"][output["ID"]]=newCausality
+        #Once only, no condition
+        else:
+            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn"}}}}
+            output["Condition"]=newCondition
+
+        
+        
+
+                    
+
+
+
     return(output)
 
 def removeLookElseWhere(parsedLine,DEVECXEPTION=True):

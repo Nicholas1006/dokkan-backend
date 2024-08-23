@@ -37,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1029051"]
+cardIDsToCheck=["1019841"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -189,6 +189,7 @@ for unit in cardsToCheck:
                 unitDictionary["Super Attack"]=parseSuperAttack(unit,eza,DEVEXCEPTIONS)
                 superTime+=time.time()-superStart
 
+
             unitDictionary["Active Skill"]={}
             if(CALCACTIVE):    
                 activeStart=time.time()
@@ -289,8 +290,13 @@ for unit in cardsToCheck:
                 unitDictionary["Ki Circle Segments"]=getKiCircleSegments(unitDictionary)
                 circleTime+=time.time()-circleStart
 
+            
+            unitDictionary["SuperMinKi"]=getSuperMinKi(unitDictionary["Ki Circle Segments"])
+            unitDictionary["AdditionalSuperID"]=getAdditionalSuperID(unitDictionary)
+
             unitDictionary["Can EZA"]=checkEza(unit[0])
             unitDictionary["Can SEZA"]=checkSeza(unit[0])
+
             
 
 
