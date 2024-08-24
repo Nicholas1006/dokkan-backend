@@ -3019,12 +3019,12 @@ def polishPassiveLine(parsedLine):
         if("Condition" in parsedLine):
             output["Condition"]["Causalities"]=parsedLine["Condition"]["Causalities"].copy()
             newCausality={}
-            newCausality["Button"]=""
+            newCausality["Button"]={"Name":""}
             
             if(parsedLine["Length"]!="1"):
-                newCausality["Button"]+="Was it the first time that the following is true:"
+                newCausality["Button"]["Name"]+="Was it the first time that the following is true:"
             else:
-                newCausality["Button"]+="Is it the first time that the following is true:"
+                newCausality["Button"]["Name"]+="Is it the first time that the following is true:"
 
             CausalitiesLogic=(" "+parsedLine["Condition"]["Logic"]+" ").replace("&&","and").replace("||","or").replace("("," ( ").replace(")"," ) ")
             currentCausality=""
@@ -3043,19 +3043,19 @@ def polishPassiveLine(parsedLine):
 
                     CausalitiesLogic=CausalitiesLogic.replace(" "+      currentCausality      +" ",              " "+  new_logic   +" ")
                     currentCausality=""
-            newCausality["Button"]+=CausalitiesLogic
+            newCausality["Button"]["Name"]+=CausalitiesLogic
             CausalityKeys=list(output["Condition"]["Causalities"].keys()).copy()
             for oldCausality in CausalityKeys:
                 del output["Condition"]["Causalities"][oldCausality]
             if(parsedLine["Length"]!="1"):
-                newCausality["Button"]+=" within the last "+parsedLine["Length"]+" turns"
-            while "  " in newCausality["Button"]:
-                newCausality["Button"]=newCausality["Button"].replace("  "," ")
+                newCausality["Button"]["Name"]+=" within the last "+parsedLine["Length"]+" turns"
+            while "  " in newCausality["Button"]["Name"]:
+                newCausality["Button"]["Name"]=newCausality["Button"]["Name"].replace("  "," ")
             output["Condition"]["Logic"]=output["ID"]
             output["Condition"]["Causalities"][output["ID"]]=newCausality
         #Once only, no condition
         else:
-            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn"}}}}
+            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn"},"Slider":{"Name":"How many turns is it since the characters entry turn?","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
             output["Condition"]=newCondition
 
         

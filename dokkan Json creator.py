@@ -37,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1024310"]
+cardIDsToCheck=["1019991"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -50,7 +50,7 @@ if(GLOBALREFRESH and GLOBALPARSE):
     emptyFolder("../frontend/dbManagement/jsonsSEZA")
     
 
-
+temp=time.time()
 if GLOBALPARSE:
     for unit in cardsJP:
         if qualifyUsable(unit):
@@ -63,7 +63,6 @@ else:
                     cardsToCheck.append(unit)
                 else:
                     print("UNUSABLLE UNIT",unit[0])
-
 
 missingPassiveCount=0
 missingUnitCount=0
