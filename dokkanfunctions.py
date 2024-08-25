@@ -775,15 +775,13 @@ def parseStandby(unit,DEVEXCEPTIONS=False):
     standby_skill_set_id=searchbyid(code=unit[0],codecolumn=1,database=card_standby_skill_set_relationsJP,column=2)
     if(standby_skill_set_id!=None):
         standby_skill_set_id=standby_skill_set_id[0]
-        if(JPExclusiveCheck(unit[0])):
-            standby_skill_setsRow=searchbycolumn(code=standby_skill_set_id,database=standby_skill_setsJP,column=0)[0]
-        else:
-            standby_skill_setsRow=searchbycolumn(code=standby_skill_set_id,database=standby_skill_setsGB,column=0)[0]
+        standby_skill_setsRow=searchbycolumn(code=standby_skill_set_id,database=standby_skill_setsJP,column=0)[0]
         output["ID"]=standby_skill_set_id
-        output["Exec limit"]=standby_skill_setsRow[4]
-        compiled_causality_conditions=standby_skill_setsRow[5]
-        compiled_causality_conditions=unicode_fixer(compiled_causality_conditions)
-        compiled_causality_conditions=standbyConditionLogicalCausalityExtractor(compiled_causality_conditions,seed=unit[0])
+        output["Exec limit"]=standby_skill_setsRow[5]
+        compiled_causality_conditions=standby_skill_setsRow[6]
+        compiled_causality_conditions=logicalCausalityExtractor(compiled_causality_conditions)
+        compiled_causality_conditions=CausalityLogicalExtractor(unit,compiled_causality_conditions)
+
         output["Condition"]=compiled_causality_conditions
         standby_skills_rows=searchbycolumn(code=standby_skill_set_id,database=standby_skillsJP,column=1)
         for standby_skill_row in standby_skills_rows:
