@@ -1835,7 +1835,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]+=str(kiAmount)
         output["Button"]["Name"]+=" or more"
 
-        output["Slider"]["Name"]="How much ki is there"
+        output["Slider"]["Name"]="How much ki is there?"
         output["Slider"]["Logic"]=">="
         output["Slider"]["Logic"]+=str(kiAmount)
         output["Slider"]["Min"]=0
@@ -1852,7 +1852,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]+=str(kiAmount)
         output["Button"]["Name"]+=" or less"
 
-        output["Slider"]["Name"]="How much ki is there"
+        output["Slider"]["Name"]="How much ki is there?"
         output["Slider"]["Logic"]="<="
         output["Slider"]["Logic"]+=str(kiAmount)
         output["Slider"]["Min"]=0
@@ -1953,13 +1953,13 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Max"]=100
     elif(CausalityRow[1]=="34"):
         if(CausalityRow[2]=="0"):
-            target="units on the team "
+            target="units on the team?"
             output["Slider"]["Max"]=7
         elif(CausalityRow[2]=="1"):
             target="enemies "
             output["Slider"]["Max"]=7
         elif(CausalityRow[2]=="2"):
-            target="units on the same turn "
+            target="units on the same turn?"
             output["Slider"]["Max"]=3
         categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
@@ -2072,7 +2072,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Logic"]=">="
         output["Slider"]["Logic"]+=CausalityRow[3]
     elif(CausalityRow[1]=="43"):
-        output["Button"]["Name"]="Has this unit evaded an attack? "
+        output["Button"]["Name"]="Has this unit evaded an attack?"
     elif(CausalityRow[1]=="44"):
         if(CausalityRow[2]=="0" or CausalityRow[2]=="1"):
             output["Button"]["Name"]="Has this character performed their "
@@ -2157,18 +2157,18 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
                 raise Exception("Unknown name type")
 
     elif(CausalityRow[1]=="46"):
-        output["Button"]["Name"]=("Is there an extreme class enemy? ")
+        output["Button"]["Name"]=("Is there an extreme class enemy?")
     elif(CausalityRow[1]=="47"):
-        output["Button"]["Name"]=("Has this character or an ally attacking in the same turn been KO'd? ")
+        output["Button"]["Name"]=("Has this character or an ally attacking in the same turn been KO'd?")
     elif(CausalityRow[1]=="48"):
-        output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack? ")
+        output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
     elif(CausalityRow[1]=="49"):
         if(CausalityRow[2]=="1"):
-            output["Button"]["Name"]=("Has the character been attacked by a ki blast super attack? ")
+            output["Button"]["Name"]=("Has the character been attacked by a ki blast super attack?")
         elif(CausalityRow[2]=="2"):
-            output["Button"]["Name"]=("Has the character been attacked by an unarmed super attack? ")
+            output["Button"]["Name"]=("Has the character been attacked by an unarmed super attack?")
         elif(CausalityRow[2]=="4"):
-            output["Button"]["Name"]=("Has the character been attacked by a physical super attack? ")
+            output["Button"]["Name"]=("Has the character been attacked by a physical super attack?")
         else:
             output+=("UNKNOWN SUPER ATTACK TYPE")
             if(DEVEXCEPTIONS==True):
@@ -2176,9 +2176,9 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="51"):
         output["Button"]["Name"]=("Is it within the first ")
         output["Button"]["Name"]+=CausalityRow[2]
-        output["Button"]["Name"]+=(" turns from this characters entry turn?")
+        output["Button"]["Name"]+=(" turns from entry turn?")
         
-        output["Slider"]["Name"]="How many turns is it since the characters entry turn?"
+        output["Slider"]["Name"]="How many turns is it since entry turn?"
         output["Slider"]["Logic"]="<="
         output["Slider"]["Logic"]+=CausalityRow[2]
         output["Slider"]["Min"]=0
@@ -2192,7 +2192,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]+=CausalityRow[2]
         output["Button"]["Name"]+=(" turns from this characters entry turn?")
 
-        output["Slider"]["Name"]="How many turns is it since the characters entry turn?"
+        output["Slider"]["Name"]="How many turns is it since entry turn?"
         output["Slider"]["Logic"]=">="
         output["Slider"]["Logic"]+=CausalityRow[2]
     elif(CausalityRow[1]=="56"):
@@ -2251,7 +2251,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]+=str(kiAmount)
                 output["Button"]["Name"]+="?"
 
-                output["Slider"]["Name"]="How much ki is there"
+                output["Slider"]["Name"]="How much ki is there?"
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=str(kiAmount)
                 output["Slider"]["Min"]=0
@@ -2269,7 +2269,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]+="?"
 
 
-                output["Slider"]["Name"]="How much ki is there"
+                output["Slider"]["Name"]="How much ki is there?"
                 output["Slider"]["Logic"]="<="
                 output["Slider"]["Logic"]+=str(kiAmount)
                 output["Slider"]["Min"]=0
@@ -2491,7 +2491,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=int(CausalityRow[3])
             elif(CausalityRow[1]=="43"):
-                output["Button"]["Name"]="Has this unit evaded an attack? "
+                output["Button"]["Name"]="Has this unit evaded an attack?"
             elif(CausalityRow[1]=="44"):
                 if(CausalityRow[2]=="0" or CausalityRow[2]=="1"):
                     output["Slider"]["Name"]="How many super attacks has this character performed?"
@@ -2574,18 +2574,18 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                         raise Exception("Unknown name type")
 
             elif(CausalityRow[1]=="46"):
-                output["Button"]["Name"]=("Is there an extreme class enemy? ")
+                output["Button"]["Name"]=("Is there an extreme class enemy?")
             elif(CausalityRow[1]=="47"):
-                output["Button"]["Name"]=("Has this character or an ally attacking in the same turn been KO'd? ")
+                output["Button"]["Name"]=("Has this character or an ally attacking in the same turn been KO'd?")
             elif(CausalityRow[1]=="48"):
-                output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack? ")
+                output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
             elif(CausalityRow[1]=="49"):
                 if(CausalityRow[2]=="1"):
-                    output["Button"]["Name"]=("Has the character been attacked by a ki blast super attack? ")
+                    output["Button"]["Name"]=("Has the character been attacked by a ki blast super attack?")
                 elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]=("Has the character been attacked by an unarmed super attack? ")
+                    output["Button"]["Name"]=("Has the character been attacked by an unarmed super attack?")
                 elif(CausalityRow[2]=="4"):
-                    output["Button"]["Name"]=("Has the character been attacked by a physical super attack? ")
+                    output["Button"]["Name"]=("Has the character been attacked by a physical super attack?")
                 else:
                     output+=("UNKNOWN SUPER ATTACK TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -2593,9 +2593,9 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="51"):
                 output["Button"]["Name"]=("Is it within the first ")
                 output["Button"]["Name"]+=CausalityRow[2]
-                output["Button"]["Name"]+=(" turns from this characters entry turn?")
+                output["Button"]["Name"]+=(" turns from entry turn?")
                 
-                output["Slider"]["Name"]="How many turns is it since the characters entry turn?"
+                output["Slider"]["Name"]="How many turns is it since entry turn?"
                 output["Slider"]["Logic"]="<="
                 output["Slider"]["Logic"]+=CausalityRow[2]
                 output["Slider"]["Min"]=0
@@ -2609,7 +2609,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]+=CausalityRow[2]
                 output["Button"]["Name"]+=(" turns from this characters entry turn?")
 
-                output["Slider"]["Name"]="How many turns is it since the characters entry turn?"
+                output["Slider"]["Name"]="How many turns is it since entry turn?"
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=CausalityRow[2]
             elif(CausalityRow[1]=="56"):
@@ -3021,10 +3021,12 @@ def polishPassiveLine(parsedLine):
             newCausality={}
             newCausality["Button"]={"Name":""}
             
-            if(parsedLine["Length"]!="1"):
-                newCausality["Button"]["Name"]+="Was it the first time that the following is true:"
-            else:
+            if(parsedLine["Length"]=="99"):
+                newCausality["Button"]["Name"]+="Has the following been true:"
+            elif(parsedLine["Length"]=="1"):
                 newCausality["Button"]["Name"]+="Is it the first time that the following is true:"
+            elif(parsedLine["Length"]!="1"):
+                newCausality["Button"]["Name"]+="Was it the first time that the following is true:"
 
             CausalitiesLogic=(" "+parsedLine["Condition"]["Logic"]+" ").replace("&&","and").replace("||","or").replace("("," ( ").replace(")"," ) ")
             currentCausality=""
@@ -3047,7 +3049,7 @@ def polishPassiveLine(parsedLine):
             CausalityKeys=list(output["Condition"]["Causalities"].keys()).copy()
             for oldCausality in CausalityKeys:
                 del output["Condition"]["Causalities"][oldCausality]
-            if(parsedLine["Length"]!="1"):
+            if(parsedLine["Length"]!="1" and parsedLine["Length"]!="99"):
                 newCausality["Button"]["Name"]+=" within the last "+parsedLine["Length"]+" turns"
             while "  " in newCausality["Button"]["Name"]:
                 newCausality["Button"]["Name"]=newCausality["Button"]["Name"].replace("  "," ")
@@ -3055,11 +3057,44 @@ def polishPassiveLine(parsedLine):
             output["Condition"]["Causalities"][output["ID"]]=newCausality
         #Once only, no condition
         else:
-            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn"},"Slider":{"Name":"How many turns is it since the characters entry turn?","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
+            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn?"},"Slider":{"Name":"How many turns is it since entry turn?","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
             output["Condition"]=newCondition
 
-        
-        
+    elif("Condition" in parsedLine):
+        duration=parsedLine["Length"]
+        for CausalityKey in parsedLine["Condition"]["Causalities"]:
+            Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
+            if("Button" in Causality):
+                if("turns" not in Causality["Button"]["Name"]):
+                    if(duration=="1"):
+                        Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" on this turn?"
+                    elif(duration!="99"):
+                        Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" within the last "+duration+" turns?"
+                
+            if("Slider" in Causality):
+                if("turns" not in Causality["Slider"]["Name"]):
+                    if(duration=="1"):
+                        Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" on this turn?"
+                    elif(duration!="99"):
+                        Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" within the last "+duration+" turns?"
+
+    elif(parsedLine["Timing"]=="End of turn"):
+        if("Condition" in parsedLine):
+            for CausalityKey in parsedLine["Condition"]["Causalities"]:
+                Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
+                if("Button" in Causality):
+                    Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ")+" on the previous turn?"
+                if("Slider" in Causality):
+                    Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ")+" on previous turns?"
+
+
+    elif("Toggle Other Line" in parsedLine):
+        if("Condition" not in parsedLine and parsedLine["Timing"]=="Attacking the enemy"):
+            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"How many attacks has this character performed on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
+            output["Condition"]=newCondition
+
+
+ 
 
                     
 
@@ -3075,7 +3110,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         for causalityKey in parsedLine["Condition"]["Causalities"]:
             causalities.append(parsedLine["Condition"]["Causalities"][causalityKey]["Button"]["Name"])
 
-    if(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0]=="Has this unit evaded an attack? "):
+    if(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0]=="Has this unit evaded an attack?"):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks evaded"
         output["Building Stat"]["Slider"]="How many attacks have been evaded?"
@@ -3147,13 +3182,13 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on the same turn"
         output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on the same turn?"
     
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack? " and causalities[1][:48]=='Is there an ally on the team whose name includes'):
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and causalities[1][:48]=='Is there an ally on the team whose name includes'):
         del output["Condition"]
         allyName=causalities[1][49:-1]
         output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
         output["Building Stat"]["Slider"]="How many attacks has this unit evaded with an ally on the team whose name includes "+allyName+"?"
 
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1]=='Has this unit evaded an attack? '):
+    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1]=='Has this unit evaded an attack?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
         output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
@@ -3162,7 +3197,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Final blow delivered"
         
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:12]=='Is there an ' and causalities[0][-13:]=='class enemy? '):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:12]=='Is there an ' and causalities[0][-12:]=='class enemy?'):
         del output["Condition"]
         enemyClass=causalities[0][12:-14]
         output["Building Stat"]["Cause"]["Cause"]="Turns with a "+enemyClass+" class enemy"
@@ -3211,7 +3246,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
             del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Super being performed"
         output["Building Stat"]["Slider"]="How many super attacks has this character performed?"
-
+    
 
 
     else:
