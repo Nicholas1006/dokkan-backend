@@ -4274,7 +4274,11 @@ def getallcategories(unitid,printing=True):
     categoryList=[]
     if temp1!=None:
         for x in temp1:
-            categoryList.append(searchedbyid(x,0,card_categoriesGB,1)[0])
+            globalListedCategory=searchedbyid(x,0,card_categoriesGB,1)
+            if(globalListedCategory!=None):
+                categoryList.append(globalListedCategory[0])
+            else:
+                categoryList.append(searchedbyid(x,0,card_categoriesJP,1)[0])
     return(categoryList)
 
 def getalllinkswithbuffs(unit,printing=True,DEVEXCEPTIONS=True):
