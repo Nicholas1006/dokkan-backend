@@ -50,7 +50,7 @@ for unit in cardsJP:
 allUnitsDictionary=[]
 for unit in relevantCards:
     allUnitsDictionary.append(unit[0])
-turnintoJson(allUnitsDictionary, "allUnits",directoryName="jsons")
+turnintoJson(allUnitsDictionary, "allUnits",directoryName="../frontend/dbManagement/uniquejsons")
 
 unitBasics={}
 bar = Bar('Creating all unit basics', max=len(relevantCards))
