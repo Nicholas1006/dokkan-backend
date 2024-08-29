@@ -869,9 +869,9 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                 elif(finish_skill_row[6]=="103"):
                     output[finish_skill_set_id]["Exchanges to"]=efficiacy_value[0]
                 elif(finish_skill_row[6]=="110"):
-                    output[finish_skill_set_id]["Toggle Other Line"]={}
-                    output[finish_skill_set_id]["Toggle Other Line"]["Activated"]=True
-                    output[finish_skill_set_id]["Toggle Other Line"]["Line"]=efficiacy_value[2]
+                    output[finish_skill_set_id]["Disable Other Line"]={}
+                    output[finish_skill_set_id]["Disable Other Line"]["Activated"]=True
+                    output[finish_skill_set_id]["Disable Other Line"]["Line"]=efficiacy_value[2]
                 elif(finish_skill_row[6]=="115"):
                     output[finish_skill_set_id]["Standby Exclusivity"]=efficiacy_value[0][5:]
                 elif(finish_skill_row[6]=="116"):
@@ -954,9 +954,9 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Revive" in passiveDictionary:
         if passiveDictionary["Revive"]["Activated"]==False:
             passiveDictionary.pop("Revive")
-    if "Toggle Other Line" in passiveDictionary:
-        if passiveDictionary["Toggle Other Line"]["Activated"]==False:
-            passiveDictionary.pop("Toggle Other Line")
+    if "Disable Other Line" in passiveDictionary:
+        if passiveDictionary["Disable Other Line"]["Activated"]==False:
+            passiveDictionary.pop("Disable Other Line")
     if "Standby" in passiveDictionary:
         if "Change form" in passiveDictionary["Standby"]:
             if passiveDictionary["Standby"]["Change form"]["Activated"]==False:
@@ -1086,7 +1086,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             "Activated": False,
             "Absorbed": 0
         },
-        "Toggle Other Line":{
+        "Disable Other Line":{
             "Activated": False,
             "Line": None
         },
@@ -1542,8 +1542,8 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Revive"]["HP recovered"]=int(passiveskill[13])
     elif passiveskill[4]=="110":
         if(passiveskill[13]=="2"):
-            effects["Toggle Other Line"]["Activated"]=True
-            effects["Toggle Other Line"]["Line"]=passiveskill[14]
+            effects["Disable Other Line"]["Activated"]=True
+            effects["Disable Other Line"]["Line"]=passiveskill[14]
         elif(passiveskill[13]=="15"):
             print("Something related to charging standby skills")
 
@@ -3086,7 +3086,7 @@ def polishPassiveLine(parsedLine):
                     Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ")+" on previous turns?"
 
 
-    elif("Toggle Other Line" in parsedLine):
+    elif("Disable Other Line" in parsedLine):
         if("Condition" not in parsedLine and parsedLine["Timing"]=="Attacking the enemy"):
             newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"How many attacks has this character performed on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
             output["Condition"]=newCondition
