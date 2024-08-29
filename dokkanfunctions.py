@@ -2831,7 +2831,9 @@ def qualifyUsable(card,printing=True):
     #If the unit has selling only
     if(card[46]=="1"):
         return(False)
-    #if the unit is the header
+    #if the unit has no super attacks
+    if(not (card[0] in [x[1] for x in card_specialsJP])):
+        return(False)
     return(True)
 
 def emptyFolder(path):
@@ -3059,22 +3061,30 @@ def polishPassiveLine(parsedLine):
             output["Condition"]=newCondition
 
     elif("Condition" in parsedLine):
-        duration=parsedLine["Length"]
-        for CausalityKey in parsedLine["Condition"]["Causalities"]:
-            Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
-            if("Button" in Causality):
-                if("turns" not in Causality["Button"]["Name"]):
-                    if(duration=="1"):
-                        Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" on this turn?"
-                    elif(duration!="99"):
-                        Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" within the last "+duration+" turns?"
-                
-            if("Slider" in Causality):
-                if("turns" not in Causality["Slider"]["Name"]):
-                    if(duration=="1"):
-                        Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" on this turn?"
-                    elif(duration!="99"):
-                        Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" within the last "+duration+" turns?"
+        if(parsedLine["Timing"]=="End of turn" and ("ATK" in parsedLine or "DEF" in parsedLine) ):
+            for CausalityKey in parsedLine["Condition"]["Causalities"]:
+                Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
+                if("Button" in Causality):
+                    Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is","Was")+" on the last turn?"
+                if("Slider" in Causality):
+                    Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is","Was")+" on the last turn?"
+        else:
+            duration=parsedLine["Length"]
+            for CausalityKey in parsedLine["Condition"]["Causalities"]:
+                Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
+                if("Button" in Causality):
+                    if("turns" not in Causality["Button"]["Name"]):
+                        if(duration=="1"):
+                            Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" on this turn?"
+                        elif(duration!="99"):
+                            Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" within the last "+duration+" turns?"
+                    
+                if("Slider" in Causality):
+                    if("turns" not in Causality["Slider"]["Name"]):
+                        if(duration=="1"):
+                            Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" on this turn?"
+                        elif(duration!="99"):
+                            Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" within the last "+duration+" turns?"
 
     elif(parsedLine["Timing"]=="End of turn"):
         if("Condition" in parsedLine):
@@ -3088,7 +3098,7 @@ def polishPassiveLine(parsedLine):
 
     elif("Disable Other Line" in parsedLine):
         if("Condition" not in parsedLine and parsedLine["Timing"]=="Attacking the enemy"):
-            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"How many attacks has this character performed on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
+            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Has this character performed an attack on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
             output["Condition"]=newCondition
 
 
