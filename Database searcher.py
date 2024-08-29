@@ -1,10 +1,9 @@
 from dokkanfunctions import *
 
 from dokkanfunctions import *
-from numpy import source
 
 
-stringToFind = 'sp2523'
+stringToFind = 'Can be activated'
 
 includeAsElementOf=True
 

@@ -3272,10 +3272,12 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
         output={}
         if(JPexclusive):
             output["Name"]=active_lineJP[1]
-            output["Description"]=active_lineJP[2]
+            output["Effect Description"]=active_lineJP[2]
+            output["Condition Description"]=active_lineJP[3]
         else:
             output["Name"]=active_lineGB[1]
-            output["Description"]=active_lineGB[2]
+            output["Effect Description"]=active_lineGB[2]
+            output["Condition Description"]=active_lineGB[3]
         causalityCondition=logicalCausalityExtractor(active_lineJP[6])
         output["Condition"]={}
         output["Condition"]["Logic"]=causalityCondition
