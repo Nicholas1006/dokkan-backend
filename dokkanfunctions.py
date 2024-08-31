@@ -3018,15 +3018,21 @@ def polishPassiveLine(parsedLine):
     if("Once only" in parsedLine):
         if("Condition" in parsedLine):
             output["Condition"]["Causalities"]=parsedLine["Condition"]["Causalities"].copy()
-            newCausality={}
-            newCausality["Button"]={"Name":""}
+
+            
+            hasOccuredCausality={}
+            hasOccuredCausality["Button"]={"Name":""}
+
+            howRecentCausality={}
+            howRecentCausality["Button"]={"Name":""}
+            howRecentCausality["Slider"]={"Name":"","Logic":"","Min":0,"Max":0}
             
             if(parsedLine["Length"]=="99"):
-                newCausality["Button"]["Name"]+="Has the following been true:"
-            elif(parsedLine["Length"]=="1"):
-                newCausality["Button"]["Name"]+="Is it the first time that the following is true:"
-            elif(parsedLine["Length"]!="1"):
-                newCausality["Button"]["Name"]+="Was it the first time that the following is true:"
+                hasOccuredCausality["Button"]["Name"]+="Has the following been true:"
+            else:
+                hasOccuredCausality["Button"]["Name"]+="Was the following true:"
+                howRecentCausality["Button"]["Name"]+="Was the following true for the first time in the last " + parsedLine["Length"] + " turns:" 
+                howRecentCausality["Slider"]["Name"]+="How many turns since the following was true for the first time:"
 
             CausalitiesLogic=(" "+parsedLine["Condition"]["Logic"]+" ").replace("&&","and").replace("||","or").replace("("," ( ").replace(")"," ) ")
             currentCausality=""
@@ -3045,16 +3051,27 @@ def polishPassiveLine(parsedLine):
 
                     CausalitiesLogic=CausalitiesLogic.replace(" "+      currentCausality      +" ",              " "+  new_logic   +" ")
                     currentCausality=""
-            newCausality["Button"]["Name"]+=CausalitiesLogic
+            hasOccuredCausality["Button"]["Name"]+=CausalitiesLogic
+            howRecentCausality["Button"]["Name"]+=CausalitiesLogic
+            howRecentCausality["Slider"]["Name"]+=CausalitiesLogic
             CausalityKeys=list(output["Condition"]["Causalities"].keys()).copy()
             for oldCausality in CausalityKeys:
                 del output["Condition"]["Causalities"][oldCausality]
-            if(parsedLine["Length"]!="1" and parsedLine["Length"]!="99"):
-                newCausality["Button"]["Name"]+=" within the last "+parsedLine["Length"]+" turns"
-            while "  " in newCausality["Button"]["Name"]:
-                newCausality["Button"]["Name"]=newCausality["Button"]["Name"].replace("  "," ")
-            output["Condition"]["Logic"]=output["ID"]
-            output["Condition"]["Causalities"][output["ID"]]=newCausality
+            if(parsedLine["Length"]!="99"):
+                howRecentCausality["Slider"]["Max"]=int(parsedLine["Length"])+1
+                howRecentCausality["Slider"]["Logic"]="<="+parsedLine["Length"]
+            while "  " in hasOccuredCausality["Button"]["Name"]:
+                hasOccuredCausality["Button"]["Name"]=hasOccuredCausality["Button"]["Name"].replace("  "," ")
+            while "  " in howRecentCausality["Button"]["Name"]:
+                howRecentCausality["Button"]["Name"]=howRecentCausality["Button"]["Name"].replace("  "," ")
+            if(parsedLine["Length"]!="99"):
+                output["Condition"]["Logic"]=(output["ID"]+"0")+" && "+(output["ID"]+"1")
+                output["Condition"]["Causalities"][output["ID"]+"0"]=hasOccuredCausality
+                output["Condition"]["Causalities"][output["ID"]+"1"]=howRecentCausality
+            else:
+                output["Condition"]["Logic"]=(output["ID"]+"0")
+                output["Condition"]["Causalities"][output["ID"]+"0"]=hasOccuredCausality
+
         #Once only, no condition
         else:
             newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn?"},"Slider":{"Name":"How many turns is it since entry turn?","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
@@ -3065,9 +3082,9 @@ def polishPassiveLine(parsedLine):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
                 Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
                 if("Button" in Causality):
-                    Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is","Was")+" on the last turn?"
+                    Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
                 if("Slider" in Causality):
-                    Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is","Was")+" on the last turn?"
+                    Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
         else:
             duration=parsedLine["Length"]
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
@@ -3091,9 +3108,9 @@ def polishPassiveLine(parsedLine):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
                 Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
                 if("Button" in Causality):
-                    Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ")+" on the previous turn?"
+                    Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the previous turn?"
                 if("Slider" in Causality):
-                    Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ")+" on previous turns?"
+                    Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on previous turns?"
 
 
     elif("Disable Other Line" in parsedLine):
