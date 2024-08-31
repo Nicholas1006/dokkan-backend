@@ -3124,6 +3124,8 @@ def polishPassiveLine(parsedLine):
     elif(parsedLine["Length"]=="1" and "Building Stat" in parsedLine):
         if(parsedLine["Building Stat"]["Slider"]=="How many attacks has this character performed in battle?"):
             parsedLine["Building Stat"]["Slider"]="How many attacks has this character performed on this turn?"
+        elif(("How many ") in parsedLine["Building Stat"]["Slider"] and (" Ki Spheres have been obtained?") in parsedLine["Building Stat"]["Slider"]):
+            parsedLine["Building Stat"]["Slider"]=parsedLine["Building Stat"]["Slider"].replace(" Ki Spheres have been obtained?"," Ki Spheres have been obtained on this turn?")
 
                     
 
