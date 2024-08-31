@@ -3031,7 +3031,10 @@ def polishPassiveLine(parsedLine):
                 hasOccuredCausality["Button"]["Name"]+="Has the following been true:"
             else:
                 hasOccuredCausality["Button"]["Name"]+="Was the following true:"
-                howRecentCausality["Button"]["Name"]+="Was the following true for the first time in the last " + parsedLine["Length"] + " turns:" 
+                if(parsedLine["Length"]=="1"):
+                    howRecentCausality["Button"]["Name"]+="Has the following been true for the first time on this turn:"
+                else:
+                    howRecentCausality["Button"]["Name"]+="Was the following true for the first time in the last " + parsedLine["Length"] + " turns:" 
                 howRecentCausality["Slider"]["Name"]+="How many turns since the following was true for the first time:"
 
             CausalitiesLogic=(" "+parsedLine["Condition"]["Logic"]+" ").replace("&&","and").replace("||","or").replace("("," ( ").replace(")"," ) ")
@@ -3069,8 +3072,8 @@ def polishPassiveLine(parsedLine):
                 output["Condition"]["Causalities"][output["ID"]+"0"]=hasOccuredCausality
                 output["Condition"]["Causalities"][output["ID"]+"1"]=howRecentCausality
             else:
-                output["Condition"]["Logic"]=(output["ID"]+"0")
-                output["Condition"]["Causalities"][output["ID"]+"0"]=hasOccuredCausality
+                output["Condition"]["Logic"]=(output["ID"])
+                output["Condition"]["Causalities"][output["ID"]]=hasOccuredCausality
 
         #Once only, no condition
         else:
@@ -3118,8 +3121,9 @@ def polishPassiveLine(parsedLine):
             newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Has this character performed an attack on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
             output["Condition"]=newCondition
 
-
- 
+    elif(parsedLine["Length"]=="1" and "Building Stat" in parsedLine):
+        if(parsedLine["Building Stat"]["Slider"]=="How many attacks has this character performed in battle?"):
+            parsedLine["Building Stat"]["Slider"]="How many attacks has this character performed on this turn?"
 
                     
 
