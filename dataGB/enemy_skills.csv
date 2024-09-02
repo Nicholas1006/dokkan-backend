@@ -2545,6 +2545,22 @@ to the enemy every turn
 40800,ATK Boost,ATK +10% with each turn passed (up to 100%),1,-1,0,100,,0,1,0,0,0,0,25,10.0,100.0,0.0,{},2
 40810,Damage Negation,Reduces damage below a certain amount to 0,1,1,0,100,,0,1,0,0,0,0,20,3.0,2000000.0,0.0,{},0
 40820,DEF Boost,DEF +6% with each attack received,5,1,0,100,"{""source"":""24"",""compiled"":24}",0,1,0,0,0,0,25,6.0,60.0,1.0,{},2
+40900,Stun Immunity,Grants immunity to being stunned,0,-1,0,100,,0,1,0,0,0,0,10,0.0,0.0,0.0,{},0
+40910,Disable Super Attack Sealing,Nullifies Super Attack sealing effect,0,-1,0,100,,0,1,0,0,0,0,14,0.0,0.0,0.0,{},0
+40920,Disable ATK & DEF Reduction,Disables ATK & DEF Reduction,0,-1,0,100,,0,1,0,0,0,0,13,3.0,0.0,0.0,{},0
+40930,Damage Reduction,Reduces damage received,0,0,0,0,,1,0,0,0,0,0,7,60.0,,,{},0
+40950,Damage Reduction Rate Boost,"Damage reduction rate +5% 
+with each attack received (up to 20%)",5,1,0,100,"{""source"":""24"",""compiled"":24}",1,1,0,0,0,0,25,5.0,20.0,4.0,{},2
+40960,ATK Boost,ATK +50% when HP is 50% or less,1,1,0,100,"{""source"":""27"",""compiled"":27}",0,1,0,0,0,0,23,50.0,0.0,0.0,{},2
+40970,ATK Boost,ATK +10% with each turn passed (up to 50%),1,-1,0,100,,0,1,0,0,0,0,25,10.0,50.0,0.0,{},2
+40980,Lowered DEF,"DEF -10% with each turn passed 
+(no more than -50%)",1,-1,0,100,,0,1,0,0,0,0,25,10.0,50.0,1.0,{},3
+41000,ATK Boost & Lowered Damage Reduction Rate,"ATK raised and damage reduction rate lowered 
+when a character whose name includes 
+""Goku"" is present",1,1,0,100,"{""source"":""486"",""compiled"":486}",0,1,0,0,0,0,23,50.0,0.0,,{},2
+41010,Lowered Damage Reduction Rate,"Damage reduction rate lowered 
+when a character whose name 
+includes ""Goku"" is present",1,1,0,100,"{""source"":""486"",""compiled"":486}",0,1,0,0,0,0,24,120.0,,,{},0
 41300,Damage Reduction,Reduces damage received,0,0,0,0,,1,0,0,0,0,0,7,50.0,,,{},0
 41310,Damage Reduction,Reduces damage received,0,0,0,0,,1,0,0,0,0,0,7,53.0,,,{},0
 41320,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,120.0,,,{},0
@@ -2573,6 +2589,10 @@ when ""Paragus"" is present",1,1,0,100,"{""source"":""3273"",""compiled"":3273}"
 41550,Saiyan Fighting Spirit,Grants immunity to being stunned,0,-1,0,100,,0,1,0,0,0,0,10,0.0,0.0,0.0,{},0
 41560,Mustered Up Ki,Grants immunity to being stunned,0,-1,0,100,,0,1,0,0,0,0,10,0.0,0.0,0.0,{},0
 41570,Indomitable Saiyan,Nullifies Super Attack sealing effect,0,-1,0,100,,0,1,0,0,0,0,14,0.0,0.0,0.0,{},0
+42100,Lowered Damage Reduction Rate,"Damage reduction rate -8% 
+with each turn passed 
+(no more than -48%)",1,99,0,100,,0,1,0,0,0,0,25,-8.0,-48.0,4.0,{},0
+42110,Damage Reduction,,1,99,0,100,,0,1,0,0,0,0,24,102.0,0.0,0.0,{},0
 50000,Damage Reduction,Reduces damage received,0,0,0,0,,1,0,0,0,0,0,7,1.0,,,{},0
 50010,Damage Reduction,Reduces damage received,0,0,0,0,,1,0,0,0,0,0,7,15.0,,,{},0
 50020,Damage Reduction,Reduces damage received,0,0,0,0,,1,0,0,0,0,0,7,30.0,,,{},0
@@ -4380,6 +4400,35 @@ to a maximum of 1,999,999",0,0,0,0,,1,0,0,0,0,0,16,3.0,1999999.0,,{},0
 151016,Damage Reduction (All),Reduces damage received by 90%,0,0,0,0,,1,0,0,0,0,0,7,90.0,,,{},0
 151017,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,500.0,,,{},0
 151018,ATK Boost,Greatly increases ATK,0,0,0,0,,1,0,0,0,0,0,1,500.0,100.0,,{},0
+152000,Damage Reduction (All),Reduces damage received by 35%,0,0,0,0,,1,0,0,0,0,0,7,35.0,,,{},0
+152001,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,300.0,,,{},0
+152002,ATK Boost,Greatly increases ATK,0,0,0,0,,1,0,0,0,0,0,1,150.0,100.0,,{},0
+152003,Damage Reduction (All),Reduces damage received by 40%,0,0,0,0,,1,0,0,0,0,0,7,40.0,,,{},0
+152004,Disable DEF Reduction,Disables DEF Reduction,0,-1,0,100,,0,1,0,0,0,0,13,2.0,,,{},0
+152005,Type Damage Reduction,"Reduces damage received from INT, STR, 
+Super INT, Super STR, Extreme INT and 
+Extreme STR Types by 70%",0,0,0,0,,0,0,0,0,0,0,15,1623552.0,70.0,,{},0
+152006,Damage Reduction (All),Reduces damage received by 45%,0,0,0,0,,1,0,0,0,0,0,7,45.0,,,{},0
+152007,Stun Immunity,Grants immunity to being stunned,0,-1,0,100,,0,1,0,0,0,0,10,,,,{},0
+152008,Damage Reduction (All),Reduces damage received by 50%,0,0,0,0,,1,0,0,0,0,0,7,50.0,,,{},0
+152009,ATK Boost,Greatly increases ATK,0,0,0,0,,1,0,0,0,0,0,1,170.0,100.0,,{},0
+152010,Damage Limitation (Certain Rarity or Below),"Limits damage dealt by SSR or below characters 
+to a maximum of 1,999,999",0,0,0,0,,1,0,0,0,0,0,16,3.0,1999999.0,,{},0
+152011,Type Damage Reduction,"Reduces damage received from INT, STR, 
+Super INT, Super STR, Extreme INT and 
+Extreme STR Types by 80%",0,0,0,0,,0,0,0,0,0,0,15,1623552.0,80.0,,{},0
+152012,Damage Reduction (All),Reduces damage received by 55%,0,0,0,0,,1,0,0,0,0,0,7,55.0,,,{},0
+152013,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,310.0,,,{},0
+152014,ATK Boost,Greatly increases ATK,0,0,0,0,,1,0,0,0,0,0,1,190.0,100.0,,{},0
+152015,Disable ATK & DEF Reduction,Disables ATK & DEF Reduction,0,-1,0,100,,0,1,0,0,0,0,13,3.0,,,{},0
+152016,Disable Interruption,Disables Interruption,0,-1,0,100,,0,1,0,0,0,0,18,,,,{},0
+152017,Damage Reduction (All),Reduces damage received by 60%,0,0,0,0,,1,0,0,0,0,0,7,60.0,,,{},0
+152018,ATK Boost,Greatly increases ATK,0,0,0,0,,1,0,0,0,0,0,1,210.0,100.0,,{},0
+152019,Disable Super Attack Sealing,Nullifies Super Attack sealing effect,0,-1,0,100,"{""source"":""126"",""compiled"":126}",0,1,0,0,0,0,14,,,,{},0
+152020,Damage Reduction (All),Reduces damage received by 65%,0,0,0,0,,1,0,0,0,0,0,7,65.0,,,{},0
+152021,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,320.0,,,{},0
+152022,Damage Reduction (All),Reduces damage received by 70%,0,0,0,0,,1,0,0,0,0,0,7,70.0,,,{},0
+152023,ATK Boost,Greatly increases ATK,0,0,0,0,,1,0,0,0,0,0,1,240.0,100.0,,{},0
 701000,Damage Reduction (All),Reduces damage received by 70%,0,0,0,0,,1,0,0,0,0,0,7,70.0,,,{},0
 701001,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,100.0,,,{},0
 701002,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,0,3,120.0,1.0,,{},0
