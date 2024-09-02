@@ -2193,6 +2193,8 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Name"]="How many turns is it since entry turn?"
         output["Slider"]["Logic"]=">="
         output["Slider"]["Logic"]+=CausalityRow[2]
+        output["Slider"]["Min"]=0
+        output["Slider"]["Max"]=int(CausalityRow[2])+1
     elif(CausalityRow[1]=="56"):
         output["Button"]["Name"]=("Has the character recieved a normal attack?")
     elif(CausalityRow[1]=="57"):
@@ -2610,6 +2612,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Name"]="How many turns is it since entry turn?"
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=CausalityRow[2]
+                output["Slider"]["Min"]=0
+                output["Slider"]["Max"]=int(CausalityRow[2])
             elif(CausalityRow[1]=="56"):
                 output["Button"]["Name"]=("Has the character recieved a normal attack?")
             elif(CausalityRow[1]=="57"):
