@@ -532,11 +532,11 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["Heals"]=int(efficiacy_values[0])
         elif(leader_skill_line[6]=="59"):
             #ATK per ki sphere obtained
-            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":"Any"}
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
         elif(leader_skill_line[6]=="61"):
             #ATK and DEF per ki sphere obtained
-            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":"Any"}
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="64"):
@@ -1118,10 +1118,10 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             "Max Turns": None,
             "Reverse chance": None
         },
-        "Slot": None,
         "Additional attack":{
             "Activated": False,
-            "Chance of super": None
+            "Chance of super": None,
+            "Chance of another additional": "0"
         },
         "Timing": None,
         "Building Stat":{
@@ -1259,20 +1259,20 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="16":
         typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["ATK"]+=int(passiveskill[14])
-        effects["Target"]["Type"]=typing
+        effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="17":
         typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["DEF"]+=int(passiveskill[14])
-        effects["Target"]["Type"]=typing
+        effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="18":
         typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["ATK"]+=int(passiveskill[14])
         effects["DEF"]+=int(passiveskill[14])
-        effects["Target"]["Type"]=typing
+        effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="20":
         typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["Ki"]+=int(passiveskill[14])
-        effects["Target"]["Type"]=typing
+        effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="24":
         effects["Status"].append("Disable guard")
     elif passiveskill[4]=="28":
@@ -1292,12 +1292,13 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         type2=KiOrbType(passiveskill[14],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["Ki change"]["From"]=type1
         effects["Ki change"]["To"]=type2
+        effects["Ki change"]["Style"]="Single"
     elif passiveskill[4]=="52":
         effects["Status"].append("Survive K.O attacks")
     elif passiveskill[4]=="53":
         effects["Status"].append("DEF reduced to 0")
     elif passiveskill[4]=="59":
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":"any"}
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many "
         #for orbType in ["Rainbow","PHY","STR","INT","TEQ","AGL"]:
         #    effects["Building Stat"]["Slider"]+=orbType
@@ -1307,7 +1308,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Building Stat"]["Max"]=23
         effects["ATK"]+=int(passiveskill[13])
     elif passiveskill[4]=="60":
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":"any"}
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many "
         #for orbType in ["Rainbow","PHY","STR","INT","TEQ","AGL"]:
         #    effects["Building Stat"]["Slider"]+=orbType
@@ -1317,7 +1318,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Building Stat"]["Max"]=23
         effects["DEF"]+=int(passiveskill[13])
     elif passiveskill[4]=="61":
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":"any"}
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many "
         #for orbType in ["Rainbow","PHY","STR","INT","TEQ","AGL"]:
         #    effects["Building Stat"]["Slider"]+=orbType
@@ -1366,6 +1367,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         type2=binaryOrbType(passiveskill[14],DEVEXCEPTIONS)
         effects["Ki change"]["From"]=type1
         effects["Ki change"]["To"]=type2
+        effects["Ki change"]["Style"]="Randomly"
         
     elif passiveskill[4]=="68":
         #buffs per ki sphere
@@ -1398,6 +1400,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="69":
         effects["Ki change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
         effects["Ki change"]["To"]=KiOrbType(passiveskill[13])
+        effects["Ki change"]["Style"]="All"
     elif passiveskill[4]=="71":
         if(int(passiveskill[13])>int(passiveskill[14])):
             #The less HP remaining the greater the stats boost
@@ -1473,11 +1476,11 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="82":
         effects["ATK"]+=int(passiveskill[14])
         effects["DEF"]+=int(passiveskill[14])
-        effects["Target"]["Type"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+        effects["Target"]["Typing"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
         effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
     elif passiveskill[4]=="83":
         effects["Ki"]+=int(passiveskill[14])
-        effects["Target"]["Type"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+        effects["Target"]["Typing"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
         effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
     elif passiveskill[4]=="90":
         effects["Crit Chance"]+=int(passiveskill[13])
@@ -3000,6 +3003,276 @@ def createEZAWallpapers(cards, directory,printing=True):
             #print("Created final asset for",total,getfullname(card,leader_skills))
     if(printing): print("All EZA assets created")
 
+def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
+    output=""
+    
+    #Target wording
+    if(True):
+        if(parsedLine["Target"]["Target"]=="Self"):
+            pass
+        elif(parsedLine["Target"]["Target"]=="Enemies"):
+            output+="All enemies "
+        elif(parsedLine["Target"]["Target"]=="Allies" or "Allies(self excluded)"):
+            if("Class" in parsedLine["Target"]):
+                for Class in parsedLine["Target"]["Class"]:
+                    output+=Class
+                    output+=" and "
+                output=output[:-5]
+            if("Typing" in parsedLine["Target"]):
+                for Typing in parsedLine["Target"]["Typing"]:
+                    output+=Typing
+                    output+=" and "
+                output=output[:-5]
+
+            if("Category" in parsedLine["Target"]):
+                for Category in parsedLine["Target"]["Category"]:
+                    output+=Category
+                    output+=" and "
+                output=output[:-5]
+                output+=" category "
+
+            output+="allies "
+
+
+
+            
+        else:
+            print("Unknown target",parsedLine["Target"])
+            if(DEVEXCEPTIONS):
+                raise Exception("Unknown target",parsedLine["Target"])
+
+    if("Building Stat" in parsedLine):
+        if("ki sphere" not in parsedLine["Building Stat"]["Cause"]["Cause"].lower()):
+            output+="Up to"
+
+    #Basic stat buffs
+    if(True):
+        if("Ki" in parsedLine):
+            output+="Ki: +"
+            output+=str(parsedLine["Ki"])
+        if("ATK" in parsedLine and "DEF" in parsedLine):
+            if(parsedLine["ATK"]==parsedLine["DEF"]):
+                output+="ATK and DEF "
+                output+=str(parsedLine["Buff"]["+ or -"])
+                output+=str(parsedLine["ATK"])
+                if(parsedLine["Buff"]["Type"]=="Percentage"):
+                    output+="%"
+            else:
+                output+="ATK "
+                output+=str(parsedLine["Buff"]["+ or -"])
+                output+=str(parsedLine["ATK"])
+                if(parsedLine["Buff"]["Type"]=="Percentage"):
+                    output+="%"
+                output+=" and "
+                output+="DEF "
+                output+=str(parsedLine["Buff"]["+ or -"])
+                output+=str(parsedLine["DEF"])
+                if(parsedLine["Buff"]["Type"]=="Percentage"):
+                    output+="%"
+        if("ATK" in parsedLine and "DEF" not in parsedLine):
+            output+="ATK "
+            output+=str(parsedLine["Buff"]["+ or -"])
+            output+=str(parsedLine["ATK"])
+            if(parsedLine["Buff"]["Type"]=="Percentage"):
+                output+="%"
+        if("DEF" in parsedLine and "ATK" not in parsedLine):
+            output+="DEF "
+            output+=str(parsedLine["Buff"]["+ or -"])
+            output+=str(parsedLine["DEF"])
+            if(parsedLine["Buff"]["Type"]=="Percentage"):
+                output+="%"
+        if("Heals" in parsedLine):
+            output+="Heals "
+            output+=str(parsedLine["Buff"]["+ or -"])
+            output+=str(parsedLine["Heals"])
+            if(parsedLine["Buff"]["Type"]=="Percentage"):
+                output+="%"
+        if("Ki change" in parsedLine):
+            if(parsedLine["Ki change"]["Style"]=="Randomly"):
+                output+="Randomly changes Ki Spheres of a certain Type"
+                if("AGL" not in parsedLine["Ki change"]["From"]):
+                    output+="(AGL excluded)"
+                elif("TEQ" not in parsedLine["Ki change"]["From"]):
+                    output+="(TEQ excluded)"
+                elif("INT" not in parsedLine["Ki change"]["From"]):
+                    output+="(INT excluded)"
+                elif("STR" not in parsedLine["Ki change"]["From"]):
+                    output+="(STR excluded)"
+                elif("PHY" not in parsedLine["Ki change"]["From"]):
+                    output+="(PHY excluded)"
+                output+=" to "
+                output+=parsedLine["Ki change"]["To"][0]
+                output+=" Ki Spheres"
+            elif(parsedLine["Ki change"]["Style"]=="All"):
+                output+="Changes all Ki Spheres to "
+                output+=parsedLine["Ki change"]["To"][0]
+                output+=" Ki Spheres"
+            elif(parsedLine["Ki change"]["Style"]=="Single"):
+                output+="Changes "
+                output+=parsedLine["Ki change"]["From"]
+                output+=" Ki Spheres to "
+                output+=parsedLine["Ki change"]["To"]
+                output+=" Ki Spheres"
+        if("Status" in parsedLine):
+            for statusEffect in parsedLine["Status"]:
+                output+=statusEffect
+                output+=" and "
+            output=output[:-5]            
+        if("DR" in parsedLine):
+            output+="Damage recieved "
+            output+=str(parsedLine["Buff"]["+ or -"])
+            output+=str(parsedLine["DR"])
+            if(parsedLine["Buff"]["Type"]=="Percentage"):
+                output+="%"
+        if("Guard" in parsedLine):
+            output+="Guards all attacks "
+        if("Transformation" in parsedLine):
+            output+="Transforms into "
+            output+=parsedLine["Transformation"]["Unit"]
+            if(parsedLine["Transformation"]["Giant/Rage"]==True):
+                output+=" as a giant form"
+            if(parsedLine["Transformation"]["Min Turns"]!=None):
+                output+=" for "
+                output+=str(parsedLine["Transformation"]["Min Turns"])
+                output+=" to "
+                output+=str(parsedLine["Transformation"]["Max Turns"])
+                output+=" turns"
+        if("Crit Chance" in parsedLine):
+            if(parsedLine["Crit Chance"]==100):
+                output+="Performs a Critical Hit"
+            else:
+                output+="Chance of performing a critical hit +"
+                output+=str(parsedLine["Crit Chance"])
+                output+="%"
+        if("Additional attack" in parsedLine):
+            if(parsedLine["Additional attack"]["Chance of another additional"])=="0":
+                if(parsedLine["Additional attack"]["Chance of super"]==100):
+                    output+="Performs an additional super attack"
+                elif(parsedLine["Additional attack"]["Chance of super"]==0):
+                    output+="Performs an additional attack"
+                else:
+                    output+="Performs an additional attack with a "
+                    output+=str(parsedLine["Additional attack"]["Chance of super"])
+                    output+="% chance of becoming a super attack"
+            else:
+                if(parsedLine["Additional attack"]["Chance of another additional"]==100):
+                    if(parsedLine["Additional attack"]["Chance of super"]==100):
+                        output+="Performs an additional super attack with a "
+                        output+=str(parsedLine["Additional attack"]["Chance of another additional"])
+                        output+="% chance of another additional super attack"
+                elif(parsedLine["Additional attack"]["Chance of super"]==0):
+                    output+="Performs an additional attack with a "
+                    output+=str(parsedLine["Additional attack"]["Chance of another additional"])
+                    output+="% chance of another additional attack"
+                else:
+                    output+="Performs an additional attack with a "
+                    output+=str(parsedLine["Additional attack"]["Chance of another additional"])
+                    output+="% chance of another additional attack each with a "
+                    output+=str(parsedLine["Additional attack"]["Chance of super"])
+                    output+="% chance of becoming a super attack"
+        if("Dodge chance" in parsedLine):
+            if(parsedLine["Dodge chance"]==100):
+                output+="Evades enemy attacks"
+            else:
+                output+="Chance of evading enemy attacks +"
+                output+=str(parsedLine["Dodge chance"])
+                output+="%"
+        if("Disable Other Line" in parsedLine):
+            output+="Disables a different passive line:"
+            output+=parsedLine["Disable Other Line"]["Line"]
+        if("Effective against all" in parsedLine):
+            output+="Attacks effective against all Types"
+        if("Counter" in parsedLine):
+            if("DR from normals" in parsedLine["Counter"]):
+                output+="Damage received from normal attacks -"
+                output+=str(parsedLine["Counter"]["DR from normals"])
+                output+="% and"
+            output+="Counter attacks with a "
+            output+=parsedLine["Counter"]["Multiplier"]
+            output+="% multiplier"
+        if("Forsee Super Attack" in parsedLine):
+            output+="Forsee enemy super attack"
+        if("Nullification" in parsedLine):
+            output+="Nullifies enemy attack"
+            if(parsedLine["Nullification"]["Absorbed"]!=0):
+                output+=" and absorbs "
+                output+=str(parsedLine["Nullification"]["Absorbed"])
+                output+="% of damage"
+        if("Guaranteed hit" in parsedLine):
+            output+="Attacks guaranteed to hit"
+        if("Revive" in parsedLine):
+            output+="Revives with "
+            output+=str(parsedLine["Revive"]["HP recovered"])
+            output+="% HP"
+        if("Domain expansion" in parsedLine):
+            output+="Opens the "
+            output+=parsedLine["Domain expansion"]["Name"]
+            output+=" domain"
+        if("Standby" in parsedLine):
+            if("Change form" in parsedLine["Standby"]):
+                output+="Reverts standby to "
+                output+=parsedLine["Standby"]["Change form"]["Unit"]
+
+
+    if(len(output)>0):
+        if(output[-1]!=" "):
+            output+=" "
+
+
+    if("Building Stat" in parsedLine):
+        if("ki sphere" in parsedLine["Building Stat"]["Cause"]["Cause"].lower()):
+            output+="per"
+            if(parsedLine["Building Stat"]["Cause"]["Type"]!=["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]):
+                for kiSphere in parsedLine["Building Stat"]["Cause"]["Type"]:
+                    output+=kiSphere
+                    output+=" and "
+                output=output[:-5]
+                output+=" Ki Spheres obtained"
+            else:
+                output+=" Ki Sphere obtained"
+        else:
+            output+="based on "
+            output+=parsedLine["Building Stat"]["Slider"][:-1]
+        
+
+    if(len(output)>0):
+        if(output[-1]!=" "):
+            output+=" "
+    
+    if(output==""):
+        output="None"
+
+    #Basic timing wording
+    if(True):
+        if(parsedLine["Timing"]=="Start of turn"):
+            output+="at the start of turn"
+        elif(parsedLine["Timing"]=="Right before attack"):
+            output+=" when attacking"
+        elif(parsedLine["Timing"]=="Right after attack"):
+            output+="after attacking"
+        elif(parsedLine["Timing"]=="End of turn"):
+            output+="at the end of turn"
+        elif(parsedLine["Timing"]=="Being hit"):
+            output+="right before being hit"
+        elif(parsedLine["Timing"]=="Hit recieved"):
+            output+="after being hit"
+        elif(parsedLine["Timing"]=="After all ki collected"):
+            output+="after all ki collected"
+        elif(parsedLine["Timing"]=="When ki spheres collected"):
+            output+="after this unit collects ki spheres"
+        elif(parsedLine["Timing"]=="When final blow delivered"):
+            output+="after the final blow is delivered"
+        elif(parsedLine["Timing"]=="Activating standby"):
+            output+="when activating standby"
+        else:
+            print("UNKNOWN EFFECT",parsedLine)
+            if(DEVEXCEPTIONS):
+                raise Exception("UNKNOWN EFFECT TIMING",parsedLine)
+        
+    
+
+    return(output)
+
 def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
     output={}
     passiveIdList=getpassiveid(unit,eza,seza)
@@ -3007,12 +3280,12 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
         for passiveskill in passive_skillsJP[1:]:
             if (passiveskill[0] in passiveIdList):
                 parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
-                #output=shortenPassiveDictionary(output)
                 parsedLine=shortenPassiveDictionary(parsedLine)
                 if("Building Stat" in parsedLine):
                     if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
                         parsedLine=removeLookElseWhere(parsedLine,True)
                 parsedLine=polishPassiveLine(parsedLine)
+                parsedLine["Brief effect description"]=passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS)
                 output[passiveskill[0]]=parsedLine
     return(output)
 
@@ -3231,6 +3504,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     elif(parsedLine["Timing"]=="When final blow delivered" and len(causalities)==1 and causalities[0]=='Has this character delivered the final blow?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Final blow delivered"
+        output["Building Stat"]["Slider"]="How many times has this character delivered the final blow?"
         
     elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:12]=='Is there an ' and causalities[0][-12:]=='class enemy?'):
         del output["Condition"]
