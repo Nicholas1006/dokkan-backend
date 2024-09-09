@@ -3004,7 +3004,7 @@ def createEZAWallpapers(cards, directory,printing=True):
     if(printing): print("All EZA assets created")
 
 def maxAppearancesInForm(unitPassive,DEVEXCEPTIONS=False):
-    maxAppearances=99
+    maxAppearances=50
     for passiveLine in unitPassive.values():
         if("Transformation" in passiveLine):
             if("First Turn To Activate" in passiveLine and "Condition" not in passiveLine):

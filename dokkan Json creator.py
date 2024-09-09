@@ -37,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1025561"]
+cardIDsToCheck=["4019761"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -148,9 +148,9 @@ for unit in cardsToCheck:
                 unitDictionary["Max Super Attacks"]+=1
                 unitDictionary["Max Attacks"]+=1
             for passive in unitDictionary["Passive"]:
-                if("Additional attack" in unitDictionary["Passive"][passive]):
-                    if(unitDictionary["Passive"][passive]["Additional attack"]["Chance of super"]!="0"):
-                        if("Chance of another additional" in unitDictionary["Passive"][passive]["Additional attack"]):
+                if("Additional Attack" in unitDictionary["Passive"][passive]):
+                    if(unitDictionary["Passive"][passive]["Additional Attack"]["Chance of super"]!="0"):
+                        if("Chance of another additional" in unitDictionary["Passive"][passive]["Additional Attack"]):
                             unitDictionary["Max Super Attacks"]+=2
                             unitDictionary["Max Attacks"]+=2    
                         else:
@@ -225,6 +225,7 @@ for unit in cardsToCheck:
                         transformations[unit[0]].append(unitDictionary["Finish Skill"][finishRow]["Exchanges to"])
                     else:
                         transformations[unit[0]]=[unitDictionary["Finish Skill"][finishRow]["Exchanges to"]]
+            unitDictionary["Max Appearances In Form"]=maxAppearancesInForm(unitDictionary["Passive"],DEVEXCEPTIONS)
 
 
             if(unitDictionary["Passive"]!=None):
