@@ -342,13 +342,13 @@ def parseSpecials(specialRow,DEVEXCEPTIONS=False):
     elif(specialRow[3]=="48"):
         output["Status"]="Seals"
     elif(specialRow[3]=="76"):
-        output["Status"]="Effective against all"
+        output["Status"]="Effective Against All"
     elif(specialRow[3]=="84"):
         output["Heals"]=specialRow[9]
     elif(specialRow[3]=="90"):
         output["Crit Chance"]=specialRow[9]
     elif(specialRow[3]=="91"):
-        output["Dodge chance"]=specialRow[9]
+        output["Dodge Chance"]=specialRow[9]
     elif(specialRow[3]=="111"):
         output["Status"]="Disabled action"
     else:
@@ -961,32 +961,32 @@ def shortenPassiveDictionary(oldPassiveDictionary):
         if "Change form" in passiveDictionary["Standby"]:
             if passiveDictionary["Standby"]["Change form"]["Activated"]==False:
                 passiveDictionary["Standby"].pop("Change form")
-        if "Damage enemy" in passiveDictionary["Standby"]:
-            if passiveDictionary["Standby"]["Damage enemy"]["Activated"]==False:
-                passiveDictionary["Standby"].pop("Damage enemy")
+        if "Damage Enemy" in passiveDictionary["Standby"]:
+            if passiveDictionary["Standby"]["Damage Enemy"]["Activated"]==False:
+                passiveDictionary["Standby"].pop("Damage Enemy")
         if passiveDictionary["Standby"]["Activated"]==False:
             passiveDictionary.pop("Standby")
     if "Forsee Super Attack" in passiveDictionary:
         if passiveDictionary["Forsee Super Attack"]==False:
             passiveDictionary.pop("Forsee Super Attack")
-    if "Guaranteed hit" in passiveDictionary:
-        if passiveDictionary["Guaranteed hit"]==False:
-            passiveDictionary.pop("Guaranteed hit")
-    if "Dodge chance" in passiveDictionary:
-        if passiveDictionary["Dodge chance"]==0:
-            passiveDictionary.pop("Dodge chance")
-    if "Effective against all" in passiveDictionary:
-        if passiveDictionary["Effective against all"]==False:
-            passiveDictionary.pop("Effective against all")
+    if "Guaranteed Hit" in passiveDictionary:
+        if passiveDictionary["Guaranteed Hit"]==False:
+            passiveDictionary.pop("Guaranteed Hit")
+    if "Dodge Chance" in passiveDictionary:
+        if passiveDictionary["Dodge Chance"]==0:
+            passiveDictionary.pop("Dodge Chance")
+    if "Effective Against All" in passiveDictionary:
+        if passiveDictionary["Effective Against All"]==False:
+            passiveDictionary.pop("Effective Against All")
     if "Transformation" in passiveDictionary:
         if passiveDictionary["Transformation"]["Activated"]==False:
             passiveDictionary.pop("Transformation")
     if "Slot" in passiveDictionary:
         if passiveDictionary["Slot"]==None:
             passiveDictionary.pop("Slot")
-    if "Additional attack" in passiveDictionary:
-        if passiveDictionary["Additional attack"]["Activated"]==False:
-            passiveDictionary.pop("Additional attack")
+    if "Additional Attack" in passiveDictionary:
+        if passiveDictionary["Additional Attack"]["Activated"]==False:
+            passiveDictionary.pop("Additional Attack")
     if "Timing" in passiveDictionary:
         if passiveDictionary["Timing"]==None:
             passiveDictionary.pop("Timing")
@@ -1017,9 +1017,9 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Crit Chance" in passiveDictionary:
         if passiveDictionary["Crit Chance"]==0:
             passiveDictionary.pop("Crit Chance")
-    if "Ki change" in passiveDictionary:
-        if (passiveDictionary["Ki change"]["From"]==None and passiveDictionary["Ki change"]["To"]==None):
-            passiveDictionary.pop("Ki change")
+    if "Ki Change" in passiveDictionary:
+        if (passiveDictionary["Ki Change"]["From"]==None and passiveDictionary["Ki Change"]["To"]==None):
+            passiveDictionary.pop("Ki Change")
     if "Target" in passiveDictionary:
         if "Category" in passiveDictionary["Target"]:
             if passiveDictionary["Target"]["Category"]==None:
@@ -1038,15 +1038,15 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Length" in passiveDictionary:
         if passiveDictionary["Length"]==None:
             passiveDictionary.pop("Length")
-    if "First turn to activate" in passiveDictionary:
-        if passiveDictionary["First turn to activate"]==0:
-            passiveDictionary.pop("First turn to activate")
+    if "First Turn To Activate" in passiveDictionary:
+        if passiveDictionary["First Turn To Activate"]==0:
+            passiveDictionary.pop("First Turn To Activate")
     if "Condition" in passiveDictionary:
         if passiveDictionary["Condition"]==None:
             passiveDictionary.pop("Condition")
-    if "Once only" in passiveDictionary:
-        if passiveDictionary["Once only"]==False:
-            passiveDictionary.pop("Once only")
+    if "Once Only" in passiveDictionary:
+        if passiveDictionary["Once Only"]==False:
+            passiveDictionary.pop("Once Only")
     if "Counter" in passiveDictionary:
         if "Activated" in passiveDictionary["Counter"]:
             if "DR from normals" in passiveDictionary["Counter"]:
@@ -1057,9 +1057,9 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Nullification" in passiveDictionary:
         if passiveDictionary["Nullification"]["Activated"]==False:
             passiveDictionary.pop("Nullification")
-    if "Domain expansion" in passiveDictionary:
-        if passiveDictionary["Domain expansion"]["Activated"]==False:
-            passiveDictionary.pop("Domain expansion")
+    if "Domain Expansion" in passiveDictionary:
+        if passiveDictionary["Domain Expansion"]["Activated"]==False:
+            passiveDictionary.pop("Domain Expansion")
         
 
     return(passiveDictionary)
@@ -1073,7 +1073,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     effects={
         "ID": passiveskill[0],
         "Calc option": passiveskill[8],
-        "Domain expansion": {
+        "Domain Expansion": {
             "Activated": False,
             "ID": None,
             "Name": None
@@ -1101,15 +1101,15 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 "Activated": False,
                 "Unit": None
             },
-            "Damage enemy": {
+            "Damage Enemy": {
                 "Activated": False,
                 "Multiplier": None
             }
         },
         "Forsee Super Attack": False,
-        "Guaranteed hit": False,
-        "Dodge chance": 0,
-        "Effective against all": False,
+        "Guaranteed Hit": False,
+        "Dodge Chance": 0,
+        "Effective Against All": False,
         "Transformation": {
             "Activated": False,
             "Unit": None,
@@ -1118,7 +1118,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             "Max Turns": None,
             "Reverse chance": None
         },
-        "Additional attack":{
+        "Additional Attack":{
             "Activated": False,
             "Chance of super": None,
             "Chance of another additional": "0"
@@ -1137,7 +1137,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         "DR": 0,
         "Guard": False,
         "Crit Chance": 0,
-        "Ki change": {
+        "Ki Change": {
             "From": None,
             "To": None
         },
@@ -1154,9 +1154,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         "Chance": None,
         "Length": None,
         #first turn counts as turn 0
-        "First turn to activate": 0,
+        "First Turn To Activate": 0,
         "Condition": None,
-        "Once only": False
+        "Once Only": False
     }
     if(causalityExtractor(passiveskill[12])!=[]):
         causalityCondition=logicalCausalityExtractor(passiveskill[12])
@@ -1232,14 +1232,14 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
 
     
     if(passiveskill[4]=="0"):
-        effects["Domain expansion"]["Activated"]=True
+        effects["Domain Expansion"]["Activated"]=True
         domainID=searchbyid(code=passiveskill[0],codecolumn=2,database=dokkan_field_passive_skill_relationsJP,column=1)[0]
-        effects["Domain expansion"]["ID"]=domainID
+        effects["Domain Expansion"]["ID"]=domainID
         domainName=searchbyid(code=domainID,codecolumn=1,database=dokkan_fieldsJP,column=2)[0]
         GBdomainName=searchbyid(code=domainID,codecolumn=1,database=dokkan_fieldsGB,column=2)
         if(GBdomainName!=[]):
             domainName=GBdomainName[0]
-        effects["Domain expansion"]["Name"]=domainName
+        effects["Domain Expansion"]["Name"]=domainName
 
     elif passiveskill[4]=="1":
         effects["ATK"]+=int(passiveskill[13])
@@ -1290,9 +1290,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="51":
         type1=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
         type2=KiOrbType(passiveskill[14],DEVEXCEPTIONS=DEVEXCEPTIONS)
-        effects["Ki change"]["From"]=type1
-        effects["Ki change"]["To"]=type2
-        effects["Ki change"]["Style"]="Single"
+        effects["Ki Change"]["From"]=type1
+        effects["Ki Change"]["To"]=type2
+        effects["Ki Change"]["Style"]="Single"
     elif passiveskill[4]=="52":
         effects["Status"].append("Survive K.O attacks")
     elif passiveskill[4]=="53":
@@ -1365,9 +1365,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="67":
         type1=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
         type2=binaryOrbType(passiveskill[14],DEVEXCEPTIONS)
-        effects["Ki change"]["From"]=type1
-        effects["Ki change"]["To"]=type2
-        effects["Ki change"]["Style"]="Randomly"
+        effects["Ki Change"]["From"]=type1
+        effects["Ki Change"]["To"]=type2
+        effects["Ki Change"]["Style"]="Randomly"
         
     elif passiveskill[4]=="68":
         #buffs per ki sphere
@@ -1391,16 +1391,16 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         elif(passiveskill[14]=="4"):
             effects["Crit Chance"]+=int(passiveskill[15])
         elif(passiveskill[14]=="5"):
-            effects["Dodge chance"]+=int(passiveskill[15])
+            effects["Dodge Chance"]+=int(passiveskill[15])
         elif(passiveskill[14]=="6"):
             effects["DR"]+=int(passiveskill[15])
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown buff")
     elif passiveskill[4]=="69":
-        effects["Ki change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
-        effects["Ki change"]["To"]=KiOrbType(passiveskill[13])
-        effects["Ki change"]["Style"]="All"
+        effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
+        effects["Ki Change"]["To"]=KiOrbType(passiveskill[13])
+        effects["Ki Change"]["Style"]="All"
     elif passiveskill[4]=="71":
         if(int(passiveskill[13])>int(passiveskill[14])):
             #The less HP remaining the greater the stats boost
@@ -1449,7 +1449,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Min"]+=int(passiveskill[13])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
     elif passiveskill[4]=="76":
-        effects["Effective against all"]=True
+        effects["Effective Against All"]=True
     elif passiveskill[4]=="78":
         effects["Guard"]=True
     elif passiveskill[4]=="79":
@@ -1469,10 +1469,10 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         if(DEVEXCEPTIONS==True):
             raise Exception("Counter without dodge")
     elif passiveskill[4]=="81":
-        effects["Additional attack"]["Activated"]=True
-        effects["Additional attack"]["Chance of super"]=passiveskill[15]
+        effects["Additional Attack"]["Activated"]=True
+        effects["Additional Attack"]["Chance of super"]=passiveskill[15]
         if(passiveskill[14]!="0"):
-            effects["Additional attack"]["Chance of another additional"]=passiveskill[14]
+            effects["Additional Attack"]["Chance of another additional"]=passiveskill[14]
     elif passiveskill[4]=="82":
         effects["ATK"]+=int(passiveskill[14])
         effects["DEF"]+=int(passiveskill[14])
@@ -1485,9 +1485,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="90":
         effects["Crit Chance"]+=int(passiveskill[13])
     elif passiveskill[4]=="91":
-        effects["Dodge chance"]+=int(passiveskill[13])
+        effects["Dodge Chance"]+=int(passiveskill[13])
     elif passiveskill[4]=="92":
-        effects["Guaranteed hit"]=True
+        effects["Guaranteed Hit"]=True
     elif passiveskill[4]=="95":
         if(DEVEXCEPTIONS==True):
             raise Exception("Dodge and counter")
@@ -1522,7 +1522,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         elif(passiveskill[15]=="2"):
             effects["Crit Chance"]+=int(passiveskill[13])
         elif(passiveskill[15]=="3"):
-            effects["Dodge chance"]+=int(passiveskill[13])
+            effects["Dodge Chance"]+=int(passiveskill[13])
         elif(passiveskill[15]=="4"):
             #CONFUSED
             effects["DR"]+=int(passiveskill[13])
@@ -1539,7 +1539,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Transformation"]["Activated"]=True
         effects["Transformation"]["Unit"]=passiveskill[13]
 
-        effects["First turn to activate"]+=(int(passiveskill[14]))
+        effects["First Turn To Activate"]+=(int(passiveskill[14])+1)
     elif passiveskill[4]=="109":
         effects["Revive"]["Activated"]=True
         effects["Revive"]["HP recovered"]=int(passiveskill[13])
@@ -1619,7 +1619,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                     
 
     if(passiveskill[10]=="1"):
-        effects["Once only"]=True
+        effects["Once Only"]=True
         
     
     
@@ -3003,6 +3003,32 @@ def createEZAWallpapers(cards, directory,printing=True):
             #print("Created final asset for",total,getfullname(card,leader_skills))
     if(printing): print("All EZA assets created")
 
+def maxAppearancesInForm(unitPassive,DEVEXCEPTIONS=False):
+    maxAppearances=99
+    for passiveLine in unitPassive.values():
+        if("Transformation" in passiveLine):
+            if("First Turn To Activate" in passiveLine and "Condition" not in passiveLine):
+                maxAppearances=appearancesBeforeCertainTurn(passiveLine["First Turn To Activate"]-1)[1]
+            elif(passiveLine["Transformation"]["Min Turns"]!=None):
+                pass
+            elif("Condition" in passiveLine):
+                pass
+            else:
+                print("UNKNOWN TRANSFORMATION SETUP",passiveLine)
+                if(DEVEXCEPTIONS): 
+                    raise Exception("UNKNOWN TRANSFORMATION SETUP")
+
+    return(maxAppearances)
+
+
+def appearancesBeforeCertainTurn(turn):
+    if(type(turn)!=int):
+        turn=int(turn)
+    min=math.floor(turn/3)
+    max=math.ceil(turn/2)
+    return(min,max)
+
+
 def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
     output=""
     
@@ -3041,14 +3067,11 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS):
                 raise Exception("Unknown target",parsedLine["Target"])
 
-    if("Building Stat" in parsedLine):
-        if("ki sphere" not in parsedLine["Building Stat"]["Cause"]["Cause"].lower()):
-            output+="Up to"
 
     #Basic stat buffs
     if(True):
         if("Ki" in parsedLine):
-            output+="Ki: +"
+            output+="Ki +"
             output+=str(parsedLine["Ki"])
         if("ATK" in parsedLine and "DEF" in parsedLine):
             if(parsedLine["ATK"]==parsedLine["DEF"]):
@@ -3087,31 +3110,31 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             output+=str(parsedLine["Heals"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
-        if("Ki change" in parsedLine):
-            if(parsedLine["Ki change"]["Style"]=="Randomly"):
+        if("Ki Change" in parsedLine):
+            if(parsedLine["Ki Change"]["Style"]=="Randomly"):
                 output+="Randomly changes Ki Spheres of a certain Type"
-                if("AGL" not in parsedLine["Ki change"]["From"]):
+                if("AGL" not in parsedLine["Ki Change"]["From"]):
                     output+="(AGL excluded)"
-                elif("TEQ" not in parsedLine["Ki change"]["From"]):
+                elif("TEQ" not in parsedLine["Ki Change"]["From"]):
                     output+="(TEQ excluded)"
-                elif("INT" not in parsedLine["Ki change"]["From"]):
+                elif("INT" not in parsedLine["Ki Change"]["From"]):
                     output+="(INT excluded)"
-                elif("STR" not in parsedLine["Ki change"]["From"]):
+                elif("STR" not in parsedLine["Ki Change"]["From"]):
                     output+="(STR excluded)"
-                elif("PHY" not in parsedLine["Ki change"]["From"]):
+                elif("PHY" not in parsedLine["Ki Change"]["From"]):
                     output+="(PHY excluded)"
                 output+=" to "
-                output+=parsedLine["Ki change"]["To"][0]
+                output+=parsedLine["Ki Change"]["To"][0]
                 output+=" Ki Spheres"
-            elif(parsedLine["Ki change"]["Style"]=="All"):
+            elif(parsedLine["Ki Change"]["Style"]=="All"):
                 output+="Changes all Ki Spheres to "
-                output+=parsedLine["Ki change"]["To"][0]
+                output+=parsedLine["Ki Change"]["To"][0]
                 output+=" Ki Spheres"
-            elif(parsedLine["Ki change"]["Style"]=="Single"):
+            elif(parsedLine["Ki Change"]["Style"]=="Single"):
                 output+="Changes "
-                output+=parsedLine["Ki change"]["From"]
+                output+=parsedLine["Ki Change"]["From"]
                 output+=" Ki Spheres to "
-                output+=parsedLine["Ki change"]["To"]
+                output+=parsedLine["Ki Change"]["To"]
                 output+=" Ki Spheres"
         if("Status" in parsedLine):
             for statusEffect in parsedLine["Status"]:
@@ -3144,43 +3167,43 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+="Chance of performing a critical hit +"
                 output+=str(parsedLine["Crit Chance"])
                 output+="%"
-        if("Additional attack" in parsedLine):
-            if(parsedLine["Additional attack"]["Chance of another additional"])=="0":
-                if(parsedLine["Additional attack"]["Chance of super"]==100):
+        if("Additional Attack" in parsedLine):
+            if(parsedLine["Additional Attack"]["Chance of another additional"])=="0":
+                if(parsedLine["Additional Attack"]["Chance of super"]==100):
                     output+="Performs an additional super attack"
-                elif(parsedLine["Additional attack"]["Chance of super"]==0):
+                elif(parsedLine["Additional Attack"]["Chance of super"]==0):
                     output+="Performs an additional attack"
                 else:
                     output+="Performs an additional attack with a "
-                    output+=str(parsedLine["Additional attack"]["Chance of super"])
+                    output+=str(parsedLine["Additional Attack"]["Chance of super"])
                     output+="% chance of becoming a super attack"
             else:
-                if(parsedLine["Additional attack"]["Chance of another additional"]==100):
-                    if(parsedLine["Additional attack"]["Chance of super"]==100):
+                if(parsedLine["Additional Attack"]["Chance of another additional"]==100):
+                    if(parsedLine["Additional Attack"]["Chance of super"]==100):
                         output+="Performs an additional super attack with a "
-                        output+=str(parsedLine["Additional attack"]["Chance of another additional"])
+                        output+=str(parsedLine["Additional Attack"]["Chance of another additional"])
                         output+="% chance of another additional super attack"
-                elif(parsedLine["Additional attack"]["Chance of super"]==0):
+                elif(parsedLine["Additional Attack"]["Chance of super"]==0):
                     output+="Performs an additional attack with a "
-                    output+=str(parsedLine["Additional attack"]["Chance of another additional"])
+                    output+=str(parsedLine["Additional Attack"]["Chance of another additional"])
                     output+="% chance of another additional attack"
                 else:
                     output+="Performs an additional attack with a "
-                    output+=str(parsedLine["Additional attack"]["Chance of another additional"])
+                    output+=str(parsedLine["Additional Attack"]["Chance of another additional"])
                     output+="% chance of another additional attack each with a "
-                    output+=str(parsedLine["Additional attack"]["Chance of super"])
+                    output+=str(parsedLine["Additional Attack"]["Chance of super"])
                     output+="% chance of becoming a super attack"
-        if("Dodge chance" in parsedLine):
-            if(parsedLine["Dodge chance"]==100):
+        if("Dodge Chance" in parsedLine):
+            if(parsedLine["Dodge Chance"]==100):
                 output+="Evades enemy attacks"
             else:
                 output+="Chance of evading enemy attacks +"
-                output+=str(parsedLine["Dodge chance"])
+                output+=str(parsedLine["Dodge Chance"])
                 output+="%"
         if("Disable Other Line" in parsedLine):
             output+="Disables a different passive line:"
             output+=parsedLine["Disable Other Line"]["Line"]
-        if("Effective against all" in parsedLine):
+        if("Effective Against All" in parsedLine):
             output+="Attacks effective against all Types"
         if("Counter" in parsedLine):
             if("DR from normals" in parsedLine["Counter"]):
@@ -3198,15 +3221,15 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+=" and absorbs "
                 output+=str(parsedLine["Nullification"]["Absorbed"])
                 output+="% of damage"
-        if("Guaranteed hit" in parsedLine):
+        if("Guaranteed Hit" in parsedLine):
             output+="Attacks guaranteed to hit"
         if("Revive" in parsedLine):
             output+="Revives with "
             output+=str(parsedLine["Revive"]["HP recovered"])
             output+="% HP"
-        if("Domain expansion" in parsedLine):
+        if("Domain Expansion" in parsedLine):
             output+="Opens the "
-            output+=parsedLine["Domain expansion"]["Name"]
+            output+=parsedLine["Domain Expansion"]["Name"]
             output+=" domain"
         if("Standby" in parsedLine):
             if("Change form" in parsedLine["Standby"]):
@@ -3221,18 +3244,26 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
 
     if("Building Stat" in parsedLine):
         if("ki sphere" in parsedLine["Building Stat"]["Cause"]["Cause"].lower()):
-            output+="per"
-            if(parsedLine["Building Stat"]["Cause"]["Type"]!=["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]):
+            output+="per "
+            if("AGL" in parsedLine["Building Stat"]["Cause"]["Type"] and "INT" in parsedLine["Building Stat"]["Cause"]["Type"] and "PHY" in parsedLine["Building Stat"]["Cause"]["Type"] and "TEQ" in parsedLine["Building Stat"]["Cause"]["Type"] and "STR" in parsedLine["Building Stat"]["Cause"]["Type"]):
+                if("Rainbow" in parsedLine["Building Stat"]["Cause"]["Type"]):
+                    output+=" Ki Sphere obtained"
+                else:
+                    output+=" Type Ki Sphere obtained"
+            else:
                 for kiSphere in parsedLine["Building Stat"]["Cause"]["Type"]:
                     output+=kiSphere
                     output+=" and "
                 output=output[:-5]
                 output+=" Ki Spheres obtained"
-            else:
-                output+=" Ki Sphere obtained"
         else:
-            output+="based on "
+            output+="(up to "
+            output+=str(parsedLine["Building Stat"]["Max"])
+            if(parsedLine["Buff"]["Type"]=="Percentage"):
+                output+="%"
+            output+=") based on '"
             output+=parsedLine["Building Stat"]["Slider"][:-1]
+            output+="'"
         
 
     if(len(output)>0):
@@ -3245,7 +3276,8 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
     #Basic timing wording
     if(True):
         if(parsedLine["Timing"]=="Start of turn"):
-            output+="at the start of turn"
+            #output+="at the start of turn"
+            output+=""
         elif(parsedLine["Timing"]=="Right before attack"):
             output+=" when attacking"
         elif(parsedLine["Timing"]=="Right after attack"):
@@ -3270,7 +3302,8 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 raise Exception("UNKNOWN EFFECT TIMING",parsedLine)
         
     
-
+    while("  " in output):
+        output=output.replace("  "," ")
     return(output)
 
 def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
@@ -3292,7 +3325,7 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
 
 def polishPassiveLine(parsedLine):
     output=parsedLine.copy()
-    if("Once only" in parsedLine):
+    if("Once Only" in parsedLine):
         if("Condition" in parsedLine):
             output["Condition"]["Causalities"]=parsedLine["Condition"]["Causalities"].copy()
 
@@ -3677,7 +3710,7 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Effect"]["From"]=KiOrbType(line[6],DEVEXCEPTIONS)
                 output["Effects"][line[0]]["Effect"]["To"]=KiOrbType(line[7],DEVEXCEPTIONS)
             elif(line[5]=="76"):
-                output["Effects"][line[0]]["Effect"]["Buff"]="Effective against all"
+                output["Effects"][line[0]]["Effect"]["Buff"]="Effective Against All"
             elif(line[5]=="78"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Guard"
             elif(line[5]=="79"):
@@ -3695,7 +3728,7 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Crit chance"
                 output["Effects"][line[0]]["Effect"]["Amount"]=int(line[6])
             elif(line[5]=="91"):
-                output["Effects"][line[0]]["Effect"]["Buff"]="Dodge chance"
+                output["Effects"][line[0]]["Effect"]["Buff"]="Dodge Chance"
                 output["Effects"][line[0]]["Effect"]["Amount"]=int(line[6])
             elif(line[5]=="92"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Guaranteed to hit"
