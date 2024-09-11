@@ -150,14 +150,17 @@ for unit in cardsToCheck:
             for passive in unitDictionary["Passive"]:
                 if("Additional Attack" in unitDictionary["Passive"][passive]):
                     if(unitDictionary["Passive"][passive]["Additional Attack"]["Chance of super"]!="0"):
-                        if("Chance of another additional" in unitDictionary["Passive"][passive]["Additional Attack"]):
+                        if(unitDictionary["Passive"][passive]["Additional Attack"]["Chance of another additional"]!="0"):
                             unitDictionary["Max Super Attacks"]+=2
                             unitDictionary["Max Attacks"]+=2    
                         else:
                             unitDictionary["Max Super Attacks"]+=1
                             unitDictionary["Max Attacks"]+=1
                     else:
-                        unitDictionary["Max Attacks"]+=1
+                        if(unitDictionary["Passive"][passive]["Additional Attack"]["Chance of another additional"]!="0"):
+                            unitDictionary["Max Attacks"]+=2    
+                        else:
+                            unitDictionary["Max Attacks"]+=1
 
             
 
