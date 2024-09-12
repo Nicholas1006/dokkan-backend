@@ -807,6 +807,11 @@ def parseStandby(unit,DEVEXCEPTIONS=False):
                 output["Charge type"]["gauge_value"]=efficiacy_value[1][12:]
                 output["Charge type"]["count_multiplier"]=efficiacy_value[2][17:]
                 output["Charge type"]["max_effect_value"]=efficiacy_value[3][17:]
+
+            elif(standby_skill_row[6]=="130"):
+                output["Charge type"]["charge_per_orb"]={}
+                output["Charge type"]["charge_per_orb"]["Orb_With_Dragon_Ball"]=int(standby_skill_row[5])
+
             else:
                 if(DEVEXCEPTIONS):
                     raise Exception("Unknown standby skill")
@@ -864,6 +869,8 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                     output[finish_skill_set_id]["Ki"]=int(efficiacy_value[0])
                 elif(finish_skill_row[6]=="9"):
                     output[finish_skill_set_id]["Effect"]="Stun"
+                elif(finish_skill_row[6]=="76"):
+                    output[finish_skill_set_id]["CONFUSION"]=True
                 elif(finish_skill_row[6]=="90"):
                     output[finish_skill_set_id]["Crit Chance"]=int(efficiacy_value[0])
                 elif(finish_skill_row[6]=="103"):
@@ -886,6 +893,8 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                     output[finish_skill_set_id]["Nullification"]["Activated"]=True
                 elif(finish_skill_row[6]=="120"):
                     output[finish_skill_set_id]["Counter"]={"Activated":True, "Multiplier":efficiacy_value[1]}
+                elif(finish_skill_row[6]=="130"):
+                    output[finish_skill_set_id]["CONFUSION"]=True
                 else:
                     if(DEVEXCEPTIONS):
                         raise Exception("Unknown finish skill")
@@ -3434,6 +3443,9 @@ def polishPassiveLine(parsedLine):
     elif(parsedLine["Length"]=="1" and "Building Stat" in parsedLine):
         if(parsedLine["Building Stat"]["Slider"]=="How many attacks has this character performed in battle?"):
             parsedLine["Building Stat"]["Slider"]="How many attacks has this character performed on this turn?"
+        if(parsedLine["Building Stat"]["Slider"]=='How many super attacks has this character performed?'):
+            parsedLine["Building Stat"]["Slider"]="How many super attacks has this character performed on this turn?"
+        
         elif(("How many ") in parsedLine["Building Stat"]["Slider"] and (" Ki Spheres have been obtained?") in parsedLine["Building Stat"]["Slider"]):
             parsedLine["Building Stat"]["Slider"]=parsedLine["Building Stat"]["Slider"].replace(" Ki Spheres have been obtained?"," Ki Spheres have been obtained on this turn?")
 
