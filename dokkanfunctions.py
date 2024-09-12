@@ -848,7 +848,8 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                 
             compiled_causality_conditions=finish_skill_setsRow[8]
             condition=standbylogicalCausalityExtractor(compiled_causality_conditions)
-            output[finish_skill_set_id]["Condition"]=condition
+            condition=unicode_fixer(condition)
+            output[finish_skill_set_id]["Condition"]=CausalityLogicalExtractor(unit,condition,DEVEXCEPTIONS)
 
             finish_special_id=finish_skill_setsRow[9]
             finish_special_multiplier=searchbyid(code=finish_special_id,codecolumn=0,database=finish_specialsJP,column=1)
@@ -931,6 +932,8 @@ def standbylogicalCausalityExtractor(compiled_causality_conditions):
     causality=causality.replace('["type",40]',"When a super attack is aimed at this character")
     causality=causality.replace('["type",0]',"When this character revives")
     
+    causality=causality.replace('{"source":"',"")
+    causality=causality.split('","compiled":')[0]
 
     return(causality)
 
@@ -1760,7 +1763,7 @@ def logicalCausalityExtractor(causality):
         result=unicode_fixer(result)
         return(result)
     
-def CausalityLogicalExtractor(unit,causality,printing=True,DEVEXCEPTIONS=False):
+def CausalityLogicalExtractor(unit,causality,DEVEXCEPTIONS=False):
     output={}
     result=causality.replace("|"," || ").replace("&"," && ")
     currentCausality=""
@@ -2612,6 +2615,29 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]+=CausalityRow[2]
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=int(CausalityRow[2])
+            elif(CausalityRow[1]=="52"):
+                if(CausalityRow[2]=="1"):
+                    output["Button"]["Name"]=("Is the charge count less than ")
+                    output["Button"]["Name"]+=CausalityRow[3]
+
+                    output["Slider"]["Name"]="What is the charge count at?"
+                    output["Slider"]["Logic"]="<"
+                    output["Slider"]["Logic"]+=str(int(CausalityRow[3])-1)
+                    output["Slider"]["Min"]=0
+                elif(CausalityRow[2]=="4"):
+                    output["Button"]["Name"]=("Is the charge count greater than or equal to ")
+                    output["Button"]["Name"]+=CausalityRow[3]
+
+                    output["Slider"]["Name"]="What is the charge count at?"
+                    output["Slider"]["Logic"]=">="
+                    output["Slider"]["Logic"]+=CausalityRow[3]
+                    output["Slider"]["Min"]=int(CausalityRow[3])
+                else:
+                    output["Button"]["Name"]="UNKNOWN CHARGE TYP£"
+                    if(DEVEXCEPTIONS==True):
+                        raise Exception("Unknown charge type")
+
+
             elif(CausalityRow[1]=="53"):
                 output["Button"]["Name"]=("Has this characters finish effect been activated?")
             elif(CausalityRow[1]=="54"):
@@ -2662,6 +2688,32 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+="category)"
             elif(CausalityRow[1]=="61"):
                 output["Button"]["Name"]=("Did the character recieve an attack on this turn?")
+            elif(CausalityRow[1]=="64"):
+                if(CausalityRow[2]=="2"):
+                    output["Button"]["Name"]="Have less than or equal to "
+                    output["Button"]["Name"]+=CausalityRow[3]
+                    output["Button"]["Name"]+=" dragon ball orbs been obtained?"
+
+                    output["Slider"]["Name"]="How many dragon ball orbs have been obtained?"
+                    output["Slider"]["Logic"]="<="
+                    output["Slider"]["Logic"]+=CausalityRow[3]
+                    output["Slider"]["Min"]=0
+                    output["Slider"]["Max"]=7
+                elif(CausalityRow[2]=="5"):
+                    output["Button"]["Name"]="Have more than "
+                    output["Button"]["Name"]+=CausalityRow[3]
+                    output["Button"]["Name"]+=" dragon ball orbs been obtained?"
+
+                    output["Slider"]["Name"]="How many dragon ball orbs have been obtained?"
+                    output["Slider"]["Logic"]=">"
+                    output["Slider"]["Logic"]+=CausalityRow[3]
+                    output["Slider"]["Min"]=0
+                    output["Slider"]["Max"]=7
+                else:
+                    output["Button"]["Name"]="UNKNOWN CAUSALITY CONDITION"
+                    if(DEVEXCEPTIONS==True):
+                        raise Exception("Unknown causality condition")
+
             else:
                 output["Button"]["Name"]=("UNKNOWN CAUSALITY CONDITION")
                 if(DEVEXCEPTIONS==True):
