@@ -815,7 +815,7 @@ def parseStandby(unit,DEVEXCEPTIONS=False):
             else:
                 if(DEVEXCEPTIONS):
                     raise Exception("Unknown standby skill")
-    return(output)
+        return(output)
 
 
 
@@ -907,7 +907,7 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                         if(sourceUnitID!=None):
                             sourceUnitID=sourceUnitID[0]
                             output[finish_skill_set_id]["Exchanges to"]=sourceUnitID
-    return(output)
+        return(output)
 
 def unicode_fixer(input):
     if isinstance(input, str):
@@ -2621,7 +2621,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+=CausalityRow[3]
 
                     output["Slider"]["Name"]="What is the charge count at?"
-                    output["Slider"]["Logic"]="<"
+                    output["Slider"]["Logic"]="<="
                     output["Slider"]["Logic"]+=str(int(CausalityRow[3])-1)
                     output["Slider"]["Min"]=0
                 elif(CausalityRow[2]=="4"):

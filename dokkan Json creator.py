@@ -22,7 +22,7 @@ CALCMULTIPLIER=True
 CALCFINISH=True
 CALCSTANDBY=True
 CALCCIRCLE=True
-
+0
 passiveTime=0.0
 leaderTime=0.0
 hipoTime=0.0
@@ -215,13 +215,14 @@ for unit in cardsToCheck:
 
 
             unitDictionary["Transformations"]=[]
-            if("Exchanges to" in unitDictionary["Standby Skill"]):
-                unitDictionary["Transformations"].append(unitDictionary["Standby Skill"]["Exchanges to"])
-                if(unit[0] in transformations):
-                    transformations[unit[0]].append(unitDictionary["Standby Skill"]["Exchanges to"])
-                else:
-                    transformations[unit[0]]=[unitDictionary["Standby Skill"]["Exchanges to"]]
-            if(unitDictionary["Finish Skill"] != {}):
+            if(unitDictionary["Standby Skill"] != None):
+                if("Exchanges to" in unitDictionary["Standby Skill"]):
+                    unitDictionary["Transformations"].append(unitDictionary["Standby Skill"]["Exchanges to"])
+                    if(unit[0] in transformations):
+                        transformations[unit[0]].append(unitDictionary["Standby Skill"]["Exchanges to"])
+                    else:
+                        transformations[unit[0]]=[unitDictionary["Standby Skill"]["Exchanges to"]]
+            if(unitDictionary["Finish Skill"] != None):
                 for finishRow in unitDictionary["Finish Skill"]:
                     unitDictionary["Transformations"].append(unitDictionary["Finish Skill"][finishRow]["Exchanges to"])
                     if(unit[0] in transformations):
