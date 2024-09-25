@@ -22,7 +22,7 @@ CALCMULTIPLIER=True
 CALCFINISH=True
 CALCSTANDBY=True
 CALCCIRCLE=True
-0
+
 passiveTime=0.0
 leaderTime=0.0
 hipoTime=0.0
@@ -81,7 +81,7 @@ if GLOBALPARSE:
 
 dokkanAwakenings={}
 transformations={}
-
+totalTime=time.time()
 for unit in cardsToCheck:
     ezaTrueFalse=[False]
     if(checkEza(unit[0])):
@@ -120,6 +120,8 @@ for unit in cardsToCheck:
                 unitDictionary["Min Level"]=getMinLevel(unit,eza)
                 unitDictionary["Max Level"]=getMaxLevel(unit,eza)
                 unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
+                unitDictionary["Can EZA"]=checkEza(unit[0])
+                unitDictionary["Can SEZA"]=checkSeza(unit[0])
                 basicTime+=time.time()-basicStart
             
 
@@ -168,7 +170,7 @@ for unit in cardsToCheck:
             unitDictionary["Stats at levels"]={}
             if(CALCLEVELS):
                 levelStart=time.time()
-                unitDictionary["Stats at levels"]=getStatsAtAllLevels(unit,eza)
+                unitDictionary["Stats at levels"]=getStatsAtAllLevels(unit,eza,unitDictionary["Min Level"],unitDictionary["Max Level"])
                 levelTime+=time.time()-levelStart
             
             unitDictionary["Leader Skill"]={}
@@ -231,23 +233,25 @@ for unit in cardsToCheck:
                         transformations[unit[0]]=[unitDictionary["Finish Skill"][finishRow]["Exchanges to"]]
             unitDictionary["Max Appearances In Form"]=maxAppearancesInForm(unitDictionary["Passive"],DEVEXCEPTIONS)
 
-
-            if(unitDictionary["Passive"]!=None):
-                for passiveLine in unitDictionary["Passive"]:
-                    if "Transformation" in unitDictionary["Passive"][passiveLine]:
-                        unitDictionary["Transformations"].append(unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"])
-                        if(unit[0] in transformations):
-                            transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"])
-                        else:
-                            transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"]]
-            if(unitDictionary["Active Skill"]!=None):
-                for activeLine in unitDictionary["Active Skill"]["Effects"]:
-                    if "Unit" in unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]:
-                        unitDictionary["Transformations"].append(unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"])
-                        if(unit[0] in transformations):
-                            transformations[unit[0]].append(unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"])
-                        else:
-                            transformations[unit[0]]=[unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"]]
+            
+            if(CALCPASSIVE):
+                if(unitDictionary["Passive"]!=None):
+                    for passiveLine in unitDictionary["Passive"]:
+                        if "Transformation" in unitDictionary["Passive"][passiveLine]:
+                            unitDictionary["Transformations"].append(unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"])
+                            if(unit[0] in transformations):
+                                transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"])
+                            else:
+                                transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"]]
+            if(CALCACTIVE): 
+                if(unitDictionary["Active Skill"]!=None):
+                    for activeLine in unitDictionary["Active Skill"]["Effects"]:
+                        if "Unit" in unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]:
+                            unitDictionary["Transformations"].append(unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"])
+                            if(unit[0] in transformations):
+                                transformations[unit[0]].append(unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"])
+                            else:
+                                transformations[unit[0]]=[unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"]]
 
             unitDictionary["Transforms from"]=[]
 
@@ -298,8 +302,7 @@ for unit in cardsToCheck:
             unitDictionary["SuperMinKi"]=getSuperMinKi(unitDictionary["Ki Circle Segments"])
             unitDictionary["AdditionalSuperID"]=getAdditionalSuperID(unitDictionary)
 
-            unitDictionary["Can EZA"]=checkEza(unit[0])
-            unitDictionary["Can SEZA"]=checkSeza(unit[0])
+            
 
             
 
@@ -323,7 +326,7 @@ for unit in cardsToCheck:
                 turnintoJson(unitDictionary, jsonName,directoryName=directoryName)
                 jsonTime+=time.time()-jsonStart
         
-
+totalTime=time.time()-totalTime
 
 if(GLOBALPARSE):
     bar.finish()
@@ -339,5 +342,6 @@ print("Multiplier time:",round(multiplierTime,2))
 print("Active time:",round(activeTime,2))
 print("Standby time:",round(standbyTime,2))
 print("Json time:",round(jsonTime,2))
-print("Total time:",round(passiveTime+finishTime+linksTime+leaderTime+hipoTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime,2))
-print("Average per unit",round((passiveTime+finishTime+linksTime+leaderTime+hipoTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime)/unitCount,5))
+print("Other time:" ,round(totalTime-passiveTime+finishTime+linksTime+leaderTime+hipoTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime,2))
+print("Total time:",round(totalTime,2))
+print("Average per unit",round((totalTime)/unitCount,5))

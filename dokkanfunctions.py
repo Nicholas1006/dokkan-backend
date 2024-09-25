@@ -106,7 +106,7 @@ def getMaxLevel(unit,eza=False):
     else:
         return(int(unit[13]))
 
-def parse_domain_efficiacy(efficiacy):
+def parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS=False):
     output={}
     output["ID"]=efficiacy[0]
     if(efficiacy[2]=="1"):
@@ -115,6 +115,8 @@ def parse_domain_efficiacy(efficiacy):
         output["Timing"]="On domain Being out"
     else:
         print("UNKNOWN DOMAIN EFFICIACY TIMING:",efficiacy[2])
+        if(DEVEXCEPTIONS==True):
+            raise Exception("UNKNOWN DOMAIN EFFICIENCY TIMING")
 
     #NO DEFENSE BUFF
     if(efficiacy[3]=="1"):
@@ -132,6 +134,8 @@ def parse_domain_efficiacy(efficiacy):
         output["Effect"]={"Type":"Disables guaranteed hit effect"}
     else:
         print("UNKNOWN DOMAIN EFFICIACY TYPE:",efficiacy[3])
+        if(DEVEXCEPTIONS==True):
+            raise Exception("UNKNOWN DOMAIN EFFICIENCY TYPE")
 
     if(efficiacy[4]=="0"):
         pass
@@ -139,6 +143,8 @@ def parse_domain_efficiacy(efficiacy):
         pass
     else:
         print("UNKNOWN DOMAIN EFFICIACY TARGET:",efficiacy[4])
+        if(DEVEXCEPTIONS==True):
+            raise Exception("UNKNOWN DOMAIN EFFICIENCY TARGET")
 
     output["Turn activation"]=efficiacy[5]
 
@@ -499,28 +505,28 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["DR"]=100-int(efficiacy_values[0])
         elif(leader_skill_line[6]=="16"):
             #Single type [Typing, "ATK", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="17"):
             #Single type [Typing, "DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="18"):
             #Single type [Typing, "ATK and DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
         elif(leader_skill_line[6]=="19"):
             #Single type [Type, "HP", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="20"):
             #Single Type (Type, "Ki", "") 
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="44"):
             #Single Type (Type, HP, ATK) 
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[2])
         elif(leader_skill_line[6]=="50"):
@@ -543,7 +549,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             #ATK per ki sphere obtained of a type
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)}
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["Target"]["Typing"]=typefinder(efficiacy_values[0],printing=True)
+            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
         elif(leader_skill_line[6]=="71"):
             #HP based ["Min ATK", "MAX ATK", ???] 
             output[leader_skill_line[0]]["Building Stat"]={"Cause":"HP", "Type":"More HP remaining"}
@@ -953,13 +959,30 @@ def getKiMultipliers(unit):
             multipliers[int(kiAmount)]=(eball_mod_max/2)+(eball_mod_max/2)*(kiAmount/max_ki)
     return(multipliers)
 
-def getStatsAtAllLevels(unit,eza):
+def getStatsAtAllLevels(unit,eza,minLevel,maxLevel):
     output={}
-    maxLevel=getMaxLevel(unit,eza)
-    minLevel=getMinLevel(unit,eza)
+    intUnit = unit[:]
+    intUnit[0:8] = [int(x) for x in unit[6:14]]
+    growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsJP)
     for level in range(minLevel,maxLevel+1):
-        output[level]=getUnitStats(unit,level)
+        coef=float(searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)[0])
+        output[level]=getUnitStats(intUnit,level,coef)
     return(output)
+
+def getUnitStats(unit,level,coef,DEVEXCEPTIONS=False):
+    hp_init=(unit[0])
+    hp_max=(unit[1])
+    atk_init=(unit[2])
+    atk_max=(unit[3])
+    def_init=(unit[4])
+    def_max=(unit[5])
+
+    level_max=(unit[7])
+    stats={}
+    stats["HP"]=math.floor((0.5 * (level - 1) * (hp_max - hp_init)) / (level_max - 1) + 0.5 * coef * (hp_max - hp_init) + hp_init)
+    stats["ATK"]=math.floor((0.5 * (level - 1) * (atk_max - atk_init)) / (level_max - 1) + 0.5 * coef * (atk_max - atk_init) + atk_init)
+    stats["DEF"]=math.floor((0.5 * (level - 1) * (def_max - def_init)) / (level_max - 1) + 0.5 * coef * (def_max - def_init) + def_init)
+    return(stats)
 
 def shortenPassiveDictionary(oldPassiveDictionary):
     passiveDictionary=oldPassiveDictionary.copy()
@@ -1033,15 +1056,18 @@ def shortenPassiveDictionary(oldPassiveDictionary):
         if (passiveDictionary["Ki Change"]["From"]==None and passiveDictionary["Ki Change"]["To"]==None):
             passiveDictionary.pop("Ki Change")
     if "Target" in passiveDictionary:
-        if "Category" in passiveDictionary["Target"]:
-            if passiveDictionary["Target"]["Category"]==None:
-                passiveDictionary["Target"].pop("Category")
         if "Class" in passiveDictionary["Target"]:
             if passiveDictionary["Target"]["Class"]==[]:
                 passiveDictionary["Target"].pop("Class")
         if "Type" in passiveDictionary["Target"]:
             if passiveDictionary["Target"]["Type"]==[]:
                 passiveDictionary["Target"].pop("Type")
+        if("Category" in passiveDictionary["Target"]):
+            if passiveDictionary["Target"]["Category"]=={"Included": [], "Excluded": []}:
+                passiveDictionary["Target"].pop("Category")
+        if("Name" in passiveDictionary["Target"]):
+            if passiveDictionary["Target"]["Name"]=={"Included": [], "Excluded": []}:
+                passiveDictionary["Target"].pop("Name")
         if passiveDictionary["Target"]=={}:
             passiveDictionary.pop("Target")
     if "Chance" in passiveDictionary:
@@ -1072,7 +1098,7 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Domain Expansion" in passiveDictionary:
         if passiveDictionary["Domain Expansion"]["Activated"]==False:
             passiveDictionary.pop("Domain Expansion")
-        
+
 
     return(passiveDictionary)
 
@@ -1154,8 +1180,8 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             "To": None
         },
         "Target": {
-            "Category": None,
-            "Target": None,
+            "Category": {"Included": [],"Excluded": []},
+            "Target": {"Included": [],"Excluded": []},
             "Class": [],
             "Type": []
         },
@@ -1202,6 +1228,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
 
     if(passiveskill[6]!="0"):
         effects["Target"]["Category"]={"Included": [],"Excluded": []}
+        effects["Target"]["Name"]={"Included": [],"Excluded": []}
         TargetRows=searchbycolumn(code=passiveskill[6],database=sub_target_typesJP,column=1)
         for TargetRow in TargetRows:
             if(TargetRow[2]=="1"):
@@ -1210,6 +1237,33 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             elif(TargetRow[2]=="2"):
                 TargetCategory=CategoryExtractor(TargetRow[3])
                 effects["Target"]["Category"]["Excluded"].append(TargetCategory)
+            elif(TargetRow[2]=="4"):
+                #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relationsJP, column=1)       for card in searchbycolumn(code=x, column=3, database=cardsGB)]))
+                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+                possible_names=[]
+                for id in card_unique_info_id:
+                    name=searchbycolumn(code=id,column=3,database=cardsGB)
+                    for unit in name:
+                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                            possible_names.append(unit[1])
+                likelyName=longestCommonSubstring(possible_names) 
+                effects["Target"]["Name"]["Included"]=likelyName
+            elif(TargetRow[2]=="5"):
+                #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relationsJP, column=1)       for card in searchbycolumn(code=x, column=3, database=cardsGB)]))
+                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+                possible_names=[]
+                for id in card_unique_info_id:
+                    name=searchbycolumn(code=id,column=3,database=cardsGB)
+                    for unit in name:
+                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                            possible_names.append(unit[1])
+                likelyName=longestCommonSubstring(possible_names) 
+                effects["Target"]["Name"]["Excluded"]=likelyName
+            else:
+                #WIP
+                print("Target NOT FOUND")
+                if(DEVEXCEPTIONS==True):
+                    raise Exception("Target NOT FOUND")
 
 
     if(passiveskill[5]=="1"):
@@ -1269,20 +1323,20 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="13":
         effects["DR"]+=100-int(passiveskill[13])
     elif passiveskill[4]=="16":
-        typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["ATK"]+=int(passiveskill[14])
         effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="17":
-        typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["DEF"]+=int(passiveskill[14])
         effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="18":
-        typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["ATK"]+=int(passiveskill[14])
         effects["DEF"]+=int(passiveskill[14])
         effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="20":
-        typing=extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Ki"]+=int(passiveskill[14])
         effects["Target"]["Typing"]=typing
     elif passiveskill[4]=="24":
@@ -1488,12 +1542,16 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[4]=="82":
         effects["ATK"]+=int(passiveskill[14])
         effects["DEF"]+=int(passiveskill[14])
-        effects["Target"]["Typing"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-        effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
+            effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
+            effects["Target"]["Typing"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
     elif passiveskill[4]=="83":
         effects["Ki"]+=int(passiveskill[14])
-        effects["Target"]["Typing"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-        effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
+            effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
+            effects["Target"]["Typing"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
     elif passiveskill[4]=="90":
         effects["Crit Chance"]+=int(passiveskill[13])
     elif passiveskill[4]=="91":
@@ -1560,7 +1618,17 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Disable Other Line"]["Activated"]=True
             effects["Disable Other Line"]["Line"]=passiveskill[14]
         elif(passiveskill[13]=="15"):
-            print("Something related to charging standby skills")
+            #WIP
+            #print("Something related to charging standby skills")
+            effects["Building Stat"]["Cause"]={"Cause":"Charging standby skills"}
+            effects["Building Stat"]["Slider"]="WIP"
+            effects["Building Stat"]["Min"]=1
+            effects["Building Stat"]["Max"]=1
+            
+        else:
+            print("UNKNOWN EFFECT",passiveskill)
+            if(DEVEXCEPTIONS==True):
+                raise Exception("Unknown effect")
 
     elif passiveskill[4]=="111":
         effects["Status"].append("Disable action")
@@ -1599,9 +1667,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     if passiveskill[3]=="1":
         effects["Timing"]="Start of turn"
     elif passiveskill[3]=="3":
-        effects["Timing"]="Right before attack"
+        effects["Timing"]="Right before attack(SOT stat)"
     elif passiveskill[3]=="4":
-        effects["Timing"]="Right before attack"
+        effects["Timing"]="Right before attack(MOT stat)"
     elif passiveskill[3]=="5":
         effects["Timing"]="Right after attack"
     elif passiveskill[3]=="6":
@@ -3101,24 +3169,30 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             output+="All enemies "
         elif(parsedLine["Target"]["Target"]=="Allies" or "Allies(self excluded)"):
             if("Class" in parsedLine["Target"]):
-                for Class in parsedLine["Target"]["Class"]:
-                    output+=Class
-                    output+=" and "
-                output=output[:-5]
+                output+=parsedLine["Target"]["Class"]
+                output+=" class "
             if("Typing" in parsedLine["Target"]):
                 for Typing in parsedLine["Target"]["Typing"]:
                     output+=Typing
                     output+=" and "
-                output=output[:-5]
+                output=output[:-4]
 
             if("Category" in parsedLine["Target"]):
-                for Category in parsedLine["Target"]["Category"]:
+                for Category in parsedLine["Target"]["Category"]["Included"]:
                     output+=Category
                     output+=" and "
                 output=output[:-5]
                 output+=" category "
 
-            output+="allies "
+            if("Name" in parsedLine["Target"]):
+                output+=" for all allies whose name includes "
+                for Name in parsedLine["Target"]["Name"]["Included"]:
+                    output+=Name
+                    output+=" or "
+                output=output[:-4]
+
+
+            output+=" allies "
 
 
 
@@ -3339,7 +3413,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
         if(parsedLine["Timing"]=="Start of turn"):
             #output+="at the start of turn"
             output+=""
-        elif(parsedLine["Timing"]=="Right before attack"):
+        elif(parsedLine["Timing"]=="Right before attack(SOT stat)" or parsedLine["Timing"]=="Right before attack(MOT stat)"):
             output+=" when attacking"
         elif(parsedLine["Timing"]=="Right after attack"):
             output+="after attacking"
@@ -3647,7 +3721,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Super attack recieved"
         output["Building Stat"]["Slider"]="How many super attacks has this character recieved?"
 
-    elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0]=='Is a super being performed?') or (parsedLine["Timing"]=="Right before attack" and len(causalities)==1 and causalities[0]=='') or (parsedLine["Timing"]=="Right before attack" and len(causalities)==1 and causalities[0]=='Is a super being performed?')):
+    elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0]=='Is a super being performed?') or ((parsedLine["Timing"]=="Right before attack(SOT stat)" or parsedLine["Timing"]=="Right before attack(MOT stat)") and len(causalities)==1 and causalities[0]=='') or ((parsedLine["Timing"]=="Right before attack(SOT stat)" or parsedLine["Timing"]=="Right before attack(MOT stat)") and len(causalities)==1 and causalities[0]=='Is a super being performed?')):
         if("Condition" in output):
             del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Super being performed"
@@ -3811,8 +3885,8 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
             elif(line[5]=="123"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Redirect attacks to me"
             else:
+                print("UNKNOWN ACTIVE EFFECT")
                 if(DEVEXCEPTIONS):
-                    print("UNKNOWN ACTIVE EFFECT")
                     raise Exception("Unknown Active")
 
 
@@ -4571,25 +4645,7 @@ def getrarity(unit,printing=True):
     
     return("ERROR IN GETRARITY UNIT MAX LEVEL IS",unit[13])
 
-def getUnitStats(unit,level,DEVEXCEPTIONS=False):
-    hp_init=int(unit[6])
-    hp_max=int(unit[7])
-    atk_init=int(unit[8])
-    atk_max=int(unit[9])
-    def_init=int(unit[10])
-    def_max=int(unit[11])
-    level_max=int(unit[13])
-    growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsJP)
-    temp=searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)
-    if(temp!=None):
-        coef=float(searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)[0])
-        stats={}
-        stats["HP"]=math.floor((0.5 * (level - 1) * (hp_max - hp_init)) / (level_max - 1) + 0.5 * coef * (hp_max - hp_init) + hp_init)
-        stats["ATK"]=math.floor((0.5 * (level - 1) * (atk_max - atk_init)) / (level_max - 1) + 0.5 * coef * (atk_max - atk_init) + atk_init)
-        stats["DEF"]=math.floor((0.5 * (level - 1) * (def_max - def_init)) / (level_max - 1) + 0.5 * coef * (def_max - def_init) + def_init)
-        return(stats)
-    else:
-        return(None)
+
     
 
 def swapToUnitWith0(unit):
