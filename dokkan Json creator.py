@@ -311,7 +311,7 @@ for unit in cardsToCheck:
 
             jsonName=unit[0]
 
-            
+            #unitDictionary = {k: unitDictionary[k] for k in sorted(unitDictionary)}
 
 
 
@@ -342,6 +342,6 @@ print("Multiplier time:",round(multiplierTime,2))
 print("Active time:",round(activeTime,2))
 print("Standby time:",round(standbyTime,2))
 print("Json time:",round(jsonTime,2))
-print("Other time:" ,round(totalTime-passiveTime+finishTime+linksTime+leaderTime+hipoTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime,2))
+print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime),2))
 print("Total time:",round(totalTime,2))
 print("Average per unit",round((totalTime)/unitCount,5))

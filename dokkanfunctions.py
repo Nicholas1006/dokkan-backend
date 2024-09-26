@@ -1110,7 +1110,6 @@ def getSuperMinKi(kiCircleSegments):
 def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     effects={
         "ID": passiveskill[0],
-        "Calc option": passiveskill[8],
         "Domain Expansion": {
             "Activated": False,
             "ID": None,
@@ -1673,9 +1672,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[3]=="5":
         effects["Timing"]="Right after attack"
     elif passiveskill[3]=="6":
-        effects["Timing"]="Being hit"
+        effects["Timing"]="Right before being hit"
     elif passiveskill[3]=="7":
-        effects["Timing"]="Hit recieved"
+        effects["Timing"]="Right after being hit"
     elif passiveskill[3]=="9":
         effects["Timing"]="End of turn"
     elif passiveskill[3]=="11":
@@ -3419,9 +3418,9 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             output+="after attacking"
         elif(parsedLine["Timing"]=="End of turn"):
             output+="at the end of turn"
-        elif(parsedLine["Timing"]=="Being hit"):
+        elif(parsedLine["Timing"]=="Right before being hit"):
             output+="right before being hit"
-        elif(parsedLine["Timing"]=="Hit recieved"):
+        elif(parsedLine["Timing"]=="Right after being hit"):
             output+="after being hit"
         elif(parsedLine["Timing"]=="After all ki collected"):
             output+="after all ki collected"
@@ -3460,6 +3459,13 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
 
 def polishPassiveLine(parsedLine):
     output=parsedLine.copy()
+    if("Building Stat" in parsedLine):
+        output["Type"]="Building Stat"
+    elif("Disable Other Line" in parsedLine):
+        output["Type"]="Disable Other Line"
+    else:
+        output["Type"]="Single activator"
+
     if("Once Only" in parsedLine):
         if("Condition" in parsedLine):
             output["Condition"]["Causalities"]=parsedLine["Condition"]["Causalities"].copy()
@@ -3589,12 +3595,12 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         for causalityKey in parsedLine["Condition"]["Causalities"]:
             causalities.append(parsedLine["Condition"]["Causalities"][causalityKey]["Button"]["Name"])
 
-    if(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0]=="Has this unit evaded an attack?"):
+    if(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0]=="Has this unit evaded an attack?"):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks evaded"
         output["Building Stat"]["Slider"]="How many attacks have been evaded?"
 
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0][:33]=='Has this character recieved their'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0][:33]=='Has this character recieved their'):
         quantity=causalities[0][34]
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]=quantity+" attacks recieved"
@@ -3605,7 +3611,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="HP 80% or less"
         output["Building Stat"]["Slider"]="How many times has HP been 80% or less?"
 
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==1 and causalities[0]=='Has attack been recieved?'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0]=='Has attack been recieved?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved"
         output["Building Stat"]["Slider"]="How many attacks has this character recieved?"
@@ -3649,25 +3655,25 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Turns with a "+enemy1+""+" or "+enemy2+" category enemy"
         output["Building Stat"]["Slider"]="How many turns has this character been on with a "+enemy1+" or "+enemy2+" category enemy?"
     
-    elif((parsedLine["Timing"]=="Being hit" or parsedLine["Timing"]=="Hit recieved") and len(causalities)==1 and causalities[0]=='Has guard been activated?'):
+    elif((parsedLine["Timing"]=="Right before being hit" or parsedLine["Timing"]=="Right after being hit") and len(causalities)==1 and causalities[0]=='Has guard been activated?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Guard activated"
         output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
     
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1][-32:]=='category units on the same turn '):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1][-32:]=='category units on the same turn '):
         del output["Condition"]
         category=causalities[1][20:-34]
         quantity=causalities[1][10]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on the same turn"
         output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on the same turn?"
     
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and causalities[1][:48]=='Is there an ally on the team whose name includes'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and causalities[1][:48]=='Is there an ally on the team whose name includes'):
         del output["Condition"]
         allyName=causalities[1][49:-1]
         output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
         output["Building Stat"]["Slider"]="How many attacks has this unit evaded with an ally on the team whose name includes "+allyName+"?"
 
-    elif(parsedLine["Timing"]=="Hit recieved" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1]=='Has this unit evaded an attack?'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1]=='Has this unit evaded an attack?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
         output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
@@ -3694,7 +3700,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
             output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+"attacker in the turn"
             output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+"attacker in the turn?"
 
-    elif(parsedLine["Timing"]=="Hit recieved" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ' and causalities[2][:9]=='Are there' and causalities[2][-27:]=='category units on the team ' and causalities[1]=="Has guard been activated?"):
+    elif(parsedLine["Timing"]=="Right after being hit" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ' and causalities[2][:9]=='Are there' and causalities[2][-27:]=='category units on the team ' and causalities[1]=="Has guard been activated?"):
         del output["Condition"]
         quantity1=causalities[0][10]
         quantity2=causalities[2][10]
@@ -3716,7 +3722,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition
         output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition+"?"
 
-    elif(parsedLine["Timing"]=="Being hit" and len(causalities)==1 and causalities[0]=="Is a super being performed?"):
+    elif(parsedLine["Timing"]=="Right before being hit" and len(causalities)==1 and causalities[0]=="Is a super being performed?"):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Super attack recieved"
         output["Building Stat"]["Slider"]="How many super attacks has this character recieved?"
