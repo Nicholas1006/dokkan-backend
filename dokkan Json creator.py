@@ -37,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["4019761"]
+cardIDsToCheck=["1022191","4022201"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -179,14 +179,8 @@ for unit in cardsToCheck:
                 unitDictionary["Leader Skill"]=parseLeaderSkill(unit,eza,DEVEXCEPTIONS)
                 leaderTime+=time.time()-leaderStart
 
+            
             unitDictionary["Hidden Potential"]={}
-            if(CALCHIPO):
-                hipoStart=time.time()
-                if(unit[52][:-2]not in HiPoBoards):
-                    HiPoBoards[unit[52][:-2]]=parseHiddenPotential(unit[52][:-2],DEVEXCEPTIONS)
-                unitDictionary["Hidden Potential"]=HiPoBoards[unit[52][:-2]]
-                hipoTime+=time.time()-hipoStart
-
             unitDictionary["Super Attack"]={}
             if(CALCSUPERATTACK):
                 superStart=time.time()
@@ -284,7 +278,26 @@ for unit in cardsToCheck:
                 if(dokkanAwakenings[awakening]==unit[0]):
                     unitDictionary["Dokkan Reverse awakenings"].append(awakening)
 
+            unitDictionary["Hidden Potential"]={}
+            if(CALCHIPO):
+                hipoStart=time.time()
+                if(unit[52]=='' and unitDictionary["Transforms from"]!=[]):
+                    betterHiPoBoardFound=False
+                    for deTransformedUnit in unitDictionary["Transforms from"]:
+                        if(not betterHiPoBoardFound):
+                            possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cardsJP,column=52)[0]
+                            if(possibleBoard!=''):
+                                unit[52]=possibleBoard
+                                betterHiPoBoardFound=True
 
+                    
+                        
+
+
+                if(unit[52][:-2]not in HiPoBoards):
+                    HiPoBoards[unit[52][:-2]]=parseHiddenPotential(unit[52][:-2],DEVEXCEPTIONS)
+                unitDictionary["Hidden Potential"]=HiPoBoards[unit[52][:-2]]
+                hipoTime+=time.time()-hipoStart
 
             unitDictionary["Ki Multiplier"]={}
             if(CALCMULTIPLIER):

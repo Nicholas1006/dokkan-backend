@@ -81,7 +81,11 @@ for unit in relevantCards:
         unitDictionary["Level"]=getMaxLevel(unit,eza)
         unitDictionary["Rarity"]=getrarity(unit)
         unitDictionary["Cost"]=getUnitCost(unit)
-        maxLevelStats=getUnitStats(unit,unitDictionary["Level"])
+        intUnit = unit[:]
+        intUnit[0:8] = [int(x) for x in unit[6:14]]
+        growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsJP)
+        coef=float(searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)[0])
+        maxLevelStats=getUnitStats(intUnit,unitDictionary["Level"],coef)
         unitDictionary["HP"]=maxLevelStats["HP"]
         unitDictionary["Attack"]=maxLevelStats["ATK"]
         unitDictionary["Defense"]=maxLevelStats["DEF"]
