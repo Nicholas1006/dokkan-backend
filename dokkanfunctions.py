@@ -547,7 +547,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="64"):
             #ATK per ki sphere obtained of a type
-            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)}
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
         elif(leader_skill_line[6]=="71"):
@@ -1370,7 +1370,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         #    effects["Building Stat"]["Slider"]+=" or "
         #effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23
+        effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["ATK"]+=int(passiveskill[13])
     elif passiveskill[4]=="60":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
@@ -1380,7 +1380,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         #    effects["Building Stat"]["Slider"]+=" or "
         #effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23
+        effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[13])
     elif passiveskill[4]=="61":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
@@ -1390,41 +1390,41 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         #    effects["Building Stat"]["Slider"]+=" or "
         #effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23
+        effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["ATK"]+=int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[13])
     elif passiveskill[4]=="64":
-        typing=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
-        effects["Building Stat"]["Slider"]+=typing
+        effects["Building Stat"]["Slider"]+=typing[0]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
         if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5
+            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
         else:
-            effects["Building Stat"]["Max"]=23
+            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
         effects["ATK"]+=int(passiveskill[14])
     elif passiveskill[4]=="65":
-        typing=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
-        effects["Building Stat"]["Slider"]+=typing
+        effects["Building Stat"]["Slider"]+=typing[0]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
         if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5
+            effects["Building Stat"]["Max"]=5*int(passiveskill[13])
         else:
-            effects["Building Stat"]["Max"]=23
+            effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[14])
     elif passiveskill[4]=="66":
-        typing=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
-        effects["Building Stat"]["Slider"]+=typing
+        effects["Building Stat"]["Slider"]+=typing[0]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
         if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5
+            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
         else:
-            effects["Building Stat"]["Max"]=23
+            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
         effects["ATK"]+=int(passiveskill[14])
         effects["DEF"]+=int(passiveskill[14])
     elif passiveskill[4]=="67":
@@ -1444,9 +1444,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
         if(binaryOrbType(passiveskill[13],DEVEXCEPTIONS)==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5
+            effects["Building Stat"]["Max"]=5*int(passiveskill[15])
         else:
-            effects["Building Stat"]["Max"]=23
+            effects["Building Stat"]["Max"]=23*int(passiveskill[15])
         if(passiveskill[14]=="1"):
             effects["ATK"]+=int(passiveskill[15])
         elif(passiveskill[14]=="2"):
@@ -1570,9 +1570,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Slider"]+=" or "
         effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         if(kiSphereType==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5
+            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
         else:
-            effects["Building Stat"]["Max"]=23
+            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
 
         
@@ -3479,11 +3479,11 @@ def polishPassiveLine(parsedLine):
             howRecentCausality["Slider"]={"Name":"","Logic":"","Min":0,"Max":0}
             
             if(parsedLine["Length"]=="99"):
-                hasOccuredCausality["Button"]["Name"]+="Has the following been true:"
+                hasOccuredCausality["Button"]["Name"]+="Was the following true:"
             else:
                 hasOccuredCausality["Button"]["Name"]+="Was the following true:"
                 if(parsedLine["Length"]=="1"):
-                    howRecentCausality["Button"]["Name"]+="Has the following been true for the first time on this turn:"
+                    howRecentCausality["Button"]["Name"]+="Was the following true for the first time on this turn:"
                 else:
                     howRecentCausality["Button"]["Name"]+="Was the following true for the first time in the last " + parsedLine["Length"] + " turns:" 
                 howRecentCausality["Slider"]["Name"]+="How many turns since the following was true for the first time:"
