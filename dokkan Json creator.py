@@ -7,7 +7,7 @@ cardsJP=storedatabase(directory,"cards.csv")
 
 DEVEXCEPTIONS=True
 GLOBALPARSE=True
-GLOBALREFRESH=False
+GLOBALREFRESH=True
 MAKEJSON=True
 
 CALCPASSIVE=True

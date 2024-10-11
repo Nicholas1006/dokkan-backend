@@ -3694,11 +3694,11 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         firstSlot=causalities[0][12:-22]
         if(len(causalities)==2):
             secondSlot=causalities[1][12:-22]
-            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" or "+secondSlot+"attacker in the turn"
-            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" or "+secondSlot+"attacker in the turn?"
+            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" or "+secondSlot+" attacker in the turn"
+            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" or "+secondSlot+" attacker in the turn?"
         else:
-            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+"attacker in the turn"
-            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+"attacker in the turn?"
+            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" attacker in the turn"
+            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" attacker in the turn?"
 
     elif(parsedLine["Timing"]=="Right after being hit" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ' and causalities[2][:9]=='Are there' and causalities[2][-27:]=='category units on the team ' and causalities[1]=="Has guard been activated?"):
         del output["Condition"]
