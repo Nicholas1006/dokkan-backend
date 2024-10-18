@@ -16,17 +16,12 @@
     },
     {
       "label": "Use new database",
-      "type": "shell",
-      "command": "cmd",
-      "args": [
-        "/c",
-        "python 'Use_after_DDL.py'"
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Expand database",
+        "Convert files and create Jsons"
       ],
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": [],
-      "detail": "Uses the new database within glb.db and jp.db to create updated assets and json files"
+      "problemMatcher": []
     },
 
     {
@@ -85,7 +80,110 @@
         "close":true,
         "reveal": "silent"
       }
-    }
+    },
+    {
+      "label": "Expand database",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python",
+        "Database expander.py"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "close": true,
+        "reveal": "always"
+      },
+      "options": {
+        "statusbar": {
+          "hide": true
+        }
+      }
+    },
+
+    {
+      "label": "Convert files",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python",
+       "Convert files.py"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "close":true,
+        "reveal": "always"
+      },
+      "options": {
+        "statusbar": {
+          "hide" : true
+        }
+      }
+    },
+
+
+    {
+      "label": "Create jsons",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python",
+        "dokkan Json creator.py"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "close":true,
+        "reveal": "always"
+      },
+      "options": {
+        "statusbar": {
+          "hide" : true
+        }
+      }
+    },
+
+
+    {
+      "label": "Create unique Jsons",
+      "type": "shell",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "python",
+        "uniqueJsonCreator.py"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "close":true,
+        "reveal": "always"
+      },
+      "options": {
+        "statusbar": {
+          "hide" : true
+        }
+      }
+    },
+
+
+    {
+      "label": "Convert files and create Jsons",
+      "dependsOrder": "parallel",
+      "dependsOn": [
+        "Convert files",
+        "Create jsons",
+        "Create unique Jsons"
+      ],
+      "problemMatcher": [],
+      "options": {
+        "statusbar": {
+          "hide" : true
+        }
+      }
+    },
+
   ],
   "inputs": [
     {
