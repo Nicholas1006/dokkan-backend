@@ -44,7 +44,7 @@ turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uni
 
 print("Creating all units json")
 relevantCards=[]
-for unit in cardsJP:
+for unit in cardsGB:
         if qualifyUsable(unit):
             relevantCards.append(unit)
 allUnitsDictionary=[]
@@ -83,7 +83,7 @@ for unit in relevantCards:
         unitDictionary["Cost"]=getUnitCost(unit)
         intUnit = unit[:]
         intUnit[0:8] = [int(x) for x in unit[6:14]]
-        growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsJP)
+        growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsGB)
         coef=float(searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)[0])
         maxLevelStats=getUnitStats(intUnit,unitDictionary["Level"],coef)
         unitDictionary["HP"]=maxLevelStats["HP"]
@@ -118,7 +118,7 @@ for unit in relevantCards:
         unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
 
         unitDictionary["Awakening"]={"Dokkan Awakening":False, "Awakening to LR":False, "Extreme Z-Awakening":False, "Super Extreme Z-Awakening":False}
-        relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesJP,column=2)
+        relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesGB,column=2)
         relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
         if(len(relevant_awakenings)>0):
             unitDictionary["Awakening"]["Dokkan Awakening"]=True

@@ -2,12 +2,12 @@
 from globals import *
 from dokkanfunctions import *
 from progress.bar import Bar
-directory="dataJP/"
-cardsJP=storedatabase(directory,"cards.csv")
+directory="dataGB/"
+cardsGB=storedatabase(directory,"cards.csv")
 
 DEVEXCEPTIONS=True
 GLOBALPARSE=True
-GLOBALREFRESH=True
+GLOBALREFRESH=False
 MAKEJSON=True
 
 CALCPASSIVE=True
@@ -37,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1022191","4022201"]
+cardIDsToCheck=["1029891"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -52,12 +52,12 @@ if(GLOBALREFRESH and GLOBALPARSE):
 
 temp=time.time()
 if GLOBALPARSE:
-    for unit in cardsJP:
+    for unit in cardsGB:
         if qualifyUsable(unit):
             cardsToCheck.append(unit)
 else:
     for ID in cardIDsToCheck:
-        for unit in cardsJP:
+        for unit in cardsGB:
             if unit[0]==ID:
                 if(qualifyUsable(unit)):
                     cardsToCheck.append(unit)
@@ -267,7 +267,7 @@ for unit in cardsToCheck:
 
 
             unitDictionary["Dokkan awakenings"]=[]
-            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesJP,column=2)
+            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesGB,column=2)
             relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
             for awakening in relevant_awakenings:
                 unitDictionary["Dokkan awakenings"].append(awakening[3])
@@ -285,7 +285,7 @@ for unit in cardsToCheck:
                     betterHiPoBoardFound=False
                     for deTransformedUnit in unitDictionary["Transforms from"]:
                         if(not betterHiPoBoardFound):
-                            possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cardsJP,column=52)[0]
+                            possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cardsGB,column=52)[0]
                             if(possibleBoard!=''):
                                 unit[52]=possibleBoard
                                 betterHiPoBoardFound=True

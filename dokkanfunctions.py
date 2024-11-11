@@ -26,7 +26,7 @@ def getCharacterNameID(unit):
     return(unit[3])
 
 def sub_target_types_extractor(sub_target_type_set_id,DEVELOPEREXCEPTIONS=False):
-    temp=searchbycolumn(code=sub_target_type_set_id,database=sub_target_typesJP,column=1)
+    temp=searchbycolumn(code=sub_target_type_set_id,database=sub_target_typesGB,column=1)
     output={}
     output["Category"]=[]
     output["Excluded Category"]=[]
@@ -76,7 +76,7 @@ def removeDuplicatesUltraList(ultraList,slot):
     return(output)
 
 def superAttackMultiplierExtractor(superAttackID,super_attack_lvl,DEVEXCEPTIONS=False):
-    specialRow=searchbycolumn(code=superAttackID,database=special_setsJP,column=0)
+    specialRow=searchbycolumn(code=superAttackID,database=special_setsGB,column=0)
     growth_rate=int(specialRow[0][6])
     increase_rate=int(specialRow[0][5])
     multiplier=(100)+(increase_rate)+(growth_rate*(super_attack_lvl-1))
@@ -98,7 +98,7 @@ def getMinLevel(unit,eza=False):
 def getMaxLevel(unit,eza=False):
     if(eza):
         cardOptimalAwakeningGrowthID=unit[16][:-2]
-        growthRows=searchbycolumn(code=cardOptimalAwakeningGrowthID,database=optimal_awakening_growthsJP,column=1)
+        growthRows=searchbycolumn(code=cardOptimalAwakeningGrowthID,database=optimal_awakening_growthsGB,column=1)
         maxLevel=int(unit[14])
         for growthRow in growthRows:
             maxLevel=max(maxLevel,int(growthRow[3]))
@@ -177,7 +177,7 @@ def parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS=False):
 
 def getSuperAttackTypes(unit, eza=False):
     output=[]
-    card_specialss=searchbycolumn(code=unit[0],column=1,database=card_specialsJP)
+    card_specialss=searchbycolumn(code=unit[0],column=1,database=card_specialsGB)
     card_specialss=removeDuplicatesUltraList(ultraList=card_specialss,slot=0)
     for card_special in card_specialss:
         if((eza and int(unit[14])<int(card_special[5])) or (eza==False and int(unit[14])>=int(card_special[5]))):
@@ -186,7 +186,7 @@ def getSuperAttackTypes(unit, eza=False):
 
 def getSuperAttackType(card_special):
     view_id=card_special[7]
-    special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_viewsJP,column=7)[0]
+    special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_viewsGB,column=7)[0]
     if(special_category_id==""):
         return "Other"
     elif(special_category_id=="1.0"):
@@ -199,19 +199,19 @@ def getSuperAttackType(card_special):
 def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
     output={}
 
-    card_specialss=searchbycolumn(code=unit[0],column=1,database=card_specialsJP)
+    card_specialss=searchbycolumn(code=unit[0],column=1,database=card_specialsGB)
     card_specialss=removeDuplicatesUltraList(ultraList=card_specialss,slot=0)
     for card_special in card_specialss:
         if((eza and int(unit[14])<int(card_special[5])) or (eza==False and int(unit[14])>=int(card_special[5]))):
             superAttackDictionary={}
-            if(JPExclusiveCheck(unit[0])==False):
+            if(GBExclusiveCheck(unit[0])==False):
                 superSetGB=searchbycolumn(code=card_special[2],column=0,database=special_setsGB)
             else:
                 superSetGB=[]
-            superSet=searchbycolumn(code=card_special[2],column=0,database=special_setsJP)
+            superSet=searchbycolumn(code=card_special[2],column=0,database=special_setsGB)
             superAttackDictionary["superID"]=superSet[0][0]
             view_id=card_special[7]
-            special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_viewsJP,column=7)[0]
+            special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_viewsGB,column=7)[0]
             if(special_category_id==""):
                 superAttackDictionary["Type"]="Other"
             elif(special_category_id=="1.0"):
@@ -222,7 +222,7 @@ def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
                 superAttackDictionary["Type"]="Physical"
 
 
-            superAttackDictionary["special_name_no"]=searchbyid(code=view_id,codecolumn=0,database=special_viewsJP,column=3)[0]
+            superAttackDictionary["special_name_no"]=searchbyid(code=view_id,codecolumn=0,database=special_viewsGB,column=3)[0]
             if(superSetGB==[]):
                 superAttackDictionary["superName"]=superSet[0][1]
                 superAttackDictionary["superDescription"]=superSet[0][2]
@@ -248,11 +248,11 @@ def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
             SALevel=int(unit[14])
             if(eza):
                 cardOptimalAwakeningGrowthID=unit[16][:-2]
-                growthRows=searchbycolumn(code=cardOptimalAwakeningGrowthID,database=optimal_awakening_growthsJP,column=1)
+                growthRows=searchbycolumn(code=cardOptimalAwakeningGrowthID,database=optimal_awakening_growthsGB,column=1)
                 for growthRow in growthRows:
                     SALevel = max(int(growthRow[4]), SALevel)
             superAttackDictionary["Multiplier"]=superAttackMultiplierExtractor(superAttackID=superAttackDictionary["superID"],super_attack_lvl=SALevel,DEVEXCEPTIONS=DEVEXCEPTIONS)
-            card_supers=searchbycolumn(code=superAttackDictionary["superID"],column=1,database=specialsJP)
+            card_supers=searchbycolumn(code=superAttackDictionary["superID"],column=1,database=specialsGB)
             for special in card_supers:
                 specialsEffect=parseSpecials(special,DEVEXCEPTIONS)    
                 superAttackDictionary["superBuffs"][special[0]]=specialsEffect
@@ -260,8 +260,8 @@ def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
 
             if(superAttackDictionary["SpecialBonus"]["ID"]!="0"):
                 superAttackDictionary["Multiplier"]=superAttackMultiplierExtractor(superAttackID=superAttackDictionary["superID"],super_attack_lvl=SALevel,DEVEXCEPTIONS=DEVEXCEPTIONS)
-                special_bonus=searchbycolumn(code=superAttackDictionary["SpecialBonus"]["ID"],column=0,database=special_bonusesJP)
-                if(JPExclusiveCheck(unit[0])==False):
+                special_bonus=searchbycolumn(code=superAttackDictionary["SpecialBonus"]["ID"],column=0,database=special_bonusesGB)
+                if(GBExclusiveCheck(unit[0])==False):
                     special_bonus=searchbycolumn(code=superAttackDictionary["SpecialBonus"]["ID"],column=0,database=special_bonusesGB)
                 special_bonus=special_bonus[0]
                 superAttackDictionary["SpecialBonus"]["Type"]=special_bonus[1]
@@ -367,10 +367,10 @@ def parseHiddenPotential(Potential_board_id,DEVEXCEPTIONS=False):
     nodesSearched={}
     
     nodesSearching={}
-    allNodes=searchbycolumn(code=Potential_board_id,column=1,database=potential_squaresJP)
+    allNodes=searchbycolumn(code=Potential_board_id,column=1,database=potential_squaresGB)
     allNodeIDs=[node[0] for node in allNodes]
     relevantRelations=[]
-    for connection in potential_square_relationsJP:
+    for connection in potential_square_relationsGB:
         if(connection[1] in allNodeIDs):
             relevantRelations.append(connection)
     pathNodes=[]
@@ -394,7 +394,7 @@ def parseHiddenPotential(Potential_board_id,DEVEXCEPTIONS=False):
                             newNodes=True
                     else:
                         if(connection[:-2] not in nodesSearched and connection[:-2] not in nodesSearching):
-                            path=searchbyid(code=connection[:-2],codecolumn=0,database=potential_squaresJP,column=5)
+                            path=searchbyid(code=connection[:-2],codecolumn=0,database=potential_squaresGB,column=5)
                             nodesSearching[connection[:-2]]=1+int(path[0][:-2])
                             newNodes=True
         nodesSearched.update(nodesSearching)
@@ -415,8 +415,8 @@ def parseHiddenPotential(Potential_board_id,DEVEXCEPTIONS=False):
     output[3]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
     output[4]={"HP":0,"ATK":0,"DEF":0, "Additional": 0, "Crit": 0, "Evasion": 0, "Type ATK": 0, "Type DEF": 0, "Super Attack boost": 0, "Recovery boost": 0}
     for node in nodesSearched:
-        eventid=searchbyid(code=node,codecolumn=0,database=potential_squaresJP,column=2)[0]
-        event=searchbycolumn(code=eventid,database=potential_eventsJP,column=0)[0]
+        eventid=searchbyid(code=node,codecolumn=0,database=potential_squaresGB,column=2)[0]
+        event=searchbycolumn(code=eventid,database=potential_eventsGB,column=0)[0]
         if(event[1]=="PotentialEvent::Hp"):
             output[nodesSearched[node]]["HP"]+=int(event[3])
         elif(event[1]=="PotentialEvent::Atk"):
@@ -441,19 +441,19 @@ def parseHiddenPotential(Potential_board_id,DEVEXCEPTIONS=False):
 
 def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
     output={}
-    if(JPExclusiveCheck(unit[0])):
-        leader_skill_name=searchbyid(code=unit[22][:-2],codecolumn=0,database=leader_skill_setsJP,column=1,)
+    if(GBExclusiveCheck(unit[0])):
+        leader_skill_name=searchbyid(code=unit[22][:-2],codecolumn=0,database=leader_skill_setsGB,column=1,)
         output["Name"]=leader_skill_name[0]
     else:
         leader_skill_name=searchbyid(code=unit[22][:-2],codecolumn=0,database=leader_skill_setsGB,column=1,)
         output["Name"]=leader_skill_name[0]
     leader_skill_set_id=unit[22][:-2]
     if(eza):
-        optimal_awakening_rows=searchbycolumn(code=unit[16][:-2],column=1,database=optimal_awakening_growthsJP)
+        optimal_awakening_rows=searchbycolumn(code=unit[16][:-2],column=1,database=optimal_awakening_growthsGB)
         for optimal_awakening_row in optimal_awakening_rows:
             if(optimal_awakening_row[6]!=unit[22][:-2]):
                 leader_skill_set_id=optimal_awakening_row[6]
-    leader_skill_lines=searchbycolumn(code=leader_skill_set_id,database=leader_skillsJP,column=1,printing=False)
+    leader_skill_lines=searchbycolumn(code=leader_skill_set_id,database=leader_skillsGB,column=1,printing=False)
     for leader_skill_line in leader_skill_lines:
         output[leader_skill_line[0]]={}
         output[leader_skill_line[0]]["Buff"]={}
@@ -614,7 +614,7 @@ def turnintoJson(data,filename, directoryName="" ):
     with open(directoryName+filename, 'w') as f:
         json.dump(data, f, indent=4)
 
-def JPExclusiveCheck(unitid):
+def GBExclusiveCheck(unitid):
     globalVersion=searchbycolumn(code=unitid,column=0,database=cardsGB)
     if(globalVersion==[]):
         return(True)
@@ -622,18 +622,18 @@ def JPExclusiveCheck(unitid):
         return(False)
     
 def checkEza(unitid):
-    unit=searchbycolumn(code=unitid,column=0,database=cardsJP)[0]
+    unit=searchbycolumn(code=unitid,column=0,database=cardsGB)[0]
     awakeningID=unit[16][:-2]
-    ezaRow=searchbycolumn(code=awakeningID,column=1,database=optimal_awakening_growthsJP)
+    ezaRow=searchbycolumn(code=awakeningID,column=1,database=optimal_awakening_growthsGB)
     if(ezaRow==[]):
         return(False)
     else:
         return(True)
 
 def checkSeza(unitid):
-    unit=searchbycolumn(code=unitid,column=0,database=cardsJP)[0]
+    unit=searchbycolumn(code=unitid,column=0,database=cardsGB)[0]
     awakeningID=unit[16][:-2]
-    ezaRow=searchbycolumn(code=awakeningID,column=1,database=optimal_awakening_growthsJP)
+    ezaRow=searchbycolumn(code=awakeningID,column=1,database=optimal_awakening_growthsGB)
     if(ezaRow==[]):
         return(False)
     else:
@@ -778,10 +778,10 @@ def split_into_lists(stringToSplit,splitter):
 
 def parseStandby(unit,DEVEXCEPTIONS=False):
     output={}
-    standby_skill_set_id=searchbyid(code=unit[0],codecolumn=1,database=card_standby_skill_set_relationsJP,column=2)
+    standby_skill_set_id=searchbyid(code=unit[0],codecolumn=1,database=card_standby_skill_set_relationsGB,column=2)
     if(standby_skill_set_id!=None):
         standby_skill_set_id=standby_skill_set_id[0]
-        standby_skill_setsRow=searchbycolumn(code=standby_skill_set_id,database=standby_skill_setsJP,column=0)[0]
+        standby_skill_setsRow=searchbycolumn(code=standby_skill_set_id,database=standby_skill_setsGB,column=0)[0]
         output["ID"]=standby_skill_set_id
         output["Exec limit"]=standby_skill_setsRow[5]
         compiled_causality_conditions=standby_skill_setsRow[6]
@@ -789,7 +789,7 @@ def parseStandby(unit,DEVEXCEPTIONS=False):
         compiled_causality_conditions=CausalityLogicalExtractor(unit,compiled_causality_conditions)
 
         output["Condition"]=compiled_causality_conditions
-        standby_skills_rows=searchbycolumn(code=standby_skill_set_id,database=standby_skillsJP,column=1)
+        standby_skills_rows=searchbycolumn(code=standby_skill_set_id,database=standby_skillsGB,column=1)
         for standby_skill_row in standby_skills_rows:
             efficiacy_value=standby_skill_row[8].replace("[","").replace("]","").replace("{","").replace("}","").replace(" ","").replace('"',"").split(",")
             if(standby_skill_row[6]=="103"):
@@ -828,12 +828,12 @@ def parseStandby(unit,DEVEXCEPTIONS=False):
 
 def parseFinish(unit,DEVEXCEPTIONS=False):
     output={}
-    finish_skill_set_ids=searchbyid(code=unit[0],codecolumn=1,database=card_finish_skill_set_relationsJP,column=2)
+    finish_skill_set_ids=searchbyid(code=unit[0],codecolumn=1,database=card_finish_skill_set_relationsGB,column=2)
     if(finish_skill_set_ids!=None):
         for finish_skill_set_id in finish_skill_set_ids:
             output[finish_skill_set_id]={}
-            if(JPExclusiveCheck(unit[0])):
-                finish_skill_setsRow=searchbycolumn(code=finish_skill_set_id,database=finish_skill_setsJP,column=0)[0]
+            if(GBExclusiveCheck(unit[0])):
+                finish_skill_setsRow=searchbycolumn(code=finish_skill_set_id,database=finish_skill_setsGB,column=0)[0]
             else:
                 finish_skill_setsRow=searchbycolumn(code=finish_skill_set_id,database=finish_skill_setsGB,column=0)[0]
             output[finish_skill_set_id]["ID"]=finish_skill_set_id
@@ -858,12 +858,12 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
             output[finish_skill_set_id]["Condition"]=CausalityLogicalExtractor(unit,condition,DEVEXCEPTIONS)
 
             finish_special_id=finish_skill_setsRow[9]
-            finish_special_multiplier=searchbyid(code=finish_special_id,codecolumn=0,database=finish_specialsJP,column=1)
+            finish_special_multiplier=searchbyid(code=finish_special_id,codecolumn=0,database=finish_specialsGB,column=1)
             if(finish_special_multiplier!=None):
                 finish_special_multiplier=finish_special_multiplier[0]
                 output[finish_skill_set_id]["Multiplier"]=int(finish_special_multiplier)
 
-            finish_skills_rows=searchbycolumn(code=finish_skill_set_id,database=finish_skillsJP,column=1)
+            finish_skills_rows=searchbycolumn(code=finish_skill_set_id,database=finish_skillsGB,column=1)
             for finish_skill_row in finish_skills_rows:
                 if(finish_skill_row[5]!="1"):
                     output[finish_skill_set_id]["Duration"]=finish_skill_row[5]
@@ -906,10 +906,10 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                     if(DEVEXCEPTIONS):
                         raise Exception("Unknown finish skill")
             if("Exchanges to" not in output[finish_skill_set_id]):
-                for standbySkillRow in standby_skillsJP:
+                for standbySkillRow in standby_skillsGB:
                     if(unit[0][:-1] in standbySkillRow[8]):
                         standbySkillSetId=standbySkillRow[1]
-                        sourceUnitID=searchbyid(code=standbySkillSetId,codecolumn=0,database=card_standby_skill_set_relationsJP,column=1)
+                        sourceUnitID=searchbyid(code=standbySkillSetId,codecolumn=0,database=card_standby_skill_set_relationsGB,column=1)
                         if(sourceUnitID!=None):
                             sourceUnitID=sourceUnitID[0]
                             output[finish_skill_set_id]["Exchanges to"]=sourceUnitID
@@ -963,7 +963,7 @@ def getStatsAtAllLevels(unit,eza,minLevel,maxLevel):
     output={}
     intUnit = unit[:]
     intUnit[0:8] = [int(x) for x in unit[6:14]]
-    growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsJP)
+    growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsGB)
     for level in range(minLevel,maxLevel+1):
         coef=float(searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)[0])
         output[level]=getUnitStats(intUnit,level,coef)
@@ -1228,7 +1228,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     if(passiveskill[6]!="0"):
         effects["Target"]["Category"]={"Included": [],"Excluded": []}
         effects["Target"]["Name"]={"Included": [],"Excluded": []}
-        TargetRows=searchbycolumn(code=passiveskill[6],database=sub_target_typesJP,column=1)
+        TargetRows=searchbycolumn(code=passiveskill[6],database=sub_target_typesGB,column=1)
         for TargetRow in TargetRows:
             if(TargetRow[2]=="1"):
                 TargetCategory=CategoryExtractor(TargetRow[3])
@@ -1237,8 +1237,8 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 TargetCategory=CategoryExtractor(TargetRow[3])
                 effects["Target"]["Category"]["Excluded"].append(TargetCategory)
             elif(TargetRow[2]=="4"):
-                #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relationsJP, column=1)       for card in searchbycolumn(code=x, column=3, database=cardsGB)]))
-                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+                #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relationsGB, column=1)       for card in searchbycolumn(code=x, column=3, database=cardsGB)]))
+                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
                 possible_names=[]
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cardsGB)
@@ -1248,8 +1248,8 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Included"]=likelyName
             elif(TargetRow[2]=="5"):
-                #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relationsJP, column=1)       for card in searchbycolumn(code=x, column=3, database=cardsGB)]))
-                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+                #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relationsGB, column=1)       for card in searchbycolumn(code=x, column=3, database=cardsGB)]))
+                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
                 possible_names=[]
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cardsGB)
@@ -1298,9 +1298,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     
     if(passiveskill[4]=="0"):
         effects["Domain Expansion"]["Activated"]=True
-        domainID=searchbyid(code=passiveskill[0],codecolumn=2,database=dokkan_field_passive_skill_relationsJP,column=1)[0]
+        domainID=searchbyid(code=passiveskill[0],codecolumn=2,database=dokkan_field_passive_skill_relationsGB,column=1)[0]
         effects["Domain Expansion"]["ID"]=domainID
-        domainName=searchbyid(code=domainID,codecolumn=1,database=dokkan_fieldsJP,column=2)[0]
+        domainName=searchbyid(code=domainID,codecolumn=1,database=dokkan_fieldsGB,column=2)[0]
         GBdomainName=searchbyid(code=domainID,codecolumn=1,database=dokkan_fieldsGB,column=2)
         if(GBdomainName!=[]):
             domainName=GBdomainName[0]
@@ -1521,7 +1521,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Transformation"]["Activated"]=True
         effects["Transformation"]["Unit"]=passiveskill[13]
         effects["Transformation"]["Giant/Rage"]=True
-        params=searchbycolumn(code=passiveskill[14],database=battle_paramsJP,column=1)
+        params=searchbycolumn(code=passiveskill[14],database=battle_paramsGB,column=1)
         for param in params:
             if(param[2]=="0"):
                 effects["Transformation"]["Min Turns"]=param[3]
@@ -1609,6 +1609,10 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Transformation"]["Unit"]=passiveskill[13]
 
         effects["First Turn To Activate"]+=(int(passiveskill[14])+1)
+    elif passiveskill[4]=="105":
+        effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
+        effects["Ki Change"]["To"]=binaryOrbType(int(passiveskill[13])+int(passiveskill[14]))
+        effects["Ki Change"]["Style"]="All"
     elif passiveskill[4]=="109":
         effects["Revive"]["Activated"]=True
         effects["Revive"]["HP recovered"]=int(passiveskill[13])
@@ -2120,7 +2124,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             output+=("UNKNOWN NAME TYPE")
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown name type")
-        card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+        card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
         possible_names=[]
         for id in card_unique_info_id:
             name=searchbycolumn(code=id,column=3,database=cardsGB)
@@ -2205,10 +2209,10 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="45"):
         categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
-        card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+        card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
         possible_names=[]
         for id in card_unique_info_id:
-            name=searchbyid(code=id,codecolumn=3,database=cardsJP,column=1)
+            name=searchbyid(code=id,codecolumn=3,database=cardsGB,column=1)
             if (name!=None):
                 possible_names.append(name)
         likelyName=longestCommonSubstring(possible_names) 
@@ -2281,12 +2285,12 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]=("Has the character recieved a normal attack?")
     elif(CausalityRow[1]=="57"):
         output["Button"]["Name"]=("Is the Domain ")
-        output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsJP,column=2)[0]
+        output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsGB,column=2)[0]
         GBdomain=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsGB,column=2)
         if(GBdomain!=[]):
             output["Button"]["Name"]+=GBdomain[0]
         else:
-            output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsJP,column=2)[0]
+            output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsGB,column=2)[0]
         output["Button"]["Name"]+=(" active")
     elif(CausalityRow[1]=="58"):
         output["Button"]["Name"]=("Is no domain active?")
@@ -2300,7 +2304,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
 
 def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=False):
     output={"Button":{}, "Slider": {"Name": None, "Logic": None}}
-    for row in skill_causalitiesJP:
+    for row in skill_causalitiesGB:
         if row[0] == causalityCondition:
             CausalityRow=row
             if(CausalityRow[1]=="0"):
@@ -2539,7 +2543,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown name type")
-                card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+                card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
                 possible_names=[]
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cardsGB)
@@ -2624,10 +2628,10 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="45"):
                 categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
-                card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relationsJP,column=1)
+                card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
                 possible_names=[]
                 for id in card_unique_info_id:
-                    name=searchbyid(code=id,codecolumn=3,database=cardsJP,column=1)
+                    name=searchbyid(code=id,codecolumn=3,database=cardsGB,column=1)
                     if (name!=None):
                         possible_names.append(name)
                 likelyName=longestCommonSubstring(possible_names) 
@@ -2727,7 +2731,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 if(GBdomain!=[]):
                     output["Button"]["Name"]+=GBdomain[0]
                 else:
-                    output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsJP,column=2)[0]
+                    output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsGB,column=2)[0]
 
                 output["Button"]["Name"]+=(" active")
             elif(CausalityRow[1]=="58"):
@@ -2836,41 +2840,41 @@ def binaryOrbType(kiOrbType,DEVEXCEPTIONS=False):
     return(output)
     
 def TransformationReverseUnit(card,printing=True):
-    for passiveskillpiece in passive_skillsJP:
+    for passiveskillpiece in passive_skillsGB:
         if passiveskillpiece[13]==card[0]:
             #is a transformation
-            for passiverelation in passive_skill_set_relationsJP:#
+            for passiverelation in passive_skill_set_relationsGB:#
                 if passiverelation[2]==passiveskillpiece[0]:
                     #passiveset found
-                    for unit in cardsJP:
+                    for unit in cardsGB:
                         if unit[21][0:-2]==passiverelation[1]:
                             return(unit)
     
 def activeSkillTransformationReverseUnit(card,printing=True):
-    for possibleactive in active_skillsJP:
+    for possibleactive in active_skillsGB:
         if(possibleactive[6]==card[0]):
             #unit comes from an active skill
-            for possibleactivelink in card_active_skillsJP:
+            for possibleactivelink in card_active_skillsGB:
                 if possibleactivelink[2]==possibleactive[1]:
                     #link found
-                    for unit in cardsJP:
+                    for unit in cardsGB:
                         if unit[0]==possibleactivelink[1]:
                             return(unit)
 
 def activeSkillTransformationUnit(card,printing=True):
-    for possibleactivelink in card_active_skillsJP:
+    for possibleactivelink in card_active_skillsGB:
         if possibleactivelink[1]==card[0]:
             #they have an active
-            for possibleactive in active_skillsJP:
+            for possibleactive in active_skillsGB:
                 if possibleactivelink[2]==possibleactive[1]:
                     
                     #has a transforming one, defined in possibleactive
-                    for unit in cardsJP:
+                    for unit in cardsGB:
                         if unit[0]==possibleactive[6]:
                             return(unit)
 
 def dokkanAwakenUnit(card,printing=False):
-    possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routesJP,column=2)
+    possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routesGB,column=2)
     possibleDokkanAwakening=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=possibleAwakening, column=1)
     if(possibleDokkanAwakening==[]):
         return(None)
@@ -2879,10 +2883,10 @@ def dokkanAwakenUnit(card,printing=False):
 
 
 def dokkanreverseunit(card,printing=False):
-    for awakenable_unit in card_awakening_routesJP:
+    for awakenable_unit in card_awakening_routesGB:
         if awakenable_unit[1]=="CardAwakeningRoute::Dokkan":
             if(card[0])==(awakenable_unit[3]):
-                for unit in cardsJP:
+                for unit in cardsGB:
                     if unit[0]==awakenable_unit[2]:
                         return(unit)
     return(None)
@@ -2935,8 +2939,8 @@ def qualifyEZA(card,printing=True):
     else:
         return(False)
 
-def switchUnitToGlobal(unitJP):
-    unitGB = searchbycolumn(code=unitJP[0],database=cardsGB,column=0)
+def switchUnitToGlobal(unitGB):
+    unitGB = searchbycolumn(code=unitGB[0],database=cardsGB,column=0)
     if(unitGB!=[]):
         unitGB=unitGB[0]
     else:
@@ -2967,7 +2971,7 @@ def qualifyUsable(card,printing=True):
     if(card[46]=="1"):
         return(False)
     #if the unit has no super attacks
-    if(not (card[0] in [x[1] for x in card_specialsJP])):
+    if(not (card[0] in [x[1] for x in card_specialsGB])):
         return(False)
     return(True)
 
@@ -3444,7 +3448,7 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
     output={}
     passiveIdList=getpassiveid(unit,eza,seza)
     if (passiveIdList!=None):
-        for passiveskill in passive_skillsJP[1:]:
+        for passiveskill in passive_skillsGB[1:]:
             if (passiveskill[0] in passiveIdList):
                 parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
                 parsedLine=shortenPassiveDictionary(parsedLine)
@@ -3732,6 +3736,13 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
             del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Super being performed"
         output["Building Stat"]["Slider"]="How many super attacks has this character performed?"
+
+    elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ')):
+        del output["Condition"]
+        quantity=causalities[0][10]
+        category=causalities[0][20:-28]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks with "+quantity+" or more "+category+" category units on the team"
+        output["Building Stat"]["Slider"]="How many attacks has this character performed with "+quantity+" or more "+category+" category units on the team?"
     
 
 
@@ -3745,37 +3756,30 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     return(output)
 
 def parseActiveSkill(unit,DEVEXCEPTIONS=False):
-    active_id=searchbyid(unit[0],codecolumn=1,database=card_active_skillsJP,column=2)
+    active_id=searchbyid(unit[0],codecolumn=1,database=card_active_skillsGB,column=2)
     if(active_id!=None):
         active_id=active_id[0]
         active_lineGB=searchbycolumn(code=active_id,column=0,database=active_skill_setsGB)
-        active_lineJP=searchbycolumn(code=active_id,column=0,database=active_skill_setsJP)
-        active_lineJP=active_lineJP[0]
-        if(active_lineGB==[]):
-            JPexclusive=True
-        else:
-            active_lineGB=active_lineGB[0]
-            JPexclusive=False
+        active_lineGB=searchbycolumn(code=active_id,column=0,database=active_skill_setsGB)
+        active_lineGB=active_lineGB[0]
 
         output={}
-        if(JPexclusive):
-            output["Name"]=active_lineJP[1]
-            output["Effect Description"]=active_lineJP[2]
-            output["Condition Description"]=active_lineJP[3]
-        else:
-            output["Name"]=active_lineGB[1]
-            output["Effect Description"]=active_lineGB[2]
-            output["Condition Description"]=active_lineGB[3]
-        causalityCondition=logicalCausalityExtractor(active_lineJP[6])
+        output["Name"]=active_lineGB[1]
+        output["Effect Description"]=active_lineGB[2]
+        output["Condition Description"]=active_lineGB[3]
+        output["Name"]=active_lineGB[1]
+        output["Effect Description"]=active_lineGB[2]
+        output["Condition Description"]=active_lineGB[3]
+        causalityCondition=logicalCausalityExtractor(active_lineGB[6])
         output["Condition"]={}
         output["Condition"]["Logic"]=causalityCondition
         causalityCondition=CausalityLogicalExtractor(unit,causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
         output["Condition"].update(causalityCondition)
-        output["Uses"]=int(active_lineJP[5])
+        output["Uses"]=int(active_lineGB[5])
         
-        if(active_lineJP[7]!=""):
-            special_id=active_lineJP[7][:-2]
-            ultimate_row=searchbycolumn(code=special_id,database=ultimate_specialsJP,column=0)
+        if(active_lineGB[7]!=""):
+            special_id=active_lineGB[7][:-2]
+            ultimate_row=searchbycolumn(code=special_id,database=ultimate_specialsGB,column=0)
             ultimate_row=ultimate_row[0]
             output["Attack"]={}
             output["Attack"]["Multiplier"]=int(ultimate_row[3])
@@ -3784,10 +3788,10 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
             elif(ultimate_row[4]=="1"):
                 output["Attack"]["Target"]="All enemies"
         output["Effects"]={}
-        effects_line=searchbycolumn(code=active_id,database=active_skillsJP,column=1)
+        effects_line=searchbycolumn(code=active_id,database=active_skillsGB,column=1)
         for line in effects_line:
             output["Effects"][line[0]]={}
-            output["Effects"][line[0]]["Duration"]=active_lineJP[4]
+            output["Effects"][line[0]]["Duration"]=active_lineGB[4]
             output["Effects"][line[0]]["Effect"]={}
             
             
@@ -3860,7 +3864,7 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
             elif(line[5]=="79"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Giant form/Rage"
                 output["Effects"][line[0]]["Effect"]["Unit"]=line[6]
-                battle_params=searchbycolumn(code=line[7],column=1,database=battle_paramsJP)
+                battle_params=searchbycolumn(code=line[7],column=1,database=battle_paramsGB)
                 for param in battle_params:
                     if(param[2]=="0"):
                         output["Effects"][line[0]]["Effect"]["Min turns"]=int(param[3])
@@ -4339,7 +4343,7 @@ def screpeassetlineant(fileID, fileType,printing=True):
                 else:
                     filesource=filesource.replace("global/en","japan")
                     filesource=filesource.replace("/en","/ja")
-                    filesource=filesource.replace("glben","jpnen")
+                    filesource=filesource.replace("glben","GBnen")
                     r = requests.get(filesource, allow_redirects=True, timeout=120)
                     if("404 Not Found" not in str(r._content)):
                         open(fileDest, 'wb').write(r.content)
@@ -4384,7 +4388,7 @@ def scrapeFullUnit(fileID,thumb=True,full=True,bg=True,character=True,circle=Tru
         screpeassetlineant(fileID, fileType,printing)
     
 def passivename(unit,printing=True):
-    return(listtostr(searchbyid(str(int(float(unit[21]))), 0, passive_skillsJP, 1)))
+    return(listtostr(searchbyid(str(int(float(unit[21]))), 0, passive_skillsGB, 1)))
 
 def floattoint(number,printing=True):
     if(type(number)==str):
@@ -4395,7 +4399,7 @@ def floattoint(number,printing=True):
         return(number)
 
 def checkeza(unit,printing=True):
-    for eza in optimal_awakening_growthsJP[1:]:
+    for eza in optimal_awakening_growthsGB[1:]:
         if str(int(float(unit[22]))) in str(int(float(eza[6]))):
             return(True)
     return(False)
@@ -4457,9 +4461,9 @@ def combinelinks(linklist,lvl,printing=True):
 
     for link in linklist:
         if link!="":
-            linkid=searchedbyid(link, 1, link_skillsJP, 0)[0]
-            linkcode=searchedbyid(linkid, 1, link_skill_lvsJP, 0)[lvl-1]
-            for linkdetails in link_skill_efficaciesJP:
+            linkid=searchedbyid(link, 1, link_skillsGB, 0)[0]
+            linkcode=searchedbyid(linkid, 1, link_skill_lvsGB, 0)[lvl-1]
+            for linkdetails in link_skill_efficaciesGB:
             
                 if linkcode==linkdetails[1]:
 
@@ -4644,7 +4648,7 @@ def getrarity(unit,printing=True):
             return("n")
 
     elif(type(unit)==str):
-        unitDetails=searchbycolumn(code=unit,column=0,database=cardsJP)[0]
+        unitDetails=searchbycolumn(code=unit,column=0,database=cardsGB)[0]
         return(getrarity(unitDetails))
 
         
@@ -4656,14 +4660,14 @@ def getrarity(unit,printing=True):
 
 def swapToUnitWith0(unit):
     unitId=definewith0(unit[0])
-    for card in cardsJP:
+    for card in cardsGB:
         if card[0]==unitId:
             return(card)
     return(None)
 
 def swapToUnitWith1(unit):
     unitId=definewith1(unit[0])
-    for card in cardsJP:
+    for card in cardsGB:
         if card[0]==unitId:
             return(card)
     return(None)
@@ -4679,7 +4683,7 @@ def getpassiveid(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
         if(unitEZAGrowthId==""):
             return(getpassiveid(unit,eza=False, printing=printing))
         if(seza):
-            relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growthsJP,column=1)
+            relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growthsGB,column=1)
             #if the unit is an ur
             if(unit[5]=="4"):
                 relevantAwakenings=searchbycolumn(code="8",database=relevantAwakenings,column=2)
@@ -4690,7 +4694,7 @@ def getpassiveid(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
                 if(DEVEXCEPTIONS):
                     raise Exception("Unit is not an LR or UR but has a supereza")
         elif(eza):
-            relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growthsJP,column=1)
+            relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growthsGB,column=1)
             #if the unit is an ur
             if(unit[5]=="4"):
                 relevantAwakenings=searchbycolumn(code="7",database=relevantAwakenings,column=2)
@@ -4702,11 +4706,11 @@ def getpassiveid(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
                     raise Exception("Unit is not an LR or UR but has a supereza")
         unitEZAPassiveId=relevantAwakenings[0][5][:-2]
         
-        unitEZAPassiveList=searchbyid(code=unitEZAPassiveId,codecolumn=1,database=passive_skill_set_relationsJP,column=2)
+        unitEZAPassiveList=searchbyid(code=unitEZAPassiveId,codecolumn=1,database=passive_skill_set_relationsGB,column=2)
         return(unitEZAPassiveList)
     else:
         unitPassiveId=unitPassiveId[0:-2]
-        unitPassiveList=searchbyid(code=unitPassiveId,codecolumn=1,database=passive_skill_set_relationsJP,column=2)
+        unitPassiveList=searchbyid(code=unitPassiveId,codecolumn=1,database=passive_skill_set_relationsGB,column=2)
         return(unitPassiveList)
 
 #retrieves full character name(e.g. "E.TEQ LR Nightmarish Impact Legendary Super Saiyan Broly 4016881")
@@ -4731,7 +4735,7 @@ def getfullname(unit,printing=True):
     temp+=" "
     
     #get unit leader skill name
-    temp+=(listtostr(searchedbyid(unit[22],0,leader_skillsJP,1)))
+    temp+=(listtostr(searchedbyid(unit[22],0,leader_skillsGB,1)))
     temp+=" "
     
     #get unit id
@@ -4742,7 +4746,7 @@ def getfullname(unit,printing=True):
     return(temp)
     
 def getallcategories(unitid,printing=True):
-    temp1=searchedbyid(unitid, 1, card_card_categoriesJP, 2)
+    temp1=searchedbyid(unitid, 1, card_card_categoriesGB, 2)
     categoryList=[]
     if temp1!=None:
         for x in temp1:
@@ -4750,7 +4754,7 @@ def getallcategories(unitid,printing=True):
             if(globalListedCategory!=None):
                 categoryList.append(globalListedCategory[0])
             else:
-                categoryList.append(searchedbyid(x,0,card_categoriesJP,1)[0])
+                categoryList.append(searchedbyid(x,0,card_categoriesGB,1)[0])
     return(categoryList)
 
 def getalllinkswithbuffs(unit,printing=True,DEVEXCEPTIONS=True):
@@ -4767,10 +4771,10 @@ def getlinkBuffsAtAllLevel(linkNameOrID="",printing=True,DEVEXCEPTIONS=True):
     else:
         linkID=searchbyid(code=linkNameOrID,codecolumn=1,database=link_skillsGB,column=0)
     linkID=linkID[0]
-    linkLevelIDs=searchbycolumn(code=linkID,column=1,database=link_skill_lvsJP)
+    linkLevelIDs=searchbycolumn(code=linkID,column=1,database=link_skill_lvsGB)
     for levelIDRow in linkLevelIDs:
         levelID=levelIDRow[0]
-        efficiacy_rows=searchbycolumn(code=levelID,database=link_skill_efficaciesJP,column=1)
+        efficiacy_rows=searchbycolumn(code=levelID,database=link_skill_efficaciesGB,column=1)
         buffs={"ATK":0,
                "DEF":0,
                "ENEMYDEF":0,

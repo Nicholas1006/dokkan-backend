@@ -10,10 +10,10 @@ from PIL import Image
 from dokkanfunctions import *
 
 
-directory="dataJP/"
+directory="dataGB/"
 cards=storedatabase(directory,"cards.csv")
 
-print("scraping jp units")
+print("scraping GB units")
 scrapeallunitassetsv2(cards,thumb=True,circle=True,full=True,sp_name=True,printing=True)
 print("units scraped")        
 
@@ -65,3 +65,4 @@ for card in cards:
 
         
 print("All final assets created")
+
