@@ -3,7 +3,7 @@ import sqlite3 as sl
 import pandas as pd
 
 
-GLOBAL_DB_LOC = "Smile Farmbot/glb.db"
+GLOBAL_DB_LOC = "Dokkan Asset Downloader\DokkanFiles\global\en\sqlite\current\en\database.db"
 
 bar = Bar('Expanding global database file', max=219)
 con = sl.connect(GLOBAL_DB_LOC)
