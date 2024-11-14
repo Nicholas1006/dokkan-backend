@@ -4137,256 +4137,88 @@ def getUnitClass(unit,printing=True,DEVEXCEPTIONS=False):
     elif unit[12][0]=="2":
         return("Extreme")
     
-def createFinalAsset(card,printing=True):
-    if qualifyUsable(card):
-        if(card[48]!=""):
-            resource_id=str(int(float(card[48])))
-            if(resource_id[-1]=="1"):
-                resource_id=str(int(resource_id)-1)
-        else:
-            if(card[0][-1]=="1"):
-                resource_id=str(int(card[0])-1)
-            else:
-                resource_id=card[0]
-        unitid=card[0]
-        mainunit=card
-
-    #background
-        cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
-    #element
-        cframeurl+=(mainunit[12][-1])
-        cframeurl+=("_0")
-    #rarity
-        cframeurl+=(mainunit[5])
-        cframeurl+=(".png")
-
-
-        cframe = Image.open(cframeurl).convert("RGBA")
-        cframe=cframe.resize((200,200))
-
-    #character icon
-        ciconurl=("../frontend/dbManagement/assets/thumb/")
-        ciconurl+=resource_id
-        ciconurl+=(".png")
-        cicon = Image.open(ciconurl).convert("RGBA")
-        cicon.resize((250,250))
-
-
-    #rarity
-        crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
-        crarityurl+=(getrarity(mainunit))
-        crarityurl+=(".png")
-        crarity = Image.open(crarityurl).convert("RGBA")
-        if getrarity(mainunit)=="ssr":
-            crarity=crarity.resize((120,72))
-        else:    
-            crarity=crarity.resize((160,96))
-
-    #element
-        celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
-        if len(mainunit[12])==1:
-            celementurl+=("0")
-        celementurl+=(mainunit[12])
-        celementurl+=(".png")
-        celement = Image.open(celementurl).convert("RGBA")
-        celement=celement.resize((90,90))
-
-        (width,height)=(cicon.width+10,cicon.height+10)
-        cfinal=Image.new("RGBA",(width,height))
-        cfinal.paste(cframe, (25,35), cframe)
-        cfinal.paste(cicon, (0,1), cicon)
-        if getrarity(mainunit)=="n":
-            cfinal.paste(crarity, (-37,160),crarity)
-        elif getrarity(mainunit)=="r":
-            cfinal.paste(crarity, (-42,160), crarity)
-        elif getrarity(mainunit)=="sr":
-            cfinal.paste(crarity, (-25,158), crarity)
-        elif getrarity(mainunit)=="ssr":
-            cfinal.paste(crarity, (-5,171), crarity)
-        elif getrarity(mainunit)=="ur":
-            cfinal.paste(crarity, (-25,160), crarity)
-        elif getrarity(mainunit)=="lr" or True:
-            cfinal.paste(crarity, (-25,155),crarity)
-        cfinal.paste(celement, (170,5),celement)
-        
-        cfinal=cfinal.crop((10,10,256,235))
-        
-        name=("../frontend/dbManagement/assets/final_assets/")
-        name+=(unitid)
-        name+=(".png")
-        
-        cfinal.save(name)
-
-def scrapeallunitassetsv2(cards,thumb=False,full=False,bg=False,character=False,circle=False,cutin=False,effect=False,piece=False,sticker_mask=False,sp_cutin_1=False,sp_name=False,printing=True):
-    assetsNeeded=[]
-    if thumb: assetsNeeded.append("thumb")
-    if full: assetsNeeded.append("full")
-    if bg: assetsNeeded.append("bg")
-    if character: assetsNeeded.append("character")
-    if circle: assetsNeeded.append("circle")
-    if cutin: assetsNeeded.append("cutin")
-    if effect: assetsNeeded.append("effect")
-    if piece: assetsNeeded.append("piece")
-    if sticker_mask: assetsNeeded.append("sticker_mask")
-    if sp_cutin_1: assetsNeeded.append("sp_cutin_1")
-    if sp_name: assetsNeeded.append("sp_name")
-
-
-    toScrapeList=[]
-    amountScraped=0
-    for unit in cards:
-        if(qualifyUsable(unit)):
-            if(unit[48]!=""):
-                assetid=unit[48][:-2]
-                if(assetid[-1]=="1"):
-                    assetid=str(int(assetid)-1)
-            else:
-                if(unit[0][-1]=="1"):
-                    assetid=str(int(unit[0])-1)
-                else:
-                    assetid=unit[0]
-
-
-            allAssetsDownloaded=True
-            for dataType in assetsNeeded:
-                if(allAssetsDownloaded==True):
-                    temp=os.path.join("../frontend/dbManagement/assets",dataType)
-                    if(dataType=="sp_name"):
-                        temp=os.path.join("../frontend/dbManagement/assets",dataType+"_00")
-                    temp=os.path.join(temp,assetid+".png")
-                    temp2=os.path.exists(temp)
-                    if (temp2==False):
-                        if(printing): 
-                            start_time=time.time()
-                        scrapeFullUnit(assetid,thumb,full,bg,character,circle,cutin,effect,piece,sticker_mask,sp_cutin_1,printing)
-                        scrapeFullUnit(assetid,thumb,full,bg,character,circle,cutin,effect,piece,sticker_mask,sp_cutin_1,sp_name,printing=True)
-                        if(printing):print(unit[0],"took: ",round((time.time()-start_time),3)," seconds")
-
-def scrapeallunitassets(cards,printing=True):
-    scrapedunitsreader=open("Scraped units.txt", "r")
-    scrapedunitslist=scrapedunitsreader.read()
-    scrapedunitslist=scrapedunitslist.split("\n")
-
-    scrapedunitsappender=open("Scraped units.txt", "a")
-    toScrapeList=[]
-    amountScraped=0
-    for unit in cards:
-        if (unit[0][-1]=="0") and (unit[0][0]!="5") and (unit[53]!="2030-12-31 23:59:59") and (unit[0][0]!="9") and (unit[0][-1]=="0") and (unit[22]!=""):
-            if unit[0] not in scrapedunitslist:
-                toScrapeList.append(unit[0])
-
-    if(printing): print("Now going to scrape",len(toScrapeList),"units")
-    for unit in cards:
-        if (unit[0][-1]=="0") and (unit[0][0]!="5") and (unit[53]!="2030-12-31 23:59:59") and (unit[0][0]!="9") and (unit[0][-1]=="0") and (unit[22]!=""):
-            if unit[0] not in scrapedunitslist:
-                if(printing): print(amountScraped,"/",len(toScrapeList),"scraping ",unit[0], end=": ")
-                start_time=time.time()
-                scrapeFullUnit(unit[0])
-                scrapedunitsappender.write(unit[0]+"\n")
-                scrapedunitslist.append(unit[0])
-                amountScraped+=1
-                if(printing): print("took: ",round((time.time()-start_time),3)," seconds")
-
-def scrapeassetspecific(filesource, fileDest,printing=True):
-    if(printing): print(filesource)
-    r = requests.get(filesource, allow_redirects=True, timeout=300)
-    if("404" not in str(r._content)):
-        open(fileDest, 'wb').write(r.content)
+def createFullThumb(card,printing=True):
+    if(card[48]!=""):
+        resource_id=str(int(float(card[48])))
+        if(resource_id[-1]=="1"):
+            resource_id=str(int(resource_id)-1)
     else:
-        if(printing): print(filesource," NOT FOUND ", )
+        if(card[0][-1]=="1"):
+            resource_id=str(int(card[0])-1)
+        else:
+            resource_id=card[0]
+    unitid=card[0]
+    mainunit=card
 
-def screpeassetlineant(fileID, fileType,printing=True):
+#background
+    cframeurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/character_thumb_bg/cha_base_0")
+#element
+    cframeurl+=(mainunit[12][-1])
+    cframeurl+=("_0")
+#rarity
+    cframeurl+=(mainunit[5])
+    cframeurl+=(".png")
+
+
+    cframe = Image.open(cframeurl).convert("RGBA")
+    cframe=cframe.resize((200,200))
+
+#character icon
+    ciconurl=("../frontend/dbManagement/DokkanFiles/global/en/character/thumb/card_")
+    ciconurl+=resource_id
+    ciconurl+=("_thumb.png")
+    cicon = Image.open(ciconurl).convert("RGBA")
+    cicon.resize((250,250))
+
+
+#rarity
+    crarityurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/cha_rare_")
+    crarityurl+=(getrarity(mainunit))
+    crarityurl+=(".png")
+    crarity = Image.open(crarityurl).convert("RGBA")
+    if getrarity(mainunit)=="ssr":
+        crarity=crarity.resize((120,72))
+    else:    
+        crarity=crarity.resize((160,96))
+
+#element
+    celementurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/cha_type_icon_")
+    if len(mainunit[12])==1:
+        celementurl+=("0")
+    celementurl+=(mainunit[12])
+    celementurl+=(".png")
+    celement = Image.open(celementurl).convert("RGBA")
+    celement=celement.resize((90,90))
+
+    (width,height)=(cicon.width+10,cicon.height+10)
+    cfinal=Image.new("RGBA",(width,height))
+    cfinal.paste(cframe, (25,35), cframe)
+    cfinal.paste(cicon, (0,1), cicon)
+    if getrarity(mainunit)=="n":
+        cfinal.paste(crarity, (-37,160),crarity)
+    elif getrarity(mainunit)=="r":
+        cfinal.paste(crarity, (-42,160), crarity)
+    elif getrarity(mainunit)=="sr":
+        cfinal.paste(crarity, (-25,158), crarity)
+    elif getrarity(mainunit)=="ssr":
+        cfinal.paste(crarity, (-5,171), crarity)
+    elif getrarity(mainunit)=="ur":
+        cfinal.paste(crarity, (-25,160), crarity)
+    elif getrarity(mainunit)=="lr" or True:
+        cfinal.paste(crarity, (-25,155),crarity)
+    cfinal.paste(celement, (170,5),celement)
     
-    #filetype option:
-    #thumb
-    #full
-    #bg
-    #character
-    #circle
-    #cutin
-    #effect
-    #piece
-    #sticker_mask
-    #sp_cutin_1
-    fileDest="../frontend/dbManagement/assets/"+fileType+"/"+fileID+".png"
+    cfinal=cfinal.crop((10,10,256,235))
     
-    if(os.path.isfile(fileDest)==False):
-        if fileType=="thumb":filesource="https://glben.dokkaninfo.com/assets/global/en/character/thumb/card_"+fileID+"_thumb.png"
-        elif fileType=="full": filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/"+fileID+".png"
-        elif fileType=="bg": filesource= "https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_bg.png"
-        elif fileType=="character": filesource= "https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_character.png"
-        elif fileType=="circle": filesource= "https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_circle.png"
-        elif fileType=="cutin": filesource= "https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_cutin.png"
-        elif fileType=="effect": filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_effect.png"
-        elif fileType=="piece": filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_piece.png"
-        elif fileType=="sticker_mask": filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"_sticker_mask.png"
-        elif fileType=="sp_cutin_1": filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/card_"+fileID+"sp_cutin_1.png"
-        
-        
-        
-        elif fileType=="sp_name": 
-            nextSAFound=True
-            SAcount=0
-            while (nextSAFound):
-                if(SAcount==1):
-                    SAcount=2
-                if(SAcount==0):
-                    filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/en/card_"+fileID+"_sp_name.png"
-                else:
-                    filesource="https://glben.dokkaninfo.com/assets/global/en/character/card/"+fileID+"/en/card_"+fileID+"_sp0"+str(SAcount)+"_name.png"
-                fileDest="../frontend/dbManagement/assets/"+fileType+"_0"+str(SAcount)+"/"+fileID+".png"
-                SAcount+=1
-                r = requests.get(filesource, allow_redirects=True, timeout=120)
-                if("404 Not Found" not in str(r._content)):
-                    open(fileDest, 'wb').write(r.content)
-                    nextSAFound=True
-                else:
-                    filesource=filesource.replace("global/en","japan")
-                    filesource=filesource.replace("/en","/ja")
-                    filesource=filesource.replace("glben","GBnen")
-                    r = requests.get(filesource, allow_redirects=True, timeout=120)
-                    if("404 Not Found" not in str(r._content)):
-                        open(fileDest, 'wb').write(r.content)
-                        nextSAFound=True
-                    else:
-                        nextSAFound=False
-
-                
-        
-        
-        else: 
-            if(printing): print(fileType, "fileType invalid")
-        
-        if(fileType!="sp_name"):
-            r = requests.get(filesource, allow_redirects=True, timeout=120)
-            if("404 Not Found" not in str(r._content)):
-                open(fileDest, 'wb').write(r.content)
-            else:
-                filesource=filesource.replace("global","japan")
-                filesource=filesource.replace("/en","")
-                r = requests.get(filesource, allow_redirects=True, timeout=120)
-                if("404 Not Found" not in str(r._content)):
-                    open(fileDest, 'wb').write(r.content)
-                elif(fileType!="sticker_mask"):
-                    if(printing): print(filesource," NOT FOUND ", )
-
-def scrapeFullUnit(fileID,thumb=True,full=True,bg=True,character=True,circle=True,cutin=True,effect=True,piece=True,sticker_mask=True,sp_cutin_1=True,sp_name=True,printing=True):
-    assetsNeeded=[]
-    if thumb: assetsNeeded.append("thumb")
-    if full: assetsNeeded.append("full")
-    if bg: assetsNeeded.append("bg")
-    if character: assetsNeeded.append("character")
-    if circle: assetsNeeded.append("circle")
-    if cutin: assetsNeeded.append("cutin")
-    if effect: assetsNeeded.append("effect")
-    if piece: assetsNeeded.append("piece")
-    if sticker_mask: assetsNeeded.append("sticker_mask")
-    if sp_cutin_1: assetsNeeded.append("sp_cutin_1")
-    if sp_name: assetsNeeded.append("sp_name")
-
-    for fileType in assetsNeeded:
-        screpeassetlineant(fileID, fileType,printing)
+    name=("../frontend/dbManagement/DokkanFiles/global/en/character/card/")
+    name+=unitid
+    name+=("/card_")
+    name+=(unitid)
+    name+=("_full_thumb")
+    name+=(".png")
     
+    cfinal.save(name)
+
 def passivename(unit,printing=True):
     return(listtostr(searchbyid(str(int(float(unit[21]))), 0, passive_skillsGB, 1)))
 
