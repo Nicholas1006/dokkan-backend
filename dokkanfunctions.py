@@ -4112,6 +4112,14 @@ def createLRWallpapers(cards,directory,printing=True):
             
     if(printing): print("All LR wallpapers created")
 
+def qualifyZAwakened(unit):
+    if(unit[0][-1]=="0"):
+        return False
+    if(not qualifyUsable(unit)):
+        return False
+    if(qualifyUsable(swapToUnitWith0(unit))):
+        return True
+
 def getUnitTyping(unit,printing=True,DEVEXCEPTIONS=False):
     if unit[12][-1]=="0":
         typing="AGL"

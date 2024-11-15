@@ -45,7 +45,7 @@ turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uni
 print("Creating all units json")
 relevantCards=[]
 for unit in cardsGB:
-        if qualifyUsable(unit):
+        if qualifyUsable(unit) and not qualifyZAwakened(unit):
             relevantCards.append(unit)
 allUnitsDictionary=[]
 for unit in relevantCards:
