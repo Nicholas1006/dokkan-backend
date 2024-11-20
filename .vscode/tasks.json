@@ -2,6 +2,21 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Acquire new DDL",
+      "type": "shell",
+      "command": "cmd",
+      "args":[
+        "/c",
+        "cd Dokkan Asset Downloader && newDDL.bat"
+      ],
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "echo": true
+      }
+    },
+
+    {
       "label": "Open Farmbot",
       "type": "shell",
       "command": "cmd",
@@ -14,7 +29,6 @@
       },
       "problemMatcher": []
     },
-    //TODO: create a task to download new database
     {
       "label": "Use new database",
       "dependsOrder": "sequence",
@@ -184,6 +198,16 @@
         }
       }
     },
+
+    {
+      "label": "fully use new DDL",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "Acquire new DDL",
+        "Use new database"
+        //TODO: add auto git push to frontend
+      ]
+    }
 
   ],
   "inputs": [
