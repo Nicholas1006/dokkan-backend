@@ -31,7 +31,7 @@ for unitID in requiredList:
     card=searchbycolumn(unitID,cards,0)
     if(card!=[]):
         card=card[0]
-        if(qualifyUsable(card)):
+        if(qualifyUsable(card) or qualifyUsable(swapToUnitWith1(card))):
             createFullThumb(card)
             print(": Done")
         else:
