@@ -3280,8 +3280,8 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+=" and "
             output=output[:-5]            
         if("DR" in parsedLine):
-            output+="Damage recieved "
-            output+=str(parsedLine["Buff"]["+ or -"])
+            output+="Damage recieved -"
+            #output+=str(parsedLine["Buff"]["+ or -"])
             output+=str(parsedLine["DR"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
