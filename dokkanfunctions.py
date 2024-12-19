@@ -1,4 +1,5 @@
 from ast import parse
+import re
 from globals import *
 from calendar import c
 import csv
@@ -17,10 +18,25 @@ from datetime import datetime
 def getUnitCost(unit):
     return(unit[4])
 
+def dateTimeToTimestamp(date):
+    return(int(datetime.strptime(date, "%Y-%m-%d %H:%M:%S").timestamp()))
+
 def getUnitReleaseTime(card):
-    releaseDateTime=card[53]
-    releaseInt=int(datetime.strptime(releaseDateTime, "%Y-%m-%d %H:%M:%S").timestamp())
-    return(releaseInt)
+    return(dateTimeToTimestamp(card[53]))
+
+def getEzaReleaseTime(unit):
+    awakening_options=searchbycolumn(unit[0],card_awakening_routesGB,2)
+    for awakening_option in awakening_options:
+        if(awakening_option[7]=="1"):
+            return(dateTimeToTimestamp(awakening_option[10]))
+        
+def getSezaReleaseTime(unit):
+    awakening_options=searchbycolumn(unit[0],card_awakening_routesGB,2)
+    for awakening_option in awakening_options:
+        if(awakening_option[7]=="2"):
+            return(dateTimeToTimestamp(awakening_option[10]))
+
+
 
 def getCharacterNameID(unit):
     return(unit[3])
@@ -961,8 +977,7 @@ def getKiMultipliers(unit):
 
 def getStatsAtAllLevels(unit,eza,minLevel,maxLevel):
     output={}
-    intUnit = unit[:]
-    intUnit[0:8] = [int(x) for x in unit[6:14]]
+    intUnit = [int(x) for x in unit[6:14]]
     growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsGB)
     for level in range(minLevel,maxLevel+1):
         coef=float(searchbyid(code=str(level),codecolumn=2,database=growthInfo,column=3)[0])
@@ -2934,7 +2949,14 @@ def qualifyAsLR(card,printing=True):
     
 def qualifyEZA(card,printing=True):
     directory="data/"
-    if qualifyUsable(card) and (checkeza(card)):
+    if qualifyUsable(card) and (checkEza(card)):
+        return(True)
+    else:
+        return(False)
+
+def qualifySEZA(card,printing=True):
+    directory="data/"
+    if qualifyUsable(card) and (checkSeza(card)):
         return(True)
     else:
         return(False)
@@ -4238,11 +4260,8 @@ def floattoint(number,printing=True):
     else:
         return(number)
 
-def checkeza(unit,printing=True):
-    for eza in optimal_awakening_growthsGB[1:]:
-        if str(int(float(unit[22]))) in str(int(float(eza[6]))):
-            return(True)
-    return(False)
+
+
     
 def returnRow(ID, IDRow, database, printing=True):
     output=[]
