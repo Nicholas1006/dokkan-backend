@@ -42,26 +42,27 @@ for domain in dokkan_fields:
 
 turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uniqueJsons")
 
-print("Creating all units json")
+bar = Bar("Creating all units json",max=len(cardsGB))
 allUnitsDictionary=[]
 relevantCards=[]
 for unit in cardsGB:
-        if qualifyUsable(unit) and not qualifyZAwakened(unit):
-            relevantCards.append(unit)
-            allUnitsDictionary.append(unit[0])
-            if(checkEza(unit[0])):
-                allUnitsDictionary.append(unit[0]+"EZA")
-            if(checkSeza(unit[0])):
-                allUnitsDictionary.append(unit[0]+"SEZA")
-        
+    bar.next()    
+    if qualifyUsable(unit) and not qualifyZAwakened(unit):
+        relevantCards.append(unit)
+        allUnitsDictionary.append(unit[0])
+        if(checkEza(unit[0])):
+            allUnitsDictionary.append(unit[0]+"EZA")
+        if(checkSeza(unit[0])):
+            allUnitsDictionary.append(unit[0]+"SEZA")
+    
 
 
 turnintoJson(allUnitsDictionary, "allUnits",directoryName="../frontend/dbManagement/uniquejsons")
 
 unitBasics={}
-bar = Bar('Creating all unit basics', max=len(relevantCards))
+bar1 = Bar('Creating all unit basics', max=len(relevantCards))
 for unit in relevantCards:
-    bar.next()
+    bar1.next()
     ezaTrueFalse=["None"]
     if(checkEza(unit[0])):
         ezaTrueFalse.append("EZA")
@@ -89,6 +90,12 @@ for unit in relevantCards:
         unitDictionary["Cost"]=getUnitCost(unit)
         unitDictionary["Eza"]=eza
         unitDictionary["Seza"]=seza
+        unitDictionary["Dokkan Awakened"]=False
+        relevant_awakenings=searchbycolumn(code=unit[0],database=card_awakening_routesGB,column=3)
+        relevant_awakenings+=searchbycolumn(code=unit1[0],database=card_awakening_routesGB,column=3)
+        relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
+        if(relevant_awakenings!=[]):
+            unitDictionary["Dokkan Awakened"]=True
         intUnit = [int(x) for x in unit[6:14]]
         growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsGB)
         coef=float(searchbyid(code=str(unitDictionary["Max Level"]),codecolumn=2,database=growthInfo,column=3)[0])
