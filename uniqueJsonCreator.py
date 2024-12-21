@@ -47,7 +47,7 @@ allUnitsDictionary=[]
 relevantCards=[]
 for unit in cardsGB:
     bar.next()    
-    if qualifyUsable(unit) and not qualifyZAwakened(unit):
+    if qualifyUsable(unit):
         relevantCards.append(unit)
         allUnitsDictionary.append(unit[0])
         if(checkEza(unit[0])):
