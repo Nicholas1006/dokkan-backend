@@ -54,15 +54,15 @@ for unit in cardsGB:
             allUnitsDictionary.append(unit[0]+"EZA")
         if(checkSeza(unit[0])):
             allUnitsDictionary.append(unit[0]+"SEZA")
-    
+bar.finish()
 
 
 turnintoJson(allUnitsDictionary, "allUnits",directoryName="../frontend/dbManagement/uniquejsons")
 
 unitBasics={}
-bar1 = Bar('Creating all unit basics', max=len(relevantCards))
+bar = Bar('Creating all unit basics', max=len(relevantCards))
 for unit in relevantCards:
-    bar1.next()
+    bar.next()
     ezaTrueFalse=["None"]
     if(checkEza(unit[0])):
         ezaTrueFalse.append("EZA")
@@ -82,12 +82,12 @@ for unit in relevantCards:
         unitDictionary={}
 
         #Sort conditions
-        unitDictionary["ID"]=unit[0]
+        unitDictionary["ID"]=int(unit[0])
         unitDictionary["Name"]=unit[1]
         unitDictionary["Type"]=getUnitTyping(unit)
         unitDictionary["Rarity"]=getrarity(unit)
         unitDictionary["Max Level"]=getMaxLevel(unit,eza)
-        unitDictionary["Cost"]=getUnitCost(unit)
+        unitDictionary["Cost"]=int(getUnitCost(unit))
         unitDictionary["Eza"]=eza
         unitDictionary["Seza"]=seza
         unitDictionary["Dokkan Awakened"]=False
@@ -109,8 +109,8 @@ for unit in relevantCards:
             unitDictionary["Acquired"]=getSezaReleaseTime(unit)
         else:
             unitDictionary["Acquired"]=getUnitReleaseTime(unit)
-        unitDictionary["Character"]=getCharacterNameID(unit)
-        unitDictionary["Sp Atk Lv"]=unit[14]
+        unitDictionary["Character"]=int(getCharacterNameID(unit))
+        unitDictionary["Sp Atk Lv"]=int(unit[14])
         if(eza):
             unitDictionary["Sp ATK Lv"]=str(5+int(unit[14]))
         unitDictionary["Activation"]=0
