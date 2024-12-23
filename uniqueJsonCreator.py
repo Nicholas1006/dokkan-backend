@@ -86,7 +86,7 @@ for unit in relevantCards:
         unitDictionary["Name"]=unit[1]
         unitDictionary["Type"]=getUnitTyping(unit)
         unitDictionary["Rarity"]=getrarity(unit)
-        unitDictionary["Max Level"]=getMaxLevel(unit,eza)
+        unitDictionary["Max Level"]=getMaxLevel(unit,eza or seza)
         unitDictionary["Cost"]=int(getUnitCost(unit))
         unitDictionary["Eza"]=eza
         unitDictionary["Seza"]=seza
@@ -110,13 +110,19 @@ for unit in relevantCards:
         else:
             unitDictionary["Acquired"]=getUnitReleaseTime(unit)
         unitDictionary["Character"]=int(getCharacterNameID(unit))
-        unitDictionary["Sp Atk Lv"]=int(unit[14])
+        unitDictionary["Sp Atk Lv"]=getSuperAttackLevel(unit,eza)
         if(eza):
             unitDictionary["Sp ATK Lv"]=str(5+int(unit[14]))
         unitDictionary["Activation"]=0
         if(unitDictionary["Rarity"]=="ur" or unitDictionary["Rarity"]=="lr"):
             unitDictionary["Activation"]=1
 
+
+        unitDictionary["Resource ID"]=unit[0]
+        if(unit[48]!=""):
+            unitDictionary["Resource ID"]=str(int(float(unit[48])))
+        if(unitDictionary["Resource ID"][-1]=="1"):
+            unitDictionary["Resource ID"]=(unitDictionary["Resource ID"][:-1]+"0")
         
         #filter conditions(many are within sort)
         unitDictionary["Class"]=getUnitClass(unit)

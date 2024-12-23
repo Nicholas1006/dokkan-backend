@@ -37,7 +37,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1029891"]
+cardIDsToCheck=["1020221"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -136,6 +136,7 @@ for unit in cardsToCheck:
                 unitDictionary["Resource ID"]=str(int(float(unit[48])))
             if(unit[0][-1]=="1"):
                 unitDictionary["Resource ID"]=(unit[0][:-1]+"0")
+            unitDictionary["Resource ID"]=int(unitDictionary["Resource ID"])
 
             unitDictionary["Passive"]={}
             if(CALCPASSIVE):

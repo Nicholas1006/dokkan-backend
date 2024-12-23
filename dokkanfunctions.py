@@ -4490,6 +4490,16 @@ def typefinder(element,printing=True):
     else:
         return("NO TYPING!!!!!!!!!!!!!")
 
+def getSuperAttackLevel(unit, eza):
+    if(eza==False):
+        return(int(unit[14]))
+    else:
+        optimal_awakening_grow_type=unit[16][:-2]
+        relevant_Awakenings=searchbycolumn(code=optimal_awakening_grow_type,database=optimal_awakening_growthsGB,column=1)
+        relevant_Awakenings.sort(key=lambda x:x[4])
+        return(int(relevant_Awakenings[-1][4]))
+
+
 def getrarity(unit,printing=True):
     
     if(type(unit)==list):
