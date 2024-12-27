@@ -101,7 +101,7 @@ for unit in cardsToCheck:
             if(CALCBASIC):
                 basicStart=time.time()
                 unitDictionary["ID"]=unit[0]
-                unitDictionary["Typing"]=getUnitTyping(unit)
+                unitDictionary["Type"]=getUnitType(unit)
                 unitDictionary["Class"]=getUnitClass(unit)
                 if(unitGB!=None):
                     unitDictionary["Name"]=unitGB[1]
@@ -259,6 +259,7 @@ for unit in cardsToCheck:
                         unitDictionary["Transforms from"].append(transform)
                         forms.append(transform)
                         newFound=True
+            unitDictionary["Transforms from"].reverse()
 
             
             for transform in unitDictionary["Transformations"]:

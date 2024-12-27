@@ -84,7 +84,7 @@ for unit in relevantCards:
         #Sort conditions
         unitDictionary["ID"]=int(unit[0])
         unitDictionary["Name"]=unit[1]
-        unitDictionary["Type"]=getUnitTyping(unit)
+        unitDictionary["Type"]=getUnitType(unit)
         unitDictionary["Rarity"]=getrarity(unit)
         unitDictionary["Max Level"]=getMaxLevel(unit,eza or seza)
         unitDictionary["Cost"]=int(getUnitCost(unit))

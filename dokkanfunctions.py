@@ -4142,7 +4142,7 @@ def qualifyZAwakened(unit):
     if(qualifyUsable(swapToUnitWith0(unit))):
         return True
 
-def getUnitTyping(unit,printing=True,DEVEXCEPTIONS=False):
+def getUnitType(unit,printing=True,DEVEXCEPTIONS=False):
     if unit[12][-1]=="0":
         typing="AGL"
     elif unit[12][-1]=="1":
