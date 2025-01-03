@@ -2058,7 +2058,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             target="enemies "
             output["Slider"]["Max"]=7
         elif(CausalityRow[2]=="2"):
-            target="units on the same turn?"
+            target="units on this turn?"
             output["Slider"]["Max"]=3
         categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
@@ -2134,7 +2134,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         elif(CausalityRow[2]=="1"):
             output["Button"]["Name"]="Is there an enemy whose name includes "
         elif(CausalityRow[2]=="2"):
-            output["Button"]["Name"]="Is there an ally attacking in the same turn whose name includes "
+            output["Button"]["Name"]="Is there an ally attacking on this turn whose name includes "
         else:
             output+=("UNKNOWN NAME TYPE")
             if(DEVEXCEPTIONS==True):
@@ -2249,7 +2249,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             output["Button"]["Name"]+=(categoryType)
             output["Button"]["Name"]+=(" Category ally whose name includes ")
             output["Button"]["Name"]+=likelyName
-            output["Button"]["Name"]+=(" attacking in the same turn?")
+            output["Button"]["Name"]+=(" attacking on this turn?")
         else:
             output+=("UNKNOWN NAME TYPE")
             if(DEVEXCEPTIONS==True):
@@ -2258,7 +2258,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="46"):
         output["Button"]["Name"]=("Is there an extreme class enemy?")
     elif(CausalityRow[1]=="47"):
-        output["Button"]["Name"]=("Has this character or an ally attacking in the same turn been KO'd?")
+        output["Button"]["Name"]=("Has this character or an ally attacking on this turn been KO'd?")
     elif(CausalityRow[1]=="48"):
         output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
     elif(CausalityRow[1]=="49"):
@@ -2477,7 +2477,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     target="enemies "
                     output["Slider"]["Max"]=7
                 elif(CausalityRow[2]=="2"):
-                    target="units on the same turn "
+                    target="units on this turn "
                     output["Slider"]["Max"]=3
                 categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categoriesGB,column=1)[0]
 
@@ -2553,7 +2553,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 elif(CausalityRow[2]=="1"):
                     output["Button"]["Name"]="Is there an enemy whose name includes "
                 elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]="Is there an ally attacking in the same turn whose name includes "
+                    output["Button"]["Name"]="Is there an ally attacking on this turn whose name includes "
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -2668,16 +2668,60 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+=(categoryType)
                     output["Button"]["Name"]+=(" Category ally whose name includes ")
                     output["Button"]["Name"]+=likelyName
-                    output["Button"]["Name"]+=(" attacking in the same turn?")
+                    output["Button"]["Name"]+=(" attacking on this turn?")
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown name type")
 
             elif(CausalityRow[1]=="46"):
-                output["Button"]["Name"]=("Is there an extreme class enemy?")
+                output["Button"]["Name"]=("Is there "+CausalityRow[4] + " or more ")
+                output["Slider"]["Name"]=("How many ")
+                
+
+                classType=extractClassType(CausalityRow[3])
+                if(classType[0]!=[]):
+                    output["Button"]["Name"]+=(classType[0][0])
+                    output["Slider"]["Name"]+=(classType[0][0])
+                    output["Slider"]["Name"]+=(" class ")
+                    output["Button"]["Name"]+=(" class ")
+
+                if(classType[1]!=[]):
+                    for Type in classType[1]:
+                        output["Button"]["Name"]+=(Type)
+                        output["Slider"]["Name"]+=(Type)
+                        output["Button"]["Name"]+=(" or ")
+                        output["Slider"]["Name"]+=(" or ")
+                    output["Button"]["Name"]=output["Button"]["Name"][:-3]
+                    output["Slider"]["Name"]=output["Slider"]["Name"][:-3]
+                    output["Button"]["Name"]+=(" type ")
+                    output["Slider"]["Name"]+=(" type ")
+
+                if(CausalityRow[2]=="0"):
+                    output["Button"]["Name"]+=("allies?")
+                    output["Slider"]["Name"]+=("allies?")
+                    output["Slider"]["Max"]=7
+                elif(CausalityRow[2]=="1"):
+                    output["Button"]["Name"]+=("enemies?")
+                    output["Slider"]["Name"]+=("enemies?")
+                    output["Slider"]["Max"]=7
+                elif(CausalityRow[2]=="2"):
+                    output["Button"]["Name"]+=("allies attacking on this turn?")
+                    output["Slider"]["Name"]+=("allies attacking on this turn?")
+                    output["Slider"]["Max"]=3
+                else:
+                    print("UNKNOWN target TYPE")
+                    print(CausalityRow)
+                    if(DEVEXCEPTIONS==True):
+                        raise Exception("Unknown target type")
+                output["Slider"]["Min"]=0
+                output["Slider"]["Logic"]=">="
+                output["Slider"]["Logic"]+=CausalityRow[4]
+                
+
+
             elif(CausalityRow[1]=="47"):
-                output["Button"]["Name"]=("Has this character or an ally attacking in the same turn been KO'd?")
+                output["Button"]["Name"]=("Has this character or an ally attacking on this turn been KO'd?")
             elif(CausalityRow[1]=="48"):
                 output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
             elif(CausalityRow[1]=="49"):
@@ -3570,14 +3614,14 @@ def polishPassiveLine(parsedLine):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
                 Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
                 if("Button" in Causality):
-                    if("turns" not in Causality["Button"]["Name"]):
+                    if("this turn" not in Causality["Button"]["Name"] and "last turn" not in Causality["Button"]["Name"]):
                         if(duration=="1"):
                             Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" on this turn?"
                         elif(duration!="99"):
                             Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" within the last "+duration+" turns?"
                     
                 if("Slider" in Causality):
-                    if("turns" not in Causality["Slider"]["Name"]):
+                    if("this turn" not in Causality["Slider"]["Name"] and "last turn" not in Causality["Slider"]["Name"]):
                         if(duration=="1"):
                             Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" on this turn?"
                         elif(duration!="99"):
@@ -3650,7 +3694,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Start of turn"
         output["Building Stat"]["Slider"]="How many turns has this character been on?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:63]=='Is there an ally attacking in the same turn whose name includes'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:63]=='Is there an ally attacking on this turn whose name includes'):
         del output["Condition"]
         allyName=causalities[0][64:-1]
         output["Building Stat"]["Cause"]["Cause"]="Turns with ally "+allyName
@@ -3662,10 +3706,10 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Turns with ally on the team whose name includes "+allyName
         output["Building Stat"]["Slider"]="How many turns has this character been on with an ally on the team whose name includes "+allyName+"?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:63]=='Is there an ally attacking in the same turn whose name includes' and causalities[1][:63]=='Is there an ally attacking in the same turn whose name includes'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:59]=='Is there an ally attacking on this turn whose name includes' and causalities[1][:59]=='Is there an ally attacking on this turn whose name includes'):
         del output["Condition"]
-        ally1Name=causalities[0][64:-1]
-        ally2Name=causalities[1][64:-1]
+        ally1Name=causalities[0][59:-1]
+        ally2Name=causalities[1][59:-1]
         output["Building Stat"]["Cause"]["Cause"]="Turns with ally "+ally1Name+" or "+ally2Name
         output["Building Stat"]["Slider"]="How many turns has this character been on with an ally whose name includes "+ally1Name+" or "+ally2Name+"?"
     
@@ -3686,12 +3730,12 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Guard activated"
         output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
     
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1][-32:]=='category units on the same turn '):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1][-28:]=='category units on this turn '):
         del output["Condition"]
-        category=causalities[1][20:-34]
+        category=causalities[1][20:-30]
         quantity=causalities[1][10]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on the same turn"
-        output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on the same turn?"
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on this turn"
+        output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on this turn?"
     
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and causalities[1][:48]=='Is there an ally on the team whose name includes'):
         del output["Condition"]
@@ -3709,9 +3753,9 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Final blow delivered"
         output["Building Stat"]["Slider"]="How many times has this character delivered the final blow?"
         
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:12]=='Is there an ' and causalities[0][-12:]=='class enemy?'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:9]=='Is there ' and causalities[0][-14:]=='class enemies?'):
         del output["Condition"]
-        enemyClass=causalities[0][12:-14]
+        enemyClass=causalities[0][19:-15]
         output["Building Stat"]["Cause"]["Cause"]="Turns with a "+enemyClass+" class enemy"
         output["Building Stat"]["Slider"]="How many turns has this character been on with a "+enemyClass+" class enemy?"
 

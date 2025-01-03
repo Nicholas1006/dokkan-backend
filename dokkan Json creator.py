@@ -9,6 +9,7 @@ DEVEXCEPTIONS=True
 GLOBALPARSE=True
 GLOBALREFRESH=False
 MAKEJSON=True
+DEBUG=True
 
 CALCPASSIVE=True
 CALCLINKS=True
@@ -37,7 +38,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1020221"]
+cardIDsToCheck=["1020181"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -83,11 +84,13 @@ dokkanAwakenings={}
 transformations={}
 totalTime=time.time()
 for unit in cardsToCheck:
+    if(DEBUG):
+        print(unit[0])
+    elif(GLOBALPARSE):
+        bar.next()
     ezaTrueFalse=[False]
     if(checkEza(unit[0])):
         ezaTrueFalse=[False,True]
-    if(GLOBALPARSE):
-            bar.next()
     for eza in ezaTrueFalse:
         if(checkSeza(unit[0]) and eza):
             sezaTrueFalse=[False,True]
