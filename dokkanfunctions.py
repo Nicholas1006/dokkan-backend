@@ -1379,32 +1379,17 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Status"].append("DEF reduced to 0")
     elif passiveskill[4]=="59":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many "
-        #for orbType in ["Rainbow","PHY","STR","INT","TEQ","AGL"]:
-        #    effects["Building Stat"]["Slider"]+=orbType
-        #    effects["Building Stat"]["Slider"]+=" or "
-        #effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
-        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
         effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["ATK"]+=int(passiveskill[13])
     elif passiveskill[4]=="60":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many "
-        #for orbType in ["Rainbow","PHY","STR","INT","TEQ","AGL"]:
-        #    effects["Building Stat"]["Slider"]+=orbType
-        #    effects["Building Stat"]["Slider"]+=" or "
-        #effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
-        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
         effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[13])
     elif passiveskill[4]=="61":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many "
-        #for orbType in ["Rainbow","PHY","STR","INT","TEQ","AGL"]:
-        #    effects["Building Stat"]["Slider"]+=orbType
-        #    effects["Building Stat"]["Slider"]+=" or "
-        #effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
-        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
         effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["ATK"]+=int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[13])
@@ -2348,9 +2333,9 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 unit31=int(unit[31])
                 kiAmount=(Ca2*unit31)//99
 
-                output["Button"]["Name"]="Is Ki at least "
-                output["Button"]["Name"]+=str(kiAmount)
-                output["Button"]["Name"]+="?"
+                #output["Button"]["Name"]="Is Ki at least "
+                #output["Button"]["Name"]+=str(kiAmount)
+                #output["Button"]["Name"]+="?"
 
                 output["Slider"]["Name"]="How much ki is there?"
                 output["Slider"]["Logic"]=">="
@@ -2365,9 +2350,9 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 unit31=int(unit[31])
                 kiAmount=(Ca2*unit31)//99
 
-                output["Button"]["Name"]="Is Ki at least "
-                output["Button"]["Name"]+=str(kiAmount)
-                output["Button"]["Name"]+="?"
+                #output["Button"]["Name"]="Is Ki at least "
+                #output["Button"]["Name"]+=str(kiAmount)
+                #output["Button"]["Name"]+="?"
 
 
                 output["Slider"]["Name"]="How much ki is there?"
@@ -2648,7 +2633,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 for id in card_unique_info_id:
                     name=searchbyid(code=id,codecolumn=3,database=cardsGB,column=1)
                     if (name!=None):
-                        possible_names.append(name)
+                        possible_names+=(name)
+                possible_names=list(set(possible_names))
                 likelyName=longestCommonSubstring(possible_names) 
 
                 if(CausalityRow[2]=="0"):
@@ -3614,14 +3600,14 @@ def polishPassiveLine(parsedLine):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
                 Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
                 if("Button" in Causality):
-                    if("this turn" not in Causality["Button"]["Name"] and "last turn" not in Causality["Button"]["Name"]):
+                    if("this turn" not in Causality["Button"]["Name"] and "last turn" not in Causality["Button"]["Name"] and "within the first" not in Causality["Button"]["Name"]):
                         if(duration=="1"):
                             Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" on this turn?"
                         elif(duration!="99"):
                             Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" within the last "+duration+" turns?"
                     
                 if("Slider" in Causality):
-                    if("this turn" not in Causality["Slider"]["Name"] and "last turn" not in Causality["Slider"]["Name"]):
+                    if("this turn" not in Causality["Slider"]["Name"] and "last turn" not in Causality["Slider"]["Name"] and "within the first" not in Causality["Slider"]["Name"]):
                         if(duration=="1"):
                             Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" on this turn?"
                         elif(duration!="99"):
@@ -3639,16 +3625,16 @@ def polishPassiveLine(parsedLine):
 
     elif("Disable Other Line" in parsedLine):
         if("Condition" not in parsedLine and parsedLine["Timing"]=="Right after attack"):
-            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Has this character performed an attack on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
+            newCondition={"LogicLogic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Has this character performed an attack on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
             output["Condition"]=newCondition
 
-    elif(parsedLine["Length"]=="1" and "Building Stat" in parsedLine):
+    if(parsedLine["Length"]=="1" and "Building Stat" in parsedLine):
         if(parsedLine["Building Stat"]["Slider"]=="How many attacks has this character performed in battle?"):
             parsedLine["Building Stat"]["Slider"]="How many attacks has this character performed on this turn?"
         if(parsedLine["Building Stat"]["Slider"]=='How many super attacks has this character performed?'):
             parsedLine["Building Stat"]["Slider"]="How many super attacks has this character performed on this turn?"
         
-        elif(("How many ") in parsedLine["Building Stat"]["Slider"] and (" Ki Spheres have been obtained?") in parsedLine["Building Stat"]["Slider"]):
+        if(("How many ") in parsedLine["Building Stat"]["Slider"] and (" Ki Spheres have been obtained?") in parsedLine["Building Stat"]["Slider"]):
             parsedLine["Building Stat"]["Slider"]=parsedLine["Building Stat"]["Slider"].replace(" Ki Spheres have been obtained?"," Ki Spheres have been obtained on this turn?")
 
                     
