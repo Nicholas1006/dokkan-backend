@@ -4191,7 +4191,7 @@ def getUnitType(unit,printing=True,DEVEXCEPTIONS=False):
 
 def getUnitClass(unit,printing=True,DEVEXCEPTIONS=False):
     if(len(unit[12])==1):
-        return(None)
+        return("None")
     elif unit[12][0]=="1":
         return("Super")
     elif unit[12][0]=="2":
@@ -4735,3 +4735,18 @@ def ezastat(minlvl,maxlvl,printing=True):
     maxlvl=int(maxlvl)
     return(round(((maxlvl-minlvl)*0.4839)+maxlvl))
 
+def filter_unit_components(data, components):
+    """
+    Filters the dictionary to include only the specified components.
+    
+    :param unit_basics: The original dictionary of unit details.
+    :param components: A list of keys to include for each unit (e.g., ["ID", "Name"]).
+    :return: A new dictionary with filtered components.
+    """
+    return {
+        unit_id: {key: details[key] for key in components if key in details}
+        for unit_id, details in data.items()
+    }
+
+def filterSingleComponent(data, component):
+    return {unit_id: unit_info.get(component, None) for unit_id, unit_info in data.items()}
