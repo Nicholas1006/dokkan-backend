@@ -3587,7 +3587,7 @@ def polishPassiveLine(parsedLine):
             if(output["Length"]!="99"):
                 newCondition={"Logic":output["ID"],
                               "Causalities":{output["ID"]: {"Button": {"Name":"Is it within the first "+output["Length"]+" turns from entry turn?"},
-                                                            "Slider":{"Name":"How many turns is it since entry turn on this?","Logic":"<="+output["Length"],
+                                                            "Slider":{"Name":"How many turns is it since entry turn on this turn?","Logic":"<="+output["Length"],
                                                                         "Max": str(int(output["Length"])+1),
                                                                         "Min":"1"}}}}
                 output["Condition"]=newCondition
