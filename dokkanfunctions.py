@@ -2266,7 +2266,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Logic"]="<="
         output["Slider"]["Logic"]+=CausalityRow[2]
         output["Slider"]["Min"]=0
-        output["Slider"]["Max"]=int(CausalityRow[2])
+        output["Slider"]["Max"]=int(CausalityRow[2])+1
     elif(CausalityRow[1]=="53"):
         output["Button"]["Name"]=("Has this characters finish effect been activated?")
     elif(CausalityRow[1]=="54"):
@@ -2730,7 +2730,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]="<="
                 output["Slider"]["Logic"]+=CausalityRow[2]
                 output["Slider"]["Min"]=0
-                output["Slider"]["Max"]=int(CausalityRow[2])
+                output["Slider"]["Max"]=int(CausalityRow[2])+1
             elif(CausalityRow[1]=="52"):
                 if(CausalityRow[2]=="1"):
                     output["Button"]["Name"]=("Is the charge count less than ")
@@ -2767,7 +2767,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=CausalityRow[2]
                 output["Slider"]["Min"]=0
-                output["Slider"]["Max"]=int(CausalityRow[2])
+                output["Slider"]["Max"]=int(CausalityRow[2])+1
             elif(CausalityRow[1]=="56"):
                 output["Button"]["Name"]=("Has the character recieved a normal attack?")
             elif(CausalityRow[1]=="57"):
@@ -3584,8 +3584,13 @@ def polishPassiveLine(parsedLine):
 
         #Once only, no condition
         else:
-            newCondition={"Logic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Is it within the first "+output["Length"]+" turns from entry turn?"},"Slider":{"Name":"How many turns is it since entry turn?","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
-            output["Condition"]=newCondition
+            if(output["Length"]!="99"):
+                newCondition={"Logic":output["ID"],
+                              "Causalities":{output["ID"]: {"Button": {"Name":"Is it within the first "+output["Length"]+" turns from entry turn?"},
+                                                            "Slider":{"Name":"How many turns is it since entry turn on this?","Logic":"<="+output["Length"],
+                                                                        "Max": str(int(output["Length"])+1),
+                                                                        "Min":"1"}}}}
+                output["Condition"]=newCondition
 
     elif("Condition" in parsedLine):
         if(parsedLine["Timing"]=="End of turn" and ("ATK" in parsedLine or "DEF" in parsedLine) ):
@@ -3595,6 +3600,8 @@ def polishPassiveLine(parsedLine):
                     Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
                 if("Slider" in Causality):
                     Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
+        elif(stupidCondition(parsedLine)):
+            del output["Condition"]
         else:
             duration=parsedLine["Length"]
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
@@ -3637,11 +3644,22 @@ def polishPassiveLine(parsedLine):
         if(("How many ") in parsedLine["Building Stat"]["Slider"] and (" Ki Spheres have been obtained?") in parsedLine["Building Stat"]["Slider"]):
             parsedLine["Building Stat"]["Slider"]=parsedLine["Building Stat"]["Slider"].replace(" Ki Spheres have been obtained?"," Ki Spheres have been obtained on this turn?")
 
-                    
 
 
 
     return(output)
+
+def stupidCondition(parsedLine,DEVECXEPTION=True):
+    causalities=parsedLine.get("Condition", {}).get("Causalities", {})
+    if(len(causalities)==1):
+        key=next(iter(causalities))
+        button_name = causalities[key].get("Button", {}).get("Name", "")
+        
+        # Check if Button["Name"] matches the required string
+        if button_name == 'Is it on or after the first 0 turns from this characters entry turn?':
+            return True
+    
+    return False
 
 def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     output=parsedLine

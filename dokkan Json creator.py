@@ -9,7 +9,7 @@ DEVEXCEPTIONS=True
 GLOBALPARSE=True
 GLOBALREFRESH=False
 MAKEJSON=True
-DEBUG=True
+DEBUG=False
 
 CALCPASSIVE=True
 CALCLINKS=True
@@ -38,7 +38,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1020181"]
+cardIDsToCheck=["4019641"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 

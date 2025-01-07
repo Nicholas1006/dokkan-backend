@@ -2,9 +2,9 @@ from dokkanfunctions import *
 from progress.bar import Bar
 
 
-CALCLINKS=False
-CALCDOMAINS=False
-CALCALLUNITS=False
+CALCLINKS=True
+CALCDOMAINS=True
+CALCALLUNITS=True
 CALCUNITBASICS=True
 
 
