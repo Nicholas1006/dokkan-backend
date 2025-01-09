@@ -26,16 +26,76 @@ def getUnitReleaseTime(card):
 
 def getEzaReleaseTime(unit):
     awakening_options=searchbycolumn(unit[0],card_awakening_routesGB,2)
-    for awakening_option in awakening_options:
-        if(awakening_option[7]=="1"):
-            return(dateTimeToTimestamp(awakening_option[10]))
+    if(awakening_options!=[]):
+        for awakening_option in awakening_options:
+            if(awakening_option[7]=="1"):
+                return(dateTimeToTimestamp(awakening_option[10]))
+    else:
+        unitID=None
+        #unit is transformed
+        passiveTransformationLine=searchbyid(code=unit[0],codecolumn=13,database=passive_skillsGB,column=0)
+        if(passiveTransformationLine!=None):
+            for line in passiveTransformationLine:
+                passiveSkillSet=searchbyid(code=line,codecolumn=2,database=passive_skill_set_relationsGB,column=1)[0]+".0"
+                if(searchbyid(code=passiveSkillSet,codecolumn=21,database=cardsGB,column=0)!=None):
+                    unitID=searchbyid(code=passiveSkillSet,codecolumn=21,database=cardsGB,column=0)[0]
+        activeTransformationLine=searchbyid(code=unit[0],codecolumn=6,database=active_skillsGB,column=0)
+        if(activeTransformationLine!=None):
+            for line in activeTransformationLine:
+                activeSkillSet=searchbyid(code=line, codecolumn=0,database=active_skillsGB,column=1)
+                unitID=searchbyid(code=activeSkillSet[0],codecolumn=2,database=card_active_skillsGB,column=1)[0]
+        for standbySkill in standby_skillsGB:
+            if(standbySkill[8][1:-1].split(",")[0][:-1]==unit[0][:-1]):
+                unitID=searchbyid(code=standbySkill[1],codecolumn=2,database=card_standby_skill_set_relationsGB,column=1)[0]
+        for finishSkill in finish_skillsGB:
+            if(finishSkill[8][1:-1].split(",")[0][:-1]==unit[0][:-1]):
+                unitID=searchbyid(code=finishSkill[1],codecolumn=2,database=card_finish_skill_set_relationsGB,column=1)[0]
+        
+        if(unitID==None):
+            if(unit[0][-1]=="1"):
+                print(unit)
+                raise Exception("UNKNOWN EZA RELEASE TIME")
+            else:
+                return(getEzaReleaseTime(swapToUnitWith1(unit)))
+        else:
+            unitBase=searchbycolumn(code=unitID,column=0,database=cardsGB)[0]
+            return(getEzaReleaseTime(unitBase))
         
 def getSezaReleaseTime(unit):
     awakening_options=searchbycolumn(unit[0],card_awakening_routesGB,2)
-    for awakening_option in awakening_options:
-        if(awakening_option[7]=="2"):
-            return(dateTimeToTimestamp(awakening_option[10]))
-
+    if(awakening_options!=[]):
+        for awakening_option in awakening_options:
+            if(awakening_option[7]=="2"):
+                return(dateTimeToTimestamp(awakening_option[10]))
+    else:
+        unitID=None
+        #unit is transformed
+        passiveTransformationLine=searchbyid(code=unit[0],codecolumn=13,database=passive_skillsGB,column=0)
+        if(passiveTransformationLine!=None):
+            for line in passiveTransformationLine:
+                passiveSkillSet=searchbyid(code=line,codecolumn=2,database=passive_skill_set_relationsGB,column=1)[0]+".0"
+                if(searchbyid(code=passiveSkillSet,codecolumn=21,database=cardsGB,column=0)!=None):
+                    unitID=searchbyid(code=passiveSkillSet,codecolumn=21,database=cardsGB,column=0)[0]
+        activeTransformationLine=searchbyid(code=unit[0],codecolumn=5,database=active_skillsGB,column=0)
+        if(activeTransformationLine!=None):
+            for line in activeTransformationLine:
+                activeSkillSet=searchbyid(code=line, codecolumn=0,database=active_skillsGB,column=1)
+                unitID=searchbyid(code=activeSkillSet[0],codecolumn=2,database=card_active_skillsGB,column=1)[0]
+        for standbySkill in standby_skillsGB:
+            if(standbySkill[8][1:-1].split(",")[0][:-1]==unit[0][:-1]):
+                unitID=searchbyid(code=standbySkill[1],codecolumn=2,database=card_standby_skill_set_relationsGB,column=1)[0]
+        for finishSkill in finish_skillsGB:
+            if(finishSkill[8][1:-1].split(",")[0][:-1]==unit[0][:-1]):
+                unitID=searchbyid(code=finishSkill[1],codecolumn=2,database=card_finish_skill_set_relationsGB,column=1)[0]
+        if(unitID==None):
+            if(unit[0][-1]=="1"):
+                print(unit)
+                raise Exception("No SEZA TIME for this unit")
+            else:
+                return(getSezaReleaseTime(swapToUnitWith1(unit)))
+        else:
+            unitBase=searchbycolumn(code=unitID,column=0,database=cardsGB)[0]
+            return(getSezaReleaseTime(unitBase))
 
 
 def getCharacterNameID(unit):
@@ -2009,8 +2069,8 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Max"]=3
 
     elif(CausalityRow[1]=="24"):
-        output["Button"]["Name"]="Has attack been recieved?"
-        output["Slider"]["Name"]="How many attacks has this character recieved?"
+        output["Button"]["Name"]="Has this character been hit?"
+        output["Slider"]["Name"]="How many times has this character been hit?"
         output["Slider"]["Logic"]=">=1"
         output["Slider"]["Min"]=0
         output["Slider"]["Max"]=1
@@ -2248,11 +2308,11 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
     elif(CausalityRow[1]=="49"):
         if(CausalityRow[2]=="1"):
-            output["Button"]["Name"]=("Has the character been attacked by a ki blast super attack?")
+            output["Button"]["Name"]=("Has the character been hit by a ki blast super attack?")
         elif(CausalityRow[2]=="2"):
-            output["Button"]["Name"]=("Has the character been attacked by an unarmed super attack?")
+            output["Button"]["Name"]=("Has the character been hit by an unarmed super attack?")
         elif(CausalityRow[2]=="4"):
-            output["Button"]["Name"]=("Has the character been attacked by a physical super attack?")
+            output["Button"]["Name"]=("Has the character been hit by a physical super attack?")
         else:
             output+=("UNKNOWN SUPER ATTACK TYPE")
             if(DEVEXCEPTIONS==True):
@@ -2295,7 +2355,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="58"):
         output["Button"]["Name"]=("Is no domain active?")
     elif(CausalityRow[1]=="61"):
-        output["Button"]["Name"]=("Did the character recieve an attack on this turn?")
+        output["Button"]["Name"]=("Has this character been hit on this turn?")
     else:
         output["Button"]["Name"]=("UNKNOWN CAUSALITY CONDITION")
         if(DEVEXCEPTIONS==True):
@@ -2428,8 +2488,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Max"]=3
 
             elif(CausalityRow[1]=="24"):
-                output["Button"]["Name"]="Has attack been recieved?"
-                output["Slider"]["Name"]="How many attacks has this character recieved?"
+                output["Button"]["Name"]="Has this character been hit?"
+                output["Slider"]["Name"]="How many times has this character been hit?"
                 output["Slider"]["Logic"]=">=1"
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=1
@@ -2712,11 +2772,11 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
             elif(CausalityRow[1]=="49"):
                 if(CausalityRow[2]=="1"):
-                    output["Button"]["Name"]=("Has the character been attacked by a ki blast super attack?")
+                    output["Button"]["Name"]=("Has the character been hit by a ki blast super attack?")
                 elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]=("Has the character been attacked by an unarmed super attack?")
+                    output["Button"]["Name"]=("Has the character been hit by an unarmed super attack?")
                 elif(CausalityRow[2]=="4"):
-                    output["Button"]["Name"]=("Has the character been attacked by a physical super attack?")
+                    output["Button"]["Name"]=("Has the character been hit by a physical super attack?")
                 else:
                     output+=("UNKNOWN SUPER ATTACK TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -2803,7 +2863,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]=output["Button"]["Name"][:-3]
                     output["Button"]["Name"]+="category)"
             elif(CausalityRow[1]=="61"):
-                output["Button"]["Name"]=("Did the character recieve an attack on this turn?")
+                output["Button"]["Name"]=("Has this character been hit on this turn?")
             elif(CausalityRow[1]=="64"):
                 if(CausalityRow[2]=="2"):
                     output["Button"]["Name"]="Have less than or equal to "
@@ -3602,6 +3662,11 @@ def polishPassiveLine(parsedLine):
                     Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
         elif(stupidCondition(parsedLine)):
             del output["Condition"]
+        elif(enemySuperCondition(parsedLine)):
+            for conditionKey in parsedLine["Condition"]["Causalities"]:
+                if(parsedLine["Condition"]["Causalities"][conditionKey]["Button"]["Name"]=="Is a super being performed?"):
+                    parsedLine["Condition"]["Causalities"][conditionKey]["Button"]["Name"]="Has this character been hit by a super attack?"
+                
         else:
             duration=parsedLine["Length"]
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
@@ -3612,6 +3677,8 @@ def polishPassiveLine(parsedLine):
                             Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" on this turn?"
                         elif(duration!="99"):
                             Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" within the last "+duration+" turns?"
+                        elif(("Has ") in Causality["Button"]["Name"] and (" Ki Spheres have been obtained?") in Causality["Button"]["Name"]):
+                                Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1]+" in one turn?"
                     
                 if("Slider" in Causality):
                     if("this turn" not in Causality["Slider"]["Name"] and "last turn" not in Causality["Slider"]["Name"] and "within the first" not in Causality["Slider"]["Name"]):
@@ -3619,6 +3686,8 @@ def polishPassiveLine(parsedLine):
                             Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" on this turn?"
                         elif(duration!="99"):
                             Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1]+" within the last "+duration+" turns?"
+                        elif(("How many ") in Causality["Slider"]["Name"] and (" Ki Spheres have been obtained?") in Causality["Slider"]["Name"]):
+                                Causality["Slider"]["Name"]="What is the most amount of "+ Causality["Slider"]["Name"][9:-1]+" in one turn?"
 
     elif(parsedLine["Timing"]=="End of turn"):
         if("Condition" in parsedLine):
@@ -3661,6 +3730,18 @@ def stupidCondition(parsedLine,DEVECXEPTION=True):
     
     return False
 
+def enemySuperCondition(parsedLine,DEVECXEPTION=True):
+    causalities=parsedLine.get("Condition", {}).get("Causalities", {})
+    if(parsedLine["Timing"]=="Right before being hit" or parsedLine["Timing"]=="Right after being hit"):
+        key=next(iter(causalities))
+        button_name = causalities[key].get("Button", {}).get("Name", "")
+        
+        # Check if Button["Name"] matches the required string
+        if button_name == 'Is a super being performed?':
+            return True
+    
+    return False
+
 def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     output=parsedLine
     causalities=[""]
@@ -3685,7 +3766,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="HP 80% or less"
         output["Building Stat"]["Slider"]="How many times has HP been 80% or less?"
 
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0]=='Has attack been recieved?'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0]=='Has this character been hit?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved"
         output["Building Stat"]["Slider"]="How many attacks has this character recieved?"
@@ -3734,7 +3815,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Guard activated"
         output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
     
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1][-28:]=='category units on this turn '):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and causalities[1][-28:]=='category units on this turn '):
         del output["Condition"]
         category=causalities[1][20:-30]
         quantity=causalities[1][10]
@@ -3747,7 +3828,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
         output["Building Stat"]["Slider"]="How many attacks has this unit evaded with an ally on the team whose name includes "+allyName+"?"
 
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has attack been recieved?' and causalities[1]=='Has this unit evaded an attack?'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and causalities[1]=='Has this unit evaded an attack?'):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
         output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"

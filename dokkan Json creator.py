@@ -106,19 +106,7 @@ for unit in cardsToCheck:
                 unitDictionary["ID"]=unit[0]
                 unitDictionary["Type"]=getUnitType(unit)
                 unitDictionary["Class"]=getUnitClass(unit)
-                if(unitGB!=None):
-                    unitDictionary["Name"]=unitGB[1]
-                else:
-                    card_unique_info_id=unit[3]
-                    temp=searchbyid(code=card_unique_info_id,codecolumn=3,database=cardsGB,column=1)
-                    if(temp!=None):
-                        likelyName=longestCommonSubstring(temp)
-                        if(likelyName!=""):
-                            unitDictionary["Name"]=likelyName
-                        else:
-                            unitDictionary["Name"]=unit[1]
-                    else:
-                        unitDictionary["Name"]=unit[1]
+                unitDictionary["Name"]=unitGB[1]
                 unitDictionary["Rarity"]=getrarity(unit)
                 unitDictionary["Min Level"]=getMinLevel(unit,eza)
                 unitDictionary["Max Level"]=getMaxLevel(unit,eza)
