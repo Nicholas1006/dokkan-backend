@@ -173,29 +173,12 @@ if(CALCUNITBASICS):
             
     bar.finish()
 
+    relevantComponents=["ID","Name","Type","Rarity","Max Level","Cost","Eza","Seza","Dokkan Awakened","HP","Attack","Defense","Acquired","Character","Sp Atk Lv","Activation","Resource ID","Class","Categories","Awakening","Links"]
     print("Turning unitBasics into json seperated by component")
-    turnintoJson(filterSingleComponent(unitBasics,"ID"), "ID",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Name"), "Name",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Type"), "Type",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Rarity"), "Rarity",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Max Level"), "Max Level",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Cost"), "Cost",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Eza"), "Eza",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Seza"), "Seza",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Dokkan Awakened"), "Dokkan Awakened",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"HP"), "HP",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Attack"), "Attack",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Defense"), "Defense",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Acquired"), "Acquired",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Character"), "Character",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Sp Atk Lv"), "Sp Atk Lv",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Activation"), "Activation",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Resource ID"), "Resource ID",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Class"), "Class",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Categories"), "Categories",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Awakening"), "Awakening",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Super Attack Types"), "Super Attack Types",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-    turnintoJson(filterSingleComponent(unitBasics,"Links"), "Links",directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
-
+    bar=Bar("Turning unitBasics into json seperated by component",max=len(relevantComponents))
+    for component in relevantComponents:
+        turnintoJson(filterSingleComponent(unitBasics,component), component,directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
+        bar.next()
+    bar.finish()
 
 
