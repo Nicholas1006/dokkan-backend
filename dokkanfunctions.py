@@ -2272,9 +2272,12 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
         possible_names=[]
         for id in card_unique_info_id:
-            name=searchbyid(code=id,codecolumn=3,database=cardsGB,column=1)
-            if (name!=None):
-                possible_names.append(name)
+            name=searchbycolumn(code=id,database=cardsGB,column=3)
+            for unit in name:
+                if(unit[1] not in possible_names):
+                    if(qualifyUsable(unit)):
+                        possible_names.append(unit[1])
+        possible_names=list(set(possible_names))
         likelyName=longestCommonSubstring(possible_names) 
 
         if(CausalityRow[2]=="0"):
@@ -2361,6 +2364,21 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown causality condition")
     return(output)
+
+def contains_kanji(s):
+    """
+    Check if a string contains any Kanji characters.
+
+    Parameters:
+        s (str): The input string to check.
+
+    Returns:
+        bool: True if the string contains Kanji, False otherwise.
+    """
+    # Kanji Unicode range: \u4E00 to \u9FAF
+    kanji_pattern = re.compile(r'[\u4E00-\u9FAF]')
+    return bool(kanji_pattern.search(s))
+
 
 def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=False):
     output={"Button":{}, "Slider": {"Name": None, "Logic": None}}
@@ -2510,7 +2528,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Name"]="What percentage of HP is remaining?"
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=CausalityRow[2]
-                output["Slider"]["Logic"]+=" and <="
+                output["Slider"]["Logic"]+=" && <="
                 output["Slider"]["Logic"]+=CausalityRow[3]
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=100
@@ -2691,9 +2709,11 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relationsGB,column=1)
                 possible_names=[]
                 for id in card_unique_info_id:
-                    name=searchbyid(code=id,codecolumn=3,database=cardsGB,column=1)
-                    if (name!=None):
-                        possible_names+=(name)
+                    name=searchbycolumn(code=id,database=cardsGB,column=3)
+                    for unit in name:
+                        if(unit[1] not in possible_names):
+                            if(qualifyUsable(unit)):
+                                possible_names.append(unit[1])
                 possible_names=list(set(possible_names))
                 likelyName=longestCommonSubstring(possible_names) 
 
@@ -4024,7 +4044,7 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                     elif(param[2]=="2"):
                         output["Effects"][line[0]]["Effect"]["Reverse chance"]=int(param[3])
             elif(line[5]=="90"):
-                output["Effects"][line[0]]["Effect"]["Buff"]="Crit chance"
+                output["Effects"][line[0]]["Effect"]["Buff"]="Crit Chance"
                 output["Effects"][line[0]]["Effect"]["Amount"]=int(line[6])
             elif(line[5]=="91"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Dodge Chance"
