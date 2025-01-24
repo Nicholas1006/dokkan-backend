@@ -2311,11 +2311,11 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
     elif(CausalityRow[1]=="49"):
         if(CausalityRow[2]=="1"):
-            output["Button"]["Name"]=("Has the character been hit by a ki blast super attack?")
+            output["Button"]["Name"]=("Has this character been hit by a ki blast super attack?")
         elif(CausalityRow[2]=="2"):
-            output["Button"]["Name"]=("Has the character been hit by an unarmed super attack?")
+            output["Button"]["Name"]=("Has this character been hit by an unarmed super attack?")
         elif(CausalityRow[2]=="4"):
-            output["Button"]["Name"]=("Has the character been hit by a physical super attack?")
+            output["Button"]["Name"]=("Has this character been hit by a physical super attack?")
         else:
             output+=("UNKNOWN SUPER ATTACK TYPE")
             if(DEVEXCEPTIONS==True):
@@ -2333,7 +2333,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="53"):
         output["Button"]["Name"]=("Has this characters finish effect been activated?")
     elif(CausalityRow[1]=="54"):
-        output["Button"]["Name"]=("Has the character or an ally's revival skill been activated?")
+        output["Button"]["Name"]=("Has this character or an ally's revival skill been activated?")
     elif(CausalityRow[1]=="55"):
         output["Button"]["Name"]=("Is it on or after the first ")
         output["Button"]["Name"]+=CausalityRow[2]
@@ -2345,7 +2345,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Slider"]["Min"]=0
         output["Slider"]["Max"]=int(CausalityRow[2])+1
     elif(CausalityRow[1]=="56"):
-        output["Button"]["Name"]=("Has the character recieved a normal attack?")
+        output["Button"]["Name"]=("Has this character been hit by a normal attack?")
     elif(CausalityRow[1]=="57"):
         output["Button"]["Name"]=("Is the Domain ")
         output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsGB,column=2)[0]
@@ -2792,11 +2792,11 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
             elif(CausalityRow[1]=="49"):
                 if(CausalityRow[2]=="1"):
-                    output["Button"]["Name"]=("Has the character been hit by a ki blast super attack?")
+                    output["Button"]["Name"]=("Has this character been hit by a ki blast super attack?")
                 elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]=("Has the character been hit by an unarmed super attack?")
+                    output["Button"]["Name"]=("Has this character been hit by an unarmed super attack?")
                 elif(CausalityRow[2]=="4"):
-                    output["Button"]["Name"]=("Has the character been hit by a physical super attack?")
+                    output["Button"]["Name"]=("Has this character been hit by a physical super attack?")
                 else:
                     output+=("UNKNOWN SUPER ATTACK TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -2837,7 +2837,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="53"):
                 output["Button"]["Name"]=("Has this characters finish effect been activated?")
             elif(CausalityRow[1]=="54"):
-                output["Button"]["Name"]=("Has the character or an ally's revival skill been activated?")
+                output["Button"]["Name"]=("Has this character or an ally's revival skill been activated?")
             elif(CausalityRow[1]=="55"):
                 output["Button"]["Name"]=("Is it on or after the first ")
                 output["Button"]["Name"]+=CausalityRow[2]
@@ -2849,7 +2849,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=int(CausalityRow[2])+1
             elif(CausalityRow[1]=="56"):
-                output["Button"]["Name"]=("Has the character recieved a normal attack?")
+                output["Button"]["Name"]=("Has this character been hit by a normal attack?")
             elif(CausalityRow[1]=="57"):
                 output["Button"]["Name"]=("Is the Domain ")
                 GBdomain=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fieldsGB,column=2)
@@ -3915,7 +3915,14 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Attacks with "+quantity+" or more "+category+" category units on the team"
         output["Building Stat"]["Slider"]="How many attacks has this character performed with "+quantity+" or more "+category+" category units on the team?"
     
-
+    elif(parsedLine["Timing"]=="Right before being hit" and "Has guard been activated?" in causalities):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Guard activated"
+        output["Building Stat"]["Slider"]="How many times has this character's guard been activated while the following was true"
+        for causality in causalities:
+            if(causality!="Has guard been activated?"):
+                output["Building Stat"]["Cause"]["Cause"]+=" "+causality+" or"
+        output["Building Stat"]["Cause"]["Cause"]=output["Building Stat"]["Cause"]["Cause"][:-3]
 
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)

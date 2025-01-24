@@ -46,6 +46,7 @@ if(CALCDOMAINS):
             domain_dictionary["Efficiacies"][efficiacy[0]]=parse_domain_efficiacy(efficiacy)
 
         domains_json[domain[1]]=domain_dictionary
+        domain_dictionary["Resource ID"]=domain[4]
 
 
     turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uniqueJsons")

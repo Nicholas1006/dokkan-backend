@@ -1,0 +1,45 @@
+import os
+import shutil
+
+def replace_symlinks_with_actual_files(directory):
+    """
+    Replace all symbolic links in the directory with the files they reference.
+
+    Args:
+        directory (str): Path to the directory containing symbolic links.
+    """
+    for root, _, files in os.walk(directory):
+        for file in files:
+            symlink_path = os.path.join(root, file)
+
+            # Check if the file is a symbolic link
+            if os.path.islink(symlink_path):
+                try:
+                    # Resolve the symlink's target path
+                    target_path = os.readlink(symlink_path)
+
+                    # Get absolute path for the symlink's target
+                    target_path = os.path.abspath(target_path)
+
+                    # Verify the target file exists
+                    if os.path.exists(target_path):
+                        # Remove the symbolic link
+                        os.unlink(symlink_path)
+
+                        # Copy the target file to the original location of the symlink
+                        shutil.copy2(target_path, symlink_path)
+
+                        print(f"Replaced symlink {symlink_path} with the actual file.")
+                    else:
+                        print(f"Target file does not exist for symlink: {symlink_path}")
+                except Exception as e:
+                    print(f"Failed to process symlink {symlink_path}: {e}")
+
+if __name__ == "__main__":
+    # Replace with the path to your NewAssets folder
+    new_assets_folder = "Dokkan Asset Downloader/NewAssets"
+
+    if os.path.exists(new_assets_folder):
+        replace_symlinks_with_actual_files(new_assets_folder)
+    else:
+        print(f"Directory does not exist: {new_assets_folder}")
