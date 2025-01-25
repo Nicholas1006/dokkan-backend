@@ -79,6 +79,9 @@ HiPoBoards={}
 if GLOBALPARSE:
     bar = Bar('Parsing units', max=len(cardsToCheck))
 
+totalUnitJson={}
+totalEZAUnitJson={}
+totalSEZAUnitJson={}
 
 dokkanAwakenings={}
 transformations={}
@@ -229,6 +232,13 @@ for unit in cardsToCheck:
                                 transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"])
                             else:
                                 transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"]]
+                        elif("Standby" in unitDictionary["Passive"][passiveLine]):
+                            if("Change form" in unitDictionary["Passive"][passiveLine]["Standby"]):
+                                unitDictionary["Transformations"].append(unitDictionary["Passive"][passiveLine]["Standby"]["Change form"]["Unit"])
+                                if(unit[0] in transformations):
+                                    transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Standby"]["Change form"]["Unit"])
+                                else:
+                                    transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Standby"]["Change form"]["Unit"]]
             if(CALCACTIVE): 
                 if(unitDictionary["Active Skill"]!=None):
                     for activeLine in unitDictionary["Active Skill"]["Effects"]:
@@ -239,24 +249,13 @@ for unit in cardsToCheck:
                             else:
                                 transformations[unit[0]]=[unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"]]
 
-            unitDictionary["Transforms from"]=[]
 
-            newFound=True
-            forms=[unit[0]]
-            while newFound==True:
-                newFound=False
-                for transform in transformations:
-                    if(forms[-1] in transformations[transform] and transform not in forms):
-                        unitDictionary["Transforms from"].append(transform)
-                        forms.append(transform)
-                        newFound=True
-            unitDictionary["Transforms from"].reverse()
-
-            
-            for transform in unitDictionary["Transformations"]:
-                if (transform in unitDictionary["Transforms from"]):
-                    unitDictionary["Transformations"].remove(transform)
-
+            for transformation in unitDictionary["Transformations"]:
+                if(unit[0][-1]=="1" and transformation[-1]=="0"):
+                    unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"1"
+                elif(unit[0][-1]=="0" and transformation[-1]=="1"):
+                    unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"0"
+            unitDictionary["Transformations"]=list(set(unitDictionary["Transformations"]))
 
 
             unitDictionary["Dokkan awakenings"]=[]
@@ -274,22 +273,13 @@ for unit in cardsToCheck:
             unitDictionary["Hidden Potential"]={}
             if(CALCHIPO):
                 hipoStart=time.time()
-                if(unit[52]=='' and unitDictionary["Transforms from"]!=[]):
-                    betterHiPoBoardFound=False
-                    for deTransformedUnit in unitDictionary["Transforms from"]:
-                        if(not betterHiPoBoardFound):
-                            possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cardsGB,column=52)[0]
-                            if(possibleBoard!=''):
-                                unit[52]=possibleBoard
-                                betterHiPoBoardFound=True
+                if(unit[52]=='' and (getrarity(unit)=="ur" or getrarity(unit)=="lr")):
+                    unitDictionary["Hidden Potential"]={"INCOMPLETE":True}
 
-                    
-                        
-
-
-                if(unit[52][:-2]not in HiPoBoards):
-                    HiPoBoards[unit[52][:-2]]=parseHiddenPotential(unit[52][:-2],DEVEXCEPTIONS)
-                unitDictionary["Hidden Potential"]=HiPoBoards[unit[52][:-2]]
+                else:
+                    if(unit[52][:-2]not in HiPoBoards):
+                        HiPoBoards[unit[52][:-2]]=parseHiddenPotential(unit[52][:-2],DEVEXCEPTIONS)
+                    unitDictionary["Hidden Potential"]=HiPoBoards[unit[52][:-2]]
                 hipoTime+=time.time()-hipoStart
 
             unitDictionary["Ki Multiplier"]={}
@@ -321,16 +311,77 @@ for unit in cardsToCheck:
 
 
 
-            if(MAKEJSON):
-                jsonStart=time.time()
-                if(seza):
-                    directoryName="../frontend/dbManagement/jsonsSEZA"
-                elif(eza):
-                    directoryName="../frontend/dbManagement/jsonsEZA"
-                else:
-                    directoryName="../frontend/dbManagement/jsons"
-                turnintoJson(unitDictionary, jsonName,directoryName=directoryName)
-                jsonTime+=time.time()-jsonStart
+            if(seza):
+                totalSEZAUnitJson[jsonName]=unitDictionary
+            elif(eza):
+                totalEZAUnitJson[jsonName]=unitDictionary
+            else:
+                totalUnitJson[jsonName]=unitDictionary
+
+
+for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
+    for unit in jsonList:
+        if(jsonList[unit]["Transformations"]!=[]):
+            possibleFutureForms=[]
+            accountedFutureForms=[]
+            for transformation in jsonList[unit]["Transformations"]:
+                possibleFutureForms.append(transformation)
+            while(possibleFutureForms!=[]):
+                transformation=possibleFutureForms.pop(0)
+                accountedFutureForms.append(transformation)
+                if(transformation in jsonList):
+                    if(unit not in jsonList[transformation]["Transforms from"]):
+                        jsonList[transformation]["Transforms from"].append(unit)
+                    if(jsonList[transformation]["Transformations"]!=[]):
+                        for futureForm in jsonList[transformation]["Transformations"]:
+                            if(futureForm not in accountedFutureForms and futureForm!=unit):
+                                possibleFutureForms.append(futureForm)
+        
+        if(jsonList[unit]["Transforms from"]!=[]):
+            possiblePastForms=[]
+            accountedPastForms=[]
+            for transformation in jsonList[unit]["Transforms from"]:
+                possiblePastForms.append(transformation)
+            while(possiblePastForms!=[]):
+                transformation=possiblePastForms.pop(0)
+                accountedPastForms.append(transformation)
+                if(transformation in jsonList):
+                    if(unit not in jsonList[transformation]["Transformations"]):
+                        jsonList[transformation]["Transformations"].append(unit)
+                    if(jsonList[transformation]["Transforms from"]!=[]):
+                        for PastForm in jsonList[transformation]["Transforms from"]:
+                            if(PastForm not in accountedPastForms and PastForm!=unit):
+                                possiblePastForms.append(PastForm)
+        
+
+        if("INCOMPLETE" in jsonList[unit]["Hidden Potential"]):
+            betterHiPoBoardFound=False
+            for deTransformedUnit in jsonList[unit]["Transforms from"]:
+                if(betterHiPoBoardFound==False):
+                    possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cardsGB,column=52)[0]
+                    if(possibleBoard!=''):
+                        betterHiPoBoardFound=possibleBoard[:-2]
+
+            if(betterHiPoBoardFound not in HiPoBoards):
+                HiPoBoards[betterHiPoBoardFound]=parseHiddenPotential(betterHiPoBoardFound,DEVEXCEPTIONS)
+            jsonList[unit]["Hidden Potential"]=HiPoBoards[betterHiPoBoardFound]
+                    
+for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
+    for unit in jsonList:
+        jsonList[unit]["Transformations"]=list(set(jsonList[unit]["Transformations"]))
+        jsonList[unit]["Transformations"].sort()
+        jsonList[unit]["Transforms from"]=list(set(jsonList[unit]["Transforms from"]))
+        jsonList[unit]["Transforms from"].sort()
+                
+if(MAKEJSON):
+    jsonStart=time.time()
+    for unit in totalUnitJson:
+        turnintoJson(totalUnitJson[unit], unit, directoryName="../frontend/dbManagement/jsons")
+    for unit in totalEZAUnitJson:
+        turnintoJson(totalEZAUnitJson[unit], unit, directoryName="../frontend/dbManagement/jsonsEZA")
+    for unit in totalSEZAUnitJson:
+        turnintoJson(totalSEZAUnitJson[unit], unit, directoryName="../frontend/dbManagement/jsonsSEZA")
+    jsonTime+=time.time()-jsonStart
         
 totalTime=time.time()-totalTime
 

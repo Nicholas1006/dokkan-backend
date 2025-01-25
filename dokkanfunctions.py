@@ -3281,8 +3281,24 @@ def maxAppearancesInForm(unitPassive,DEVEXCEPTIONS=False):
                 print("UNKNOWN TRANSFORMATION SETUP",passiveLine)
                 if(DEVEXCEPTIONS): 
                     raise Exception("UNKNOWN TRANSFORMATION SETUP")
+        elif("Standby" in passiveLine):
+            if("Change form" in passiveLine["Standby"]):
+                if("First Turn To Activate" in passiveLine and "Condition" not in passiveLine):
+                    maxAppearances=appearancesBeforeCertainTurn(passiveLine["First Turn To Activate"]-1)[1]
+                elif("Condition" in passiveLine):
+                    if("&&" not in passiveLine["Condition"]["Logic"]):
+                        for causality in passiveLine["Condition"]["Causalities"]:
+                            if(passiveLine["Condition"]["Causalities"][causality]["Button"]["Name"][0:28]=="Is it on or after the first " and passiveLine["Condition"]["Causalities"][causality]["Button"]["Name"][-52:]==" turns from this characters entry turn on this turn?"):
+                                maxAppearances=appearancesBeforeCertainTurn(int(passiveLine["Condition"]["Causalities"][causality]["Button"]["Name"][28:-52]))[1]
+
+
+                else:
+                    print("UNKNOWN CHANGE FORM SETUP",passiveLine)
+                    if(DEVEXCEPTIONS): 
+                        raise Exception("UNKNOWN CHANGE FORM SETUP")
 
     return(maxAppearances)
+
 
 
 def appearancesBeforeCertainTurn(turn):
