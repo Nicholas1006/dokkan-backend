@@ -9,7 +9,7 @@ DEVEXCEPTIONS=True
 GLOBALPARSE=True
 GLOBALREFRESH=False
 MAKEJSON=True
-DEBUG=False
+DEBUG=True
 
 CALCPASSIVE=True
 CALCLINKS=True
@@ -38,7 +38,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["4019641"]
+cardIDsToCheck=["1030431","4030441","4030451"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -232,13 +232,19 @@ for unit in cardsToCheck:
                                 transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"])
                             else:
                                 transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Transformation"]["Unit"]]
-                        elif("Standby" in unitDictionary["Passive"][passiveLine]):
+                        if("Standby" in unitDictionary["Passive"][passiveLine]):
                             if("Change form" in unitDictionary["Passive"][passiveLine]["Standby"]):
                                 unitDictionary["Transformations"].append(unitDictionary["Passive"][passiveLine]["Standby"]["Change form"]["Unit"])
                                 if(unit[0] in transformations):
                                     transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Standby"]["Change form"]["Unit"])
                                 else:
                                     transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Standby"]["Change form"]["Unit"]]
+                        if("Reversible exchange" in unitDictionary["Passive"][passiveLine]):
+                            unitDictionary["Transformations"].append(unitDictionary["Passive"][passiveLine]["Reversible exchange"]["Unit"])
+                            if(unit[0] in transformations):
+                                transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Reversible exchange"]["Unit"])
+                            else:
+                                transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Reversible exchange"]["Unit"]]
             if(CALCACTIVE): 
                 if(unitDictionary["Active Skill"]!=None):
                     for activeLine in unitDictionary["Active Skill"]["Effects"]:

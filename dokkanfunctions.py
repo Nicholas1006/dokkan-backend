@@ -1091,6 +1091,9 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Transformation" in passiveDictionary:
         if passiveDictionary["Transformation"]["Activated"]==False:
             passiveDictionary.pop("Transformation")
+    if "Reversible exchange" in passiveDictionary:
+        if passiveDictionary["Reversible exchange"]["Activated"]==False:
+            passiveDictionary.pop("Reversible exchange")
     if "Slot" in passiveDictionary:
         if passiveDictionary["Slot"]==None:
             passiveDictionary.pop("Slot")
@@ -1179,7 +1182,7 @@ def shortenPassiveDictionary(oldPassiveDictionary):
 
 def getSuperMinKi(kiCircleSegments):
     for segment in kiCircleSegments:
-        if kiCircleSegments[segment]=="super":
+        if kiCircleSegments[segment]=="super" or kiCircleSegments[segment]=="ultra":
             return segment
 
 def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
@@ -1229,6 +1232,10 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             "Min Turns": None,
             "Max Turns": None,
             "Reverse chance": None
+        },
+        "Reversible exchange":{
+            "Activated": False,
+            "Unit": None
         },
         "Additional Attack":{
             "Activated": False,
@@ -1712,6 +1719,9 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Counter"]["DR from normals"]=passiveskill[13]
     elif(passiveskill[4]=="128"):
         effects["Counter"]={"Activated":True, "Multiplier":passiveskill[14], "Cause":"Evaded attack"}
+    elif(passiveskill[4]=="131"):
+        effects["Reversible exchange"]["Activated"]=True
+        effects["Reversible exchange"]["Unit"]=passiveskill[13]
         
     else:
         if(DEVEXCEPTIONS==True):
@@ -2909,6 +2919,11 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]="UNKNOWN CAUSALITY CONDITION"
                     if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown causality condition")
+            elif(CausalityRow[1]=="65"):
+                output["Button"]["Name"]=("Has this character entered giant form?")
+            elif(CausalityRow[1]=="66"):
+                output["Button"]["Name"]=("Has this character's reversible exchange not yet been performed?")
+
 
             else:
                 output["Button"]["Name"]=("UNKNOWN CAUSALITY CONDITION")
@@ -3154,11 +3169,10 @@ def getAdditionalSuperID(unitDictionary):
     lowestConditionSuperID=None
     lowestKiRequired=24
     for super in unitDictionary["Super Attack"]:
-        if(unitDictionary["Super Attack"][super]["superStyle"]=="Normal"):
-            kiRequired=int(unitDictionary["Super Attack"][super]["superMinKi"])
-            if(kiRequired<lowestKiRequired):
-                lowestKiRequired=kiRequired
-                lowestConditionSuperID=super
+        kiRequired=int(unitDictionary["Super Attack"][super]["superMinKi"])
+        if(kiRequired<lowestKiRequired):
+            lowestKiRequired=kiRequired
+            lowestConditionSuperID=super
     return(lowestConditionSuperID)
 
 

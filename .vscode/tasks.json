@@ -34,7 +34,7 @@
       "dependsOrder": "sequence",
       "dependsOn": [
         "Expand database",
-        "Convert files and create Jsons"
+        "Create Jsons"
       ],
       "problemMatcher": []
     },
@@ -118,28 +118,6 @@
     },
 
     {
-      "label": "Convert files",
-      "type": "shell",
-      "command": "cmd",
-      "args": [
-        "/c",
-        "python",
-       "Convert files.py"
-      ],
-      "problemMatcher": [],
-      "presentation": {
-        "close":true,
-        "reveal": "always"
-      },
-      "options": {
-        "statusbar": {
-          "hide" : true
-        }
-      }
-    },
-
-
-    {
       "label": "Create jsons",
       "type": "shell",
       "command": "cmd",
@@ -184,10 +162,9 @@
 
 
     {
-      "label": "Convert files and create Jsons",
+      "label": "Create Jsons",
       "dependsOrder": "parallel",
       "dependsOn": [
-        "Convert files",
         "Create jsons",
         "Create unique Jsons"
       ],
