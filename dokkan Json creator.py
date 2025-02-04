@@ -1,9 +1,11 @@
-
-from globals import *
 from dokkanfunctions import *
+totalTime=time.time()
+setupStart=time.time()
+from globals import *
 from progress.bar import Bar
 directory="dataGB/"
 cardsGB=storedatabase(directory,"cards.csv")
+
 
 DEVEXCEPTIONS=True
 GLOBALPARSE=True
@@ -24,6 +26,7 @@ CALCFINISH=True
 CALCSTANDBY=True
 CALCCIRCLE=True
 
+setupTime=0.0
 passiveTime=0.0
 leaderTime=0.0
 hipoTime=0.0
@@ -51,7 +54,6 @@ if(GLOBALREFRESH and GLOBALPARSE):
     emptyFolder("../frontend/dbManagement/jsonsSEZA")
     
 
-temp=time.time()
 if GLOBALPARSE:
     for unit in cardsGB:
         if qualifyUsable(unit):
@@ -63,7 +65,7 @@ else:
                 if(qualifyUsable(unit)):
                     cardsToCheck.append(unit)
                 else:
-                    print("UNUSABLLE UNIT",unit[0])
+                    print("UNUSABLE UNIT",unit[0])
 
 missingPassiveCount=0
 missingUnitCount=0
@@ -78,6 +80,7 @@ HiPoBoards={}
 
 if GLOBALPARSE:
     bar = Bar('Parsing units', max=len(cardsToCheck))
+unitsChecked=0
 
 totalUnitJson={}
 totalEZAUnitJson={}
@@ -85,10 +88,13 @@ totalSEZAUnitJson={}
 
 dokkanAwakenings={}
 transformations={}
-totalTime=time.time()
+
+print("Setup time:",round(time.time()-setupStart,2))
+
 for unit in cardsToCheck:
     if(DEBUG):
-        print(unit[0])
+        print(str(unitsChecked)+" "+len(cardsToCheck)+unit[0])
+        unitsChecked=unitsChecked+1
     elif(GLOBALPARSE):
         bar.next()
     ezaTrueFalse=[False]
