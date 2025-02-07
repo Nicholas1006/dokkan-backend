@@ -80,13 +80,18 @@ jobs:
           git push
         shell: cmd
 
+      - name: Checkout Backend Repository
+        uses: actions/checkout@v3
+        with:
+          repository: Niccccccccccccc/dokkan-backend
+          token: ${{ secrets.BACKEND_REPO_PAT }}
+          path: backend
+      
       - name: Commit and Push Updated Settings & CSVs
-        env:
-          GH_TOKEN: ${{ secrets.FRONTEND_REPO_PAT }}
         run: |
+          cd backend
           git config --global user.email "horvat.nicholas@gmail.com"
           git config --global user.name "GitHub Actions"
-          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/Niccccccccccccc/dokkan-backend.git
           git add "Dokkan_Asset_Downloader/settings.json"
           git add "*.csv"
           git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
