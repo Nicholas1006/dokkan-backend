@@ -2,7 +2,6 @@ from dokkanfunctions import *
 totalTime=time.time()
 setupStart=time.time()
 from globals import *
-from progress.bar import Bar
 directory="dataGB/"
 cardsGB=storedatabase(directory,"cards.csv")
 
@@ -78,8 +77,6 @@ passivecount=0
 #print(passive)
 HiPoBoards={}
 
-if GLOBALPARSE:
-    bar = Bar('Parsing units', max=len(cardsToCheck))
 unitsChecked=0
 
 totalUnitJson={}
@@ -92,11 +89,8 @@ transformations={}
 print("Setup time:",round(time.time()-setupStart,2))
 
 for unit in cardsToCheck:
-    if(DEBUG):
-        print(str(unitsChecked)+" "+len(cardsToCheck)+unit[0])
-        unitsChecked=unitsChecked+1
-    elif(GLOBALPARSE):
-        bar.next()
+    print(str(unitsChecked)+"/"+str(len(cardsToCheck))+" "+unit[0])
+    unitsChecked=unitsChecked+1
     ezaTrueFalse=[False]
     if(checkEza(unit[0])):
         ezaTrueFalse=[False,True]
@@ -397,8 +391,6 @@ if(MAKEJSON):
         
 totalTime=time.time()-totalTime
 
-if(GLOBALPARSE):
-    bar.finish()
 print("Basic time:",round(basicTime,2))
 print("Links time:",round(linksTime,2))
 print("Leader time:",round(leaderTime,2))

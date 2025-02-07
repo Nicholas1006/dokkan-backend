@@ -49,7 +49,7 @@ if(CALCDOMAINS):
         domain_dictionary["Resource ID"]=domain[4]
 
 
-    turnintoJson(domains_json, "domains",directoryName="../frontend/dbManagement/uniqueJsons")
+    turnintoJson(domains_json, "domains",directoryName="temp_jsons/dbManagement/uniqueJsons")
 
 
 if(CALCALLUNITS):
@@ -71,7 +71,7 @@ if(CALCALLUNITS):
     bar.finish()
 
 if(CALCALLUNITS):
-    turnintoJson(allUnitsDictionary, "allUnits",directoryName="../frontend/dbManagement/uniquejsons")
+    turnintoJson(allUnitsDictionary, "allUnits",directoryName="temp_jsons/dbManagement/uniquejsons")
 
 
 if(CALCUNITBASICS):
@@ -178,7 +178,7 @@ if(CALCUNITBASICS):
     print("Turning unitBasics into json seperated by component")
     bar=Bar("Turning unitBasics into json seperated by component",max=len(relevantComponents))
     for component in relevantComponents:
-        turnintoJson(filterSingleComponent(unitBasics,component), component,directoryName="../frontend/dbManagement/uniqueJsons/unitBasics")
+        turnintoJson(filterSingleComponent(unitBasics,component), component,directoryName="temp_jsons/dbManagement/uniqueJsons/unitBasics")
         bar.next()
     bar.finish()
 
