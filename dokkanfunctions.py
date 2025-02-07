@@ -1,14 +1,7 @@
-from ast import parse
-import re
 from globals import *
-from calendar import c
 import csv
-from xml import dom
-from colorama import Fore
-import requests
 import os
 from PIL import Image
-import time
 import math
 import json
 import shutil
@@ -2375,19 +2368,6 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             raise Exception("Unknown causality condition")
     return(output)
 
-def contains_kanji(s):
-    """
-    Check if a string contains any Kanji characters.
-
-    Parameters:
-        s (str): The input string to check.
-
-    Returns:
-        bool: True if the string contains Kanji, False otherwise.
-    """
-    # Kanji Unicode range: \u4E00 to \u9FAF
-    kanji_pattern = re.compile(r'[\u4E00-\u9FAF]')
-    return bool(kanji_pattern.search(s))
 
 
 def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=False):
@@ -4535,32 +4515,6 @@ def combinelinks(linklist,lvl,printing=True):
                         EVASION+=float(linkdetails[11])
     return(ATK,DEF,KI,ENEMYDEF,EVASION,CRIT,HEAL,DREDUCTION)
 
-def presentcharacter(unit,printing=True):
-    if unit[3]=="STR":
-        if(printing): print(Fore.RED,end="")
-    elif unit[3]=="PHY":
-        if(printing): print(Fore.YELLOW,end="")
-    elif unit[3]=="INT":
-        if(printing): print(Fore.MAGENTA,end="")
-    elif unit[3]=="TEQ":
-        if(printing): print(Fore.GREEN,end="")
-    elif unit[3]=="AGL":
-        if(printing): print(Fore.BLUE,end="")
-    tempreturn=""
-    
-    #rarity
-    tempreturn+=unit[4]
-    tempreturn+=" "
-    
-    #element
-    tempreturn+=unit[3]
-    tempreturn+=" "
-    
-    #name
-    tempreturn+=unit[2]
-    tempreturn+=" "
-    
-    return(tempreturn)
 
 def search(OGwordlist,searched,printing=True):
     wordlist=OGwordlist.copy()
