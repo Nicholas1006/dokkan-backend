@@ -60,9 +60,14 @@ jobs:
           token: ${{ secrets.FRONTEND_REPO_PAT }}
           path: frontend
 
-      - name: Copy Updated JSON and PNG Files to Frontend
+      - name: Copy Updated DDL Files to Frontend
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\temp_downloads" "frontend\dbManagement\DokkanFiles"
+          xcopy /E /Y "temp_jsons" "frontend/dbManagement/jsons"
+        shell: cmd
+
+      - name: Copy Updated JSON Files to Frontend
+        run: |
           xcopy /E /Y "temp_jsons" "frontend/dbManagement/jsons"
         shell: cmd
 
