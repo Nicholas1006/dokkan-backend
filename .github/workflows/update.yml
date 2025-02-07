@@ -76,16 +76,19 @@ jobs:
           git config --global user.email "horvat.nicholas@gmail.com"
           git config --global user.name "GitHub Actions"
           git add .
-          git commit -m "Automated update of Dokkan assets"
+          git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
           git push
         shell: cmd
 
       - name: Commit and Push Updated Settings & CSVs
+        env:
+          GH_TOKEN: ${{ secrets.FRONTEND_REPO_PAT }}
         run: |
           git config --global user.email "horvat.nicholas@gmail.com"
           git config --global user.name "GitHub Actions"
-          git add "Dokkan Asset Downloader/settings.json"
+          git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/Niccccccccccccc/dokkan-backend.git
+          git add "Dokkan_Asset_Downloader/settings.json"
           git add "*.csv"
-          git commit -m "Automated update of Dokkan assets"
+          git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
           git push
         shell: cmd
