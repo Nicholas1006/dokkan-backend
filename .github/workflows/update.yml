@@ -2,7 +2,7 @@ name: Dokkan Asset Updater
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
