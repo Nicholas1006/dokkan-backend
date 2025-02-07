@@ -21,8 +21,11 @@ jobs:
       - name: Save settings.json state before running Dokkan_Asset_Downloader
         id: before_state
         run: |
-          $files = Get-ChildItem -Path "Dokkan_Asset_Downloader\settings.json"
-          $hash = ($files | ForEach-Object { (Get-FileHash -Algorithm MD5 $_).Hash }) -join ""
+          if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
+            $hash = (Get-FileHash -Algorithm MD5 -Path "Dokkan_Asset_Downloader\settings.json").Hash
+          } else {
+            $hash = "no_file"
+          }
           echo "::set-output name=hash::$hash"
         shell: pwsh
 
@@ -38,8 +41,11 @@ jobs:
       - name: Save settings.json state after running Dokkan_Asset_Downloader
         id: after_state
         run: |
-          $files = Get-ChildItem -Path "Dokkan_Asset_Downloader\settings.json"
-          $hash = ($files | ForEach-Object { (Get-FileHash -Algorithm MD5 $_).Hash }) -join ""
+          if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
+            $hash = (Get-FileHash -Algorithm MD5 -Path "Dokkan_Asset_Downloader\settings.json").Hash
+          } else {
+            $hash = "no_file"
+          }
           echo "::set-output name=hash::$hash"
         shell: pwsh
 
