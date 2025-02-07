@@ -76,9 +76,8 @@ if(CALCALLUNITS):
 
 if(CALCUNITBASICS):
     unitBasics={}
-    bar = Bar('Creating all unit basics', max=len(relevantCards))
+    print('Creating all unit basics')
     for unit in relevantCards:
-        bar.next()
         ezaTrueFalse=["None"]
         if(checkEza(unit[0])):
             ezaTrueFalse.append("EZA")
@@ -172,14 +171,11 @@ if(CALCUNITBASICS):
 
             unitDictionary["Links"]=getalllinks(unit)
             
-    bar.finish()
 
     relevantComponents=["ID","Name","Type","Rarity","Max Level","Cost","Eza","Seza","Dokkan Awakened","HP","Attack","Defense","Acquired","Character","Sp Atk Lv","Activation","Resource ID","Class","Categories","Awakening","Links"]
     print("Turning unitBasics into json seperated by component")
-    bar=Bar("Turning unitBasics into json seperated by component",max=len(relevantComponents))
     for component in relevantComponents:
         turnintoJson(filterSingleComponent(unitBasics,component), component,directoryName="temp_jsons/uniqueJsons/unitBasics")
-        bar.next()
-    bar.finish()
+        print("Finished:" + component)
 
 
