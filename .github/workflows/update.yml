@@ -18,24 +18,13 @@ jobs:
         with:
           python-version: '3.10.11'  # Change this to your required Python version
       
-      - name: Install Python Dependencies
+      - name: Save settings.json state before running Dokkan_Asset_Downloader
+        id: before_state
         run: |
-          pip install -r requirements.txt
-        shell: cmd
-
-      - name: Create Temp Download Folder
-        run: mkdir Dokkan_Asset_Downloader\temp_downloads
-        shell: cmd
-
-      - name: Create Temp jsons Folder
-        run: |
-          mkdir temp_jsons
-          mkdir temp_jsons\jsons
-          mkdir temp_jsons\jsonsEZA
-          mkdir temp_jsons\jsonsSEZA
-          mkdir temp_jsons\uniqueJsons
-          mkdir temp_jsons\uniqueJsons\unitBasics
-        shell: cmd
+          $files = Get-ChildItem -Recurse -Path "Dokkan_Asset_Downloader\settings.json"
+          $hash = $files | ForEach-Object { $_.FullName + $_.LastWriteTime } | Get-Hash -Algorithm MD5
+          echo "::set-output name=hash::$hash"
+        shell: pwsh
 
       - name: Run Dokkan_Asset_Downloader
         run: |
@@ -45,8 +34,50 @@ jobs:
             echo.
           ) | Dokkan_Asset_Downloader_v2.5.2_WIN_x64.exe
         shell: cmd
+      
+      - name: Save settings.json state after running Dokkan_Asset_Downloader
+        id: after_state
+        run: |
+          if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
+            $hash = (Get-FileHash -Algorithm MD5 "Dokkan_Asset_Downloader\settings.json").Hash
+          } else {
+            $hash = "no_file"
+          }
+          echo "::set-output name=hash::$hash"
+        shell: pwsh
+
+      - name: Check if temp_downloads has changed
+        id: check_changes
+        run: |
+          if ("${{ steps.before_state.outputs.hash }}" -ne "${{ steps.after_state.outputs.hash }}") {
+            echo "::set-output name=changed::true"
+          } else {
+            echo "::set-output name=changed::false"
+          }
+        shell: pwsh
+
+      - name: Install Python Dependencies
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          pip install -r requirements.txt
+        shell: cmd
+
+
+      - name: Create Temp jsons Folder
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          mkdir temp_jsons
+          mkdir temp_jsons\jsons
+          mkdir temp_jsons\jsonsEZA
+          mkdir temp_jsons\jsonsSEZA
+          mkdir temp_jsons\uniqueJsons
+          mkdir temp_jsons\uniqueJsons\unitBasics
+        shell: cmd
+
+      
 
       - name: Run Database and JSON Scripts
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           python Database_expander.py
           python dokkan_Json_creator.py
@@ -54,6 +85,7 @@ jobs:
         shell: cmd
 
       - name: Checkout Frontend Repository
+        if: steps.check_changes.outputs.changed == 'true'
         uses: actions/checkout@v3
         with:
           repository: Niccccccccccccc/dokkan-frontend
@@ -61,16 +93,19 @@ jobs:
           path: frontend
 
       - name: Copy Updated DDL Files to Frontend
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\temp_downloads" "frontend\dbManagement\DokkanFiles"
         shell: cmd
 
       - name: Copy Updated JSON Files to Frontend
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           xcopy /E /Y "temp_jsons" "frontend\dbManagement"
         shell: cmd
 
       - name: Commit and Push Changes to Frontend
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           cd frontend
           git config --global user.email "horvat.nicholas@gmail.com"
@@ -81,6 +116,7 @@ jobs:
         shell: cmd
 
       - name: Checkout Backend Repository
+        if: steps.check_changes.outputs.changed == 'true'
         uses: actions/checkout@v3
         with:
           repository: Niccccccccccccc/dokkan-backend
@@ -89,12 +125,14 @@ jobs:
       
 
       - name: Copy Updated backend Files to Backend
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\settings.json" "backend\Dokkan_Asset_Downloader\settings.json"
           xcopy /E /Y "dataGB" "backend\dataGB"
         shell: cmd
       
       - name: Commit and Push Updated Settings & CSVs
+        if: steps.check_changes.outputs.changed == 'true'
         run: |
           cd backend
           git config --global user.email "horvat.nicholas@gmail.com"
