@@ -18,7 +18,11 @@ jobs:
         with:
           python-version: '3.10.11'  # Change this to your required Python version
       
-      - name: Save settings.json state before running Dokkan_Asset_Downloader
+      - name: Create Temp Download Folder
+        run: mkdir Dokkan_Asset_Downloader\temp_downloads
+        shell: cmd
+
+      - name: Save GlbAssetVersion state before running Dokkan_Asset_Downloader
         id: before_state
         run: |
           if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
@@ -27,7 +31,7 @@ jobs:
           } else {
             $glbAssetVersion = "no_file"
           }
-          echo "glbAssetVersion=$glbAssetVersion" >> $env:GITHUB_OUTPUT
+          echo "glbAssetVersionBefore=$glbAssetVersion" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: Run Dokkan_Asset_Downloader
@@ -38,24 +42,26 @@ jobs:
             echo.
           ) | Dokkan_Asset_Downloader_v2.5.2_WIN_x64.exe
         shell: cmd
-      
-      - name: Save settings.json state after running Dokkan_Asset_Downloader
+
+      - name: Save GlbAssetVersion state after running Dokkan_Asset_Downloader
         id: after_state
         run: |
-          if ("${{ steps.before_state.outputs.glbAssetVersion }}" -ne "${{ steps.after_state.outputs.glbAssetVersion }}") {
+          if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
+            $settings = Get-Content -Raw -Path "Dokkan_Asset_Downloader\settings.json" | ConvertFrom-Json
+            $glbAssetVersion = $settings.GlbAssetVersion
+          } else {
+            $glbAssetVersion = "no_file"
+          }
+          echo "glbAssetVersionAfter=$glbAssetVersion" >> $env:GITHUB_OUTPUT
+        shell: pwsh
+
+      - name: Check if GlbAssetVersion has changed
+        id: check_changes
+        run: |
+          if ("${{ steps.before_state.outputs.glbAssetVersionBefore }}" -ne "${{ steps.after_state.outputs.glbAssetVersionAfter }}") {
             echo "changed=true" >> $env:GITHUB_OUTPUT
           } else {
             echo "changed=false" >> $env:GITHUB_OUTPUT
-          }
-        shell: pwsh
-
-      - name: Check if settings.json has changed
-        id: check_changes
-        run: |
-          if ("${{ steps.before_state.outputs.hash }}" -ne "${{ steps.after_state.outputs.hash }}") {
-            echo "::set-output name=changed::true"
-          } else {
-            echo "::set-output name=changed::false"
           }
         shell: pwsh
 
@@ -64,7 +70,6 @@ jobs:
         run: |
           pip install -r requirements.txt
         shell: cmd
-
 
       - name: Create Temp jsons Folder
         if: steps.check_changes.outputs.changed == 'true'
@@ -76,8 +81,6 @@ jobs:
           mkdir temp_jsons\uniqueJsons
           mkdir temp_jsons\uniqueJsons\unitBasics
         shell: cmd
-
-      
 
       - name: Run Database and JSON Scripts
         if: steps.check_changes.outputs.changed == 'true'
@@ -125,7 +128,6 @@ jobs:
           repository: Niccccccccccccc/dokkan-backend
           token: ${{ secrets.BACKEND_REPO_PAT }}
           path: backend
-      
 
       - name: Copy Updated backend Files to Backend
         if: steps.check_changes.outputs.changed == 'true'
@@ -133,7 +135,7 @@ jobs:
           xcopy /E /Y "Dokkan_Asset_Downloader\settings.json" "backend\Dokkan_Asset_Downloader\settings.json"
           xcopy /E /Y "dataGB" "backend\dataGB"
         shell: cmd
-      
+
       - name: Commit and Push Updated Settings & CSVs
         if: steps.check_changes.outputs.changed == 'true'
         run: |
