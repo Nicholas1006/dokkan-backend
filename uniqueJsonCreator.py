@@ -25,7 +25,7 @@ if(CALCLINKS):
                     del linkBuffs[level][buff]
         links_dictionary[link]=linkBuffs
 
-    turnintoJson(links_dictionary, "links",directoryName="../frontend/dbManagement/uniqueJsons")
+    turnintoJson(links_dictionary, "links",directoryName="temp_jsons/uniqueJsons")
 
 
 

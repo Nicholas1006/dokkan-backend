@@ -19,7 +19,7 @@ def replace_symlinks_with_actual_files(directory):
                     print(f"Failed to process symlink {symlink_path}: {e}")
 
 if __name__ == "__main__":
-    new_assets_folder = "Dokkan Asset Downloader/NewAssets"
+    new_assets_folder = "Dokkan_Asset_Downloader/NewAssets"
     if os.path.exists(new_assets_folder):
         replace_symlinks_with_actual_files(new_assets_folder)
     else:

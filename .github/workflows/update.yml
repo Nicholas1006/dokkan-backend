@@ -23,10 +23,38 @@ jobs:
           pip install -r requirements.txt
         shell: cmd
 
-        
-      - name: Run Dokkan Asset Downloader
+      - name: Create Temp Download Folder
+        run: mkdir Dokkan_Asset_Downloader\temp_downloads
+        shell: cmd
+
+      - name: Create Temp jsons Folder
+        run: mkdir temp_jsons
+        shell: cmd
+
+
+      - name: Create Temp jsons Folder
+        run: mkdir temp_jsons/jsons
+        shell: cmd
+
+
+      - name: Create Temp jsons Folder
+        run: mkdir temp_jsons/jsonsEZA
+        shell: cmd
+
+
+      - name: Create Temp jsons Folder
+        run: mkdir temp_jsons/jsonsSEZA
+        shell: cmd
+
+      - name: Create Temp jsons Folder
+        run: mkdir temp_jsons/uniqueJsons
+        shell: cmd
+
+
+
+      - name: Run Dokkan_Asset_Downloader
         run: |
-          cd "Dokkan Asset Downloader"  || exit /b 1
+          cd "Dokkan_Asset_Downloader"  || exit /b 1
           (
             echo 1
             echo.
@@ -49,8 +77,8 @@ jobs:
 
       - name: Copy Updated JSON and PNG Files to Frontend
         run: |
-          xcopy /E /Y "C:\Users\horva\OneDrive - Trinity College Dublin\Documents\dokkan\frontend\dbManagement\DokkanFiles" "frontend\dbManagement\DokkanFiles"
-          xcopy /E /Y "../frontend/dbManagement/jsons" "frontend/dbManagement/jsons"
+          xcopy /E /Y "Dokkan_Asset_Downloader\temp_downloads" "frontend\dbManagement\DokkanFiles"
+          xcopy /E /Y "temp_jsons/jsons" "frontend/dbManagement/jsons"
         shell: cmd
 
       - name: Commit and Push Changes to Frontend

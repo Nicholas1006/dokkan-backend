@@ -1,9 +1,19 @@
 from progress.bar import Bar
 import sqlite3 as sl
 import pandas as pd
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the backend repo directory
+DOWNLOAD_DIR = os.path.join(BASE_DIR, "Dokkan_Asset_Downloader")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "temp_downloads")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "global")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "en")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "sqlite")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "current")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "en")  # Path to store new files
+GLOBAL_DB_LOC = os.path.join(DOWNLOAD_DIR, "database.db")  # Path to store new files
 
 
-GLOBAL_DB_LOC = "../frontend/dbManagement/DokkanFiles/global/en/sqlite/current/en/database.db"
 
 bar = Bar('Expanding global database file', max=219)
 con = sl.connect(GLOBAL_DB_LOC)

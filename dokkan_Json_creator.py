@@ -49,9 +49,9 @@ cardsToCheck=[]
 
 
 if(GLOBALREFRESH and GLOBALPARSE):
-    emptyFolder("../frontend/dbManagement/jsons")
-    emptyFolder("../frontend/dbManagement/jsonsEZA")
-    emptyFolder("../frontend/dbManagement/jsonsSEZA")
+    emptyFolder("temp_jsons/jsons")
+    emptyFolder("temp_jsons/jsonsEZA")
+    emptyFolder("temp_jsons/jsonsSEZA")
     
 
 if GLOBALPARSE:
@@ -388,11 +388,11 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
 if(MAKEJSON):
     jsonStart=time.time()
     for unit in totalUnitJson:
-        turnintoJson(totalUnitJson[unit], unit, directoryName="../frontend/dbManagement/jsons")
+        turnintoJson(totalUnitJson[unit], unit, directoryName="temp_jsons/jsons")
     for unit in totalEZAUnitJson:
-        turnintoJson(totalEZAUnitJson[unit], unit, directoryName="../frontend/dbManagement/jsonsEZA")
+        turnintoJson(totalEZAUnitJson[unit], unit, directoryName="temp_jsons/jsonsEZA")
     for unit in totalSEZAUnitJson:
-        turnintoJson(totalSEZAUnitJson[unit], unit, directoryName="../frontend/dbManagement/jsonsSEZA")
+        turnintoJson(totalSEZAUnitJson[unit], unit, directoryName="temp_jsons/jsonsSEZA")
     jsonTime+=time.time()-jsonStart
         
 totalTime=time.time()-totalTime
