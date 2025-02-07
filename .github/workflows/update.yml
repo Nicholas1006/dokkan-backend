@@ -87,6 +87,13 @@ jobs:
           token: ${{ secrets.BACKEND_REPO_PAT }}
           path: backend
       
+
+      - name: Copy Updated backend Files to Backend
+        run: |
+          xcopy /E /Y "Dokkan_Asset_Downloader\account_global.json" "backend\Dokkan_Asset_Downloader\account_global.json"
+          xcopy /E /Y "dataGB" "backend\dataGB"
+        shell: cmd
+      
       - name: Commit and Push Updated Settings & CSVs
         run: |
           cd backend
