@@ -22,11 +22,12 @@ jobs:
         id: before_state
         run: |
           if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
-            $hash = (Get-FileHash -Algorithm MD5 -Path "Dokkan_Asset_Downloader\settings.json").Hash
+            $settings = Get-Content -Raw -Path "Dokkan_Asset_Downloader\settings.json" | ConvertFrom-Json
+            $glbAssetVersion = $settings.GlbAssetVersion
           } else {
-            $hash = "no_file"
+            $glbAssetVersion = "no_file"
           }
-          echo "::set-output name=hash::$hash"
+          echo "glbAssetVersion=$glbAssetVersion" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: Run Dokkan_Asset_Downloader
@@ -41,12 +42,11 @@ jobs:
       - name: Save settings.json state after running Dokkan_Asset_Downloader
         id: after_state
         run: |
-          if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
-            $hash = (Get-FileHash -Algorithm MD5 -Path "Dokkan_Asset_Downloader\settings.json").Hash
+          if ("${{ steps.before_state.outputs.glbAssetVersion }}" -ne "${{ steps.after_state.outputs.glbAssetVersion }}") {
+            echo "changed=true" >> $env:GITHUB_OUTPUT
           } else {
-            $hash = "no_file"
+            echo "changed=false" >> $env:GITHUB_OUTPUT
           }
-          echo "::set-output name=hash::$hash"
         shell: pwsh
 
       - name: Check if settings.json has changed
