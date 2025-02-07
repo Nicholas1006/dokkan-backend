@@ -87,6 +87,11 @@ jobs:
           token: ${{ secrets.BACKEND_REPO_PAT }}
           path: backend
       
+      - name: Check git status before commit
+        run: |
+          cd backend
+          git status
+
       - name: Commit and Push Updated Settings & CSVs
         run: |
           cd backend
@@ -94,6 +99,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git add "Dokkan_Asset_Downloader/settings.json"
           git add "dataGB/"
+          git status
           git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
           git push
         shell: cmd
