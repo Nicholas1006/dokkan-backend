@@ -1,0 +1,52 @@
+name: Dokkan Asset Updater
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  update-assets:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Backend Repository
+        uses: actions/checkout@v3
+
+      - name: Run Dokkan Asset Downloader
+        run: |
+          (
+            echo 1
+            echo.
+          ) | Dokkan_Asset_Downloader_v2.5.2_WIN_x64.exe
+        shell: cmd
+
+      - name: Run Database and JSON Scripts
+        run: |
+          python Database_expander.py
+          python dokkan_Json_creator.py
+          python uniqueJsonCreator.py
+        shell: cmd
+
+      - name: Checkout Frontend Repository
+        uses: actions/checkout@v3
+        with:
+          repository: your-github-username/frontend
+          token: ${{ secrets.FRONTEND_REPO_PAT }}
+          path: frontend
+
+      - name: Copy Updated JSON and PNG Files to Frontend
+        run: |
+          xcopy /E /Y "C:\Users\horva\OneDrive - Trinity College Dublin\Documents\dokkan\frontend\dbManagement\DokkanFiles" "frontend\dbManagement\DokkanFiles"
+          xcopy /E /Y "../frontend/dbManagement/jsons" "frontend/dbManagement/jsons"
+        shell: cmd
+
+      - name: Commit and Push Changes to Frontend
+        run: |
+          cd frontend
+          git config --global user.email "your-email@example.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Automated update of Dokkan assets"
+          git push
+        shell: cmd
