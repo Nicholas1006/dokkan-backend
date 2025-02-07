@@ -15,7 +15,6 @@ GLOBAL_DB_LOC = os.path.join(DOWNLOAD_DIR, "database.db")  # Path to store new f
 
 
 
-bar = Bar('Expanding global database file', max=219)
 con = sl.connect(GLOBAL_DB_LOC)
 with con:
     x = con.execute("""SELECT name FROM sqlite_master
@@ -44,7 +43,6 @@ ORDER BY name;""")
         
         fulltitle="dataGB/"+title+".csv"
         df.to_csv(fulltitle, index=False)
-        bar.next()
-    bar.finish()
+        print("Converted: " + title)
 
 print("Database file expanded")

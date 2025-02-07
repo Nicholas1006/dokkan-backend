@@ -62,7 +62,7 @@ jobs:
       - name: Copy Updated JSON and PNG Files to Frontend
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\temp_downloads" "frontend\dbManagement\DokkanFiles"
-          xcopy /E /Y "temp_jsons/jsons" "frontend/dbManagement/jsons"
+          xcopy /E /Y "temp_jsons" "frontend/dbManagement/jsons"
         shell: cmd
 
       - name: Commit and Push Changes to Frontend
