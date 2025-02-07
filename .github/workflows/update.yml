@@ -63,20 +63,29 @@ jobs:
       - name: Copy Updated DDL Files to Frontend
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\temp_downloads" "frontend\dbManagement\DokkanFiles"
-          xcopy /E /Y "temp_jsons" "frontend/dbManagement/jsons"
         shell: cmd
 
       - name: Copy Updated JSON Files to Frontend
         run: |
-          xcopy /E /Y "temp_jsons" "frontend/dbManagement/jsons"
+          xcopy /E /Y "temp_jsons" "frontend\dbManagement"
         shell: cmd
 
       - name: Commit and Push Changes to Frontend
         run: |
           cd frontend
-          git config --global user.email "your-email@example.com"
+          git config --global user.email "horvat.nicholas@gmail.com"
           git config --global user.name "GitHub Actions"
           git add .
+          git commit -m "Automated update of Dokkan assets"
+          git push
+        shell: cmd
+
+      - name: Commit and Push Updated Settings & CSVs
+        run: |
+          git config --global user.email "horvat.nicholas@gmail.com"
+          git config --global user.name "GitHub Actions"
+          git add "Dokkan Asset Downloader/settings.json"
+          git add "*.csv"
           git commit -m "Automated update of Dokkan assets"
           git push
         shell: cmd
