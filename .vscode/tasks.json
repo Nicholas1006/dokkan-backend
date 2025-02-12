@@ -2,18 +2,22 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Acquire new DDL",
+      "label": "Move new jsons",
       "type": "shell",
-      "command": "cmd",
-      "args":[
-        "/c",
-        "cd Dokkan_Asset_Downloader && newDDL.bat"
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/localMoveJsonsToFrontend.py"
       ],
-      "problemMatcher": [],
-      "presentation": {
-        "reveal": "always",
-        "echo": true
-      }
+      "problemMatcher": []
+    },
+    {
+      "label": "Clear temp folders",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}/localClearTempFolders.py"
+      ],
+      "problemMatcher": []
     },
 
     {
@@ -34,7 +38,7 @@
       "dependsOrder": "sequence",
       "dependsOn": [
         "Expand database",
-        "Create Jsons"
+        "Create all jsons"
       ],
       "problemMatcher": []
     },
@@ -162,7 +166,7 @@
 
 
     {
-      "label": "Create Jsons",
+      "label": "Create all jsons",
       "dependsOrder": "parallel",
       "dependsOn": [
         "Create jsons",
@@ -175,16 +179,6 @@
         }
       }
     },
-
-    {
-      "label": "fully use new DDL",
-      "dependsOrder": "sequence",
-      "dependsOn": [
-        "Acquire new DDL",
-        "Use new database"
-        //TODO: add auto git push to frontend
-      ]
-    }
 
   ],
   "inputs": [

@@ -41,7 +41,7 @@ ORDER BY name;""")
         # Create DataFrame with proper column names
         df = pd.DataFrame(transferringdata, columns=filtered_columns)
         
-        fulltitle="dataGB/"+title+".csv"
+        fulltitle="data/"+title+".csv"
         df.to_csv(fulltitle, index=False)
         print("Converted: " + title)
 

@@ -3,7 +3,7 @@ import os
 from dokkanfunctions import *
 import math
 import random
-directory="dataGB/"
+directory="data/"
 cards=storedatabase(directory,"cards.csv")
 createEZAWallpapers(cards, directory)
 optimal_awakening_growths=storedatabase(directory, "optimal_awakening_growths.csv")

@@ -2,7 +2,7 @@ from PIL import Image
 import os
 from dokkanfunctions import *
 import math
-directory="dataGB/"
+directory="data/"
 cards=storedatabase(directory,"cards.csv")
 card_awakening_routes=storedatabase(directory, "card_awakening_routes.csv")
 active_skills=storedatabase(directory,"active_skills.csv")

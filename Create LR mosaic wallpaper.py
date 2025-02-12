@@ -2,7 +2,7 @@ from PIL import Image
 import os
 from dokkanfunctions import *
 import math
-directory="dataGB/"
+directory="data/"
 cards=storedatabase(directory,"cards.csv")
 createLRWallpapers(cards,directory)
 print("Creating LR mosaic")

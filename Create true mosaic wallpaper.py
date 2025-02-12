@@ -3,7 +3,7 @@ import os
 from dokkanfunctions import *
 import math
 from progress.bar import Bar
-directory="dataGB/"
+directory="data/"
 cards=storedatabase(directory,"cards.csv")
 
 print("Creating true mosaic")

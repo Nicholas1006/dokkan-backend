@@ -20,7 +20,7 @@ except ValueError:
     floattoFind = None
 
 found=False
-directory = "dataGB/"
+directory = "data/"
 for filename in os.listdir(directory):
     if (filename.endswith(".csv") and filename not in CSVtoExclude):
         data = storedatabase(directory, filename)

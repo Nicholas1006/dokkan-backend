@@ -11,7 +11,7 @@ CALCUNITBASICS=True
 if(CALCLINKS):
     print("Creating links json")
 
-    link_skills=storedatabase("dataGB/","link_skills.csv")
+    link_skills=storedatabase("data/","link_skills.csv")
     link_skills_name=[name[1] for name in link_skills]
     link_skills_id=[name[0] for name in link_skills]
 
@@ -32,8 +32,8 @@ if(CALCLINKS):
 if(CALCDOMAINS):
     print("Creating domains json")
     domains_json={}
-    dokkan_fields=storedatabase("dataGB/","dokkan_fields.csv")[1:]
-    dokkan_field_efficiacies=storedatabase("dataGB/","dokkan_field_efficacies.csv")[1:]
+    dokkan_fields=storedatabase("data/","dokkan_fields.csv")[1:]
+    dokkan_field_efficiacies=storedatabase("data/","dokkan_field_efficacies.csv")[1:]
 
     for domain in dokkan_fields:
         domain_dictionary={}
@@ -53,10 +53,10 @@ if(CALCDOMAINS):
 
 
 if(CALCALLUNITS):
-    bar = Bar("Creating all units json",max=len(cardsGB))
+    bar = Bar("Creating all units json",max=len(cards))
 allUnitsDictionary=[]
 relevantCards=[]
-for unit in cardsGB:
+for unit in cards:
     if(CALCALLUNITS):
         bar.next()    
     if qualifyUsable(unit):
@@ -106,13 +106,13 @@ if(CALCUNITBASICS):
             unitDictionary["Eza"]=eza
             unitDictionary["Seza"]=seza
             unitDictionary["Dokkan Awakened"]=False
-            relevant_awakenings=searchbycolumn(code=unit[0],database=card_awakening_routesGB,column=3)
-            relevant_awakenings+=searchbycolumn(code=unit1[0],database=card_awakening_routesGB,column=3)
+            relevant_awakenings=searchbycolumn(code=unit[0],database=card_awakening_routes,column=3)
+            relevant_awakenings+=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=3)
             relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
             if(relevant_awakenings!=[]):
                 unitDictionary["Dokkan Awakened"]=True
             intUnit = [int(x) for x in unit[6:14]]
-            growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growthsGB)
+            growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growths)
             coef=float(searchbyid(code=str(unitDictionary["Max Level"]),codecolumn=2,database=growthInfo,column=3)[0])
             maxLevelStats=getUnitStats(intUnit,unitDictionary["Max Level"],coef)
             unitDictionary["HP"]=maxLevelStats["HP"]
@@ -143,7 +143,7 @@ if(CALCUNITBASICS):
             unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
 
             unitDictionary["Awakening"]={"Dokkan Awakening":False, "Awakening to LR":False, "Extreme Z-Awakening":False, "Super Extreme Z-Awakening":False}
-            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesGB,column=2)
+            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
             relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
             if(len(relevant_awakenings)>0):
                 unitDictionary["Awakening"]["Dokkan Awakening"]=True

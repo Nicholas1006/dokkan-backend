@@ -12,11 +12,6 @@ jobs:
     steps:
       - name: Checkout Backend Repository
         uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10.11'  # Change this to your required Python version
       
       - name: Create Temp Download Folder
         run: mkdir Dokkan_Asset_Downloader\temp_downloads
@@ -64,6 +59,12 @@ jobs:
             echo "changed=false" >> $env:GITHUB_OUTPUT
           }
         shell: pwsh
+
+      - name: Set up Python
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.11'  # Change this to your required Python version
 
       - name: Install Python Dependencies
         if: steps.check_changes.outputs.changed == 'true'
@@ -133,7 +134,7 @@ jobs:
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\settings.json" "backend\Dokkan_Asset_Downloader\settings.json"
-          xcopy /E /Y "dataGB" "backend\dataGB"
+          xcopy /E /Y "data" "backend\data"
         shell: cmd
 
       - name: Commit and Push Updated Settings & CSVs

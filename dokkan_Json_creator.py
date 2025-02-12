@@ -2,11 +2,11 @@ from dokkanfunctions import *
 totalTime=time.time()
 setupStart=time.time()
 from globals import *
-directory="dataGB/"
-cardsGB=storedatabase(directory,"cards.csv")
+directory="data/"
+cards=storedatabase(directory,"cards.csv")
 
 
-DEVEXCEPTIONS=True
+DEVEXCEPTIONS=False
 GLOBALPARSE=True
 GLOBALREFRESH=False
 MAKEJSON=True
@@ -40,7 +40,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1030431","4030441","4030451"]
+cardIDsToCheck=["1029731","4029991"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
@@ -54,12 +54,12 @@ if(GLOBALREFRESH and GLOBALPARSE):
     
 
 if GLOBALPARSE:
-    for unit in cardsGB:
+    for unit in cards:
         if qualifyUsable(unit):
             cardsToCheck.append(unit)
 else:
     for ID in cardIDsToCheck:
-        for unit in cardsGB:
+        for unit in cards:
             if unit[0]==ID:
                 if(qualifyUsable(unit)):
                     cardsToCheck.append(unit)
@@ -77,7 +77,7 @@ passivecount=0
 #print(passive)
 HiPoBoards={}
 
-unitsChecked=0
+unitsChecked=1
 
 totalUnitJson={}
 totalEZAUnitJson={}
@@ -103,13 +103,12 @@ for unit in cardsToCheck:
             unitCount=unitCount+1
             unitDictionary={}
             unit1=swapToUnitWith1(unit)
-            unitGB=switchUnitToGlobal(unit)
             if(CALCBASIC):
                 basicStart=time.time()
                 unitDictionary["ID"]=unit[0]
                 unitDictionary["Type"]=getUnitType(unit)
                 unitDictionary["Class"]=getUnitClass(unit)
-                unitDictionary["Name"]=unitGB[1]
+                unitDictionary["Name"]=unit[1]
                 unitDictionary["Rarity"]=getrarity(unit)
                 unitDictionary["Min Level"]=getMinLevel(unit,eza)
                 unitDictionary["Max Level"]=getMaxLevel(unit,eza)
@@ -135,8 +134,7 @@ for unit in cardsToCheck:
             unitDictionary["Passive"]={}
             if(CALCPASSIVE):
                 passiveStart=time.time()
-                parsedPassive=parsePassiveSkill(unit,eza,seza,DEVEXCEPTIONS)
-                unitDictionary["Passive"]=parsedPassive
+                unitDictionary["Passive"]=parsePassiveSkill(unit,eza,seza,DEVEXCEPTIONS)
                 passiveTime+=time.time()-passiveStart
 
             unitDictionary["Max Attacks"]=1
@@ -245,6 +243,11 @@ for unit in cardsToCheck:
                                 transformations[unit[0]].append(unitDictionary["Passive"][passiveLine]["Reversible exchange"]["Unit"])
                             else:
                                 transformations[unit[0]]=[unitDictionary["Passive"][passiveLine]["Reversible exchange"]["Unit"]]
+                        if("Domain" in unitDictionary["Passive"][passiveLine]):
+                            unitDictionary["Domain"]={
+                                "ID":unitDictionary["Passive"][passiveLine]["Domain"],
+                                "Locked": False
+                            }
             if(CALCACTIVE): 
                 if(unitDictionary["Active Skill"]!=None):
                     for activeLine in unitDictionary["Active Skill"]["Effects"]:
@@ -265,7 +268,7 @@ for unit in cardsToCheck:
 
 
             unitDictionary["Dokkan awakenings"]=[]
-            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routesGB,column=2)
+            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
             relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
             for awakening in relevant_awakenings:
                 unitDictionary["Dokkan awakenings"].append(awakening[3])
@@ -324,7 +327,7 @@ for unit in cardsToCheck:
             else:
                 totalUnitJson[jsonName]=unitDictionary
 
-
+#backtrack fix all transformations and transforms from
 for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
     for unit in jsonList:
         if(jsonList[unit]["Transformations"]!=[]):
@@ -359,12 +362,12 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
                             if(PastForm not in accountedPastForms and PastForm!=unit):
                                 possiblePastForms.append(PastForm)
         
-
+        #fix incomplete hidden potential systems
         if("INCOMPLETE" in jsonList[unit]["Hidden Potential"]):
             betterHiPoBoardFound=False
             for deTransformedUnit in jsonList[unit]["Transforms from"]:
                 if(betterHiPoBoardFound==False):
-                    possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cardsGB,column=52)[0]
+                    possibleBoard=searchbyid(code=deTransformedUnit,codecolumn=0,database=cards,column=52)[0]
                     if(possibleBoard!=''):
                         betterHiPoBoardFound=possibleBoard[:-2]
 
@@ -378,6 +381,27 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
         jsonList[unit]["Transformations"].sort()
         jsonList[unit]["Transforms from"]=list(set(jsonList[unit]["Transforms from"]))
         jsonList[unit]["Transforms from"].sort()
+
+
+#place any domains onto transformed units
+for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
+    for unit in jsonList:
+        if(jsonList[unit]["Active Skill"]!=None):
+            if("Domain" in jsonList[unit]["Active Skill"]):
+                if(jsonList[unit]["Transformations"]!=[]):
+                    for transformation in jsonList[unit]["Transformations"]:
+                        jsonList[transformation]["Domain"]={
+                            "ID":jsonList[unit]["Active Skill"]["Domain"],
+                            "Locked":(jsonList[transformation]["Max Appearances In Form"]!=50)
+                        }
+                else:
+                    jsonList[unit]["Domain"]={
+                        "ID":jsonList[unit]["Active Skill"]["Domain"],
+                        "Locked":False
+                    }
+
+            
+
                 
 if(MAKEJSON):
     jsonStart=time.time()
