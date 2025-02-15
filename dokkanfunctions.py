@@ -943,7 +943,7 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                 elif(finish_skill_row[6]=="117"):
                     output[finish_skill_set_id]["CONFUSION"]=True
                 elif(finish_skill_row[6]=="118"):
-                    output[finish_skill_set_id]["Multipler per charge"]=int(efficiacy_value[0])
+                    output[finish_skill_set_id]["Multiplier per charge"]=int(efficiacy_value[0])
                     output[finish_skill_set_id]["Max multiplier"]=int(efficiacy_value[1])
                 elif(finish_skill_row[6]=="119"):
                     output[finish_skill_set_id]["Nullification"]={}
