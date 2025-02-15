@@ -23,10 +23,13 @@ jobs:
           if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
             $settings = Get-Content -Raw -Path "Dokkan_Asset_Downloader\settings.json" | ConvertFrom-Json
             $glbAssetVersion = $settings.GlbAssetVersion
+            $glbDbVersion = $settings.GlbDbVersion
           } else {
             $glbAssetVersion = "no_file"
+            $glbDbVersion = "no_file"
           }
           echo "glbAssetVersionBefore=$glbAssetVersion" >> $env:GITHUB_OUTPUT
+          echo "glbDbVersionBefore=$glbDbVersion" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: Run Dokkan_Asset_Downloader
@@ -44,16 +47,19 @@ jobs:
           if (Test-Path "Dokkan_Asset_Downloader\settings.json") {
             $settings = Get-Content -Raw -Path "Dokkan_Asset_Downloader\settings.json" | ConvertFrom-Json
             $glbAssetVersion = $settings.GlbAssetVersion
+            $glbDbVersion = $settings.GlbDbVersion
           } else {
             $glbAssetVersion = "no_file"
+            $glbDbVersion = "no_file"
           }
           echo "glbAssetVersionAfter=$glbAssetVersion" >> $env:GITHUB_OUTPUT
+          echo "glbDbVersionAfter=$glbAssetVersion" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: Check if GlbAssetVersion has changed
         id: check_changes
         run: |
-          if ("${{ steps.before_state.outputs.glbAssetVersionBefore }}" -ne "${{ steps.after_state.outputs.glbAssetVersionAfter }}") {
+          if ("${{ steps.before_state.outputs.glbAssetVersionBefore }}" -ne "${{ steps.after_state.outputs.glbAssetVersionAfter }}" -or "${{ steps.before_state.outputs.glbDbVersionBefore }}" -ne "${{ steps.after_state.outputs.glbDbVersionAfter }}") {
             echo "changed=true" >> $env:GITHUB_OUTPUT
           } else {
             echo "changed=false" >> $env:GITHUB_OUTPUT
