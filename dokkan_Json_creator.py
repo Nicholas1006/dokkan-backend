@@ -6,7 +6,7 @@ directory="data/"
 cards=storedatabase(directory,"cards.csv")
 
 
-DEVEXCEPTIONS=False
+DEVEXCEPTIONS=True
 GLOBALPARSE=True
 GLOBALREFRESH=False
 MAKEJSON=True
@@ -40,7 +40,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1029731","4029991"]
+cardIDsToCheck=["1003211"]
 
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 

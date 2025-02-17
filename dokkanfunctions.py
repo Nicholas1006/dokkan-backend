@@ -2309,12 +2309,12 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         output["Button"]["Name"]=("Has this character or an ally's revival skill been activated?")
     elif(CausalityRow[1]=="55"):
         output["Button"]["Name"]=("Is it on or after the first ")
-        output["Button"]["Name"]+=CausalityRow[2]
+        output["Button"]["Name"]+=str(int(CausalityRow[2])+1)
         output["Button"]["Name"]+=(" turns from this characters entry turn?")
 
         output["Slider"]["Name"]="How many turns is it since entry turn?"
         output["Slider"]["Logic"]=">="
-        output["Slider"]["Logic"]+=CausalityRow[2]
+        output["Slider"]["Logic"]+=str(int(CausalityRow[2])+1)
         output["Slider"]["Min"]=0
         output["Slider"]["Max"]=int(CausalityRow[2])+1
     elif(CausalityRow[1]=="56"):
@@ -2800,12 +2800,12 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]=("Has this character or an ally's revival skill been activated?")
             elif(CausalityRow[1]=="55"):
                 output["Button"]["Name"]=("Is it on or after the first ")
-                output["Button"]["Name"]+=CausalityRow[2]
+                output["Button"]["Name"]+=str(int(CausalityRow[2])+1)
                 output["Button"]["Name"]+=(" turns from this characters entry turn?")
 
                 output["Slider"]["Name"]="How many turns is it since entry turn?"
                 output["Slider"]["Logic"]=">="
-                output["Slider"]["Logic"]+=CausalityRow[2]
+                output["Slider"]["Logic"]+=str(int(CausalityRow[2])+1)
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=int(CausalityRow[2])+1
             elif(CausalityRow[1]=="56"):
@@ -3275,7 +3275,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             pass
         elif(parsedLine["Target"]["Target"]=="Enemies"):
             output+="All enemies "
-        elif(parsedLine["Target"]["Target"]=="Allies" or "Allies(self excluded)"):
+        elif(parsedLine["Target"]["Target"]=="allies" or "Allies(self excluded)"):
             if("Class" in parsedLine["Target"]):
                 output+=parsedLine["Target"]["Class"]
                 output+=" class "
@@ -3717,7 +3717,7 @@ def stupidCondition(parsedLine,DEVECXEPTION=True):
         button_name = causalities[key].get("Button", {}).get("Name", "")
         
         # Check if Button["Name"] matches the required string
-        if button_name == 'Is it on or after the first 0 turns from this characters entry turn?':
+        if button_name == 'Is it on or after the first 1 turns from this characters entry turn?':
             return True
     
     return False
@@ -3968,20 +3968,21 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown stat increase type")
 
+            output["Effects"][line[0]]["Target"]={}
             if(line[2]=="1"):
-                output["Effects"][line[0]]["Target"]="Self"
+                output["Effects"][line[0]]["Target"]["Target"]="Self"
             elif(line[2]=="2"):
-                output["Effects"][line[0]]["Target"]="All allies"
+                output["Effects"][line[0]]["Target"]["Target"]="All allies"
             elif(line[2]=="3"):
-                output["Effects"][line[0]]["Target"]="Enemy"
+                output["Effects"][line[0]]["Target"]["Target"]="Enemy"
             elif(line[2]=="4"):
-                output["Effects"][line[0]]["Target"]="All enemies"
+                output["Effects"][line[0]]["Target"]["Target"]="All enemies"
             elif(line[2]=="12"):
-                output["Effects"][line[0]]["Target"]="Super class enemies"
+                output["Effects"][line[0]]["Target"]["Target"]="Super class enemies"
             elif(line[2]=="13"):
-                output["Effects"][line[0]]["Target"]="Extreme class allies"
+                output["Effects"][line[0]]["Target"]["Target"]="Extreme class allies"
             elif(line[2]=="16"):
-                output["Effects"][line[0]]["Target"]="All allies other than this character on every turn"
+                output["Effects"][line[0]]["Target"]["Target"]="All allies(self excluded)"
             else:
                 print("Unknown target")
                 if(DEVEXCEPTIONS):
