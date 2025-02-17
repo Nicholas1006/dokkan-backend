@@ -12,10 +12,6 @@ jobs:
     steps:
       - name: Checkout Backend Repository
         uses: actions/checkout@v3
-      
-      - name: Create Temp Download Folder
-        run: mkdir Dokkan_Asset_Downloader\temp_downloads
-        shell: cmd
 
       - name: Save GlbAssetVersion state before running Dokkan_Asset_Downloader
         id: before_state
@@ -52,8 +48,8 @@ jobs:
             $glbAssetVersion = "no_file"
             $glbDbVersion = "no_file"
           }
+          echo "glbDbVersionAfter=$glbDbVersion" >> $env:GITHUB_OUTPUT
           echo "glbAssetVersionAfter=$glbAssetVersion" >> $env:GITHUB_OUTPUT
-          echo "glbDbVersionAfter=$glbAssetVersion" >> $env:GITHUB_OUTPUT
         shell: pwsh
 
       - name: Check if GlbAssetVersion has changed
