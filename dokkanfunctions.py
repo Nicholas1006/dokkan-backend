@@ -1,7 +1,7 @@
 from globals import *
 import csv
 import os
-from PIL import Image
+#from PIL import Image
 import math
 import json
 import shutil
@@ -945,6 +945,12 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                 elif(finish_skill_row[6]=="118"):
                     output[finish_skill_set_id]["Multiplier per charge"]=int(efficiacy_value[0])
                     output[finish_skill_set_id]["Max multiplier"]=int(efficiacy_value[1])
+
+                    for causalityKey in output[finish_skill_set_id]["Condition"]["Causalities"]:
+                        if(output[finish_skill_set_id]["Condition"]["Causalities"][causalityKey]["Slider"]["Name"]=="What is the charge count at?"):
+                            output[finish_skill_set_id]["Condition"]["Causalities"][causalityKey]["Slider"]["Max"]=math.ceil(output[finish_skill_set_id]["Max multiplier"]/output[finish_skill_set_id]["Multiplier per charge"])
+
+
                 elif(finish_skill_row[6]=="119"):
                     output[finish_skill_set_id]["Nullification"]={}
                     output[finish_skill_set_id]["Nullification"]["Activated"]=True
@@ -2772,7 +2778,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=int(CausalityRow[2])+1
             elif(CausalityRow[1]=="52"):
-                if(CausalityRow[2]=="1"):
+                if(CausalityRow[2]=="1" or CausalityRow[2]=="2"):
                     output["Button"]["Name"]=("Is the charge count less than ")
                     output["Button"]["Name"]+=CausalityRow[3]
 
@@ -3123,106 +3129,106 @@ def getAdditionalSuperID(unitDictionary):
 
         
 
-def createEZAWallpapers(cards, directory,printing=True):
-    if(printing): print("Creating EZA wallpapers")
-    acquiredlist = os.listdir(r'./assets/EZA wallpapers')
-    leader_skills=storedatabase(directory,"leader_skills.csv")
-    optimal_awakening_growths=storedatabase(directory,"optimal_awakening_growths.csv")
-    total=0
-    for card in cards:
-        if (card[53]!="2030-12-31 23:59:59") and (card[0][0]!="9") and (card[0][-1]=="0") and (card[22]!="") and ((("final_"+card[0]+".png") not in acquiredlist)) and (checkEza(card)):
-            unitid=card[0]
-            if unitid[-1]=="1":
-                unitid=str(int(unitid)-1)
-            mainunit=card
+#def createEZAWallpapers(cards, directory,printing=True):
+#    if(printing): print("Creating EZA wallpapers")
+#    acquiredlist = os.listdir(r'./assets/EZA wallpapers')
+#    leader_skills=storedatabase(directory,"leader_skills.csv")
+#    optimal_awakening_growths=storedatabase(directory,"optimal_awakening_growths.csv")
+#    total=0
+#    for card in cards:
+#        if (card[53]!="2030-12-31 23:59:59") and (card[0][0]!="9") and (card[0][-1]=="0") and (card[22]!="") and ((("final_"+card[0]+".png") not in acquiredlist)) and (checkEza(card)):
+#            unitid=card[0]
+#            if unitid[-1]=="1":
+#                unitid=str(int(unitid)-1)
+#            mainunit=card
+#
+#        #background
+#            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
+#        #element
+#            cframeurl+=(mainunit[12][-1])
+#            cframeurl+=("_0")
+#        #rarity
+#            cframeurl+=(mainunit[5])
+#            cframeurl+=(".png")
 
-        #background
-            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
-        #element
-            cframeurl+=(mainunit[12][-1])
-            cframeurl+=("_0")
-        #rarity
-            cframeurl+=(mainunit[5])
-            cframeurl+=(".png")
 
-
-            cframe = Image.open(cframeurl).convert("RA")
-            cframe=cframe.resize((200,200))
+#            cframe = Image.open(cframeurl).convert("RA")
+#            cframe=cframe.resize((200,200))
 
         #character icon
-            ciconurl=("../frontend/dbManagement/assets/thumb/")
-            if card[48]=="" or card[48]=="0.0":
-                ciconurl+=unitid
-            else:
-                ciconurl+=str(int(float(card[48])))
-            ciconurl+=(".png")
-            cicon = Image.open(ciconurl).convert("RA")
-            cicon.resize((250,250))
+#            ciconurl=("../frontend/dbManagement/assets/thumb/")
+#            if card[48]=="" or card[48]=="0.0":
+#                ciconurl+=unitid
+#            else:
+#                ciconurl+=str(int(float(card[48])))
+#            ciconurl+=(".png")
+#            cicon = Image.open(ciconurl).convert("RA")
+#            cicon.resize((250,250))
 
 
         #rarity
-            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
-            crarityurl+=(getrarity(mainunit))
-            crarityurl+=(".png")
-            crarity = Image.open(crarityurl).convert("RA")
-            if getrarity(mainunit)=="ssr":
-                crarity=crarity.resize((120,72))
-            else:    
-                crarity=crarity.resize((160,96))
+#            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
+#            crarityurl+=(getrarity(mainunit))
+#            crarityurl+=(".png")
+#            crarity = Image.open(crarityurl).convert("RA")
+#            if getrarity(mainunit)=="ssr":
+#                crarity=crarity.resize((120,72))
+#            else:    
+#                crarity=crarity.resize((160,96))
 
         #element
-            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
-            if len(mainunit[12])==1:
-                celementurl+=("0")
-            celementurl+=(mainunit[12])
-            celementurl+=(".png")
-            celement = Image.open(celementurl).convert("RA")
-            celement=celement.resize((90,90))
-            if mainunit[12] in ("20","10"):
-                if(printing): print("AGL ",end="")
-            elif mainunit[12] in ("21","11"):
-                if(printing): print("TEQ ",end="")
-            elif mainunit[12] in ("22","12"):
-                if(printing): print("INT ",end="")
-            elif mainunit[12] in ("23","13"):
-                if(printing): print("STR ",end="")
-            elif mainunit[12] in ("24","14"):
-                if(printing): print("PHY ",end="")
+#            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
+#            if len(mainunit[12])==1:
+#                celementurl+=("0")
+#            celementurl+=(mainunit[12])
+#            celementurl+=(".png")
+#            celement = Image.open(celementurl).convert("RA")
+#            celement=celement.resize((90,90))
+#            if mainunit[12] in ("20","10"):
+#                if(printing): print("AGL ",end="")
+#            elif mainunit[12] in ("21","11"):
+#                if(printing): print("TEQ ",end="")
+#            elif mainunit[12] in ("22","12"):
+#                if(printing): print("INT ",end="")
+#            elif mainunit[12] in ("23","13"):
+#                if(printing): print("STR ",end="")
+#            elif mainunit[12] in ("24","14"):
+#                if(printing): print("PHY ",end="")
 
-            (width,height)=(cicon.width+10,cicon.height+10)
-            cfinal=Image.new("RA",(width,height))
-            cfinal.paste(cframe, (25,35), cframe)
-            cfinal.paste(cicon, (0,1), cicon)
-            if getrarity(mainunit)=="n":
-                cfinal.paste(crarity, (-37,160),crarity)
-                if(printing): print("N ",end="")
-            elif getrarity(mainunit)=="r":
-                cfinal.paste(crarity, (-42,160), crarity)
-                if(printing): print("R ",end="")
-            elif getrarity(mainunit)=="sr":
-                cfinal.paste(crarity, (-25,158), crarity)
-                if(printing): print("SR ",end="")
-            elif getrarity(mainunit)=="ssr":
-                cfinal.paste(crarity, (-5,171), crarity)
-                if(printing): print("SSR ",end="")
-            elif getrarity(mainunit)=="ur":
-                cfinal.paste(crarity, (-25,160), crarity)
-                if(printing): print("UR ",end="")
-            elif getrarity(mainunit)=="lr" or True:
-                cfinal.paste(crarity, (-25,155),crarity)
-                if(printing): print("LR ",end="")
-            cfinal.paste(celement, (170,5),celement)
+#            (width,height)=(cicon.width+10,cicon.height+10)
+#            cfinal=Image.new("RA",(width,height))
+#            cfinal.paste(cframe, (25,35), cframe)
+#            cfinal.paste(cicon, (0,1), cicon)
+#            if getrarity(mainunit)=="n":
+#                cfinal.paste(crarity, (-37,160),crarity)
+#                if(printing): print("N ",end="")
+#            elif getrarity(mainunit)=="r":
+#                cfinal.paste(crarity, (-42,160), crarity)
+#                if(printing): print("R ",end="")
+#            elif getrarity(mainunit)=="sr":
+#                cfinal.paste(crarity, (-25,158), crarity)
+#                if(printing): print("SR ",end="")
+#            elif getrarity(mainunit)=="ssr":
+#                cfinal.paste(crarity, (-5,171), crarity)
+#                if(printing): print("SSR ",end="")
+#            elif getrarity(mainunit)=="ur":
+#                cfinal.paste(crarity, (-25,160), crarity)
+#                if(printing): print("UR ",end="")
+#            elif getrarity(mainunit)=="lr" or True:
+#                cfinal.paste(crarity, (-25,155),crarity)
+#                if(printing): print("LR ",end="")
+#            cfinal.paste(celement, (170,5),celement)
             
-            if(printing): print(mainunit[1])
-            wallpapername=("../frontend/dbManagement/assets/EZA wallpapers/final_")
-            wallpapername+=(unitid)
-            wallpapername+=(".png")
-            cfinal.save(wallpapername)
-            total+=1
-            if total%100==0:
-                if(printing): print(total)
-            #print("Created final asset for",total,getfullname(card,leader_skills))
-    if(printing): print("All EZA assets created")
+#            if(printing): print(mainunit[1])
+#            wallpapername=("../frontend/dbManagement/assets/EZA wallpapers/final_")
+#            wallpapername+=(unitid)
+#            wallpapername+=(".png")
+#            cfinal.save(wallpapername)
+#            total+=1
+#            if total%100==0:
+#                if(printing): print(total)
+#            #print("Created final asset for",total,getfullname(card,leader_skills))
+#    if(printing): print("All EZA assets created")
 
 def maxAppearancesInForm(unitPassive,DEVEXCEPTIONS=False):
     maxAppearances=50
@@ -4064,206 +4070,206 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
 
 
 
-def createDFEWallpapers(cards, directory,printing=True):
-    if(printing): print("Creating DFE wallpapers")
-    acquiredlist = os.listdir(r'./assets/DFE wallpapers')
-    leader_skills=storedatabase(directory,"leader_skills.csv")
-    total=0
-    for card in cards:
-        if qualifyAsDFE(card) and (((definewith0(card[0])+".png") not in acquiredlist)):
-            unitid=card[0]
-            if unitid[-1]=="1":
-                unitid=str(int(unitid)-1)
-            mainunit=card
+#def createDFEWallpapers(cards, directory,printing=True):
+#    if(printing): print("Creating DFE wallpapers")
+#    acquiredlist = os.listdir(r'./assets/DFE wallpapers')
+#    leader_skills=storedatabase(directory,"leader_skills.csv")
+#    total=0
+#    for card in cards:
+#        if qualifyAsDFE(card) and (((definewith0(card[0])+".png") not in acquiredlist)):
+#            unitid=card[0]
+#            if unitid[-1]=="1":
+#                unitid=str(int(unitid)-1)
+#            mainunit=card
 
         #background
-            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
+#            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
         #element
-            cframeurl+=(mainunit[12][-1])
-            cframeurl+=("_0")
+#            cframeurl+=(mainunit[12][-1])
+#            cframeurl+=("_0")
         #rarity
-            cframeurl+=(mainunit[5])
-            cframeurl+=(".png")
+#            cframeurl+=(mainunit[5])
+#            cframeurl+=(".png")
 
 
-            cframe = Image.open(cframeurl).convert("RA")
-            cframe=cframe.resize((200,200))
+#            cframe = Image.open(cframeurl).convert("RA")
+#            cframe=cframe.resize((200,200))
 
         #character icon
-            ciconurl=("../frontend/dbManagement/assets/thumb/")
-            if card[48]=="" or card[48]=="0.0":
-                ciconurl+=unitid
-            else:
-                ciconurl+=str(int(float(card[48])))
-            ciconurl+=(".png")
-            cicon = Image.open(ciconurl).convert("RA")
-            cicon.resize((250,250))
+#            ciconurl=("../frontend/dbManagement/assets/thumb/")
+#            if card[48]=="" or card[48]=="0.0":
+#                ciconurl+=unitid
+#            else:
+#                ciconurl+=str(int(float(card[48])))
+#            ciconurl+=(".png")
+#            cicon = Image.open(ciconurl).convert("RA")
+#            cicon.resize((250,250))
 
 
         #rarity
-            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
-            crarityurl+=(getrarity(mainunit))
-            crarityurl+=(".png")
-            crarity = Image.open(crarityurl).convert("RA")
-            if getrarity(mainunit)=="ssr":
-                crarity=crarity.resize((120,72))
-            else:    
-                crarity=crarity.resize((160,96))
+#            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
+#            crarityurl+=(getrarity(mainunit))
+#            crarityurl+=(".png")
+#            crarity = Image.open(crarityurl).convert("RA")
+#            if getrarity(mainunit)=="ssr":
+#                crarity=crarity.resize((120,72))
+#            else:    
+#                crarity=crarity.resize((160,96))
 
         #element
-            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
-            if len(mainunit[12])==1:
-                celementurl+=("0")
-            celementurl+=(mainunit[12])
-            celementurl+=(".png")
-            celement = Image.open(celementurl).convert("RA")
-            celement=celement.resize((90,90))
-            if mainunit[12] in ("20","10"):
-                if(printing): print("AGL ",end="")
-            elif mainunit[12] in ("21","11"):
-                if(printing): print("TEQ ",end="")
-            elif mainunit[12] in ("22","12"):
-                if(printing): print("INT ",end="")
-            elif mainunit[12] in ("23","13"):
-                if(printing): print("STR ",end="")
-            elif mainunit[12] in ("24","14"):
-                if(printing): print("PHY ",end="")
+#            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
+#            if len(mainunit[12])==1:
+#                celementurl+=("0")
+#            celementurl+=(mainunit[12])
+#            celementurl+=(".png")
+#            celement = Image.open(celementurl).convert("RA")
+#            celement=celement.resize((90,90))
+#            if mainunit[12] in ("20","10"):
+#                if(printing): print("AGL ",end="")
+#            elif mainunit[12] in ("21","11"):
+#                if(printing): print("TEQ ",end="")
+#            elif mainunit[12] in ("22","12"):
+#                if(printing): print("INT ",end="")
+#            elif mainunit[12] in ("23","13"):
+#                if(printing): print("STR ",end="")
+#            elif mainunit[12] in ("24","14"):
+#                if(printing): print("PHY ",end="")
 
-            (width,height)=(cicon.width+10,cicon.height+10)
-            cfinal=Image.new("RA",(width,height))
-            cfinal.paste(cframe, (25,35), cframe)
-            cfinal.paste(cicon, (0,1), cicon)
-            if getrarity(mainunit)=="n":
-                cfinal.paste(crarity, (-37,160),crarity)
-                if(printing): print("N ",end="")
-            elif getrarity(mainunit)=="r":
-                cfinal.paste(crarity, (-42,160), crarity)
-                if(printing): print("R ",end="")
-            elif getrarity(mainunit)=="sr":
-                cfinal.paste(crarity, (-25,158), crarity)
-                if(printing): print("SR ",end="")
-            elif getrarity(mainunit)=="ssr":
-                cfinal.paste(crarity, (-5,171), crarity)
-                if(printing): print("SSR ",end="")
-            elif getrarity(mainunit)=="ur":
-                cfinal.paste(crarity, (-25,160), crarity)
-                if(printing): print("UR ",end="")
-            elif getrarity(mainunit)=="lr" or True:
-                cfinal.paste(crarity, (-25,155),crarity)
-                if(printing): print("LR ",end="")
-            cfinal.paste(celement, (170,5),celement)
+#            (width,height)=(cicon.width+10,cicon.height+10)
+#            cfinal=Image.new("RA",(width,height))
+#            cfinal.paste(cframe, (25,35), cframe)
+#            cfinal.paste(cicon, (0,1), cicon)
+#            if getrarity(mainunit)=="n":
+##                cfinal.paste(crarity, (-37,160),crarity)
+#                if(printing): print("N ",end="")
+#            elif getrarity(mainunit)=="r":
+#                cfinal.paste(crarity, (-42,160), crarity)
+#                if(printing): print("R ",end="")
+#            elif getrarity(mainunit)=="sr":
+#                cfinal.paste(crarity, (-25,158), crarity)
+#                if(printing): print("SR ",end="")
+#            elif getrarity(mainunit)=="ssr":
+#                cfinal.paste(crarity, (-5,171), crarity)
+#                if(printing): print("SSR ",end="")
+#            elif getrarity(mainunit)=="ur":
+#                cfinal.paste(crarity, (-25,160), crarity)
+#                if(printing): print("UR ",end="")
+#            elif getrarity(mainunit)=="lr" or True:
+#                cfinal.paste(crarity, (-25,155),crarity)
+#                if(printing): print("LR ",end="")
+#            cfinal.paste(celement, (170,5),celement)
+#            
             
-            
-            wallpapername=("../frontend/dbManagement/assets/DFE wallpapers/")
-            wallpapername+=(unitid)
-            wallpapername+=(".png")
-            if(printing): print(mainunit[1])
-            cfinal.save(wallpapername)
-            total+=1
-            if total%100==0:
-                if(printing): print(total)
+#            wallpapername=("../frontend/dbManagement/assets/DFE wallpapers/")
+#            wallpapername+=(unitid)
+#            wallpapername+=(".png")
+#            if(printing): print(mainunit[1])
+#            cfinal.save(wallpapername)
+#            total+=1
+#            if total%100==0:
+#                if(printing): print(total)
             #print("Created final asset for",total,getfullname(card,leader_skills))
-    if(printing): print("All DFE assets created")
+#    if(printing): print("All DFE assets created")
 
-def createLRWallpapers(cards,directory,printing=True):
-    if(printing): print("Creating LR wallpapers")
-    acquiredlist = os.listdir(r'./assets/LR wallpapers')
-    leader_skills=storedatabase(directory,"leader_skills.csv")
-    total=0
-    for card in cards:
-        if (card[53]!="2030-12-31 23:59:59") and (card[0][0]!="9") and (card[0][-1]=="0") and (card[22]!="") and ((("final_"+card[0]+".png") not in acquiredlist)) and (getrarity(card)=="lr"):
-            unitid=card[0]
-            if unitid[-1]=="1":
-                unitid=str(int(unitid)-1)
-            mainunit=card
+#def createLRWallpapers(cards,directory,printing=True):
+#    if(printing): print("Creating LR wallpapers")
+#    acquiredlist = os.listdir(r'./assets/LR wallpapers')
+#    leader_skills=storedatabase(directory,"leader_skills.csv")
+#    total=0
+#    for card in cards:
+#        if (card[53]!="2030-12-31 23:59:59") and (card[0][0]!="9") and (card[0][-1]=="0") and (card[22]!="") and ((("final_"+card[0]+".png") not in acquiredlist)) and (getrarity(card)=="lr"):
+#            unitid=card[0]
+#            if unitid[-1]=="1":
+#                unitid=str(int(unitid)-1)
+#            mainunit=card
 
         #background
-            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
+#            cframeurl=("../frontend/dbManagement/assets/misc/cha_base_0")
         #element
-            cframeurl+=(mainunit[12][-1])
-            cframeurl+=("_0")
+#            cframeurl+=(mainunit[12][-1])
+#            cframeurl+=("_0")
         #rarity
-            cframeurl+=(mainunit[5])
-            cframeurl+=(".png")
+#            cframeurl+=(mainunit[5])
+#            cframeurl+=(".png")
 
-            cframe = Image.open(cframeurl).convert("RA")
-            cframe=cframe.resize((200,200))
+#            cframe = Image.open(cframeurl).convert("RA")
+#            cframe=cframe.resize((200,200))
 
         #character icon
-            ciconurl=("../frontend/dbManagement/assets/thumb/")
-            if card[48]=="" or card[48]=="0.0":
-                ciconurl+=unitid
-            else:
-                ciconurl+=str(int(float(card[48])))
-            ciconurl+=(".png")
-            cicon = Image.open(ciconurl).convert("RA")
-            cicon.resize((250,250))
+#            ciconurl=("../frontend/dbManagement/assets/thumb/")
+#            if card[48]=="" or card[48]=="0.0":
+#                ciconurl+=unitid
+#            else:
+#                ciconurl+=str(int(float(card[48])))
+#            ciconurl+=(".png")
+#            cicon = Image.open(ciconurl).convert("RA")
+#            cicon.resize((250,250))
 
 
         #rarity
-            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
-            crarityurl+=(getrarity(mainunit))
-            crarityurl+=(".png")
-            crarity = Image.open(crarityurl).convert("RA")
-            if getrarity(mainunit)=="ssr":
-                crarity=crarity.resize((120,72))
-            else:    
-                crarity=crarity.resize((160,96))
+#            crarityurl=("../frontend/dbManagement/assets/misc/cha_rare_")
+#            crarityurl+=(getrarity(mainunit))
+#            crarityurl+=(".png")
+#            crarity = Image.open(crarityurl).convert("RA")
+#            if getrarity(mainunit)=="ssr":
+#                crarity=crarity.resize((120,72))
+#            else:    
+#                crarity=crarity.resize((160,96))
 
         #element
-            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
-            if len(mainunit[12])==1:
-                celementurl+=("0")
-            celementurl+=(mainunit[12])
-            celementurl+=(".png")
-            celement = Image.open(celementurl).convert("RA")
-            celement=celement.resize((90,90))
-            if mainunit[12] in ("20","10"):
-                if(printing): print("AGL ",end="")
-            elif mainunit[12] in ("21","11"):
-                if(printing): print("TEQ ",end="")
-            elif mainunit[12] in ("22","12"):
-                if(printing): print("INT ",end="")
-            elif mainunit[12] in ("23","13"):
-                if(printing): print("STR ",end="")
-            elif mainunit[12] in ("24","14"):
-                if(printing): print("PHY ",end="")
+#            celementurl=("../frontend/dbManagement/assets/misc/cha_type_icon_")
+#            if len(mainunit[12])==1:
+#                celementurl+=("0")
+#            celementurl+=(mainunit[12])
+#            celementurl+=(".png")
+#            celement = Image.open(celementurl).convert("RA")
+#            celement=celement.resize((90,90))
+#            if mainunit[12] in ("20","10"):
+#                if(printing): print("AGL ",end="")
+#            elif mainunit[12] in ("21","11"):
+#                if(printing): print("TEQ ",end="")
+#            elif mainunit[12] in ("22","12"):
+#                if(printing): print("INT ",end="")
+#            elif mainunit[12] in ("23","13"):
+#                if(printing): print("STR ",end="")
+#            elif mainunit[12] in ("24","14"):
+#                if(printing): print("PHY ",end="")
 
-            (width,height)=(cicon.width+10,cicon.height+10)
-            cfinal=Image.new("RA",(width,height))
-            cfinal.paste(cframe, (25,35), cframe)
-            cfinal.paste(cicon, (0,1), cicon)
-            if getrarity(mainunit)=="n":
-                cfinal.paste(crarity, (-37,160),crarity)
-                if(printing): print("N ",end="")
-            elif getrarity(mainunit)=="r":
-                cfinal.paste(crarity, (-42,160), crarity)
-                if(printing): print("R ",end="")
-            elif getrarity(mainunit)=="sr":
-                cfinal.paste(crarity, (-25,158), crarity)
-                if(printing): print("SR ",end="")
-            elif getrarity(mainunit)=="ssr":
-                cfinal.paste(crarity, (-5,171), crarity)
-                if(printing): print("SSR ",end="")
-            elif getrarity(mainunit)=="ur":
-                cfinal.paste(crarity, (-25,160), crarity)
-                if(printing): print("UR ",end="")
-            elif getrarity(mainunit)=="lr" or True:
-                cfinal.paste(crarity, (-25,155),crarity)
-                if(printing): print("LR ",end="")
-            cfinal.paste(celement, (170,5),celement)
+#            (width,height)=(cicon.width+10,cicon.height+10)
+#            cfinal=Image.new("RA",(width,height))
+#            cfinal.paste(cframe, (25,35), cframe)
+#            cfinal.paste(cicon, (0,1), cicon)
+#            if getrarity(mainunit)=="n":
+#                cfinal.paste(crarity, (-37,160),crarity)
+#                if(printing): print("N ",end="")
+#            elif getrarity(mainunit)=="r":
+#                cfinal.paste(crarity, (-42,160), crarity)
+#                if(printing): print("R ",end="")
+##            elif getrarity(mainunit)=="sr":
+#                cfinal.paste(crarity, (-25,158), crarity)
+#                if(printing): print("SR ",end="")
+#            elif getrarity(mainunit)=="ssr":
+#                cfinal.paste(crarity, (-5,171), crarity)
+#                if(printing): print("SSR ",end="")
+#            elif getrarity(mainunit)=="ur":
+#                cfinal.paste(crarity, (-25,160), crarity)
+#                if(printing): print("UR ",end="")
+#            elif getrarity(mainunit)=="lr" or True:
+#                cfinal.paste(crarity, (-25,155),crarity)
+#                if(printing): print("LR ",end="")
+#            cfinal.paste(celement, (170,5),celement)
             
             
-            if(printing): print(mainunit[1])
-            wallpapername=("../frontend/dbManagement/assets/LR wallpapers/final_")
-            wallpapername+=(unitid)
-            wallpapername+=(".png")
-            cfinal.save(wallpapername)
-            total+=1
-            if total%100==0:
-                if(printing): print(total)
+#            if(printing): print(mainunit[1])
+#            wallpapername=("../frontend/dbManagement/assets/LR wallpapers/final_")
+#            wallpapername+=(unitid)
+#            wallpapername+=(".png")
+#            cfinal.save(wallpapername)
+#            total+=1
+#            if total%100==0:
+#                if(printing): print(total)
             
-    if(printing): print("All LR wallpapers created")
+#    if(printing): print("All LR wallpapers created")
 
 def qualifyZAwakened(unit):
     if(unit[0][-1]=="0"):
@@ -4298,87 +4304,89 @@ def getUnitClass(unit,printing=True,DEVEXCEPTIONS=False):
     elif unit[12][0]=="2":
         return("Extreme")
     
-def createFullThumb(card,printing=True):
-    if(card[48]!=""):
-        resource_id=str(int(float(card[48])))
-        if(resource_id[-1]=="1"):
-            resource_id=str(int(resource_id)-1)
-    else:
-        if(card[0][-1]=="1"):
-            resource_id=str(int(card[0])-1)
-        else:
-            resource_id=card[0]
-    unitid=card[0]
-    mainunit=card
+
+#def createFullThumb(card,printing=True):
+#    if(card[48]!=""):
+#        resource_id=str(int(float(card[48])))
+#        if(resource_id[-1]=="1"):
+#            resource_id=str(int(resource_id)-1)
+#    else:
+#        if(card[0][-1]=="1"):
+#            resource_id=str(int(card[0])-1)
+#        else:
+#            resource_id=card[0]
+#    unitid=card[0]
+#    mainunit=card
 
 #background
-    cframeurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/character_thumb_bg/cha_base_0")
+#    cframeurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/character_thumb_bg/cha_base_0")
 #element
-    cframeurl+=(mainunit[12][-1])
-    cframeurl+=("_0")
+#    cframeurl+=(mainunit[12][-1])
+#    cframeurl+=("_0")
 #rarity
-    cframeurl+=(mainunit[5])
-    cframeurl+=(".png")
+#    cframeurl+=(mainunit[5])
+#    cframeurl+=(".png")
 
 
-    cframe = Image.open(cframeurl).convert("RA")
-    cframe=cframe.resize((200,200))
+#    cframe = Image.open(cframeurl).convert("RA")
+#    cframe=cframe.resize((200,200))
 
 #character icon
-    ciconurl=("../frontend/dbManagement/DokkanFiles/global/en/character/thumb/card_")
-    ciconurl+=resource_id
-    ciconurl+=("_thumb.png")
-    cicon = Image.open(ciconurl).convert("RA")
-    cicon.resize((250,250))
+#    ciconurl=("../frontend/dbManagement/DokkanFiles/global/en/character/thumb/card_")
+#    ciconurl+=resource_id
+#    ciconurl+=("_thumb.png")
+#    cicon = Image.open(ciconurl).convert("RA")
+#    cicon.resize((250,250))
 
 
 #rarity
-    crarityurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/cha_rare_")
-    crarityurl+=(getrarity(mainunit))
-    crarityurl+=(".png")
-    crarity = Image.open(crarityurl).convert("RA")
-    if getrarity(mainunit)=="ssr":
-        crarity=crarity.resize((120,72))
-    else:    
-        crarity=crarity.resize((160,96))
+#    crarityurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/cha_rare_")
+#    crarityurl+=(getrarity(mainunit))
+#    crarityurl+=(".png")
+#    crarity = Image.open(crarityurl).convert("RA")
+#    if getrarity(mainunit)=="ssr":
+#        crarity=crarity.resize((120,72))
+#    else:    
+#        crarity=crarity.resize((160,96))
 
 #element
-    celementurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/cha_type_icon_")
-    if len(mainunit[12])==1:
-        celementurl+=("0")
-    celementurl+=(mainunit[12])
-    celementurl+=(".png")
-    celement = Image.open(celementurl).convert("RA")
-    celement=celement.resize((90,90))
+#    celementurl=("../frontend/dbManagement/DokkanFiles/global/en/layout/en/image/character/cha_type_icon_")
+#    if len(mainunit[12])==1:
+#        celementurl+=("0")
+#    celementurl+=(mainunit[12])
+#    celementurl+=(".png")
+#    celement = Image.open(celementurl).convert("RA")
+#    celement=celement.resize((90,90))
 
-    (width,height)=(cicon.width+10,cicon.height+10)
-    cfinal=Image.new("RA",(width,height))
-    cfinal.paste(cframe, (25,35), cframe)
-    cfinal.paste(cicon, (0,1), cicon)
-    if getrarity(mainunit)=="n":
-        cfinal.paste(crarity, (-37,160),crarity)
-    elif getrarity(mainunit)=="r":
-        cfinal.paste(crarity, (-42,160), crarity)
-    elif getrarity(mainunit)=="sr":
-        cfinal.paste(crarity, (-25,158), crarity)
-    elif getrarity(mainunit)=="ssr":
-        cfinal.paste(crarity, (-5,171), crarity)
-    elif getrarity(mainunit)=="ur":
-        cfinal.paste(crarity, (-25,160), crarity)
-    elif getrarity(mainunit)=="lr" or True:
-        cfinal.paste(crarity, (-25,155),crarity)
-    cfinal.paste(celement, (170,5),celement)
+#    (width,height)=(cicon.width+10,cicon.height+10)
+#    cfinal=Image.new("RA",(width,height))
+#    cfinal.paste(cframe, (25,35), cframe)
+#    cfinal.paste(cicon, (0,1), cicon)
+#    if getrarity(mainunit)=="n":
+#        cfinal.paste(crarity, (-37,160),crarity)
+#    elif getrarity(mainunit)=="r":
+#        cfinal.paste(crarity, (-42,160), crarity)
+#    elif getrarity(mainunit)=="sr":
+#        cfinal.paste(crarity, (-25,158), crarity)
+#    elif getrarity(mainunit)=="ssr":
+#        cfinal.paste(crarity, (-5,171), crarity)
+#    elif getrarity(mainunit)=="ur":
+#        cfinal.paste(crarity, (-25,160), crarity)
+#    elif getrarity(mainunit)=="lr" or True:
+#        cfinal.paste(crarity, (-25,155),crarity)
+#    cfinal.paste(celement, (170,5),celement)
     
-    cfinal=cfinal.crop((10,10,256,235))
+#    cfinal=cfinal.crop((10,10,256,235))
     
-    name=("../frontend/dbManagement/DokkanFiles/global/en/character/card/")
-    name+=unitid
-    name+=("/card_")
-    name+=(unitid)
-    name+=("_full_thumb")
-    name+=(".png")
+#    name=("../frontend/dbManagement/DokkanFiles/global/en/character/card/")
+#    name+=unitid
+#    name+=("/card_")
+#    name+=(unitid)
+#    name+=("_full_thumb")
+#    name+=(".png")
     
-    cfinal.save(name)
+#    cfinal.save(name)
+
 
 def passivename(unit,printing=True):
     return(listtostr(searchbyid(str(int(float(unit[21]))), 0, passive_skills, 1)))

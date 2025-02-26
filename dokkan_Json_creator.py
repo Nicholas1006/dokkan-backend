@@ -5,25 +5,27 @@ from globals import *
 directory="data/"
 cards=storedatabase(directory,"cards.csv")
 
+import dotenv
+dotenv.load_dotenv('dokkan.env')
 
-DEVEXCEPTIONS=True
-GLOBALPARSE=True
-GLOBALREFRESH=False
-MAKEJSON=True
-DEBUG=True
 
-CALCPASSIVE=True
-CALCLINKS=True
-CALCLEADER=True
-CALCHIPO=True
-CALCACTIVE=True
-CALCSUPERATTACK=True
-CALCLEVELS=True
-CALCBASIC=True
-CALCMULTIPLIER=True
-CALCFINISH=True
-CALCSTANDBY=True
-CALCCIRCLE=True
+DEVEXCEPTIONS=os.getenv('DEVEXCEPTIONS')  == "True"
+GLOBALPARSE=os.getenv('GLOBALPARSE')  == "True"
+MAKEJSON=os.getenv('MAKEJSON')  == "True"
+DEBUG=os.getenv('DEBUG')  == "True"
+
+CALCPASSIVE=os.getenv('CALCPASSIVE')  == "True"
+CALCLINKS=os.getenv('CALCLINKS')  == "True"
+CALCLEADER=os.getenv('CALCLEADER')  == "True"
+CALCHIPO=os.getenv('CALCHIPO')  == "True"
+CALCACTIVE=os.getenv('CALCACTIVE')  == "True"
+CALCSUPERATTACK=os.getenv('CALCSUPERATTACK')  == "True"
+CALCLEVELS=os.getenv('CALCLEVELS')  == "True"
+CALCBASIC=os.getenv('CALCBASIC')  == "True"
+CALCMULTIPLIER=os.getenv('CALCMULTIPLIER')  == "True"
+CALCFINISH=os.getenv('CALCFINISH')  == "True"
+CALCSTANDBY=os.getenv('CALCSTANDBY')  == "True"
+CALCCIRCLE=os.getenv('CALCCIRCLE')  == "True"
 
 setupTime=0.0
 passiveTime=0.0
@@ -40,17 +42,12 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1003211"]
-
+cardIDsToCheck=["1029630","4030801"]
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
 cardsToCheck=[]
 
 
-if(GLOBALREFRESH and GLOBALPARSE):
-    emptyFolder("temp_jsons/jsons")
-    emptyFolder("temp_jsons/jsonsEZA")
-    emptyFolder("temp_jsons/jsonsSEZA")
     
 
 if GLOBALPARSE:
@@ -139,7 +136,7 @@ for unit in cardsToCheck:
 
             unitDictionary["Max Attacks"]=1
             unitDictionary["Max Super Attacks"]=1
-            if(unitDictionary["Rarity"]=="lr" or unitDictionary["Rarity"]=="ur"):
+            if(getrarity(unit)=="lr" or getrarity(unit)=="ur"):
                 unitDictionary["Max Super Attacks"]+=1
                 unitDictionary["Max Attacks"]+=1
             for passive in unitDictionary["Passive"]:
