@@ -6,7 +6,7 @@ directory="data/"
 cards=storedatabase(directory,"cards.csv")
 
 import dotenv
-dotenv.load_dotenv('dokkan.env')
+dotenv.load_dotenv('.env')
 
 
 DEVEXCEPTIONS=os.getenv('DEVEXCEPTIONS')  == "True"
