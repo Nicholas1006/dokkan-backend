@@ -1,5 +1,4 @@
 from dokkanfunctions import *
-from progress.bar import Bar
 
 
 CALCLINKS=True
@@ -53,12 +52,15 @@ if(CALCDOMAINS):
 
 
 if(CALCALLUNITS):
-    bar = Bar("Creating all units json",max=len(cards))
+    print("Creating all units json")
+    unitCount=0
+    maxUnitCount=len(cards)
 allUnitsDictionary=[]
 relevantCards=[]
 for unit in cards:
     if(CALCALLUNITS):
-        bar.next()    
+        print(unitCount,"/",maxUnitCount)
+        unitCount+=1
     if qualifyUsable(unit):
         relevantCards.append(unit)
         if(CALCALLUNITS):
@@ -67,8 +69,6 @@ for unit in cards:
                 allUnitsDictionary.append(unit[0]+"EZA")
             if(checkSeza(unit[0])):
                 allUnitsDictionary.append(unit[0]+"SEZA")
-if(CALCALLUNITS):
-    bar.finish()
 
 if(CALCALLUNITS):
     turnintoJson(allUnitsDictionary, "allUnits",directoryName="temp_jsons/uniquejsons")
@@ -76,7 +76,9 @@ if(CALCALLUNITS):
 
 if(CALCUNITBASICS):
     unitBasics={}
-    print('Creating all unit basics')
+    print("Creating all units basics")
+    unitCount=0
+    maxUnitCount=len(relevantCards)
     for unit in relevantCards:
         ezaTrueFalse=["None"]
         if(checkEza(unit[0])):
@@ -119,11 +121,11 @@ if(CALCUNITBASICS):
             unitDictionary["Attack"]=maxLevelStats["ATK"]
             unitDictionary["Defense"]=maxLevelStats["DEF"]
             if(eza):
-                unitDictionary["Acquired"]=getEzaReleaseTime(unit)
+                unitDictionary["Release"]=getEzaReleaseTime(unit)
             elif(seza):
-                unitDictionary["Acquired"]=getSezaReleaseTime(unit)
+                unitDictionary["Release"]=getSezaReleaseTime(unit)
             else:
-                unitDictionary["Acquired"]=getUnitReleaseTime(unit)
+                unitDictionary["Release"]=getUnitReleaseTime(unit)
             unitDictionary["Character"]=int(getCharacterNameID(unit))
             unitDictionary["Sp Atk Lv"]=getSuperAttackLevel(unit,eza)
             if(eza):
@@ -170,9 +172,12 @@ if(CALCUNITBASICS):
                 unitBasics[unit[0]]=unitDictionary
 
             unitDictionary["Links"]=getalllinks(unit)
+
+            print(unitCount,"/",maxUnitCount)
+            unitCount+=1
             
 
-    relevantComponents=["ID","Name","Type","Rarity","Max Level","Cost","Eza","Seza","Dokkan Awakened","HP","Attack","Defense","Acquired","Character","Sp Atk Lv","Activation","Resource ID","Class","Categories","Awakening","Links"]
+    relevantComponents=["ID","Name","Type","Rarity","Max Level","Cost","Eza","Seza","Dokkan Awakened","HP","Attack","Defense","Release","Character","Sp Atk Lv","Activation","Resource ID","Class","Categories","Awakening","Links"]
     print("Turning unitBasics into json seperated by component")
     for component in relevantComponents:
         turnintoJson(filterSingleComponent(unitBasics,component), component,directoryName="temp_jsons/uniqueJsons/unitBasics")
