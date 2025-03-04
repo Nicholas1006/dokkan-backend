@@ -2,12 +2,29 @@ name: Dokkan Asset Updater
 
 on:
   schedule:
-    - cron: '*/30 * * * *'  # Runs every 4 hours
+    - cron: '*/30 * * * *'  # Runs every 30 minutes
   workflow_dispatch:  # Allows manual triggering
 
 jobs:
   update-assets:
     runs-on: windows-latest
+    env:
+      DEVEXCEPTIONS: ${{ vars.DEVEXCEPTIONS }}
+      GLOBALPARSE: ${{ vars.GLOBALPARSE }}
+      MAKEJSON: ${{ vars.MAKEJSON }}
+      DEBUG: ${{ vars.DEBUG }}
+      CALCPASSIVE: ${{ vars.CALCPASSIVE }}
+      CALCLINKS: ${{ vars.CALCLINKS }}
+      CALCLEADER: ${{ vars.CALCLEADER }}
+      CALCHIPO: ${{ vars.CALCHIPO }}
+      CALCACTIVE: ${{ vars.CALCACTIVE }}
+      CALCSUPERATTACK: ${{ vars.CALCSUPERATTACK }}
+      CALCLEVELS: ${{ vars.CALCLEVELS }}
+      CALCBASIC: ${{ vars.CALCBASIC }}
+      CALCMULTIPLIER: ${{ vars.CALCMULTIPLIER }}
+      CALCFINISH: ${{ vars.CALCFINISH }}
+      CALCSTANDBY: ${{ vars.CALCSTANDBY }}
+      CALCCIRCLE: ${{ vars.CALCCIRCLE }}
 
     steps:
       - name: Checkout Backend Repository
