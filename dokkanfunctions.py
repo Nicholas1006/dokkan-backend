@@ -38,6 +38,10 @@ def getEzaReleaseTime(unit):
             for line in activeTransformationLine:
                 activeSkillSet=searchbyid(code=line, codecolumn=0,database=active_skills,column=1)
                 unitID=searchbyid(code=activeSkillSet[0],codecolumn=2,database=card_active_skills,column=1)[0]
+        for costumeChange in card_costumes:
+            if unit[0][:-1]==costumeChange[1][:-1]:
+                costume_id=costumeChange[0]
+                unitID=searchbyid(code=costume_id,codecolumn=0,database=card_costume_conditions,column=2)[0]
         for standbySkill in standby_skills:
             if(standbySkill[8][1:-1].split(",")[0][:-1]==unit[0][:-1]):
                 unitID=searchbyid(code=standbySkill[1],codecolumn=2,database=card_standby_skill_set_relations,column=1)[0]
@@ -350,6 +354,7 @@ def parseSuperAttack(unit,eza=False,DEVEXCEPTIONS=False):
                     superAttackDictionary["SpecialBonus"]["Type"]="Ki requirement decrease"
                     superAttackDictionary["SpecialBonus"]["Amount"]=special_bonus[9]
             
+            superAttackDictionary["relevantLua"]=searchbyid(code=view_id,codecolumn=0,database=special_views,column=1)
     return(output)
 
 def parseSpecials(specialRow,DEVEXCEPTIONS=False):
@@ -3045,31 +3050,19 @@ def qualifySEZA(card,printing=True):
 
 
 def qualifyUsable(card,printing=True):
-    #if the unit is a tur+ and id ends in 0
-    if(card[5] in ["5","4"] and card[0][-1]=="0"):
-        return(False)
-    #if the unit id doesnt start with a 1 or a 4
-    if(card[0][0] not in ["1","2","4"]):
-        return(False)
-    #if the unit is selling only
-    if(card[0]=="id"):
-        return(False)
-    #if the unit has a placeholder release date
-    if(card[53] in ["2030-12-31 23:59:59",'2030-01-01 00:00:00',"2038-01-01 00:00:00"]):
-        return(False)
-    #if the unit has 1 in their stats
-    if("1" in card[6:12]):
-        return(False)
-    #if all the units stats are divisible by 50
-    if(0==sum([int(card[6])%50,int(card[7])%50,int(card[8])%50,int(card[9])%50,int(card[10])%50,int(card[11])%50])):
-        return(False)
-    #If the unit has selling only
-    if(card[46]=="1"):
-        return(False)
-    #if the unit has no super attacks
-    if(not (card[0] in [x[1] for x in card_specials])):
-        return(False)
-    return(True)
+    #card is trainable
+    if(card[0][:-1] not in [x[1][:-1] for x in card_training_skill_lvs] and
+    not (card[5] in ["5","4"] and card[0][-1]=="0") and
+    #card id starts with 1,2 or 4
+    ((int(card[0])> 1000000 and int(card[0]) < 2999999) or (int(card[0])> 4000000 and int(card[0]) < 4999999)) and
+    #card is not "is_selling_only"
+    card[46] == "0" and
+    #card is either released or set to release within 2 months
+    (dateTimeToTimestamp(card[53]) < dateTimeToTimestamp(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + 60*60*24*60) and
+    #card max hp is greater than 1
+    int(card[7])> 1):
+        return(True)
+    return(False)
 
 def emptyFolder(path):
     for filename in os.listdir(path):

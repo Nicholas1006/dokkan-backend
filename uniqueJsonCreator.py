@@ -54,10 +54,10 @@ if(CALCDOMAINS):
 if(CALCALLUNITS):
     print("Creating all units json")
     unitCount=0
-    maxUnitCount=len(cards)
+    maxUnitCount=len(cards)-1
 allUnitsDictionary=[]
 relevantCards=[]
-for unit in cards:
+for unit in cards[1:]:
     if(CALCALLUNITS):
         print(unitCount,"/",maxUnitCount)
         unitCount+=1
