@@ -3813,6 +3813,11 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on this turn"
         output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on this turn?"
     
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and 'Has this character been hit?' in causalities and 'Has this unit evaded an attack?' in causalities):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
+        output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
+
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and causalities[1][:48]=='Is there an ally on the team whose name includes'):
         del output["Condition"]
         allyName=causalities[1][49:-1]

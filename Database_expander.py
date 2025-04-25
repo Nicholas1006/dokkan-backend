@@ -1,4 +1,3 @@
-from progress.bar import Bar
 import sqlite3 as sl
 import pandas as pd
 import os
