@@ -91,7 +91,7 @@ jobs:
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           # Upload binary assets to S3
-          aws s3 sync "Dokkan_Asset_Downloader\temp_downloads" s3://dokkan-calc-assets --delete
+          aws s3 sync "Dokkan_Asset_Downloader\temp_downloads" s3://dokkan-calc-assets
         shell: pwsh
       - name: Set up Python
         if: steps.check_changes.outputs.changed == 'true'
