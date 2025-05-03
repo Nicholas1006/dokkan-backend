@@ -79,6 +79,20 @@ jobs:
           }
         shell: pwsh
 
+      - name: Configure AWS Credentials
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-1
+
+      - name: Upload Assets to S3
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          # Upload binary assets to S3
+          aws s3 sync "Dokkan_Asset_Downloader\temp_downloads" s3://dokkan-calc-assets/latest --delete
+        shell: pwsh
       - name: Set up Python
         if: steps.check_changes.outputs.changed == 'true'
         uses: actions/setup-python@v4
@@ -118,11 +132,6 @@ jobs:
           token: ${{ secrets.FRONTEND_REPO_PAT }}
           path: frontend
 
-      - name: Copy Updated DDL Files to Frontend
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          xcopy /E /Y "Dokkan_Asset_Downloader\temp_downloads" "frontend\dbManagement\DokkanFiles"
-        shell: cmd
 
       - name: Copy Updated JSON Files to Frontend
         if: steps.check_changes.outputs.changed == 'true'
