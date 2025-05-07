@@ -3557,7 +3557,7 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
                 parsedLine=shortenPassiveDictionary(parsedLine)
                 if("Building Stat" in parsedLine):
                     if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
-                        parsedLine=removeLookElseWhere(parsedLine,True)
+                        parsedLine=removeLookElseWhere(parsedLine,DEVEXCEPTIONS)
                 parsedLine=polishPassiveLine(parsedLine)
                 parsedLine["Brief effect description"]=passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS)
                 output[passiveskill[0]]=parsedLine
@@ -3899,6 +3899,11 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
             if(causality!="Has guard been activated?"):
                 output["Building Stat"]["Cause"]["Cause"]+=" "+causality+" or"
         output["Building Stat"]["Cause"]["Cause"]=output["Building Stat"]["Cause"]["Cause"][:-3]
+
+    elif(parsedLine["Timing"]=="Right after being hit" and 'Is this the 1st attacker in the turn?' in causalities and "Is this the 2nd attacker in the turn?" in causalities and 'Has this character been hit?' in causalities and 'Has this unit evaded an attack?' in causalities):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or dodged in slot 1 or 2"
+        output["Building Stat"]["Slider"]="How many attacks has this character recieved or dodged in slot 1 or 2?" 
 
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
