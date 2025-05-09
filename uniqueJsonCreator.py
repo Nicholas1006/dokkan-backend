@@ -2,6 +2,7 @@ from dokkanfunctions import *
 
 
 CALCLINKS=True
+CALCCATEGORIES=True
 CALCDOMAINS=True
 CALCALLUNITS=True
 CALCUNITBASICS=True
@@ -26,6 +27,18 @@ if(CALCLINKS):
 
     turnintoJson(links_dictionary, "links",directoryName="temp_jsons/uniqueJsons")
 
+if(CALCCATEGORIES):
+    print("Creating categories json")
+
+    categories=storedatabase("data/","card_categories.csv")
+    categories_dictionary={}
+    for category in categories:
+        categories_dictionary[category[0]]={}
+        categories_dictionary[category[0]]["ID"]=category[0]
+        categories_dictionary[category[0]]["Name"]=category[1]
+        categories_dictionary[category[0]]["Priority"]=category[3]
+
+    turnintoJson(categories_dictionary, "categories",directoryName="temp_jsons/uniqueJsons")
 
 
 if(CALCDOMAINS):
