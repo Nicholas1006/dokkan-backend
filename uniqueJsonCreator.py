@@ -11,7 +11,7 @@ CALCUNITBASICS=True
 if(CALCLINKS):
     print("Creating links json")
 
-    link_skills=storedatabase("data/","link_skills.csv")
+    link_skills=storedatabase("data/","link_skills.csv")[1:]
     link_skills_name=[name[1] for name in link_skills]
     link_skills_id=[name[0] for name in link_skills]
 
@@ -30,7 +30,7 @@ if(CALCLINKS):
 if(CALCCATEGORIES):
     print("Creating categories json")
 
-    categories=storedatabase("data/","card_categories.csv")
+    categories=storedatabase("data/","card_categories.csv")[1:]
     categories_dictionary={}
     for category in categories:
         categories_dictionary[category[0]]={}
