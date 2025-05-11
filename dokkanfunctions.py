@@ -1908,21 +1908,19 @@ def CausalityLogicalExtractor(unit,causality,DEVEXCEPTIONS=False):
 
 def longestCommonSubstring(listOfStrings):
     listOfStrings.sort(key=len)
-    baseString=listOfStrings[0]
-    longestString=""
-    for startingChar in range(0,len(baseString)+1):
-        for endingChar in range(startingChar,len(baseString)+1):
-            validString=True
-            for string in listOfStrings:
-                if(baseString[startingChar:endingChar] not in string):
-                    validString=False
+    baseString = listOfStrings[0]
+    longestString = ""
+    for startingChar in range(len(baseString) + 1):
+        for endingChar in range(startingChar, len(baseString) + 1):
+            substring = baseString[startingChar:endingChar]
+            valid = True
+            for s in listOfStrings:
+                if substring not in s:
+                    valid = False
                     break
-        if(validString==True):
-            if(len(baseString[startingChar:endingChar])>len(longestString)):
-                longestString=baseString[startingChar:endingChar]
-
-
-    return(longestString)
+            if valid and len(substring) > len(longestString):
+                longestString = substring
+    return longestString
 
 
 def CategoryExtractor(CategoryId):
