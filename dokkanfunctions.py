@@ -1505,7 +1505,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 raise Exception("Unknown buff")
     elif passiveskill[4]=="69":
         effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
-        effects["Ki Change"]["To"]=KiOrbType(passiveskill[13])
+        effects["Ki Change"]["To"]=[KiOrbType(passiveskill[13])]
         effects["Ki Change"]["Style"]="All"
     elif passiveskill[4]=="71":
         if(int(passiveskill[13])>int(passiveskill[14])):
@@ -2937,6 +2937,7 @@ def binaryOrbType(kiOrbType,DEVEXCEPTIONS=False):
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown orb type")
     return(output)
+
     
 def TransformationReverseUnit(card,printing=True):
     for passiveskillpiece in passive_skills:
@@ -4765,3 +4766,61 @@ def filter_unit_components(data, components):
 
 def filterSingleComponent(data, component):
     return {unit_id: unit_info.get(component, None) for unit_id, unit_info in data.items()}
+
+
+def validOrbLimitation(unitDictionary,limitation,cardUniqueInfoSetIds,cardCategories):
+    if(limitation[2]=="EquipmentSkillLimitation::ElementLimitation"):
+        [unitClass,unitElement]=extractClassType(limitation[3][23:-1])
+        classMatch=False
+        elementMatch=False
+        if(unitClass==[] or unitDictionary["Class"] in unitClass):
+            classMatch=True
+        if(unitElement==[] or unitDictionary["Type"] in unitElement):
+            elementMatch=True
+        if(classMatch and elementMatch):
+            return(True)
+    elif(limitation[2]=="EquipmentSkillLimitation::CardUniqueInfoSetLimitation"):
+        validCardUniqueInfoSetIds=limitation[3][31:-2].split(", ")
+        if any(item in cardUniqueInfoSetIds for item in validCardUniqueInfoSetIds):
+            return(True)
+    elif(limitation[2]=="EquipmentSkillLimitation::CardCategoryLimitation"):
+        validCategories=limitation[3][23:-2].split(", ")
+        if any(item in cardCategories for item in validCategories):
+            return(True)
+
+    elif(limitation[2]=="EquipmentSkillLimitation::CardLimitation"):
+        validCardIds=limitation[3][14:-2].split(", ")
+        if(unitDictionary["ID"] in validCardIds):
+            return(True)
+    else:
+        print(limitation)
+    return(False)
+
+def calculateOrbs(unit,unitDictionary):
+    orbs={
+        "gold":{"HP":0,"ATK":0,"DEF":0},
+        "silver": {"HP":0,"ATK":0,"DEF":0},
+        "bronze": {"HP":0,"ATK":0,"DEF":0},
+        "overall":{"HP":0,"ATK":0,"DEF":0}
+    }
+    validOrbLimitationSets=[]
+    cardUniqueInfoSetIds=searchbyid(code=unit[3],codecolumn=1,database=card_unique_info_set_relations,column=2)
+    if(cardUniqueInfoSetIds==None): 
+        cardUniqueInfoSetIds=[]
+    cardCategories=searchedbyid(unit[0], 1, card_card_categories, 2)
+    if(cardCategories==None):
+        cardCategories=[]
+    for limitation in equipment_skill_limitations[1:]:
+        if(validOrbLimitation(unitDictionary,limitation,cardUniqueInfoSetIds,cardCategories)):
+            validOrbLimitationSets.append(limitation[1])
+
+    for orb in equipment_skill_items[1:]:
+        if(orb[8] in validOrbLimitationSets):
+            if(orbs[orb[3]]["HP"] < int(orb[5])): orbs[orb[3]]["HP"] = int(orb[5])
+            if(orbs[orb[3]]["ATK"] < int(orb[6])): orbs[orb[3]]["ATK"] = int(orb[6])
+            if(orbs[orb[3]]["DEF"] < int(orb[7])): orbs[orb[3]]["DEF"] = int(orb[7])
+    orbs["overall"]["HP"] = orbs["gold"]["HP"] + orbs["silver"]["HP"] + orbs["bronze"]["HP"]
+    orbs["overall"]["ATK"] = orbs["gold"]["ATK"] + orbs["silver"]["ATK"] + orbs["bronze"]["ATK"]
+    orbs["overall"]["DEF"] = orbs["gold"]["DEF"] + orbs["silver"]["DEF"] + orbs["bronze"]["DEF"]
+
+    return(orbs)

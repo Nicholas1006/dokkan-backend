@@ -32,6 +32,9 @@ dokkan_fields=storedatabase(directory,"dokkan_fields.csv")
 dokkan_field_active_skill_set_relations=storedatabase(directory,"dokkan_field_active_skill_set_relations.csv")
 dokkan_field_passive_skill_relations=storedatabase(directory,"dokkan_field_passive_skill_relations.csv")
 
+equipment_skill_items=storedatabase(directory,"equipment_skill_items.csv")
+equipment_skill_limitations=storedatabase(directory,"equipment_skill_limitations.csv")
+
 finish_skill_sets=storedatabase(directory,"finish_skill_sets.csv")
 finish_skills=storedatabase(directory,"finish_skills.csv")
 finish_specials=storedatabase(directory,"finish_specials.csv")

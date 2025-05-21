@@ -26,6 +26,8 @@ CALCLEADER=os.getenv('CALCLEADER')  == "True"
 print("CALCLEADER",CALCLEADER)
 CALCHIPO=os.getenv('CALCHIPO')  == "True"
 print("CALCHIPO",CALCHIPO)
+CALCORBS=os.getenv('CALCORBS')  == "True"
+print("CALCORBS",CALCORBS)
 CALCACTIVE=os.getenv('CALCACTIVE')  == "True"
 print("CALCACTIVE",CALCACTIVE)
 CALCSUPERATTACK=os.getenv('CALCSUPERATTACK')  == "True"
@@ -47,6 +49,7 @@ setupTime=0.0
 passiveTime=0.0
 leaderTime=0.0
 hipoTime=0.0
+orbsTime=0.0
 activeTime=0.0
 superTime=0.0
 levelTime=0.0
@@ -58,7 +61,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1003210","4030801"]
+cardIDsToCheck=["1010511"]
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
 cardsToCheck=[]
@@ -304,6 +307,19 @@ for unit in cardsToCheck:
                     unitDictionary["Hidden Potential"]=HiPoBoards[unit[52][:-2]]
                 hipoTime+=time.time()-hipoStart
 
+            if(CALCORBS):
+                orbsStart=time.time()
+                if(unitDictionary["Rarity"]=="ur" or unitDictionary["Rarity"]=="lr"):
+                    unitDictionary["Orbs"]=calculateOrbs(unit,unitDictionary)
+                else:
+                    unitDictionary["Orbs"]={
+                        "gold":{"HP":0,"ATK":0,"DEF":0},
+                        "silver": {"HP":0,"ATK":0,"DEF":0},
+                        "bronze": {"HP":0,"ATK":0,"DEF":0},
+                        "overall":{"HP":0,"ATK":0,"DEF":0}
+                    }
+                orbsTime+=time.time()-orbsStart
+
             unitDictionary["Ki Multiplier"]={}
             if(CALCMULTIPLIER):
                 multiplierStart=time.time()
@@ -435,11 +451,12 @@ print("Passive time:",round(passiveTime,2))
 print("Super time:",round(superTime,2))
 print("Level time:",round(levelTime,2))
 print("HiPo time:",round(hipoTime,2))
+print("Orbs time:",round(orbsTime,2))
 print("Ki segments time:",round(circleTime,2))
 print("Multiplier time:",round(multiplierTime,2))
 print("Active time:",round(activeTime,2))
 print("Standby time:",round(standbyTime,2))
 print("Json time:",round(jsonTime,2))
-print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime),2))
+print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime),2))
 print("Total time:",round(totalTime,2))
 print("Average per unit",round((totalTime)/unitCount,5))
