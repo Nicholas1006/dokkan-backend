@@ -6,6 +6,8 @@ CALCCATEGORIES=True
 CALCDOMAINS=True
 CALCALLUNITS=True
 CALCUNITBASICS=True
+DEVEXCEPTIONS=os.getenv('DEVEXCEPTIONS')  == "True"
+print("DEVEXCEPTIONS",DEVEXCEPTIONS)
 
 
 if(CALCLINKS):
@@ -134,9 +136,9 @@ if(CALCUNITBASICS):
             unitDictionary["Attack"]=maxLevelStats["ATK"]
             unitDictionary["Defense"]=maxLevelStats["DEF"]
             if(eza):
-                unitDictionary["Release"]=getEzaReleaseTime(unit)
+                unitDictionary["Release"]=getEzaReleaseTime(unit,DEVEXCEPTIONS)
             elif(seza):
-                unitDictionary["Release"]=getSezaReleaseTime(unit)
+                unitDictionary["Release"]=getSezaReleaseTime(unit,DEVEXCEPTIONS)
             else:
                 unitDictionary["Release"]=getUnitReleaseTime(unit)
             unitDictionary["Character"]=int(getCharacterNameID(unit))
@@ -186,8 +188,8 @@ if(CALCUNITBASICS):
 
             unitDictionary["Links"]=getalllinks(unit)
 
-            print(unitCount,"/",maxUnitCount)
-            unitCount+=1
+        print(unitCount,"/",maxUnitCount)
+        unitCount+=1
             
 
     relevantComponents=["ID","Name","Type","Rarity","Max Level","Cost","Eza","Seza","Dokkan Awakened","HP","Attack","Defense","Release","Character","Sp Atk Lv","Activation","Resource ID","Class","Categories","Awakening","Links"]
