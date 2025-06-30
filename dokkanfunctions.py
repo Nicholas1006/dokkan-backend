@@ -550,9 +550,16 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS==True):
                     raise Exception("Unknown stat increase type")
         
-        output[leader_skill_line[0]]["Target"]={}
         efficiacy_values=leader_skill_line[7].replace("[","").replace("]","").split(",")
         output[leader_skill_line[0]]["Target"]=(sub_target_types_extractor(leader_skill_line[4],DEVEXCEPTIONS))
+
+        output[leader_skill_line[0]]["Target"]["Class"]=[]
+        output[leader_skill_line[0]]["Target"]["Typing"]=[]
+        output[leader_skill_line[0]]["ATK"]=0
+        output[leader_skill_line[0]]["DEF"]=0
+        output[leader_skill_line[0]]["HP"]=0
+        output[leader_skill_line[0]]["Ki"]=0
+
         if(leader_skill_line[3]=="4"):
             output[leader_skill_line[0]]["Target"]["Allies or enemies"]="Enemies"
         elif(leader_skill_line[3]=="2"):
@@ -637,6 +644,8 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="83"):
             #Typing ki
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Typing"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
             output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="84"):
             #Typing HP ATK and DEF
@@ -669,7 +678,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["Condition"]=causalityCondition
         if("Typing" in output[leader_skill_line[0]]["Target"]):
             if(output[leader_skill_line[0]]["Target"]["Typing"]==["PHY","STR","INT","TEQ","AGL"]):
-                output[leader_skill_line[0]]["Target"].pop("Typing")
+                output[leader_skill_line[0]]["Target"]["Typing"]=[]
 
     temp=output.copy()
     for line in temp:
