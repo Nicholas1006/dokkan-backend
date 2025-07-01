@@ -170,9 +170,9 @@ if(CALCUNITBASICS):
                 if(getrarity(awakening[3])=="lr"):
                     unitDictionary["Awakening"]["Awakening to LR"]=True
 
-            if("EZA" in ezaTrueFalse):
+            if("EZA" in ezaTrueFalse and eza==False):
                 unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
-            if("SEZA" in ezaTrueFalse):
+            if("SEZA" in ezaTrueFalse and seza==False):
                 unitDictionary["Awakening"]["Super Extreme Z-Awakening"]=True
 
             superAttackTypes=getSuperAttackTypes(unit,eza)
