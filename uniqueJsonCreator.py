@@ -186,15 +186,16 @@ if(CALCUNITBASICS):
             else:
                 unitBasics[unit[0]]=unitDictionary
 
+            unitDictionary["Leader Skill"]= parseLeaderSkill(unit,eza)
+
             unitDictionary["Links"]=getalllinks(unit)
 
         print(unitCount,"/",maxUnitCount)
         unitCount+=1
             
 
-    relevantComponents=["ID","Name","Type","Rarity","Max Level","Cost","Eza","Seza","Dokkan Awakened","HP","Attack","Defense","Release","Character","Sp Atk Lv","Activation","Resource ID","Class","Categories","Awakening","Links"]
     print("Turning unitBasics into json seperated by component")
-    for component in relevantComponents:
+    for component in unitDictionary:
         turnintoJson(filterSingleComponent(unitBasics,component), component,directoryName="temp_jsons/uniqueJsons/unitBasics")
         print("Finished:" + component)
 

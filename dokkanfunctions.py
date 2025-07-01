@@ -554,7 +554,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
         output[leader_skill_line[0]]["Target"]=(sub_target_types_extractor(leader_skill_line[4],DEVEXCEPTIONS))
 
         output[leader_skill_line[0]]["Target"]["Class"]=[]
-        output[leader_skill_line[0]]["Target"]["Typing"]=[]
+        output[leader_skill_line[0]]["Target"]["Type"]=[]
         output[leader_skill_line[0]]["ATK"]=0
         output[leader_skill_line[0]]["DEF"]=0
         output[leader_skill_line[0]]["HP"]=0
@@ -573,7 +573,6 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[0])
         elif(leader_skill_line[6]=="3"):
             #Category ["HP and ATK", "DEF", ""] 
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[0])
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="5"):
@@ -584,28 +583,28 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             output[leader_skill_line[0]]["DR"]=100-int(efficiacy_values[0])
         elif(leader_skill_line[6]=="16"):
             #Single type [Typing, "ATK", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="17"):
             #Single type [Typing, "DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="18"):
             #Single type [Typing, "ATK and DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
         elif(leader_skill_line[6]=="19"):
             #Single type [Type, "HP", ""] 
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="20"):
             #Single Type (Type, "Ki", "") 
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="44"):
             #Single Type (Type, HP, ATK) 
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
             output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[2])
         elif(leader_skill_line[6]=="50"):
@@ -628,7 +627,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             #ATK per ki sphere obtained of a type
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["Target"]["Typing"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
         elif(leader_skill_line[6]=="71"):
             #HP based ["Min ATK", "MAX ATK", ???] 
             output[leader_skill_line[0]]["Building Stat"]={"Cause":"HP", "Type":"More HP remaining"}
@@ -638,14 +637,14 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
         elif(leader_skill_line[6]=="82"):
             #Typing [Typing, "HP and ATK and DEF", ""] 
             output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Typing"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
             output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
             output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="83"):
             #Typing ki
             output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Typing"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
             output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="84"):
             #Typing HP ATK and DEF
@@ -655,7 +654,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
         elif(leader_skill_line[6]=="93"):
             #All types or specific type HP
             output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Typing"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
             output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
         elif(leader_skill_line[6]=="102"):
             output[leader_skill_line[0]]["Times to turn giant"]=int(efficiacy_values[1])
@@ -676,15 +675,24 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             causalityCondition=logicalCausalityExtractor(leader_skill_line[5])
             causalityCondition=CausalityLogicalExtractor(unit,causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
             output[leader_skill_line[0]]["Condition"]=causalityCondition
-        if("Typing" in output[leader_skill_line[0]]["Target"]):
-            if(output[leader_skill_line[0]]["Target"]["Typing"]==["PHY","STR","INT","TEQ","AGL"]):
-                output[leader_skill_line[0]]["Target"]["Typing"]=[]
+        if("Type" in output[leader_skill_line[0]]["Target"]):
+            if(output[leader_skill_line[0]]["Target"]["Type"]==["PHY","STR","INT","TEQ","AGL"]):
+                output[leader_skill_line[0]]["Target"]["Type"]=[]
 
     temp=output.copy()
     for line in temp:
         if("NOT WORKING" in output[line]):
             output.pop(line)
     return(output)
+
+def getLeadViability(unit,eza,DEVEXCEPTIONS=False):
+    maxBuff=0
+    lead=parseLeaderSkill(unit,eza)
+    for leadLine in lead:
+        if(leadLine!="Name"):
+            maxBuff=max(maxBuff,lead[leadLine]["HP"],lead[leadLine]["ATK"],lead[leadLine]["DEF"])
+    return(maxBuff)
+
 
 def turnintoJson(data,filename, directoryName="" ):
     if filename.endswith(".json")==False:
@@ -1396,20 +1404,20 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[3]=="16":
         typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["ATK"]+=int(passiveskill[13])
-        effects["Target"]["Typing"]=typing
+        effects["Target"]["Type"]=typing
     elif passiveskill[3]=="17":
         typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["DEF"]+=int(passiveskill[13])
-        effects["Target"]["Typing"]=typing
+        effects["Target"]["Type"]=typing
     elif passiveskill[3]=="18":
         typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["ATK"]+=int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[13])
-        effects["Target"]["Typing"]=typing
+        effects["Target"]["Type"]=typing
     elif passiveskill[3]=="20":
         typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Ki"]+=int(passiveskill[13])
-        effects["Target"]["Typing"]=typing
+        effects["Target"]["Type"]=typing
     elif passiveskill[3]=="24":
         effects["Status"].append("Disable guard")
     elif passiveskill[3]=="28":
@@ -1601,13 +1609,13 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
             effects["Target"]["Class"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
         if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
-            effects["Target"]["Typing"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            effects["Target"]["Type"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
     elif passiveskill[3]=="83":
         effects["Ki"]+=int(passiveskill[13])
         if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
             effects["Target"]["Class"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
         if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
-            effects["Target"]["Typing"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            effects["Target"]["Type"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
     elif passiveskill[3]=="90":
         effects["Crit Chance"]+=int(passiveskill[12])
     elif passiveskill[3]=="91":
@@ -3076,6 +3084,8 @@ def qualifyUsable(card,printing=True):
     int(card[7])> 1 and
     #card is trainable
     card[0][:-1] not in [x[1][:-1] for x in card_training_skill_lvs]
+    #card stats are not alll 150 min, 500 max
+    and not (card[6]=="150" and card[7]=="500" and card[8]=="150" and card[9]=="500" and card[10]=="150" and card[11]=="500")
     ):
         return(True)
     return(False)
@@ -3294,8 +3304,8 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             if("Class" in parsedLine["Target"]):
                 output+=parsedLine["Target"]["Class"]
                 output+=" class "
-            if("Typing" in parsedLine["Target"]):
-                for Typing in parsedLine["Target"]["Typing"]:
+            if("Type" in parsedLine["Target"]):
+                for Typing in parsedLine["Target"]["Type"]:
                     output+=Typing
                     output+=" and "
                 output=output[:-4]
