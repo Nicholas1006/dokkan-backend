@@ -19,4 +19,3 @@ def move_to_frontend(src, dest):
             move_to_frontend(file_path, new_dest)
 
 move_to_frontend("temp_jsons", "../frontend/dbManagement/")
-move_to_frontend("Dokkan_Asset_Downloader/temp_downloads", "../frontend/dbManagement/DokkanFiles/")
