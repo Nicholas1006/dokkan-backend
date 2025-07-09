@@ -4013,6 +4013,8 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Disable action"
             elif(line[5]=="123"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Redirect attacks to me"
+            elif(line[5]=="129"):
+                output["Effects"][line[0]]["Effect"]["Buff"]="Nullifies attacks that are guaranteed to hit"
             else:
                 print("UNKNOWN ACTIVE EFFECT")
                 if(DEVEXCEPTIONS):
@@ -4808,6 +4810,7 @@ def validOrbLimitation(unitDictionary,limitation,cardUniqueInfoSetIds,cardCatego
             return(True)
     elif(limitation[2]=="EquipmentSkillLimitation::CardUniqueInfoSetLimitation"):
         validCardUniqueInfoSetIds=limitation[3][31:-2].split(", ")
+        validCardUniqueInfoSetIds=limitation[3].replace('{"card_unique_info_set_ids": [',"").replace("]}","").split(", ")
         if any(item in cardUniqueInfoSetIds for item in validCardUniqueInfoSetIds):
             return(True)
     elif(limitation[2]=="EquipmentSkillLimitation::CardCategoryLimitation"):
