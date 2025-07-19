@@ -44,6 +44,10 @@ CALCSTANDBY=os.getenv('CALCSTANDBY')  == "True"
 print("CALCSTANDBY",CALCSTANDBY)
 CALCCIRCLE=os.getenv('CALCCIRCLE')  == "True"
 print("CALCCIRCLE",CALCCIRCLE)
+CALCAWAKENINGS=os.getenv('CALCAWAKENINGS')  == "True"
+print("CALCAWAKENINGS",CALCAWAKENINGS)
+CALCTRANSFORMATIONS=os.getenv('CALCTRANSFORMATIONS')  == "True"
+print("CALCTRANSFORMATIONS",CALCTRANSFORMATIONS)
 
 setupTime=0.0
 passiveTime=0.0
@@ -61,7 +65,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1010511"]
+cardIDsToCheck=["1031391"]
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
 cardsToCheck=[]
@@ -131,6 +135,12 @@ for unit in cardsToCheck:
                 unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
                 unitDictionary["Can EZA"]=checkEza(unit[0])
                 unitDictionary["Can SEZA"]=checkSeza(unit[0])
+                if(seza):
+                    unitDictionary["Eza Level"]="eza"
+                elif(eza):
+                    unitDictionary["Eza Level"]="seza"
+                else:
+                    unitDictionary["Eza Level"]="none"
                 basicTime+=time.time()-basicStart
             
 
@@ -274,26 +284,26 @@ for unit in cardsToCheck:
                             else:
                                 transformations[unit[0]]=[unitDictionary["Active Skill"]["Effects"][activeLine]["Effect"]["Unit"]]
 
-
-            for transformation in unitDictionary["Transformations"]:
-                if(unit[0][-1]=="1" and transformation[-1]=="0"):
-                    unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"1"
-                elif(unit[0][-1]=="0" and transformation[-1]=="1"):
-                    unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"0"
-            unitDictionary["Transformations"]=list(set(unitDictionary["Transformations"]))
-
+            if(CALCTRANSFORMATIONS):
+                for transformation in unitDictionary["Transformations"]:
+                    if(unit[0][-1]=="1" and transformation[-1]=="0"):
+                        unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"1"
+                    elif(unit[0][-1]=="0" and transformation[-1]=="1"):
+                        unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"0"
+                unitDictionary["Transformations"]=list(set(unitDictionary["Transformations"]))
 
             unitDictionary["Dokkan awakenings"]=[]
-            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
-            relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
-            for awakening in relevant_awakenings:
-                unitDictionary["Dokkan awakenings"].append(awakening[3])
-                dokkanAwakenings[unit[0]]=awakening[3]
-            
             unitDictionary["Dokkan Reverse awakenings"]=[]
-            for awakening in dokkanAwakenings:
-                if(dokkanAwakenings[awakening]==unit[0]):
-                    unitDictionary["Dokkan Reverse awakenings"].append(awakening)
+            if(CALCAWAKENINGS):
+                relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
+                relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
+                for awakening in relevant_awakenings:
+                    unitDictionary["Dokkan awakenings"].append(awakening[3])
+                    dokkanAwakenings[unit[0]]=awakening[3]
+                
+                for awakening in dokkanAwakenings:
+                    if(dokkanAwakenings[awakening]==unit[0]):
+                        unitDictionary["Dokkan Reverse awakenings"].append(awakening)
 
             unitDictionary["Hidden Potential"]={}
             if(CALCHIPO):
