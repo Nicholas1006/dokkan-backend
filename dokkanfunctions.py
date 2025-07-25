@@ -3019,6 +3019,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Max"]=24
                 else:
                     output["Slider"]["Max"]=12
+                output["Paragraph Title"]="When ki is "+str(kiAmount) + " or more"
             elif(CausalityRow[1]=="5"):
                 output["Button"]["Name"]="Is the turn count "
                 output["Button"]["Name"]+=str(int(CausalityRow[2])+1)
@@ -3028,12 +3029,16 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=str(int(CausalityRow[2])+1)
                 output["Slider"]["Min"]=1
+                output["Paragraph Title"]="When the turn count is" + str(int(CausalityRow[2])+1)
             elif(CausalityRow[1]=="8"):
                 output["Button"]["Name"]="Is attack higher than enemy's?"
+                output["Paragraph Title"]="When attack is higher than enemy's"
             elif(CausalityRow[1]=="9"):
                 output["Button"]["Name"]="Is attack lower than enemy's?"
+                output["Paragraph Title"]="When attack is lower than enemy's"
             elif(CausalityRow[1]=="14"):
                 output["Button"]["Name"]="Is the first to attack?"
+                output["Paragraph Title"]="When the first to attack"
             elif(CausalityRow[1]=="15"):
                 output["Button"]["Name"]="Is there "
                 output["Button"]["Name"]+=CausalityRow[2]
@@ -3065,6 +3070,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=CausalityRow[2]
                 output["Slider"]["Max"]=100
+                
+                output["Paragraph Title"]="When enemy health is " + CausalityRow[2] + "% or more"
             elif(CausalityRow[1]=="18"):
                 output["Button"]["Name"]="Is the enemy's health "
                 output["Button"]["Name"]+=CausalityRow[2]
@@ -3074,6 +3081,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]="<="
                 output["Slider"]["Logic"]+=CausalityRow[2]
                 output["Slider"]["Max"]=100
+
+                output["Paragraph Title"]="When enemy health is " + CausalityRow[2] + "% or less"
             elif(CausalityRow[1]=="19"):
                 output["Button"]["Name"]="Is this the "
                 output["Button"]["Name"]+=ordinalise(int(CausalityRow[2])+1)
@@ -3102,6 +3111,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Paragraph Title"]="After guard is activated"
             elif(CausalityRow[1]=="31"):
                 output["Button"]["Name"]="Has 3 attacks in a row?"
+                output["Paragraph Title"]="When 3 attacks in a row"
             elif(CausalityRow[1]=="33"):
                 output["Button"]["Name"]="Is HP between "
                 output["Button"]["Name"]+=CausalityRow[2]
@@ -3116,6 +3126,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]+=CausalityRow[3]
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=100
+
+                output["Paragraph Title"]="When HP is between " + CausalityRow[2] + "% and " + CausalityRow[3] + "%"
             elif(CausalityRow[1]=="34"):
                 if(CausalityRow[2]=="0"):
                     target="allies "
@@ -3145,6 +3157,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]="=="
                     output["Slider"]["Logic"]+=0
                     output["Slider"]["Min"]=0
+
+                    output["Paragraph Title"]="When there are no " + categoryType + " category " + target
                 else:
                     output["Button"]["Name"]="Are there "
                     output["Button"]["Name"]+=CausalityRow[4]
@@ -3164,11 +3178,12 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Paragraph Title"]="When there are "+str(CausalityRow[4])+" or more "+categoryType+" Category "+target
 
             elif(CausalityRow[1]=="35"):
-                output["Button"]["Name"]="Does the team include "
                 if(extractClassType(CausalityRow[2],DEVEXCEPTIONS=DEVEXCEPTIONS)==(["Super"],["PHY","STR","INT","TEQ","AGL"])):
-                    output["Button"]["Name"]+="all five Super types?"
+                    output["Button"]["Name"]="Does the team include all five Super types?"
+                    output["Paragraph Title"]="When the team includes all five Super types"
                 elif(extractClassType(CausalityRow[2],DEVEXCEPTIONS=DEVEXCEPTIONS)==(["Extreme"],["PHY","STR","INT","TEQ","AGL"])):
-                    output["Button"]["Name"]+="all five Extreme types?"
+                    output["Button"]["Name"]="Does the team include all five Extreme types?"
+                    output["Paragraph Title"]="When the team includes all five Extreme types"
                 else:
                     print("UNKNOWN TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -3180,6 +3195,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]+=ordinalise(int(CausalityRow[3])+1)
                 output["Button"]["Name"]+=" turn from the start of battle?"
 
+                output["Paragraph Title"]="When HP is " + CausalityRow[2] + "% or less starting from the " + ordinalise(int(CausalityRow[3])+1) + " turn from the start of battle"
+
             elif(CausalityRow[1]=="38"):
                 Status=binaryStatus(CausalityRow[2])
                 output["Button"]["Name"]="Is the target enemy "
@@ -3189,17 +3206,21 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="39"):
                 if(CausalityRow[2]=="32"):
                     output["Button"]["Name"]="Is this unit attacking a super class enemy?"
+                    output["Paragraph Title"]="When the unit is attacking a super class enemy"
                 elif(CausalityRow[2]=="64"):
                     output["Button"]["Name"]="Is this unit attacking an extreme class enemy?"
+                    output["Paragraph Title"]="When the unit is attacking an extreme class enemy"
                 else:
                     print("UNKNOWN TYPE")
                     if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown type")
             elif(CausalityRow[1]=="40"):
                 output["Button"]["Name"]="Is a super being performed?"
+                output["Paragraph Title"]="When a super is being performed"
             elif(CausalityRow[1]=="41"):
                 if(CausalityRow[2]=="0"):
                     output["Button"]["Name"]="Is there an ally on the team whose name includes "
+                    output["Paragraph Title"]="When there is an ally whose name includes "
                 elif(CausalityRow[2]=="1"):
                     output["Button"]["Name"]="Is there an enemy whose name includes "
                 elif(CausalityRow[2]=="2"):
@@ -3267,12 +3288,16 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=int(CausalityRow[3])
+
+                    output["Paragraph Title"]="When the character has performed" + CausalityRow[3] + " or more super attacks"
                 elif(CausalityRow[2])=="2":
                     output["Slider"]["Name"]="How many attacks has this character performed in battle?"
                     output["Slider"]["Logic"]=">="
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=int(CausalityRow[3])
+
+                    output["Paragraph Title"]="When the character has performed" + CausalityRow[3] + " or more attacks"
                 elif(CausalityRow[2]=="3"):
                     output["Button"]["Name"]="Has this character recieved their "
                     output["Button"]["Name"]+=(ordinalise(CausalityRow[3]))
@@ -3297,6 +3322,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=int(CausalityRow[3])
+
+                    output["Paragraph Title"]="When the character has guarded " + CausalityRow[3] + " or more attacks"
                 elif(CausalityRow[2]=="5"):
                     output["Button"]["Name"]="Has this character evaded "
                     output["Button"]["Name"]+=(ordinalise(CausalityRow[3]))
@@ -3307,6 +3334,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=int(CausalityRow[3])
+
+                    output["Paragraph Title"]="When the character has evaded " + CausalityRow[3] + " or more attacks"
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -3331,18 +3360,24 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+=(" Category ally whose name includes ")
                     output["Button"]["Name"]+=likelyName
                     output["Button"]["Name"]+=(" on the team?")
+
+                    output["Paragraph Title"]="When there is a " + categoryType + " Category ally whose name includes " + likelyName + " on the team"
                 elif(CausalityRow[2]=="1"):
                     output["Button"]["Name"]=("Is there a ")
                     output["Button"]["Name"]+=(categoryType)
                     output["Button"]["Name"]+=(" Category enemy whose name includes ")
                     output["Button"]["Name"]+=likelyName
                     output["Button"]["Name"]+=("?")
+
+                    output["Paragraph Title"]="When there is a " + categoryType + " Category enemy whose name includes " + likelyName
                 elif(CausalityRow[2]=="2"):
                     output["Button"]["Name"]=("Is there a ")
                     output["Button"]["Name"]+=(categoryType)
                     output["Button"]["Name"]+=(" Category ally whose name includes ")
                     output["Button"]["Name"]+=likelyName
                     output["Button"]["Name"]+=(" attacking on this turn?")
+
+                    output["Paragraph Title"]="When there is a " + categoryType + " Category ally whose name includes " + likelyName + " attacking on this turn"
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -3407,15 +3442,20 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
 
             elif(CausalityRow[1]=="47"):
                 output["Button"]["Name"]=("Has this character or an ally attacking on this turn been KO'd?")
+                output["Paragraph Title"]=("When this character or an ally attacking on this turn has been KO'd?")
             elif(CausalityRow[1]=="48"):
-                output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
+                output["Button"]["Name"]=("Has the enemy been hit by the characters super attack?")
+                output["Button"]["Name"]=("When the enemy has been hit by the characters super attack?")
             elif(CausalityRow[1]=="49"):
                 if(CausalityRow[2]=="1"):
                     output["Button"]["Name"]=("Has this character been hit by a ki blast super attack?")
+                    output["Paragraph Title"]=("When this character has been hit by a ki blast super attack?")
                 elif(CausalityRow[2]=="2"):
                     output["Button"]["Name"]=("Has this character been hit by an unarmed super attack?")
+                    output["Paragraph Title"]=("When this character has been hit by an unarmed super attack?")
                 elif(CausalityRow[2]=="4"):
                     output["Button"]["Name"]=("Has this character been hit by a physical super attack?")
+                    output["Paragraph Title"]=("When this character has been hit by a physical super attack?")
                 else:
                     output+=("UNKNOWN SUPER ATTACK TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -3439,6 +3479,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]="<="
                     output["Slider"]["Logic"]+=str(int(CausalityRow[3])-1)
                     output["Slider"]["Min"]=0
+
+                    output["Paragraph Title"]="When the charge count is " + CausalityRow[3] + "or less"
                 elif(CausalityRow[2]=="4"):
                     output["Button"]["Name"]=("Is the charge count greater than or equal to ")
                     output["Button"]["Name"]+=CausalityRow[3]
@@ -3447,6 +3489,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]=">="
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=int(CausalityRow[3])
+
+                    output["Paragraph Title"]="When the charge count is " + CausalityRow[3] + "or more"
                 else:
                     output["Button"]["Name"]="UNKNOWN CHARGE TYP£"
                     if(DEVEXCEPTIONS==True):
@@ -3455,8 +3499,10 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
 
             elif(CausalityRow[1]=="53"):
                 output["Button"]["Name"]=("Has this characters finish effect been activated?")
+                output["Paragraph Title"]="When this characters finish effect has been activated"
             elif(CausalityRow[1]=="54"):
                 output["Button"]["Name"]=("Has this character or an ally's revival skill been activated?")
+                output["Paragraph Title"]="When this character or an ally's revival skill has been activated"
             elif(CausalityRow[1]=="55"):
                 output["Button"]["Name"]=("Is it on or after the first ")
                 output["Button"]["Name"]+=str(int(CausalityRow[2])+1)
@@ -3470,22 +3516,30 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Paragraph Title"]="Starting from the "+str(int(CausalityRow[2])+1)+" turn from the character's entry turn"
             elif(CausalityRow[1]=="56"):
                 output["Button"]["Name"]=("Has this character been hit by a normal attack?")
+                output["Paragraph Title"]="When this character has been hit by a normal attack"
             elif(CausalityRow[1]=="57"):
                 output["Button"]["Name"]=("Is the Domain ")
+                output["Paragraph Title"]="When the Domain"
                 domain=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fields,column=2)
                 if(domain!=[]):
                     output["Button"]["Name"]+=domain[0]
+                    output["Paragraph Title"]+=domain[0]
                 else:
                     output["Button"]["Name"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fields,column=2)[0]
+                    output["Paragraph Title"]+=searchbyid(code=CausalityRow[2],codecolumn=1,database=dokkan_fields,column=2)[0]
 
                 output["Button"]["Name"]+=(" active?")
+                output["Paragraph Title"]+=(" active?")
             elif(CausalityRow[1]=="58"):
                 output["Button"]["Name"]=("Is no domain active?")
-            elif(CausalityRow[1]=="59"):
-                if(CausalityRow[2]=="1"):
-                    output["Button"]["Name"]=("Is this character super class?")
-                elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]=("Is this character extreme class?")
+                output["Paragraph Title"]="When no domain is active"
+#            elif(CausalityRow[1]=="59"):
+#                if(CausalityRow[2]=="1"):
+#                    output["Button"]["Name"]=("Is this character super class?")
+#                    output["Paragraph Title"]="When this character is super class"
+#                elif(CausalityRow[2]=="2"):
+#                    output["Button"]["Name"]=("Is this character extreme class?")
+#                    output["Paragraph Title"]="When this character is extreme class"
             elif(CausalityRow[1]=="60"):
                 Categories=sub_target_types_extractor(CausalityRow[2])
                 output["Button"]["Name"]="Is this character on the "
@@ -3504,6 +3558,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+="category)"
             elif(CausalityRow[1]=="61"):
                 output["Button"]["Name"]=("Has this character been hit on this turn?")
+                output["Paragraph Title"]="When this character has been hit on this turn"
             elif(CausalityRow[1]=="64"):
                 if(CausalityRow[2]=="2"):
                     output["Button"]["Name"]="Have less than or equal to "
@@ -3515,6 +3570,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=7
+
+                    output["Paragraph Title"]="When " + CausalityRow[3] + "or less dragon ball orbs have been obtained"
                 elif(CausalityRow[2]=="5"):
                     output["Button"]["Name"]="Have more than "
                     output["Button"]["Name"]+=CausalityRow[3]
@@ -3525,14 +3582,18 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=7
+
+                    output["Paragraph Title"]="When " + CausalityRow[3] + "or more dragon ball orbs have been obtained"
                 else:
                     output["Button"]["Name"]="UNKNOWN CAUSALITY CONDITION"
                     if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown causality condition")
             elif(CausalityRow[1]=="65"):
                 output["Button"]["Name"]=("Has this character entered giant form?")
+                output["Paragraph Title"]="When this character has entered giant form"
             elif(CausalityRow[1]=="66"):
                 output["Button"]["Name"]=("Has this character's reversible exchange not yet been performed?")
+                output["Paragraph Title"]="When this character's reversible exchange has not yet been performed"
 
 
             else:
@@ -4207,6 +4268,7 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
         for passiveskill in passive_skills[1:]:
             if (passiveskill[0] in passiveIdList):
                 parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
+                parsedLine=shortenPassiveDictionary(parsedLine)
                 output[passiveskill[0]]=parsedLine
     return(output)
 

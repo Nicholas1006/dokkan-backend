@@ -108,7 +108,7 @@ transformations={}
 
 print("Setup time:",round(time.time()-setupStart,2))
 
-for unit in cardsToCheck:
+for unit in cardsToCheck[:]:
     print(str(unitsChecked)+"/"+str(len(cardsToCheck))+" "+unit[0])
     unitsChecked=unitsChecked+1
     ezaTrueFalse=[False]
