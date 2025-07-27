@@ -3196,7 +3196,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     target="enemies "
                     output["Slider"]["Max"]=7
                 elif(CausalityRow[2]=="2"):
-                    target="allies attacking on this turn "
+                    target="allies attacking on this turn"
                     output["Slider"]["Max"]=3
                 categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categories,column=1)[0]
 
@@ -3226,7 +3226,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]+=categoryType
                     output["Button"]["Name"]+=" category "
                     output["Button"]["Name"]+=target
-                    output["Button"]["Name"]="?"
+                    output["Button"]["Name"]+="?"
 
                     output["Slider"]["Name"]="How many "
                     output["Slider"]["Name"]+=categoryType
@@ -4337,7 +4337,6 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
                     conditionFrequency[condition["Paragraph Title"]]=0
                 conditionFrequency[condition["Paragraph Title"]]+=1
                 maxConditionFrequency=max(maxConditionFrequency,conditionFrequency[condition["Paragraph Title"]])
-    print(conditionFrequency)
 
 
     for lineKey in passiveskill:
@@ -4380,6 +4379,9 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
                 parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
                 parsedLine=shortenPassiveDictionary(parsedLine)
                 output[passiveskill[0]]=parsedLine
+                if("Building Stat" in parsedLine):
+                    if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
+                        parsedLine=removeLookElseWhere(parsedLine,DEVEXCEPTIONS)
         passiveskill=sortParagraphTitles(output)
     return(output)
 
@@ -4558,12 +4560,12 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Turns with ally "+ally1Name+" or "+ally2Name
         output["Building Stat"]["Slider"]="How many turns has this character been on with an ally whose name includes "+ally1Name+" or "+ally2Name+"?"
     
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][-17:]=='category enemies ' and causalities[0][:20]=='Are there 1 or more '):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][-18:]=='category enemies ?' and causalities[0][:20]=='Are there 1 or more '):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Turns with a "+causalities[0][20:-18]+" category enemy"
         output["Building Stat"]["Slider"]="How many turns has this character been on with a "+causalities[0][20:-18]+" category enemy?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:20]=='Are there 1 or more ' and causalities[0][-17:]=='category enemies ' and causalities[1][:20]=='Are there 1 or more ' and causalities[1][-17:]=='category enemies '):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:20]=='Are there 1 or more ' and causalities[0][-18:]=='category enemies ?' and causalities[1][:20]=='Are there 1 or more ' and causalities[1][-18:]=='category enemies ?'):
         del output["Condition"]
         enemy1=causalities[0][20:-18]
         enemy2=causalities[1][20:-18]
@@ -4575,7 +4577,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Guard activated"
         output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
     
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and causalities[1][-28:]=='category units on this turn '):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and causalities[1][-39:]=='category allies attacking on this turn?'):
         del output["Condition"]
         category=causalities[1][20:-30]
         quantity=causalities[1][10]
@@ -4629,7 +4631,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Guard activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team"
         output["Building Stat"]["Slider"]="How many times has this character's guard been activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team '):
+    elif(parsedLine["Timing"]=="Start of turn" and causalities[0][:9]=='Are there' and causalities[0][-17:]=='category allies ?'):
         del output["Condition"]
         quantity=causalities[0][10]
         category=causalities[0][20:-28]
@@ -4653,7 +4655,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Super being performed"
         output["Building Stat"]["Slider"]="How many super attacks has this character performed?"
 
-    elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ')):
+    elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:9]=='Are there' and causalities[0][-17:]=='category allies ?')):
         del output["Condition"]
         quantity=causalities[0][10]
         category=causalities[0][20:-28]
