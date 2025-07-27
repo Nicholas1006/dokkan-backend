@@ -1070,6 +1070,9 @@ def getUnitStats(unit,level,coef,DEVEXCEPTIONS=False):
 
 def shortenPassiveDictionary(oldPassiveDictionary):
     passiveDictionary=oldPassiveDictionary.copy()
+    if "Causality" in passiveDictionary:
+        if(passiveDictionary["Causality"]==[]):
+            passiveDictionary.pop("Causality")
     if "Revive" in passiveDictionary:
         if passiveDictionary["Revive"]["Activated"]==False:
             passiveDictionary.pop("Revive")
@@ -1280,6 +1283,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         #first turn counts as turn 0
         "First Turn To Activate": 0,
         "Condition": None,
+        "CausalityLogic":passiveskill[11],
         "Once Only": False
     }
     if(causalityExtractor(passiveskill[11])!=[]):
@@ -2470,7 +2474,63 @@ def causalityExtractor(causality):
                 result.remove(x)
         return(result)
 
+
 def logicalCausalityExtractor(causality):
+    if(causality==""):
+        return([])
+    else:
+        return(complexlogicalCausalityExtractor(causality.replace(" ","").split('","compiled":')[1][:-1]))
+
+
+def complexlogicalCausalityExtractor(causality):
+    if(causality.count("[")==0):
+        return(causality)
+    causalityList=[]
+    bracketLevel=0
+    currentString=""
+    for char in causality[1:-1]:
+        if(char=="["):
+            bracketLevel+=1
+        elif(char=="]"):
+            bracketLevel-=1
+        
+        if(bracketLevel==0 and char==","):
+            causalityList.append(currentString)
+            currentString=""
+        else:
+            currentString+=char
+    causalityList.append(currentString)
+
+    causalityList[1]=complexlogicalCausalityExtractor(causalityList[1])
+    causalityList[2]=complexlogicalCausalityExtractor(causalityList[2])
+
+    if("True" in causalityList):        
+        return (filterTrue(causalityList))
+
+    if(causalityList[0]=='"|"'):
+        return("(" + causalityList[1] + " || " +causalityList[2] + ")")
+    if(causalityList[0]=='"&"'):
+        return("(" + causalityList[1] + "&&" +causalityList[2] + ")")
+
+def filterTrue(causalityList):
+    if(causalityList[0]=='"&"'):
+        if(causalityList[1]=="True"):
+            return(causalityList[2])
+        elif(causalityList[2]=="True"):
+            return(causalityList[1])
+    if(causalityList[0]=='"|"'):
+        if("True" in causalityList):
+            return("True")
+
+def simpleLogicalCausalityExtractor(causality):
+    causality=causality[1:-1].split(",")
+    if(causality[0]=='"|"'):
+        return("(" + causality[1] + "||" +causality[2] + ")")
+    if(causality[0]=='"&"'):
+        return("(" + causality[1] + "&&" +causality[2] + ")")
+    
+
+def OLDlogicalCausalityExtractor(causality):
     if(causality==""):
         return([])
     else:
@@ -2483,7 +2543,7 @@ def logicalCausalityExtractor(causality):
         else:
             result=result.split('source": "')[1]
         result=unicode_fixer(result)
-        return(result)
+        return("("+result+")")
     
 def CausalityLogicalExtractor(unit,causality,DEVEXCEPTIONS=False):
     output={}
@@ -2988,9 +3048,9 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 unit31=int(unit[31])
                 kiAmount=(Ca2*unit31)//99
 
-                #output["Button"]["Name"]="Is Ki at least "
-                #output["Button"]["Name"]+=str(kiAmount)
-                #output["Button"]["Name"]+="?"
+                output["Button"]["Name"]="Is Ki at least "
+                output["Button"]["Name"]+=str(kiAmount)
+                output["Button"]["Name"]+="?"
 
                 output["Slider"]["Name"]="How much ki is there?"
                 output["Slider"]["Logic"]=">="
@@ -3029,7 +3089,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=str(int(CausalityRow[2])+1)
                 output["Slider"]["Min"]=1
-                output["Paragraph Title"]="When the turn count is" + str(int(CausalityRow[2])+1)
+                output["Paragraph Title"]="When the turn count is " + str(int(CausalityRow[2])+1)
             elif(CausalityRow[1]=="8"):
                 output["Button"]["Name"]="Is attack higher than enemy's?"
                 output["Paragraph Title"]="When attack is higher than enemy's"
@@ -3981,9 +4041,13 @@ def appearancesBeforeCertainTurn(turn):
 
 def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
     output=""
-    
+    TARGET_WORDING=True
+    BASIC_STAT_BUFFS=True
+    BASIC_TIMING_WORDING=True
+
+
     #Target wording
-    if(True):
+    if(TARGET_WORDING):
         if(parsedLine["Target"]["Target"]=="Self"):
             pass
         elif(parsedLine["Target"]["Target"]=="Enemies"):
@@ -4025,7 +4089,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
 
 
     #Basic stat buffs
-    if(True):
+    if(BASIC_STAT_BUFFS):
         if("Ki" in parsedLine):
             output+="Ki +"
             output+=str(parsedLine["Ki"])
@@ -4229,7 +4293,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
         output="None"
 
     #Basic timing wording
-    if(True):
+    if(BASIC_TIMING_WORDING):
         if(parsedLine["Timing"]=="Start of turn"):
             #output+="at the start of turn"
             output+=""
@@ -4261,6 +4325,52 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
         output=output.replace("  "," ")
     return(output)
 
+def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
+    conditionFrequency={}
+    maxConditionFrequency=0
+    for lineKey in passiveskill:
+        line=passiveskill[lineKey]
+        if("Condition" in line):
+            for conditionKey in line["Condition"]["Causalities"]:
+                condition=line["Condition"]["Causalities"][conditionKey]
+                if(condition["Paragraph Title"] not in conditionFrequency):
+                    conditionFrequency[condition["Paragraph Title"]]=0
+                conditionFrequency[condition["Paragraph Title"]]+=1
+                maxConditionFrequency=max(maxConditionFrequency,conditionFrequency[condition["Paragraph Title"]])
+    print(conditionFrequency)
+
+
+    for lineKey in passiveskill:
+        line=passiveskill[lineKey]
+        line["Line description"]=passiveBriefEffectDescription(line,DEVEXCEPTIONS)
+        if("Condition" in line):
+            lineConditions= []
+            for conditionKey in line["Condition"]["Causalities"]:
+                condition=line["Condition"]["Causalities"][conditionKey]["Paragraph Title"]
+                lineConditions.append(condition)
+            for condition in conditionFrequency:
+                if("Paragraph Title" not in line):
+                    if (conditionFrequency[condition]==maxConditionFrequency) and (condition in lineConditions):
+                        line["Paragraph Title"]=condition
+                        line["Line description"]= passiveBriefEffectDescription(line,DEVEXCEPTIONS)
+                        for causalityKey in line["Condition"]["Causalities"]:
+                            causality=line["Condition"]["Causalities"][causalityKey]
+                            if(causality["Paragraph Title"]==condition):
+                                removedCausality=causalityKey
+                        line_logic=logicalCausalityExtractor(line["CausalityLogic"].replace(removedCausality,"True"))
+                        line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ")
+                        for conditionKey in line["Condition"]["Causalities"]:
+                            line_logic=line_logic.replace(conditionKey,line["Condition"]["Causalities"][conditionKey]["Paragraph Title"])
+                        while("  " in line_logic):
+                            line_logic=line_logic.replace("  "," ")
+                        if(line_logic!="True"):
+                            line["Line description"]+=(" "+line_logic)
+            
+
+    
+
+
+
 def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
     output={}
     passiveIdList=getpassiveid(unit,eza,seza)
@@ -4270,6 +4380,7 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
                 parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
                 parsedLine=shortenPassiveDictionary(parsedLine)
                 output[passiveskill[0]]=parsedLine
+        passiveskill=sortParagraphTitles(output)
     return(output)
 
 
