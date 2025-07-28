@@ -394,17 +394,17 @@ def parseSpecials(specialRow,DEVEXCEPTIONS=False):
     if(specialRow[4]=="1"):
         output["Target"]="Self"
     elif(specialRow[4]=="2"):
-        output["Target"]="Allies"
+        output["Target"]="allies"
     elif(specialRow[4]=="3"):
         output["Target"]="Enemy"
     elif(specialRow[4]=="4"):
         output["Target"]="All Enemies"
     elif(specialRow[4]=="12"):
-        output["Target"]="Super class Allies"
+        output["Target"]="Super class allies"
     elif(specialRow[4]=="13"):
-        output["Target"]="Extreme class Allies"
+        output["Target"]="Extreme class allies"
     elif(specialRow[4]=="16"):
-        output["Target"]="Allies (self excluded)"
+        output["Target"]="allies (self excluded)"
     else:
         output["Target"]="UNKNOWN"
         if(DEVEXCEPTIONS==True):
@@ -561,9 +561,9 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
         output[leader_skill_line[0]]["Ki"]=0
 
         if(leader_skill_line[3]=="4"):
-            output[leader_skill_line[0]]["Target"]["Allies or enemies"]="Enemies"
+            output[leader_skill_line[0]]["Target"]["allies or enemies"]="Enemies"
         elif(leader_skill_line[3]=="2"):
-            output[leader_skill_line[0]]["Target"]["Allies or enemies"]="Allies"
+            output[leader_skill_line[0]]["Target"]["allies or enemies"]="allies"
         if leader_skill_line[6]=="0":
             output[leader_skill_line[0]]["NOT WORKING"]=True
         elif(leader_skill_line[6]=="1"):
@@ -1359,20 +1359,20 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     if(passiveskill[4]=="1"):
         effects["Target"]["Target"]="Self"
     elif(passiveskill[4]=="2"):
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
     elif(passiveskill[4]=="3"):
         effects["Target"]["Target"]="Enemy"
     elif(passiveskill[4]=="4"):
         effects["Target"]["Target"]="Enemies"
     elif(passiveskill[4]=="5"):
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
         #For some reason int dfe future gohan has this on his ki support, even though this couldve been under 2
     elif(passiveskill[4]=="12"):
         effects["Target"]["Class"]="Super"
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
     elif(passiveskill[4]=="13"):
         effects["Target"]["Class"]="Extreme"
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
     elif(passiveskill[4]=="14"):
         effects["Target"]["Class"]="Super"
         effects["Target"]["Target"]="Enemies"
@@ -1380,7 +1380,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Target"]["Class"]="Extreme"
         effects["Target"]["Target"]="Enemies"
     elif(passiveskill[4]=="16"):
-        effects["Target"]["Target"]="Allies(self excluded)"
+        effects["Target"]["Target"]="allies(self excluded)"
     else:
         effects["Target"]["Target"]=("UNKNOWN TARGET")
         if(DEVEXCEPTIONS==True):
@@ -1942,20 +1942,20 @@ def OLDextractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     if(passiveskill[4]=="1"):
         effects["Target"]["Target"]="Self"
     elif(passiveskill[4]=="2"):
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
     elif(passiveskill[4]=="3"):
         effects["Target"]["Target"]="Enemy"
     elif(passiveskill[4]=="4"):
         effects["Target"]["Target"]="Enemies"
     elif(passiveskill[4]=="5"):
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
         #For some reason int dfe future gohan has this on his ki support, even though this couldve been under 2
     elif(passiveskill[4]=="12"):
         effects["Target"]["Class"]="Super"
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
     elif(passiveskill[4]=="13"):
         effects["Target"]["Class"]="Extreme"
-        effects["Target"]["Target"]="Allies"
+        effects["Target"]["Target"]="allies"
     elif(passiveskill[4]=="14"):
         effects["Target"]["Class"]="Super"
         effects["Target"]["Target"]="Enemies"
@@ -1963,7 +1963,7 @@ def OLDextractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Target"]["Class"]="Extreme"
         effects["Target"]["Target"]="Enemies"
     elif(passiveskill[4]=="16"):
-        effects["Target"]["Target"]="Allies(self excluded)"
+        effects["Target"]["Target"]="allies(self excluded)"
     else:
         effects["Target"]["Target"]=("UNKNOWN TARGET")
         if(DEVEXCEPTIONS==True):
@@ -2501,26 +2501,31 @@ def complexlogicalCausalityExtractor(causality):
             currentString+=char
     causalityList.append(currentString)
 
-    causalityList[1]=complexlogicalCausalityExtractor(causalityList[1])
-    causalityList[2]=complexlogicalCausalityExtractor(causalityList[2])
+    for causalityEntryKey in range(1,len(causalityList)):
+        causalityList[causalityEntryKey]=complexlogicalCausalityExtractor(causalityList[causalityEntryKey])
 
     if("True" in causalityList):        
-        return (filterTrue(causalityList))
+        causalityList=(filterTrue(causalityList))
 
-    if(causalityList[0]=='"|"'):
-        return("(" + causalityList[1] + " || " +causalityList[2] + ")")
-    if(causalityList[0]=='"&"'):
-        return("(" + causalityList[1] + "&&" +causalityList[2] + ")")
+    returnText="("
+    for causality in causalityList[1:]:
+        returnText+=causality
+        if(causalityList[0]=='"|"'):
+            returnText+="||"
+        if(causalityList[0]=='"&"'):
+            returnText+="&&"        
+    returnText=returnText[:-2]
+    returnText+=")"
+    return returnText
 
 def filterTrue(causalityList):
     if(causalityList[0]=='"&"'):
-        if(causalityList[1]=="True"):
-            return(causalityList[2])
-        elif(causalityList[2]=="True"):
-            return(causalityList[1])
+        temp=causalityList.copy()
+        temp.remove("True")
+        return(temp)
     if(causalityList[0]=='"|"'):
         if("True" in causalityList):
-            return("True")
+            return(['"|"',"True"])
 
 def simpleLogicalCausalityExtractor(causality):
     causality=causality[1:-1].split(",")
@@ -3279,13 +3284,13 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Paragraph Title"]="When a super is being performed"
             elif(CausalityRow[1]=="41"):
                 if(CausalityRow[2]=="0"):
-                    output["Button"]["Name"]="Is there an ally on the team whose name includes "
-                    output["Paragraph Title"]="When there is an ally whose name includes "
+                    output["Button"]["Name"]="Is there "+CausalityRow[4]+" or more allies on the team whose name includes "
+                    output["Paragraph Title"]="When there are "+CausalityRow[4]+" or more allies whose name includes "
                 elif(CausalityRow[2]=="1"):
-                    output["Button"]["Name"]="Is there an enemy whose name includes "
+                    output["Button"]["Name"]="Is there "+CausalityRow[4]+" or more enemies whose name includes "
                 elif(CausalityRow[2]=="2"):
-                    output["Button"]["Name"]="Is there an ally attacking on this turn whose name includes "
-                    output["Paragraph Title"]="When there is an ally whose name includes "
+                    output["Button"]["Name"]="Is there "+CausalityRow[4]+" or more allies attacking on this turn whose name includes "
+                    output["Paragraph Title"]="When there are "+CausalityRow[4]+"or more allies whose name includes "
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -3504,8 +3509,22 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Button"]["Name"]=("Has this character or an ally attacking on this turn been KO'd?")
                 output["Paragraph Title"]=("When this character or an ally attacking on this turn has been KO'd?")
             elif(CausalityRow[1]=="48"):
-                output["Button"]["Name"]=("Has the enemy been hit by the characters super attack?")
-                output["Button"]["Name"]=("When the enemy has been hit by the characters super attack?")
+                #WIP CausalityRow[2] is the type of super attack
+                if(CausalityRow[2]=="1"):
+                    output["Button"]["Name"]=("Has the enemy been hit by the characters super attack?")
+                    output["Paragraph Title"]=("When the enemy has been hit by the characters super attack?")
+                elif(CausalityRow[2]=="2"):
+                    output["Button"]["Name"]=("Has the enemy been hit by the characters super attack?")
+                    output["Paragraph Title"]=("When the enemy has been hit by the characters super attack?")
+                elif(CausalityRow[2]=="4"):
+                    output["Button"]["Name"]=("Has the enemy been hit by the characters ultra super attack?")
+                    output["Paragraph Title"]=("When the enemy has been hit by the characters ultra super attack?")
+                else:
+                    output["Button"]["Name"]="UNKNOWN ATTACK TYPE"
+                    output["Paragraph Title"]="UNKNOWN ATTACK TYPE"
+                    if(DEVEXCEPTIONS==True):
+                        print(CausalityRow)
+                        raise Exception("Unknown super attack type")
             elif(CausalityRow[1]=="49"):
                 if(CausalityRow[2]=="1"):
                     output["Button"]["Name"]=("Has this character been hit by a ki blast super attack?")
@@ -4052,7 +4071,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             pass
         elif(parsedLine["Target"]["Target"]=="Enemies"):
             output+="All enemies "
-        elif(parsedLine["Target"]["Target"]=="allies" or "Allies(self excluded)"):
+        elif(parsedLine["Target"]["Target"]=="allies" or "allies(self excluded)"):
             pass
 
 
@@ -4331,17 +4350,43 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
     return(output)
 
 def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
+    #WIP rework this to properly divide the passive skills, currently only ones included in a "most popular" can achieve anything
+    #Create a conditionFrequencyL list to store every appearance of a paragraph Title in a passive skill line
     conditionFrequency={}
-    maxConditionFrequency=0
     for lineKey in passiveskill:
         line=passiveskill[lineKey]
         if("Condition" in line):
             for conditionKey in line["Condition"]["Causalities"]:
                 condition=line["Condition"]["Causalities"][conditionKey]
                 if(condition["Paragraph Title"] not in conditionFrequency):
-                    conditionFrequency[condition["Paragraph Title"]]=0
-                conditionFrequency[condition["Paragraph Title"]]+=1
-                maxConditionFrequency=max(maxConditionFrequency,conditionFrequency[condition["Paragraph Title"]])
+                    conditionFrequency[condition["Paragraph Title"]]=[]
+                conditionFrequency[condition["Paragraph Title"]].append(lineKey)
+        
+    linesRemaining=list(passiveskill.keys())
+    for lineKey in linesRemaining.copy():
+        if("Condition" not in passiveskill[lineKey]):
+            linesRemaining.remove(lineKey)
+    paragraphPriority=[]
+    #until every line has a paragraph
+    while(len(linesRemaining)>0):
+        #find the condition that appears in the most amount of remaining lines
+        mostFrequentConditionKey=list(conditionFrequency.keys())[0]
+        for conditionKey in conditionFrequency:
+            if(len(conditionFrequency[conditionKey])>len(conditionFrequency[mostFrequentConditionKey])):
+                mostFrequentConditionKey=conditionKey
+
+        #put it next in the priority of conditions
+        paragraphPriority.append(mostFrequentConditionKey)
+
+        #remove any detail of it left within the process
+        for line in linesRemaining.copy():
+            if(line in conditionFrequency[mostFrequentConditionKey]):
+                linesRemaining.remove(line)
+                for conditionKey in conditionFrequency:
+                    if(line in conditionFrequency[conditionKey]):
+                        while(line in conditionFrequency[conditionKey]):
+                            conditionFrequency[conditionKey].remove(line)
+
 
 
     for lineKey in passiveskill:
@@ -4353,26 +4398,31 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
             for conditionKey in line["Condition"]["Causalities"]:
                 condition=line["Condition"]["Causalities"][conditionKey]["Paragraph Title"]
                 lineConditions.append(condition)
-            for condition in conditionFrequency:
-                if(line["Paragraph Title"]=="Basic effect(s)"):
-                    if (conditionFrequency[condition]==maxConditionFrequency) and (condition in lineConditions):
-                        line["Paragraph Title"]=condition
-                        line["Line description"]= passiveBriefEffectDescription(line,DEVEXCEPTIONS)
-                        for causalityKey in line["Condition"]["Causalities"]:
-                            causality=line["Condition"]["Causalities"][causalityKey]
-                            if(causality["Paragraph Title"]==condition):
-                                removedCausality=causalityKey
-                        line_logic=logicalCausalityExtractor(line["CausalityLogic"].replace(removedCausality,"True"))
-                        line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ")
-                        for conditionKey in line["Condition"]["Causalities"]:
-                            line_logic=line_logic.replace(conditionKey,line["Condition"]["Causalities"][conditionKey]["Paragraph Title"])
-                        while("  " in line_logic):
-                            line_logic=line_logic.replace("  "," ")
-                        if(line_logic!="True"):
-                            line["Line description"]+=(" "+line_logic)
+            if(line["Paragraph Title"]=="Basic effect(s)"):
+                priorityIndex=firstListOverlap(lineConditions,paragraphPriority)
+                if(priorityIndex!=-1):
+                    line["Paragraph Title"]=paragraphPriority[priorityIndex]
+                    line["Line description"]= passiveBriefEffectDescription(line,DEVEXCEPTIONS)
+                    for causalityKey in line["Condition"]["Causalities"]:
+                        causality=line["Condition"]["Causalities"][causalityKey]
+                        if(causality["Paragraph Title"]==condition):
+                            removedCausality=causalityKey
+                    line_logic=logicalCausalityExtractor(line["CausalityLogic"].replace(removedCausality,"True"))
+                    line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ")
+                    for conditionKey in line["Condition"]["Causalities"]:
+                        line_logic=line_logic.replace(conditionKey,line["Condition"]["Causalities"][conditionKey]["Paragraph Title"])
+                    while("  " in line_logic):
+                        line_logic=line_logic.replace("  "," ")
+                    if(line_logic!="True"):
+                        line["Line description"]+=(" "+line_logic)
             
 
     
+def firstListOverlap(listToCompare,listToIndex):
+    for entry in listToIndex:
+        if(entry in listToCompare):
+            return(listToIndex.index(entry))
+    return(-1)
 
 
 
@@ -4544,19 +4594,19 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Start of turn"
         output["Building Stat"]["Slider"]="How many turns has this character been on?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:63]=='Is there an ally attacking on this turn whose name includes'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and 'allies attacking on this turn whose name includes' in causalities[0]):
         del output["Condition"]
         allyName=causalities[0][64:-1]
         output["Building Stat"]["Cause"]["Cause"]="Turns with ally "+allyName
         output["Building Stat"]["Slider"]="How many turns has this character been on with an ally whose name includes "+allyName+"?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0][:48]=='Is there an ally on the team whose name includes'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and 'allies on the team whose name includes' in causalities[0]):
         del output["Condition"]
         allyName=causalities[0][49:-1]
         output["Building Stat"]["Cause"]["Cause"]="Turns with ally on the team whose name includes "+allyName
         output["Building Stat"]["Slider"]="How many turns has this character been on with an ally on the team whose name includes "+allyName+"?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:59]=='Is there an ally attacking on this turn whose name includes' and causalities[1][:59]=='Is there an ally attacking on this turn whose name includes'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and 'allies attacking on this turn whose name includes' in causalities[0] and 'allies attacking on this turn whose name includes' in causalities[1]):
         del output["Condition"]
         ally1Name=causalities[0][59:-1]
         ally2Name=causalities[1][59:-1]
@@ -4568,7 +4618,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Turns with a "+causalities[0][20:-18]+" category enemy"
         output["Building Stat"]["Slider"]="How many turns has this character been on with a "+causalities[0][20:-18]+" category enemy?"
 
-    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and causalities[0][:20]=='Are there 1 or more ' and causalities[0][-18:]=='category enemies ?' and causalities[1][:20]=='Are there 1 or more ' and causalities[1][-18:]=='category enemies ?'):
+    elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==2 and 'Are there 1 or more' in causalities[0] and 'category enemies ?' in causalities[0] and 'Are there 1 or more' in causalities[1] and 'category enemies ?' in causalities[1]):
         del output["Condition"]
         enemy1=causalities[0][20:-18]
         enemy2=causalities[1][20:-18]
@@ -4580,7 +4630,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Guard activated"
         output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
     
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and causalities[1][-39:]=='category allies attacking on this turn?'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and 'category allies attacking on this turn?' in causalities[1]):
         del output["Condition"]
         category=causalities[1][20:-30]
         quantity=causalities[1][10]
@@ -4592,7 +4642,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
         output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
 
-    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and causalities[1][:48]=='Is there an ally on the team whose name includes'):
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and 'allies on the team whose name includes' in causalities[1]):
         del output["Condition"]
         allyName=causalities[1][49:-1]
         output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
