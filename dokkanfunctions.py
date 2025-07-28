@@ -1337,7 +1337,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                         if(qualifyUsable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
-                effects["Target"]["Name"]["Included"]=likelyName
+                effects["Target"]["Name"]["Included"]=[likelyName]
             elif(TargetRow[2]=="5"):
                 #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relations, column=1)       for card in searchbycolumn(code=x, column=3, database=cards)]))
                 card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
@@ -1931,7 +1931,7 @@ def OLDextractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                         if(qualifyUsable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
-                effects["Target"]["Name"]["Excluded"]=likelyName
+                effects["Target"]["Name"]["Excluded"]=[likelyName]
             else:
                 #WIP
                 print("Target NOT FOUND")
@@ -4053,31 +4053,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
         elif(parsedLine["Target"]["Target"]=="Enemies"):
             output+="All enemies "
         elif(parsedLine["Target"]["Target"]=="allies" or "Allies(self excluded)"):
-            if("Class" in parsedLine["Target"]):
-                output+=parsedLine["Target"]["Class"]
-                output+=" class "
-            if("Type" in parsedLine["Target"]):
-                for Typing in parsedLine["Target"]["Type"]:
-                    output+=Typing
-                    output+=" and "
-                output=output[:-4]
-
-            if("Category" in parsedLine["Target"]):
-                for Category in parsedLine["Target"]["Category"]["Included"]:
-                    output+=Category
-                    output+=" and "
-                output=output[:-5]
-                output+=" category "
-
-            if("Name" in parsedLine["Target"]):
-                output+=" for all allies whose name includes "
-                for Name in parsedLine["Target"]["Name"]["Included"]:
-                    output+=Name
-                    output+=" or "
-                output=output[:-4]
-
-
-            output+=" allies "
+            pass
 
 
 
@@ -4320,7 +4296,36 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS):
                 raise Exception("UNKNOWN EFFECT TIMING",parsedLine)
         
-    
+    if(parsedLine["Target"]["Target"].lower().startswith("allies")):
+            output+=" for all "
+            if("Class" in parsedLine["Target"]):
+                output+=parsedLine["Target"]["Class"]
+                output+=" class "
+            if("Type" in parsedLine["Target"]):
+                for Typing in parsedLine["Target"]["Type"]:
+                    output+=Typing
+                    output+=" and "
+                output=output[:-4]
+
+            if("Category" in parsedLine["Target"]):
+                for Category in parsedLine["Target"]["Category"]["Included"]:
+                    output+=Category
+                    output+=" and "
+                output=output[:-5]
+                output+=" category "
+
+            output+=" "+parsedLine["Target"]["Target"]+" "
+
+
+            if("Name" in parsedLine["Target"]):
+                output+=" whose name includes "
+                for Name in parsedLine["Target"]["Name"]["Included"]:
+                    output+=Name
+                    output+=" or "
+                output=output[:-4]
+
+
+
     while("  " in output):
         output=output.replace("  "," ")
     return(output)
@@ -4342,14 +4347,14 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     for lineKey in passiveskill:
         line=passiveskill[lineKey]
         line["Line description"]=passiveBriefEffectDescription(line,DEVEXCEPTIONS)
-        line["Paragraph Title"]="Basic effects(s)"
+        line["Paragraph Title"]="Basic effect(s)"
         if("Condition" in line):
             lineConditions= []
             for conditionKey in line["Condition"]["Causalities"]:
                 condition=line["Condition"]["Causalities"][conditionKey]["Paragraph Title"]
                 lineConditions.append(condition)
             for condition in conditionFrequency:
-                if("Paragraph Title" not in line):
+                if(line["Paragraph Title"]=="Basic effect(s)"):
                     if (conditionFrequency[condition]==maxConditionFrequency) and (condition in lineConditions):
                         line["Paragraph Title"]=condition
                         line["Line description"]= passiveBriefEffectDescription(line,DEVEXCEPTIONS)
