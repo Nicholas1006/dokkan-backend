@@ -4382,6 +4382,9 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
                 if("Building Stat" in parsedLine):
                     if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
                         parsedLine=removeLookElseWhere(parsedLine,DEVEXCEPTIONS)
+                parsedLine=polishPassiveLine(parsedLine)
+                parsedLine["Brief effect description"]=passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS)
+                output[passiveskill[0]]=parsedLine
         passiveskill=sortParagraphTitles(output)
     return(output)
 
@@ -4459,12 +4462,6 @@ def polishPassiveLine(parsedLine):
                     Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the previous turn?"
                 if("Slider" in Causality):
                     Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on previous turns?"
-
-
-    elif("Disable Other Line" in parsedLine):
-        if("Condition" not in parsedLine and parsedLine["Timing"]=="Right after attack"):
-            newCondition={"LogicLogic":output["ID"],"Causalities":{output["ID"]: {"Button":{"Name":"Has this character performed an attack on this turn?"},"Slider":{"Name":"How many attacks has this character performed? on this turn","Logic":"<="+output["Length"],"Max": str(int(output["Length"])+1),"Min":"1"}}}}
-            output["Condition"]=newCondition
 
     if(parsedLine["Length"]=="1" and "Building Stat" in parsedLine):
         if(parsedLine["Building Stat"]["Slider"]=="How many attacks has this character performed in battle?"):
