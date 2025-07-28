@@ -2547,7 +2547,7 @@ def OLDlogicalCausalityExtractor(causality):
     
 def CausalityLogicalExtractor(unit,causality,DEVEXCEPTIONS=False):
     output={}
-    result=causality.replace("|"," || ").replace("&"," && ")
+    result=causality
     currentCausality=""
     for x in causality:
         if(x.isnumeric()):
