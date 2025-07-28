@@ -4342,6 +4342,7 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     for lineKey in passiveskill:
         line=passiveskill[lineKey]
         line["Line description"]=passiveBriefEffectDescription(line,DEVEXCEPTIONS)
+        line["Paragraph Title"]="Basic effects(s)"
         if("Condition" in line):
             lineConditions= []
             for conditionKey in line["Condition"]["Causalities"]:
