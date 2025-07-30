@@ -1,0 +1,85 @@
+name: Backend Update Handler
+
+on:
+  push:
+    paths:
+      - 'Database_expander.py'
+      - 'dokkan_Json_creator.py'
+      - 'uniqueJsonCreator.py'
+      - 'requirements.txt'
+      - 'data/**'
+
+jobs:
+  process-updates:
+    runs-on: windows-latest
+    env:
+      DEVEXCEPTIONS: ${{ vars.DEVEXCEPTIONS }}
+      GLOBALPARSE: ${{ vars.GLOBALPARSE }}
+      MAKEJSON: ${{ vars.MAKEJSON }}
+      DEBUG: ${{ vars.DEBUG }}
+      CALCPASSIVE: ${{ vars.CALCPASSIVE }}
+      CALCLINKS: ${{ vars.CALCLINKS }}
+      CALCLEADER: ${{ vars.CALCLEADER }}
+      CALCHIPO: ${{ vars.CALCHIPO }}
+      CALCORBS: ${{ vars.CALCORBS }}
+      CALCACTIVE: ${{ vars.CALCACTIVE }}
+      CALCSUPERATTACK: ${{ vars.CALCSUPERATTACK }}
+      CALCLEVELS: ${{ vars.CALCLEVELS }}
+      CALCBASIC: ${{ vars.CALCBASIC }}
+      CALCMULTIPLIER: ${{ vars.CALCMULTIPLIER }}
+      CALCFINISH: ${{ vars.CALCFINISH }}
+      CALCSTANDBY: ${{ vars.CALCSTANDBY }}
+      CALCCIRCLE: ${{ vars.CALCCIRCLE }}
+
+    steps:
+      - name: Checkout Backend Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.11'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install -r requirements.txt
+        shell: cmd
+
+      - name: Create Temp jsons Folder
+        run: |
+          mkdir temp_jsons
+          mkdir temp_jsons\jsons
+          mkdir temp_jsons\jsonsEZA
+          mkdir temp_jsons\jsonsSEZA
+          mkdir temp_jsons\uniqueJsons
+          mkdir temp_jsons\uniqueJsons\unitBasics
+        shell: cmd
+
+      - name: Run Database and JSON Scripts
+        run: |
+          python Database_expander.py
+          python dokkan_Json_creator.py
+          python uniqueJsonCreator.py
+        shell: cmd
+
+      - name: Checkout Frontend Repository
+        uses: actions/checkout@v3
+        with:
+          repository: Niccccccccccccc/dokkan-frontend
+          token: ${{ secrets.FRONTEND_REPO_PAT }}
+          path: frontend
+
+      - name: Copy Updated JSON Files to Frontend
+        run: |
+          xcopy /E /Y "temp_jsons" "frontend\dbManagement"
+        shell: cmd
+
+      - name: Commit and Push Changes to Frontend
+        run: |
+          cd frontend
+          git config --global user.email "horvat.nicholas@gmail.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Automated update from backend changes" || echo "No changes to commit"
+          git push
+        shell: cmd
