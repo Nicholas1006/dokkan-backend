@@ -3,7 +3,6 @@ totalTime=time.time()
 setupStart=time.time()
 from globals import *
 directory="data/"
-cards=storedatabase(directory,"cards.csv")
 
 import dotenv
 dotenv.load_dotenv('.env')
