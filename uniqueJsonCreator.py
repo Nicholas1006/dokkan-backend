@@ -57,7 +57,7 @@ if(CALCDOMAINS):
         domain_dictionary["Efficiacies"]={}
         relevant_efficiacies=searchbycolumn(domain[1],dokkan_field_efficiacies,1)
         for efficiacy in relevant_efficiacies:
-            domain_dictionary["Efficiacies"][efficiacy[0]]=parse_domain_efficiacy(efficiacy)
+            domain_dictionary["Efficiacies"][efficiacy[0]]=parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS)
 
         domains_json[domain[1]]=domain_dictionary
         domain_dictionary["Resource ID"]=domain[4]
@@ -74,7 +74,8 @@ allUnitsDictionary=[]
 relevantCards=[]
 for unit in cards[1:]:
     if(CALCALLUNITS):
-        print(unitCount,"/",maxUnitCount)
+        if(unitCount%100==0):
+            print(unitCount,"/",maxUnitCount)
         unitCount+=1
     if qualifyUsable(unit):
         relevantCards.append(unit)

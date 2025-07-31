@@ -241,7 +241,7 @@ def parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS=False):
 
     if(efficiacy[12]!=""):
         causalityCondition=logicalCausalityExtractor(efficiacy[12])
-        causalityCondition=CausalityLogicalExtractor(unit=[],causality=causalityCondition,DEVEXCEPTIONS=False)
+        causalityCondition=CausalityLogicalExtractor(unit=[],causality=causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
         for CausalityKey in causalityCondition["Causalities"].keys():
             ButtonName=causalityCondition["Causalities"][CausalityKey]["Button"]["Name"]
             if("category" in ButtonName):
@@ -3612,13 +3612,13 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="58"):
                 output["Button"]["Name"]=("Is no domain active?")
                 output["Paragraph Title"]="When no domain is active"
-#            elif(CausalityRow[1]=="59"):
-#                if(CausalityRow[2]=="1"):
-#                    output["Button"]["Name"]=("Is this character super class?")
-#                    output["Paragraph Title"]="When this character is super class"
-#                elif(CausalityRow[2]=="2"):
-#                    output["Button"]["Name"]=("Is this character extreme class?")
-#                    output["Paragraph Title"]="When this character is extreme class"
+            elif(CausalityRow[1]=="59"):
+                if(CausalityRow[2]=="1"):
+                    output["Button"]["Name"]=("Is this character super class?")
+                    output["Paragraph Title"]="When this character is super class"
+                elif(CausalityRow[2]=="2"):
+                    output["Button"]["Name"]=("Is this character extreme class?")
+                    output["Paragraph Title"]="When this character is extreme class"
             elif(CausalityRow[1]=="60"):
                 Categories=sub_target_types_extractor(CausalityRow[2])
                 output["Button"]["Name"]="Is this character on the "
