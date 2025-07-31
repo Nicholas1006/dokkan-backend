@@ -64,7 +64,7 @@ linksTime=0.0
 circleTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["4031401"]
+cardIDsToCheck=["4008291"]
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
 cardsToCheck=[]
@@ -74,13 +74,13 @@ cardsToCheck=[]
 
 if GLOBALPARSE:
     for unit in cards[1:]:
-        if qualifyUsable(unit):
+        if qualifyEncounterable(unit):
             cardsToCheck.append(unit)
 else:
     for ID in cardIDsToCheck:
         for unit in cards[1:]:
             if unit[0]==ID:
-                if(qualifyUsable(unit)):
+                if(qualifyEncounterable(unit)):
                     cardsToCheck.append(unit)
                 else:
                     print("UNUSABLE UNIT",unit[0])

@@ -1334,7 +1334,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Included"]=[likelyName]
@@ -1345,7 +1345,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Excluded"]=likelyName
@@ -1917,7 +1917,7 @@ def OLDextractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Included"]=likelyName
@@ -1928,7 +1928,7 @@ def OLDextractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Excluded"]=[likelyName]
@@ -2843,7 +2843,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
         for id in card_unique_info_id:
             name=searchbycolumn(code=id,column=3,database=cards)
             for unit in name:
-                if(qualifyUsable(card=unit)):
+                if(qualifyEncounterable(card=unit)):
                     possible_names.append(unit[1])
         likelyName=longestCommonSubstring(possible_names) 
         output["Button"]["Name"]+=likelyName
@@ -2929,7 +2929,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             name=searchbycolumn(code=id,database=cards,column=3)
             for unit in name:
                 if(unit[1] not in possible_names):
-                    if(qualifyUsable(unit)):
+                    if(qualifyEncounterable(unit)):
                         possible_names.append(unit[1])
         possible_names=list(set(possible_names))
         likelyName=longestCommonSubstring(possible_names) 
@@ -3300,7 +3300,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyUsable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 output["Button"]["Name"]+=likelyName
@@ -3414,7 +3414,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     name=searchbycolumn(code=id,database=cards,column=3)
                     for unit in name:
                         if(unit[1] not in possible_names):
-                            if(qualifyUsable(unit)):
+                            if(qualifyEncounterable(unit)):
                                 possible_names.append(unit[1])
                 possible_names=list(set(possible_names))
                 likelyName=longestCommonSubstring(possible_names) 
@@ -3783,7 +3783,7 @@ def dokkanreverseunit(card,printing=False):
     return(None)
 
 def qualifyAsDFETUR(card,printing=True):
-    if qualifyUsable(card) and card[4]=="58" and ((card[29]=="" and card[0][0]=="1")==False):
+    if qualifyEncounterable(card) and card[4]=="58" and ((card[29]=="" and card[0][0]=="1")==False):
         return(True)
     else:
         return(False)
@@ -3818,31 +3818,31 @@ def qualifyAsDFELR(card,printing=True):
         return(False)
     
 def qualifyAsLR(card,printing=True):
-    if qualifyUsable(card) and (getrarity(card)=="lr"):
+    if qualifyOwnable(card) and (getrarity(card)=="lr"):
         return(True)
     else:
         return(False)
     
 def qualifyEZA(card,printing=True):
     directory="data/"
-    if qualifyUsable(card) and (checkEza(card)):
+    if qualifyOwnable(card) and (checkEza(card)):
         return(True)
     else:
         return(False)
 
 def qualifySEZA(card,printing=True):
     directory="data/"
-    if qualifyUsable(card) and (checkSeza(card)):
+    if qualifyOwnable(card) and (checkSeza(card)):
         return(True)
     else:
         return(False)
 
 
 
-def qualifyUsable(card,printing=True):
+def qualifyOwnable(card):
     if(not (card[5] in ["5","4"] and card[0][-1]=="0") and
     #card id starts with 1,2 or 4
-    ((int(card[0])> 1000000 and int(card[0]) < 2999999) or (int(card[0])> 4000000 and int(card[0]) < 4999999)) and
+    (card[0][0] in ["1","2"] and len(card[0])==7) and
     #card is not "is_selling_only"
     card[46] == "0" and
     #card is either released or set to release within 2 months
@@ -3855,7 +3855,35 @@ def qualifyUsable(card,printing=True):
     and not (card[6]=="150" and card[7]=="500" and card[8]=="150" and card[9]=="500" and card[10]=="150" and card[11]=="500")
     ):
         return(True)
-    return(False)
+    else:
+        return(False)
+
+def qualifyEncounterableAsOwnable(card):
+    if ((card[0][0] in ["1","2"]) and
+    #card is either released or set to release within 2 months
+    (dateTimeToTimestamp(card[53]) < dateTimeToTimestamp(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + 60*60*24*60)):
+        return(True)
+    else:
+        return(False)
+
+
+
+def qualifyEncounterable(card):
+    if(not (card[5] in ["5","4"] and card[0][-1]=="0") and
+    #card id starts with 1,2 or 4
+    (card[0][0] in ["1","2","4"] and len(card[0])==7) and
+    #card is not "is_selling_only"
+    card[46] == "0" and
+    #card max hp is greater than 1
+    int(card[7])> 1 and
+    #card is trainable
+    card[0][:-1] not in [x[1][:-1] for x in card_training_skill_lvs]
+    #card stats are not alll 150 min, 500 max
+    and not (card[6]=="150" and card[7]=="500" and card[8]=="150" and card[9]=="500" and card[10]=="150" and card[11]=="500")
+    ):
+        return(True)
+    else:
+        return(False)
 
 def emptyFolder(path):
     for filename in os.listdir(path):
@@ -5103,9 +5131,9 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
 def qualifyZAwakened(unit):
     if(unit[0][-1]=="0"):
         return False
-    if(not qualifyUsable(unit)):
+    if(not qualifyEncounterable(unit)):
         return False
-    if(qualifyUsable(swapToUnitWith0(unit))):
+    if(qualifyEncounterable(swapToUnitWith0(unit))):
         return True
 
 def getUnitType(unit,printing=True,DEVEXCEPTIONS=False):

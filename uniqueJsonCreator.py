@@ -71,31 +71,22 @@ if(CALCALLUNITS):
     unitCount=0
     maxUnitCount=len(cards)-1
 allUnitsDictionary=[]
-relevantCards=[]
+encounterableCards=[]
 for unit in cards[1:]:
     if(CALCALLUNITS):
         if(unitCount%100==0):
             print(unitCount,"/",maxUnitCount)
         unitCount+=1
-    if qualifyUsable(unit):
-        relevantCards.append(unit)
-        if(CALCALLUNITS):
-            allUnitsDictionary.append(unit[0])
-            if(checkEza(unit[0])):
-                allUnitsDictionary.append(unit[0]+"EZA")
-            if(checkSeza(unit[0])):
-                allUnitsDictionary.append(unit[0]+"SEZA")
-
-if(CALCALLUNITS):
-    turnintoJson(allUnitsDictionary, "allUnits",directoryName="temp_jsons/uniquejsons")
+    if qualifyEncounterable(unit):
+        encounterableCards.append(unit)
 
 
 if(CALCUNITBASICS):
     unitBasics={}
     print("Creating all units basics")
     unitCount=0
-    maxUnitCount=len(relevantCards)
-    for unit in relevantCards:
+    maxUnitCount=len(encounterableCards)
+    for unit in encounterableCards:
         ezaTrueFalse=["None"]
         if(checkEza(unit[0])):
             ezaTrueFalse.append("EZA")
@@ -116,6 +107,7 @@ if(CALCUNITBASICS):
 
             #Sort conditions
             unitDictionary["ID"]=int(unit[0])
+            unitDictionary["Ownable"]=qualifyEncounterableAsOwnable(unit)
             unitDictionary["Name"]=unit[1]
             unitDictionary["Type"]=getUnitType(unit)
             unitDictionary["Rarity"]=getrarity(unit)
