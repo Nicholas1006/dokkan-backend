@@ -2484,7 +2484,7 @@ def logicalCausalityExtractor(causality):
 
 def complexlogicalCausalityExtractor(causality):
     if(causality.count("[")==0):
-        return(causality)
+        return((" "+causality+" ").replace("  "," "))
     causalityList=[]
     bracketLevel=0
     currentString=""
@@ -2507,16 +2507,16 @@ def complexlogicalCausalityExtractor(causality):
     if("True" in causalityList):        
         causalityList=(filterTrue(causalityList))
 
-    returnText="("
+    returnText="( "
     for causality in causalityList[1:]:
         returnText+=causality
         if(causalityList[0]=='"|"'):
-            returnText+="||"
+            returnText+=" || "
         if(causalityList[0]=='"&"'):
-            returnText+="&&"        
-    returnText=returnText[:-2]
-    returnText+=")"
-    return returnText
+            returnText+=" && "        
+    returnText=returnText[:-4]
+    returnText+=" )"
+    return returnText.replace("  "," ")
 
 def filterTrue(causalityList):
     if(causalityList[0]=='"&"'):
@@ -2530,9 +2530,9 @@ def filterTrue(causalityList):
 def simpleLogicalCausalityExtractor(causality):
     causality=causality[1:-1].split(",")
     if(causality[0]=='"|"'):
-        return("(" + causality[1] + "||" +causality[2] + ")")
+        return("(" + causality[1] + " || " +causality[2] + ")")
     if(causality[0]=='"&"'):
-        return("(" + causality[1] + "&&" +causality[2] + ")")
+        return("(" + causality[1] + " && " +causality[2] + ")")
     
 
 def OLDlogicalCausalityExtractor(causality):
@@ -4377,6 +4377,26 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
         output=output.replace("  "," ")
     return(output)
 
+def conditionVital(causalityKey,otherCausalities,logic):
+    #Checks if a condition is vital to the passive skill, meaning it is not just a "nice to have" but rather a "must have"
+    newLogic=logic.replace(" "+causalityKey+" "," False ")
+    for otherCausality in otherCausalities:
+        newLogic=newLogic.replace(" "+otherCausality+" "," True ")
+    while newLogic!=" True " and newLogic!=" False ":
+        newLogic=newLogic.replace("True || True","True")
+        newLogic=newLogic.replace("True || False","True")
+        newLogic=newLogic.replace("False || True","True")
+        newLogic=newLogic.replace("False || False","False")
+        newLogic=newLogic.replace("True && True","True")
+        newLogic=newLogic.replace("True && False","False")
+        newLogic=newLogic.replace("False && True","False")
+        newLogic=newLogic.replace("False && False","False")
+        newLogic=newLogic.replace("( True )"," True ")
+        newLogic=newLogic.replace("( False )"," False ")
+        newLogic=newLogic.replace("  "," ")
+    return(newLogic==" False ")
+
+
 def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     #WIP rework this to properly divide the passive skills, currently only ones included in a "most popular" can achieve anything
     #Create a conditionFrequencyL list to store every appearance of a paragraph Title in a passive skill line
@@ -4385,15 +4405,21 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
         line=passiveskill[lineKey]
         if("Condition" in line):
             for conditionKey in line["Condition"]["Causalities"]:
-                condition=line["Condition"]["Causalities"][conditionKey]
-                if(condition["Paragraph Title"] not in conditionFrequency):
-                    conditionFrequency[condition["Paragraph Title"]]=[]
-                conditionFrequency[condition["Paragraph Title"]].append(lineKey)
+                if(conditionVital(conditionKey,line["Condition"]["Causalities"],line["Condition"]["Logic"])):
+                    condition=line["Condition"]["Causalities"][conditionKey]
+                    if(condition["Paragraph Title"] not in conditionFrequency):
+                        conditionFrequency[condition["Paragraph Title"]]=[]
+                    conditionFrequency[condition["Paragraph Title"]].append(lineKey)
         
     linesRemaining=list(passiveskill.keys())
     for lineKey in linesRemaining.copy():
         if("Condition" not in passiveskill[lineKey]):
             linesRemaining.remove(lineKey)
+    linesRemaining=[]
+    for paragraphTitle in conditionFrequency:
+        if(len(conditionFrequency[paragraphTitle])>0):
+            linesRemaining+=conditionFrequency[paragraphTitle]
+    linesRemaining=list(set(linesRemaining))
     paragraphPriority=[]
     #until every line has a paragraph
     while(len(linesRemaining)>0):
@@ -4430,19 +4456,22 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
                 priorityIndex=firstListOverlap(lineConditions,paragraphPriority)
                 if(priorityIndex!=-1):
                     line["Paragraph Title"]=paragraphPriority[priorityIndex]
-                    line["Line description"]= passiveBriefEffectDescription(line,DEVEXCEPTIONS)
                     for causalityKey in line["Condition"]["Causalities"]:
                         causality=line["Condition"]["Causalities"][causalityKey]
                         if(causality["Paragraph Title"]==condition):
                             removedCausality=causalityKey
                     line_logic=logicalCausalityExtractor(line["CausalityLogic"].replace(removedCausality,"True"))
-                    line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ")
-                    for conditionKey in line["Condition"]["Causalities"]:
-                        line_logic=line_logic.replace(conditionKey,line["Condition"]["Causalities"][conditionKey]["Paragraph Title"])
-                    while("  " in line_logic):
-                        line_logic=line_logic.replace("  "," ")
-                    if(line_logic!="True"):
-                        line["Line description"]+=(" "+line_logic)
+                else:
+                    line_logic=logicalCausalityExtractor(line["CausalityLogic"])
+                line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ")
+                line["Line description"]= passiveBriefEffectDescription(line,DEVEXCEPTIONS)
+                for conditionKey in line["Condition"]["Causalities"]:
+                    line_logic=line_logic.replace(conditionKey,line["Condition"]["Causalities"][conditionKey]["Paragraph Title"])
+                while("  " in line_logic):
+                    line_logic=line_logic.replace("  "," ")
+                if(line_logic!="True"):
+                    line["Line description"]+=(" "+line_logic)
+                        
             
 
     
