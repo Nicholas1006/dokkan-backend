@@ -1188,6 +1188,9 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if "Domain" in passiveDictionary:
         if passiveDictionary["Domain"]=="":
             passiveDictionary.pop("Domain")
+    if( "Has Animation" in passiveDictionary):
+        if passiveDictionary["Has Animation"]==False:
+            passiveDictionary.pop("Has Animation")
 
 
     return(passiveDictionary)
@@ -1284,13 +1287,17 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         "First Turn To Activate": 0,
         "Condition": None,
         "CausalityLogic":passiveskill[11],
-        "Once Only": False
+        "Once Only": False,
+        "Has Animation": False
     }
     if(causalityExtractor(passiveskill[11])!=[]):
         causalityCondition=logicalCausalityExtractor(passiveskill[11])
         causalityCondition=CausalityLogicalExtractor(unit=unit,causality=causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
         if(causalityCondition!=None):
             effects["Condition"]=causalityCondition
+    
+    if(passiveskill[6]!=""):
+        effects["Has Animation"]=True
     
     if(passiveskill[7]=="0"):
         effects["Buff"]["Type"]="Raw stats"
@@ -3580,34 +3587,45 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
         if("ATK" in parsedLine and "DEF" in parsedLine):
             if(parsedLine["ATK"]==parsedLine["DEF"]):
                 output+="ATK and DEF "
-                output+=str(parsedLine["Buff"]["+ or -"])
                 output+=str(parsedLine["ATK"])
                 if(parsedLine["Buff"]["Type"]=="Percentage"):
                     output+="%"
+                if(parsedLine["Buff"]["+ or -"]=="+"):
+                    output+="[Up-Arrow]"
+                elif(parsedLine["Buff"]["+ or -"]=="-"):
+                    output+="[Down-Arrow]"
             else:
                 output+="ATK "
-                output+=str(parsedLine["Buff"]["+ or -"])
                 output+=str(parsedLine["ATK"])
                 if(parsedLine["Buff"]["Type"]=="Percentage"):
                     output+="%"
                 output+=" and "
                 output+="DEF "
-                output+=str(parsedLine["Buff"]["+ or -"])
                 output+=str(parsedLine["DEF"])
                 if(parsedLine["Buff"]["Type"]=="Percentage"):
                     output+="%"
+                if(parsedLine["Buff"]["+ or -"]=="+"):
+                    output+="[Up-Arrow]"
+                elif(parsedLine["Buff"]["+ or -"]=="-"):
+                    output+="[Down-Arrow]"
         if("ATK" in parsedLine and "DEF" not in parsedLine):
             output+="ATK "
-            output+=str(parsedLine["Buff"]["+ or -"])
             output+=str(parsedLine["ATK"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
+            if(parsedLine["Buff"]["+ or -"]=="+"):
+                output+="[Up-Arrow]"
+            elif(parsedLine["Buff"]["+ or -"]=="-"):
+                output+="[Down-Arrow]"
         if("DEF" in parsedLine and "ATK" not in parsedLine):
             output+="DEF "
-            output+=str(parsedLine["Buff"]["+ or -"])
             output+=str(parsedLine["DEF"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
+            if(parsedLine["Buff"]["+ or -"]=="+"):
+                output+="[Up-Arrow]"
+            elif(parsedLine["Buff"]["+ or -"]=="-"):
+                output+="[Down-Arrow]"
         if("Heals" in parsedLine):
             output+="Heals "
             output+=str(parsedLine["Buff"]["+ or -"])
@@ -3646,11 +3664,14 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+=" and "
             output=output[:-5]            
         if("DR" in parsedLine):
-            output+="Damage recieved -"
-            #output+=str(parsedLine["Buff"]["+ or -"])
+            output+="Damage Reduction Rate "
             output+=str(parsedLine["DR"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
+            if(parsedLine["Buff"]["+ or -"]=="+"):
+                output+="[Up-Arrow]"
+            elif(parsedLine["Buff"]["+ or -"]=="-"):
+                output+="[Down-Arrow]"
         if("Guard" in parsedLine):
             output+="Guards all attacks "
         if("Transformation" in parsedLine):
@@ -3671,6 +3692,11 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+="Chance of performing a critical hit +"
                 output+=str(parsedLine["Crit Chance"])
                 output+="%"
+                if(parsedLine["Buff"]["+ or -"]=="+"):
+                    output+="[Up-Arrow]"
+                elif(parsedLine["Buff"]["+ or -"]=="-"):
+                    output+="[Down-Arrow]"
+            
         if("Additional Attack" in parsedLine):
             if(parsedLine["Additional Attack"]["Chance of another additional"])=="0":
                 if(parsedLine["Additional Attack"]["Chance of super"]==100):
@@ -3932,18 +3958,31 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
                     line_logic=line_logic.replace("  "," ")
                 if(line_logic!=" True "):
                     line["Line description"]+=(" "+line_logic)
-        elif(line["Length"]!="1"):
+        elif(line["Length"]!="1" and line["Length"]!="99"):
             line["Line description"]+=" for "
             line["Line description"]+=str(line["Length"])
             line["Line description"]+=" turns"
         if("Once Only" in line and line["Once Only"]==True):
             if(line["Length"]=="1"):
                 line["Line description"]+=" for 1 turn "
-            line["Line description"]+=" [Once Only]"
+            line["Line description"]=" [Once Only]" + line["Line description"]
         else:
             if(line["Length"]=="99"):
                 line["Line description"]+="[Infinite]"
         line["Line description"]=line["Line description"].replace("  "," ")
+
+    #check if ithere is an intro condition
+    introParagraphSwap={}
+    for lineKey in passiveskill:
+        line=passiveskill[lineKey]
+        if("Has Animation" in line and line["Has Animation"]==True):
+            introParagraphSwap[line["Paragraph Title"]]="Activates the Entrance Animation "+line["Paragraph Title"].replace("When","when")
+
+    if(introParagraphSwap!={}):
+        for lineKey2 in passiveskill:
+            line2=passiveskill[lineKey2]
+            for replacement in introParagraphSwap:
+                line2["Paragraph Title"]=line2["Paragraph Title"].replace(replacement,introParagraphSwap[replacement])
                         
             
 
