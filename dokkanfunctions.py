@@ -2789,7 +2789,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=int(CausalityRow[3])
 
-                    output["Paragraph Title"]="When the character has performed" + CausalityRow[3] + " or more super attacks"
+                    output["Paragraph Title"]="When the character has performed " + CausalityRow[3] + " or more super attacks"
                 elif(CausalityRow[2])=="2":
                     output["Slider"]["Name"]="How many attacks has this character performed in battle?"
                     output["Slider"]["Logic"]=">="
@@ -2797,7 +2797,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=int(CausalityRow[3])
 
-                    output["Paragraph Title"]="When the character has performed" + CausalityRow[3] + " or more attacks"
+                    output["Paragraph Title"]="When the character has performed " + CausalityRow[3] + " or more attacks"
                 elif(CausalityRow[2]=="3"):
                     output["Button"]["Name"]="Has this character recieved their "
                     output["Button"]["Name"]+=(ordinalise(CausalityRow[3]))
@@ -3976,7 +3976,7 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     for lineKey in passiveskill:
         line=passiveskill[lineKey]
         if("Has Animation" in line and line["Has Animation"]==True):
-            introParagraphSwap[line["Paragraph Title"]]="Activates the Entrance Animation "+line["Paragraph Title"].replace("When","when")
+            introParagraphSwap[line["Paragraph Title"]]="Activates the Entrance Animation "+line["Paragraph Title"].replace("When","when").replace("Basic effect(s)","")
 
     if(introParagraphSwap!={}):
         for lineKey2 in passiveskill:
