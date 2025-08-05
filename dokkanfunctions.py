@@ -1921,7 +1921,7 @@ def complexlogicalCausalityExtractor(causality):
     for causalityEntryKey in range(1,len(causalityList)):
         causalityList[causalityEntryKey]=complexlogicalCausalityExtractor(causalityList[causalityEntryKey])
 
-    if("True" in causalityList):        
+    if(" True " in causalityList):        
         causalityList=(filterTrue(causalityList))
 
     returnText="( "
@@ -1938,11 +1938,11 @@ def complexlogicalCausalityExtractor(causality):
 def filterTrue(causalityList):
     if(causalityList[0]=='"&"'):
         temp=causalityList.copy()
-        temp.remove("True")
+        temp.remove(" True ")
         return(temp)
     if(causalityList[0]=='"|"'):
-        if("True" in causalityList):
-            return(['"|"',"True"])
+        if(" True " in causalityList):
+            return(['"|"'," True "])
 
 def simpleLogicalCausalityExtractor(causality):
     causality=causality[1:-1].split(",")
