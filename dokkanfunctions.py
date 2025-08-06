@@ -2915,9 +2915,9 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Paragraph Title"]+=(" type ")
 
                 if(CausalityRow[2]=="0"):
-                    output["Button"]["Name"]+=("allies?")
-                    output["Slider"]["Name"]+=("allies?")
-                    output["Paragraph Title"]+=("allies")
+                    output["Button"]["Name"]+=("allies on the team?")
+                    output["Slider"]["Name"]+=("allies on the team?")
+                    output["Paragraph Title"]+=("allies on the team")
                     output["Slider"]["Max"]=7
                 elif(CausalityRow[2]=="1"):
                     output["Button"]["Name"]+=("enemies?")
@@ -4043,6 +4043,71 @@ def polishPassiveLine(parsedLine):
 
     
     if("Condition" in parsedLine):
+        #full super or full extreme rotation
+        if(len(parsedLine["Condition"]["Causalities"])==5):
+            superCondition=0
+            extremeCondition=0
+            for CausalityKey in parsedLine["Condition"]["Causalities"]:
+                if ("Is there 1 or more Extreme class " in parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"] and
+                    "on the team?" in parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]):
+                    extremeCondition+=1
+                elif ("Is there 1 or more Super class " in parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"] and
+                    "on the team?" in parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]):
+                    superCondition+=1
+            if(superCondition==5):
+                parsedLine["Condition"]={
+                    "Logic": CausalityKey,
+                    "Causalities": {
+                        CausalityKey: {
+                            "Button": {"Name": "Does the team include 5 Super Types?" },
+                            "Paragraph Title": "When the team includes all five Super Types"
+                        }
+                    }
+                }
+                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+'\", \"compiled\": '+CausalityKey+'}'
+            elif(extremeCondition==5):
+                output["Condition"]={
+                    "Logic": " " + CausalityKey + " ",
+                    "Causalities": {
+                        CausalityKey: {
+                            "Button": {"Name": "Does the team include 5 Extreme Types?" },
+                            "Paragraph Title": "When the team includes all five Extreme Types"
+                        }
+                    }
+                }
+                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+'\", \"compiled\": '+CausalityKey+'}'
+
+        if(len(parsedLine["Condition"]["Causalities"])==2):
+            slots=[False,False,False]
+            for CausalityKey in parsedLine["Condition"]["Causalities"]:
+                if("Button" in parsedLine["Condition"]["Causalities"][CausalityKey]):
+                    if(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=="Is this the 1st attacker in the turn?"):
+                        slots[0]=True
+                    elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=="Is this the 2nd attacker in the turn?"):
+                        slots[1]=True
+                    elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=="Is this the 3rd attacker in the turn?"):
+                        slots[2]=True
+            if(slots!=[False,False,False]):
+                buttonText="Is this the "
+                paragraphText="As the "
+                for i in range(3):
+                    if(slots[i]):
+                        buttonText+=ordinalise(i+1)+" or "
+                        paragraphText+=ordinalise(i+1)+" or "
+                buttonText=buttonText[:-4]
+                buttonText+=" attacker in a turn"
+                paragraphText=paragraphText[:-4]
+                paragraphText+=" attacker in a turn"
+                output["Condition"]={
+                    "Logic": " " + CausalityKey + " ",
+                    "Causalities": {
+                        CausalityKey: {
+                            "Button": {"Name": buttonText },
+                            "Paragraph Title": paragraphText
+                        }
+                    }
+                }
+                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+'\", \"compiled\": '+CausalityKey+'}'
         if(parsedLine["Timing"]=="End of turn" and ("ATK" in parsedLine or "DEF" in parsedLine) ):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
                 Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
