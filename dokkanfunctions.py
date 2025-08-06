@@ -8,6 +8,7 @@ import json
 import shutil
 from datetime import datetime
 import time
+from itertools import combinations
 
 
 def getUnitCost(unit):
@@ -3125,9 +3126,9 @@ def binaryStatus(Statusid):
     binaryId=bin(int(Statusid))[2:]
     binaryId=binaryId.zfill(11)
     if(binaryId[6]=="1"):
-        output+='in "ATK down" status or '
+        output+='in [ATK down] status or '
     if(binaryId[5]=="1"):
-        output+='in "DEF down" status or '
+        output+='in [DEF down] status or '
     if(binaryId[2]=="1"):
         output+="stunned or "
     if(binaryId[0]=="1"):
@@ -3883,6 +3884,75 @@ def conditionVital(causalityKey,otherCausalities,logic):
         newLogic=newLogic.replace("  "," ")
     return(newLogic==" False ")
 
+def binaryCombinations(sizeOfList, numberOfTrue):
+    """
+    Generates all binary combinations of a given size with a specified number of True values.
+
+    Args:
+        sizeOfList (int): The total number of elements in each binary list.
+        numberOfTrue (int): The number of True values in each combination.
+
+    Returns:
+        List[List[bool]]: A list of binary combinations (as lists of bools).
+    """
+    if numberOfTrue > sizeOfList or numberOfTrue < 0:
+        return []
+
+    result = []
+    indices = range(sizeOfList)
+
+    for true_indices in combinations(indices, numberOfTrue):
+        combo = [False] * sizeOfList
+        for i in true_indices:
+            combo[i] = True
+        result.append(combo)
+
+    return result
+
+
+def bool_logic_reducer(logic):
+    newLogic=logic
+    #Reduces the logic to a single True or Falsewhile newLogic!=" True " and newLogic!=" False ":
+    while not newLogic in [" True ", " False ", "True", "False"]:
+        newLogic=newLogic.replace("True || True","True")
+        newLogic=newLogic.replace("True || False","True")
+        newLogic=newLogic.replace("False || True","True")
+        newLogic=newLogic.replace("False || False","False")
+        newLogic=newLogic.replace("True && True","True")
+        newLogic=newLogic.replace("True && False","False")
+        newLogic=newLogic.replace("False && True","False")
+        newLogic=newLogic.replace("False && False","False")
+        newLogic=newLogic.replace("( True )"," True ")
+        newLogic=newLogic.replace("(True)"," True ")
+        newLogic=newLogic.replace("( False )"," False ")
+        newLogic=newLogic.replace("(False)"," False ")
+        newLogic=newLogic.replace("  "," ")
+    return (" "+newLogic.strip()+" ")
+    
+
+def minimumVital(otherCausalities,logic):
+    #Finds the minimum combination of conditions that must be true for the passive skill to work
+    #This is used to find the minimum paragraph title that can be used in a passive skill line
+    #It returns the paragraph title of the condition that is not vital to the passive skill
+    newLogic=logic
+    for i in range(1,len(otherCausalities)+1):
+        for causalityCombination in binaryCombinations(len(otherCausalities),i):
+            exampleLogic=logic
+            for j in range(0,len(otherCausalities)):
+                if(causalityCombination[j]):
+                    exampleLogic=exampleLogic.replace(" "+otherCausalities[j]+" "," False ")
+                else:
+                    exampleLogic=exampleLogic.replace(" "+otherCausalities[j]+" "," True ")
+            exampleLogic=bool_logic_reducer(exampleLogic)
+            if(exampleLogic==" False "):
+                returnList=[]
+                for j in range(0,len(otherCausalities)):
+                    if(causalityCombination[j]):
+                        returnList.append(otherCausalities[j])
+                return(returnList)
+            
+
+            
 
 def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     #WIP rework this to properly divide the passive skills, currently only ones included in a "most popular" can achieve anything
@@ -3891,12 +3961,16 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     for lineKey in passiveskill:
         line=passiveskill[lineKey]
         if("Condition" in line):
+            lineHasParagraphTitle=False
             for conditionKey in line["Condition"]["Causalities"]:
                 if(conditionVital(conditionKey,line["Condition"]["Causalities"],line["Condition"]["Logic"])):
+                    lineHasParagraphTitle=True
                     condition=line["Condition"]["Causalities"][conditionKey]
                     if(condition["Paragraph Title"] not in conditionFrequency):
                         conditionFrequency[condition["Paragraph Title"]]=[]
                     conditionFrequency[condition["Paragraph Title"]].append(lineKey)
+            if(not lineHasParagraphTitle):
+                smallestParagraphTitle=minimumVital(list(line["Condition"]["Causalities"].keys()),line["Condition"]["Logic"])
         
     linesRemaining=list(passiveskill.keys())
     for lineKey in linesRemaining.copy():
@@ -4056,27 +4130,28 @@ def polishPassiveLine(parsedLine):
                     superCondition+=1
             if(superCondition==5):
                 parsedLine["Condition"]={
-                    "Logic": CausalityKey,
+                    "Logic": CausalityKey+"00000",
                     "Causalities": {
-                        CausalityKey: {
+                        CausalityKey+"00000": {
                             "Button": {"Name": "Does the team include 5 Super Types?" },
                             "Paragraph Title": "When the team includes all five Super Types"
                         }
                     }
                 }
-                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+'\", \"compiled\": '+CausalityKey+'}'
+                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+"00000"+'\", \"compiled\": '+CausalityKey+"00000"+'}'
             elif(extremeCondition==5):
                 output["Condition"]={
-                    "Logic": " " + CausalityKey + " ",
+                    "Logic": " " + CausalityKey+"00000" + " ",
                     "Causalities": {
-                        CausalityKey: {
+                        CausalityKey+"00000": {
                             "Button": {"Name": "Does the team include 5 Extreme Types?" },
                             "Paragraph Title": "When the team includes all five Extreme Types"
                         }
                     }
                 }
-                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+'\", \"compiled\": '+CausalityKey+'}'
+                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+"00000"+'\", \"compiled\": '+CausalityKey+"00000"+'}'
 
+        #1st, 2nd or 3rd attacker in a turn
         if(len(parsedLine["Condition"]["Causalities"])==2):
             slots=[False,False,False]
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
@@ -4099,15 +4174,51 @@ def polishPassiveLine(parsedLine):
                 paragraphText=paragraphText[:-4]
                 paragraphText+=" attacker in a turn"
                 output["Condition"]={
-                    "Logic": " " + CausalityKey + " ",
+                    "Logic": " " + CausalityKey+"00000" + " ",
                     "Causalities": {
-                        CausalityKey: {
+                        CausalityKey+"00000": {
                             "Button": {"Name": buttonText },
                             "Paragraph Title": paragraphText
                         }
                     }
                 }
-                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+'\", \"compiled\": '+CausalityKey+'}'
+                output["CausalityLogic"]='{\"source\": \"'+CausalityKey+"00000"+'\", \"compiled\": '+CausalityKey+"00000"+'}'
+        
+        #Specific enemy debuffs
+        debuffs={"[ATK Down]": False, 
+                   "[DEF Down]": False,
+                   "[Stunned]" : False,
+                   "[Sealed]" : False,}
+        for CausalityKey in parsedLine["Condition"]["Causalities"]:
+            if("Button" in parsedLine["Condition"]["Causalities"][CausalityKey]):
+                if(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy in [ATK down] status?'):
+                    debuffs["[ATK Down]"]=True
+                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy in [DEF down] status?'):
+                    debuffs["[DEF Down]"]=True
+                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy [Stunned]?'):
+                    debuffs["[Stunned]"]=True
+                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy sealed?'):
+                    debuffs["[Sealed]"]=True
+        if(True in debuffs.values()):
+            if("||" in parsedLine["Condition"]["Logic"]):
+                logicAndOr=" or "
+            else: 
+                logicAndOr=" and "
+            buttonText="Is the target enemy is :"
+            paragraphText="When the target enemy is in the following status :"
+            buttonText+=articulateList([key for key,value in debuffs.items() if value],logicAndOr)
+            paragraphText+=articulateList([key for key,value in debuffs.items() if value],logicAndOr)
+            output["Condition"]={
+                "Logic": " " + CausalityKey+"00000" + " ",
+                "Causalities": {
+                    CausalityKey+"00000": {
+                        "Button": {"Name": buttonText },
+                        "Paragraph Title": paragraphText
+                    }
+                }
+            }
+            output["CausalityLogic"]='{\"source\": \"'+CausalityKey+"00000"+'\", \"compiled\": '+CausalityKey+"00000"+'}'
+
         if(parsedLine["Timing"]=="End of turn" and ("ATK" in parsedLine or "DEF" in parsedLine) ):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
                 Causality=parsedLine["Condition"]["Causalities"][CausalityKey]
@@ -4115,8 +4226,10 @@ def polishPassiveLine(parsedLine):
                     Causality["Button"]["Name"]=Causality["Button"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
                 if("Slider" in Causality):
                     Causality["Slider"]["Name"]=Causality["Slider"]["Name"][:-1].replace("Is ","Was ").replace("Are there","Was there")+" on the last turn?"
+        
         elif(stupidCondition(parsedLine)):
             del output["Condition"]
+        
         elif(enemySuperCondition(parsedLine)):
             for conditionKey in parsedLine["Condition"]["Causalities"]:
                 if(parsedLine["Condition"]["Causalities"][conditionKey]["Button"]["Name"]=="Is a super being performed?"):
@@ -4166,6 +4279,23 @@ def polishPassiveLine(parsedLine):
 
 
     return(output)
+
+def articulateList(listToArticulate,andOr):
+    #Takes a list and returns a string with the elements of the list articulated
+    if(len(listToArticulate)==0):
+        return("")
+    elif(len(listToArticulate)==1):
+        return(listToArticulate[0])
+    elif(len(listToArticulate)>1):
+        output=""
+        for i in range(len(listToArticulate)-1):
+            if(i!=len(listToArticulate)-2):
+                output+=listToArticulate[i] + ", "
+            else:
+                output+=listToArticulate[i]
+                output+=" "+andOr+" "
+        output+=listToArticulate[-1]
+    return(output.replace("  "," "))
 
 def stupidCondition(parsedLine,DEVECXEPTION=True):
     causalities=parsedLine.get("Condition", {}).get("Causalities", {})
