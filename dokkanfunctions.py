@@ -2238,9 +2238,17 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
 
     elif(CausalityRow[1]=="38"):
         Status=binaryStatus(CausalityRow[2])
-        output["Button"]["Name"]="Is the target enemy "
-        output["Button"]["Name"]+=Status
+        output["Button"]["Name"]="Is the target enemy in"
+        for icon in Status:
+            output["Button"]["Name"]+=iconToStatus(icon)
+            output["Button"]["Name"]+=" or "
+        output["Button"]["Name"]=output["Button"]["Name"][:-4]
         output["Button"]["Name"]+="?"
+        output["Paragraph Title"]= "When the target enemy is in the following status"
+        for icon in Status:
+            output["Paragraph Title"]+=icon
+            output["Paragraph Title"]+=" or "
+        output["Paragraph Title"]=output["Paragraph Title"][:-4]
     elif(CausalityRow[1]=="39"):
         if(CausalityRow[2]=="32"):
             output["Button"]["Name"]="Is this unit attacking a super class enemy?"
@@ -2444,7 +2452,11 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             raise Exception("Unknown causality condition")
     return(output)
 
-
+def iconToStatus(statusIcon):
+    if(statusIcon=="{passiveImg:atk_down}"): return "ATK Down"
+    if(statusIcon=="{passiveImg:def_down}"): return "DEF Down"
+    if(statusIcon=="{passiveImg:stun}"): return "Stunned"
+    if(statusIcon=="{passiveImg:astute}"): return "Sealed"
 
 def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=False):
     output={"Button":{}, "Slider": {"Name": None, "Logic": None}, "Paragraph Title": ""}
@@ -2689,10 +2701,17 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
 
             elif(CausalityRow[1]=="38"):
                 Status=binaryStatus(CausalityRow[2])
-                output["Button"]["Name"]="Is the target enemy "
-                output["Button"]["Name"]+=Status
+                output["Button"]["Name"]="Is the target enemy in "
+                for icon in Status:
+                    output["Button"]["Name"]+=iconToStatus(icon)
+                    output["Button"]["Name"]+=" or "
+                output["Button"]["Name"]=output["Button"]["Name"][:-4]
                 output["Button"]["Name"]+="?"
-                output["Paragraph Title"]= "When the target enemy is " + Status
+                output["Paragraph Title"]= "When the target enemy is in the following status"
+                for icon in Status:
+                    output["Paragraph Title"]+=icon
+                    output["Paragraph Title"]+=" or "
+                output["Paragraph Title"]=output["Paragraph Title"][:-4]
             elif(CausalityRow[1]=="39"):
                 if(CausalityRow[2]=="32"):
                     output["Button"]["Name"]="Is this unit attacking a super class enemy?"
@@ -3122,19 +3141,18 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
     return(output)
 
 def binaryStatus(Statusid):
-    output=""
+    output=[]
     binaryId=bin(int(Statusid))[2:]
     binaryId=binaryId.zfill(11)
     if(binaryId[6]=="1"):
-        output+='in [ATK down] status or '
+        output.append('{passiveImg:atk_down}')
     if(binaryId[5]=="1"):
-        output+='in [DEF down] status or '
+        output.append('{passiveImg:def_down}')
     if(binaryId[2]=="1"):
-        output+="stunned or "
+        output.append("{passiveImg:stun}")
     if(binaryId[0]=="1"):
-        output+="sealed or "
+        output.append("{passiveImg:astute}")
     
-    output=output[:-4]
     return(output)
 
 def binaryOrbType(kiOrbType,DEVEXCEPTIONS=False):
@@ -3592,9 +3610,9 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 if(parsedLine["Buff"]["Type"]=="Percentage"):
                     output+="%"
                 if(parsedLine["Buff"]["+ or -"]=="+"):
-                    output+="[Up-Arrow]"
+                    output+="{passiveImg:up_g}"
                 elif(parsedLine["Buff"]["+ or -"]=="-"):
-                    output+="[Down-Arrow]"
+                    output+="{passiveImg:down_r}"
             else:
                 output+="ATK "
                 output+=str(parsedLine["ATK"])
@@ -3606,27 +3624,27 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 if(parsedLine["Buff"]["Type"]=="Percentage"):
                     output+="%"
                 if(parsedLine["Buff"]["+ or -"]=="+"):
-                    output+="[Up-Arrow]"
+                    output+="{passiveImg:up_g}"
                 elif(parsedLine["Buff"]["+ or -"]=="-"):
-                    output+="[Down-Arrow]"
+                    output+="{passiveImg:down_r}"
         if("ATK" in parsedLine and "DEF" not in parsedLine):
             output+="ATK "
             output+=str(parsedLine["ATK"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
             if(parsedLine["Buff"]["+ or -"]=="+"):
-                output+="[Up-Arrow]"
+                output+="{passiveImg:up_g}"
             elif(parsedLine["Buff"]["+ or -"]=="-"):
-                output+="[Down-Arrow]"
+                output+="{passiveImg:down_r}"
         if("DEF" in parsedLine and "ATK" not in parsedLine):
             output+="DEF "
             output+=str(parsedLine["DEF"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
             if(parsedLine["Buff"]["+ or -"]=="+"):
-                output+="[Up-Arrow]"
+                output+="{passiveImg:up_g}"
             elif(parsedLine["Buff"]["+ or -"]=="-"):
-                output+="[Down-Arrow]"
+                output+="{passiveImg:down_r}"
         if("Heals" in parsedLine):
             output+="Heals "
             output+=str(parsedLine["Buff"]["+ or -"])
@@ -3670,9 +3688,9 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
             if(parsedLine["Buff"]["+ or -"]=="+"):
-                output+="[Up-Arrow]"
+                output+="{passiveImg:up_g}"
             elif(parsedLine["Buff"]["+ or -"]=="-"):
-                output+="[Down-Arrow]"
+                output+="{passiveImg:down_r}"
         if("Guard" in parsedLine):
             output+="Guards all attacks "
         if("Transformation" in parsedLine):
@@ -3694,9 +3712,9 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+=str(parsedLine["Crit Chance"])
                 output+="%"
                 if(parsedLine["Buff"]["+ or -"]=="+"):
-                    output+="[Up-Arrow]"
+                    output+="{passiveImg:up_g}"
                 elif(parsedLine["Buff"]["+ or -"]=="-"):
-                    output+="[Down-Arrow]"
+                    output+="{passiveImg:down_r}"
             
         if("Additional Attack" in parsedLine):
             if(parsedLine["Additional Attack"]["Chance of another additional"])=="0":
@@ -4039,10 +4057,10 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
         if("Once Only" in line and line["Once Only"]==True):
             if(line["Length"]=="1"):
                 line["Line description"]+=" for 1 turn "
-            line["Line description"]=" [Once Only]" + line["Line description"]
+            line["Line description"]=" {passiveImg:once}" + line["Line description"]
         else:
             if(line["Length"]=="99"):
-                line["Line description"]+="[Infinite]"
+                line["Line description"]+="{passiveImg:forever}"
         line["Line description"]=line["Line description"].replace("  "," ")
 
     #check if ithere is an intro condition
@@ -4071,7 +4089,7 @@ def firstListOverlap(listToCompare,listToIndex):
 
 def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
     output={}
-    passiveIdList=getpassiveid(unit,eza,seza)
+    passiveIdList=getPassiveIdList(unit,eza,seza)
     if (passiveIdList!=None):
         for passiveskill in passive_skills[1:]:
             if (passiveskill[0] in passiveIdList):
@@ -4087,11 +4105,19 @@ def parsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
         passiveskill=sortParagraphTitles(output)
     return(output)
 
+def parsePassiveSkillItemizedDescription(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
+    unit_passive_id=getPassiveId(unit,eza,seza,DEVEXCEPTIONS)
+    passive_skill_itemized_description=searchbyid(unit_passive_id,0,passive_skill_sets,2)
+    if(passive_skill_itemized_description!=None):
+        return passive_skill_itemized_description[0]
+    else:
+        return "" 
+
 
 
 def OLDparsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
     output={}
-    passiveIdList=getpassiveid(unit,eza,seza)
+    passiveIdList=getPassiveIdList(unit,eza,seza)
     if (passiveIdList!=None):
         for passiveskill in passive_skills[1:]:
             if (passiveskill[0] in passiveIdList):
@@ -4185,20 +4211,20 @@ def polishPassiveLine(parsedLine):
                 output["CausalityLogic"]='{\"source\": \"'+CausalityKey+"00000"+'\", \"compiled\": '+CausalityKey+"00000"+'}'
         
         #Specific enemy debuffs
-        debuffs={"[ATK Down]": False, 
-                   "[DEF Down]": False,
-                   "[Stunned]" : False,
-                   "[Sealed]" : False,}
+        debuffs={"{passiveImg:atk_down}": False, 
+                   "{passiveImg:def_down}": False,
+                   "{passiveImg:stun}" : False,
+                   "{passiveImg:astute}" : False,}
         for CausalityKey in parsedLine["Condition"]["Causalities"]:
             if("Button" in parsedLine["Condition"]["Causalities"][CausalityKey]):
-                if(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy in [ATK down] status?'):
-                    debuffs["[ATK Down]"]=True
-                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy in [DEF down] status?'):
-                    debuffs["[DEF Down]"]=True
-                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy [Stunned]?'):
-                    debuffs["[Stunned]"]=True
+                if(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy in {passiveImg:atk_down} status?'):
+                    debuffs["{passiveImg:atk_down}"]=True
+                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy in {passiveImg:def_down} status?'):
+                    debuffs["{passiveImg:def_down}"]=True
+                elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy {passiveImg:stun}?'):
+                    debuffs["{passiveImg:stun}"]=True
                 elif(parsedLine["Condition"]["Causalities"][CausalityKey]["Button"]["Name"]=='Is the target enemy sealed?'):
-                    debuffs["[Sealed]"]=True
+                    debuffs["{passiveImg:astute}"]=True
         if(True in debuffs.values()):
             if("||" in parsedLine["Condition"]["Logic"]):
                 logicAndOr=" or "
@@ -4455,7 +4481,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         output["Building Stat"]["Cause"]["Cause"]="Turns with "+quantity+" or more "+category+" category units on the team"
         output["Building Stat"]["Slider"]="How many turns has this character been on with "+quantity+" or more "+category+" category units on the team?"
 
-    elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:22]=='Is the target enemy in'):
+    elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and 'Is the target enemy in' in causalities[0]):
         del output["Condition"]
         condition=causalities[0][23:-1]
         output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition
@@ -5247,16 +5273,16 @@ def swapToUnitWith1(unit):
             return(card)
     return(None)
 
-def getpassiveid(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
+def getPassiveIdList(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
     unitPassiveId=unit[21]
     if(eza):
         if(swapToUnitWith1(unit)!=None):
             unitEZA=swapToUnitWith1(unit)
         else:
-            return(getpassiveid(unit,eza=False, printing=printing))
+            return(getPassiveIdList(unit,eza=False, printing=printing))
         unitEZAGrowthId=unitEZA[16][0:-2]
         if(unitEZAGrowthId==""):
-            return(getpassiveid(unit,eza=False, printing=printing))
+            return(getPassiveIdList(unit,eza=False, printing=printing))
         if(seza):
             relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growths,column=1)
             #if the unit is an ur
@@ -5278,7 +5304,7 @@ def getpassiveid(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
                 relevantAwakenings=searchbycolumn(code="3",database=relevantAwakenings,column=2)
             else:
                 if(DEVEXCEPTIONS):
-                    raise Exception("Unit is not an LR or UR but has a supereza")
+                    raise Exception("Unit is not an LR or UR but has a eza")
         unitEZAPassiveId=relevantAwakenings[0][5][:-2]
         
         unitEZAPassiveList=searchbyid(code=unitEZAPassiveId,codecolumn=1,database=passive_skill_set_relations,column=2)
@@ -5287,6 +5313,45 @@ def getpassiveid(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
         unitPassiveId=unitPassiveId[0:-2]
         unitPassiveList=searchbyid(code=unitPassiveId,codecolumn=1,database=passive_skill_set_relations,column=2)
         return(unitPassiveList)
+    
+def getPassiveId(unit,eza=False,seza=False, printing=False,DEVEXCEPTIONS=False):
+    unitPassiveId=unit[21]
+    if(eza):
+        if(swapToUnitWith1(unit)!=None):
+            unitEZA=swapToUnitWith1(unit)
+        else:
+            return(getPassiveIdList(unit,eza=False, printing=printing))
+        unitEZAGrowthId=unitEZA[16][0:-2]
+        if(unitEZAGrowthId==""):
+            return(getPassiveIdList(unit,eza=False, printing=printing))
+        if(seza):
+            relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growths,column=1)
+            #if the unit is an ur
+            if(unit[5]=="4"):
+                relevantAwakenings=searchbycolumn(code="8",database=relevantAwakenings,column=2)
+            #if the unit is an lr
+            elif(unit[5]=="5"):
+                relevantAwakenings=searchbycolumn(code="4",database=relevantAwakenings,column=2)
+            else:
+                if(DEVEXCEPTIONS):
+                    raise Exception("Unit is not an LR or UR but has a supereza")
+        elif(eza):
+            relevantAwakenings=searchbycolumn(code=unitEZAGrowthId,database=optimal_awakening_growths,column=1)
+            #if the unit is an ur
+            if(unit[5]=="4"):
+                relevantAwakenings=searchbycolumn(code="7",database=relevantAwakenings,column=2)
+            #if the unit is an lr
+            elif(unit[5]=="5"):
+                relevantAwakenings=searchbycolumn(code="3",database=relevantAwakenings,column=2)
+            else:
+                if(DEVEXCEPTIONS):
+                    raise Exception("Unit is not an LR or UR but has a eza")
+        unitEZAPassiveId=relevantAwakenings[0][5][:-2]
+        
+        return(unitEZAPassiveId)
+    else:
+        unitPassiveId=unitPassiveId[0:-2]
+        return(unitPassiveId)
 
 #retrieves full character name(e.g. "E.TEQ LR Nightmarish Impact Legendary Super Saiyan Broly 4016881")
 def getfullname(unit,printing=True):
