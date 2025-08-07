@@ -112,22 +112,6 @@ jobs:
           xcopy /E /Y "data" "backend\data"
         shell: cmd
 
-      - name: Commit and Push Updated Settings & CSVs
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          cd backend
-          git config --global user.email "horvat.nicholas@gmail.com"
-          git config --global user.name "GitHub Actions"
-          git add .
-          git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
-          git push
-        shell: cmd
-      - name: Set up Python
-        if: steps.check_changes.outputs.changed == 'true'
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10.11'  # Change this to your required Python version
-
       - name: Install Python Dependencies
         if: steps.check_changes.outputs.changed == 'true'
         run: |
@@ -167,6 +151,23 @@ jobs:
         run: |
           xcopy /E /Y "temp_jsons" "frontend\dbManagement"
         shell: cmd
+
+        
+      - name: Commit and Push Updated Settings & CSVs
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          cd backend
+          git config --global user.email "horvat.nicholas@gmail.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
+          git push
+        shell: cmd
+      - name: Set up Python
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10.11'  # Change this to your required Python version
 
       - name: Commit and Push Changes to Frontend
         if: steps.check_changes.outputs.changed == 'true'
