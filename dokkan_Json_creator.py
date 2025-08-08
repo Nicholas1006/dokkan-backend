@@ -160,6 +160,7 @@ for unit in cardsToCheck[:]:
             if(CALCPASSIVE):
                 passiveStart=time.time()
                 unitDictionary["Passive"]=parsePassiveSkill(unit,eza,seza,DEVEXCEPTIONS)
+                unitDictionary["Itemized Passive Description"]=parsePassiveSkillItemizedDescription(unit,eza,seza,DEVEXCEPTIONS)
                 passiveTime+=time.time()-passiveStart
 
             unitDictionary["Max Attacks"]=1
