@@ -1342,7 +1342,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyOwnable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyOwnable(card=unit)):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Included"]=[likelyName]
@@ -1353,7 +1353,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                        if(qualifyOwnable(card=unit)):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Excluded"]=likelyName
@@ -3294,8 +3294,12 @@ def qualifySEZA(card,printing=True):
 
 
 def qualifyOwnable(card):
+    possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routes,column=2)
     if(not (card[5] in ["5","4"] and card[0][-1]=="0") and
-    #card id starts with 1,2 or 4
+    #card is not awakenable
+    searchbycolumn(code="CardAwakeningRoute::Dokkan",database=possibleAwakening, column=1) == [] and
+    searchbycolumn(code="CardAwakeningRoute::Zet",database=possibleAwakening, column=1) == [] and
+    #card id starts with 1 or 2
     (card[0][0] in ["1","2"] and len(card[0])==7) and
     #card is not "is_selling_only"
     card[46] == "0" and
@@ -3313,7 +3317,11 @@ def qualifyOwnable(card):
         return(False)
 
 def qualifyEncounterableAsOwnable(card):
+    possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routes,column=2)
     if ((card[0][0] in ["1","2"]) and
+    #card is not awakenable
+    searchbycolumn(code="CardAwakeningRoute::Dokkan",database=possibleAwakening, column=1) == [] and
+    searchbycolumn(code="CardAwakeningRoute::Zet",database=possibleAwakening, column=1) == [] and
     #card is either released or set to release within 2 months
     (dateTimeToTimestamp(card[53]) < dateTimeToTimestamp(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + 60*60*24*60)):
         return(True)
