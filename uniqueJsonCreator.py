@@ -169,7 +169,6 @@ if(CALCUNITBASICS):
                 unitDictionary["Awakening"]["Super Extreme Z-Awakening"]=True
 
             superAttackTypes=getSuperAttackTypes(unit,eza)
-            superAttackTypes=list(set(superAttackTypes))
 
             unitDictionary["Super Attack Types"]=superAttackTypes
             if(eza):
