@@ -3979,6 +3979,16 @@ def minimumVital(otherCausalities,logic):
             
 
             
+def articulateMultipleCausalities(causalities,causalityDictionaries,andOr):
+    output=""
+    for causality in causalities:
+        if(output==""):
+            output+=causalityDictionaries[causality]["Paragraph Title"]
+        else:
+            output+=" "+andOr+" "
+            output+=causalityDictionaries[causality]["Paragraph Title"].replace("When ","")
+    return output.replace("  "," ")
+
 
 def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     #WIP rework this to properly divide the passive skills, currently only ones included in a "most popular" can achieve anything
@@ -3992,20 +4002,25 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
                 if(conditionVital(conditionKey,line["Condition"]["Causalities"],line["Condition"]["Logic"])):
                     lineHasParagraphTitle=True
                     condition=line["Condition"]["Causalities"][conditionKey]
-                    if(condition["Paragraph Title"] not in conditionFrequency):
-                        conditionFrequency[condition["Paragraph Title"]]=[]
-                    conditionFrequency[condition["Paragraph Title"]].append(lineKey)
+                    if(conditionKey not in conditionFrequency):
+                        conditionFrequency[conditionKey]={"Lines":[],"Causalities":[conditionKey]}
+                    conditionFrequency[conditionKey]["Lines"].append(lineKey)
             if(not lineHasParagraphTitle):
                 smallestParagraphTitle=minimumVital(list(line["Condition"]["Causalities"].keys()),line["Condition"]["Logic"])
+                if(smallestParagraphTitle!=None):
+                    newCondition=""
+                    for conditionKey in smallestParagraphTitle:
+                        newCondition+=conditionKey+"||"
+                    newCondition=newCondition[:-2]
+                    if(newCondition not in conditionFrequency):
+                        conditionFrequency[newCondition]={"Lines":[],"Causalities":smallestParagraphTitle}
+                    conditionFrequency[newCondition]["Lines"].append(lineKey)
+                    
         
     linesRemaining=list(passiveskill.keys())
     for lineKey in linesRemaining.copy():
         if("Condition" not in passiveskill[lineKey]):
             linesRemaining.remove(lineKey)
-    linesRemaining=[]
-    for paragraphTitle in conditionFrequency:
-        if(len(conditionFrequency[paragraphTitle])>0):
-            linesRemaining+=conditionFrequency[paragraphTitle]
     linesRemaining=list(set(linesRemaining))
     paragraphPriority=[]
     #until every line has a paragraph
@@ -4013,7 +4028,7 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
         #find the condition that appears in the most amount of remaining lines
         mostFrequentConditionKey=list(conditionFrequency.keys())[0]
         for conditionKey in conditionFrequency:
-            if(len(conditionFrequency[conditionKey])>len(conditionFrequency[mostFrequentConditionKey])):
+            if(len(conditionFrequency[conditionKey]["Lines"])>len(conditionFrequency[mostFrequentConditionKey]["Lines"])):
                 mostFrequentConditionKey=conditionKey
 
         #put it next in the priority of conditions
@@ -4021,13 +4036,19 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
 
         #remove any detail of it left within the process
         for line in linesRemaining.copy():
-            if(line in conditionFrequency[mostFrequentConditionKey]):
+            if(line in conditionFrequency[mostFrequentConditionKey]["Lines"]):
                 linesRemaining.remove(line)
                 for conditionKey in conditionFrequency:
-                    if(line in conditionFrequency[conditionKey]):
-                        while(line in conditionFrequency[conditionKey]):
-                            conditionFrequency[conditionKey].remove(line)
+                    if(line in conditionFrequency[conditionKey]["Lines"]):
+                        while(line in conditionFrequency[conditionKey]["Lines"]):
+                            conditionFrequency[conditionKey]["Lines"].remove(line)
 
+    causalityDictionary={}
+    for lineKey in passiveskill:
+        if("Condition" in passiveskill[lineKey]):
+            for causalityKey in passiveskill[lineKey]["Condition"]["Causalities"]:
+                causalityDictionary[causalityKey]={}
+                causalityDictionary[causalityKey]["Paragraph Title"]=passiveskill[lineKey]["Condition"]["Causalities"][causalityKey]["Paragraph Title"]
 
 
     for lineKey in passiveskill:
@@ -4037,17 +4058,15 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
         if("Condition" in line):
             lineConditions= []
             for conditionKey in line["Condition"]["Causalities"]:
-                condition=line["Condition"]["Causalities"][conditionKey]["Paragraph Title"]
-                lineConditions.append(condition)
+                lineConditions.append(conditionKey)
             if(line["Paragraph Title"]=="Basic effect(s)"):
-                priorityIndex=firstListOverlap(lineConditions,paragraphPriority)
-                if(priorityIndex!=-1):
-                    line["Paragraph Title"]=paragraphPriority[priorityIndex]
-                    for causalityKey in line["Condition"]["Causalities"]:
-                        causality=line["Condition"]["Causalities"][causalityKey]
-                        if(causality["Paragraph Title"]==condition):
-                            removedCausality=causalityKey
-                    line_logic=logicalCausalityExtractor(line["CausalityLogic"].replace(removedCausality,"True"))
+                if(lineConditions in [conditionFrequency[x]["Causalities"] for x in paragraphPriority]):
+                    priorityIndex=[conditionFrequency[x]["Causalities"] for x in paragraphPriority].index(lineConditions)
+                    line["Paragraph Title"]=articulateMultipleCausalities(conditionFrequency[paragraphPriority[priorityIndex]]["Causalities"],causalityDictionary,"or")
+                    line_logic=line["CausalityLogic"]
+                    for causalityKey in conditionFrequency[paragraphPriority[priorityIndex]]["Causalities"]:
+                        line_logic=line_logic.replace(causalityKey,"True")
+                    line_logic=logicalCausalityExtractor(line_logic)
                 else:
                     line_logic=logicalCausalityExtractor(line["CausalityLogic"])
                 line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ")
@@ -4062,20 +4081,20 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
             line["Line description"]+=" for "
             line["Line description"]+=str(line["Length"])
             line["Line description"]+=" turns"
-        if("Once Only" in line and line["Once Only"]==True):
-            if(line["Length"]=="1"):
-                line["Line description"]+=" for 1 turn "
-            line["Line description"]=" {passiveImg:once}" + line["Line description"]
+        if(line["Length"]=="99"):
+            line["Line description"]+="{passiveImg:forever}"
         else:
-            if(line["Length"]=="99"):
-                line["Line description"]+="{passiveImg:forever}"
+            if("Once Only" in line and line["Once Only"]==True):
+                if(line["Length"]=="1"):
+                    line["Line description"]+=" for 1 turn "
+                line["Line description"]=" {passiveImg:once}" + line["Line description"]
         line["Line description"]=line["Line description"].replace("  "," ")
 
     #check if ithere is an intro condition
     introParagraphSwap={}
     for lineKey in passiveskill:
         line=passiveskill[lineKey]
-        if("Has Animation" in line and line["Has Animation"]==True):
+        if("Has Animation" in line and line["Has Animation"]==True and "Reversible exchange" not in line):
             introParagraphSwap[line["Paragraph Title"]]="Activates the Entrance Animation "+line["Paragraph Title"].replace("When","when").replace("Basic effect(s)","")
 
     if(introParagraphSwap!={}):
