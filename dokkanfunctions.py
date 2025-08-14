@@ -4310,6 +4310,18 @@ def polishPassiveLine(parsedLine):
                         elif(("How many ") in Causality["Slider"]["Name"] and (" Ki Spheres have been obtained?") in Causality["Slider"]["Name"]):
                                 Causality["Slider"]["Name"]="What is the most amount of "+ Causality["Slider"]["Name"][9:-1]+" in one turn?"
 
+    elif("Once Only" in parsedLine and parsedLine["Once Only"]==True):
+        output["Condition"]={
+            "Logic": " 1000000000000 ",
+            "Causalities": {
+                "1000000000000": {
+                    "Button": {"Name": "Is it within the first "+parsedLine["Length"]+" turn(s) from the charavter's entry turn"},
+                    "Paragraph Title": "For "+parsedLine["Length"]+" turn(s) from the character's entry turn"
+                }
+            }
+        }
+        output["CausalityLogic"]='{\"source\": \"1000000000000\", \"compiled\": 1000000000000}'
+
     elif(parsedLine["Timing"]=="End of turn"):
         if("Condition" in parsedLine):
             for CausalityKey in parsedLine["Condition"]["Causalities"]:
