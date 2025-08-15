@@ -2410,7 +2410,7 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="51"):
         output["Button"]["Name"]=("Is it within the first ")
         output["Button"]["Name"]+=CausalityRow[2]
-        output["Button"]["Name"]+=(" turns from entry turn?")
+        output["Button"]["Name"]+=(" turn(s) from the character's entry turn?")
         
         output["Slider"]["Name"]="How many turns is it since entry turn?"
         output["Slider"]["Logic"]="<="
@@ -2997,7 +2997,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="51"):
                 output["Button"]["Name"]=("Is it within the first ")
                 output["Button"]["Name"]+=CausalityRow[2]
-                output["Button"]["Name"]+=(" turns from entry turn?")
+                output["Button"]["Name"]+=(" turn(s) from the character's entry turn?")
                 output["Slider"]["Name"]="How many turns is it since entry turn?"
                 output["Slider"]["Logic"]="<="
                 output["Slider"]["Logic"]+=CausalityRow[2]
@@ -4315,7 +4315,7 @@ def polishPassiveLine(parsedLine):
             "Logic": " 1000000000000 ",
             "Causalities": {
                 "1000000000000": {
-                    "Button": {"Name": "Is it within the first "+parsedLine["Length"]+" turn(s) from the charavter's entry turn"},
+                    "Button": {"Name": "Is it within the first "+parsedLine["Length"]+" turn(s) from the character's entry turn?"},
                     "Paragraph Title": "For "+parsedLine["Length"]+" turn(s) from the character's entry turn"
                 }
             }
