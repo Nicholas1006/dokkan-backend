@@ -97,20 +97,11 @@ jobs:
           aws s3 sync "Dokkan_Asset_Downloader\temp_downloads" s3://dokkan-calc-assets
         shell: pwsh
 
-      - name: Checkout Backend Repository
+      - name: Set up Python
         if: steps.check_changes.outputs.changed == 'true'
-        uses: actions/checkout@v3
+        uses: actions/setup-python@v4
         with:
-          repository: Niccccccccccccc/dokkan-backend
-          token: ${{ secrets.BACKEND_REPO_PAT }}
-          path: backend
-
-      - name: Copy Updated backend Files to Backend
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          xcopy /E /Y "Dokkan_Asset_Downloader\settings.json" "backend\Dokkan_Asset_Downloader\settings.json"
-          xcopy /E /Y "data" "backend\data"
-        shell: cmd
+          python-version: '3.10.11'  # Change this to your required Python version
 
       - name: Install Python Dependencies
         if: steps.check_changes.outputs.changed == 'true'
@@ -145,29 +136,11 @@ jobs:
           token: ${{ secrets.FRONTEND_REPO_PAT }}
           path: frontend
 
-
       - name: Copy Updated JSON Files to Frontend
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           xcopy /E /Y "temp_jsons" "frontend\dbManagement"
         shell: cmd
-
-        
-      - name: Commit and Push Updated Settings & CSVs
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          cd backend
-          git config --global user.email "horvat.nicholas@gmail.com"
-          git config --global user.name "GitHub Actions"
-          git add .
-          git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
-          git push
-        shell: cmd
-      - name: Set up Python
-        if: steps.check_changes.outputs.changed == 'true'
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.10.11'  # Change this to your required Python version
 
       - name: Commit and Push Changes to Frontend
         if: steps.check_changes.outputs.changed == 'true'
@@ -180,3 +153,31 @@ jobs:
           git push
         shell: cmd
 
+
+        
+      - name: Checkout Backend Repository
+        if: steps.check_changes.outputs.changed == 'true'
+        uses: actions/checkout@v3
+        with:
+          repository: Niccccccccccccc/dokkan-backend
+          token: ${{ secrets.BACKEND_REPO_PAT }}
+          path: backend
+
+      - name: Copy Updated backend Files to Backend
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          xcopy /E /Y "Dokkan_Asset_Downloader\settings.json" "backend\Dokkan_Asset_Downloader\settings.json"
+          xcopy /E /Y "data" "backend\data"
+        shell: cmd
+
+
+      - name: Commit and Push Updated Settings & CSVs
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          cd backend
+          git config --global user.email "horvat.nicholas@gmail.com"
+          git config --global user.name "GitHub Actions"
+          git add .
+          git commit -m "Automated update of Dokkan assets" || echo "No changes to commit"
+          git push
+        shell: cmd
