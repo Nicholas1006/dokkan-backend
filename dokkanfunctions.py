@@ -4551,7 +4551,9 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         for causality in causalities:
             if(causality!="Has guard been activated?"):
                 output["Building Stat"]["Cause"]["Cause"]+=" "+causality+" or"
-        output["Building Stat"]["Cause"]["Cause"]=output["Building Stat"]["Cause"]["Cause"][:-3]
+                output["Building Stat"]["Slider"]+=" "+causality+" or"
+        output["Building Stat"]["Cause"]["Cause"]=output["Building Stat"]["Cause"]["Cause"][:-3].replace("?","")+"?"
+        output["Building Stat"]["Slider"]=output["Building Stat"]["Slider"][:-3].replace("?","")+"?"
 
     elif(parsedLine["Timing"]=="Right after being hit" and 'Is this the 1st attacker in the turn?' in causalities and "Is this the 2nd attacker in the turn?" in causalities and 'Has this character been hit?' in causalities and 'Has this unit evaded an attack?' in causalities):
         del output["Condition"]
