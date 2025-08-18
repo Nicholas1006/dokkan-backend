@@ -3766,8 +3766,10 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             if("DR from normals" in parsedLine["Counter"]):
                 output+="Damage received from normal attacks -"
                 output+=str(parsedLine["Counter"]["DR from normals"])
-                output+="% and"
-            output+="Counter attacks with a "
+                output+="% and "
+                output+="counter attacks with a "
+            else:
+                output+="Counter attacks with a "
             output+=parsedLine["Counter"]["Multiplier"]
             output+="% multiplier"
         if("Forsee Super Attack" in parsedLine):
@@ -4088,7 +4090,10 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
                 if(line["Length"]=="1"):
                     line["Line description"]+=" for 1 turn "
                 line["Line description"]=" {passiveImg:once}" + line["Line description"]
-        line["Line description"]=line["Line description"].replace("  "," ")
+        for disablingLine in passiveskill:
+            if("Disable Other Line" in passiveskill[disablingLine] and passiveskill[disablingLine]["Disable Other Line"]["Line"]==lineKey):
+                line["Line description"]+=" until "+passiveskill[disablingLine]["Brief effect description"].split(lineKey)[1]
+        line["Line description"]=line["Line description"].replace("  "," ").replace("right before being hit until after being hit","while being hit").replace("before being hit until after being hit","while being hit").replace("  "," ")
 
     #check if ithere is an intro condition
     introParagraphSwap={}
