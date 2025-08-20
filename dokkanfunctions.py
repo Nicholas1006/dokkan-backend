@@ -1258,6 +1258,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         "Building Stat":{
             "Min": 0,
             "Max": 0,
+            "Stat Per Proc": 0,
             "Cause": None
         },
         "ATK": 0,
@@ -1458,16 +1459,19 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
         effects["Building Stat"]["Max"]=23*int(passiveskill[12])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
         effects["ATK"]+=int(passiveskill[12])
     elif passiveskill[3]=="60":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
         effects["Building Stat"]["Max"]=23*int(passiveskill[12])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
         effects["DEF"]+=int(passiveskill[12])
     elif passiveskill[3]=="61":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
         effects["Building Stat"]["Max"]=23*int(passiveskill[12])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
         effects["ATK"]+=int(passiveskill[12])
         effects["DEF"]+=int(passiveskill[12])
     elif passiveskill[3]=="64":
@@ -1481,6 +1485,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         else:
             effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["ATK"]+=int(passiveskill[13])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
     elif passiveskill[3]=="65":
         typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
@@ -1491,6 +1496,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Max"]=5*int(passiveskill[12])
         else:
             effects["Building Stat"]["Max"]=23*int(passiveskill[12])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
         effects["DEF"]+=int(passiveskill[13])
     elif passiveskill[3]=="66":
         typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
@@ -1502,6 +1508,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Max"]=5*int(passiveskill[13])
         else:
             effects["Building Stat"]["Max"]=23*int(passiveskill[13])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
         effects["ATK"]+=int(passiveskill[13])
         effects["DEF"]+=int(passiveskill[13])
     elif passiveskill[3]=="67":
@@ -1539,6 +1546,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown buff")
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
     elif passiveskill[3]=="69":
         effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
         effects["Ki Change"]["To"]=[KiOrbType(passiveskill[12])]
@@ -1547,6 +1555,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         if(int(passiveskill[12])>int(passiveskill[13])):
             #The less HP remaining the greater the stats boost
             effects["ATK"]+=int(passiveskill[12])
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
             effects["Building Stat"]["Max"]+=int(passiveskill[12])
             effects["Building Stat"]["Min"]+=int(passiveskill[13])
@@ -1555,6 +1564,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             #The more HP remaining the greater the stats boost
             effects["ATK"]+=int(passiveskill[13])
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
             effects["Building Stat"]["Max"]+=int(passiveskill[13])
             effects["Building Stat"]["Min"]+=int(passiveskill[12])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
@@ -1563,6 +1573,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             #The less HP remaining the greater the stats boost
             effects["DEF"]+=int(passiveskill[12])
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
             effects["Building Stat"]["Max"]+=int(passiveskill[12])
             effects["Building Stat"]["Min"]+=int(passiveskill[13])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
@@ -1570,6 +1581,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             #The more HP remaining the greater the stats boost
             effects["DEF"]+=int(passiveskill[13])
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
             effects["Building Stat"]["Max"]+=int(passiveskill[13])
             effects["Building Stat"]["Min"]+=int(passiveskill[12])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
@@ -1578,6 +1590,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             #The less HP remaining the greater the stats boost
             effects["ATK"]+=int(passiveskill[12])
             effects["DEF"]+=int(passiveskill[12])
+            effects["Building Stat"]["Stat Per Proc"]= (int(passiveskill[12])-int(passiveskill[13]))/100
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
             effects["Building Stat"]["Max"]+=int(passiveskill[12])
             effects["Building Stat"]["Min"]+=int(passiveskill[13])
@@ -1586,6 +1599,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             #The more HP remaining the greater the stats boost
             effects["ATK"]+=int(passiveskill[13])
             effects["DEF"]+=int(passiveskill[13])
+            effects["Building Stat"]["Stat Per Proc"]= (int(passiveskill[13])-int(passiveskill[12]))/100
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
             effects["Building Stat"]["Max"]+=int(passiveskill[13])
             effects["Building Stat"]["Min"]+=int(passiveskill[12])
@@ -1640,6 +1654,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     elif passiveskill[3]=="96":
         kiSphereType=binaryOrbType(passiveskill[12],DEVEXCEPTIONS)
         effects["Ki"]+=int(passiveskill[13])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":kiSphereType}
         effects["Building Stat"]["Slider"]="How many "
         for orbType in kiSphereType:
@@ -1677,6 +1692,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown stat increase")
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
         effects["Building Stat"]["Cause"]={"Cause":"Look Elsewhere"}
         effects["Building Stat"]["Max"]+=int(passiveskill[13])
     elif passiveskill[3]=="101":
@@ -1704,6 +1720,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Slider"]="WIP"
             effects["Building Stat"]["Min"]=1
             effects["Building Stat"]["Max"]=1
+            effects["Building Stat"]["Stat Per Proc"]= 1
             
         else:
             print("UNKNOWN EFFECT",passiveskill)
@@ -3815,7 +3832,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output=output[:-5]
                 output+=" Ki Spheres obtained"
         else:
-            output+="(up to "
+            output+="({currentValue} / "
             output+=str(parsedLine["Building Stat"]["Max"])
             if(parsedLine["Buff"]["Type"]=="Percentage"):
                 output+="%"
