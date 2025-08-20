@@ -2978,8 +2978,8 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
 
 
             elif(CausalityRow[1]=="47"):
-                output["Button"]["Name"]=("Has this character or an ally attacking on this turn been KO'd?")
-                output["Paragraph Title"]=("When this character or an ally attacking on this turn has been KO'd?")
+                output["Button"]["Name"]=("Has this character's Revival Skill been activated?")
+                output["Paragraph Title"]=("After the character's Revival Skill is activated")
             elif(CausalityRow[1]=="48"):
                 #WIP CausalityRow[2] is the type of super attack
                 if(CausalityRow[2]=="1"):
@@ -3053,7 +3053,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Paragraph Title"]="When this characters finish effect has been activated"
             elif(CausalityRow[1]=="54"):
                 output["Button"]["Name"]=("Has this character or an ally's revival skill been activated?")
-                output["Paragraph Title"]="When this character or an ally's revival skill has been activated"
+                output["Paragraph Title"]="After the character's or an ally's Revival Skill is activated"
             elif(CausalityRow[1]=="55"):
                 output["Button"]["Name"]=("Is it on or after the first ")
                 output["Button"]["Name"]+=str(int(CausalityRow[2])+1)
