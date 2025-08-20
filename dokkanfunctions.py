@@ -1977,21 +1977,6 @@ def simpleLogicalCausalityExtractor(causality):
         return("(" + causality[1] + " && " +causality[2] + ")")
     
 
-def OLDlogicalCausalityExtractor(causality):
-    if(causality==""):
-        return([])
-    else:
-        result=causality.split('","compiled')
-        if(len(result)==1):
-            result=causality.split('", "compiled')
-        result=result[0]
-        if(len(result.split('source":"'))!=1):
-            result=result.split('source":"')[1]
-        else:
-            result=result.split('source": "')[1]
-        result=unicode_fixer(result)
-        return("("+result+")")
-    
 def CausalityLogicalExtractor(unit,causality,DEVEXCEPTIONS=False):
     output={}
     result=causality
@@ -4161,24 +4146,6 @@ def parsePassiveSkillItemizedDescription(unit,eza=False,seza=False,DEVEXCEPTIONS
         return passive_skill_itemized_description[0]
     else:
         return "" 
-
-
-
-def OLDparsePassiveSkill(unit,eza=False,seza=False,DEVEXCEPTIONS=False):
-    output={}
-    passiveIdList=getPassiveIdList(unit,eza,seza)
-    if (passiveIdList!=None):
-        for passiveskill in passive_skills[1:]:
-            if (passiveskill[0] in passiveIdList):
-                parsedLine=(extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=DEVEXCEPTIONS))
-                parsedLine=shortenPassiveDictionary(parsedLine)
-                if("Building Stat" in parsedLine):
-                    if(parsedLine["Building Stat"]["Cause"]["Cause"]=="Look Elsewhere"):
-                        parsedLine=removeLookElseWhere(parsedLine,DEVEXCEPTIONS)
-                parsedLine=polishPassiveLine(parsedLine)
-                parsedLine["Brief effect description"]=passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS)
-                output[passiveskill[0]]=parsedLine
-    return(output)
 
 
 def polishPassiveLine(parsedLine):
