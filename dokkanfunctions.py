@@ -4334,15 +4334,15 @@ def polishPassiveLine(parsedLine):
 
     elif("Once Only" in parsedLine and parsedLine["Once Only"]==True):
         output["Condition"]={
-            "Logic": " 1000000000000 ",
+            "Logic": " "+parsedLine["Length"]+"000000000000 ",
             "Causalities": {
-                "1000000000000": {
+                parsedLine["Length"]+"000000000000": {
                     "Button": {"Name": "Is it within the first "+parsedLine["Length"]+" turn(s) from the character's entry turn?"},
                     "Paragraph Title": "For "+parsedLine["Length"]+" turn(s) from the character's entry turn"
                 }
             }
         }
-        output["CausalityLogic"]='{\"source\": \"1000000000000\", \"compiled\": 1000000000000}'
+        output["CausalityLogic"]='{\"source\": \"' + parsedLine["Length"] + '000000000000\", \"compiled\": ' + parsedLine["Length"] + '000000000000}'
 
     elif(parsedLine["Timing"]=="End of turn"):
         if("Condition" in parsedLine):
