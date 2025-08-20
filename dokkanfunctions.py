@@ -3816,6 +3816,7 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                     output+=" and "
                 output=output[:-5]
                 output+=" Ki Spheres obtained"
+            output +="{currentValue} / "+ str(parsedLine["Building Stat"]["Max"])
         else:
             output+="({currentValue} / "
             output+=str(parsedLine["Building Stat"]["Max"])
