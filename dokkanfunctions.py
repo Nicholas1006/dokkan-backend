@@ -563,8 +563,10 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
 
         if(leader_skill_line[3]=="4"):
             output[leader_skill_line[0]]["Target"]["allies or enemies"]="Enemies"
-        elif(leader_skill_line[3]=="2"):
+        elif(leader_skill_line[3]=="2" or leader_skill_line[3]=="12" or leader_skill_line[3]=="13"):
             output[leader_skill_line[0]]["Target"]["allies or enemies"]="allies"
+        else:
+            output[leader_skill_line[0]]["Target"]["allies or enemies"]="unknown"
         if leader_skill_line[6]=="0":
             output[leader_skill_line[0]]["NOT WORKING"]=True
         elif(leader_skill_line[6]=="1"):
@@ -3580,6 +3582,53 @@ def articulateAllyType(target):
             output=output[:-4]
         return(output.replace("  "," "))
     
+def findHighestLeaderSkill(unitDictionary,allLeaderSkills,DEVEXCEPTIONS=False):
+    highestLeaderSkill={
+        "HP":0,
+        "ATK":0,
+        "DEF":0,
+        "Ki":0,
+    }
+
+    for leaderSkill in allLeaderSkills:
+        currentLeadStats={
+            "HP":0,
+            "ATK":0,
+            "DEF":0,
+            "Ki":0,
+        }
+        for leaderSkillLineKey in leaderSkill:
+            if(leaderSkillLineKey!="Name"):
+                leaderSkillLine=leaderSkill[leaderSkillLineKey]
+                if((leaderSkillLine["Buff"]["Type"]=="Percentage" or leaderSkillLine["Ki"]!=0) and qualifyForLeaderSkill(unitDictionary,leaderSkillLine,DEVEXCEPTIONS)):
+                    currentLeadStats["HP"]+=int(leaderSkillLine["HP"])
+                    currentLeadStats["ATK"]+=int(leaderSkillLine["ATK"])
+                    currentLeadStats["DEF"]+=int(leaderSkillLine["DEF"])
+                    currentLeadStats["Ki"]+=int(leaderSkillLine["Ki"])
+        highestLeaderSkill["HP"]=max(highestLeaderSkill["HP"],currentLeadStats["HP"])
+        highestLeaderSkill["ATK"]=max(highestLeaderSkill["ATK"],currentLeadStats["ATK"])
+        highestLeaderSkill["DEF"]=max(highestLeaderSkill["DEF"],currentLeadStats["DEF"])
+        highestLeaderSkill["Ki"]=max(highestLeaderSkill["Ki"],currentLeadStats["Ki"])
+    return(highestLeaderSkill)
+
+
+def qualifyForLeaderSkill(unitDictionary,leaderSkill,DEVEXCEPTIONS=False):
+    if(leaderSkill["Target"]["Category"]!=[]):
+        for category in leaderSkill["Target"]["Category"]:
+            if(category not in unitDictionary["Categories"]):
+                return(False)
+        if(firstListOverlap(unitDictionary["Categories"],leaderSkill["Target"]["Excluded Category"])!=-1):
+            return(False)
+    if(leaderSkill["Target"]["Type"]!=[]):
+        if(unitDictionary["Type"] not in leaderSkill["Target"]["Type"]):
+            return(False)
+    if(leaderSkill["Target"]["Class"]!=[]):
+        if(unitDictionary["Class"]!=leaderSkill["Target"]["Class"]):
+            return(False)
+    if(leaderSkill["Target"]["allies or enemies"]!="allies"):
+        return(False)
+
+    return(True)
 
 def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
     output=""
