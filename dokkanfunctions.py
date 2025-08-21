@@ -3617,6 +3617,7 @@ def qualifyForLeaderSkill(unitDictionary,leaderSkill,DEVEXCEPTIONS=False):
         for category in leaderSkill["Target"]["Category"]:
             if(category not in unitDictionary["Categories"]):
                 return(False)
+    if(leaderSkill["Target"]["Excluded Category"]!=[]):
         if(firstListOverlap(unitDictionary["Categories"],leaderSkill["Target"]["Excluded Category"])!=-1):
             return(False)
     if(leaderSkill["Target"]["Type"]!=[]):
