@@ -62,6 +62,7 @@ standbyTime=0.0
 finishTime=0.0
 linksTime=0.0
 circleTime=0.0
+highestLeaderTime=0.0
 multiplierTime=0.0
 
 cardIDsToCheck=["1024551"]
@@ -69,7 +70,7 @@ cardIDsToCheck=["1024551"]
 
 cardsToCheck=[]
 
-
+leaderSkills=[]
     
 
 if GLOBALPARSE:
@@ -196,6 +197,7 @@ for unit in cardsToCheck[:]:
             if(CALCLEADER and unit[22]!=""):
                 leaderStart=time.time()
                 unitDictionary["Leader Skill"]=parseLeaderSkill(unit,eza,DEVEXCEPTIONS)
+                leaderSkills.append(unitDictionary["Leader Skill"])
                 leaderTime+=time.time()-leaderStart
 
             
@@ -439,6 +441,17 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
                         "Locked":False
                     }
 
+#find the max lead for all units
+if(CALCLEADER):
+    highestLeaderStartTime=time.time()
+    for unit in totalUnitJson:
+        totalUnitJson[unit]["Max Leader Skill"]=findHighestLeaderSkill(totalUnitJson[unit],leaderSkills,DEVEXCEPTIONS)
+        if(unit in totalEZAUnitJson):
+            totalEZAUnitJson[unit]["Max Leader Skill"]=totalUnitJson[unit]["Max Leader Skill"]
+        if(unit in totalSEZAUnitJson):
+            totalSEZAUnitJson[unit]["Max Leader Skill"]=totalUnitJson[unit]["Max Leader Skill"]
+    highestLeaderTime=time.time()-highestLeaderStartTime
+
             
 
                 
@@ -466,7 +479,8 @@ print("Ki segments time:",round(circleTime,2))
 print("Multiplier time:",round(multiplierTime,2))
 print("Active time:",round(activeTime,2))
 print("Standby time:",round(standbyTime,2))
+print("Highest Leader time:",round(highestLeaderTime,2))
 print("Json time:",round(jsonTime,2))
-print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime),2))
+print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime+highestLeaderTime),2))
 print("Total time:",round(totalTime,2))
 print("Average per unit",round((totalTime)/unitCount,5))
