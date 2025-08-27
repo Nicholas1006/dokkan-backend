@@ -4,7 +4,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the backend repo directory
 DOWNLOAD_DIR = os.path.join(BASE_DIR, "Dokkan_Asset_Downloader")  # Path to store new files
-DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "temp_downloads")  # Path to store new files
+DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "card_assets")  # Path to store new files
 DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "global")  # Path to store new files
 DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "en")  # Path to store new files
 DOWNLOAD_DIR = os.path.join(DOWNLOAD_DIR, "sqlite")  # Path to store new files
