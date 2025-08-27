@@ -1,4 +1,4 @@
-import sqlite3 as sl
+import sqlite3
 import pandas as pd
 import os
 
@@ -14,7 +14,7 @@ GLOBAL_DB_LOC = os.path.join(DOWNLOAD_DIR, "database.db")  # Path to store new f
 
 
 
-con = sl.connect(GLOBAL_DB_LOC)
+con = sqlite3.connect(GLOBAL_DB_LOC)
 with con:
     x = con.execute("""SELECT name FROM sqlite_master
 WHERE type='table'

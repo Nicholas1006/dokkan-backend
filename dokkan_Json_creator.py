@@ -1,4 +1,5 @@
 from dokkanfunctions import *
+import sqlite3
 totalTime=time.time()
 setupStart=time.time()
 from globals import *
@@ -7,6 +8,8 @@ directory="data/"
 import dotenv
 dotenv.load_dotenv('.env')
 
+GLOBAL_DB_LOC=os.path.dirname(os.path.abspath(__file__))+"/Dokkan_Asset_Downloader/card_assets/global/en/sqlite/current/en/database.db"
+connection = sqlite3.connect(GLOBAL_DB_LOC)
 
 DEVEXCEPTIONS=os.getenv('DEVEXCEPTIONS')  == "True"
 print("DEVEXCEPTIONS",DEVEXCEPTIONS)
@@ -107,7 +110,6 @@ dokkanAwakenings={}
 transformations={}
 
 print("Setup time:",round(time.time()-setupStart,2))
-
 for unit in cardsToCheck[:]:
     print(str(unitsChecked)+"/"+str(len(cardsToCheck))+" "+unit[0])
     unitsChecked=unitsChecked+1
@@ -126,15 +128,15 @@ for unit in cardsToCheck[:]:
             if(CALCBASIC):
                 basicStart=time.time()
                 unitDictionary["ID"]=unit[0]
-                unitDictionary["Type"]=getUnitType(unit)
-                unitDictionary["Class"]=getUnitClass(unit)
-                unitDictionary["Name"]=unit[1]
-                unitDictionary["Rarity"]=getrarity(unit)
-                unitDictionary["Min Level"]=getMinLevel(unit,eza)
-                unitDictionary["Max Level"]=getMaxLevel(unit,eza)
-                unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
-                unitDictionary["Can EZA"]=checkEza(unit[0])
-                unitDictionary["Can SEZA"]=checkSeza(unit[0])
+                unitDictionary["Type"]=getUnitTypeSQL(connection,unit[0])
+                unitDictionary["Class"]=getUnitClassSQL(connection,unit[0])
+                unitDictionary["Name"]=getNameSQL(connection,unit[0])
+                unitDictionary["Rarity"]=getRaritySQL(connection,unit[0])
+                unitDictionary["Min Level"]=getMinLevelSQL(connection,unit[0],eza)
+                unitDictionary["Max Level"]=getMaxLevelSQL(connection,unit[0],eza)
+                unitDictionary["Categories"]=getAllCategoriesSQL(connection,unit[0])
+                unitDictionary["Can EZA"]=checkEzaSQL(connection,unit[0])
+                unitDictionary["Can SEZA"]=checkSezaSQL(connection,unit[0])
                 if(seza):
                     unitDictionary["Eza Level"]="eza"
                 elif(eza):

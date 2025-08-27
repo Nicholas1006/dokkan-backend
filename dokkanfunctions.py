@@ -165,11 +165,29 @@ def superAttackMultiplierExtractor(superAttackID,super_attack_lvl,DEVEXCEPTIONS=
 
     return(multiplier)
     
+
+def getMinLevelSQL(connection,unitID,eza):
+    #if its a z unit return the max level of its previous form
+    #If the unit has been z awakened
+    query="""
+    SELECT lv_max
+    FROM cards
+    WHERE id=?
+    """
+    if(unitID[-1]==1):
+        
+        return(connection.execute(query,(definewith0(unitID),)).fetchone()[0])
+    #if its an eza unit return the max level of itself
+    elif(eza):
+        
+        return(connection.execute(query,(unitID,)).fetchone()[0])
+    else:
+        return(1)
+
 def getMinLevel(unit,eza=False):
     #if its a z unit return the max level of its previous form
     #if its an eza unit return the max level of itself
     unit0=swapToUnitWith0(unit)
-    oldRarity=unit0[5]
     #If the unit has been z awakened
     if(unit[5]!=unit0[5]):
         return(int(unit0[13]))
@@ -177,6 +195,35 @@ def getMinLevel(unit,eza=False):
         return(int(unit[13]))
     else:
         return(1)
+    
+def getNameSQL(connection,unitID):
+    query="""
+    SELECT name
+    FROM cards
+    where id=?
+    """
+    return(connection.execute(query, (unitID,)).fetchone()[0])
+
+def getMaxLevelSQL(connection,unitID,eza):
+    if(eza):
+        query = """
+        SELECT optimal_awakening_growths.lv_max 
+        FROM cards
+        JOIN optimal_awakening_growths ON cards.optimal_awakening_grow_type = optimal_awakening_growths.optimal_awakening_grow_type
+        WHERE cards.id = ?
+        ORDER BY optimal_awakening_growths.lv_max DESC
+        LIMIT 1
+        """
+        return(connection.execute(query, (unitID,)).fetchone()[0])
+    else:
+        query="""
+        SELECT lv_max
+        FROM cards
+        WHERE id=?
+        """
+        return(connection.execute(query, (unitID,)).fetchone()[0])
+
+
 def getMaxLevel(unit,eza=False):
     if(eza):
         cardOptimalAwakeningGrowthID=unit[16][:-2]
@@ -706,6 +753,19 @@ def turnintoJson(data,filename, directoryName="" ):
     with open(directoryName+filename, 'w') as f:
         json.dump(data, f, indent=4)
     
+def checkEzaSQL(connection, unitID):
+    query="""
+    SELECT optimal_awakening_growths.step
+    FROM cards
+    JOIN optimal_awakening_growths ON cards.optimal_awakening_grow_type = optimal_awakening_growths.optimal_awakening_grow_type
+    WHERE cards.id= ?
+    ORDER BY optimal_awakening_growths.step DESC
+    """
+    if(connection.execute(query, (unitID,)).fetchone()==None):
+        return(False)
+    else:
+        return(True)
+
 def checkEza(unitid):
     unit=searchbycolumn(code=unitid,column=0,database=cards)[0]
     awakeningID=unit[16][:-2]
@@ -714,6 +774,25 @@ def checkEza(unitid):
         return(False)
     else:
         return(True)
+    
+def checkSezaSQL(connection,unitID):
+    query="""
+    SELECT optimal_awakening_growths.step
+    FROM cards
+    JOIN optimal_awakening_growths ON cards.optimal_awakening_grow_type = optimal_awakening_growths.optimal_awakening_grow_type
+    WHERE cards.id= ?
+    ORDER BY optimal_awakening_growths.step DESC
+    """
+    growth_step=connection.execute(query, (unitID,)).fetchone()
+    if(growth_step==None):
+        return(False)
+    else:
+        if(growth_step[0]==8 and getRaritySQL(connection,unitID)=="ur"):
+            return(True)
+        elif(growth_step[0]==4 and getRaritySQL(connection,unitID)=="lr"):
+            return(True)
+        else:
+            return(False)
 
 def checkSeza(unitid):
     unit=searchbycolumn(code=unitid,column=0,database=cards)[0]
@@ -1889,10 +1968,7 @@ def filterIncompletePngs(directory, thresholdInBytes,printing=True):
     return(assumeFalse)
             
 def definewith0(unitid,printing=True):
-    if unitid.endswith('1'):
-        return unitid[:-1] + '0'
-    else:
-        return unitid
+    return unitid[:-1] + '0'
     
 def definewith1(unitid,printing=True):
     if unitid.endswith('0'):
@@ -4979,6 +5055,28 @@ def qualifyZAwakened(unit):
     if(qualifyEncounterable(swapToUnitWith0(unit))):
         return True
 
+
+def getUnitTypeSQL(connection,unitID):
+    query="""
+    SELECT element
+    FROM cards
+    WHERE id=?
+    """
+    unitELement=connection.execute(query, (unitID,)).fetchone()[0]
+    match(unitELement%10):
+        case 0:
+            return("AGL")
+        case 1:
+            return("TEQ")
+        case 2:
+            return("INT")
+        case 3:
+            return("STR")
+        case 4:
+            return("PHY")
+        case _:
+            raise Exception("Unknown typing")
+
 def getUnitType(unit,printing=True,DEVEXCEPTIONS=False):
     if unit[12][-1]=="0":
         typing="AGL"
@@ -4995,6 +5093,24 @@ def getUnitType(unit,printing=True,DEVEXCEPTIONS=False):
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown typing")
     return(typing)
+
+def getUnitClassSQL(connection,unitID):
+    query="""
+    SELECT element
+    FROM cards
+    WHERE id=?
+    """
+    unitElement=connection.execute(query, (unitID,)).fetchone()[0]
+    if(len(str(unitElement)) == 1):
+        return("None")
+    else:
+        match(int(str(unitElement)[0])):
+            case 1:
+                return("Super")
+            case 2:
+                return("Extreme")
+            case _:
+                raise Exception("Unknown class")
 
 def getUnitClass(unit,printing=True,DEVEXCEPTIONS=False):
     if(len(unit[12])==1):
@@ -5313,7 +5429,27 @@ def getSuperAttackLevel(unit, eza):
         return(int(relevant_Awakenings[-1][4]))
 
 
-def getrarity(unit,printing=True):
+def getRaritySQL(connection,unitID):
+    query="""
+    SELECT rarity
+    FROM cards
+    WHERE id=?
+    """
+    match(connection.execute(query, (unitID,)).fetchone()[0]):
+        case 5:
+            return("lr")
+        case 4:
+            return("ur")
+        case 3:
+            return("ssr")
+        case 2:
+            return("sr")
+        case 1:
+            return("r")
+        case 0:
+            return("n")
+
+def getrarity(unit):
     
     if(type(unit)==list):
         if unit[5]=="5":
@@ -5466,6 +5602,16 @@ def getfullname(unit,printing=True):
     #return variable
     return(temp)
     
+def getAllCategoriesSQL(connection,unitID):
+    query="""
+    SELECT card_categories.name
+    FROM card_categories
+    JOIN card_card_categories ON card_categories.id = card_card_categories.card_category_id
+    WHERE card_card_categories.card_id = ?
+    ORDER BY card_card_categories.num
+    """
+    return([x[0] for x in connection.execute(query, (unitID,)).fetchall()])
+
 def getallcategories(unitid,printing=True):
     temp1=searchedbyid(unitid, 1, card_card_categories, 2)
     categoryList=[]
