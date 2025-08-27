@@ -174,7 +174,7 @@ def getMinLevelSQL(connection,unitID,eza):
     FROM cards
     WHERE id=?
     """
-    if(unitID[-1]==1):
+    if(unitID[-1]=="1"):
         
         return(connection.execute(query,(definewith0(unitID),)).fetchone()[0])
     #if its an eza unit return the max level of itself
