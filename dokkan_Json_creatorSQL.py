@@ -65,10 +65,11 @@ standbyTime=0.0
 finishTime=0.0
 linksTime=0.0
 circleTime=0.0
+backtrackTime=0.0
 highestLeaderTime=0.0
 multiplierTime=0.0
 
-cardIDsToCheck=["1024551"]
+cardIDsToCheck=["1010901"]
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
 cardsToCheck=[]
@@ -149,26 +150,21 @@ for unit in cardsToCheck[:]:
             if(CALCLINKS):
                 linksStart=time.time()
                 #unitDictionary["Links"]=getalllinkswithbuffs(unit)
-                unitDictionary["Links"]=getalllinks(unit)
+                unitDictionary["Links"]=getAllLinksSQL(connection,unit[0])
                 linksTime+=time.time()-linksStart
 
-            unitDictionary["Resource ID"]=unit[0]
-            if(unit[48]!=""):
-                unitDictionary["Resource ID"]=str(int(float(unit[48])))
-            if(unit[0][-1]=="1"):
-                unitDictionary["Resource ID"]=(unit[0][:-1]+"0")
-            unitDictionary["Resource ID"]=int(unitDictionary["Resource ID"])
+            unitDictionary["Resource ID"]=getResourceIDSQL(connection,unit[0])
 
             unitDictionary["Passive"]={}
             if(CALCPASSIVE):
                 passiveStart=time.time()
-                unitDictionary["Passive"]=parsePassiveSkill(unit,eza,seza,DEVEXCEPTIONS)
-                unitDictionary["Itemized Passive Description"]=parsePassiveSkillItemizedDescription(unit,eza,seza,DEVEXCEPTIONS)
+                unitDictionary["Passive"]=parsePassiveSkillSQL(connection,unit,eza,seza,DEVEXCEPTIONS)
+                unitDictionary["Itemized Passive Description"]=parsePassiveSkillItemizedDescriptionSQL(connection,unit[0],eza,seza)
                 passiveTime+=time.time()-passiveStart
 
             unitDictionary["Max Attacks"]=1
             unitDictionary["Max Super Attacks"]=1
-            if(getrarity(unit)=="lr" or getrarity(unit)=="ur"):
+            if(getRaritySQL(connection,unit[0])in ["lr","ur"]):
                 unitDictionary["Max Super Attacks"]+=1
                 unitDictionary["Max Attacks"]+=1
             for passive in unitDictionary["Passive"]:
@@ -192,7 +188,7 @@ for unit in cardsToCheck[:]:
             unitDictionary["Stats at levels"]={}
             if(CALCLEVELS):
                 levelStart=time.time()
-                unitDictionary["Stats at levels"]=getStatsAtAllLevels(unit,eza,unitDictionary["Min Level"],unitDictionary["Max Level"])
+                unitDictionary["Stats at levels"]=getStatsAtAllLevelsSQL(connection,unit[0],unitDictionary["Min Level"],unitDictionary["Max Level"])
                 levelTime+=time.time()-levelStart
             
             unitDictionary["Leader Skill"]={}
@@ -290,10 +286,10 @@ for unit in cardsToCheck[:]:
 
             if(CALCTRANSFORMATIONS):
                 for transformation in unitDictionary["Transformations"]:
-                    if(unit[0][-1]=="1" and transformation[-1]=="0"):
-                        unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"1"
-                    elif(unit[0][-1]=="0" and transformation[-1]=="1"):
-                        unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=transformation[:-1]+"0"
+                    if(unit[0][-1]=="1" and str(transformation)[-1]=="0"):
+                        unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=str(transformation)[:-1]+"1"
+                    elif(unit[0][-1]=="0" and str(transformation)[-1]=="1"):
+                        unitDictionary["Transformations"][unitDictionary["Transformations"].index(transformation)]=str(transformation)[:-1]+"0"
                 unitDictionary["Transformations"]=list(set(unitDictionary["Transformations"]))
 
             unitDictionary["Dokkan awakenings"]=[]
@@ -371,6 +367,7 @@ for unit in cardsToCheck[:]:
                 totalUnitJson[jsonName]=unitDictionary
 
 #backtrack fix all transformations and transforms from
+backtrackstart=time.time()
 for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
     for unit in jsonList:
         if(jsonList[unit]["Transformations"]!=[]):
@@ -420,8 +417,11 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
                     
 for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
     for unit in jsonList:
+        jsonList[unit]["Transformations"]=[str(x) for x in jsonList[unit]["Transformations"]]
         jsonList[unit]["Transformations"]=list(set(jsonList[unit]["Transformations"]))
         jsonList[unit]["Transformations"].sort()
+
+        jsonList[unit]["Transforms from"]=[str(x) for x in jsonList[unit]["Transforms from"]]
         jsonList[unit]["Transforms from"]=list(set(jsonList[unit]["Transforms from"]))
         jsonList[unit]["Transforms from"].sort()
 
@@ -444,6 +444,7 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
                     }
 
 #find the max lead for all units
+backtrackTime+=time.time()-backtrackstart
 if(CALCLEADER):
     highestLeaderStartTime=time.time()
     for unit in totalUnitJson:
@@ -483,6 +484,7 @@ print("Active time:",round(activeTime,2))
 print("Standby time:",round(standbyTime,2))
 print("Highest Leader time:",round(highestLeaderTime,2))
 print("Json time:",round(jsonTime,2))
-print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime+highestLeaderTime),2))
+print("Backtrack time:",round(backtrackTime,2))
+print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime+highestLeaderTime+backtrackTime),2))
 print("Total time:",round(totalTime,2))
 print("Average per unit",round((totalTime)/unitCount,5))

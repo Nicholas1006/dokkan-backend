@@ -62,6 +62,7 @@ standbyTime=0.0
 finishTime=0.0
 linksTime=0.0
 circleTime=0.0
+backtrackTime=0.0
 highestLeaderTime=0.0
 multiplierTime=0.0
 
@@ -368,6 +369,7 @@ for unit in cardsToCheck[:]:
             else:
                 totalUnitJson[jsonName]=unitDictionary
 
+backtrackstart=time.time()
 #backtrack fix all transformations and transforms from
 for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
     for unit in jsonList:
@@ -442,6 +444,7 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
                     }
 
 #find the max lead for all units
+backtrackTime+=time.time()-backtrackstart
 if(CALCLEADER):
     highestLeaderStartTime=time.time()
     for unit in totalUnitJson:
@@ -481,6 +484,7 @@ print("Active time:",round(activeTime,2))
 print("Standby time:",round(standbyTime,2))
 print("Highest Leader time:",round(highestLeaderTime,2))
 print("Json time:",round(jsonTime,2))
-print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime+highestLeaderTime),2))
+print("Backtrack time:",round(backtrackTime,2))
+print("Other time:" ,round(totalTime-(passiveTime+finishTime+linksTime+leaderTime+hipoTime+orbsTime+activeTime+superTime+levelTime+basicTime+jsonTime+multiplierTime+standbyTime+highestLeaderTime+backtrackTime),2))
 print("Total time:",round(totalTime,2))
 print("Average per unit",round((totalTime)/unitCount,5))
