@@ -1,4 +1,5 @@
 
+from sys import exception
 from globals import *
 import csv
 import os
@@ -17,8 +18,155 @@ def getUnitCost(unit):
 def dateTimeToTimestamp(date):
     return(int(datetime.strptime(date, "%Y-%m-%d %H:%M:%S").timestamp()))
 
+
+def getUnitReleaseTimeSQL(connection,unitID):
+    query="""
+    SELECT open_at
+    FROM cards
+    WHERE id=?
+    """
+    return dateTimeToTimestamp(connection.execute(query,(unitID,)).fetchone()[0]
+)
 def getUnitReleaseTime(card):
     return(dateTimeToTimestamp(card[53]))
+
+def getEzaReleaseTimeSQL(connection,unitID,seza):
+    query="""
+    WITH RECURSIVE
+    input(id) AS (SELECT ?),
+    resolver(current_id, result, done, depth) AS (
+        -- Initial step
+        SELECT i.id, NULL, 0, 0
+        FROM input i
+
+        UNION ALL
+
+        -- Recursive step
+        SELECT
+            -- Compute next_id based on rules
+            CASE
+                WHEN EXISTS (
+                    SELECT 1
+                    FROM card_awakening_routes car
+                    WHERE car.card_id = r.current_id
+                      AND car.optimal_awakening_type = ?
+                )
+                THEN r.current_id
+
+                WHEN EXISTS (
+                    SELECT 1 FROM passive_skills ps WHERE ps.eff_value1 = r.current_id
+                )
+                THEN (
+                    SELECT c.id
+                    FROM passive_skills ps
+                    JOIN passive_skill_set_relations pssr
+                      ON ps.id = pssr.passive_skill_id
+                    JOIN cards c
+                      ON c.passive_skill_set_id = pssr.passive_skill_set_id
+                    WHERE ps.eff_value1 = r.current_id
+                    LIMIT 1
+                )
+
+                WHEN EXISTS (
+                    SELECT 1 FROM active_skills a WHERE a.eff_val1 = r.current_id
+                )
+                THEN (
+                    SELECT cas.card_id
+                    FROM active_skills a
+                    JOIN card_active_skills cas
+                      ON a.active_skill_set_id = cas.active_skill_set_id
+                    WHERE a.eff_val1 = r.current_id
+                    LIMIT 1
+                )
+
+                WHEN EXISTS (
+                    SELECT 1 FROM card_costumes cc WHERE cc.card_id = r.current_id
+                )
+                THEN (
+                    SELECT ccc.card_id
+                    FROM card_costumes cc
+                    JOIN card_costume_conditions ccc
+                      ON ccc.card_costume_id = cc.id
+                    WHERE cc.card_id = r.current_id
+                    LIMIT 1
+                )
+
+                WHEN EXISTS (
+                    SELECT 1 FROM standby_skills ss
+                    WHERE ss.efficacy_values LIKE '%' || r.current_id || '%'
+                )
+                THEN (
+                    SELECT cssr.card_id
+                    FROM standby_skills ss
+                    JOIN card_standby_skill_set_relations cssr
+                      ON ss.standby_skill_set_id = cssr.standby_skill_set_id
+                    WHERE ss.efficacy_values LIKE '%' || r.current_id || '%'
+                    LIMIT 1
+                )
+
+                WHEN EXISTS (
+                    SELECT 1 FROM finish_skills fs
+                    WHERE fs.efficacy_values LIKE '%' || r.current_id || '%'
+                )
+                THEN (
+                    SELECT cfssr.card_id
+                    FROM finish_skills fs
+                    JOIN card_finish_skill_set_relations cfssr
+                      ON fs.finish_skill_set_id = cfssr.finish_skill_set_id
+                    WHERE fs.efficacy_values LIKE '%' || r.current_id || '%'
+                    LIMIT 1
+                )
+
+                ELSE (CAST((r.current_id / 2) AS INTEGER) * 2 + 1)
+            END AS next_id,
+
+            -- Compute result if we hit awakening
+            CASE
+                WHEN EXISTS (
+                    SELECT 1
+                    FROM card_awakening_routes car
+                    WHERE car.card_id = r.current_id
+                      AND car.optimal_awakening_type = 1
+                )
+                THEN (
+                    SELECT car.open_at
+                    FROM card_awakening_routes car
+                    WHERE car.card_id = r.current_id
+                      AND car.optimal_awakening_type = 1
+                    LIMIT 1
+                )
+                ELSE NULL
+            END AS result,
+
+            CASE
+                WHEN EXISTS (
+                    SELECT 1
+                    FROM card_awakening_routes car
+                    WHERE car.card_id = r.current_id
+                      AND car.optimal_awakening_type = 1
+                ) THEN 1
+                ELSE 0
+            END AS done,
+
+            r.depth + 1
+        FROM resolver r
+        WHERE r.done = 0
+          AND r.depth < 50   -- safety cutoff
+    )
+SELECT result
+FROM resolver
+WHERE result IS NOT NULL
+LIMIT 1;
+    """
+    if(seza):
+        optimal_awakening_type=2
+    else:
+        optimal_awakening_type=1
+    releaseTime=connection.execute(query,(unitID,optimal_awakening_type)).fetchone()
+    if releaseTime==None:
+        raise Exception("No release time found") 
+    else:
+        return(dateTimeToTimestamp(releaseTime[0]))
 
 def getEzaReleaseTime(unit,DEVEXCEPTIONS=True):
     awakening_options=searchbycolumn(unit[0],card_awakening_routes,2)
@@ -208,7 +356,7 @@ def getNameSQL(connection,unitID):
     """
     return(connection.execute(query, (unitID,)).fetchone()[0])
 
-def getMaxLevelSQL(connection,unitID,eza):
+def getMaxLevelSQL(connection,unitID,eza=False):
     if(eza):
         query = """
         SELECT optimal_awakening_growths.lv_max 
@@ -226,6 +374,7 @@ def getMaxLevelSQL(connection,unitID,eza):
         WHERE id=?
         """
         return(connection.execute(query, (unitID,)).fetchone()[0])
+
 
 
 def getMaxLevel(unit,eza=False):
@@ -1157,6 +1306,46 @@ def getStatsAtAllLevelsSQL(connection,unitID,minLevel,maxLevel):
     """
     statsData=((connection.execute(query,(int(unitID),minLevel,maxLevel))).fetchall())
     return {row[0]: {"HP": int(row[1]), "ATK": int(row[2]), "DEF": int(row[3])} for row in statsData}
+
+def getStatsAtHighestSQL(connection,unitID,eza):
+    query="""
+    SELECT 
+        FLOOR(
+            (0.5 * (growth.lv - 1) * (c.hp_max - c.hp_init)) / (c.lv_max - 1) + 
+            0.5 * growth.coef * (c.hp_max - c.hp_init) + 
+            c.hp_init
+        ) as HP,
+        FLOOR(
+            (0.5 * (growth.lv - 1) * (c.atk_max - c.atk_init)) / (c.lv_max - 1) + 
+            0.5 * growth.coef * (c.atk_max - c.atk_init) + 
+            c.atk_init
+        ) as ATK,
+        FLOOR(
+            (0.5 * (growth.lv - 1) * (c.def_max - c.def_init)) / (c.lv_max - 1) + 
+            0.5 * growth.coef * (c.def_max - c.def_init) + 
+            c.def_init
+        ) as DEF
+    FROM cards c
+    JOIN card_growths growth ON c.grow_type = growth.grow_type
+    WHERE c.id = ? 
+    AND growth.lv = ?
+    ORDER BY growth.lv
+    """
+    maxLevel=getMaxLevelSQL(connection,unitID,eza)
+    statsData=connection.execute(query,(int(unitID),maxLevel)).fetchone()
+    return {"HP": int(statsData[0]), "ATK": int(statsData[1]), "DEF": int(statsData[2])}
+
+def canDokkanAwakenSQL(connection,unitID):
+    query="""
+    SELECT card_awakening_routes.card_id
+    FROM cards
+    JOIN card_awakening_routes ON 
+        card_awakening_routes.type = "CardAwakeningRoute::Dokkan" 
+        AND (card_awakening_routes.awaked_card_id = (2*FLOOR(cards.id/2))
+        OR card_awakening_routes.awaked_card_id = ((2*FLOOR(cards.id/2))+1) )
+    WHERE cards.id=?
+    """
+    return connection.execute(query,(unitID,)).fetchone()!=None
 
 
 def getStatsAtAllLevels(unit,eza,minLevel,maxLevel):
@@ -4051,26 +4240,7 @@ def qualifyOwnable(card):
     else:
         return(False)
 
-def qualifyEncounterableAsOwnableSQL(connection,unitID):
-    query="""
-    SELECT * FROM cards
-    WHERE
-        card_awakening_routes.card_id
-            AND
-        card_training_skill_lvs_id IS NULL
-            AND
-        (cards.id BETWEEN 1000000 AND 2999999)
-            AND
-        cards.id % 2 = 1
-            AND
-        DATETIME(cards.open_at) < DATETIME("now", "+1 year")
-            AND
-        cards.element >= 10
-            AND
-        cards.hp_max > 1
-        JOIN card_awakening_routes ON cards.id = card_awakening_routes.card_id
-    """
-    return connection.execute(query, (unitID,)).fetchone()
+
 
 def qualifyEncounterableAsOwnable(card):
     possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routes,column=2)
@@ -4084,6 +4254,23 @@ def qualifyEncounterableAsOwnable(card):
     else:
         return(False)
 
+
+def qualifyOwnableSQL(connection,unitID):
+    query="""
+    SELECT cards.*
+    FROM cards
+    LEFT JOIN card_awakening_routes ON cards.id = card_awakening_routes.card_id OR cards.id = card_awakening_routes.awaked_card_id
+    LEFT JOIN card_training_skill_lvs ON cards.id = card_training_skill_lvs.card_id
+    WHERE
+        (card_awakening_routes.id IS NOT NULL OR cards.id LIKE "4%")
+        AND card_training_skill_lvs.id IS NULL
+        AND cards.is_selling_only = 0
+        AND DATETIME(cards.open_at) < DATETIME("now", "+1 year")
+        AND cards.hp_max > 1
+        AND cards.id=?
+    ;
+    """
+    return connection.execute(query, (unitID,)).fetchone()!=None
 
 
 def qualifyEncounterable(card):

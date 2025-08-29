@@ -73,119 +73,116 @@ if(CALCALLUNITS):
     unitCount=0
     maxUnitCount=len(cards)-1
 allUnitsDictionary=[]
-encounterableCards=[]
+ownableCards=[]
 for unit in cards[1:]:
     if(CALCALLUNITS):
         if(unitCount%100==0):
             print(unitCount,"/",maxUnitCount)
         unitCount+=1
-    if qualifyEncounterable(unit):
-        encounterableCards.append(unit)
+    if qualifyOwnableSQL(connection,unit[0]):
+        ownableCards.append(unit)
 
 
 if(CALCUNITBASICS):
     unitBasics={}
     print("Creating all units basics")
     unitCount=0
-    maxUnitCount=len(encounterableCards)
-    for unit in encounterableCards:
-        ezaTrueFalse=["None"]
-        if(checkEza(unit[0])):
-            ezaTrueFalse.append("EZA")
-        if(checkSeza(unit[0])):
-            ezaTrueFalse.append("SEZA")
-        for ezaCheck in ezaTrueFalse:
-            if(ezaCheck)=="None":
-                eza=False
-                seza=False
-            elif(ezaCheck)=="EZA":
-                eza=True
-                seza=False
-            elif(ezaCheck)=="SEZA":
-                eza=False
-                seza=True
-            unit1=swapToUnitWith1(unit)
-            unitDictionary={}
+    maxUnitCount=len(ownableCards)
+    for unit in ownableCards:
+        try:
+            ezaTrueFalse=["None"]
+            if(checkEza(unit[0])):
+                ezaTrueFalse.append("EZA")
+            if(checkSeza(unit[0])):
+                ezaTrueFalse.append("SEZA")
+            for ezaCheck in ezaTrueFalse:
+                if(ezaCheck)=="None":
+                    eza=False
+                    seza=False
+                elif(ezaCheck)=="EZA":
+                    eza=True
+                    seza=False
+                elif(ezaCheck)=="SEZA":
+                    eza=False
+                    seza=True
+                unit1=swapToUnitWith1(unit)
+                unitDictionary={}
 
-            #Sort conditions
-            unitDictionary["ID"]=int(unit[0])
-            unitDictionary["Ownable"]=qualifyMaxedSQL(connection,unit[0])
-            unitDictionary["Name"]=unit[1]
-            unitDictionary["Type"]=getUnitType(unit)
-            unitDictionary["Rarity"]=getrarity(unit)
-            unitDictionary["Max Level"]=getMaxLevel(unit,eza or seza)
-            unitDictionary["Cost"]=int(getUnitCost(unit))
-            unitDictionary["Eza"]=eza
-            unitDictionary["Seza"]=seza
-            unitDictionary["Dokkan Awakened"]=False
-            relevant_awakenings=searchbycolumn(code=unit[0],database=card_awakening_routes,column=3)
-            relevant_awakenings+=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=3)
-            relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
-            if(relevant_awakenings!=[]):
-                unitDictionary["Dokkan Awakened"]=True
-            intUnit = [int(x) for x in unit[6:14]]
-            growthInfo=searchbycolumn(code=unit[15],column=1,database=card_growths)
-            coef=float(searchbyid(code=str(unitDictionary["Max Level"]),codecolumn=2,database=growthInfo,column=3)[0])
-            maxLevelStats=getUnitStats(intUnit,unitDictionary["Max Level"],coef)
-            unitDictionary["HP"]=maxLevelStats["HP"]
-            unitDictionary["Attack"]=maxLevelStats["ATK"]
-            unitDictionary["Defense"]=maxLevelStats["DEF"]
-            if(eza):
-                unitDictionary["Release"]=getEzaReleaseTime(unit,DEVEXCEPTIONS)
-            elif(seza):
-                unitDictionary["Release"]=getSezaReleaseTime(unit,DEVEXCEPTIONS)
-            else:
-                unitDictionary["Release"]=getUnitReleaseTime(unit)
-            unitDictionary["Character"]=int(getCharacterNameID(unit))
-            unitDictionary["Sp Atk Lv"]=getSuperAttackLevel(unit,eza)
-            if(eza):
-                unitDictionary["Sp ATK Lv"]=str(5+int(unit[14]))
-            if(unitDictionary["Rarity"]=="ur" or unitDictionary["Rarity"]=="lr"):
-                unitDictionary["Activation"]=1
+                #Sort conditions
+                unitDictionary["ID"]=int(unit[0])
+                unitDictionary["Maxed"]=qualifyMaxedSQL(connection,unit[0])
+                unitDictionary["Name"]=getNameSQL(connection,unit[0])
+                unitDictionary["Type"]=getUnitTypeSQL(connection,unit[0])
+                unitDictionary["Rarity"]=getRaritySQL(connection,unit[0])
+                unitDictionary["Max Level"]=getMaxLevelSQL(connection,unit[0],eza or seza)
+                unitDictionary["Cost"]=int(unit[4])
+                unitDictionary["Eza"]=eza
+                unitDictionary["Seza"]=seza
+                unitDictionary["Dokkan Awakened"]=canDokkanAwakenSQL(connection,unit[0])
+                maxLevelStats=getStatsAtHighestSQL(connection,unit[0],eza or seza)
+                unitDictionary["HP"]=maxLevelStats["HP"]
+                unitDictionary["Attack"]=maxLevelStats["ATK"]
+                unitDictionary["Defense"]=maxLevelStats["DEF"]
+                if(eza):
+                    unitDictionary["Release"]=getEzaReleaseTimeSQL(connection,unit[0],False)
+                elif(seza):
+                    unitDictionary["Release"]=getEzaReleaseTimeSQL(connection,unit[0],True)
+                else:
+                    unitDictionary["Release"]=getUnitReleaseTimeSQL(connection,unit[0])
+                unitDictionary["Character"]=int(getCharacterNameID(unit))
+                unitDictionary["Sp Atk Lv"]=getSuperAttackLevel(unit,eza)
+                if(eza):
+                    unitDictionary["Sp ATK Lv"]=str(5+int(unit[14]))
+                if(unitDictionary["Rarity"]=="ur" or unitDictionary["Rarity"]=="lr"):
+                    unitDictionary["Activation"]=1
 
 
-            unitDictionary["Resource ID"]=unit[0]
-            if(unit[48]!=""):
-                unitDictionary["Resource ID"]=str(int(float(unit[48])))
-            if(unitDictionary["Resource ID"][-1]=="1"):
-                unitDictionary["Resource ID"]=(unitDictionary["Resource ID"][:-1]+"0")
-            
-            #filter conditions(many are within sort)
-            unitDictionary["Class"]=getUnitClass(unit)
-            unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
+                unitDictionary["Resource ID"]=unit[0]
+                if(unit[48]!=""):
+                    unitDictionary["Resource ID"]=str(int(float(unit[48])))
+                if(unitDictionary["Resource ID"][-1]=="1"):
+                    unitDictionary["Resource ID"]=(unitDictionary["Resource ID"][:-1]+"0")
+                
+                #filter conditions(many are within sort)
+                unitDictionary["Class"]=getUnitClass(unit)
+                unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
 
-            unitDictionary["Awakening"]={"Dokkan Awakening":False, "Awakening to LR":False, "Extreme Z-Awakening":False, "Super Extreme Z-Awakening":False}
-            relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
-            relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
-            if(len(relevant_awakenings)>0):
-                unitDictionary["Awakening"]["Dokkan Awakening"]=True
+                unitDictionary["Awakening"]={"Dokkan Awakening":False, "Awakening to LR":False, "Extreme Z-Awakening":False, "Super Extreme Z-Awakening":False}
+                relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
+                relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
+                if(len(relevant_awakenings)>0):
+                    unitDictionary["Awakening"]["Dokkan Awakening"]=True
 
 
-            for awakening in relevant_awakenings:
-                if(getrarity(awakening[3])=="lr"):
-                    unitDictionary["Awakening"]["Awakening to LR"]=True
+                for awakening in relevant_awakenings:
+                    if(getrarity(awakening[3])=="lr"):
+                        unitDictionary["Awakening"]["Awakening to LR"]=True
 
-            if("EZA" in ezaTrueFalse and eza==False):
-                unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
-            if("SEZA" in ezaTrueFalse and seza==False):
-                unitDictionary["Awakening"]["Super Extreme Z-Awakening"]=True
+                if("EZA" in ezaTrueFalse and eza==False):
+                    unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
+                if("SEZA" in ezaTrueFalse and seza==False):
+                    unitDictionary["Awakening"]["Super Extreme Z-Awakening"]=True
 
-            superAttackTypes=getSuperAttackTypes(unit,eza)
+                superAttackTypes=getSuperAttackTypes(unit,eza)
 
-            unitDictionary["Super Attack Types"]=superAttackTypes
-            if(eza):
-                unitBasics[unit[0]+"EZA"]=unitDictionary
-            elif(seza):
-                unitBasics[unit[0]+"SEZA"]=unitDictionary
-            else:
-                unitBasics[unit[0]]=unitDictionary
+                unitDictionary["Super Attack Types"]=superAttackTypes
+                if(eza):
+                    unitBasics[unit[0]+"EZA"]=unitDictionary
+                elif(seza):
+                    unitBasics[unit[0]+"SEZA"]=unitDictionary
+                else:
+                    unitBasics[unit[0]]=unitDictionary
 
-            unitDictionary["Leader Skill"]= parseLeaderSkill(unit,eza)
+                unitDictionary["Leader Skill"]= parseLeaderSkill(unit,eza)
 
-            unitDictionary["Links"]=getalllinks(unit)
+                unitDictionary["Links"]=getalllinks(unit)
 
-        print(unitCount,"/",maxUnitCount)
-        unitCount+=1
+            print(unitCount,"/",maxUnitCount)
+            unitCount+=1
+        except Exception as e:
+            print(unitCount,"/",maxUnitCount)
+            print("FAIELD" , str(unit[0]) , str(e))
+            unitCount+=1
             
 
     print("Turning unitBasics into json seperated by component")
