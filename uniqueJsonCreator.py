@@ -1,6 +1,8 @@
 from dokkanfunctions import *
+import sqlite3
 
-
+GLOBAL_DB_LOC=os.path.dirname(os.path.abspath(__file__))+"/Dokkan_Asset_Downloader/card_assets/global/en/sqlite/current/en/database.db"
+connection = sqlite3.connect(GLOBAL_DB_LOC)
 CALCLINKS=True
 CALCCATEGORIES=True
 CALCDOMAINS=True
@@ -107,7 +109,7 @@ if(CALCUNITBASICS):
 
             #Sort conditions
             unitDictionary["ID"]=int(unit[0])
-            unitDictionary["Ownable"]=qualifyEncounterableAsOwnable(unit)
+            unitDictionary["Ownable"]=qualifyMaxedSQL(connection,unit[0])
             unitDictionary["Name"]=unit[1]
             unitDictionary["Type"]=getUnitType(unit)
             unitDictionary["Rarity"]=getrarity(unit)

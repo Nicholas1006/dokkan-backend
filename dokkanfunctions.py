@@ -4008,7 +4008,25 @@ def qualifySEZA(card,printing=True):
     else:
         return(False)
 
-
+def qualifyMaxedSQL(connection,unitID):
+    query="""
+    SELECT cards.*
+    FROM cards
+    LEFT JOIN card_awakening_routes ON cards.id = card_awakening_routes.card_id AND (card_awakening_routes.type = "CardAwakeningRoute::Dokkan" OR card_awakening_routes.type = "CardAwakeningRoute::Zet")
+    LEFT JOIN card_training_skill_lvs ON cards.id = card_training_skill_lvs.card_id
+    WHERE
+        card_awakening_routes.id IS NULL
+        AND card_training_skill_lvs.id IS NULL
+        AND (cards.id BETWEEN 1000000 AND 2999999)
+        AND cards.id % 2 = 1
+        AND cards.is_selling_only = 0
+        AND DATETIME(cards.open_at) < DATETIME("now", "+1 year")
+        AND cards.element >= 10
+        AND cards.hp_max > 1
+        AND cards.id=?
+    ;
+    """
+    return connection.execute(query, (unitID,)).fetchone()!=None
 
 def qualifyOwnable(card):
     possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routes,column=2)
@@ -4032,6 +4050,27 @@ def qualifyOwnable(card):
         return(True)
     else:
         return(False)
+
+def qualifyEncounterableAsOwnableSQL(connection,unitID):
+    query="""
+    SELECT * FROM cards
+    WHERE
+        card_awakening_routes.card_id
+            AND
+        card_training_skill_lvs_id IS NULL
+            AND
+        (cards.id BETWEEN 1000000 AND 2999999)
+            AND
+        cards.id % 2 = 1
+            AND
+        DATETIME(cards.open_at) < DATETIME("now", "+1 year")
+            AND
+        cards.element >= 10
+            AND
+        cards.hp_max > 1
+        JOIN card_awakening_routes ON cards.id = card_awakening_routes.card_id
+    """
+    return connection.execute(query, (unitID,)).fetchone()
 
 def qualifyEncounterableAsOwnable(card):
     possibleAwakening=searchbycolumn(code=card[0],database=card_awakening_routes,column=2)
