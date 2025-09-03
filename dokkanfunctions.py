@@ -1465,7 +1465,7 @@ def shortenPassiveDictionary(oldPassiveDictionary):
         if passiveDictionary["Target"]=={}:
             passiveDictionary.pop("Target")
     if "Chance" in passiveDictionary:
-        if passiveDictionary["Chance"]==100:
+        if passiveDictionary["Chance"]==100 or passiveDictionary["Chance"]=="100":
             passiveDictionary.pop("Chance")
     if "Length" in passiveDictionary:
         if passiveDictionary["Length"]==None:
