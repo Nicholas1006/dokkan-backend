@@ -79,13 +79,13 @@ leaderSkills=[]
 
 if GLOBALPARSE:
     for unit in cards[1:]:
-        if qualifyOwnableSQL(unit):
+        if qualifyOwnableSQL(connection,unit[0]):
             cardsToCheck.append(unit)
 else:
     for ID in cardIDsToCheck:
         for unit in cards[1:]:
             if unit[0]==ID:
-                if(qualifyOwnableSQL(unit)):
+                if(qualifyOwnableSQL(connection,unit[0])):
                     cardsToCheck.append(unit)
                 else:
                     print("UNUSABLE UNIT",unit[0])

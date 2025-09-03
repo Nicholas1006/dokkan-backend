@@ -1,5 +1,5 @@
 
-from sys import exception
+#from sys import exception
 from globals import *
 import csv
 import os
