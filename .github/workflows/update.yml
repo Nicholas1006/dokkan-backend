@@ -124,7 +124,7 @@ jobs:
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           python Database_expander.py
-          python dokkan_Json_creator.py
+          python dokkan_Json_creatorSQL.py
           python uniqueJsonCreator.py
         shell: cmd
 
