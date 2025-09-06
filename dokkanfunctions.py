@@ -457,6 +457,28 @@ def parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS=False):
 
     return(output)
 
+def getSuperAttackTypesSQL(connection,unitID,eza=False):
+    if(eza):
+        query="""
+        SELECT special_views.special_category_id
+        FROM cards
+        JOIN special_views ON card_specials.view_id = special_views.id
+        JOIN card_specials ON cards.id = card_specials.card_id
+        WHERE cards.id = ? AND cards.skill_lv_max < card_specials.lv_start
+        """
+    else:
+        query="""
+        SELECT special_views.special_category_id
+        FROM cards
+        JOIN special_views ON card_specials.view_id = special_views.id
+        JOIN card_specials ON cards.id = card_specials.card_id
+        WHERE cards.id = ? AND cards.skill_lv_max >= card_specials.lv_start
+        """
+    results=connection.execute(query,(unitID,)).fetchall()
+    results=[x[0] for x in results]
+    results=list(map(lambda x: {None: "Other", 1: "Ki blast", 2: "Unarmed", 3: "Physical"}.get(x, "Unknown"), results))
+    return results
+
 def getSuperAttackTypes(unit, eza=False):
     output=[]
     card_specialss=searchbycolumn(code=unit[0],column=1,database=card_specials)
@@ -468,6 +490,7 @@ def getSuperAttackTypes(unit, eza=False):
 
 def getSuperAttackType(card_special):
     view_id=card_special[7]
+    special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_views,column=7)[0]
     special_category_id=searchbyid(code=view_id,codecolumn=0,database=special_views,column=7)[0]
     if(special_category_id==""):
         return "Other"
