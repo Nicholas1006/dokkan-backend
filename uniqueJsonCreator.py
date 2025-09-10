@@ -236,8 +236,10 @@ if(CALCUNITBASICS):
 
                 if("EZA" in ezaTrueFalse and eza==False):
                     unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
+                    unitDictionary["Maxed"]=False
                 if("SEZA" in ezaTrueFalse and seza==False):
                     unitDictionary["Awakening"]["Super Extreme Z-Awakening"]=True
+                    unitDictionary["Maxed"]=False
                 awakeningTime+=time.time()-awakeningStart
 
                 superAttackTypesStart=time.time()
