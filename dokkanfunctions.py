@@ -5473,6 +5473,7 @@ def enemySuperCondition(parsedLine,DEVECXEPTION=True):
 def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     output=parsedLine
     causalities=[""]
+    oneTurnOnly=parsedLine["Length"]==1
     if("Condition" in parsedLine):
         causalities=[]
         for causalityKey in parsedLine["Condition"]["Causalities"]:
@@ -5480,14 +5481,22 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
 
     if(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0]=="Has this unit evaded an attack?"):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks evaded"
-        output["Building Stat"]["Slider"]="How many attacks have been evaded?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks evaded on this turn"
+            output["Building Stat"]["Slider"]="How many attacks have been evaded on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks evaded"
+            output["Building Stat"]["Slider"]="How many attacks have been evaded?"
 
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0][:33]=='Has this character recieved their'):
         quantity=causalities[0][34]
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]=quantity+" attacks recieved"
-        output["Building Stat"]["Slider"]="How many times has this character recieved "+quantity+" attacks?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]=quantity+" attacks recieved on this turn"
+            output["Building Stat"]["Slider"]="How many times has this character recieved "+quantity+" attacks on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]=quantity+" attacks recieved"
+            output["Building Stat"]["Slider"]="How many times has this character recieved "+quantity+" attacks?"
     
     elif(parsedLine["Timing"]=="Start of turn" and len(causalities)==1 and causalities[0]=='Is HP 80 % or less?'):
         del output["Condition"]
@@ -5496,12 +5505,20 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
 
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==1 and causalities[0]=='Has this character been hit?'):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved"
-        output["Building Stat"]["Slider"]="How many attacks has this character recieved?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this character recieved on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved"
+            output["Building Stat"]["Slider"]="How many attacks has this character recieved?"
 
     elif(parsedLine["Timing"]=="Right after attack" and causalities[0]==""):
-        output["Building Stat"]["Cause"]["Cause"]="Attacks performed"
-        output["Building Stat"]["Slider"]="How many attacks has this character performed in battle?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks performed on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this character performed on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks performed"
+            output["Building Stat"]["Slider"]="How many attacks has this character performed in battle?"
 
     elif(parsedLine["Timing"]=="Start of turn" and causalities[0]==""):
         output["Building Stat"]["Cause"]["Cause"]="Start of turn"
@@ -5540,31 +5557,52 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     
     elif((parsedLine["Timing"]=="Right before being hit" or parsedLine["Timing"]=="Right after being hit") and len(causalities)==1 and causalities[0]=='Has guard been activated?'):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Guard activated"
-        output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Guard activated on this turn"
+            output["Building Stat"]["Slider"]="How many times has this character's guard been activated on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Guard activated"
+            output["Building Stat"]["Slider"]="How many times has this character's guard been activated?"
     
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and 'category allies attacking on this turn?' in causalities[1]):
         del output["Condition"]
         category=causalities[1][20:-30]
         quantity=causalities[1][10]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on this turn"
-        output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on this turn?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved with "+quantity+" or more "+category+" category units"
+            output["Building Stat"]["Slider"]="How many attacks has this character recieved while there was "+quantity+" or more "+category+" category units?"
+            
     
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and 'Has this character been hit?' in causalities and 'Has this unit evaded an attack?' in causalities):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
-        output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
+            output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
 
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=="Has this unit evaded an attack?" and 'allies on the team whose name includes' in causalities[1]):
         del output["Condition"]
         allyName=causalities[1][49:-1]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
-        output["Building Stat"]["Slider"]="How many attacks has this unit evaded with an ally on the team whose name includes "+allyName+"?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName+" on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this unit evaded on this turn with an ally on the team whose name includes "+allyName+"?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks evaded with an ally on the team whose name includes "+allyName
+            output["Building Stat"]["Slider"]="How many attacks has this unit evaded with an ally on the team whose name includes "+allyName+"?"
 
     elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and causalities[0]=='Has this character been hit?' and causalities[1]=='Has this unit evaded an attack?'):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
-        output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded"
+            output["Building Stat"]["Slider"]="How many attacks has this unit recieved or evaded?"
 
     elif(parsedLine["Timing"]=="When final blow delivered" and len(causalities)==1 and causalities[0]=='Has this character delivered the final blow?'):
         del output["Condition"]
@@ -5582,11 +5620,19 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         firstSlot=causalities[0][12:-22]
         if(len(causalities)==2):
             secondSlot=causalities[1][12:-22]
-            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" or "+secondSlot+" attacker in the turn"
-            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" or "+secondSlot+" attacker in the turn?"
+            if(oneTurnOnly):
+                output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" or "+secondSlot+" attacker on this turn"
+                output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" or "+secondSlot+" attacker on this turn?"
+            else:
+                output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" or "+secondSlot+" attacker in the turn"
+                output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" or "+secondSlot+" attacker in the turn?"
         else:
-            output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" attacker in the turn"
-            output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" attacker in the turn?"
+            if(oneTurnOnly):
+                output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" attacker on this turn"
+                output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" attacker on this turn?"
+            else:
+                output["Building Stat"]["Cause"]["Cause"]="Attacking as the "+firstSlot+" attacker in the turn"
+                output["Building Stat"]["Slider"]="How many times has this character attacked as the "+firstSlot+" attacker in the turn?"
 
     elif(parsedLine["Timing"]=="Right after being hit" and causalities[0][:9]=='Are there' and causalities[0][-27:]=='category units on the team ' and causalities[2][:9]=='Are there' and causalities[2][-27:]=='category units on the team ' and causalities[1]=="Has guard been activated?"):
         del output["Condition"]
@@ -5594,8 +5640,12 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         quantity2=causalities[2][10]
         category1=causalities[0][20:-28]
         category2=causalities[2][20:-28]
-        output["Building Stat"]["Cause"]["Cause"]="Guard activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team"
-        output["Building Stat"]["Slider"]="How many times has this character's guard been activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Guard activated on this turn with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team"
+            output["Building Stat"]["Slider"]="How many times has this character's guard been activated on this turn with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Guard activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team"
+            output["Building Stat"]["Slider"]="How many times has this character's guard been activated with "+quantity1+" or more "+category1+" category units on the team or "+quantity2+" or more "+category2+" category units on the team?"
 
     elif(parsedLine["Timing"]=="Start of turn" and causalities[0][:9]=='Are there' and causalities[0][-17:]=='category allies ?'):
         del output["Condition"]
@@ -5607,31 +5657,51 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and 'Is the target enemy in' in causalities[0]):
         del output["Condition"]
         condition=causalities[0][23:-1]
-        output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition
-        output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition+"?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition+" on this turn"
+            output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition+" on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition
+            output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition+"?"
 
     elif(parsedLine["Timing"]=="Right before being hit" and len(causalities)==1 and causalities[0]=="Is a super being performed?"):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Super attack recieved"
-        output["Building Stat"]["Slider"]="How many super attacks has this character recieved?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Super attack recieved on this turn"
+            output["Building Stat"]["Slider"]="How many super attacks has this character recieved on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Super attack recieved"
+            output["Building Stat"]["Slider"]="How many super attacks has this character recieved?"
 
     elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0]=='Is a super being performed?') or ((parsedLine["Timing"]=="Right before attack(SOT stat)" or parsedLine["Timing"]=="Right before attack(MOT stat)") and len(causalities)==1 and causalities[0]=='') or ((parsedLine["Timing"]=="Right before attack(SOT stat)" or parsedLine["Timing"]=="Right before attack(MOT stat)") and len(causalities)==1 and causalities[0]=='Is a super being performed?')):
         if("Condition" in output):
             del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Super being performed"
-        output["Building Stat"]["Slider"]="How many super attacks has this character performed?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Super being performed on this turn"
+            output["Building Stat"]["Slider"]="How many super attacks has this character performed on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Super being performed"
+            output["Building Stat"]["Slider"]="How many super attacks has this character performed?"
 
     elif((parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:9]=='Are there' and causalities[0][-17:]=='category allies ?')):
         del output["Condition"]
         quantity=causalities[0][10]
         category=causalities[0][20:-28]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks with "+quantity+" or more "+category+" category units on the team"
-        output["Building Stat"]["Slider"]="How many attacks has this character performed with "+quantity+" or more "+category+" category units on the team?"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks with "+quantity+" or more "+category+" category units on the team on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this character performed on this turn with "+quantity+" or more "+category+" category units on the team?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks with "+quantity+" or more "+category+" category units on the team"
+            output["Building Stat"]["Slider"]="How many attacks has this character performed with "+quantity+" or more "+category+" category units on the team?"
     
     elif(parsedLine["Timing"]=="Right before being hit" and "Has guard been activated?" in causalities):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Guard activated"
-        output["Building Stat"]["Slider"]="How many times has this character's guard been activated while the following was true"
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Guard activated on this turn"
+            output["Building Stat"]["Slider"]="How many times has this character's guard been activated on this turn while the following was true"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Guard activated"
+            output["Building Stat"]["Slider"]="How many times has this character's guard been activated while the following was true"
         for causality in causalities:
             if(causality!="Has guard been activated?"):
                 output["Building Stat"]["Cause"]["Cause"]+=" "+causality+" or"
@@ -5641,8 +5711,12 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
 
     elif(parsedLine["Timing"]=="Right after being hit" and 'Is this the 1st attacker in the turn?' in causalities and "Is this the 2nd attacker in the turn?" in causalities and 'Has this character been hit?' in causalities and 'Has this unit evaded an attack?' in causalities):
         del output["Condition"]
-        output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or dodged in slot 1 or 2"
-        output["Building Stat"]["Slider"]="How many attacks has this character recieved or dodged in slot 1 or 2?" 
+        if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or evaded in slot 1 or 2 on this turn"
+            output["Building Stat"]["Slider"]="How many attacks has this character recieved or dodged in slot 1 or 2 on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or dodged in slot 1 or 2"
+            output["Building Stat"]["Slider"]="How many attacks has this character recieved or dodged in slot 1 or 2?" 
 
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
@@ -5781,6 +5855,8 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Effect"]["Amount"]=int(line[6])
             elif(line[5]=="92"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Guaranteed to hit"
+            elif(line[5]=="101"):
+                output["Effects"][line[0]]["Effect"]["Buff"]="Forsee enemy's Super Attack"
             elif(line[5]=="103"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Transforms"
                 output["Effects"][line[0]]["Effect"]["Unit"]=line[6]
