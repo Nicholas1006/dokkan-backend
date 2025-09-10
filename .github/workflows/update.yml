@@ -82,6 +82,22 @@ jobs:
           }
         shell: pwsh
 
+      - name: Reset GlbAssetVersion to 0 if new assets were found
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          python Dokkan_Asset_Downloader/resetAssetTime.py
+        shell: cmd
+
+      - name: reDownload all assets
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          cd "Dokkan_Asset_Downloader"  || exit /b 1
+          (
+            echo 1
+            echo.
+          ) | Dokkan_Asset_Downloader_v2.5.2_WIN_x64.exe
+        shell: cmd
+
       - name: Configure AWS Credentials
         if: steps.check_changes.outputs.changed == 'true'
         uses: aws-actions/configure-aws-credentials@v2
