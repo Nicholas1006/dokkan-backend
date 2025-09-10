@@ -167,6 +167,7 @@ jobs:
         if: steps.check_changes.outputs.changed == 'true'
         run: |
           xcopy /E /Y "Dokkan_Asset_Downloader\settings.json" "backend\Dokkan_Asset_Downloader\settings.json"
+          xcopy /E /Y "Dokkan_Asset_Downloader\card_assets\global\en\sqlite\current\en\database.db" "backend\Dokkan_Asset_Downloader\card_assets\global\en\sqlite\current\en\database.db"
           xcopy /E /Y "data" "backend\data"
         shell: cmd
 
