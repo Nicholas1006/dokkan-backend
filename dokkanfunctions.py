@@ -412,8 +412,10 @@ def parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS=False):
     output["ID"]=efficiacy[0]
     if(efficiacy[2]=="1"):
         output["Timing"]="At the start of turn"
+        output["Target"]="All enemies"
     elif(efficiacy[2]=="18"):
         output["Timing"]="On domain Being out"
+        output["Target"]="All allies"
     else:
         print("UNKNOWN DOMAIN EFFICIACY TIMING:",efficiacy[2])
         if(DEVEXCEPTIONS==True):
