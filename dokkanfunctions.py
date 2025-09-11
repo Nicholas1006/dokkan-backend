@@ -151,12 +151,12 @@ def getEzaReleaseTimeSQL(connection,unitID,seza):
             r.depth + 1
         FROM resolver r
         WHERE r.done = 0
-          AND r.depth < 50   -- safety cutoff
+          AND r.depth < 10   -- safety cutoff
     )
-SELECT result
-FROM resolver
-WHERE result IS NOT NULL
-LIMIT 1;
+SELECT COALESCE(
+    (SELECT result FROM resolver WHERE result IS NOT NULL LIMIT 1),
+    (SELECT c.open_at FROM cards c JOIN input i ON c.id = i.id)
+) AS result;
     """
     if(seza):
         optimal_awakening_type=2
@@ -4520,14 +4520,16 @@ def qualifyOwnableSQL(connection,unitID):
     query="""
     SELECT cards.*
     FROM cards
-    LEFT JOIN card_awakening_routes ON cards.id = card_awakening_routes.card_id OR cards.id = card_awakening_routes.awaked_card_id
     LEFT JOIN card_training_skill_lvs ON cards.id = card_training_skill_lvs.card_id
+	LEFT JOIN card_growths ON cards.grow_type = card_growths.grow_type
     WHERE
-        (card_awakening_routes.id IS NOT NULL OR cards.id LIKE "4%")
-        AND card_training_skill_lvs.id IS NULL
+        card_training_skill_lvs.id IS NULL
         AND cards.is_selling_only = 0
         AND DATETIME(cards.open_at) < DATETIME("now", "+1 year")
         AND cards.hp_max > 1
+        AND (cards.id BETWEEN 1000000 AND 4999999)
+		AND cards.lv_max = card_growths.lv
+        AND cards.leader_skill_set_id IS NOT NULL
         AND cards.id=?
     ;
     """

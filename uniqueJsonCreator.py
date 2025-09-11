@@ -258,7 +258,7 @@ if(CALCUNITBASICS):
                 else:
                     unitBasics[unit[0]]=unitDictionary
 
-            print(unitCount,"/",maxUnitCount)
+            print(unitCount,"/",maxUnitCount,unit[0])
             unitCount+=1
         except Exception as e:
             print(unitCount,"/",maxUnitCount)
