@@ -273,6 +273,25 @@ def sub_target_types_extractor(sub_target_type_set_id,DEVELOPEREXCEPTIONS=False)
                 raise Exception("Unknown sub target type")
     return (output)
 
+def sub_target_types_extractorSQL(connection,sub_target_type_set_id,):
+    query="""
+    SELECT target_value_type,target_value
+    FROM sub_target_types
+    WHERE sub_target_type_set_id=?
+    """
+    sub_target_type_lines=searchbycolumn(code=sub_target_type_set_id,database=sub_target_types,column=1)
+    output={}
+    output["Category"]=[]
+    output["Excluded Category"]=[]
+    for line in sub_target_type_lines:   
+        if(line[0]==1):
+            output["Category"].append(CategoryExtractorSQL(connection,line[1]))
+        elif(line[0]==2):
+            output["Excluded Category"].append(CategoryExtractorSQL(connection,line[1]))
+        elif(line[0]==3):
+            output["Amount of times to turn giant"]=1
+    return (output)
+
 def openJson(prefix, name, suffix):
     # Construct the file path
     file_path = f"{prefix}{name}{suffix}"
@@ -910,6 +929,214 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
         if("NOT WORKING" in output[line]):
             output.pop(line)
     return(output)
+
+def executeSQL(connection,query,params=(),allOrOne="all"):
+    if(allOrOne.tolower()=="one"):
+        return connection.execute(query,params).fetchone()
+    else:
+        return connection.execute(query,params).fetchall()
+
+def parseLeaderSkillSQL(connection,unitID,eza,DEVEXCEPTIONS=False):
+    output={}
+    query="""
+    SELECT leader_skill_sets.name
+    FROM cards
+    JOIN leader_skill_sets ON cards.leader_skill_set_id = leader_skill_sets.id
+    WHERE cards.id = ?
+    """
+    leader_skill_name=connection.execute(query,(unitID,)).fetchone()
+    output["Name"]=leader_skill_name[0]
+    if(eza):
+        query="""
+        SELECT leader_skills.*
+        FROM cards
+        JOIN optimal_awakening_growths ON cards.optimal_awakening_grow_type = optimal_awakening_growths.optimal_awakening_grow_type
+        JOIN leader_skills ON optimal_awakening_growths.leader_skill_set_id = leader_skills.leader_skill_set_id
+        WHERE optimal_awakening_growths.step = (
+			SELECT MAX(step)
+			FROM optimal_awakening_growths optimal_awakening_growths2
+			WHERE optimal_awakening_growths2.optimal_awakening_grow_type = cards.optimal_awakening_grow_type
+		)
+		AND cards.id = ?
+        """
+        leader_skill_lines=connection.execute(query,(unitID,)).fetchall()
+    else:
+        query="""
+        SELECT leader_skills.*
+        FROM cards
+        JOIN leader_skills ON cards.leader_skill_set_id = leader_skills.leader_skill_set_id
+        WHERE cards.id = ?
+        """
+        leader_skill_lines=connection.execute(query,(unitID,)).fetchall()
+    for leader_skill_line in leader_skill_lines:
+        output[leader_skill_line[0]]={}
+        output[leader_skill_line[0]]["Buff"]={}
+        if(leader_skill_line[8]==0):
+            output[leader_skill_line[0]]["Buff"]["Type"]="Raw stats"
+            output[leader_skill_line[0]]["Buff"]["+ or -"]="+"
+
+        elif(leader_skill_line[8]==1):
+            output[leader_skill_line[0]]["Buff"]["Type"]="Raw stats"
+            output[leader_skill_line[0]]["Buff"]["+ or -"]="-"
+
+        elif(leader_skill_line[8]==2):
+            output[leader_skill_line[0]]["Buff"]["Type"]="Percentage"
+            output[leader_skill_line[0]]["Buff"]["+ or -"]="+"
+
+        elif(leader_skill_line[8]==3):
+            output[leader_skill_line[0]]["Buff"]["Type"]="Percentage"
+            output[leader_skill_line[0]]["Buff"]["+ or -"]="-"
+        else:
+            output[leader_skill_line[0]]["Buff"]["Type"]="Unknown"
+            output[leader_skill_line[0]]["Buff"]["+ or -"]="Unknown"
+            if(DEVEXCEPTIONS==True):
+                    raise Exception("Unknown stat increase type")
+        
+        efficiacy_values=leader_skill_line[7].replace("[","").replace("]","").split(",")
+        output[leader_skill_line[0]]["Target"]=(sub_target_types_extractor(str(leader_skill_line[4]),DEVEXCEPTIONS))
+
+        output[leader_skill_line[0]]["Target"]["Class"]=[]
+        output[leader_skill_line[0]]["Target"]["Type"]=[]
+        output[leader_skill_line[0]]["ATK"]=0
+        output[leader_skill_line[0]]["DEF"]=0
+        output[leader_skill_line[0]]["HP"]=0
+        output[leader_skill_line[0]]["Ki"]=0
+
+        if(leader_skill_line[3]==4):
+            output[leader_skill_line[0]]["Target"]["allies or enemies"]="Enemies"
+        elif(leader_skill_line[3]==2 or leader_skill_line[3]==12 or leader_skill_line[3]==13):
+            output[leader_skill_line[0]]["Target"]["allies or enemies"]="allies"
+        else:
+            output[leader_skill_line[0]]["Target"]["allies or enemies"]="unknown"
+        if leader_skill_line[6]==0:
+            output[leader_skill_line[0]]["NOT WORKING"]=True
+        elif(leader_skill_line[6]==1):
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+        elif(leader_skill_line[6]==2):
+            #Enemy ["DEF", ??, ??] 
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[0])
+        elif(leader_skill_line[6]==3):
+            #Category ["HP and ATK", "DEF", ""] 
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==5):
+            #Category ["Ki", "", ""] 
+            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[0])
+        elif(leader_skill_line[6]==13):
+            #All types damage reduction
+            output[leader_skill_line[0]]["DR"]=100-int(efficiacy_values[0])
+        elif(leader_skill_line[6]==16):
+            #Single type [Typing, "ATK", ""] 
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==17):
+            #Single type [Typing, "DEF", ""] 
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==18):
+            #Single type [Typing, "ATK and DEF", ""] 
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
+        elif(leader_skill_line[6]==19):
+            #Single type [Type, "HP", ""] 
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==20):
+            #Single Type (Type, "Ki", "") 
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==44):
+            #Single Type (Type, HP, ATK) 
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[2])
+        elif(leader_skill_line[6]==50):
+            #Immune to negative effects
+            output[leader_skill_line[0]]["Status"]=["Immune to negative effects"]
+        elif(leader_skill_line[6]==58):
+            #Heal per ki of own type
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":"Own type"}
+            output[leader_skill_line[0]]["Heals"]=int(efficiacy_values[0])
+        elif(leader_skill_line[6]==59):
+            #ATK per ki sphere obtained
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+        elif(leader_skill_line[6]==61):
+            #ATK and DEF per ki sphere obtained
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==64):
+            #ATK per ki sphere obtained of a type
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+        elif(leader_skill_line[6]==71):
+            #HP based ["Min ATK", "MAX ATK", ???] 
+            output[leader_skill_line[0]]["Building Stat"]={"Cause":"HP", "Type":"More HP remaining"}
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Building Stat"]["Min"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["Building Stat"]["Max"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==82):
+            #Typing [Typing, "HP and ATK and DEF", ""] 
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==83):
+            #Typing ki
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==84):
+            #Typing HP ATK and DEF
+            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==93):
+            #All types or specific type HP
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==102):
+            output[leader_skill_line[0]]["Times to turn giant"]=int(efficiacy_values[1])
+        elif(leader_skill_line[6]==104):
+            #Category ["HP", "ATK","DEF"] 
+            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
+        else:
+            output[leader_skill_line[0]]["Ki"]="UNKNOWN"
+            output[leader_skill_line[0]]["HP"]="UNKNOWN"
+            output[leader_skill_line[0]]["ATK"]="UNKNOWN"
+            output[leader_skill_line[0]]["DEF"]="UNKNOWN"
+            if(DEVEXCEPTIONS==True):
+                raise Exception("Unknown leader skill")
+            
+        if(leader_skill_line[5] is not None):
+            causalityCondition=logicalCausalityExtractor(leader_skill_line[5])
+            causalityCondition=CausalityLogicalExtractor([str(x) for x in getUnitFromIDSQL(connection,unitID)],causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
+            output[leader_skill_line[0]]["Condition"]=causalityCondition
+        if("Type" in output[leader_skill_line[0]]["Target"]):
+            if(output[leader_skill_line[0]]["Target"]["Type"]==["PHY","STR","INT","TEQ","AGL"]):
+                output[leader_skill_line[0]]["Target"]["Type"]=[]
+
+    temp=output.copy()
+    for line in temp:
+        if("NOT WORKING" in output[line]):
+            output.pop(line)
+    return(output)
+
+def getUnitFromIDSQL(connection,unitID):
+    query="""
+    SELECT *
+    FROM cards
+    WHERE cards.id = ?
+    """
+    unit=connection.execute(query,(unitID,)).fetchone()
+    return(unit)
 
 def getLeadViability(unit,eza,DEVEXCEPTIONS=False):
     maxBuff=0
@@ -2845,7 +3072,7 @@ def causalityExtractor(causality):
 
 
 def logicalCausalityExtractor(causality):
-    if(causality==""):
+    if(causality=="" or causality is None):
         return([])
     else:
         return(complexlogicalCausalityExtractor(causality.replace(" ","").split('","compiled":')[1][:-1]))
@@ -2953,6 +3180,15 @@ def CategoryExtractor(CategoryId):
     for category in card_categories:
         if category[0]==CategoryId:
             return(category[1])
+
+def categoryExtractorSQL(connection,categoryID):
+    query="""
+    SELECT name 
+    FROM card_categories 
+    WHERE id=?;
+    """
+    return connection.execute(query,(categoryID,)).fetchone()[0]
+
 
 def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     CausalityRow=causalityLine
@@ -5469,6 +5705,14 @@ def enemySuperCondition(parsedLine,DEVECXEPTION=True):
             return True
     
     return False
+
+def acquireAllAwakeningsSQL(connection,unitID):
+    query="""
+    SELECT *
+    FROM card_awakening_routes
+    WHERE card_id=?
+    """
+    return(connection.execute(query, (unitID,)).fetchall())
 
 def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     output=parsedLine

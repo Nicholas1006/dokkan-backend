@@ -218,21 +218,17 @@ if(CALCUNITBASICS):
                 classTime+=time.time()-classStart
 
                 categoriesStart=time.time()
-                #unitDictionary["Categories"]=getallcategories(unit[0],printing=True)
                 unitDictionary["Categories"]=getAllCategoriesSQL(connection,unit[0])
                 categoriesTime+=time.time()-categoriesStart
 
                 awakeningStart=time.time()
                 unitDictionary["Awakening"]={"Dokkan Awakening":False, "Awakening to LR":False, "Extreme Z-Awakening":False, "Super Extreme Z-Awakening":False}
-                relevant_awakenings=searchbycolumn(code=unit1[0],database=card_awakening_routes,column=2)
-                relevant_awakenings=searchbycolumn(code="CardAwakeningRoute::Dokkan",database=relevant_awakenings,column=1)
-                if(len(relevant_awakenings)>0):
-                    unitDictionary["Awakening"]["Dokkan Awakening"]=True
-
-
+                relevant_awakenings=acquireAllAwakeningsSQL(connection,unit1[0])
                 for awakening in relevant_awakenings:
-                    if(getrarity(awakening[3])=="lr"):
-                        unitDictionary["Awakening"]["Awakening to LR"]=True
+                    if(awakening[1]=="CardAwakeningRoute::Dokkan"):
+                        unitDictionary["Awakening"]["Dokkan Awakening"]=True
+                        if(getRaritySQL(connection,awakening[3])=="lr"):
+                            unitDictionary["Awakening"]["Awakening to LR"]=True
 
                 if("EZA" in ezaTrueFalse and eza==False):
                     unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
@@ -248,7 +244,7 @@ if(CALCUNITBASICS):
                 superAttackTypesTime+=time.time()-superAttackTypesStart
 
                 leaderSkillStart=time.time()
-                unitDictionary["Leader Skill"]= parseLeaderSkill(unit,eza)
+                unitDictionary["Leader Skill"]= parseLeaderSkillSQL(connection,unit[0],eza)
                 leaderSkillTime+=time.time()-leaderSkillStart
 
                 linksStart=time.time()
@@ -298,6 +294,6 @@ print("Awakening time:",round(awakeningTime,2),"seconds")
 print("Super Attack Types time:",round(superAttackTypesTime,2),"seconds")
 print("Leader Skill time:",round(leaderSkillTime,2),"seconds")
 print("Links time:",round(linksTime,2),"seconds")
-print("Other time",round(totalTime-(idTime+maxedTime+nameTime+typeTime+rarityTime+maxLevelTime+costTime+ezaTime+dokkanAwakenTime+statsTime+releaseTime+maxLevelStatsTime+characterTime+spAtkLevelTime+resourceIDTime+classTime+categoriesTime+awakeningTime+superAttackTypesTime+leaderSkillTime+linksTime),2),"seconds")
+print("Other time:",round(totalTime-(idTime+maxedTime+nameTime+typeTime+rarityTime+maxLevelTime+costTime+ezaTime+dokkanAwakenTime+statsTime+releaseTime+maxLevelStatsTime+characterTime+spAtkLevelTime+resourceIDTime+classTime+categoriesTime+awakeningTime+superAttackTypesTime+leaderSkillTime+linksTime),2),"seconds")
 
 
