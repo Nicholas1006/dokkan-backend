@@ -4915,18 +4915,27 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 output+="%"
         if("Ki Change" in parsedLine):
             if(parsedLine["Ki Change"]["Style"]=="Randomly"):
-                output+="Randomly changes Ki Spheres of a certain Type"
-                if("AGL" not in parsedLine["Ki Change"]["From"]):
-                    output+="(AGL excluded)"
-                elif("TEQ" not in parsedLine["Ki Change"]["From"]):
-                    output+="(TEQ excluded)"
-                elif("INT" not in parsedLine["Ki Change"]["From"]):
-                    output+="(INT excluded)"
-                elif("STR" not in parsedLine["Ki Change"]["From"]):
-                    output+="(STR excluded)"
-                elif("PHY" not in parsedLine["Ki Change"]["From"]):
-                    output+="(PHY excluded)"
-                output+=" to "
+                if(len(parsedLine["Ki Change"]["From"])==2):
+                    output+="Randomly changes "
+                    for Type in parsedLine["Ki Change"]["From"]:
+                        output+=Type
+                        output+=" and "
+                    output=output[:-5]
+                    output+=" Ki Spheres to "
+                if(len(parsedLine["Ki Change"]["From"])==3 or len(parsedLine["Ki Change"]["From"])==4):
+                    output+="Randomly changes Ki Spheres of a certain Type("
+                    if("AGL" not in parsedLine["Ki Change"]["From"]):
+                        output+="AGL &"
+                    elif("TEQ" not in parsedLine["Ki Change"]["From"]):
+                        output+="TEQ &"
+                    elif("INT" not in parsedLine["Ki Change"]["From"]):
+                        output+="INT &"
+                    elif("STR" not in parsedLine["Ki Change"]["From"]):
+                        output+="STR &"
+                    elif("PHY" not in parsedLine["Ki Change"]["From"]):
+                        output+="PHY &"
+                    output=output[:-2]
+                    output+="excluded) to "
                 output+=parsedLine["Ki Change"]["To"][0]
                 output+=" Ki Spheres"
             elif(parsedLine["Ki Change"]["Style"]=="All"):
