@@ -285,9 +285,9 @@ def sub_target_types_extractorSQL(connection,sub_target_type_set_id,):
     output["Excluded Category"]=[]
     for line in sub_target_type_lines:   
         if(line[0]==1):
-            output["Category"].append(CategoryExtractorSQL(connection,line[1]))
+            output["Category"].append(categoryExtractorSQL(connection,line[1]))
         elif(line[0]==2):
-            output["Excluded Category"].append(CategoryExtractorSQL(connection,line[1]))
+            output["Excluded Category"].append(categoryExtractorSQL(connection,line[1]))
         elif(line[0]==3):
             output["Amount of times to turn giant"]=1
     return (output)
@@ -432,7 +432,7 @@ def parse_domain_efficacy(efficacy,DEVEXCEPTIONS=False):
     elif(efficacy[3]=="121"):
         output["Effect"]={"Type":"Closes domain"}
     elif(efficacy[3]=="122"):
-        output["Effect"]={"Type":"Increases damage recieved","Amount":int(efficacy[8])}
+        output["Effect"]={"Type":"Increases damage recieved","Increases damage recieved":int(efficacy[8])}
     elif(efficacy[3]=="129"):
         output["Effect"]={"Type":"Disables guaranteed hit effect"}
     else:
