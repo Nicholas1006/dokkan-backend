@@ -49,17 +49,17 @@ if(CALCDOMAINS):
     print("Creating domains json")
     domains_json={}
     dokkan_fields=storedatabase("data/","dokkan_fields.csv")[1:]
-    dokkan_field_efficiacies=storedatabase("data/","dokkan_field_efficacies.csv")[1:]
+    dokkan_field_efficacies=storedatabase("data/","dokkan_field_efficacies.csv")[1:]
 
     for domain in dokkan_fields:
         domain_dictionary={}
         domain_dictionary["ID"]=domain[1]
         domain_dictionary["Name"]=domain[2]
         domain_dictionary["Description"]=domain[3]
-        domain_dictionary["Efficiacies"]={}
-        relevant_efficiacies=searchbycolumn(domain[1],dokkan_field_efficiacies,1)
-        for efficiacy in relevant_efficiacies:
-            domain_dictionary["Efficiacies"][efficiacy[0]]=parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS)
+        domain_dictionary["efficacies"]={}
+        relevant_efficacies=searchbycolumn(domain[1],dokkan_field_efficacies,1)
+        for efficacy in relevant_efficacies:
+            domain_dictionary["efficacies"][efficacy[0]]=parse_domain_efficacy(efficacy,DEVEXCEPTIONS)
 
         domains_json[domain[1]]=domain_dictionary
         domain_dictionary["Resource ID"]=domain[4]

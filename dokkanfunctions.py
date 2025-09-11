@@ -407,62 +407,62 @@ def getMaxLevel(unit,eza=False):
     else:
         return(int(unit[13]))
 
-def parse_domain_efficiacy(efficiacy,DEVEXCEPTIONS=False):
+def parse_domain_efficacy(efficacy,DEVEXCEPTIONS=False):
     output={}
-    output["ID"]=efficiacy[0]
-    if(efficiacy[2]=="1"):
+    output["ID"]=efficacy[0]
+    if(efficacy[2]=="1"):
         output["Timing"]="At the start of turn"
         output["Target"]="All enemies"
-    elif(efficiacy[2]=="18"):
+    elif(efficacy[2]=="18"):
         output["Timing"]="On domain Being out"
         output["Target"]="All allies"
     else:
-        print("UNKNOWN DOMAIN EFFICIACY TIMING:",efficiacy[2])
+        print("UNKNOWN DOMAIN efficacy TIMING:",efficacy[2])
         if(DEVEXCEPTIONS==True):
-            raise Exception("UNKNOWN DOMAIN EFFICIENCY TIMING")
+            raise Exception("UNKNOWN DOMAIN efficacies TIMING")
 
     #NO DEFENSE BUFF
-    if(efficiacy[3]=="1"):
-        output["Effect"]={"Type":"ATK & DEF","ATK":max(int(efficiacy[8]),int(efficiacy[9])),"DEF":0}
+    if(efficacy[3]=="1"):
+        output["Effect"]={"Type":"ATK & DEF","ATK":max(int(efficacy[8]),int(efficacy[9])),"DEF":0}
     #PRESUMABLY NO ATTACK BUFF
-    elif(efficiacy[3]=="2"):
-        output["Effect"]={"Type":"ATK & DEF","ATK":0,"DEF":max(int(efficiacy[8]),int(efficiacy[9]))}
-    elif(efficiacy[3]=="3"):
-        output["Effect"]={"Type":"ATK & DEF","ATK":int(efficiacy[8]),"DEF":int(efficiacy[9])}
-    elif(efficiacy[3]=="121"):
+    elif(efficacy[3]=="2"):
+        output["Effect"]={"Type":"ATK & DEF","ATK":0,"DEF":max(int(efficacy[8]),int(efficacy[9]))}
+    elif(efficacy[3]=="3"):
+        output["Effect"]={"Type":"ATK & DEF","ATK":int(efficacy[8]),"DEF":int(efficacy[9])}
+    elif(efficacy[3]=="121"):
         output["Effect"]={"Type":"Closes domain"}
-    elif(efficiacy[3]=="122"):
-        output["Effect"]={"Type":"Increases damage recieved","Amount":int(efficiacy[8])}
-    elif(efficiacy[3]=="129"):
+    elif(efficacy[3]=="122"):
+        output["Effect"]={"Type":"Increases damage recieved","Amount":int(efficacy[8])}
+    elif(efficacy[3]=="129"):
         output["Effect"]={"Type":"Disables guaranteed hit effect"}
     else:
-        print("UNKNOWN DOMAIN EFFICIACY TYPE:",efficiacy[3])
+        print("UNKNOWN DOMAIN efficacy TYPE:",efficacy[3])
         if(DEVEXCEPTIONS==True):
-            raise Exception("UNKNOWN DOMAIN EFFICIENCY TYPE")
+            raise Exception("UNKNOWN DOMAIN efficacies TYPE")
 
-    if(efficiacy[4]=="0"):
+    if(efficacy[4]=="0"):
         pass
-    elif(efficiacy[4]=="2"):
+    elif(efficacy[4]=="2"):
         pass
     else:
-        print("UNKNOWN DOMAIN EFFICIACY TARGET:",efficiacy[4])
+        print("UNKNOWN DOMAIN efficacy TARGET:",efficacy[4])
         if(DEVEXCEPTIONS==True):
-            raise Exception("UNKNOWN DOMAIN EFFICIENCY TARGET")
+            raise Exception("UNKNOWN DOMAIN efficacies TARGET")
 
-    output["Turn activation"]=efficiacy[5]
+    output["Turn activation"]=efficacy[5]
 
-    if(efficiacy[6]=="0"):
+    if(efficacy[6]=="0"):
         pass
     else:
         output["Is Once Only"]=True
 
-    if(efficiacy[7]=="100"):
+    if(efficacy[7]=="100"):
         pass
     else:
-        output["Chance to activate"]=efficiacy[7]
+        output["Chance to activate"]=efficacy[7]
 
-    if(efficiacy[12]!=""):
-        causalityCondition=logicalCausalityExtractor(efficiacy[12])
+    if(efficacy[12]!=""):
+        causalityCondition=logicalCausalityExtractor(efficacy[12])
         causalityCondition=CausalityLogicalExtractor(unit=[],causality=causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
         for CausalityKey in causalityCondition["Causalities"].keys():
             ButtonName=causalityCondition["Causalities"][CausalityKey]["Button"]["Name"]
@@ -795,7 +795,7 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS==True):
                     raise Exception("Unknown stat increase type")
         
-        efficiacy_values=leader_skill_line[7].replace("[","").replace("]","").split(",")
+        efficacy_values=leader_skill_line[7].replace("[","").replace("]","").split(",")
         output[leader_skill_line[0]]["Target"]=(sub_target_types_extractor(leader_skill_line[4],DEVEXCEPTIONS))
 
         output[leader_skill_line[0]]["Target"]["Class"]=[]
@@ -814,102 +814,102 @@ def parseLeaderSkill(unit,eza,DEVEXCEPTIONS=False):
         if leader_skill_line[6]=="0":
             output[leader_skill_line[0]]["NOT WORKING"]=True
         elif(leader_skill_line[6]=="1"):
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
         elif(leader_skill_line[6]=="2"):
             #Enemy ["DEF", ??, ??] 
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[0])
         elif(leader_skill_line[6]=="3"):
             #Category ["HP and ATK", "DEF", ""] 
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="5"):
             #Category ["Ki", "", ""] 
-            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["Ki"]=int(efficacy_values[0])
         elif(leader_skill_line[6]=="13"):
             #All types damage reduction
-            output[leader_skill_line[0]]["DR"]=100-int(efficiacy_values[0])
+            output[leader_skill_line[0]]["DR"]=100-int(efficacy_values[0])
         elif(leader_skill_line[6]=="16"):
             #Single type [Typing, "ATK", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="17"):
             #Single type [Typing, "DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="18"):
             #Single type [Typing, "ATK and DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[2])
         elif(leader_skill_line[6]=="19"):
             #Single type [Type, "HP", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="20"):
             #Single Type (Type, "Ki", "") 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Ki"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="44"):
             #Single Type (Type, HP, ATK) 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[2])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[2])
         elif(leader_skill_line[6]=="50"):
             #Immune to negative effects
             output[leader_skill_line[0]]["Status"]=["Immune to negative effects"]
         elif(leader_skill_line[6]=="58"):
             #Heal per ki of own type
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":"Own type"}
-            output[leader_skill_line[0]]["Heals"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["Heals"]=int(efficacy_values[0])
         elif(leader_skill_line[6]=="59"):
             #ATK per ki sphere obtained
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
         elif(leader_skill_line[6]=="61"):
             #ATK and DEF per ki sphere obtained
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="64"):
             #ATK per ki sphere obtained of a type
-            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
         elif(leader_skill_line[6]=="71"):
             #HP based ["Min ATK", "MAX ATK", ???] 
             output[leader_skill_line[0]]["Building Stat"]={"Cause":"HP", "Type":"More HP remaining"}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["Building Stat"]["Min"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["Building Stat"]["Max"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["Building Stat"]["Min"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["Building Stat"]["Max"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="82"):
             #Typing [Typing, "HP and ATK and DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="83"):
             #Typing ki
-            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["Ki"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="84"):
             #Typing HP ATK and DEF
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="93"):
             #All types or specific type HP
-            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="102"):
-            output[leader_skill_line[0]]["Times to turn giant"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Times to turn giant"]=int(efficacy_values[1])
         elif(leader_skill_line[6]=="104"):
             #Category ["HP", "ATK","DEF"] 
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[2])
         else:
             output[leader_skill_line[0]]["Ki"]="UNKNOWN"
             output[leader_skill_line[0]]["HP"]="UNKNOWN"
@@ -994,7 +994,7 @@ def parseLeaderSkillSQL(connection,unitID,eza,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS==True):
                     raise Exception("Unknown stat increase type")
         
-        efficiacy_values=leader_skill_line[7].replace("[","").replace("]","").split(",")
+        efficacy_values=leader_skill_line[7].replace("[","").replace("]","").split(",")
         output[leader_skill_line[0]]["Target"]=(sub_target_types_extractor(str(leader_skill_line[4]),DEVEXCEPTIONS))
 
         output[leader_skill_line[0]]["Target"]["Class"]=[]
@@ -1013,102 +1013,102 @@ def parseLeaderSkillSQL(connection,unitID,eza,DEVEXCEPTIONS=False):
         if leader_skill_line[6]==0:
             output[leader_skill_line[0]]["NOT WORKING"]=True
         elif(leader_skill_line[6]==1):
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
         elif(leader_skill_line[6]==2):
             #Enemy ["DEF", ??, ??] 
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[0])
         elif(leader_skill_line[6]==3):
             #Category ["HP and ATK", "DEF", ""] 
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==5):
             #Category ["Ki", "", ""] 
-            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["Ki"]=int(efficacy_values[0])
         elif(leader_skill_line[6]==13):
             #All types damage reduction
-            output[leader_skill_line[0]]["DR"]=100-int(efficiacy_values[0])
+            output[leader_skill_line[0]]["DR"]=100-int(efficacy_values[0])
         elif(leader_skill_line[6]==16):
             #Single type [Typing, "ATK", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==17):
             #Single type [Typing, "DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==18):
             #Single type [Typing, "ATK and DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[2])
         elif(leader_skill_line[6]==19):
             #Single type [Type, "HP", ""] 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==20):
             #Single Type (Type, "Ki", "") 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Ki"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==44):
             #Single Type (Type, HP, ATK) 
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[2])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[2])
         elif(leader_skill_line[6]==50):
             #Immune to negative effects
             output[leader_skill_line[0]]["Status"]=["Immune to negative effects"]
         elif(leader_skill_line[6]==58):
             #Heal per ki of own type
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":"Own type"}
-            output[leader_skill_line[0]]["Heals"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["Heals"]=int(efficacy_values[0])
         elif(leader_skill_line[6]==59):
             #ATK per ki sphere obtained
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
         elif(leader_skill_line[6]==61):
             #ATK and DEF per ki sphere obtained
             output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==64):
             #ATK per ki sphere obtained of a type
-            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficiacy_values[0],printing=True)]
+            output[leader_skill_line[0]]["Building Stat"]= {"Cause":"Ki sphere obtained", "Type":[KiOrbType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)]}
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Type"]=[typefinder(efficacy_values[0],printing=True)]
         elif(leader_skill_line[6]==71):
             #HP based ["Min ATK", "MAX ATK", ???] 
             output[leader_skill_line[0]]["Building Stat"]={"Cause":"HP", "Type":"More HP remaining"}
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["Building Stat"]["Min"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["Building Stat"]["Max"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["Building Stat"]["Min"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["Building Stat"]["Max"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==82):
             #Typing [Typing, "HP and ATK and DEF", ""] 
-            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==83):
             #Typing ki
-            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-            output[leader_skill_line[0]]["Ki"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["Ki"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==84):
             #Typing HP ATK and DEF
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==93):
             #All types or specific type HP
-            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
-            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficiacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Target"]["Class"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]
+            output[leader_skill_line[0]]["Target"]["Type"]=extractClassType(efficacy_values[0],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==102):
-            output[leader_skill_line[0]]["Times to turn giant"]=int(efficiacy_values[1])
+            output[leader_skill_line[0]]["Times to turn giant"]=int(efficacy_values[1])
         elif(leader_skill_line[6]==104):
             #Category ["HP", "ATK","DEF"] 
-            output[leader_skill_line[0]]["HP"]=int(efficiacy_values[0])
-            output[leader_skill_line[0]]["ATK"]=int(efficiacy_values[1])
-            output[leader_skill_line[0]]["DEF"]=int(efficiacy_values[2])
+            output[leader_skill_line[0]]["HP"]=int(efficacy_values[0])
+            output[leader_skill_line[0]]["ATK"]=int(efficacy_values[1])
+            output[leader_skill_line[0]]["DEF"]=int(efficacy_values[2])
         else:
             output[leader_skill_line[0]]["Ki"]="UNKNOWN"
             output[leader_skill_line[0]]["HP"]="UNKNOWN"
@@ -1360,28 +1360,28 @@ def parseStandby(unit,DEVEXCEPTIONS=False):
         output["Condition"]=compiled_causality_conditions
         standby_skills_rows=searchbycolumn(code=standby_skill_set_id,database=standby_skills,column=1)
         for standby_skill_row in standby_skills_rows:
-            efficiacy_value=standby_skill_row[8].replace("[","").replace("]","").replace("{","").replace("}","").replace(" ","").replace('"',"").split(",")
+            efficacy_value=standby_skill_row[8].replace("[","").replace("]","").replace("{","").replace("}","").replace(" ","").replace('"',"").split(",")
             if(standby_skill_row[6]=="103"):
-                output["Exchanges to"]=efficiacy_value[0]
+                output["Exchanges to"]=efficacy_value[0]
             elif(standby_skill_row[6]=="115"):
-                output["Standby Exclusivity"]=efficiacy_value[0][5:]
+                output["Standby Exclusivity"]=efficacy_value[0][5:]
             elif(standby_skill_row[6]=="116"):
                 output["Charge type"]={}
-                output["Charge type"]["type"]=efficiacy_value[0][5:]
-                if(output["Charge type"]["type"]=="energy_ball" and len(efficiacy_value)>4):
-                    if(efficiacy_value[4][:-1]=='ball_type_multiplier:'):
-                        charge_per_orb=efficiacy_value[-5:]
+                output["Charge type"]["type"]=efficacy_value[0][5:]
+                if(output["Charge type"]["type"]=="energy_ball" and len(efficacy_value)>4):
+                    if(efficacy_value[4][:-1]=='ball_type_multiplier:'):
+                        charge_per_orb=efficacy_value[-5:]
                         output["Charge type"]["charge_per_orb"]={}
-                        output["Charge type"]["charge_per_orb"]["AGL"]=int(efficiacy_value[4][-1])
+                        output["Charge type"]["charge_per_orb"]["AGL"]=int(efficacy_value[4][-1])
                         output["Charge type"]["charge_per_orb"]["TEQ"]=int(charge_per_orb[0])
                         output["Charge type"]["charge_per_orb"]["INT"]=int(charge_per_orb[1])
                         output["Charge type"]["charge_per_orb"]["STR"]=int(charge_per_orb[2])
                         output["Charge type"]["charge_per_orb"]["PHY"]=int(charge_per_orb[3])
                         output["Charge type"]["charge_per_orb"]["Rainbow"]=int(charge_per_orb[4])
 
-                output["Charge type"]["gauge_value"]=efficiacy_value[1][12:]
-                output["Charge type"]["count_multiplier"]=efficiacy_value[2][17:]
-                output["Charge type"]["max_effect_value"]=efficiacy_value[3][17:]
+                output["Charge type"]["gauge_value"]=efficacy_value[1][12:]
+                output["Charge type"]["count_multiplier"]=efficacy_value[2][17:]
+                output["Charge type"]["max_effect_value"]=efficacy_value[3][17:]
 
             elif(standby_skill_row[6]=="130"):
                 output["Charge type"]["charge_per_orb"]={}
@@ -1433,34 +1433,34 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
             for finish_skill_row in finish_skills_rows:
                 if(finish_skill_row[5]!="1"):
                     output[finish_skill_set_id]["Duration"]=finish_skill_row[5]
-                efficiacy_value=finish_skill_row[8].replace("[","").replace("]","").replace("{","").replace("}","").replace(" ","").replace('"',"").split(",")
+                efficacy_value=finish_skill_row[8].replace("[","").replace("]","").replace("{","").replace("}","").replace(" ","").replace('"',"").split(",")
                 if(finish_skill_row[6]=="1"):
-                    output[finish_skill_set_id]["Attack"]=int(efficiacy_value[0])
+                    output[finish_skill_set_id]["Attack"]=int(efficacy_value[0])
                 elif(finish_skill_row[6]=="4"):
-                    output[finish_skill_set_id]["Heals"]=int(efficiacy_value[0])
+                    output[finish_skill_set_id]["Heals"]=int(efficacy_value[0])
                 elif(finish_skill_row[6]=="5"):
-                    output[finish_skill_set_id]["Ki"]=int(efficiacy_value[0])
+                    output[finish_skill_set_id]["Ki"]=int(efficacy_value[0])
                 elif(finish_skill_row[6]=="9"):
                     output[finish_skill_set_id]["Effect"]="Stun"
                 elif(finish_skill_row[6]=="76"):
                     output[finish_skill_set_id]["CONFUSION"]=True
                 elif(finish_skill_row[6]=="90"):
-                    output[finish_skill_set_id]["Crit Chance"]=int(efficiacy_value[0])
+                    output[finish_skill_set_id]["Crit Chance"]=int(efficacy_value[0])
                 elif(finish_skill_row[6]=="103"):
-                    output[finish_skill_set_id]["Exchanges to"]=efficiacy_value[0]
+                    output[finish_skill_set_id]["Exchanges to"]=efficacy_value[0]
                 elif(finish_skill_row[6]=="110"):
                     output[finish_skill_set_id]["Disable Other Line"]={}
                     output[finish_skill_set_id]["Disable Other Line"]["Activated"]=True
-                    output[finish_skill_set_id]["Disable Other Line"]["Line"]=efficiacy_value[2]
+                    output[finish_skill_set_id]["Disable Other Line"]["Line"]=efficacy_value[2]
                 elif(finish_skill_row[6]=="115"):
-                    output[finish_skill_set_id]["Standby Exclusivity"]=efficiacy_value[0][5:]
+                    output[finish_skill_set_id]["Standby Exclusivity"]=efficacy_value[0][5:]
                 elif(finish_skill_row[6]=="116"):
                     output[finish_skill_set_id]["CONFUSION"]=True
                 elif(finish_skill_row[6]=="117"):
                     output[finish_skill_set_id]["CONFUSION"]=True
                 elif(finish_skill_row[6]=="118"):
-                    output[finish_skill_set_id]["Multiplier per charge"]=int(efficiacy_value[0])
-                    output[finish_skill_set_id]["Max multiplier"]=int(efficiacy_value[1])
+                    output[finish_skill_set_id]["Multiplier per charge"]=int(efficacy_value[0])
+                    output[finish_skill_set_id]["Max multiplier"]=int(efficacy_value[1])
 
                     for causalityKey in output[finish_skill_set_id]["Condition"]["Causalities"]:
                         if(output[finish_skill_set_id]["Condition"]["Causalities"][causalityKey]["Slider"]["Name"]=="What is the charge count at?"):
@@ -1471,7 +1471,7 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                     output[finish_skill_set_id]["Nullification"]={}
                     output[finish_skill_set_id]["Nullification"]["Activated"]=True
                 elif(finish_skill_row[6]=="120"):
-                    output[finish_skill_set_id]["Counter"]={"Activated":True, "Multiplier":efficiacy_value[1]}
+                    output[finish_skill_set_id]["Counter"]={"Activated":True, "Multiplier":efficacy_value[1]}
                 elif(finish_skill_row[6]=="130"):
                     output[finish_skill_set_id]["CONFUSION"]=True
                 else:
@@ -6955,7 +6955,7 @@ def getlinkBuffsAtAllLevel(linkNameOrID="",printing=True,DEVEXCEPTIONS=True):
     linkLevelIDs=searchbycolumn(code=linkID,column=1,database=link_skill_lvs)
     for levelIDRow in linkLevelIDs:
         levelID=levelIDRow[0]
-        efficiacy_rows=searchbycolumn(code=levelID,database=link_skill_efficacies,column=1)
+        efficacy_rows=searchbycolumn(code=levelID,database=link_skill_efficacies,column=1)
         buffs={"ATK":0,
                "DEF":0,
                "ENEMYDEF":0,
@@ -6964,7 +6964,7 @@ def getlinkBuffsAtAllLevel(linkNameOrID="",printing=True,DEVEXCEPTIONS=True):
                "DREDUCTION":0,
                "CRIT":0,
                "EVASION":0}
-        for row in efficiacy_rows:
+        for row in efficacy_rows:
             if row[3]=="1":
                 buffs["ATK"]+=float(row[11])
             elif row[3]=="2":
