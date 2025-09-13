@@ -442,9 +442,9 @@ for jsonList in [totalUnitJson,totalEZAUnitJson,totalSEZAUnitJson]:
                         "ID":jsonList[unit]["Active Skill"]["Domain"],
                         "Locked":False
                     }
+backtrackTime+=time.time()-backtrackstart
 
 #find the max lead for all units
-backtrackTime+=time.time()-backtrackstart
 if(CALCLEADER):
     highestLeaderStartTime=time.time()
     for unit in totalUnitJson:

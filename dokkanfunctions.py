@@ -4786,63 +4786,151 @@ def articulateAllyType(target):
     
 def findHighestLeaderSkillSQL(connection,unitID):
     query="""
-    SELECT leader_skills.*
-    FROM cards
-    JOIN leader_skills ON (
-        -- no typing condition
-        (leader_skills.efficacy_type IN (1,2,3,5,84,104)) OR
-        
-        -- typing condition
-        (leader_skills.efficacy_type IN (16,17,18,19,20,44) AND 
-        leader_skills.efficacy_values->>0 = (cards.element % 10)) OR
-        
-        -- class/typing condition
-        (leader_skills.efficacy_type IN (82,83,93) AND
-            (
+    WITH card_element AS (
+        SELECT 
+            id,
+            element,
+            element % 10 as element_type,
+            FLOOR(element/10) as element_class
+        FROM cards 
+        WHERE id = ?
+    ),
+    applicable_leader_skills AS (
+        SELECT 
+            ls.*,
+            ce.element_type,
+            ce.element_class
+        FROM leader_skills ls
+        CROSS JOIN card_element ce
+        WHERE ls.target_type IN (2,12,13)
+        AND (
+            -- no typing condition
+            (ls.efficacy_type IN (1,2,3,5,84,104)) OR
+            
+            -- typing condition
+            (ls.efficacy_type IN (16,17,18,19,20,44) AND 
+            ls.efficacy_values->>0 = ce.element_type) OR
+            
+            -- class/typing condition
+            (ls.efficacy_type IN (82,83,93) AND (
                 -- Type bit (bit 0-4)
-                ((leader_skills.efficacy_values->>0 % (POWER(2,(cards.element % 10))*2)) > (POWER(2,(cards.element % 10)))) OR
-                -- Class bit (bit 5-9, only if class exists)
-                ((leader_skills.efficacy_values->>0 % (POWER(2,(6 + FLOOR(cards.element/10)))*2)) > (POWER(2,(6 + FLOOR(cards.element/10))))) OR
+                (ls.efficacy_values->>0 & (1 << ce.element_type) != 0) OR
+                -- Class bit (bit 5-9)
+                (ce.element_class IS NOT NULL AND ls.efficacy_values->>0 & (1 << (6 + ce.element_class)) != 0) OR
                 -- TypeClass bit (bit 7+)
-                ((leader_skills.efficacy_values->>0 % (POWER(2,(cards.element%10 + 7 + (FLOOR(cards.element/10)*5)))*2)) > (POWER(2,(cards.element%10 + 7 + (FLOOR(cards.element/10)*5)))))
-            )
+                (ls.efficacy_values->>0 & (1 << (ce.element_type + 7 + (ce.element_class * 5))) != 0)
+            ))
         )
-    )
-    AND leader_skills.target_type IN (2,12,13)
-
-    WHERE cards.id = ?
-    AND (
-        leader_skills.sub_target_type_set_id = 0
-        OR (
-            -- Check that ALL required categories are present
-            NOT EXISTS (
+        AND (
+            ls.sub_target_type_set_id = 0
+            OR NOT EXISTS (
                 SELECT 1
-                FROM sub_target_types
-                WHERE sub_target_types.sub_target_type_set_id = leader_skills.sub_target_type_set_id
-                AND sub_target_types.target_value_type = 1
-                AND NOT EXISTS (
-                    SELECT 1
-                    FROM card_card_categories
-                    WHERE card_card_categories.card_id = cards.id
-                    AND card_card_categories.card_category_id = sub_target_types.target_value
-                )
-            )
-            -- Check that NO excluded categories are present
-            AND NOT EXISTS (
-                SELECT 1
-                FROM sub_target_types
-                WHERE sub_target_types.sub_target_type_set_id = leader_skills.sub_target_type_set_id
-                AND sub_target_types.target_value_type = 2
-                AND EXISTS (
-                    SELECT 1
-                    FROM card_card_categories
-                    WHERE card_card_categories.card_id = cards.id
-                    AND card_card_categories.card_category_id = sub_target_types.target_value
+                FROM sub_target_types stt
+                WHERE stt.sub_target_type_set_id = ls.sub_target_type_set_id
+                AND (
+                    (stt.target_value_type = 1 AND NOT EXISTS (
+                        SELECT 1
+                        FROM card_card_categories ccc
+                        WHERE ccc.card_id = ce.id
+                        AND ccc.card_category_id = stt.target_value
+                    ))
+                    OR
+                    (stt.target_value_type = 2 AND EXISTS (
+                        SELECT 1
+                        FROM card_card_categories ccc
+                        WHERE ccc.card_id = ce.id
+                        AND ccc.card_category_id = stt.target_value
+                    ))
                 )
             )
         )
+    ),
+    stat_extraction AS (
+        SELECT 
+            leader_skill_set_id,
+            CASE 
+                WHEN efficacy_type = 1 AND calc_option = 2 THEN (efficacy_values->>0)
+                WHEN efficacy_type = 16 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 18 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 44 AND calc_option = 2 THEN (efficacy_values->>2)
+                WHEN efficacy_type = 82 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 84 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 104 AND calc_option = 2 THEN (efficacy_values->>1)
+            END as atk_percent,
+            
+            CASE 
+                WHEN efficacy_type = 2 AND calc_option = 2 THEN (efficacy_values->>0)
+                WHEN efficacy_type = 3 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 17 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 18 AND calc_option = 2 THEN (efficacy_values->>2)
+                WHEN efficacy_type = 82 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 84 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 104 AND calc_option = 2 THEN (efficacy_values->>2)
+            END as def_percent,
+            
+            CASE 
+                WHEN efficacy_type = 5 THEN (efficacy_values->>0)
+                WHEN efficacy_type = 20 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 83 THEN (efficacy_values->>1)
+            END as ki_percent,
+            
+            CASE 
+                WHEN efficacy_type = 19 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 44 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 82 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 84 AND calc_option = 2 THEN (efficacy_values->>0)
+                WHEN efficacy_type = 93 AND calc_option = 2 THEN (efficacy_values->>1)
+                WHEN efficacy_type = 104 AND calc_option = 2 THEN (efficacy_values->>0)
+            END as hp_percent
+            
+        FROM applicable_leader_skills
+    ),
+    leader_set_totals AS (
+        SELECT 
+            leader_skill_set_id,
+            COALESCE(SUM(atk_percent), 0) as total_atk_percent,
+            COALESCE(SUM(def_percent), 0) as total_def_percent,
+            COALESCE(SUM(ki_percent), 0) as total_ki_percent,
+            COALESCE(SUM(hp_percent), 0) as total_hp_percent
+        FROM stat_extraction
+        GROUP BY leader_skill_set_id
+        HAVING COALESCE(SUM(atk_percent), 0) > 0
+            OR COALESCE(SUM(def_percent), 0) > 0
+            OR COALESCE(SUM(ki_percent), 0) > 0
+            OR COALESCE(SUM(hp_percent), 0) > 0
+    ),
+    max_stats AS (
+        SELECT 
+            MAX(total_atk_percent) as max_atk_percent,
+            MAX(total_def_percent) as max_def_percent,
+            MAX(total_ki_percent) as max_ki_percent,
+            MAX(total_hp_percent) as max_hp_percent
+        FROM leader_set_totals
     )
+    SELECT 
+        ms.max_atk_percent,
+        ms.max_def_percent,
+        ms.max_ki_percent,
+        ms.max_hp_percent,
+        
+        (SELECT leader_skill_set_id FROM leader_set_totals WHERE total_atk_percent = ms.max_atk_percent LIMIT 1) as max_atk_leader_set,
+        (SELECT leader_skill_set_id FROM leader_set_totals WHERE total_def_percent = ms.max_def_percent LIMIT 1) as max_def_leader_set,
+        (SELECT leader_skill_set_id FROM leader_set_totals WHERE total_ki_percent = ms.max_ki_percent LIMIT 1) as max_ki_leader_set,
+        (SELECT leader_skill_set_id FROM leader_set_totals WHERE total_hp_percent = ms.max_hp_percent LIMIT 1) as max_hp_leader_set
+    FROM max_stats ms;
     """
+    result=connection.execute(query, (unitID,)).fetchone()
+    highestLeaderSkill={
+        "HP":result[3],
+        "ATK":result[0],
+        "DEF":result[1],
+        "Ki":result[2]
+        #,"max_atk_leader_set":result[4],
+        #"max_def_leader_set":result[5],
+        #"max_ki_leader_set":result[6],
+        #"max_hp_leader_set":result[7],
+    }
+    return(highestLeaderSkill)
 
 def findHighestLeaderSkill(unitDictionary,allLeaderSkills,DEVEXCEPTIONS=False):
     highestLeaderSkill={
@@ -4985,15 +5073,15 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
                 if(len(parsedLine["Ki Change"]["From"])==3 or len(parsedLine["Ki Change"]["From"])==4):
                     output+="Randomly changes Ki Spheres of a certain Type("
                     if("AGL" not in parsedLine["Ki Change"]["From"]):
-                        output+="AGL &"
+                        output+="AGL & "
                     elif("TEQ" not in parsedLine["Ki Change"]["From"]):
-                        output+="TEQ &"
+                        output+="TEQ & "
                     elif("INT" not in parsedLine["Ki Change"]["From"]):
-                        output+="INT &"
+                        output+="INT & "
                     elif("STR" not in parsedLine["Ki Change"]["From"]):
-                        output+="STR &"
+                        output+="STR & "
                     elif("PHY" not in parsedLine["Ki Change"]["From"]):
-                        output+="PHY &"
+                        output+="PHY & "
                     output=output[:-2]
                     output+="excluded) to "
                 output+=parsedLine["Ki Change"]["To"][0]
