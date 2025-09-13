@@ -4784,6 +4784,66 @@ def articulateAllyType(target):
             output=output[:-4]
         return(output.replace("  "," "))
     
+def findHighestLeaderSkillSQL(connection,unitID):
+    query="""
+    SELECT leader_skills.*
+    FROM cards
+    JOIN leader_skills ON (
+        -- no typing condition
+        (leader_skills.efficacy_type IN (1,2,3,5,84,104)) OR
+        
+        -- typing condition
+        (leader_skills.efficacy_type IN (16,17,18,19,20,44) AND 
+        leader_skills.efficacy_values->>0 = (cards.element % 10)) OR
+        
+        -- class/typing condition
+        (leader_skills.efficacy_type IN (82,83,93) AND
+            (
+                -- Type bit (bit 0-4)
+                ((leader_skills.efficacy_values->>0 % (POWER(2,(cards.element % 10))*2)) > (POWER(2,(cards.element % 10)))) OR
+                -- Class bit (bit 5-9, only if class exists)
+                ((leader_skills.efficacy_values->>0 % (POWER(2,(6 + FLOOR(cards.element/10)))*2)) > (POWER(2,(6 + FLOOR(cards.element/10))))) OR
+                -- TypeClass bit (bit 7+)
+                ((leader_skills.efficacy_values->>0 % (POWER(2,(cards.element%10 + 7 + (FLOOR(cards.element/10)*5)))*2)) > (POWER(2,(cards.element%10 + 7 + (FLOOR(cards.element/10)*5)))))
+            )
+        )
+    )
+    AND leader_skills.target_type IN (2,12,13)
+
+    WHERE cards.id = ?
+    AND (
+        leader_skills.sub_target_type_set_id = 0
+        OR (
+            -- Check that ALL required categories are present
+            NOT EXISTS (
+                SELECT 1
+                FROM sub_target_types
+                WHERE sub_target_types.sub_target_type_set_id = leader_skills.sub_target_type_set_id
+                AND sub_target_types.target_value_type = 1
+                AND NOT EXISTS (
+                    SELECT 1
+                    FROM card_card_categories
+                    WHERE card_card_categories.card_id = cards.id
+                    AND card_card_categories.card_category_id = sub_target_types.target_value
+                )
+            )
+            -- Check that NO excluded categories are present
+            AND NOT EXISTS (
+                SELECT 1
+                FROM sub_target_types
+                WHERE sub_target_types.sub_target_type_set_id = leader_skills.sub_target_type_set_id
+                AND sub_target_types.target_value_type = 2
+                AND EXISTS (
+                    SELECT 1
+                    FROM card_card_categories
+                    WHERE card_card_categories.card_id = cards.id
+                    AND card_card_categories.card_category_id = sub_target_types.target_value
+                )
+            )
+        )
+    )
+    """
+
 def findHighestLeaderSkill(unitDictionary,allLeaderSkills,DEVEXCEPTIONS=False):
     highestLeaderSkill={
         "HP":0,
