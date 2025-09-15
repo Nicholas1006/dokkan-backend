@@ -3901,7 +3901,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Button"]["Name"]="Is there "+CausalityRow[4]+" or more enemies whose name includes "
                 elif(CausalityRow[2]=="2"):
                     output["Button"]["Name"]="Is there "+CausalityRow[4]+" or more allies attacking on this turn whose name includes "
-                    output["Paragraph Title"]="When there are "+CausalityRow[4]+"or more allies whose name includes "
+                    output["Paragraph Title"]="When there are "+CausalityRow[4]+" or more allies whose name includes "
                 else:
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
@@ -4181,7 +4181,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=str(int(CausalityRow[3])-1)
                     output["Slider"]["Min"]=0
 
-                    output["Paragraph Title"]="When the charge count is " + CausalityRow[3] + "or less"
+                    output["Paragraph Title"]="When the charge count is " + CausalityRow[3] + " or less"
                 elif(CausalityRow[2]=="4"):
                     output["Button"]["Name"]=("Is the charge count greater than or equal to ")
                     output["Button"]["Name"]+=CausalityRow[3]
@@ -4191,7 +4191,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Logic"]+=CausalityRow[3]
                     output["Slider"]["Min"]=int(CausalityRow[3])
 
-                    output["Paragraph Title"]="When the charge count is " + CausalityRow[3] + "or more"
+                    output["Paragraph Title"]="When the charge count is " + CausalityRow[3] + " or more"
                 else:
                     output["Button"]["Name"]="UNKNOWN CHARGE TYP£"
                     if(DEVEXCEPTIONS==True):
@@ -4272,7 +4272,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=7
 
-                    output["Paragraph Title"]="When " + CausalityRow[3] + "or less dragon ball orbs have been obtained"
+                    output["Paragraph Title"]="When " + CausalityRow[3] + " or less dragon ball orbs have been obtained"
                 elif(CausalityRow[2]=="5"):
                     output["Button"]["Name"]="Have more than "
                     output["Button"]["Name"]+=CausalityRow[3]
@@ -4284,7 +4284,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Min"]=0
                     output["Slider"]["Max"]=7
 
-                    output["Paragraph Title"]="When " + CausalityRow[3] + "or more dragon ball orbs have been obtained"
+                    output["Paragraph Title"]="When " + CausalityRow[3] + " or more dragon ball orbs have been obtained"
                 else:
                     output["Button"]["Name"]="UNKNOWN CAUSALITY CONDITION"
                     if(DEVEXCEPTIONS==True):
