@@ -85,7 +85,7 @@ jobs:
       - name: Reset GlbAssetVersion to 0 if new assets were found
         if: steps.check_changes.outputs.changed == 'true'
         run: |
-          python Dokkan_Asset_Downloader/resetAssetTime.py
+          python resetAssetTime.py
         shell: cmd
 
       - name: reDownload all assets
