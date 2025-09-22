@@ -33,7 +33,7 @@ def getUnitReleaseTime(card):
 def getEzaReleaseTimeSQL(connection,unitID,seza):
     query="""
     WITH RECURSIVE
-    input(id) AS (SELECT ?),
+    input(id,awakening_type) AS (SELECT ?, ?),
     resolver(current_id, result, done, depth) AS (
         -- Initial step
         SELECT i.id, NULL, 0, 0
@@ -49,7 +49,7 @@ def getEzaReleaseTimeSQL(connection,unitID,seza):
                     SELECT 1
                     FROM card_awakening_routes car
                     WHERE car.card_id = r.current_id
-                      AND car.optimal_awakening_type = ?
+                      AND car.optimal_awakening_type = (SELECT awakening_type FROM input)
                 )
                 THEN r.current_id
 
@@ -126,13 +126,13 @@ def getEzaReleaseTimeSQL(connection,unitID,seza):
                     SELECT 1
                     FROM card_awakening_routes car
                     WHERE car.card_id = r.current_id
-                      AND car.optimal_awakening_type = 1
+                      AND car.optimal_awakening_type = (SELECT awakening_type FROM input)
                 )
                 THEN (
                     SELECT car.open_at
                     FROM card_awakening_routes car
                     WHERE car.card_id = r.current_id
-                      AND car.optimal_awakening_type = 1
+                      AND car.optimal_awakening_type = (SELECT awakening_type FROM input)
                     LIMIT 1
                 )
                 ELSE NULL
@@ -143,7 +143,7 @@ def getEzaReleaseTimeSQL(connection,unitID,seza):
                     SELECT 1
                     FROM card_awakening_routes car
                     WHERE car.card_id = r.current_id
-                      AND car.optimal_awakening_type = 1
+                      AND car.optimal_awakening_type = (SELECT awakening_type FROM input)
                 ) THEN 1
                 ELSE 0
             END AS done,

@@ -230,7 +230,7 @@ if(CALCUNITBASICS):
                         if(getRaritySQL(connection,awakening[3])=="lr"):
                             unitDictionary["Awakening"]["Awakening to LR"]=True
 
-                if("EZA" in ezaTrueFalse and eza==False):
+                if("EZA" in ezaTrueFalse and (eza or seza)==False):
                     unitDictionary["Awakening"]["Extreme Z-Awakening"]=True
                     unitDictionary["Maxed"]=False
                 if("SEZA" in ezaTrueFalse and seza==False):
