@@ -3077,7 +3077,11 @@ def logicalCausalityExtractor(causality):
     if(causality=="" or causality is None):
         return([])
     else:
-        return(complexlogicalCausalityExtractor(causality.replace(" ","").split('","compiled":')[1][:-1]))
+        output=(complexlogicalCausalityExtractor(causality.replace(" ","").split('","compiled":')[1][:-1]))
+        if(output.startswith("(") and output.endswith(")")):
+            return output
+        else:
+            return ("("+output+")")
 
 
 def complexlogicalCausalityExtractor(causality):
@@ -3698,7 +3702,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=str(int(CausalityRow[2])+1)
                 output["Slider"]["Min"]=1
-                output["Paragraph Title"]="When the turn count is " + str(int(CausalityRow[2])+1)
+                output["Paragraph Title"]="Starting from the " + ordinalise(int(CausalityRow[2])+1) + " turn from the start of battle"
             elif(CausalityRow[1]=="8"):
                 output["Button"]["Name"]="Is attack higher than enemy's?"
                 output["Paragraph Title"]="When attack is higher than enemy's"
@@ -4987,6 +4991,16 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
     BASIC_STAT_BUFFS=True
     BASIC_TIMING_WORDING=True
 
+    #chance wording
+    if("Chance" in parsedLine):
+        if(parsedLine["Chance"]==70):
+            output+="Great chance of "
+        elif(parsedLine["Chance"]==50):
+            output+="High chance of "
+        elif(parsedLine["Chance"]==30):
+            output+="Medium chance of "
+        else:
+            output+=str(parsedLine["Chance"]) + "% chance of "
 
     #Target wording
     if(TARGET_WORDING):
@@ -5204,6 +5218,13 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             if("Change form" in parsedLine["Standby"]):
                 output+="Reverts standby to "
                 output+=parsedLine["Standby"]["Change form"]["Unit"]
+        if("Reversible exchange" in parsedLine):
+            output+="Meets up with "
+            query="""
+                SELECT name FROM cards where id=?
+            """
+            output+=connection.execute(query, (parsedLine["Reversible exchange"]["Unit"],)).fetchone()[0].split(" + ")[0]
+            output+=" and can perform Reversible Exchange"
 
 
     if(len(output)>0):
@@ -5393,18 +5414,25 @@ def minimumVital(otherCausalities,logic):
             
 
             
-def articulateMultipleCausalities(causalities,causalityDictionaries,andOr):
-    output=""
-    for causality in causalities:
-        if(output==""):
-            output+=causalityDictionaries[causality]["Paragraph Title"]
+def articulateMultipleCausalities(causalityLogic,causalityDictionaries):
+    causalityLogic=causalityLogic.replace("  "," ").replace("  "," ")
+    if(causalityLogic=="" or causalityLogic==" "):
+        return ""
+    output=causalityLogic.replace("||"," or ").replace("&&"," and ")
+    for causality in causalityDictionaries:
+        if(causalityLogic.startswith(" "+causality) or causalityLogic.startswith("( "+causality)):
+            causalityText=causalityDictionaries[causality]["Paragraph Title"].replace("When","when")
         else:
-            output+=" "+andOr+" "
-            output+=causalityDictionaries[causality]["Paragraph Title"].replace("When ","")
-    return output.replace("  "," ")
+            causalityText=causalityDictionaries[causality]["Paragraph Title"].replace("When","").replace("When","")
+        if(causalityText!=""):
+            causalityText=causalityText.lower()[0] + causalityText[1:]
+        output=output.replace(causality,causalityText)
+    while("  " in output):
+        output=output.replace("  "," ")
+    return output
 
 
-def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
+def OLDsortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
     #WIP rework this to properly divide the passive skills, currently only ones included in a "most popular" can achieve anything
     #Create a conditionFrequencyL list to store every appearance of a paragraph Title in a passive skill line
     conditionFrequency={}
@@ -5520,8 +5548,172 @@ def sortParagraphTitles(passiveskill,DEVEXCEPTIONS=False):
             for replacement in introParagraphSwap:
                 line2["Paragraph Title"]=line2["Paragraph Title"].replace(replacement,introParagraphSwap[replacement])
                         
+
+def sortParagraphTitles(passiveskill):
+    causalityLogics=[]
+    causalities=[]
+    groupedCausalities={}
+    #FIND ALL CAUSALITIES THAT ARE ALWAYS GROUPED TOGETHER
+    for lineKey in passiveskill:
+        if("Condition" in passiveskill[lineKey]):
+            groupedCausalities[passiveskill[lineKey]["Condition"]["Logic"]]=True
+            causalityLogics.append(passiveskill[lineKey]["Condition"]["Logic"])
+            for causalityKey in passiveskill[lineKey]["Condition"]["Causalities"]:
+                if(causalityKey not in causalities):
+                    causalities.append(causalityKey)
+
+    for causality in causalities:
+        count = sum(1 for key in groupedCausalities.keys() if causality in key)
+        if count > 1:
+            keys_to_modify = [key for key in groupedCausalities.keys() if causality in key]
+            for key in keys_to_modify:
+                groupedCausalities[key] = False
+
+    for key in list(groupedCausalities.keys()):
+        if(groupedCausalities[key]==False):
+            del groupedCausalities[key]
+    for causality in causalities.copy():
+        if any(causality in key for key in groupedCausalities.keys()):
+            del causalities[causalities.index(causality)]
+    
+    for key in list(groupedCausalities.keys()):
+        causalities.append(key)
+
+    
+    conditionFrequency={}
+    for lineKey in passiveskill:
+        line=passiveskill[lineKey]
+        if("Condition" in line):
+            lineHasParagraphTitle=False
+            if(line["Condition"]["Logic"] in causalities and ("||" in line["Condition"]["Logic"]  or "&&" in line["Condition"]["Logic"])):
+                lineHasParagraphTitle=True
+                if(line["Condition"]["Logic"] not in conditionFrequency):
+                    conditionFrequency[line["Condition"]["Logic"]]={"Lines":[],"Causalities":[line["Condition"]["Logic"]]}
+                conditionFrequency[line["Condition"]["Logic"]]["Lines"].append(lineKey)
+            else:
+                for conditionKey in line["Condition"]["Causalities"]:
+                    if(conditionVital(conditionKey,line["Condition"]["Causalities"],line["Condition"]["Logic"])):
+                        lineHasParagraphTitle=True
+                        if(conditionKey not in conditionFrequency):
+                            conditionFrequency[conditionKey]={"Lines":[],"Causalities":[conditionKey]}
+                        conditionFrequency[conditionKey]["Lines"].append(lineKey)
+                if(not lineHasParagraphTitle):
+                    smallestParagraphTitle=minimumVital(list(line["Condition"]["Causalities"].keys()),line["Condition"]["Logic"])
+                    if(smallestParagraphTitle!=None):
+                        newCondition=""
+                        for conditionKey in smallestParagraphTitle:
+                            newCondition+=conditionKey+"||"
+                        newCondition=newCondition[:-2]
+                        if(newCondition not in conditionFrequency):
+                            conditionFrequency[newCondition]={"Lines":[],"Causalities":smallestParagraphTitle}
+                        conditionFrequency[newCondition]["Lines"].append(lineKey)
+                    
+        
+    linesRemaining=list(passiveskill.keys())
+    for lineKey in linesRemaining.copy():
+        if("Condition" not in passiveskill[lineKey]):
+            linesRemaining.remove(lineKey)
+    linesRemaining=list(set(linesRemaining))
+    paragraphPriority=[]
+    #until every line has a paragraph
+    while(len(linesRemaining)>0):
+        #find the condition that appears in the most amount of remaining lines
+        mostFrequentConditionKey=list(conditionFrequency.keys())[0]
+        for conditionKey in conditionFrequency:
+            if(len(conditionFrequency[conditionKey]["Lines"])>len(conditionFrequency[mostFrequentConditionKey]["Lines"])):
+                mostFrequentConditionKey=conditionKey
+
+        #put it next in the priority of conditions
+        paragraphPriority.append(mostFrequentConditionKey)
+
+        #remove any detail of it left within the process
+        for line in linesRemaining.copy():
+            if(line in conditionFrequency[mostFrequentConditionKey]["Lines"]):
+                linesRemaining.remove(line)
+                for conditionKey in conditionFrequency:
+                    if(line in conditionFrequency[conditionKey]["Lines"]):
+                        while(line in conditionFrequency[conditionKey]["Lines"]):
+                            conditionFrequency[conditionKey]["Lines"].remove(line)
+
+    causalityDictionary={}
+    for lineKey in passiveskill:
+        if("Condition" in passiveskill[lineKey]):
+            for causalityKey in passiveskill[lineKey]["Condition"]["Causalities"]:
+                causalityDictionary[causalityKey]={}
+                causalityDictionary[causalityKey]["Paragraph Title"]=passiveskill[lineKey]["Condition"]["Causalities"][causalityKey]["Paragraph Title"]
+
+
+    for lineKey in passiveskill:
+        line=passiveskill[lineKey]
+        line["Line description"]=passiveBriefEffectDescription(line)
+        line["Paragraph Title"]="Basic effect(s)"
+        if("Condition" in line):
+            lineConditions= []
+            if(line["Condition"]["Logic"] in causalities and ("||" in line["Condition"]["Logic"]  or "&&" in line["Condition"]["Logic"])):
+                lineConditions.append(line["Condition"]["Logic"])
+            else:
+                for conditionKey in line["Condition"]["Causalities"]:
+                    lineConditions.append(conditionKey)
+            if(line["Paragraph Title"]=="Basic effect(s)"):
+                priorityIndex=firstListOverlap(lineConditions,[conditionFrequency[x]["Causalities"][0] for x in paragraphPriority])
+                if(priorityIndex!=-1):
+                    paragraphTitle=articulateMultipleCausalities(paragraphPriority[priorityIndex],causalityDictionary)
+                    line["Paragraph Title"] = prepareParagraphTitle(paragraphTitle)
+                    line_logic=line["CausalityLogic"]
+                    for causalityKey in causalityDictionary:
+                        if(causalityKey) in paragraphPriority[priorityIndex]:
+                            line_logic=line_logic.replace(causalityKey,"True")
+                    line_logic=logicalCausalityExtractor(line_logic)
+                else:
+                    line_logic=logicalCausalityExtractor(line["CausalityLogic"])
+                line_logic=line_logic.replace("(","").replace(")","").replace("||"," or ").replace("&&"," and ").replace("True","")
+                line["Line description"]= passiveBriefEffectDescription(line)
+                line["Line description"]+=articulateMultipleCausalities(line_logic,causalityDictionary)
+                #for conditionKey in line["Condition"]["Causalities"]:
+                #    line_logic=line_logic.replace(conditionKey,line["Condition"]["Causalities"][conditionKey]["Paragraph Title"])
+                #while("  " in line_logic):
+                #    line_logic=line_logic.replace("  "," ")
+                #if(line_logic!=" True "):
+                #    line["Line description"]+=(" "+line_logic)
+        elif(int(line["Length"])!=1 and int(line["Length"])!=99):
+            line["Line description"]+=" for "
+            line["Line description"]+=str(line["Length"])
+            line["Line description"]+=" turns"
+        if(line["Length"]=="99"):
+            line["Line description"]+="{passiveImg:forever}"
+        else:
+            if("Once Only" in line and line["Once Only"]==True):
+                if(line["Length"]=="1"):
+                    line["Line description"]+=" for 1 turn "
+                line["Line description"]=" {passiveImg:once}" + line["Line description"]
+        for disablingLine in passiveskill:
+            if("Disable Other Line" in passiveskill[disablingLine] and passiveskill[disablingLine]["Disable Other Line"]["Line"]==lineKey):
+                line["Line description"]+=" until "+passiveskill[disablingLine]["Brief effect description"].split(str(lineKey))[1]
+        line["Line description"]=line["Line description"].replace("  "," ").replace("right before being hit until after being hit","while being hit").replace("before being hit until after being hit","while being hit").replace("  "," ")
+
+    #check if ithere is an intro condition
+    introParagraphSwap={}
+    for lineKey in passiveskill:
+        line=passiveskill[lineKey]
+        if("Has Animation" in line and line["Has Animation"]==True and "Reversible exchange" not in line):
+            introParagraphSwap[line["Paragraph Title"]]="Activates the Entrance Animation "+line["Paragraph Title"].replace("When","when").replace("Basic effect(s)","")
+
+    if(introParagraphSwap!={}):
+        for lineKey2 in passiveskill:
+            line2=passiveskill[lineKey2]
+            for replacement in introParagraphSwap:
+                line2["Paragraph Title"]=line2["Paragraph Title"].replace(replacement,introParagraphSwap[replacement])
             
 
+def prepareParagraphTitle(paragraphTitle):
+    if(not (paragraphTitle.upper().replace("(","").replace(" ","").startswith("WHEN") or paragraphTitle.upper().replace("(","").replace(" ","").startswith("FOR") )):
+        paragraphTitle="When "+paragraphTitle
+    while(paragraphTitle.startswith("(") and paragraphTitle.endswith(")")):
+        paragraphTitle=paragraphTitle[1:-1]
+    while(paragraphTitle.startswith(" ")):
+        paragraphTitle=paragraphTitle[1:]
+    paragraphTitle=paragraphTitle[0].upper()+paragraphTitle[1:]
+    return paragraphTitle
     
 def firstListOverlap(listToCompare,listToIndex):
     for entry in listToIndex:
@@ -5793,7 +5985,7 @@ def polishPassiveLine(parsedLine):
 
     elif("Once Only" in parsedLine and parsedLine["Once Only"]==True):
         output["Condition"]={
-            "Logic": " "+str(parsedLine["Length"])+"000000000000 ",
+            "Logic": "( "+str(parsedLine["Length"])+"000000000000 )",
             "Causalities": {
                 str(parsedLine["Length"])+"000000000000": {
                     "Button": {"Name": "Is it within the first "+str(parsedLine["Length"])+" turn(s) from the character's entry turn?"},

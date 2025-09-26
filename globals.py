@@ -1,4 +1,6 @@
 import csv
+import sqlite3
+import os
 def storedatabase(directory,name,printing=True):
     directory+=name
     file = open(directory, encoding="utf-8-sig")
@@ -9,6 +11,9 @@ def storedatabase(directory,name,printing=True):
     return(name)
 
 directory="data/"
+
+GLOBAL_DB_LOC=os.path.dirname(os.path.abspath(__file__))+"/Dokkan_Asset_Downloader/card_assets/global/en/sqlite/current/en/database.db"
+connection = sqlite3.connect(GLOBAL_DB_LOC)
 
 active_skills=storedatabase(directory,"active_skills.csv")
 active_skill_sets=storedatabase(directory,"active_skill_sets.csv")
