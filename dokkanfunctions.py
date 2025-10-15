@@ -5743,6 +5743,7 @@ def prepareParagraphTitle(paragraphTitle):
     while(paragraphTitle.startswith(" ")):
         paragraphTitle=paragraphTitle[1:]
     paragraphTitle=paragraphTitle[0].upper()+paragraphTitle[1:]
+    paragraphTitle=paragraphTitle.replace("  "," ")
     return paragraphTitle
     
 def firstListOverlap(listToCompare,listToIndex):
