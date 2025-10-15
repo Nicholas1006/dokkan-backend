@@ -5709,13 +5709,12 @@ def sortParagraphTitles(passiveskill):
             line["Line description"]+=" for "
             line["Line description"]+=str(line["Length"])
             line["Line description"]+=" turns"
-        if(line["Length"]=="99"):
-            line["Line description"]+="{passiveImg:forever}"
-        else:
-            if("Once Only" in line and line["Once Only"]==True):
-                if(line["Length"]=="1"):
-                    line["Line description"]+=" for 1 turn "
-                line["Line description"]=" {passiveImg:once}" + line["Line description"]
+        if("Once Only" in line and line["Once Only"]==True):
+            if(line["Length"]!=99):
+                line["Line description"]+=" for "+str(line["Length"])+" turn "
+            line["Line description"]=" {passiveImg:once}" + line["Line description"]
+        if(line["Length"]==99):
+            line["Line description"]="{passiveImg:forever}"+line["Line description"]
         for disablingLine in passiveskill:
             if("Disable Other Line" in passiveskill[disablingLine] and passiveskill[disablingLine]["Disable Other Line"]["Line"]==lineKey):
                 line["Line description"]+=" until "+passiveskill[disablingLine]["Brief effect description"].split(str(lineKey))[1]
