@@ -4540,9 +4540,39 @@ def qualifyOwnableSQL(connection,unitID):
     return connection.execute(query, (unitID,)).fetchone()!=None
 
 
+def hasKanji(text):
+    """
+    Check if a string contains kanji characters.
+    Kanji are in the Unicode ranges:
+    - CJK Unified Ideographs (4E00-9FFF)
+    - CJK Extension A (3400-4DBF)
+    - CJK Extension B (20000-2A6DF)
+    - CJK Extension C (2A700-2B73F)
+    - CJK Extension D (2B740-2B81F)
+    - CJK Extension E (2B820-2CEAF)
+    - CJK Compatibility Ideographs (F900-FAFF)
+    """
+    for char in text:
+        code_point = ord(char)
+        # Main CJK Unified Ideographs
+        if 0x4E00 <= code_point <= 0x9FFF:
+            return True
+        # CJK Extension A
+        elif 0x3400 <= code_point <= 0x4DBF:
+            return True
+        # CJK Compatibility Ideographs
+        elif 0xF900 <= code_point <= 0xFAFF:
+            return True
+        # For higher planes (surrogate pairs in Python), we need different handling
+        elif code_point >= 0x20000:
+            # This covers extensions B, C, D, E, etc.
+            return True
+    return False
+
 def qualifyEncounterable(card):
     if(not (card[5] in ["5","4"] and card[0][-1]=="0") and
     #card id starts with 1,2 or 4
+    not hasKanji(card[1]) and
     (card[0][0] in ["1","2","4"] and len(card[0])==7) and
     #card is not "is_selling_only"
     card[46] == "0" and
