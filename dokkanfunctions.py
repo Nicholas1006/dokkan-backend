@@ -3742,6 +3742,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Name"]="What percentage of HP does the enemy have?"
                 output["Slider"]["Logic"]=">="
                 output["Slider"]["Logic"]+=CausalityRow[2]
+                output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=100
                 
                 output["Paragraph Title"]="When enemy health is " + CausalityRow[2] + "% or more"
@@ -3753,6 +3754,7 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Name"]="What percentage of HP does the enemy have?"
                 output["Slider"]["Logic"]="<="
                 output["Slider"]["Logic"]+=CausalityRow[2]
+                output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=100
 
                 output["Paragraph Title"]="When enemy health is " + CausalityRow[2] + "% or less"
