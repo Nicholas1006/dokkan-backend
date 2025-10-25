@@ -1894,24 +1894,34 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             elif(TargetRow[2]=="4"):
                 #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relations, column=1)       for card in searchbycolumn(code=x, column=3, database=cards)]))
                 card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
-                possible_names=[]
-                for id in card_unique_info_id:
-                    name=searchbycolumn(code=id,column=3,database=cards)
-                    for unit in name:
-                        if(qualifyOwnable(card=unit)):
-                            possible_names.append(unit[1])
-                likelyName=longestCommonSubstring(possible_names) 
+                if(card_unique_info_id in card_unique_info_id_memorisation):
+                    likelyName=card_unique_info_id_memorisation[card_unique_info_id]
+                else:
+                    possible_names=[]
+                    for id in card_unique_info_id:
+                        name=searchbycolumn(code=id,database=cards,column=3)
+                        for unit in name:
+                            if(unit[1] not in possible_names):
+                                if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                                    possible_names.append(unit[1])
+                    likelyName=longestCommonSubstring(possible_names) 
+                    card_unique_info_id_memorisation[TargetRow[3]]=likelyName
                 effects["Target"]["Name"]["Included"]=[likelyName]
             elif(TargetRow[2]=="5"):
                 #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relations, column=1)       for card in searchbycolumn(code=x, column=3, database=cards)]))
-                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
-                possible_names=[]
-                for id in card_unique_info_id:
-                    name=searchbycolumn(code=id,column=3,database=cards)
-                    for unit in name:
-                        if(qualifyOwnable(card=unit)):
-                            possible_names.append(unit[1])
-                likelyName=longestCommonSubstring(possible_names) 
+                if(TargetRow[3] in card_unique_info_id_memorisation):
+                    likelyName=card_unique_info_id_memorisation[TargetRow[3]]
+                else:
+                    card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
+                    possible_names=[]
+                    for id in card_unique_info_id:
+                        name=searchbycolumn(code=id,database=cards,column=3)
+                        for unit in name:
+                            if(unit[1] not in possible_names):
+                                if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                                    possible_names.append(unit[1])
+                    likelyName=longestCommonSubstring(possible_names) 
+                    card_unique_info_id_memorisation[TargetRow[3]]=likelyName
                 effects["Target"]["Name"]["Excluded"]=likelyName
             else:
                 #WIP
@@ -2497,14 +2507,19 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 effects["Target"]["Category"]["Excluded"].append(TargetCategory)
             elif(TargetRow[2]=="4"):
                 #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relations, column=1)       for card in searchbycolumn(code=x, column=3, database=cards)]))
-                card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
-                possible_names=[]
-                for id in card_unique_info_id:
-                    name=searchbycolumn(code=id,column=3,database=cards)
-                    for unit in name:
-                        if(qualifyOwnable(card=unit)):
-                            possible_names.append(unit[1])
-                likelyName=longestCommonSubstring(possible_names) 
+                if(TargetRow[3] in card_unique_info_id_memorisation):
+                    likelyName=card_unique_info_id_memorisation[TargetRow[3]]
+                else:
+                    card_unique_info_id=searchbyid(code=TargetRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
+                    possible_names=[]
+                    for id in card_unique_info_id:
+                        name=searchbycolumn(code=id,database=cards,column=3)
+                        for unit in name:
+                            if(unit[1] not in possible_names):
+                                if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                                    possible_names.append(unit[1])
+                    likelyName=longestCommonSubstring(possible_names) 
+                    card_unique_info_id_memorisation[TargetRow[3]]=likelyName
                 effects["Target"]["Name"]["Included"]=[likelyName]
             elif(TargetRow[2]=="5"):
                 #list(set([card[1] for x in searchbyid(code=TargetRow[3], codecolumn=2, database=card_unique_info_set_relations, column=1)       for card in searchbycolumn(code=x, column=3, database=cards)]))
@@ -2513,7 +2528,7 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 for id in card_unique_info_id:
                     name=searchbycolumn(code=id,column=3,database=cards)
                     for unit in name:
-                        if(qualifyOwnable(card=unit)):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
                             possible_names.append(unit[1])
                 likelyName=longestCommonSubstring(possible_names) 
                 effects["Target"]["Name"]["Excluded"]=likelyName
@@ -3165,20 +3180,37 @@ def CausalityLogicalExtractor(unit,causality,DEVEXCEPTIONS=False):
         returnDictionary=None
     return(returnDictionary)
 
+def subStringInAllStringsOfList(subString,listOfStrings):
+    for focusString in listOfStrings:
+        if subString not in focusString:
+            return False
+    return True
+
 def longestCommonSubstring(listOfStrings):
+    listOfStrings=list(set(listOfStrings))
     listOfStrings.sort(key=len)
     baseString = listOfStrings[0]
     longestString = ""
-    for startingChar in range(len(baseString) + 1):
-        for endingChar in range(startingChar, len(baseString) + 1):
-            substring = baseString[startingChar:endingChar]
-            valid = True
-            for s in listOfStrings:
-                if substring not in s:
-                    valid = False
-                    break
-            if valid and len(substring) > len(longestString):
-                longestString = substring
+    startingChar = 0
+    endingChar = 1
+    extending=True
+    while len(baseString) - startingChar >= len(longestString) and endingChar <= len(baseString):
+        if(extending):
+            if(subStringInAllStringsOfList(baseString[startingChar:endingChar],listOfStrings)):
+                if(len(baseString[startingChar:endingChar])>len(longestString)):
+                    longestString=baseString[startingChar:endingChar]
+                endingChar+=1
+                extending=True
+            else:
+                extending=False
+        elif(not extending):
+            startingChar+=1
+            if(endingChar==startingChar):
+                endingChar+=1
+            if(startingChar - endingChar < len(longestString)):
+                extending=True
+            else:
+                extending=False
     return longestString
 
 
@@ -3443,13 +3475,18 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown name type")
         card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
-        possible_names=[]
-        for id in card_unique_info_id:
-            name=searchbycolumn(code=id,column=3,database=cards)
-            for unit in name:
-                if(qualifyEncounterable(card=unit)):
-                    possible_names.append(unit[1])
-        likelyName=longestCommonSubstring(possible_names) 
+        if(card_unique_info_id in card_unique_info_id_memorisation):
+            likelyName=card_unique_info_id_memorisation[card_unique_info_id]
+        else:
+            possible_names=[]
+            for id in card_unique_info_id:
+                name=searchbycolumn(code=id,database=cards,column=3)
+                for unit in name:
+                    if(unit[1] not in possible_names):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                            possible_names.append(unit[1])
+            likelyName=longestCommonSubstring(possible_names) 
+            card_unique_info_id_memorisation[card_unique_info_id]=likelyName
         output["Button"]["Name"]+=likelyName
         output["Button"]["Name"]+=("?")
 
@@ -3527,16 +3564,19 @@ def causalityLineToLogic(causalityLine,DEVEXCEPTIONS=False):
     elif(CausalityRow[1]=="45"):
         categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categories,column=1)[0]
 
-        card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relations,column=1)
-        possible_names=[]
-        for id in card_unique_info_id:
-            name=searchbycolumn(code=id,database=cards,column=3)
-            for unit in name:
-                if(unit[1] not in possible_names):
-                    if(qualifyEncounterable(unit)):
-                        possible_names.append(unit[1])
-        possible_names=list(set(possible_names))
-        likelyName=longestCommonSubstring(possible_names) 
+        if(CausalityRow[4] in card_unique_info_id_memorisation):
+            likelyName=card_unique_info_id_memorisation[CausalityRow[4]]
+        else:
+            card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relations,column=1)
+            possible_names=[]
+            for id in card_unique_info_id:
+                name=searchbycolumn(code=id,database=cards,column=3)
+                for unit in name:
+                    if(unit[1] not in possible_names):
+                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                            possible_names.append(unit[1])
+            likelyName=longestCommonSubstring(possible_names) 
+            card_unique_info_id_memorisation[CausalityRow[4]]=likelyName
 
         if(CausalityRow[2]=="0"):
             output["Button"]["Name"]=("Is there a ")
@@ -3912,14 +3952,19 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output+=("UNKNOWN NAME TYPE")
                     if(DEVEXCEPTIONS==True):
                         raise Exception("Unknown name type")
-                card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
-                possible_names=[]
-                for id in card_unique_info_id:
-                    name=searchbycolumn(code=id,column=3,database=cards)
-                    for unit in name:
-                        if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
-                            possible_names.append(unit[1])
-                likelyName=longestCommonSubstring(possible_names) 
+                if(CausalityRow[3] in card_unique_info_id_memorisation):
+                    likelyName=card_unique_info_id_memorisation[CausalityRow[3]]
+                else:
+                    card_unique_info_id=searchbyid(code=CausalityRow[3],codecolumn=2,database=card_unique_info_set_relations,column=1)
+                    possible_names=[]
+                    for id in card_unique_info_id:
+                        name=searchbycolumn(code=id,database=cards,column=3)
+                        for unit in name:
+                            if(unit[1] not in possible_names):
+                                if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                                    possible_names.append(unit[1])
+                    likelyName=longestCommonSubstring(possible_names) 
+                    card_unique_info_id_memorisation[CausalityRow[3]]=likelyName
                 output["Button"]["Name"]+=likelyName
                 output["Button"]["Name"]+=("?")
                 output["Paragraph Title"]+='"' + likelyName+'"'
@@ -4036,16 +4081,19 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="45"):
                 categoryType=searchbyid(CausalityRow[3],codecolumn=0,database=card_categories,column=1)[0]
 
-                card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relations,column=1)
-                possible_names=[]
-                for id in card_unique_info_id:
-                    name=searchbycolumn(code=id,database=cards,column=3)
-                    for unit in name:
-                        if(unit[1] not in possible_names):
-                            if(qualifyEncounterable(unit)):
-                                possible_names.append(unit[1])
-                possible_names=list(set(possible_names))
-                likelyName=longestCommonSubstring(possible_names) 
+                if(CausalityRow[4] in card_unique_info_id_memorisation):
+                    likelyName=card_unique_info_id_memorisation[CausalityRow[4]]
+                else:
+                    card_unique_info_id=searchbyid(code=CausalityRow[4],codecolumn=2,database=card_unique_info_set_relations,column=1)
+                    possible_names=[]
+                    for id in card_unique_info_id:
+                        name=searchbycolumn(code=id,database=cards,column=3)
+                        for unit in name:
+                            if(unit[1] not in possible_names):
+                                if(qualifyEncounterable(card=unit) and unit[0][0]=="1"):
+                                    possible_names.append(unit[1])
+                    likelyName=longestCommonSubstring(possible_names) 
+                    card_unique_info_id_memorisation[CausalityRow[4]]=likelyName
 
                 if(CausalityRow[2]=="0"):
                     output["Button"]["Name"]=("Is there a ")

@@ -15,6 +15,8 @@ directory="data/"
 GLOBAL_DB_LOC=os.path.dirname(os.path.abspath(__file__))+"/Dokkan_Asset_Downloader/card_assets/global/en/sqlite/current/en/database.db"
 connection = sqlite3.connect(GLOBAL_DB_LOC)
 
+card_unique_info_id_memorisation={}
+
 active_skills=storedatabase(directory,"active_skills.csv")
 active_skill_sets=storedatabase(directory,"active_skill_sets.csv")
 battle_params=storedatabase(directory,"battle_params.csv")
