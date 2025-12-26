@@ -3899,6 +3899,12 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 elif(extractClassType(CausalityRow[2],DEVEXCEPTIONS=DEVEXCEPTIONS)==(["Extreme"],["PHY","STR","INT","TEQ","AGL"])):
                     output["Button"]["Name"]="Does the team include all five Extreme types?"
                     output["Paragraph Title"]="When the team includes all five Extreme types"
+                elif(extractClassType(CausalityRow[2],DEVEXCEPTIONS=DEVEXCEPTIONS)==([],["PHY","STR","INT","TEQ","AGL"])):
+                    output["Button"]["Name"]="Does the team include all five types?"
+                    output["Paragraph Title"]="When the team includes all five types"
+                elif(extractClassType(CausalityRow[2],DEVEXCEPTIONS=DEVEXCEPTIONS)==(["Extreme","Super"], [])):
+                    output["Button"]["Name"]="Does the team include Super and Extreme Classes?"
+                    output["Paragraph Title"]="When the team includes both Super and Extreme Classes"
                 else:
                     print("UNKNOWN TYPE")
                     if(DEVEXCEPTIONS==True):
