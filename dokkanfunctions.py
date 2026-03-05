@@ -6400,6 +6400,15 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         else:
             output["Building Stat"]["Cause"]["Cause"]="Attacks recieved or dodged in slot 1 or 2"
             output["Building Stat"]["Slider"]="How many attacks has this character recieved or dodged in slot 1 or 2?" 
+	elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==2 and 'Is the target enemy in' in causalities[0] and 'Is the target enemy in' in causalities[1]):
+		condition1=causalities[0][23:-1]
+		condition2=causalities[1][23:-1]
+		if(oneTurnOnly):
+            output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition1 + " or " + condition2 +" on this turn"
+            output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition1 + " or " + condition2+" on this turn?"
+        else:
+            output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition1 + " or " + condition2
+            output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition1 + " or " + condition2+"?"
 
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
