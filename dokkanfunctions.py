@@ -6413,7 +6413,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==3 and 'Is the target enemy in' in causalities[0] and 'Is the target enemy in' in causalities[1] and "Is HP " in causalities[2] and "% or more?" in causalities[2]):
         condition1=causalities[0][23:-1]
         condition2=causalities[1][23:-1]
-		HPMin=causalities[2][6:8]
+        HPMin=causalities[2][6:8]
         del output["Condition"]
         if(oneTurnOnly):
             output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition1 + " or " + condition2 +"while HP is "+HPMin+" or more on this turn"
