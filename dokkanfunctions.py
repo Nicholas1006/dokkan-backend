@@ -1843,32 +1843,32 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         #first turn counts as turn 0
         "First Turn To Activate": 0,
         "Condition": None,
-        "CausalityLogic":passiveskill[11],
+        "CausalityLogic":passiveskill[12],
         "Once Only": False,
         "Has Animation": False
     }
-    if(causalityExtractor(passiveskill[11])!=[]):
-        causalityCondition=logicalCausalityExtractor(passiveskill[11])
+    if(causalityExtractor(passiveskill[12])!=[]):
+        causalityCondition=logicalCausalityExtractor(passiveskill[12])
         causalityCondition=CausalityLogicalExtractor(unit=unit,causality=causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
         if(causalityCondition!=None):
             effects["Condition"]=causalityCondition
     
-    if(passiveskill[6]!=""):
+    if(passiveskill[7]!=""):
         effects["Has Animation"]=True
     
-    if(passiveskill[7]=="0"):
+    if(passiveskill[8]=="0"):
         effects["Buff"]["Type"]="Raw stats"
         effects["Buff"]["+ or -"]="+"
 
-    elif(passiveskill[7]=="1"):
+    elif(passiveskill[8]=="1"):
         effects["Buff"]["Type"]="Raw stats"
         effects["Buff"]["+ or -"]="-"
 
-    elif(passiveskill[7]=="2"):
+    elif(passiveskill[8]=="2"):
         effects["Buff"]["Type"]="Percentage"
         effects["Buff"]["+ or -"]="+"
 
-    elif(passiveskill[7]=="3"):
+    elif(passiveskill[8]=="3"):
         effects["Buff"]["Type"]="Percentage"
         effects["Buff"]["+ or -"]="-"
     else:
@@ -1878,12 +1878,12 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 raise Exception("Unknown stat increase type")
     
 
-    effects["Chance"]=passiveskill[10]
+    effects["Chance"]=passiveskill[11]
 
-    if(passiveskill[5]!="0"):
+    if(passiveskill[6]!="0"):
         effects["Target"]["Category"]={"Included": [],"Excluded": []}
         effects["Target"]["Name"]={"Included": [],"Excluded": []}
-        TargetRows=searchbycolumn(code=passiveskill[5],database=sub_target_types,column=1)
+        TargetRows=searchbycolumn(code=passiveskill[6],database=sub_target_types,column=1)
         for TargetRow in TargetRows:
             if(TargetRow[2]=="1"):
                 TargetCategory=CategoryExtractor(TargetRow[3])
@@ -1930,30 +1930,30 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                     raise Exception("Target NOT FOUND")
 
 
-    if(passiveskill[4]=="1"):
+    if(passiveskill[5]=="1"):
         effects["Target"]["Target"]="Self"
-    elif(passiveskill[4]=="2"):
+    elif(passiveskill[5]=="2"):
         effects["Target"]["Target"]="allies"
-    elif(passiveskill[4]=="3"):
+    elif(passiveskill[5]=="3"):
         effects["Target"]["Target"]="Enemy"
-    elif(passiveskill[4]=="4"):
+    elif(passiveskill[5]=="4"):
         effects["Target"]["Target"]="Enemies"
-    elif(passiveskill[4]=="5"):
+    elif(passiveskill[5]=="5"):
         effects["Target"]["Target"]="allies"
         #For some reason int dfe future gohan has this on his ki support, even though this couldve been under 2
-    elif(passiveskill[4]=="12"):
+    elif(passiveskill[5]=="12"):
         effects["Target"]["Class"]="Super"
         effects["Target"]["Target"]="allies"
-    elif(passiveskill[4]=="13"):
+    elif(passiveskill[5]=="13"):
         effects["Target"]["Class"]="Extreme"
         effects["Target"]["Target"]="allies"
-    elif(passiveskill[4]=="14"):
+    elif(passiveskill[5]=="14"):
         effects["Target"]["Class"]="Super"
         effects["Target"]["Target"]="Enemies"
-    elif(passiveskill[4]=="15"):
+    elif(passiveskill[5]=="15"):
         effects["Target"]["Class"]="Extreme"
         effects["Target"]["Target"]="Enemies"
-    elif(passiveskill[4]=="16"):
+    elif(passiveskill[5]=="16"):
         effects["Target"]["Target"]="allies(self excluded)"
     else:
         effects["Target"]["Target"]=("UNKNOWN TARGET")
@@ -1961,110 +1961,98 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             raise Exception("UNKNOWN TARGET")
 
     
-    if(passiveskill[3]=="0"):
+    if(passiveskill[4]=="0"):
         effects["Domain"]=searchbyid(code=passiveskill[0],codecolumn=2,database=dokkan_field_passive_skill_relations,column=1)[0]
 
-    elif passiveskill[3]=="1":
-        effects["ATK"]+=int(passiveskill[12])
-    elif passiveskill[3]=="2":
-        effects["DEF"]+=int(passiveskill[12])
-    elif passiveskill[3]=="3":
-        effects["ATK"]+=int(passiveskill[12])
-        effects["DEF"]+=int(passiveskill[13])
-    elif passiveskill[3]=="4":
-        effects["Heals"]+=int(passiveskill[12])
-    elif passiveskill[3]=="5":
-        effects["Ki"]+=int(passiveskill[12])
-    elif passiveskill[3]=="9":
-        effects["Status"].append("Stun")
-    elif passiveskill[3]=="13":
-        effects["DR"]+=100-int(passiveskill[12])
-    elif passiveskill[3]=="16":
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+    elif passiveskill[4]=="1":
         effects["ATK"]+=int(passiveskill[13])
-        effects["Target"]["Type"]=typing
-    elif passiveskill[3]=="17":
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+    elif passiveskill[4]=="2":
         effects["DEF"]+=int(passiveskill[13])
-        effects["Target"]["Type"]=typing
-    elif passiveskill[3]=="18":
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+    elif passiveskill[4]=="3":
         effects["ATK"]+=int(passiveskill[13])
-        effects["DEF"]+=int(passiveskill[13])
-        effects["Target"]["Type"]=typing
-    elif passiveskill[3]=="20":
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["DEF"]+=int(passiveskill[14])
+    elif passiveskill[4]=="4":
+        effects["Heals"]+=int(passiveskill[13])
+    elif passiveskill[4]=="5":
         effects["Ki"]+=int(passiveskill[13])
+    elif passiveskill[4]=="9":
+        effects["Status"].append("Stun")
+    elif passiveskill[4]=="13":
+        effects["DR"]+=100-int(passiveskill[13])
+    elif passiveskill[4]=="16":
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["ATK"]+=int(passiveskill[14])
         effects["Target"]["Type"]=typing
-    elif passiveskill[3]=="24":
+    elif passiveskill[4]=="17":
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["DEF"]+=int(passiveskill[14])
+        effects["Target"]["Type"]=typing
+    elif passiveskill[4]=="18":
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["ATK"]+=int(passiveskill[14])
+        effects["DEF"]+=int(passiveskill[14])
+        effects["Target"]["Type"]=typing
+    elif passiveskill[4]=="20":
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["Ki"]+=int(passiveskill[14])
+        effects["Target"]["Type"]=typing
+    elif passiveskill[4]=="24":
         effects["Status"].append("Disable guard")
-    elif passiveskill[3]=="28":
-        effects["Heals"]+=int(passiveskill[12])
-    elif passiveskill[3]=="38":
+    elif passiveskill[4]=="28":
+        effects["Heals"]+=int(passiveskill[13])
+    elif passiveskill[4]=="38":
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown effect")
-    elif passiveskill[3]=="47":
+    elif passiveskill[4]=="47":
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown effect")
-    elif passiveskill[3]=="48":
+    elif passiveskill[4]=="48":
         effects["Status"].append("Seal")
-    elif passiveskill[3]=="50":
+    elif passiveskill[4]=="50":
         effects["Status"].append("Immune to negative effects")
-    elif passiveskill[3]=="51":
-        type1=KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)
-        type2=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+    elif passiveskill[4]=="51":
+        type1=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        type2=KiOrbType(passiveskill[14],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["Ki Change"]["From"]=type1
         effects["Ki Change"]["To"]=type2
         effects["Ki Change"]["Style"]="Single"
-    elif passiveskill[3]=="52":
+    elif passiveskill[4]=="52":
         effects["Status"].append("Survive K.O attacks")
-    elif passiveskill[3]=="53":
+    elif passiveskill[4]=="53":
         effects["Status"].append("DEF reduced to 0")
-    elif passiveskill[3]=="59":
+    elif passiveskill[4]=="59":
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23*int(passiveskill[12])
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
-        effects["ATK"]+=int(passiveskill[12])
-    elif passiveskill[3]=="60":
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23*int(passiveskill[12])
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
-        effects["DEF"]+=int(passiveskill[12])
-    elif passiveskill[3]=="61":
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23*int(passiveskill[12])
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
-        effects["ATK"]+=int(passiveskill[12])
-        effects["DEF"]+=int(passiveskill[12])
-    elif passiveskill[3]=="64":
-        typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
-        effects["Building Stat"]["Slider"]="How many "
-        effects["Building Stat"]["Slider"]+=typing[0]
-        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*int(passiveskill[13])
-        else:
-            effects["Building Stat"]["Max"]=23*int(passiveskill[13])
-        effects["ATK"]+=int(passiveskill[13])
+        effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
-    elif passiveskill[3]=="65":
-        typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["ATK"]+=int(passiveskill[13])
+    elif passiveskill[4]=="60":
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
+        effects["Building Stat"]["Max"]=23*int(passiveskill[13])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
+        effects["DEF"]+=int(passiveskill[13])
+    elif passiveskill[4]=="61":
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
+        effects["Building Stat"]["Max"]=23*int(passiveskill[13])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
+        effects["ATK"]+=int(passiveskill[13])
+        effects["DEF"]+=int(passiveskill[13])
+    elif passiveskill[4]=="64":
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
         effects["Building Stat"]["Slider"]+=typing[0]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
         if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*int(passiveskill[12])
+            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
         else:
-            effects["Building Stat"]["Max"]=23*int(passiveskill[12])
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
-        effects["DEF"]+=int(passiveskill[13])
-    elif passiveskill[3]=="66":
-        typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
+        effects["ATK"]+=int(passiveskill[14])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
+    elif passiveskill[4]=="65":
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
         effects["Building Stat"]["Slider"]+=typing[0]
@@ -2074,110 +2062,122 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         else:
             effects["Building Stat"]["Max"]=23*int(passiveskill[13])
         effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
-        effects["ATK"]+=int(passiveskill[13])
-        effects["DEF"]+=int(passiveskill[13])
-    elif passiveskill[3]=="67":
-        type1=binaryOrbType(passiveskill[12],DEVEXCEPTIONS)
-        type2=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
+        effects["DEF"]+=int(passiveskill[14])
+    elif passiveskill[4]=="66":
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
+        effects["Building Stat"]["Slider"]="How many "
+        effects["Building Stat"]["Slider"]+=typing[0]
+        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
+        if(typing==["Rainbow"]):
+            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
+        else:
+            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
+        effects["ATK"]+=int(passiveskill[14])
+        effects["DEF"]+=int(passiveskill[14])
+    elif passiveskill[4]=="67":
+        type1=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
+        type2=binaryOrbType(passiveskill[14],DEVEXCEPTIONS)
         effects["Ki Change"]["From"]=type1
         effects["Ki Change"]["To"]=type2
         effects["Ki Change"]["Style"]="Randomly"
         
-    elif passiveskill[3]=="68":
+    elif passiveskill[4]=="68":
         #buffs per ki sphere
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":binaryOrbType(passiveskill[12],DEVEXCEPTIONS)}
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":binaryOrbType(passiveskill[13],DEVEXCEPTIONS)}
         effects["Building Stat"]["Slider"]="How many "
-        for orbType in binaryOrbType(passiveskill[12],DEVEXCEPTIONS):
+        for orbType in binaryOrbType(passiveskill[13],DEVEXCEPTIONS):
             effects["Building Stat"]["Slider"]+=orbType
             effects["Building Stat"]["Slider"]+=" or "
         effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        if(binaryOrbType(passiveskill[12],DEVEXCEPTIONS)==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
+        if(binaryOrbType(passiveskill[13],DEVEXCEPTIONS)==["Rainbow"]):
+            effects["Building Stat"]["Max"]=5*int(passiveskill[15])
         else:
-            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
-        if(passiveskill[13]=="1"):
-            effects["ATK"]+=int(passiveskill[14])
-        elif(passiveskill[13]=="2"):
-            effects["Heals"]+=int(passiveskill[14])
-        elif(passiveskill[13]=="3"):
-            effects["DEF"]+=int(passiveskill[14])
-        elif(passiveskill[13]=="4"):
-            effects["Crit Chance"]+=int(passiveskill[14])
-        elif(passiveskill[13]=="5"):
-            effects["Dodge Chance"]+=int(passiveskill[14])
-        elif(passiveskill[13]=="6"):
-            effects["DR"]+=int(passiveskill[14])
+            effects["Building Stat"]["Max"]=23*int(passiveskill[15])
+        if(passiveskill[14]=="1"):
+            effects["ATK"]+=int(passiveskill[15])
+        elif(passiveskill[14]=="2"):
+            effects["Heals"]+=int(passiveskill[15])
+        elif(passiveskill[14]=="3"):
+            effects["DEF"]+=int(passiveskill[15])
+        elif(passiveskill[14]=="4"):
+            effects["Crit Chance"]+=int(passiveskill[15])
+        elif(passiveskill[14]=="5"):
+            effects["Dodge Chance"]+=int(passiveskill[15])
+        elif(passiveskill[14]=="6"):
+            effects["DR"]+=int(passiveskill[15])
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown buff")
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
-    elif passiveskill[3]=="69":
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[15])
+    elif passiveskill[4]=="69":
         effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
-        effects["Ki Change"]["To"]=[KiOrbType(passiveskill[12])]
+        effects["Ki Change"]["To"]=[KiOrbType(passiveskill[13])]
         effects["Ki Change"]["Style"]="All"
-    elif passiveskill[3]=="71":
-        if(int(passiveskill[12])>int(passiveskill[13])):
+    elif passiveskill[4]=="71":
+        if(int(passiveskill[13])>int(passiveskill[14])):
             #The less HP remaining the greater the stats boost
-            effects["ATK"]+=int(passiveskill[12])
-            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
-            effects["Building Stat"]["Max"]+=int(passiveskill[12])
-            effects["Building Stat"]["Min"]+=int(passiveskill[13])
-            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-        else:
-            #The more HP remaining the greater the stats boost
             effects["ATK"]+=int(passiveskill[13])
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
-            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
-            effects["Building Stat"]["Max"]+=int(passiveskill[13])
-            effects["Building Stat"]["Min"]+=int(passiveskill[12])
-            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-    elif passiveskill[3]=="72":
-        if(int(passiveskill[12])>int(passiveskill[13])):
-            #The less HP remaining the greater the stats boost
-            effects["DEF"]+=int(passiveskill[12])
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[15])
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
-            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
-            effects["Building Stat"]["Max"]+=int(passiveskill[12])
-            effects["Building Stat"]["Min"]+=int(passiveskill[13])
+            effects["Building Stat"]["Max"]+=int(passiveskill[13])
+            effects["Building Stat"]["Min"]+=int(passiveskill[14])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
         else:
             #The more HP remaining the greater the stats boost
+            effects["ATK"]+=int(passiveskill[14])
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[15])
+            effects["Building Stat"]["Max"]+=int(passiveskill[14])
+            effects["Building Stat"]["Min"]+=int(passiveskill[13])
+            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
+    elif passiveskill[4]=="72":
+        if(int(passiveskill[13])>int(passiveskill[14])):
+            #The less HP remaining the greater the stats boost
             effects["DEF"]+=int(passiveskill[13])
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
-            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
-            effects["Building Stat"]["Max"]+=int(passiveskill[13])
-            effects["Building Stat"]["Min"]+=int(passiveskill[12])
-            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-    elif passiveskill[3]=="73":
-        if(int(passiveskill[12])>int(passiveskill[13])):
-            #The less HP remaining the greater the stats boost
-            effects["ATK"]+=int(passiveskill[12])
-            effects["DEF"]+=int(passiveskill[12])
-            effects["Building Stat"]["Stat Per Proc"]= (int(passiveskill[12])-int(passiveskill[13]))/100
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
-            effects["Building Stat"]["Max"]+=int(passiveskill[12])
-            effects["Building Stat"]["Min"]+=int(passiveskill[13])
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[15])
+            effects["Building Stat"]["Max"]+=int(passiveskill[13])
+            effects["Building Stat"]["Min"]+=int(passiveskill[14])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
         else:
             #The more HP remaining the greater the stats boost
+            effects["DEF"]+=int(passiveskill[14])
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[15])
+            effects["Building Stat"]["Max"]+=int(passiveskill[14])
+            effects["Building Stat"]["Min"]+=int(passiveskill[13])
+            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
+    elif passiveskill[4]=="73":
+        if(int(passiveskill[13])>int(passiveskill[14])):
+            #The less HP remaining the greater the stats boost
             effects["ATK"]+=int(passiveskill[13])
             effects["DEF"]+=int(passiveskill[13])
-            effects["Building Stat"]["Stat Per Proc"]= (int(passiveskill[13])-int(passiveskill[12]))/100
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= (int(passiveskill[13])-int(passiveskill[14]))/100
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
             effects["Building Stat"]["Max"]+=int(passiveskill[13])
-            effects["Building Stat"]["Min"]+=int(passiveskill[12])
+            effects["Building Stat"]["Min"]+=int(passiveskill[14])
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-    elif passiveskill[3]=="76":
+        else:
+            #The more HP remaining the greater the stats boost
+            effects["ATK"]+=int(passiveskill[14])
+            effects["DEF"]+=int(passiveskill[14])
+            effects["Building Stat"]["Stat Per Proc"]= (int(passiveskill[14])-int(passiveskill[13]))/100
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Max"]+=int(passiveskill[14])
+            effects["Building Stat"]["Min"]+=int(passiveskill[13])
+            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
+    elif passiveskill[4]=="76":
         effects["Effective Against All"]=True
-    elif passiveskill[3]=="78":
+    elif passiveskill[4]=="78":
         effects["Guard"]=True
-    elif passiveskill[3]=="79":
+    elif passiveskill[4]=="79":
         effects["Transformation"]["Activated"]=True
-        effects["Transformation"]["Unit"]=passiveskill[12]
+        effects["Transformation"]["Unit"]=passiveskill[13]
         effects["Transformation"]["Giant/Rage"]=True
-        params=searchbycolumn(code=passiveskill[13],database=battle_params,column=1)
+        params=searchbycolumn(code=passiveskill[14],database=battle_params,column=1)
         for param in params:
             if(param[2]=="0"):
                 effects["Transformation"]["Min Turns"]=param[3]
@@ -2186,40 +2186,40 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             elif(param[2]=="2"):
                 effects["Transformation"]["Reverse chance"]=param[3]
         
-    elif passiveskill[3]=="80":
+    elif passiveskill[4]=="80":
         if(DEVEXCEPTIONS==True):
             raise Exception("Counter without dodge")
-    elif passiveskill[3]=="81":
+    elif passiveskill[4]=="81":
         effects["Additional Attack"]["Activated"]=True
-        effects["Additional Attack"]["Chance of super"]=int(passiveskill[14])
-        if(passiveskill[13]!="0"):
-            effects["Additional Attack"]["Chance of another additional"]=passiveskill[13]
-    elif passiveskill[3]=="82":
-        effects["ATK"]+=int(passiveskill[13])
-        effects["DEF"]+=int(passiveskill[13])
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
-            effects["Target"]["Class"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
-            effects["Target"]["Type"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-    elif passiveskill[3]=="83":
-        effects["Ki"]+=int(passiveskill[13])
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
-            effects["Target"]["Class"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
-            effects["Target"]["Type"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-    elif passiveskill[3]=="90":
-        effects["Crit Chance"]+=int(passiveskill[12])
-    elif passiveskill[3]=="91":
-        effects["Dodge Chance"]+=int(passiveskill[12])
-    elif passiveskill[3]=="92":
+        effects["Additional Attack"]["Chance of super"]=int(passiveskill[15])
+        if(passiveskill[14]!="0"):
+            effects["Additional Attack"]["Chance of another additional"]=passiveskill[14]
+    elif passiveskill[4]=="82":
+        effects["ATK"]+=int(passiveskill[14])
+        effects["DEF"]+=int(passiveskill[14])
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
+            effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
+            effects["Target"]["Type"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+    elif passiveskill[4]=="83":
+        effects["Ki"]+=int(passiveskill[14])
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
+            effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
+            effects["Target"]["Type"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+    elif passiveskill[4]=="90":
+        effects["Crit Chance"]+=int(passiveskill[13])
+    elif passiveskill[4]=="91":
+        effects["Dodge Chance"]+=int(passiveskill[13])
+    elif passiveskill[4]=="92":
         effects["Guaranteed Hit"]=True
-    elif passiveskill[3]=="95":
+    elif passiveskill[4]=="95":
         if(DEVEXCEPTIONS==True):
             raise Exception("Dodge and counter")
-    elif passiveskill[3]=="96":
-        kiSphereType=binaryOrbType(passiveskill[12],DEVEXCEPTIONS)
-        effects["Ki"]+=int(passiveskill[13])
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
+    elif passiveskill[4]=="96":
+        kiSphereType=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
+        effects["Ki"]+=int(passiveskill[14])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[14])
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":kiSphereType}
         effects["Building Stat"]["Slider"]="How many "
         for orbType in kiSphereType:
@@ -2227,58 +2227,58 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Slider"]+=" or "
         effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         if(kiSphereType==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*int(passiveskill[13])
+            effects["Building Stat"]["Max"]=5*int(passiveskill[14])
         else:
-            effects["Building Stat"]["Max"]=23*int(passiveskill[13])
+            effects["Building Stat"]["Max"]=23*int(passiveskill[14])
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
 
         
-    elif passiveskill[3]=="97":
-        if(passiveskill[13]=="1"):
+    elif passiveskill[4]=="97":
+        if(passiveskill[14]=="1"):
             effects["Nullification"]["Activated"]=True
-            effects["Nullification"]["Absorbed"]=int(passiveskill[12])
+            effects["Nullification"]["Absorbed"]=int(passiveskill[13])
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown effect")
-    elif passiveskill[3]=="98":
-        if(passiveskill[14]=="0"):
-            effects["ATK"]+=int(passiveskill[12])
-        elif(passiveskill[14]=="1"):
-            effects["DEF"]+=int(passiveskill[12])
-        elif(passiveskill[14]=="2"):
-            effects["Crit Chance"]+=int(passiveskill[12])
-        elif(passiveskill[14]=="3"):
-            effects["Dodge Chance"]+=int(passiveskill[12])
-        elif(passiveskill[14]=="4"):
+    elif passiveskill[4]=="98":
+        if(passiveskill[15]=="0"):
+            effects["ATK"]+=int(passiveskill[13])
+        elif(passiveskill[15]=="1"):
+            effects["DEF"]+=int(passiveskill[13])
+        elif(passiveskill[15]=="2"):
+            effects["Crit Chance"]+=int(passiveskill[13])
+        elif(passiveskill[15]=="3"):
+            effects["Dodge Chance"]+=int(passiveskill[13])
+        elif(passiveskill[15]=="4"):
             #CONFUSED
-            effects["DR"]+=int(passiveskill[12])
-        elif(passiveskill[14]=="5"):
-            effects["Ki"]+=int(passiveskill[12])
+            effects["DR"]+=int(passiveskill[13])
+        elif(passiveskill[15]=="5"):
+            effects["Ki"]+=int(passiveskill[13])
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown stat increase")
-        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[12])
+        effects["Building Stat"]["Stat Per Proc"]= int(passiveskill[13])
         effects["Building Stat"]["Cause"]={"Cause":"Look Elsewhere"}
-        effects["Building Stat"]["Max"]+=int(passiveskill[13])
-    elif passiveskill[3]=="101":
+        effects["Building Stat"]["Max"]+=int(passiveskill[14])
+    elif passiveskill[4]=="101":
         effects["Forsee Super Attack"]=True
-    elif passiveskill[3]=="103":
+    elif passiveskill[4]=="103":
         effects["Transformation"]["Activated"]=True
-        effects["Transformation"]["Unit"]=passiveskill[12]
+        effects["Transformation"]["Unit"]=passiveskill[13]
 
-        effects["First Turn To Activate"]+=(int(passiveskill[13])+1)
-    elif passiveskill[3]=="105":
+        effects["First Turn To Activate"]+=(int(passiveskill[14])+1)
+    elif passiveskill[4]=="105":
         effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
-        effects["Ki Change"]["To"]=binaryOrbType(int(passiveskill[12])+int(passiveskill[13]))
+        effects["Ki Change"]["To"]=binaryOrbType(int(passiveskill[13])+int(passiveskill[14]))
         effects["Ki Change"]["Style"]="All"
-    elif passiveskill[3]=="109":
+    elif passiveskill[4]=="109":
         effects["Revive"]["Activated"]=True
-        effects["Revive"]["HP recovered"]=int(passiveskill[12])
-    elif passiveskill[3]=="110":
-        if(passiveskill[12]=="2"):
+        effects["Revive"]["HP recovered"]=int(passiveskill[13])
+    elif passiveskill[4]=="110":
+        if(passiveskill[13]=="2"):
             effects["Disable Other Line"]["Activated"]=True
-            effects["Disable Other Line"]["Line"]=passiveskill[13]
-        elif(passiveskill[12]=="15"):
+            effects["Disable Other Line"]["Line"]=passiveskill[14]
+        elif(passiveskill[13]=="15"):
             #WIP
             #print("Something related to charging standby skills")
             effects["Building Stat"]["Cause"]={"Cause":"Charging standby skills"}
@@ -2292,28 +2292,28 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown effect")
 
-    elif passiveskill[3]=="111":
+    elif passiveskill[4]=="111":
         effects["Status"].append("Disable action")
-    elif(passiveskill[3]=="114"):
+    elif(passiveskill[4]=="114"):
         effects["Status"].append("Unable to attack")
-    elif(passiveskill[3]=="115"):
+    elif(passiveskill[4]=="115"):
         effects["Standby"]["Activated"]=True
-    elif(passiveskill[3]=="117"):
+    elif(passiveskill[4]=="117"):
         effects["Standby"]["Activated"]=True
         effects["Standby"]["Change form"]["Activated"]=True
         revertUnit=str(int(unit[22][:-2]))+"0"
         effects["Standby"]["Change form"]["Unit"]=revertUnit
-    elif passiveskill[3]=="119":
+    elif passiveskill[4]=="119":
         effects["Nullification"]["Activated"]=True
-    elif(passiveskill[3]=="120"):
-        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[13]}
-        if(passiveskill[12]!="0"):
-            effects["Counter"]["DR from normals"]=passiveskill[12]
-    elif(passiveskill[3]=="128"):
-        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[13], "Cause":"Evaded attack"}
-    elif(passiveskill[3]=="131"):
+    elif(passiveskill[4]=="120"):
+        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[14]}
+        if(passiveskill[13]!="0"):
+            effects["Counter"]["DR from normals"]=passiveskill[13]
+    elif(passiveskill[4]=="128"):
+        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[14], "Cause":"Evaded attack"}
+    elif(passiveskill[4]=="131"):
         effects["Reversible exchange"]["Activated"]=True
-        effects["Reversible exchange"]["Unit"]=passiveskill[12]
+        effects["Reversible exchange"]["Unit"]=passiveskill[13]
         
     else:
         if(DEVEXCEPTIONS==True):
@@ -2325,7 +2325,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     
     
     
-    effects["Length"]=passiveskill[8]
+    effects["Length"]=passiveskill[9]
 
 
 
@@ -2363,7 +2363,7 @@ def extractPassiveLine(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         
                     
 
-    if(passiveskill[9]=="1"):
+    if(passiveskill[10]=="1"):
         effects["Once Only"]=True
         
     
@@ -2457,32 +2457,32 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         #first turn counts as turn 0
         "First Turn To Activate": 0,
         "Condition": None,
-        "CausalityLogic":passiveskill[11],
+        "CausalityLogic":passiveskill[12],
         "Once Only": False,
         "Has Animation": False
     }
-    if(causalityExtractor(passiveskill[11])!=[]):
-        causalityCondition=logicalCausalityExtractor(passiveskill[11])
+    if(causalityExtractor(passiveskill[12])!=[]):
+        causalityCondition=logicalCausalityExtractor(passiveskill[12])
         causalityCondition=CausalityLogicalExtractor(unit=unit,causality=causalityCondition,DEVEXCEPTIONS=DEVEXCEPTIONS)
         if(causalityCondition!=None):
             effects["Condition"]=causalityCondition
     
-    if(passiveskill[6]!=None):
+    if(passiveskill[7]!=None):
         effects["Has Animation"]=True
     
-    if(passiveskill[7]==0):
+    if(passiveskill[8]==0):
         effects["Buff"]["Type"]="Raw stats"
         effects["Buff"]["+ or -"]="+"
 
-    elif(passiveskill[7]==1):
+    elif(passiveskill[8]==1):
         effects["Buff"]["Type"]="Raw stats"
         effects["Buff"]["+ or -"]="-"
 
-    elif(passiveskill[7]==2):
+    elif(passiveskill[8]==2):
         effects["Buff"]["Type"]="Percentage"
         effects["Buff"]["+ or -"]="+"
 
-    elif(passiveskill[7]==3):
+    elif(passiveskill[8]==3):
         effects["Buff"]["Type"]="Percentage"
         effects["Buff"]["+ or -"]="-"
     else:
@@ -2492,12 +2492,12 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                 raise Exception("Unknown stat increase type")
     
 
-    effects["Chance"]=passiveskill[10]
+    effects["Chance"]=passiveskill[11]
 
-    if(passiveskill[5]!=0):
+    if(passiveskill[6]!=0):
         effects["Target"]["Category"]={"Included": [],"Excluded": []}
         effects["Target"]["Name"]={"Included": [],"Excluded": []}
-        TargetRows=searchbycolumn(code=str(passiveskill[5]),database=sub_target_types,column=1)
+        TargetRows=searchbycolumn(code=str(passiveskill[6]),database=sub_target_types,column=1)
         for TargetRow in TargetRows:
             if(TargetRow[2]=="1"):
                 TargetCategory=CategoryExtractor(TargetRow[3])
@@ -2539,30 +2539,30 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
                     raise Exception("Target NOT FOUND")
 
 
-    if(passiveskill[4]==1):
+    if(passiveskill[5]==1):
         effects["Target"]["Target"]="Self"
-    elif(passiveskill[4]==2):
+    elif(passiveskill[5]==2):
         effects["Target"]["Target"]="allies"
-    elif(passiveskill[4]==3):
+    elif(passiveskill[5]==3):
         effects["Target"]["Target"]="Enemy"
-    elif(passiveskill[4]==4):
+    elif(passiveskill[5]==4):
         effects["Target"]["Target"]="Enemies"
-    elif(passiveskill[4]==5):
+    elif(passiveskill[5]==5):
         effects["Target"]["Target"]="allies"
         #For some reason int dfe future gohan has this on his ki support, even though this couldve been under 2
-    elif(passiveskill[4]==12):
+    elif(passiveskill[5]==12):
         effects["Target"]["Class"]="Super"
         effects["Target"]["Target"]="allies"
-    elif(passiveskill[4]==13):
+    elif(passiveskill[5]==13):
         effects["Target"]["Class"]="Extreme"
         effects["Target"]["Target"]="allies"
-    elif(passiveskill[4]==14):
+    elif(passiveskill[5]==14):
         effects["Target"]["Class"]="Super"
         effects["Target"]["Target"]="Enemies"
-    elif(passiveskill[4]==15):
+    elif(passiveskill[5]==15):
         effects["Target"]["Class"]="Extreme"
         effects["Target"]["Target"]="Enemies"
-    elif(passiveskill[4]==16):
+    elif(passiveskill[5]==16):
         effects["Target"]["Target"]="allies(self excluded)"
     else:
         effects["Target"]["Target"]=("UNKNOWN TARGET")
@@ -2570,110 +2570,98 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             raise Exception("UNKNOWN TARGET")
 
     
-    if(passiveskill[3]==0):
+    if(passiveskill[4]==0):
         effects["Domain"]=searchbyid(code=str(passiveskill[0]),codecolumn=2,database=dokkan_field_passive_skill_relations,column=1)[0]
 
-    elif passiveskill[3]==1:
-        effects["ATK"]+=passiveskill[12]
-    elif passiveskill[3]==2:
-        effects["DEF"]+=passiveskill[12]
-    elif passiveskill[3]==3:
-        effects["ATK"]+=passiveskill[12]
-        effects["DEF"]+=passiveskill[13]
-    elif passiveskill[3]==4:
-        effects["Heals"]+=passiveskill[12]
-    elif passiveskill[3]==5:
-        effects["Ki"]+=passiveskill[12]
-    elif passiveskill[3]==9:
-        effects["Status"].append("Stun")
-    elif passiveskill[3]==13:
-        effects["DR"]+=100-passiveskill[12]
-    elif passiveskill[3]==16:
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+    elif passiveskill[4]==1:
         effects["ATK"]+=passiveskill[13]
-        effects["Target"]["Type"]=typing
-    elif passiveskill[3]==17:
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+    elif passiveskill[4]==2:
         effects["DEF"]+=passiveskill[13]
-        effects["Target"]["Type"]=typing
-    elif passiveskill[3]==18:
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+    elif passiveskill[4]==3:
         effects["ATK"]+=passiveskill[13]
-        effects["DEF"]+=passiveskill[13]
-        effects["Target"]["Type"]=typing
-    elif passiveskill[3]==20:
-        typing=[extractAllyTyping(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["DEF"]+=passiveskill[14]
+    elif passiveskill[4]==4:
+        effects["Heals"]+=passiveskill[13]
+    elif passiveskill[4]==5:
         effects["Ki"]+=passiveskill[13]
+    elif passiveskill[4]==9:
+        effects["Status"].append("Stun")
+    elif passiveskill[4]==13:
+        effects["DR"]+=100-passiveskill[13]
+    elif passiveskill[4]==16:
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["ATK"]+=passiveskill[14]
         effects["Target"]["Type"]=typing
-    elif passiveskill[3]==24:
+    elif passiveskill[4]==17:
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["DEF"]+=passiveskill[14]
+        effects["Target"]["Type"]=typing
+    elif passiveskill[4]==18:
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["ATK"]+=passiveskill[14]
+        effects["DEF"]+=passiveskill[14]
+        effects["Target"]["Type"]=typing
+    elif passiveskill[4]==20:
+        typing=[extractAllyTyping(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["Ki"]+=passiveskill[14]
+        effects["Target"]["Type"]=typing
+    elif passiveskill[4]==24:
         effects["Status"].append("Disable guard")
-    elif passiveskill[3]==28:
-        effects["Heals"]+=passiveskill[12]
-    elif passiveskill[3]==38:
+    elif passiveskill[4]==28:
+        effects["Heals"]+=passiveskill[13]
+    elif passiveskill[4]==38:
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown effect")
-    elif passiveskill[3]==47:
+    elif passiveskill[4]==47:
         if(DEVEXCEPTIONS==True):
             raise Exception("Unknown effect")
-    elif passiveskill[3]==48:
+    elif passiveskill[4]==48:
         effects["Status"].append("Seal")
-    elif passiveskill[3]==50:
+    elif passiveskill[4]==50:
         effects["Status"].append("Immune to negative effects")
-    elif passiveskill[3]==51:
-        type1=KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)
-        type2=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+    elif passiveskill[4]==51:
+        type1=KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)
+        type2=KiOrbType(passiveskill[14],DEVEXCEPTIONS=DEVEXCEPTIONS)
         effects["Ki Change"]["From"]=type1
         effects["Ki Change"]["To"]=type2
         effects["Ki Change"]["Style"]="Single"
-    elif passiveskill[3]==52:
+    elif passiveskill[4]==52:
         effects["Status"].append("Survive K.O attacks")
-    elif passiveskill[3]==53:
+    elif passiveskill[4]==53:
         effects["Status"].append("DEF reduced to 0")
-    elif passiveskill[3]==59:
+    elif passiveskill[4]==59:
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
         effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23*passiveskill[12]
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[12]
-        effects["ATK"]+=passiveskill[12]
-    elif passiveskill[3]==60:
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23*passiveskill[12]
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[12]
-        effects["DEF"]+=passiveskill[12]
-    elif passiveskill[3]==61:
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
-        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
-        effects["Building Stat"]["Max"]=23*passiveskill[12]
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[12]
-        effects["ATK"]+=passiveskill[12]
-        effects["DEF"]+=passiveskill[12]
-    elif passiveskill[3]==64:
-        typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
-        effects["Building Stat"]["Slider"]="How many "
-        effects["Building Stat"]["Slider"]+=typing[0]
-        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*passiveskill[13]
-        else:
-            effects["Building Stat"]["Max"]=23*passiveskill[13]
-        effects["ATK"]+=passiveskill[13]
+        effects["Building Stat"]["Max"]=23*passiveskill[13]
         effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
-    elif passiveskill[3]==65:
-        typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["ATK"]+=passiveskill[13]
+    elif passiveskill[4]==60:
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
+        effects["Building Stat"]["Max"]=23*passiveskill[13]
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
+        effects["DEF"]+=passiveskill[13]
+    elif passiveskill[4]==61:
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":["AGL","INT","PHY","STR","TEQ","Rainbow","Sweet treats"]}
+        effects["Building Stat"]["Slider"]="How many Ki Spheres have been obtained?"
+        effects["Building Stat"]["Max"]=23*passiveskill[13]
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
+        effects["ATK"]+=passiveskill[13]
+        effects["DEF"]+=passiveskill[13]
+    elif passiveskill[4]==64:
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
         effects["Building Stat"]["Slider"]+=typing[0]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
         if(typing==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*passiveskill[12]
+            effects["Building Stat"]["Max"]=5*passiveskill[14]
         else:
-            effects["Building Stat"]["Max"]=23*passiveskill[12]
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[12]
-        effects["DEF"]+=passiveskill[13]
-    elif passiveskill[3]==66:
-        typing=[KiOrbType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+            effects["Building Stat"]["Max"]=23*passiveskill[14]
+        effects["ATK"]+=passiveskill[14]
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
+    elif passiveskill[4]==65:
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
         effects["Building Stat"]["Slider"]="How many "
         effects["Building Stat"]["Slider"]+=typing[0]
@@ -2683,110 +2671,122 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         else:
             effects["Building Stat"]["Max"]=23*passiveskill[13]
         effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
-        effects["ATK"]+=passiveskill[13]
-        effects["DEF"]+=passiveskill[13]
-    elif passiveskill[3]==67:
-        type1=binaryOrbType(passiveskill[12],DEVEXCEPTIONS)
-        type2=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
+        effects["DEF"]+=passiveskill[14]
+    elif passiveskill[4]==66:
+        typing=[KiOrbType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)]
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":typing}
+        effects["Building Stat"]["Slider"]="How many "
+        effects["Building Stat"]["Slider"]+=typing[0]
+        effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
+        if(typing==["Rainbow"]):
+            effects["Building Stat"]["Max"]=5*passiveskill[14]
+        else:
+            effects["Building Stat"]["Max"]=23*passiveskill[14]
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
+        effects["ATK"]+=passiveskill[14]
+        effects["DEF"]+=passiveskill[14]
+    elif passiveskill[4]==67:
+        type1=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
+        type2=binaryOrbType(passiveskill[14],DEVEXCEPTIONS)
         effects["Ki Change"]["From"]=type1
         effects["Ki Change"]["To"]=type2
         effects["Ki Change"]["Style"]="Randomly"
         
-    elif passiveskill[3]==68:
+    elif passiveskill[4]==68:
         #buffs per ki sphere
-        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":binaryOrbType(passiveskill[12],DEVEXCEPTIONS)}
+        effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":binaryOrbType(passiveskill[13],DEVEXCEPTIONS)}
         effects["Building Stat"]["Slider"]="How many "
-        for orbType in binaryOrbType(passiveskill[12],DEVEXCEPTIONS):
+        for orbType in binaryOrbType(passiveskill[13],DEVEXCEPTIONS):
             effects["Building Stat"]["Slider"]+=orbType
             effects["Building Stat"]["Slider"]+=" or "
         effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
-        if(binaryOrbType(passiveskill[12],DEVEXCEPTIONS)==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*passiveskill[14]
+        if(binaryOrbType(passiveskill[13],DEVEXCEPTIONS)==["Rainbow"]):
+            effects["Building Stat"]["Max"]=5*passiveskill[15]
         else:
-            effects["Building Stat"]["Max"]=23*passiveskill[14]
-        if(passiveskill[13]==1):
-            effects["ATK"]+=passiveskill[14]
-        elif(passiveskill[13]==2):
-            effects["Heals"]+=passiveskill[14]
-        elif(passiveskill[13]==3):
-            effects["DEF"]+=passiveskill[14]
-        elif(passiveskill[13]==4):
-            effects["Crit Chance"]+=passiveskill[14]
-        elif(passiveskill[13]==5):
-            effects["Dodge Chance"]+=passiveskill[14]
-        elif(passiveskill[13]==6):
-            effects["DR"]+=passiveskill[14]
+            effects["Building Stat"]["Max"]=23*passiveskill[15]
+        if(passiveskill[14]==1):
+            effects["ATK"]+=passiveskill[15]
+        elif(passiveskill[14]==2):
+            effects["Heals"]+=passiveskill[15]
+        elif(passiveskill[14]==3):
+            effects["DEF"]+=passiveskill[15]
+        elif(passiveskill[14]==4):
+            effects["Crit Chance"]+=passiveskill[15]
+        elif(passiveskill[14]==5):
+            effects["Dodge Chance"]+=passiveskill[15]
+        elif(passiveskill[14]==6):
+            effects["DR"]+=passiveskill[15]
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown buff")
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
-    elif passiveskill[3]==69:
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[15]
+    elif passiveskill[4]==69:
         effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
-        effects["Ki Change"]["To"]=[KiOrbType(passiveskill[12])]
+        effects["Ki Change"]["To"]=[KiOrbType(passiveskill[13])]
         effects["Ki Change"]["Style"]="All"
-    elif passiveskill[3]==71:
-        if(passiveskill[12]>passiveskill[13]):
+    elif passiveskill[4]==71:
+        if(passiveskill[13]>passiveskill[14]):
             #The less HP remaining the greater the stats boost
-            effects["ATK"]+=passiveskill[12]
-            effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
-            effects["Building Stat"]["Max"]+=passiveskill[12]
-            effects["Building Stat"]["Min"]+=passiveskill[13]
-            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-        else:
-            #The more HP remaining the greater the stats boost
             effects["ATK"]+=passiveskill[13]
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
-            effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
-            effects["Building Stat"]["Max"]+=passiveskill[13]
-            effects["Building Stat"]["Min"]+=passiveskill[12]
-            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-    elif passiveskill[3]==72:
-        if(passiveskill[12]>passiveskill[13]):
-            #The less HP remaining the greater the stats boost
-            effects["DEF"]+=passiveskill[12]
+            effects["Building Stat"]["Stat Per Proc"]= passiveskill[15]
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
-            effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
-            effects["Building Stat"]["Max"]+=passiveskill[12]
-            effects["Building Stat"]["Min"]+=passiveskill[13]
+            effects["Building Stat"]["Max"]+=passiveskill[13]
+            effects["Building Stat"]["Min"]+=passiveskill[14]
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
         else:
             #The more HP remaining the greater the stats boost
+            effects["ATK"]+=passiveskill[14]
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= passiveskill[15]
+            effects["Building Stat"]["Max"]+=passiveskill[14]
+            effects["Building Stat"]["Min"]+=passiveskill[13]
+            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
+    elif passiveskill[4]==72:
+        if(passiveskill[13]>passiveskill[14]):
+            #The less HP remaining the greater the stats boost
             effects["DEF"]+=passiveskill[13]
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
-            effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
-            effects["Building Stat"]["Max"]+=passiveskill[13]
-            effects["Building Stat"]["Min"]+=passiveskill[12]
-            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-    elif passiveskill[3]==73:
-        if(passiveskill[12]>passiveskill[13]):
-            #The less HP remaining the greater the stats boost
-            effects["ATK"]+=passiveskill[12]
-            effects["DEF"]+=passiveskill[12]
-            effects["Building Stat"]["Stat Per Proc"]= (passiveskill[12]-passiveskill[13])/100
             effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
-            effects["Building Stat"]["Max"]+=passiveskill[12]
-            effects["Building Stat"]["Min"]+=passiveskill[13]
+            effects["Building Stat"]["Stat Per Proc"]= passiveskill[15]
+            effects["Building Stat"]["Max"]+=passiveskill[13]
+            effects["Building Stat"]["Min"]+=passiveskill[14]
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
         else:
             #The more HP remaining the greater the stats boost
+            effects["DEF"]+=passiveskill[14]
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= passiveskill[15]
+            effects["Building Stat"]["Max"]+=passiveskill[14]
+            effects["Building Stat"]["Min"]+=passiveskill[13]
+            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
+    elif passiveskill[4]==73:
+        if(passiveskill[13]>passiveskill[14]):
+            #The less HP remaining the greater the stats boost
             effects["ATK"]+=passiveskill[13]
             effects["DEF"]+=passiveskill[13]
-            effects["Building Stat"]["Stat Per Proc"]= (passiveskill[13]-passiveskill[12])/100
-            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Stat Per Proc"]= (passiveskill[13]-passiveskill[14])/100
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"Less HP remaining"}
             effects["Building Stat"]["Max"]+=passiveskill[13]
-            effects["Building Stat"]["Min"]+=passiveskill[12]
+            effects["Building Stat"]["Min"]+=passiveskill[14]
             effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
-    elif passiveskill[3]==76:
+        else:
+            #The more HP remaining the greater the stats boost
+            effects["ATK"]+=passiveskill[14]
+            effects["DEF"]+=passiveskill[14]
+            effects["Building Stat"]["Stat Per Proc"]= (passiveskill[14]-passiveskill[13])/100
+            effects["Building Stat"]["Cause"]={"Cause":"HP", "Type":"More HP remaining"}
+            effects["Building Stat"]["Max"]+=passiveskill[14]
+            effects["Building Stat"]["Min"]+=passiveskill[13]
+            effects["Building Stat"]["Slider"]="What percentage of HP is remaining?"
+    elif passiveskill[4]==76:
         effects["Effective Against All"]=True
-    elif passiveskill[3]==78:
+    elif passiveskill[4]==78:
         effects["Guard"]=True
-    elif passiveskill[3]==79:
+    elif passiveskill[4]==79:
         effects["Transformation"]["Activated"]=True
-        effects["Transformation"]["Unit"]=passiveskill[12]
+        effects["Transformation"]["Unit"]=passiveskill[13]
         effects["Transformation"]["Giant/Rage"]=True
-        params=searchbycolumn(code=str(passiveskill[13]),database=battle_params,column=1)
+        params=searchbycolumn(code=str(passiveskill[14]),database=battle_params,column=1)
         for param in params:
             if(param[2]=="0"):
                 effects["Transformation"]["Min Turns"]=param[3]
@@ -2795,40 +2795,40 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             elif(param[2]=="2"):
                 effects["Transformation"]["Reverse chance"]=param[3]
         
-    elif passiveskill[3]==80:
+    elif passiveskill[4]==80:
         if(DEVEXCEPTIONS==True):
             raise Exception("Counter without dodge")
-    elif passiveskill[3]==81:
+    elif passiveskill[4]==81:
         effects["Additional Attack"]["Activated"]=True
-        effects["Additional Attack"]["Chance of super"]=passiveskill[14]
-        if(passiveskill[13]!=0):
-            effects["Additional Attack"]["Chance of another additional"]=passiveskill[13]
-    elif passiveskill[3]==82:
-        effects["ATK"]+=passiveskill[13]
-        effects["DEF"]+=passiveskill[13]
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
-            effects["Target"]["Class"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
-            effects["Target"]["Type"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-    elif passiveskill[3]==83:
-        effects["Ki"]+=passiveskill[13]
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
-            effects["Target"]["Class"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
-        if(extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
-            effects["Target"]["Type"]=extractClassType(passiveskill[12],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
-    elif passiveskill[3]==90:
-        effects["Crit Chance"]+=passiveskill[12]
-    elif passiveskill[3]==91:
-        effects["Dodge Chance"]+=passiveskill[12]
-    elif passiveskill[3]==92:
+        effects["Additional Attack"]["Chance of super"]=passiveskill[15]
+        if(passiveskill[14]!=0):
+            effects["Additional Attack"]["Chance of another additional"]=passiveskill[14]
+    elif passiveskill[4]==82:
+        effects["ATK"]+=passiveskill[14]
+        effects["DEF"]+=passiveskill[14]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
+            effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
+            effects["Target"]["Type"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+    elif passiveskill[4]==83:
+        effects["Ki"]+=passiveskill[14]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0]!=[]):
+            effects["Target"]["Class"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[0][0]
+        if(extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]!=[]):
+            effects["Target"]["Type"]=extractClassType(passiveskill[13],DEVEXCEPTIONS=DEVEXCEPTIONS)[1]
+    elif passiveskill[4]==90:
+        effects["Crit Chance"]+=passiveskill[13]
+    elif passiveskill[4]==91:
+        effects["Dodge Chance"]+=passiveskill[13]
+    elif passiveskill[4]==92:
         effects["Guaranteed Hit"]=True
-    elif passiveskill[3]==95:
+    elif passiveskill[4]==95:
         if(DEVEXCEPTIONS==True):
             raise Exception("Dodge and counter")
-    elif passiveskill[3]==96:
-        kiSphereType=binaryOrbType(passiveskill[12],DEVEXCEPTIONS)
-        effects["Ki"]+=passiveskill[13]
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
+    elif passiveskill[4]==96:
+        kiSphereType=binaryOrbType(passiveskill[13],DEVEXCEPTIONS)
+        effects["Ki"]+=passiveskill[14]
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[14]
         effects["Building Stat"]["Cause"]={"Cause":"Ki sphere obtained", "Type":kiSphereType}
         effects["Building Stat"]["Slider"]="How many "
         for orbType in kiSphereType:
@@ -2836,58 +2836,58 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Building Stat"]["Slider"]+=" or "
         effects["Building Stat"]["Slider"]=effects["Building Stat"]["Slider"][:-4]
         if(kiSphereType==["Rainbow"]):
-            effects["Building Stat"]["Max"]=5*passiveskill[13]
+            effects["Building Stat"]["Max"]=5*passiveskill[14]
         else:
-            effects["Building Stat"]["Max"]=23*passiveskill[13]
+            effects["Building Stat"]["Max"]=23*passiveskill[14]
         effects["Building Stat"]["Slider"]+=" Ki Spheres have been obtained?"
 
         
-    elif passiveskill[3]==97:
-        if(passiveskill[13]==1):
+    elif passiveskill[4]==97:
+        if(passiveskill[14]==1):
             effects["Nullification"]["Activated"]=True
-            effects["Nullification"]["Absorbed"]=passiveskill[12]
+            effects["Nullification"]["Absorbed"]=passiveskill[13]
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown effect")
-    elif passiveskill[3]==98:
-        if(passiveskill[14]==0):
-            effects["ATK"]+=passiveskill[12]
-        elif(passiveskill[14]==1):
-            effects["DEF"]+=passiveskill[12]
-        elif(passiveskill[14]==2):
-            effects["Crit Chance"]+=passiveskill[12]
-        elif(passiveskill[14]==3):
-            effects["Dodge Chance"]+=passiveskill[12]
-        elif(passiveskill[14]==4):
+    elif passiveskill[4]==98:
+        if(passiveskill[15]==0):
+            effects["ATK"]+=passiveskill[13]
+        elif(passiveskill[15]==1):
+            effects["DEF"]+=passiveskill[13]
+        elif(passiveskill[15]==2):
+            effects["Crit Chance"]+=passiveskill[13]
+        elif(passiveskill[15]==3):
+            effects["Dodge Chance"]+=passiveskill[13]
+        elif(passiveskill[15]==4):
             #CONFUSED
-            effects["DR"]+=passiveskill[12]
-        elif(passiveskill[14]==5):
-            effects["Ki"]+=passiveskill[12]
+            effects["DR"]+=passiveskill[13]
+        elif(passiveskill[15]==5):
+            effects["Ki"]+=passiveskill[13]
         else:
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown stat increase")
-        effects["Building Stat"]["Stat Per Proc"]= passiveskill[12]
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
         effects["Building Stat"]["Cause"]={"Cause":"Look Elsewhere"}
-        effects["Building Stat"]["Max"]+=passiveskill[13]
-    elif passiveskill[3]==101:
+        effects["Building Stat"]["Max"]+=passiveskill[14]
+    elif passiveskill[4]==101:
         effects["Forsee Super Attack"]=True
-    elif passiveskill[3]==103:
+    elif passiveskill[4]==103:
         effects["Transformation"]["Activated"]=True
-        effects["Transformation"]["Unit"]=passiveskill[12]
+        effects["Transformation"]["Unit"]=passiveskill[13]
 
-        effects["First Turn To Activate"]+=(passiveskill[13]+1)
-    elif passiveskill[3]==105:
+        effects["First Turn To Activate"]+=(passiveskill[14]+1)
+    elif passiveskill[4]==105:
         effects["Ki Change"]["From"]=["AGL","TEQ","INT","STR","PHY","Rainbow","Sweet treats"]
-        effects["Ki Change"]["To"]=binaryOrbType(passiveskill[12]+passiveskill[13])
+        effects["Ki Change"]["To"]=binaryOrbType(passiveskill[13]+passiveskill[14])
         effects["Ki Change"]["Style"]="All"
-    elif passiveskill[3]==109:
+    elif passiveskill[4]==109:
         effects["Revive"]["Activated"]=True
-        effects["Revive"]["HP recovered"]=passiveskill[12]
-    elif passiveskill[3]==110:
-        if(passiveskill[12]==2):
+        effects["Revive"]["HP recovered"]=passiveskill[13]
+    elif passiveskill[4]==110:
+        if(passiveskill[13]==2):
             effects["Disable Other Line"]["Activated"]=True
-            effects["Disable Other Line"]["Line"]=passiveskill[13]
-        elif(passiveskill[12]==15):
+            effects["Disable Other Line"]["Line"]=passiveskill[14]
+        elif(passiveskill[13]==15):
             #WIP
             #print("Something related to charging standby skills")
             effects["Building Stat"]["Cause"]={"Cause":"Charging standby skills"}
@@ -2901,28 +2901,28 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             if(DEVEXCEPTIONS==True):
                 raise Exception("Unknown effect")
 
-    elif passiveskill[3]==111:
+    elif passiveskill[4]==111:
         effects["Status"].append("Disable action")
-    elif(passiveskill[3]==114):
+    elif(passiveskill[4]==114):
         effects["Status"].append("Unable to attack")
-    elif(passiveskill[3]==115):
+    elif(passiveskill[4]==115):
         effects["Standby"]["Activated"]=True
-    elif(passiveskill[3]==117):
+    elif(passiveskill[4]==117):
         effects["Standby"]["Activated"]=True
         effects["Standby"]["Change form"]["Activated"]=True
         revertUnit=str(int(unit[22][:-2]))+"0"
         effects["Standby"]["Change form"]["Unit"]=revertUnit
-    elif passiveskill[3]==119:
+    elif passiveskill[4]==119:
         effects["Nullification"]["Activated"]=True
-    elif(passiveskill[3]==120):
-        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[13]}
-        if(passiveskill[12]!=0):
-            effects["Counter"]["DR from normals"]=passiveskill[12]
-    elif(passiveskill[3]==128):
-        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[13], "Cause":"Evaded attack"}
-    elif(passiveskill[3]==131):
+    elif(passiveskill[4]==120):
+        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[14]}
+        if(passiveskill[13]!=0):
+            effects["Counter"]["DR from normals"]=passiveskill[13]
+    elif(passiveskill[4]==128):
+        effects["Counter"]={"Activated":True, "Multiplier":passiveskill[14], "Cause":"Evaded attack"}
+    elif(passiveskill[4]==131):
         effects["Reversible exchange"]["Activated"]=True
-        effects["Reversible exchange"]["Unit"]=passiveskill[12]
+        effects["Reversible exchange"]["Unit"]=passiveskill[13]
         
     else:
         if(DEVEXCEPTIONS==True):
@@ -2934,7 +2934,7 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
     
     
     
-    effects["Length"]=passiveskill[8]
+    effects["Length"]=passiveskill[9]
 
 
 
@@ -2972,7 +2972,7 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         
                     
 
-    if(passiveskill[9]==1):
+    if(passiveskill[10]==1):
         effects["Once Only"]=True
         
     
@@ -4192,7 +4192,10 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Paragraph Title"]=("After the character's Revival Skill is activated")
             elif(CausalityRow[1]=="48"):
                 #WIP CausalityRow[2] is the type of super attack
-                if(CausalityRow[2]=="1"):
+                if(CausalityRow[2]=="0"):
+                    output["Button"]["Name"]=("Has the enemy been hit by the characters super attack?")
+                    output["Paragraph Title"]=("When the enemy has been hit by the characters super attack?")
+                elif(CausalityRow[2]=="1"):
                     output["Button"]["Name"]=("Has the enemy been hit by the characters super attack?")
                     output["Paragraph Title"]=("When the enemy has been hit by the characters super attack?")
                 elif(CausalityRow[2]=="2"):
@@ -4355,6 +4358,63 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
             elif(CausalityRow[1]=="66"):
                 output["Button"]["Name"]=("Has this character's reversible exchange not yet been performed?")
                 output["Paragraph Title"]="When this character's reversible exchange has not yet been performed"
+
+            elif(CausalityRow[1]=="67"):
+                if(CausalityRow[2]=="0"):
+                    category=searchbyid(CausalityRow[3],codecolumn=0,database=card_categories,column=1)[0]
+                    output["Button"]["Name"]=("Are all allies " + '"' + category + '"' + " Category characters?")
+                    output["Slider"]["Name"]=("How many " + '"' + category + '"' + " characters allies are there?")
+                    output["Paragraph Title"]="When all allies are "+'"'+category+'"'+" Category characters"
+
+                elif(CausalityRow[2]=="2"):
+                    classType=extractClassType(CausalityRow[3])
+                    output["Button"]["Name"]=("Are all allies ")
+                    output["Slider"]["Name"]=("How many ")
+                    output["Paragraph Title"]="When all allies are "
+                    if(classType[0]!=[]):
+                        output["Button"]["Name"]+=classType[0][0] + " class "
+                        output["Slider"]["Name"]+=classType[0][0] + " class "
+                        output["Paragraph Title"]+=classType[0][0] + " class "
+                    if(classType[1]!=[]):
+                        articulatedTyping=" or ".join(classType)
+                        output["Button"]["Name"]+=articulatedTyping + " type "
+                        output["Slider"]["Name"]+=articulatedTyping + " type "
+                        output["Paragraph Title"]+=articulatedTyping + " type "
+
+                    output["Button"]["Name"]+="Characters?"
+                    output["Slider"]["Name"]+="Characters?"
+                    output["Paragraph Title"]+="Characters"
+                        
+
+                    
+                    output["Slider"]["Min"]=0
+                    output["Slider"]["Max"]=7
+                    output["Slider"]["Logic"]=">=7"
+
+            elif(CausalityRow[1]=="1004"):
+                output["Button"]["Name"]=("Is there another ally whose HP is ")
+                output["Button"]["Name"]+=CausalityRow[2]
+                output["Paragraph Title"]=("When there is another ally whose HP is ")
+                output["Paragraph Title"]+=CausalityRow[2]
+                if(CausalityRow[2]=="0"):
+                    output["Button"]["Name"]+=" or more "
+                    output["Paragraph Title"]+=" or more "
+                elif(CausalityRow[2]=="1"):
+                    output["Button"]["Name"]+=" or less "
+                    output["Paragraph Title"]+=" or less "
+                output["Button"]["Name"]+="attacking in the same turn"
+                output["Paragraph Title"]+="attacking in the same turn"
+
+            elif(CausalityRow[1]=="1005"):
+                output["Button"]["Name"]="[Exclusive to Dokkan Frontier]"
+                output["Paragraph Title"]="[Exclusive to Dokkan Frontier]"
+            elif(CausalityRow[1]=="1006"):
+                output["Button"]["Name"]="Has this active been performed less than "+CausalityRow[3]+" times?"
+                output["Paragraph Title"]="When this active has been performed less than "+CausalityRow[3]+" times?"
+                output["Slider"]["Name"]="How many times has this active been performed?"
+                output["Slider"]["Min"]=0
+                output["Slider"]["Max"]=int(CausalityRow[3])
+                output["Slider"]["Logic"]="<"+CausalityRow[3]
 
 
             else:
@@ -6421,6 +6481,16 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         else:
             output["Building Stat"]["Cause"]["Cause"]="Attacking the enemy in "+condition1 + " or " + condition2 + "while HP is "+HPMin+"or less"
             output["Building Stat"]["Slider"]="How many times has this character attacked the enemy in "+condition1 + " or " + condition2+" while HP is "+HPMin+"or more?"
+    elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==2 and "Is the target enemy in " in causalities[0] and "Is the target enemy in " in causalities[1]):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks performed on an enemy in " + causalities[0][23:-1] +" or " + causalities[1][23:-1] + " status?"
+        output["Building Stat"]["Slider"]="How many attacks have been performed on an enemy in " + causalities[0][23:-1] +" or " + causalities[1][23:-1] + " status?"
+
+    elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==3 and "Is the target enemy in " in causalities[0] and "Is the target enemy in " in causalities[1] and "Is HP "in causalities[2]):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks performed while HP is " + causalities[2][6:-1] + " or on an enemy in " + causalities[0][23:-1] +" or " + causalities[1][23:-1] + " status?"
+        output["Building Stat"]["Slider"]="How many attacks have been performed while HP is " + causalities[2][6:-1] + " or on an enemy in " + causalities[0][23:-1] +" or " + causalities[1][23:-1] + " status?"
+
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
         if(DEVECXEPTION):
@@ -6508,6 +6578,8 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Target"]["Target"]="Extreme class allies"
             elif(line[2]=="16"):
                 output["Effects"][line[0]]["Target"]["Target"]="All allies(self excluded)"
+            elif(line[2]=="20"):
+                output["Effects"][line[0]]["Target"]["Target"]="2nd attacker in the turn"
             else:
                 print("Unknown target")
                 if(DEVEXCEPTIONS):
