@@ -6493,7 +6493,7 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
     elif(parsedLine["Timing"]=="End of turn" and len(causalities)==1 and "Is HP " in causalities[0] and "% or more?" in causalities[0]):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Turns ended while HP is " + causalities[0][6:-1]+"?"
-        output["Building Stat"]["Slider"]="How many turns have ended while HP is " + causalities[2][6:-1]+"?"
+        output["Building Stat"]["Slider"]="How many turns have ended while HP is " + causalities[0][6:-1]+"?"
 
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine,causalities)
