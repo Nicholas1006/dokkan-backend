@@ -6490,9 +6490,13 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks performed while HP is " + causalities[2][6:-1] + " or on an enemy in " + causalities[0][23:-1] +" or " + causalities[1][23:-1] + " status?"
         output["Building Stat"]["Slider"]="How many attacks have been performed while HP is " + causalities[2][6:-1] + " or on an enemy in " + causalities[0][23:-1] +" or " + causalities[1][23:-1] + " status?"
+    elif(parsedLine["Timing"]=="End of turn" and len(causalities)==1 and "Is HP " in causalities[0] and "% or more?" in causalities[0]):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Turns ended while HP is " + causalities[0][6:-1]+"?"
+        output["Building Stat"]["Slider"]="How many turns have ended while HP is " + causalities[2][6:-1]+"?"
 
     else:
-        print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
+        print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine,causalities)
         if(DEVECXEPTION):
             raise Exception("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine)
 
