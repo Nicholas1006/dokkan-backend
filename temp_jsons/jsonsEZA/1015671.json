@@ -1,0 +1,680 @@
+{
+    "ID": "1015671",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Hit",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Universe 6",
+        "Universe Survival Saga",
+        "Target: Goku",
+        "Rapid Growth",
+        "Space-Traveling Warriors",
+        "Legendary Existence",
+        "Accelerated Battle",
+        "Tournament Participants",
+        "Super Bosses",
+        "Mission Execution"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Experienced Fighters",
+        "Cold Judgment",
+        "Infighter",
+        "Shocking Speed",
+        "Tournament of Power",
+        "Warriors of Universe 6 ",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1015670,
+    "Passive": {
+        "2598": {
+            "ID": 2598,
+            "Timing": "Right after attack",
+            "ATK": 20,
+            "DEF": 80,
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 2,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20% and DEF 80%{passiveImg:down_r} after attacking",
+            "Line description": "ATK 20% and DEF 80%{passiveImg:down_r} after attacking for 2 turns",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002598": {
+            "ID": 1002598,
+            "Timing": "Right after attack",
+            "Status": [
+                "Stun"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Stun after attacking",
+            "Line description": "High chance of Stun after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002598": {
+            "ID": 2002598,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 160,
+            "DEF": 160,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1048 )",
+                "Causalities": {
+                    "1048": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1048\", \"compiled\": 1048}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 160%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 160%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3002598": {
+            "ID": 3002598,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1049 )",
+                "Causalities": {
+                    "1049": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1049\", \"compiled\": 1049}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 80%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 80%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+        },
+        "4002598": {
+            "ID": 4002598,
+            "Effective Against All": true,
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1049 )",
+                "Causalities": {
+                    "1049": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1049\", \"compiled\": 1049}",
+            "Type": "Single activator",
+            "Brief effect description": "Attacks effective against all Types when attacking",
+            "Line description": "Attacks effective against all Types when attacking",
+            "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+        },
+        "5002598": {
+            "ID": 5002598,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1050 )",
+                "Causalities": {
+                    "1050": {
+                        "Button": {
+                            "Name": "Are there 1 or more Universe 6 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Universe 6 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1050\", \"compiled\": 1050}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Universe 6 Category allies attacking on this turn"
+        },
+        "6002598": {
+            "ID": 6002598,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1051 )",
+                "Causalities": {
+                    "1051": {
+                        "Button": {
+                            "Name": "Are there 2 or more Universe 6 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Universe 6 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1051\", \"compiled\": 1051}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Universe 6 Category allies attacking on this turn"
+        },
+        "7002598": {
+            "ID": 7002598,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1052 )",
+                "Causalities": {
+                    "1052": {
+                        "Button": {
+                            "Name": "Are there 3 or more Universe 6 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Universe 6 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1052\", \"compiled\": 1052}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Universe 6 Category allies attacking on this turn"
+        },
+        "8002598": {
+            "ID": 8002598,
+            "Timing": "Start of turn",
+            "Status": [
+                "Stun"
+            ],
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 30,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1052 )",
+                "Causalities": {
+                    "1052": {
+                        "Button": {
+                            "Name": "Are there 3 or more Universe 6 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Universe 6 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1052\", \"compiled\": 1052}",
+            "Type": "Single activator",
+            "Brief effect description": "Medium chance of Stun ",
+            "Line description": "Medium chance of Stun ",
+            "Paragraph Title": "When there are 3 or more Universe 6 Category allies attacking on this turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Attacked enemy's ATK 20%{passiveImg:down_y} for 2 turns\n- Attacked enemy's DEF 80%{passiveImg:down_y} for 2 turns\n- High chance of stunning the attacked enemy for 1 turn\n*Per \"Universe 6\" Category ally attacking in the same turn*\n- ATK & DEF 20%{passiveImg:up_g}\n*When there are 3 \"Universe 6\" Category allies attacking\nin the same turn*\n- Medium chance of stunning all enemies\n*When attacking with 12 or more Ki*\n- ATK & DEF 160%{passiveImg:up_g}\n*When the target enemy is in the following status: {passiveImg:stun}*\n- ATK 80%{passiveImg:up_g}\n- Attacks are effective against all Types",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 13360,
+            "ATK": 11196,
+            "DEF": 4200
+        },
+        "121": {
+            "HP": 13576,
+            "ATK": 11377,
+            "DEF": 4268
+        },
+        "122": {
+            "HP": 13793,
+            "ATK": 11559,
+            "DEF": 4336
+        },
+        "123": {
+            "HP": 14009,
+            "ATK": 11740,
+            "DEF": 4404
+        },
+        "124": {
+            "HP": 14226,
+            "ATK": 11922,
+            "DEF": 4472
+        },
+        "125": {
+            "HP": 14443,
+            "ATK": 12103,
+            "DEF": 4540
+        },
+        "126": {
+            "HP": 14659,
+            "ATK": 12285,
+            "DEF": 4608
+        },
+        "127": {
+            "HP": 14876,
+            "ATK": 12466,
+            "DEF": 4676
+        },
+        "128": {
+            "HP": 15093,
+            "ATK": 12648,
+            "DEF": 4744
+        },
+        "129": {
+            "HP": 15309,
+            "ATK": 12830,
+            "DEF": 4812
+        },
+        "130": {
+            "HP": 15526,
+            "ATK": 13011,
+            "DEF": 4881
+        },
+        "131": {
+            "HP": 15743,
+            "ATK": 13193,
+            "DEF": 4949
+        },
+        "132": {
+            "HP": 15959,
+            "ATK": 13374,
+            "DEF": 5017
+        },
+        "133": {
+            "HP": 16176,
+            "ATK": 13556,
+            "DEF": 5085
+        },
+        "134": {
+            "HP": 16393,
+            "ATK": 13737,
+            "DEF": 5153
+        },
+        "135": {
+            "HP": 16609,
+            "ATK": 13919,
+            "DEF": 5221
+        },
+        "136": {
+            "HP": 16826,
+            "ATK": 14100,
+            "DEF": 5289
+        },
+        "137": {
+            "HP": 17043,
+            "ATK": 14282,
+            "DEF": 5357
+        },
+        "138": {
+            "HP": 17259,
+            "ATK": 14464,
+            "DEF": 5425
+        },
+        "139": {
+            "HP": 17476,
+            "ATK": 14645,
+            "DEF": 5493
+        },
+        "140": {
+            "HP": 17693,
+            "ATK": 14827,
+            "DEF": 5562
+        }
+    },
+    "Leader Skill": {
+        "Name": "Assassin's Ultimate Technique",
+        "10531": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe 6"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "10532": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe 6"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        },
+        "10533": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe Survival Saga"
+                ],
+                "Excluded Category": [
+                    "Universe 6"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 160,
+            "DEF": 160,
+            "HP": 160,
+            "Ki": 0
+        },
+        "10534": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe Survival Saga"
+                ],
+                "Excluded Category": [
+                    "Universe 6"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "3365": {
+            "superID": "3365",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Cage of Time (Extreme)",
+            "superDescription": "Raises DEF for 1 turn and \ncauses immense damage with \na medium chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3365": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "1003365": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "30",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp1238"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 600,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 2200,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3365",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

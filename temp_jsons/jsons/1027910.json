@@ -1,0 +1,1423 @@
+{
+    "ID": "1027910",
+    "Type": "AGL",
+    "Class": "Extreme",
+    "Name": "Golden Metal Cooler",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Crossover",
+        "Resurrected Warriors",
+        "Full Power",
+        "Transformation Boost",
+        "Wicked Bloodline",
+        "Artificial Life Forms",
+        "Dragon Ball Heroes",
+        "Corroded Body and Mind"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Strongest Clan in Space",
+        "Auto Regeneration",
+        "Fusion",
+        "Deficit Boost",
+        "Shocking Speed",
+        "Cold Judgment",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1027910,
+    "Passive": {
+        "3931": {
+            "ID": 3931,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2854 )",
+                "Causalities": {
+                    "2854": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2854\", \"compiled\": 2854}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "1003931": {
+            "ID": 1003931,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2854 && 2855 )",
+                "Causalities": {
+                    "2854": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    },
+                    "2855": {
+                        "Button": {
+                            "Name": "Is HP 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2854&2855\", \"compiled\": [\"&\", 2854, 2855]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} when attacking when HP is 50% or more ",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2003931": {
+            "ID": 2003931,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3003931": {
+            "ID": 3003931,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4003931": {
+            "ID": 4003931,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2856 )",
+                "Causalities": {
+                    "2856": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2856\", \"compiled\": 2856}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies "
+        },
+        "5003931": {
+            "ID": 5003931,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2857 )",
+                "Causalities": {
+                    "2857": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2857\", \"compiled\": 2857}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "6003931": {
+            "ID": 6003931,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2858 )",
+                "Causalities": {
+                    "2858": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2858\", \"compiled\": 2858}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies "
+        },
+        "7003931": {
+            "ID": 7003931,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2859 )",
+                "Causalities": {
+                    "2859": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2859\", \"compiled\": 2859}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies "
+        },
+        "8003931": {
+            "ID": 8003931,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2860 )",
+                "Causalities": {
+                    "2860": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2860\", \"compiled\": 2860}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies "
+        },
+        "9003931": {
+            "ID": 9003931,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2856 )",
+                "Causalities": {
+                    "2856": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2856\", \"compiled\": 2856}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} ",
+            "Line description": "ATK 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies "
+        },
+        "10003931": {
+            "ID": 10003931,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2857 )",
+                "Causalities": {
+                    "2857": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2857\", \"compiled\": 2857}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} ",
+            "Line description": "ATK 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "11003931": {
+            "ID": 11003931,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2858 )",
+                "Causalities": {
+                    "2858": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2858\", \"compiled\": 2858}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} ",
+            "Line description": "ATK 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies "
+        },
+        "12003931": {
+            "ID": 12003931,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2859 )",
+                "Causalities": {
+                    "2859": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2859\", \"compiled\": 2859}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} ",
+            "Line description": "ATK 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies "
+        },
+        "13003931": {
+            "ID": 13003931,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2860 )",
+                "Causalities": {
+                    "2860": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2860\", \"compiled\": 2860}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} ",
+            "Line description": "ATK 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies "
+        },
+        "14003931": {
+            "ID": 14003931,
+            "Timing": "Start of turn",
+            "DR": 8,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2856 )",
+                "Causalities": {
+                    "2856": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2856\", \"compiled\": 2856}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies "
+        },
+        "15003931": {
+            "ID": 15003931,
+            "Timing": "Start of turn",
+            "DR": 8,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2857 )",
+                "Causalities": {
+                    "2857": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2857\", \"compiled\": 2857}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "16003931": {
+            "ID": 16003931,
+            "Timing": "Start of turn",
+            "DR": 8,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2858 )",
+                "Causalities": {
+                    "2858": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2858\", \"compiled\": 2858}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies "
+        },
+        "17003931": {
+            "ID": 17003931,
+            "Timing": "Start of turn",
+            "DR": 8,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2859 )",
+                "Causalities": {
+                    "2859": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2859\", \"compiled\": 2859}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies "
+        },
+        "18003931": {
+            "ID": 18003931,
+            "Timing": "Start of turn",
+            "DR": 8,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2860 )",
+                "Causalities": {
+                    "2860": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2860\", \"compiled\": 2860}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 8%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies "
+        },
+        "19003931": {
+            "ID": 19003931,
+            "Timing": "Start of turn",
+            "Status": [
+                "Seal"
+            ],
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2861 )",
+                "Causalities": {
+                    "2861": {
+                        "Button": {
+                            "Name": "Is HP 20 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=20",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 20% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2861\", \"compiled\": 2861}",
+            "Type": "Single activator",
+            "Brief effect description": "Seal ",
+            "Line description": "Seal ",
+            "Paragraph Title": "When HP is 20% or less"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Damage reduction rate 20%{passiveImg:up_g}\n- Launches an additional attack that has a great chance of\nbecoming a Super Attack\n*When attacking with 12 or more Ki*\n- ATK & DEF 200%{passiveImg:up_g}\n- ATK & DEF 80%{passiveImg:up_g} when HP is 50% or more\n*Per \"Crossover\" Category ally on the team*\n- Ki +1 (up to +5) and ATK 40%{passiveImg:up_g} (up to 200%)\n- Damage reduction rate 8%{passiveImg:up_g} (up to 40%)\n*When HP is 20% or less*\n- Character's Super Attack will be sealed",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 2888,
+            "ATK": 2444,
+            "DEF": 1364
+        },
+        "2": {
+            "HP": 2955,
+            "ATK": 2501,
+            "DEF": 1395
+        },
+        "3": {
+            "HP": 3023,
+            "ATK": 2558,
+            "DEF": 1427
+        },
+        "4": {
+            "HP": 3091,
+            "ATK": 2615,
+            "DEF": 1459
+        },
+        "5": {
+            "HP": 3158,
+            "ATK": 2673,
+            "DEF": 1491
+        },
+        "6": {
+            "HP": 3230,
+            "ATK": 2733,
+            "DEF": 1525
+        },
+        "7": {
+            "HP": 3297,
+            "ATK": 2790,
+            "DEF": 1557
+        },
+        "8": {
+            "HP": 3365,
+            "ATK": 2848,
+            "DEF": 1589
+        },
+        "9": {
+            "HP": 3433,
+            "ATK": 2905,
+            "DEF": 1621
+        },
+        "10": {
+            "HP": 3501,
+            "ATK": 2962,
+            "DEF": 1653
+        },
+        "11": {
+            "HP": 3568,
+            "ATK": 3020,
+            "DEF": 1685
+        },
+        "12": {
+            "HP": 3636,
+            "ATK": 3077,
+            "DEF": 1717
+        },
+        "13": {
+            "HP": 3704,
+            "ATK": 3134,
+            "DEF": 1749
+        },
+        "14": {
+            "HP": 3771,
+            "ATK": 3191,
+            "DEF": 1781
+        },
+        "15": {
+            "HP": 3839,
+            "ATK": 3249,
+            "DEF": 1813
+        },
+        "16": {
+            "HP": 3910,
+            "ATK": 3309,
+            "DEF": 1846
+        },
+        "17": {
+            "HP": 3978,
+            "ATK": 3366,
+            "DEF": 1878
+        },
+        "18": {
+            "HP": 4046,
+            "ATK": 3424,
+            "DEF": 1910
+        },
+        "19": {
+            "HP": 4114,
+            "ATK": 3481,
+            "DEF": 1942
+        },
+        "20": {
+            "HP": 4181,
+            "ATK": 3538,
+            "DEF": 1974
+        },
+        "21": {
+            "HP": 4249,
+            "ATK": 3596,
+            "DEF": 2006
+        },
+        "22": {
+            "HP": 4317,
+            "ATK": 3653,
+            "DEF": 2038
+        },
+        "23": {
+            "HP": 4385,
+            "ATK": 3710,
+            "DEF": 2070
+        },
+        "24": {
+            "HP": 4452,
+            "ATK": 3768,
+            "DEF": 2102
+        },
+        "25": {
+            "HP": 4520,
+            "ATK": 3825,
+            "DEF": 2134
+        },
+        "26": {
+            "HP": 4591,
+            "ATK": 3885,
+            "DEF": 2168
+        },
+        "27": {
+            "HP": 4659,
+            "ATK": 3942,
+            "DEF": 2200
+        },
+        "28": {
+            "HP": 4727,
+            "ATK": 4000,
+            "DEF": 2231
+        },
+        "29": {
+            "HP": 4794,
+            "ATK": 4057,
+            "DEF": 2263
+        },
+        "30": {
+            "HP": 4862,
+            "ATK": 4114,
+            "DEF": 2295
+        },
+        "31": {
+            "HP": 4930,
+            "ATK": 4172,
+            "DEF": 2327
+        },
+        "32": {
+            "HP": 4998,
+            "ATK": 4229,
+            "DEF": 2359
+        },
+        "33": {
+            "HP": 5065,
+            "ATK": 4286,
+            "DEF": 2391
+        },
+        "34": {
+            "HP": 5133,
+            "ATK": 4344,
+            "DEF": 2423
+        },
+        "35": {
+            "HP": 5201,
+            "ATK": 4401,
+            "DEF": 2455
+        },
+        "36": {
+            "HP": 5272,
+            "ATK": 4461,
+            "DEF": 2489
+        },
+        "37": {
+            "HP": 5340,
+            "ATK": 4518,
+            "DEF": 2521
+        },
+        "38": {
+            "HP": 5407,
+            "ATK": 4576,
+            "DEF": 2553
+        },
+        "39": {
+            "HP": 5475,
+            "ATK": 4633,
+            "DEF": 2585
+        },
+        "40": {
+            "HP": 5543,
+            "ATK": 4690,
+            "DEF": 2617
+        },
+        "41": {
+            "HP": 5611,
+            "ATK": 4748,
+            "DEF": 2649
+        },
+        "42": {
+            "HP": 5678,
+            "ATK": 4805,
+            "DEF": 2681
+        },
+        "43": {
+            "HP": 5746,
+            "ATK": 4862,
+            "DEF": 2713
+        },
+        "44": {
+            "HP": 5814,
+            "ATK": 4920,
+            "DEF": 2745
+        },
+        "45": {
+            "HP": 5882,
+            "ATK": 4977,
+            "DEF": 2777
+        },
+        "46": {
+            "HP": 5953,
+            "ATK": 5037,
+            "DEF": 2810
+        },
+        "47": {
+            "HP": 6020,
+            "ATK": 5094,
+            "DEF": 2842
+        },
+        "48": {
+            "HP": 6088,
+            "ATK": 5152,
+            "DEF": 2874
+        },
+        "49": {
+            "HP": 6156,
+            "ATK": 5209,
+            "DEF": 2906
+        },
+        "50": {
+            "HP": 6224,
+            "ATK": 5266,
+            "DEF": 2938
+        },
+        "51": {
+            "HP": 6291,
+            "ATK": 5324,
+            "DEF": 2970
+        },
+        "52": {
+            "HP": 6359,
+            "ATK": 5381,
+            "DEF": 3002
+        },
+        "53": {
+            "HP": 6427,
+            "ATK": 5438,
+            "DEF": 3034
+        },
+        "54": {
+            "HP": 6495,
+            "ATK": 5496,
+            "DEF": 3066
+        },
+        "55": {
+            "HP": 6562,
+            "ATK": 5553,
+            "DEF": 3098
+        },
+        "56": {
+            "HP": 6633,
+            "ATK": 5613,
+            "DEF": 3131
+        },
+        "57": {
+            "HP": 6701,
+            "ATK": 5670,
+            "DEF": 3163
+        },
+        "58": {
+            "HP": 6769,
+            "ATK": 5728,
+            "DEF": 3195
+        },
+        "59": {
+            "HP": 6837,
+            "ATK": 5785,
+            "DEF": 3227
+        },
+        "60": {
+            "HP": 6904,
+            "ATK": 5842,
+            "DEF": 3259
+        },
+        "61": {
+            "HP": 6972,
+            "ATK": 5900,
+            "DEF": 3291
+        },
+        "62": {
+            "HP": 7040,
+            "ATK": 5957,
+            "DEF": 3323
+        },
+        "63": {
+            "HP": 7108,
+            "ATK": 6014,
+            "DEF": 3355
+        },
+        "64": {
+            "HP": 7175,
+            "ATK": 6072,
+            "DEF": 3387
+        },
+        "65": {
+            "HP": 7243,
+            "ATK": 6129,
+            "DEF": 3419
+        },
+        "66": {
+            "HP": 7314,
+            "ATK": 6189,
+            "DEF": 3453
+        },
+        "67": {
+            "HP": 7382,
+            "ATK": 6246,
+            "DEF": 3485
+        },
+        "68": {
+            "HP": 7450,
+            "ATK": 6304,
+            "DEF": 3517
+        },
+        "69": {
+            "HP": 7517,
+            "ATK": 6361,
+            "DEF": 3549
+        },
+        "70": {
+            "HP": 7585,
+            "ATK": 6418,
+            "DEF": 3581
+        },
+        "71": {
+            "HP": 7653,
+            "ATK": 6476,
+            "DEF": 3613
+        },
+        "72": {
+            "HP": 7721,
+            "ATK": 6533,
+            "DEF": 3645
+        },
+        "73": {
+            "HP": 7788,
+            "ATK": 6590,
+            "DEF": 3677
+        },
+        "74": {
+            "HP": 7856,
+            "ATK": 6648,
+            "DEF": 3708
+        },
+        "75": {
+            "HP": 7924,
+            "ATK": 6705,
+            "DEF": 3740
+        },
+        "76": {
+            "HP": 7995,
+            "ATK": 6765,
+            "DEF": 3774
+        },
+        "77": {
+            "HP": 8063,
+            "ATK": 6822,
+            "DEF": 3806
+        },
+        "78": {
+            "HP": 8130,
+            "ATK": 6880,
+            "DEF": 3838
+        },
+        "79": {
+            "HP": 8198,
+            "ATK": 6937,
+            "DEF": 3870
+        },
+        "80": {
+            "HP": 8266,
+            "ATK": 6994,
+            "DEF": 3902
+        },
+        "81": {
+            "HP": 8334,
+            "ATK": 7052,
+            "DEF": 3934
+        },
+        "82": {
+            "HP": 8401,
+            "ATK": 7109,
+            "DEF": 3966
+        },
+        "83": {
+            "HP": 8469,
+            "ATK": 7166,
+            "DEF": 3998
+        },
+        "84": {
+            "HP": 8537,
+            "ATK": 7224,
+            "DEF": 4030
+        },
+        "85": {
+            "HP": 8605,
+            "ATK": 7281,
+            "DEF": 4062
+        },
+        "86": {
+            "HP": 8676,
+            "ATK": 7341,
+            "DEF": 4095
+        },
+        "87": {
+            "HP": 8744,
+            "ATK": 7399,
+            "DEF": 4127
+        },
+        "88": {
+            "HP": 8811,
+            "ATK": 7456,
+            "DEF": 4159
+        },
+        "89": {
+            "HP": 8879,
+            "ATK": 7513,
+            "DEF": 4191
+        },
+        "90": {
+            "HP": 8947,
+            "ATK": 7570,
+            "DEF": 4223
+        },
+        "91": {
+            "HP": 9014,
+            "ATK": 7628,
+            "DEF": 4255
+        },
+        "92": {
+            "HP": 9082,
+            "ATK": 7685,
+            "DEF": 4287
+        },
+        "93": {
+            "HP": 9150,
+            "ATK": 7742,
+            "DEF": 4319
+        },
+        "94": {
+            "HP": 9218,
+            "ATK": 7800,
+            "DEF": 4351
+        },
+        "95": {
+            "HP": 9285,
+            "ATK": 7857,
+            "DEF": 4383
+        },
+        "96": {
+            "HP": 9357,
+            "ATK": 7917,
+            "DEF": 4417
+        },
+        "97": {
+            "HP": 9424,
+            "ATK": 7975,
+            "DEF": 4449
+        },
+        "98": {
+            "HP": 9492,
+            "ATK": 8032,
+            "DEF": 4481
+        },
+        "99": {
+            "HP": 9560,
+            "ATK": 8089,
+            "DEF": 4513
+        },
+        "100": {
+            "HP": 9628,
+            "ATK": 8147,
+            "DEF": 4545
+        }
+    },
+    "Leader Skill": {
+        "Name": "Golden Overheated Power",
+        "10279100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Crossover"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10279101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Crossover"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 150,
+            "DEF": 150,
+            "HP": 150,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "5023": {
+            "superID": "5023",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Golden Metal Supernova",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5023": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2456"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 72.5,
+        "1": 78.54166666666667,
+        "2": 84.58333333333333,
+        "3": 90.625,
+        "4": 96.66666666666666,
+        "5": 102.70833333333334,
+        "6": 108.75,
+        "7": 114.79166666666667,
+        "8": 120.83333333333333,
+        "9": 126.875,
+        "10": 132.91666666666669,
+        "11": 138.95833333333331,
+        "12": 145.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5023",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

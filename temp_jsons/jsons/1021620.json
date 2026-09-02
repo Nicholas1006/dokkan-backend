@@ -1,0 +1,1247 @@
+{
+    "ID": "1021620",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Master Roshi",
+    "Rarity": "lr",
+    "Min Level": 1,
+    "Max Level": 150,
+    "Categories": [
+        "Turtle School",
+        "Universe Survival Saga",
+        "Representatives of Universe 7",
+        "Kamehameha",
+        "Bond of Master and Disciple",
+        "Earthlings",
+        "Battle of Wits",
+        "Final Trump Card",
+        "Full Power",
+        "All-Out Struggle",
+        "Powerful Comeback",
+        "Earth-Bred Fighters",
+        "Super Heroes",
+        "Power of Wishes",
+        "Tournament Participants"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Turtle School",
+        "Kamehameha",
+        "Supreme Warrior",
+        "Brainiacs",
+        "Tournament of Power",
+        "Shattering the Limit",
+        "Legendary Power"
+    ],
+    "Resource ID": 1021620,
+    "Passive": {
+        "2359": {
+            "ID": 2359,
+            "Timing": "Start of turn",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} ",
+            "Line description": "DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002359": {
+            "ID": 1002359,
+            "Dodge Chance": 30,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% ",
+            "Line description": "Chance of evading enemy attacks +30% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002359": {
+            "ID": 2002359,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Turtle School"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all Turtle School category allies ",
+            "Line description": "Ki +2 for all Turtle School category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002359": {
+            "ID": 3002359,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Turtle School"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} for all Turtle School category allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} for all Turtle School category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4002359": {
+            "ID": 4002359,
+            "Revive": {
+                "Activated": true,
+                "HP recovered": 50
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 801 && 731 )",
+                "Causalities": {
+                    "801": {
+                        "Button": {
+                            "Name": "Are there 3 or more Turtle School category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+                    },
+                    "731": {
+                        "Button": {
+                            "Name": "Is HP 50 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"801&731\", \"compiled\": [\"&\", 801, 731]}",
+            "Type": "Single activator",
+            "Brief effect description": "Revives with 50% HP for all allies ",
+            "Line description": "Revives with 50% HP for all allies ",
+            "Paragraph Title": "When there are 3 or more Turtle School Category allies and HP is 50% or less "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- DEF 100%{passiveImg:up_g}\n- Medium chance of evading enemy's attack\n- \"Turtle School\" Category allies' Ki +2 and ATK & DEF 30%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 2458,
+            "ATK": 2833,
+            "DEF": 1363
+        },
+        "2": {
+            "HP": 2497,
+            "ATK": 2878,
+            "DEF": 1384
+        },
+        "3": {
+            "HP": 2533,
+            "ATK": 2920,
+            "DEF": 1405
+        },
+        "4": {
+            "HP": 2573,
+            "ATK": 2965,
+            "DEF": 1426
+        },
+        "5": {
+            "HP": 2612,
+            "ATK": 3010,
+            "DEF": 1448
+        },
+        "6": {
+            "HP": 2651,
+            "ATK": 3056,
+            "DEF": 1470
+        },
+        "7": {
+            "HP": 2688,
+            "ATK": 3098,
+            "DEF": 1490
+        },
+        "8": {
+            "HP": 2727,
+            "ATK": 3143,
+            "DEF": 1512
+        },
+        "9": {
+            "HP": 2766,
+            "ATK": 3188,
+            "DEF": 1534
+        },
+        "10": {
+            "HP": 2803,
+            "ATK": 3230,
+            "DEF": 1554
+        },
+        "11": {
+            "HP": 2842,
+            "ATK": 3276,
+            "DEF": 1576
+        },
+        "12": {
+            "HP": 2881,
+            "ATK": 3321,
+            "DEF": 1598
+        },
+        "13": {
+            "HP": 2921,
+            "ATK": 3366,
+            "DEF": 1619
+        },
+        "14": {
+            "HP": 2957,
+            "ATK": 3408,
+            "DEF": 1640
+        },
+        "15": {
+            "HP": 2997,
+            "ATK": 3454,
+            "DEF": 1661
+        },
+        "16": {
+            "HP": 3036,
+            "ATK": 3499,
+            "DEF": 1683
+        },
+        "17": {
+            "HP": 3072,
+            "ATK": 3541,
+            "DEF": 1703
+        },
+        "18": {
+            "HP": 3112,
+            "ATK": 3586,
+            "DEF": 1725
+        },
+        "19": {
+            "HP": 3151,
+            "ATK": 3632,
+            "DEF": 1747
+        },
+        "20": {
+            "HP": 3190,
+            "ATK": 3677,
+            "DEF": 1769
+        },
+        "21": {
+            "HP": 3227,
+            "ATK": 3719,
+            "DEF": 1789
+        },
+        "22": {
+            "HP": 3266,
+            "ATK": 3764,
+            "DEF": 1811
+        },
+        "23": {
+            "HP": 3305,
+            "ATK": 3809,
+            "DEF": 1833
+        },
+        "24": {
+            "HP": 3342,
+            "ATK": 3851,
+            "DEF": 1853
+        },
+        "25": {
+            "HP": 3381,
+            "ATK": 3897,
+            "DEF": 1875
+        },
+        "26": {
+            "HP": 3421,
+            "ATK": 3942,
+            "DEF": 1896
+        },
+        "27": {
+            "HP": 3457,
+            "ATK": 3984,
+            "DEF": 1917
+        },
+        "28": {
+            "HP": 3496,
+            "ATK": 4029,
+            "DEF": 1938
+        },
+        "29": {
+            "HP": 3536,
+            "ATK": 4075,
+            "DEF": 1960
+        },
+        "30": {
+            "HP": 3575,
+            "ATK": 4120,
+            "DEF": 1982
+        },
+        "31": {
+            "HP": 3611,
+            "ATK": 4162,
+            "DEF": 2002
+        },
+        "32": {
+            "HP": 3651,
+            "ATK": 4207,
+            "DEF": 2024
+        },
+        "33": {
+            "HP": 3690,
+            "ATK": 4253,
+            "DEF": 2046
+        },
+        "34": {
+            "HP": 3727,
+            "ATK": 4295,
+            "DEF": 2066
+        },
+        "35": {
+            "HP": 3766,
+            "ATK": 4340,
+            "DEF": 2088
+        },
+        "36": {
+            "HP": 3805,
+            "ATK": 4385,
+            "DEF": 2110
+        },
+        "37": {
+            "HP": 3844,
+            "ATK": 4431,
+            "DEF": 2131
+        },
+        "38": {
+            "HP": 3881,
+            "ATK": 4473,
+            "DEF": 2152
+        },
+        "39": {
+            "HP": 3920,
+            "ATK": 4518,
+            "DEF": 2173
+        },
+        "40": {
+            "HP": 3960,
+            "ATK": 4563,
+            "DEF": 2195
+        },
+        "41": {
+            "HP": 3996,
+            "ATK": 4605,
+            "DEF": 2215
+        },
+        "42": {
+            "HP": 4035,
+            "ATK": 4651,
+            "DEF": 2237
+        },
+        "43": {
+            "HP": 4075,
+            "ATK": 4696,
+            "DEF": 2259
+        },
+        "44": {
+            "HP": 4114,
+            "ATK": 4741,
+            "DEF": 2281
+        },
+        "45": {
+            "HP": 4150,
+            "ATK": 4783,
+            "DEF": 2301
+        },
+        "46": {
+            "HP": 4190,
+            "ATK": 4828,
+            "DEF": 2323
+        },
+        "47": {
+            "HP": 4229,
+            "ATK": 4874,
+            "DEF": 2345
+        },
+        "48": {
+            "HP": 4266,
+            "ATK": 4916,
+            "DEF": 2365
+        },
+        "49": {
+            "HP": 4305,
+            "ATK": 4961,
+            "DEF": 2387
+        },
+        "50": {
+            "HP": 4344,
+            "ATK": 5006,
+            "DEF": 2408
+        },
+        "51": {
+            "HP": 4384,
+            "ATK": 5052,
+            "DEF": 2430
+        },
+        "52": {
+            "HP": 4420,
+            "ATK": 5094,
+            "DEF": 2451
+        },
+        "53": {
+            "HP": 4459,
+            "ATK": 5139,
+            "DEF": 2472
+        },
+        "54": {
+            "HP": 4499,
+            "ATK": 5184,
+            "DEF": 2494
+        },
+        "55": {
+            "HP": 4535,
+            "ATK": 5226,
+            "DEF": 2514
+        },
+        "56": {
+            "HP": 4574,
+            "ATK": 5272,
+            "DEF": 2536
+        },
+        "57": {
+            "HP": 4614,
+            "ATK": 5317,
+            "DEF": 2558
+        },
+        "58": {
+            "HP": 4653,
+            "ATK": 5362,
+            "DEF": 2580
+        },
+        "59": {
+            "HP": 4690,
+            "ATK": 5404,
+            "DEF": 2600
+        },
+        "60": {
+            "HP": 4729,
+            "ATK": 5450,
+            "DEF": 2622
+        },
+        "61": {
+            "HP": 4768,
+            "ATK": 5495,
+            "DEF": 2644
+        },
+        "62": {
+            "HP": 4805,
+            "ATK": 5537,
+            "DEF": 2664
+        },
+        "63": {
+            "HP": 4844,
+            "ATK": 5582,
+            "DEF": 2686
+        },
+        "64": {
+            "HP": 4883,
+            "ATK": 5628,
+            "DEF": 2707
+        },
+        "65": {
+            "HP": 4923,
+            "ATK": 5673,
+            "DEF": 2729
+        },
+        "66": {
+            "HP": 4959,
+            "ATK": 5715,
+            "DEF": 2749
+        },
+        "67": {
+            "HP": 4998,
+            "ATK": 5760,
+            "DEF": 2771
+        },
+        "68": {
+            "HP": 5038,
+            "ATK": 5805,
+            "DEF": 2793
+        },
+        "69": {
+            "HP": 5074,
+            "ATK": 5847,
+            "DEF": 2813
+        },
+        "70": {
+            "HP": 5114,
+            "ATK": 5893,
+            "DEF": 2835
+        },
+        "71": {
+            "HP": 5153,
+            "ATK": 5938,
+            "DEF": 2857
+        },
+        "72": {
+            "HP": 5192,
+            "ATK": 5983,
+            "DEF": 2879
+        },
+        "73": {
+            "HP": 5229,
+            "ATK": 6025,
+            "DEF": 2899
+        },
+        "74": {
+            "HP": 5268,
+            "ATK": 6071,
+            "DEF": 2921
+        },
+        "75": {
+            "HP": 5307,
+            "ATK": 6116,
+            "DEF": 2942
+        },
+        "76": {
+            "HP": 5344,
+            "ATK": 6158,
+            "DEF": 2963
+        },
+        "77": {
+            "HP": 5383,
+            "ATK": 6203,
+            "DEF": 2984
+        },
+        "78": {
+            "HP": 5422,
+            "ATK": 6249,
+            "DEF": 3006
+        },
+        "79": {
+            "HP": 5459,
+            "ATK": 6291,
+            "DEF": 3026
+        },
+        "80": {
+            "HP": 5498,
+            "ATK": 6336,
+            "DEF": 3048
+        },
+        "81": {
+            "HP": 5537,
+            "ATK": 6381,
+            "DEF": 3070
+        },
+        "82": {
+            "HP": 5577,
+            "ATK": 6427,
+            "DEF": 3092
+        },
+        "83": {
+            "HP": 5613,
+            "ATK": 6469,
+            "DEF": 3112
+        },
+        "84": {
+            "HP": 5653,
+            "ATK": 6514,
+            "DEF": 3134
+        },
+        "85": {
+            "HP": 5692,
+            "ATK": 6559,
+            "DEF": 3156
+        },
+        "86": {
+            "HP": 5728,
+            "ATK": 6601,
+            "DEF": 3176
+        },
+        "87": {
+            "HP": 5768,
+            "ATK": 6646,
+            "DEF": 3198
+        },
+        "88": {
+            "HP": 5807,
+            "ATK": 6692,
+            "DEF": 3219
+        },
+        "89": {
+            "HP": 5846,
+            "ATK": 6737,
+            "DEF": 3241
+        },
+        "90": {
+            "HP": 5883,
+            "ATK": 6779,
+            "DEF": 3261
+        },
+        "91": {
+            "HP": 5922,
+            "ATK": 6824,
+            "DEF": 3283
+        },
+        "92": {
+            "HP": 5961,
+            "ATK": 6870,
+            "DEF": 3305
+        },
+        "93": {
+            "HP": 5998,
+            "ATK": 6912,
+            "DEF": 3325
+        },
+        "94": {
+            "HP": 6037,
+            "ATK": 6957,
+            "DEF": 3347
+        },
+        "95": {
+            "HP": 6077,
+            "ATK": 7002,
+            "DEF": 3369
+        },
+        "96": {
+            "HP": 6116,
+            "ATK": 7048,
+            "DEF": 3391
+        },
+        "97": {
+            "HP": 6152,
+            "ATK": 7090,
+            "DEF": 3411
+        },
+        "98": {
+            "HP": 6192,
+            "ATK": 7135,
+            "DEF": 3433
+        },
+        "99": {
+            "HP": 6231,
+            "ATK": 7180,
+            "DEF": 3454
+        },
+        "100": {
+            "HP": 6267,
+            "ATK": 7222,
+            "DEF": 3475
+        },
+        "101": {
+            "HP": 6307,
+            "ATK": 7268,
+            "DEF": 3497
+        },
+        "102": {
+            "HP": 6346,
+            "ATK": 7313,
+            "DEF": 3518
+        },
+        "103": {
+            "HP": 6385,
+            "ATK": 7358,
+            "DEF": 3540
+        },
+        "104": {
+            "HP": 6422,
+            "ATK": 7400,
+            "DEF": 3560
+        },
+        "105": {
+            "HP": 6461,
+            "ATK": 7446,
+            "DEF": 3582
+        },
+        "106": {
+            "HP": 6501,
+            "ATK": 7491,
+            "DEF": 3604
+        },
+        "107": {
+            "HP": 6537,
+            "ATK": 7533,
+            "DEF": 3624
+        },
+        "108": {
+            "HP": 6576,
+            "ATK": 7578,
+            "DEF": 3646
+        },
+        "109": {
+            "HP": 6616,
+            "ATK": 7623,
+            "DEF": 3668
+        },
+        "110": {
+            "HP": 6655,
+            "ATK": 7669,
+            "DEF": 3690
+        },
+        "111": {
+            "HP": 6691,
+            "ATK": 7711,
+            "DEF": 3710
+        },
+        "112": {
+            "HP": 6731,
+            "ATK": 7756,
+            "DEF": 3732
+        },
+        "113": {
+            "HP": 6770,
+            "ATK": 7801,
+            "DEF": 3753
+        },
+        "114": {
+            "HP": 6807,
+            "ATK": 7843,
+            "DEF": 3774
+        },
+        "115": {
+            "HP": 6846,
+            "ATK": 7889,
+            "DEF": 3795
+        },
+        "116": {
+            "HP": 6885,
+            "ATK": 7934,
+            "DEF": 3817
+        },
+        "117": {
+            "HP": 6924,
+            "ATK": 7979,
+            "DEF": 3839
+        },
+        "118": {
+            "HP": 6961,
+            "ATK": 8021,
+            "DEF": 3859
+        },
+        "119": {
+            "HP": 7000,
+            "ATK": 8067,
+            "DEF": 3881
+        },
+        "120": {
+            "HP": 7040,
+            "ATK": 8112,
+            "DEF": 3903
+        },
+        "121": {
+            "HP": 7076,
+            "ATK": 8154,
+            "DEF": 3923
+        },
+        "122": {
+            "HP": 7115,
+            "ATK": 8199,
+            "DEF": 3945
+        },
+        "123": {
+            "HP": 7155,
+            "ATK": 8245,
+            "DEF": 3967
+        },
+        "124": {
+            "HP": 7194,
+            "ATK": 8290,
+            "DEF": 3988
+        },
+        "125": {
+            "HP": 7230,
+            "ATK": 8332,
+            "DEF": 4009
+        },
+        "126": {
+            "HP": 7270,
+            "ATK": 8377,
+            "DEF": 4030
+        },
+        "127": {
+            "HP": 7309,
+            "ATK": 8423,
+            "DEF": 4052
+        },
+        "128": {
+            "HP": 7346,
+            "ATK": 8465,
+            "DEF": 4072
+        },
+        "129": {
+            "HP": 7385,
+            "ATK": 8510,
+            "DEF": 4094
+        },
+        "130": {
+            "HP": 7424,
+            "ATK": 8555,
+            "DEF": 4116
+        },
+        "131": {
+            "HP": 7461,
+            "ATK": 8597,
+            "DEF": 4136
+        },
+        "132": {
+            "HP": 7500,
+            "ATK": 8642,
+            "DEF": 4158
+        },
+        "133": {
+            "HP": 7539,
+            "ATK": 8688,
+            "DEF": 4180
+        },
+        "134": {
+            "HP": 7579,
+            "ATK": 8733,
+            "DEF": 4202
+        },
+        "135": {
+            "HP": 7615,
+            "ATK": 8775,
+            "DEF": 4222
+        },
+        "136": {
+            "HP": 7654,
+            "ATK": 8820,
+            "DEF": 4244
+        },
+        "137": {
+            "HP": 7694,
+            "ATK": 8866,
+            "DEF": 4265
+        },
+        "138": {
+            "HP": 7730,
+            "ATK": 8908,
+            "DEF": 4286
+        },
+        "139": {
+            "HP": 7770,
+            "ATK": 8953,
+            "DEF": 4307
+        },
+        "140": {
+            "HP": 7809,
+            "ATK": 8998,
+            "DEF": 4329
+        },
+        "141": {
+            "HP": 7848,
+            "ATK": 9044,
+            "DEF": 4351
+        },
+        "142": {
+            "HP": 7885,
+            "ATK": 9086,
+            "DEF": 4371
+        },
+        "143": {
+            "HP": 7924,
+            "ATK": 9131,
+            "DEF": 4393
+        },
+        "144": {
+            "HP": 7963,
+            "ATK": 9176,
+            "DEF": 4415
+        },
+        "145": {
+            "HP": 8000,
+            "ATK": 9218,
+            "DEF": 4435
+        },
+        "146": {
+            "HP": 8039,
+            "ATK": 9264,
+            "DEF": 4457
+        },
+        "147": {
+            "HP": 8078,
+            "ATK": 9309,
+            "DEF": 4479
+        },
+        "148": {
+            "HP": 8118,
+            "ATK": 9354,
+            "DEF": 4500
+        },
+        "149": {
+            "HP": 8154,
+            "ATK": 9396,
+            "DEF": 4521
+        },
+        "150": {
+            "HP": 8194,
+            "ATK": 9442,
+            "DEF": 4543
+        }
+    },
+    "Leader Skill": {
+        "Name": "Shattering the Limit of Spirit and Tenacity",
+        "9536": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 80,
+            "DEF": 80,
+            "HP": 80,
+            "Ki": 0
+        },
+        "9537": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "2888": {
+            "superID": "2888",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Sleepy Boy Technique",
+            "superDescription": "Massively raises ATK for 1 turn \nand causes colossal damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "2888": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "100"
+                },
+                "1002888": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 395,
+            "relevantLua": [
+                "sp2151"
+            ]
+        },
+        "2889": {
+            "superID": "2889",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Evil Containment Wave",
+            "superDescription": "Raises ATK by 628% for 1 turn and \ncauses mega-colossal damage to enemy",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "2889": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "628"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 540,
+            "relevantLua": [
+                "sp2148"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "The Greatest Kamehameha",
+        "Effect Description": "Massively raises ATK temporarily and \ncauses ultimate damage to enemy; \nall allies' Ki +7 for 1 turn",
+        "Condition Description": "Can be activated after the character receives \nan attack 7 or more times in battle and there is \nanother \"Turtle School\" Category ally \nattacking in the same turn (once only)",
+        "Condition": {
+            "Logic": "( 802 && 803 )",
+            "Causalities": {
+                "802": {
+                    "Button": {
+                        "Name": "Are there 2 or more Turtle School category allies attacking on this turn?"
+                    },
+                    "Slider": {
+                        "Name": "How many Turtle School category allies attacking on this turn",
+                        "Logic": ">=2",
+                        "Max": 3,
+                        "Min": 0
+                    },
+                    "Paragraph Title": "When there are 2 or more Turtle School Category allies attacking on this turn"
+                },
+                "803": {
+                    "Button": {
+                        "Name": "Has this character recieved their 7th attack in battle?"
+                    },
+                    "Slider": {
+                        "Name": "How many attacks has this character recieved?",
+                        "Logic": ">=7",
+                        "Min": 0,
+                        "Max": 7
+                    },
+                    "Paragraph Title": "After recieving 7 attacks"
+                }
+            }
+        },
+        "Uses": 1,
+        "Attack": {
+            "Multiplier": 650,
+            "Target": "Enemy"
+        },
+        "Effects": {
+            "91": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Ki Buff",
+                    "Amount": 7
+                },
+                "Target": {
+                    "Target": "All allies"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 90.0,
+        "1": 94.58333333333334,
+        "2": 99.16666666666667,
+        "3": 103.75,
+        "4": 108.33333333333334,
+        "5": 112.91666666666667,
+        "6": 117.5,
+        "7": 122.08333333333334,
+        "8": 126.66666666666667,
+        "9": 131.25,
+        "10": 135.83333333333334,
+        "11": 140.41666666666666,
+        "12": 145.0,
+        "13": 149.58333333333334,
+        "14": 154.16666666666666,
+        "15": 158.75,
+        "16": 163.33333333333334,
+        "17": 167.91666666666666,
+        "18": 172.5,
+        "19": 177.08333333333331,
+        "20": 181.66666666666666,
+        "21": 186.25,
+        "22": 190.83333333333331,
+        "23": 195.41666666666666,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "2888",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

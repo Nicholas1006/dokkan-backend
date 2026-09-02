@@ -1,0 +1,2036 @@
+{
+    "ID": "1032121",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Super Saiyan Gohan (Future)/\nSuper Saiyan Trunks (Youth) (Future)",
+    "Rarity": "lr",
+    "Min Level": 1,
+    "Max Level": 150,
+    "Categories": [
+        "Bond of Master and Disciple",
+        "Hybrid Saiyans",
+        "Future Saga",
+        "Goku's Family",
+        "Super Saiyans",
+        "Androids/Cell Saga",
+        "All-Out Struggle",
+        "Connected Hope",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Demonic Power",
+        "Powerful Comeback",
+        "Entrusted Will",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Golden Warrior",
+        "All in the Family",
+        "Super Saiyan",
+        "Experienced Fighters",
+        "Dismal Future",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 1032120,
+    "Passive": {
+        "4759": {
+            "ID": 4759,
+            "Revive": {
+                "Activated": true,
+                "HP recovered": 58
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2008 && 2930 )",
+                "Causalities": {
+                    "2008": {
+                        "Button": {
+                            "Name": "Are there 2 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+                    },
+                    "2930": {
+                        "Button": {
+                            "Name": "Is it on or after the first 3 turns from this characters entry turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "Starting from the 3 turn from the character's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2008&2930\", \"compiled\": [\"&\", 2008, 2930]}",
+            "Type": "Single activator",
+            "Brief effect description": "Revives with 58% HP for all allies ",
+            "Line description": "Revives with 58% HP for all allies starting from the 3 turn from the character's entry turn ",
+            "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+        },
+        "1004759": {
+            "ID": 1004759,
+            "Transformation": {
+                "Activated": true,
+                "Unit": 4032131,
+                "Giant/Rage": false,
+                "Min Turns": null,
+                "Max Turns": null,
+                "Reverse chance": null
+            },
+            "Timing": "End of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "First Turn To Activate": 1,
+            "Condition": {
+                "Logic": "( 1019 )",
+                "Causalities": {
+                    "1019": {
+                        "Button": {
+                            "Name": "Has this character's Revival Skill been activated on this turn?"
+                        },
+                        "Paragraph Title": "After the character's Revival Skill is activated"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1019\", \"compiled\": 1019}",
+            "Type": "Single activator",
+            "Brief effect description": "Transforms into 4032131 at the end of turn",
+            "Line description": "Transforms into 4032131 at the end of turn",
+            "Paragraph Title": "When after the character's Revival Skill is activated"
+        },
+        "2004759": {
+            "ID": 2004759,
+            "Timing": "Start of turn",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 2374 )",
+                "Causalities": {
+                    "2374": {
+                        "Button": {
+                            "Name": "Has this character or an ally's revival skill been activated?"
+                        },
+                        "Paragraph Title": "After the character's or an ally's Revival Skill is activated"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2374\", \"compiled\": 2374}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}ATK and DEF 200%{passiveImg:up_g} ",
+            "Paragraph Title": "When after the character's or an ally's Revival Skill is activated"
+        },
+        "3004759": {
+            "ID": 3004759,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 2374 )",
+                "Causalities": {
+                    "2374": {
+                        "Button": {
+                            "Name": "Has this character or an ally's revival skill been activated?"
+                        },
+                        "Paragraph Title": "After the character's or an ally's Revival Skill is activated"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2374\", \"compiled\": 2374}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Guards all attacks ",
+            "Paragraph Title": "When after the character's or an ally's Revival Skill is activated"
+        },
+        "4004759": {
+            "ID": 4004759,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004759": {
+            "ID": 5004759,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Bond of Master and Disciple"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} for all Bond of Master and Disciple category allies ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} for all Bond of Master and Disciple category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004759": {
+            "ID": 6004759,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004759": {
+            "ID": 7004759,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "TEQ"
+                ],
+                "To": [
+                    "Rainbow"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Randomly changes Ki Spheres of a certain Type(AGL excluded) to Rainbow Ki Spheres ",
+            "Line description": "Randomly changes Ki Spheres of a certain Type(AGL excluded) to Rainbow Ki Spheres ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8004759": {
+            "ID": 8004759,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3616 )",
+                "Causalities": {
+                    "3616": {
+                        "Button": {
+                            "Name": "Are there 1 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3616\", \"compiled\": 3616}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+        },
+        "9004759": {
+            "ID": 9004759,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2008 )",
+                "Causalities": {
+                    "2008": {
+                        "Button": {
+                            "Name": "Are there 2 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2008\", \"compiled\": 2008}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+        },
+        "10004759": {
+            "ID": 10004759,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3617 )",
+                "Causalities": {
+                    "3617": {
+                        "Button": {
+                            "Name": "Are there 3 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3617\", \"compiled\": 3617}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+        },
+        "11004759": {
+            "ID": 11004759,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3616 )",
+                "Causalities": {
+                    "3616": {
+                        "Button": {
+                            "Name": "Are there 1 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3616\", \"compiled\": 3616}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+        },
+        "12004759": {
+            "ID": 12004759,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2008 )",
+                "Causalities": {
+                    "2008": {
+                        "Button": {
+                            "Name": "Are there 2 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2008\", \"compiled\": 2008}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+        },
+        "13004759": {
+            "ID": 13004759,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3617 )",
+                "Causalities": {
+                    "3617": {
+                        "Button": {
+                            "Name": "Are there 3 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3617\", \"compiled\": 3617}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+        },
+        "14004759": {
+            "ID": 14004759,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3616 )",
+                "Causalities": {
+                    "3616": {
+                        "Button": {
+                            "Name": "Are there 1 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3616\", \"compiled\": 3616}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+        },
+        "15004759": {
+            "ID": 15004759,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2008 )",
+                "Causalities": {
+                    "2008": {
+                        "Button": {
+                            "Name": "Are there 2 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2008\", \"compiled\": 2008}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+        },
+        "16004759": {
+            "ID": 16004759,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3617 )",
+                "Causalities": {
+                    "3617": {
+                        "Button": {
+                            "Name": "Are there 3 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3617\", \"compiled\": 3617}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+        },
+        "17004759": {
+            "ID": 17004759,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3616 )",
+                "Causalities": {
+                    "3616": {
+                        "Button": {
+                            "Name": "Are there 1 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3616\", \"compiled\": 3616}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Bond of Master and Disciple Category allies "
+        },
+        "18004759": {
+            "ID": 18004759,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2008 )",
+                "Causalities": {
+                    "2008": {
+                        "Button": {
+                            "Name": "Are there 2 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2008\", \"compiled\": 2008}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Bond of Master and Disciple Category allies "
+        },
+        "19004759": {
+            "ID": 19004759,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3617 )",
+                "Causalities": {
+                    "3617": {
+                        "Button": {
+                            "Name": "Are there 3 or more Bond of Master and Disciple category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Bond of Master and Disciple category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3617\", \"compiled\": 3617}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Bond of Master and Disciple Category allies "
+        },
+        "20004759": {
+            "ID": 20004759,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1274 )",
+                "Causalities": {
+                    "1274": {
+                        "Button": {
+                            "Name": "Is Ki at least 18 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=18",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 18 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1274\", \"compiled\": 1274}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 200%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 200%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 18 or more"
+        },
+        "21004759": {
+            "ID": 21004759,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2505 )",
+                "Causalities": {
+                    "2505": {
+                        "Button": {
+                            "Name": "Is it within the first 1 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=1",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "For 1 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2505\", \"compiled\": 2505}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": " {passiveImg:once}Guards all attacks for 1 turn ",
+            "Paragraph Title": "For 1 turns from the chraracter's entry turn"
+        },
+        "22004759": {
+            "ID": 22004759,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2505 )",
+                "Causalities": {
+                    "2505": {
+                        "Button": {
+                            "Name": "Is it within the first 1 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=1",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "For 1 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2505\", \"compiled\": 2505}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Chance of performing a critical hit +20%{passiveImg:up_g} for 1 turn ",
+            "Paragraph Title": "For 1 turns from the chraracter's entry turn"
+        },
+        "23004759": {
+            "ID": 23004759,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2505 )",
+                "Causalities": {
+                    "2505": {
+                        "Button": {
+                            "Name": "Is it within the first 1 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=1",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "For 1 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2505\", \"compiled\": 2505}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 20%{passiveImg:up_g} for 1 turn ",
+            "Paragraph Title": "For 1 turns from the chraracter's entry turn"
+        },
+        "24004759": {
+            "ID": 24004759,
+            "Timing": "After all ki collected",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 250500000 ",
+                "Causalities": {
+                    "250500000": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 1st attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"250500000\", \"compiled\": 250500000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} after all ki collected",
+            "Line description": " {passiveImg:once}Chance of performing a critical hit +10%{passiveImg:up_g} after all ki collected 00000 for 1 turn ",
+            "Paragraph Title": "For 1 turns from the chraracter's entry turn00000"
+        },
+        "25004759": {
+            "ID": 25004759,
+            "Timing": "After all ki collected",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 250500000 ",
+                "Causalities": {
+                    "250500000": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 1st attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"250500000\", \"compiled\": 250500000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} after all ki collected",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 10%{passiveImg:up_g} after all ki collected 00000 for 1 turn ",
+            "Paragraph Title": "For 1 turns from the chraracter's entry turn00000"
+        },
+        "26004759": {
+            "ID": 26004759,
+            "Timing": "After all ki collected",
+            "ATK": 30,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 250500000 ",
+                "Causalities": {
+                    "250500000": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 1st attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"250500000\", \"compiled\": 250500000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} after all ki collected for all allies ",
+            "Line description": " {passiveImg:once}ATK 30%{passiveImg:up_g} after all ki collected for all allies 00000 for 1 turn ",
+            "Paragraph Title": "For 1 turns from the chraracter's entry turn00000"
+        },
+        "27004759": {
+            "ID": 27004759,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2169 )",
+                "Causalities": {
+                    "2169": {
+                        "Button": {
+                            "Name": "Is it within the first 3 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=3",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "For 3 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2169\", \"compiled\": 2169}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Paragraph Title": "For 3 turns from the chraracter's entry turn"
+        },
+        "28004759": {
+            "ID": 28004759,
+            "Transformation": {
+                "Activated": true,
+                "Unit": 4032131,
+                "Giant/Rage": false,
+                "Min Turns": null,
+                "Max Turns": null,
+                "Reverse chance": null
+            },
+            "Timing": "End of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "First Turn To Activate": 1,
+            "Condition": {
+                "Logic": "( 1019 )",
+                "Causalities": {
+                    "1019": {
+                        "Button": {
+                            "Name": "Has this character's Revival Skill been activated on this turn?"
+                        },
+                        "Paragraph Title": "After the character's Revival Skill is activated"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1019\", \"compiled\": 1019}",
+            "Type": "Single activator",
+            "Brief effect description": "Transforms into 4032131 at the end of turn",
+            "Line description": "Transforms into 4032131 at the end of turn",
+            "Paragraph Title": "When after the character's Revival Skill is activated"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 150%{passiveImg:up_g}\n- \"Bond of Master and Disciple\" Category allies' ATK & DEF 50%{passiveImg:up_g}\n- Launches an additional Super Attack\n- Randomly changes Ki Spheres of a certain Type (AGL & INT\nexcluded) to Rainbow Ki Spheres\n*Per \"Bond of Master and Disciple\" Category ally on the team*\n- Ki +3 (up to +9)\n- ATK & DEF 50%{passiveImg:up_g} (up to 150%)\n- Chance of performing a critical hit & damage reduction rate 20%{passiveImg:up_g}\n(up to 60%)\n*When attacking with 18 or more Ki*\n- ATK 200%{passiveImg:up_g}\n*For 1 turn from the character's entry turn*\n- Guards all attacks\n- Chance of performing a critical hit & damage reduction rate 20%{passiveImg:up_g},\nplus an additional chance of performing a critical hit & damage\nreduction rate 10%{passiveImg:up_g} and all allies' ATK 30%{passiveImg:up_g} as the 1st attacker\nin a turn\n*For 3 turns from the character's entry turn*\n- Launches an additional attack that has a great chance of becoming\na Super Attack\n*After an ally's Revival Skill is activated*\n- {passiveImg:once}{passiveImg:forever}ATK & DEF 200%{passiveImg:up_g}\n- {passiveImg:once}{passiveImg:forever}Guards all attacks",
+    "Max Attacks": 4,
+    "Max Super Attacks": 4,
+    "Stats at levels": {
+        "1": {
+            "HP": 5572,
+            "ATK": 4500,
+            "DEF": 2990
+        },
+        "2": {
+            "HP": 5659,
+            "ATK": 4570,
+            "DEF": 3037
+        },
+        "3": {
+            "HP": 5741,
+            "ATK": 4636,
+            "DEF": 3080
+        },
+        "4": {
+            "HP": 5829,
+            "ATK": 4707,
+            "DEF": 3128
+        },
+        "5": {
+            "HP": 5917,
+            "ATK": 4778,
+            "DEF": 3175
+        },
+        "6": {
+            "HP": 6004,
+            "ATK": 4849,
+            "DEF": 3222
+        },
+        "7": {
+            "HP": 6086,
+            "ATK": 4915,
+            "DEF": 3266
+        },
+        "8": {
+            "HP": 6174,
+            "ATK": 4986,
+            "DEF": 3313
+        },
+        "9": {
+            "HP": 6262,
+            "ATK": 5057,
+            "DEF": 3360
+        },
+        "10": {
+            "HP": 6343,
+            "ATK": 5123,
+            "DEF": 3404
+        },
+        "11": {
+            "HP": 6431,
+            "ATK": 5194,
+            "DEF": 3451
+        },
+        "12": {
+            "HP": 6519,
+            "ATK": 5264,
+            "DEF": 3498
+        },
+        "13": {
+            "HP": 6607,
+            "ATK": 5335,
+            "DEF": 3545
+        },
+        "14": {
+            "HP": 6688,
+            "ATK": 5401,
+            "DEF": 3589
+        },
+        "15": {
+            "HP": 6776,
+            "ATK": 5472,
+            "DEF": 3636
+        },
+        "16": {
+            "HP": 6864,
+            "ATK": 5543,
+            "DEF": 3683
+        },
+        "17": {
+            "HP": 6945,
+            "ATK": 5609,
+            "DEF": 3727
+        },
+        "18": {
+            "HP": 7033,
+            "ATK": 5680,
+            "DEF": 3774
+        },
+        "19": {
+            "HP": 7121,
+            "ATK": 5751,
+            "DEF": 3821
+        },
+        "20": {
+            "HP": 7209,
+            "ATK": 5822,
+            "DEF": 3868
+        },
+        "21": {
+            "HP": 7290,
+            "ATK": 5888,
+            "DEF": 3912
+        },
+        "22": {
+            "HP": 7378,
+            "ATK": 5959,
+            "DEF": 3959
+        },
+        "23": {
+            "HP": 7466,
+            "ATK": 6029,
+            "DEF": 4006
+        },
+        "24": {
+            "HP": 7547,
+            "ATK": 6095,
+            "DEF": 4050
+        },
+        "25": {
+            "HP": 7635,
+            "ATK": 6166,
+            "DEF": 4097
+        },
+        "26": {
+            "HP": 7723,
+            "ATK": 6237,
+            "DEF": 4144
+        },
+        "27": {
+            "HP": 7805,
+            "ATK": 6303,
+            "DEF": 4188
+        },
+        "28": {
+            "HP": 7893,
+            "ATK": 6374,
+            "DEF": 4235
+        },
+        "29": {
+            "HP": 7980,
+            "ATK": 6445,
+            "DEF": 4282
+        },
+        "30": {
+            "HP": 8068,
+            "ATK": 6516,
+            "DEF": 4330
+        },
+        "31": {
+            "HP": 8150,
+            "ATK": 6582,
+            "DEF": 4373
+        },
+        "32": {
+            "HP": 8238,
+            "ATK": 6653,
+            "DEF": 4421
+        },
+        "33": {
+            "HP": 8325,
+            "ATK": 6724,
+            "DEF": 4468
+        },
+        "34": {
+            "HP": 8407,
+            "ATK": 6789,
+            "DEF": 4511
+        },
+        "35": {
+            "HP": 8495,
+            "ATK": 6860,
+            "DEF": 4559
+        },
+        "36": {
+            "HP": 8583,
+            "ATK": 6931,
+            "DEF": 4606
+        },
+        "37": {
+            "HP": 8670,
+            "ATK": 7002,
+            "DEF": 4653
+        },
+        "38": {
+            "HP": 8752,
+            "ATK": 7068,
+            "DEF": 4697
+        },
+        "39": {
+            "HP": 8840,
+            "ATK": 7139,
+            "DEF": 4744
+        },
+        "40": {
+            "HP": 8928,
+            "ATK": 7210,
+            "DEF": 4791
+        },
+        "41": {
+            "HP": 9009,
+            "ATK": 7276,
+            "DEF": 4835
+        },
+        "42": {
+            "HP": 9097,
+            "ATK": 7347,
+            "DEF": 4882
+        },
+        "43": {
+            "HP": 9185,
+            "ATK": 7418,
+            "DEF": 4929
+        },
+        "44": {
+            "HP": 9273,
+            "ATK": 7489,
+            "DEF": 4976
+        },
+        "45": {
+            "HP": 9354,
+            "ATK": 7554,
+            "DEF": 5020
+        },
+        "46": {
+            "HP": 9442,
+            "ATK": 7625,
+            "DEF": 5067
+        },
+        "47": {
+            "HP": 9530,
+            "ATK": 7696,
+            "DEF": 5114
+        },
+        "48": {
+            "HP": 9611,
+            "ATK": 7762,
+            "DEF": 5158
+        },
+        "49": {
+            "HP": 9699,
+            "ATK": 7833,
+            "DEF": 5205
+        },
+        "50": {
+            "HP": 9787,
+            "ATK": 7904,
+            "DEF": 5252
+        },
+        "51": {
+            "HP": 9875,
+            "ATK": 7975,
+            "DEF": 5299
+        },
+        "52": {
+            "HP": 9956,
+            "ATK": 8041,
+            "DEF": 5343
+        },
+        "53": {
+            "HP": 10044,
+            "ATK": 8112,
+            "DEF": 5390
+        },
+        "54": {
+            "HP": 10132,
+            "ATK": 8183,
+            "DEF": 5437
+        },
+        "55": {
+            "HP": 10214,
+            "ATK": 8248,
+            "DEF": 5481
+        },
+        "56": {
+            "HP": 10301,
+            "ATK": 8319,
+            "DEF": 5528
+        },
+        "57": {
+            "HP": 10389,
+            "ATK": 8390,
+            "DEF": 5575
+        },
+        "58": {
+            "HP": 10477,
+            "ATK": 8461,
+            "DEF": 5623
+        },
+        "59": {
+            "HP": 10559,
+            "ATK": 8527,
+            "DEF": 5666
+        },
+        "60": {
+            "HP": 10646,
+            "ATK": 8598,
+            "DEF": 5713
+        },
+        "61": {
+            "HP": 10734,
+            "ATK": 8669,
+            "DEF": 5761
+        },
+        "62": {
+            "HP": 10816,
+            "ATK": 8735,
+            "DEF": 5804
+        },
+        "63": {
+            "HP": 10904,
+            "ATK": 8806,
+            "DEF": 5852
+        },
+        "64": {
+            "HP": 10992,
+            "ATK": 8877,
+            "DEF": 5899
+        },
+        "65": {
+            "HP": 11079,
+            "ATK": 8948,
+            "DEF": 5946
+        },
+        "66": {
+            "HP": 11161,
+            "ATK": 9013,
+            "DEF": 5990
+        },
+        "67": {
+            "HP": 11249,
+            "ATK": 9084,
+            "DEF": 6037
+        },
+        "68": {
+            "HP": 11337,
+            "ATK": 9155,
+            "DEF": 6084
+        },
+        "69": {
+            "HP": 11418,
+            "ATK": 9221,
+            "DEF": 6128
+        },
+        "70": {
+            "HP": 11506,
+            "ATK": 9292,
+            "DEF": 6175
+        },
+        "71": {
+            "HP": 11594,
+            "ATK": 9363,
+            "DEF": 6222
+        },
+        "72": {
+            "HP": 11682,
+            "ATK": 9434,
+            "DEF": 6269
+        },
+        "73": {
+            "HP": 11763,
+            "ATK": 9500,
+            "DEF": 6313
+        },
+        "74": {
+            "HP": 11851,
+            "ATK": 9571,
+            "DEF": 6360
+        },
+        "75": {
+            "HP": 11939,
+            "ATK": 9642,
+            "DEF": 6407
+        },
+        "76": {
+            "HP": 12020,
+            "ATK": 9707,
+            "DEF": 6451
+        },
+        "77": {
+            "HP": 12108,
+            "ATK": 9778,
+            "DEF": 6498
+        },
+        "78": {
+            "HP": 12196,
+            "ATK": 9849,
+            "DEF": 6545
+        },
+        "79": {
+            "HP": 12277,
+            "ATK": 9915,
+            "DEF": 6589
+        },
+        "80": {
+            "HP": 12365,
+            "ATK": 9986,
+            "DEF": 6636
+        },
+        "81": {
+            "HP": 12453,
+            "ATK": 10057,
+            "DEF": 6683
+        },
+        "82": {
+            "HP": 12541,
+            "ATK": 10128,
+            "DEF": 6730
+        },
+        "83": {
+            "HP": 12622,
+            "ATK": 10194,
+            "DEF": 6774
+        },
+        "84": {
+            "HP": 12710,
+            "ATK": 10265,
+            "DEF": 6821
+        },
+        "85": {
+            "HP": 12798,
+            "ATK": 10336,
+            "DEF": 6868
+        },
+        "86": {
+            "HP": 12880,
+            "ATK": 10401,
+            "DEF": 6912
+        },
+        "87": {
+            "HP": 12967,
+            "ATK": 10472,
+            "DEF": 6959
+        },
+        "88": {
+            "HP": 13055,
+            "ATK": 10543,
+            "DEF": 7006
+        },
+        "89": {
+            "HP": 13143,
+            "ATK": 10614,
+            "DEF": 7054
+        },
+        "90": {
+            "HP": 13225,
+            "ATK": 10680,
+            "DEF": 7097
+        },
+        "91": {
+            "HP": 13313,
+            "ATK": 10751,
+            "DEF": 7145
+        },
+        "92": {
+            "HP": 13400,
+            "ATK": 10822,
+            "DEF": 7192
+        },
+        "93": {
+            "HP": 13482,
+            "ATK": 10888,
+            "DEF": 7235
+        },
+        "94": {
+            "HP": 13570,
+            "ATK": 10959,
+            "DEF": 7283
+        },
+        "95": {
+            "HP": 13658,
+            "ATK": 11030,
+            "DEF": 7330
+        },
+        "96": {
+            "HP": 13745,
+            "ATK": 11101,
+            "DEF": 7377
+        },
+        "97": {
+            "HP": 13827,
+            "ATK": 11166,
+            "DEF": 7421
+        },
+        "98": {
+            "HP": 13915,
+            "ATK": 11237,
+            "DEF": 7468
+        },
+        "99": {
+            "HP": 14003,
+            "ATK": 11308,
+            "DEF": 7515
+        },
+        "100": {
+            "HP": 14084,
+            "ATK": 11374,
+            "DEF": 7559
+        },
+        "101": {
+            "HP": 14172,
+            "ATK": 11445,
+            "DEF": 7606
+        },
+        "102": {
+            "HP": 14260,
+            "ATK": 11516,
+            "DEF": 7653
+        },
+        "103": {
+            "HP": 14348,
+            "ATK": 11587,
+            "DEF": 7700
+        },
+        "104": {
+            "HP": 14429,
+            "ATK": 11653,
+            "DEF": 7744
+        },
+        "105": {
+            "HP": 14517,
+            "ATK": 11724,
+            "DEF": 7791
+        },
+        "106": {
+            "HP": 14605,
+            "ATK": 11795,
+            "DEF": 7838
+        },
+        "107": {
+            "HP": 14686,
+            "ATK": 11860,
+            "DEF": 7882
+        },
+        "108": {
+            "HP": 14774,
+            "ATK": 11931,
+            "DEF": 7929
+        },
+        "109": {
+            "HP": 14862,
+            "ATK": 12002,
+            "DEF": 7976
+        },
+        "110": {
+            "HP": 14950,
+            "ATK": 12073,
+            "DEF": 8023
+        },
+        "111": {
+            "HP": 15031,
+            "ATK": 12139,
+            "DEF": 8067
+        },
+        "112": {
+            "HP": 15119,
+            "ATK": 12210,
+            "DEF": 8114
+        },
+        "113": {
+            "HP": 15207,
+            "ATK": 12281,
+            "DEF": 8161
+        },
+        "114": {
+            "HP": 15289,
+            "ATK": 12347,
+            "DEF": 8205
+        },
+        "115": {
+            "HP": 15376,
+            "ATK": 12418,
+            "DEF": 8252
+        },
+        "116": {
+            "HP": 15464,
+            "ATK": 12489,
+            "DEF": 8299
+        },
+        "117": {
+            "HP": 15552,
+            "ATK": 12560,
+            "DEF": 8347
+        },
+        "118": {
+            "HP": 15634,
+            "ATK": 12625,
+            "DEF": 8390
+        },
+        "119": {
+            "HP": 15721,
+            "ATK": 12696,
+            "DEF": 8437
+        },
+        "120": {
+            "HP": 15809,
+            "ATK": 12767,
+            "DEF": 8485
+        },
+        "121": {
+            "HP": 15891,
+            "ATK": 12833,
+            "DEF": 8528
+        },
+        "122": {
+            "HP": 15979,
+            "ATK": 12904,
+            "DEF": 8576
+        },
+        "123": {
+            "HP": 16066,
+            "ATK": 12975,
+            "DEF": 8623
+        },
+        "124": {
+            "HP": 16154,
+            "ATK": 13046,
+            "DEF": 8670
+        },
+        "125": {
+            "HP": 16236,
+            "ATK": 13112,
+            "DEF": 8714
+        },
+        "126": {
+            "HP": 16324,
+            "ATK": 13183,
+            "DEF": 8761
+        },
+        "127": {
+            "HP": 16412,
+            "ATK": 13254,
+            "DEF": 8808
+        },
+        "128": {
+            "HP": 16493,
+            "ATK": 13320,
+            "DEF": 8852
+        },
+        "129": {
+            "HP": 16581,
+            "ATK": 13390,
+            "DEF": 8899
+        },
+        "130": {
+            "HP": 16669,
+            "ATK": 13461,
+            "DEF": 8946
+        },
+        "131": {
+            "HP": 16750,
+            "ATK": 13527,
+            "DEF": 8990
+        },
+        "132": {
+            "HP": 16838,
+            "ATK": 13598,
+            "DEF": 9037
+        },
+        "133": {
+            "HP": 16926,
+            "ATK": 13669,
+            "DEF": 9084
+        },
+        "134": {
+            "HP": 17014,
+            "ATK": 13740,
+            "DEF": 9131
+        },
+        "135": {
+            "HP": 17095,
+            "ATK": 13806,
+            "DEF": 9175
+        },
+        "136": {
+            "HP": 17183,
+            "ATK": 13877,
+            "DEF": 9222
+        },
+        "137": {
+            "HP": 17271,
+            "ATK": 13948,
+            "DEF": 9269
+        },
+        "138": {
+            "HP": 17352,
+            "ATK": 14014,
+            "DEF": 9313
+        },
+        "139": {
+            "HP": 17440,
+            "ATK": 14085,
+            "DEF": 9360
+        },
+        "140": {
+            "HP": 17528,
+            "ATK": 14155,
+            "DEF": 9407
+        },
+        "141": {
+            "HP": 17616,
+            "ATK": 14226,
+            "DEF": 9454
+        },
+        "142": {
+            "HP": 17697,
+            "ATK": 14292,
+            "DEF": 9498
+        },
+        "143": {
+            "HP": 17785,
+            "ATK": 14363,
+            "DEF": 9545
+        },
+        "144": {
+            "HP": 17873,
+            "ATK": 14434,
+            "DEF": 9592
+        },
+        "145": {
+            "HP": 17955,
+            "ATK": 14500,
+            "DEF": 9636
+        },
+        "146": {
+            "HP": 18042,
+            "ATK": 14571,
+            "DEF": 9683
+        },
+        "147": {
+            "HP": 18130,
+            "ATK": 14642,
+            "DEF": 9730
+        },
+        "148": {
+            "HP": 18218,
+            "ATK": 14713,
+            "DEF": 9778
+        },
+        "149": {
+            "HP": 18300,
+            "ATK": 14779,
+            "DEF": 9821
+        },
+        "150": {
+            "HP": 18388,
+            "ATK": 14850,
+            "DEF": 9869
+        }
+    },
+    "Leader Skill": {
+        "Name": "Bonds Leading to the Future",
+        "10321200": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Bond of Master and Disciple"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        },
+        "10321201": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Bond of Master and Disciple"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 220,
+            "DEF": 220,
+            "HP": 220,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 1700,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8095": {
+            "superID": "8095",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Masenko",
+            "superDescription": "Greatly raises DEF for 3 turns and \ncauses colossal damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8095": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 395,
+            "relevantLua": [
+                "sp2926"
+            ]
+        },
+        "8096": {
+            "superID": "8096",
+            "Type": "Unarmed",
+            "special_name_no": "2",
+            "superName": "Explosive Dance",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses mega-colossal damage to enemy \nand greatly lowers ATK",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8096": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1008096": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 540,
+            "relevantLua": [
+                "sp2927"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "4032131"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 100.0,
+        "1": 104.16666666666666,
+        "2": 108.33333333333333,
+        "3": 112.5,
+        "4": 116.66666666666666,
+        "5": 120.83333333333333,
+        "6": 125.0,
+        "7": 129.16666666666666,
+        "8": 133.33333333333334,
+        "9": 137.5,
+        "10": 141.66666666666666,
+        "11": 145.83333333333334,
+        "12": 150.0,
+        "13": 154.16666666666666,
+        "14": 158.33333333333334,
+        "15": 162.5,
+        "16": 166.66666666666666,
+        "17": 170.83333333333334,
+        "18": 175.0,
+        "19": 179.16666666666666,
+        "20": 183.33333333333334,
+        "21": 187.5,
+        "22": 191.66666666666669,
+        "23": 195.83333333333334,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8095",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

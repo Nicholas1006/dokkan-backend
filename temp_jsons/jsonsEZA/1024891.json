@@ -1,0 +1,916 @@
+{
+    "ID": "1024891",
+    "Type": "AGL",
+    "Class": "Super",
+    "Name": "Super Saiyan Goku & Super Saiyan Vegeta",
+    "Rarity": "lr",
+    "Min Level": 150,
+    "Max Level": 150,
+    "Categories": [
+        "Joined Forces",
+        "Movie Heroes",
+        "Pure Saiyans",
+        "Super Saiyans",
+        "Full Power",
+        "All-Out Struggle",
+        "Powerful Comeback",
+        "Golden Fighters"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Golden Warrior",
+        "Super Saiyan",
+        "Prepared for Battle",
+        "Shocking Speed",
+        "The Saiyan Lineage",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 1024890,
+    "Passive": {
+        "5002": {
+            "ID": 5002,
+            "Timing": "Start of turn",
+            "Ki": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +5 ",
+            "Line description": "Ki +5 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1005002": {
+            "ID": 1005002,
+            "Timing": "Start of turn",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2005002": {
+            "ID": 2005002,
+            "Timing": "Start of turn",
+            "DR": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 30%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 30%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3005002": {
+            "ID": 3005002,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 23,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "PHY",
+                        "STR",
+                        "INT",
+                        "TEQ",
+                        "AGL"
+                    ]
+                },
+                "Slider": "How many PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained?"
+            },
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +1 per Type Ki Sphere obtained{currentValue} / 23 ",
+            "Line description": "Ki +1 per Type Ki Sphere obtained{currentValue} / 23 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4005002": {
+            "ID": 4005002,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5005002": {
+            "ID": 5005002,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 4,
+            "CausalityLogic": "{\"source\": \"4000000000000\", \"compiled\": 4000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 4000000000000 )",
+                "Causalities": {
+                    "4000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}ATK and DEF 150%{passiveImg:up_g} for 4 turn ",
+            "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+        },
+        "6005002": {
+            "ID": 6005002,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 4,
+            "CausalityLogic": "{\"source\": \"4000000000000\", \"compiled\": 4000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 4000000000000 )",
+                "Causalities": {
+                    "4000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": " {passiveImg:once}Performs an additional super attack for 4 turn ",
+            "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+        },
+        "7005002": {
+            "ID": 7005002,
+            "Timing": "Start of turn",
+            "DR": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 4,
+            "CausalityLogic": "{\"source\": \"4000000000000\", \"compiled\": 4000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 4000000000000 )",
+                "Causalities": {
+                    "4000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Damage Reduction Rate 40%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 40%{passiveImg:up_g} for 4 turn ",
+            "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+        },
+        "8005002": {
+            "ID": 8005002,
+            "Timing": "Start of turn",
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1380 )",
+                "Causalities": {
+                    "1380": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1380\", \"compiled\": 1380}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 200%{passiveImg:up_g} ",
+            "Line description": "DEF 200%{passiveImg:up_g} until when attacking",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "9005002": {
+            "ID": 9005002,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 8005002
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:8005002 when attacking",
+            "Line description": "Disables a different passive line:8005002 when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10005002": {
+            "ID": 10005002,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1380 )",
+                "Causalities": {
+                    "1380": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1380\", \"compiled\": 1380}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} until when attacking",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "11005002": {
+            "ID": 11005002,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 10005002
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:10005002 when attacking",
+            "Line description": "Disables a different passive line:10005002 when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "12005002": {
+            "ID": 12005002,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1741 )",
+                "Causalities": {
+                    "1741": {
+                        "Button": {
+                            "Name": "Is Ki at least 18 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=18",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 18 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1741\", \"compiled\": 1741}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 18 or more"
+        },
+        "13005002": {
+            "ID": 13005002,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1741 )",
+                "Causalities": {
+                    "1741": {
+                        "Button": {
+                            "Name": "Is Ki at least 18 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=18",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 18 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1741\", \"compiled\": 1741}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} when attacking",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 18 or more"
+        },
+        "14005002": {
+            "ID": 14005002,
+            "Transformation": {
+                "Activated": true,
+                "Unit": 4024901,
+                "Giant/Rage": false,
+                "Min Turns": null,
+                "Max Turns": null,
+                "Reverse chance": null
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "First Turn To Activate": 2,
+            "Condition": {
+                "Logic": "( ( 681 && 1742 ) || ( 855 && 2819 ) )",
+                "Causalities": {
+                    "681": {
+                        "Button": {
+                            "Name": "Has this character recieved their 5th attack in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "After recieving 5 attacks"
+                    },
+                    "1742": {
+                        "Slider": {
+                            "Name": "How many super attacks has this character performed on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has performed 3 or more super attacks"
+                    },
+                    "855": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Heroes category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Heroes category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Heroes Category allies "
+                    },
+                    "2819": {
+                        "Button": {
+                            "Name": "Is it on or after the first 5 turns from this characters entry turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "Starting from the 5 turn from the character's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(681&1742)|(855&2819)\", \"compiled\": [\"|\", [\"&\", 681, 1742], [\"&\", 855, 2819]]}",
+            "Type": "Single activator",
+            "Brief effect description": "Transforms into 4024901 ",
+            "Line description": "Transforms into 4024901 or ",
+            "Paragraph Title": "When ( ( after recieving 5 attacks and the character has performed 3 or more super attacks ) or ( there are 3 or more Movie Heroes Category allies and starting from the 5 turn from the character's entry turn ) )"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +5 and ATK & DEF 250%{passiveImg:up_g}\n- Damage reduction rate 30%{passiveImg:up_g}\n- Receives an additional Ki +1 per Type Ki Sphere obtained\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n*For 4 turns from the character's entry turn*\n- ATK & DEF 150%{passiveImg:up_g}\n- Launches an additional Super Attack\n- Damage reduction rate 40%{passiveImg:up_g}\n- DEF 200%{passiveImg:up_g} and damage reduction rate 20%{passiveImg:up_g} before attacking\n*When attacking with 18 or more Ki*\n- ATK & DEF 150%{passiveImg:up_g}\n- High chance of performing a critical hit\n*On the character's next attacking turn after performing\n3 or more Super Attacks and receiving 5 or more attacks in battle,\nor when 3 or more \"Movie Heroes\" Category allies are on the team\nstarting from the 5th turn from the character's entry turn*\n- Receives a morale boost",
+    "Max Attacks": 4,
+    "Max Super Attacks": 4,
+    "Stats at levels": {
+        "150": {
+            "HP": 16900,
+            "ATK": 16210,
+            "DEF": 8488
+        }
+    },
+    "Leader Skill": {
+        "Name": "Full-Power Final Showdown",
+        "102489100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102489101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102489102": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Movie Heroes"
+                ],
+                "Excluded Category": [
+                    "Joined Forces"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102489103": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Movie Heroes"
+                ],
+                "Excluded Category": [
+                    "Joined Forces"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102489104": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        },
+        "102489105": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Movie Heroes",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Joined Forces"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        },
+        "102489106": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102489107": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Movie Heroes",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Joined Forces"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "9042": {
+            "superID": "9042",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Cooperation Between Rivals (Extreme)",
+            "superDescription": "Greatly raises ATK and \nraises DEF for 1 turn and \ncauses colossal damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "9042": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 420,
+            "relevantLua": [
+                "sp2409"
+            ]
+        },
+        "9043": {
+            "superID": "9043",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Full Power Crash (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses mega-colossal damage to enemy \nand greatly lowers ATK & DEF",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "9043": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1009043": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 590,
+            "relevantLua": [
+                "sp2410"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "4024901"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 100.0,
+        "1": 104.16666666666666,
+        "2": 108.33333333333333,
+        "3": 112.5,
+        "4": 116.66666666666666,
+        "5": 120.83333333333333,
+        "6": 125.0,
+        "7": 129.16666666666666,
+        "8": 133.33333333333334,
+        "9": 137.5,
+        "10": 141.66666666666666,
+        "11": 145.83333333333334,
+        "12": 150.0,
+        "13": 154.16666666666666,
+        "14": 158.33333333333334,
+        "15": 162.5,
+        "16": 166.66666666666666,
+        "17": 170.83333333333334,
+        "18": 175.0,
+        "19": 179.16666666666666,
+        "20": 183.33333333333334,
+        "21": 187.5,
+        "22": 191.66666666666669,
+        "23": 195.83333333333334,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "9042",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

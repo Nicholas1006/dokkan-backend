@@ -1,0 +1,1327 @@
+{
+    "ID": "1033611",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Trunks (Xeno)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Vegeta's Family",
+        "Defenders of Justice",
+        "Hybrid Saiyans",
+        "Time Travelers",
+        "Bond of Master and Disciple",
+        "Battle of Wits",
+        "Crossover",
+        "Entrusted Will",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Successors",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Messenger from the Future",
+        "Solid Support",
+        "Cold Judgment",
+        "Royal Lineage",
+        "Prepared for Battle",
+        "Xenoverse"
+    ],
+    "Resource ID": 1033610,
+    "Passive": {
+        "4917": {
+            "ID": 4917,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004917": {
+            "ID": 1004917,
+            "Timing": "Start of turn",
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 150%{passiveImg:up_g} ",
+            "Line description": "DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004917": {
+            "ID": 2004917,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004917": {
+            "ID": 3004917,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Crossover"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all Crossover category allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all Crossover category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004917": {
+            "ID": 4004917,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Vegeta's Family"
+                    ],
+                    "Excluded": [
+                        "Crossover"
+                    ]
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all Vegeta's Family category allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all Vegeta's Family category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004917": {
+            "ID": 5004917,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2856 || 3668 )",
+                "Causalities": {
+                    "2856": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    },
+                    "3668": {
+                        "Button": {
+                            "Name": "Are there 1 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2856|3668\", \"compiled\": [\"|\", 2856, 3668]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies or there are 1 or more Vegeta's Family Category allies "
+        },
+        "6004917": {
+            "ID": 6004917,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2857 || 3669 )",
+                "Causalities": {
+                    "2857": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    },
+                    "3669": {
+                        "Button": {
+                            "Name": "Are there 2 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2857|3669\", \"compiled\": [\"|\", 2857, 3669]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies or there are 2 or more Vegeta's Family Category allies "
+        },
+        "7004917": {
+            "ID": 7004917,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2858 || 3670 )",
+                "Causalities": {
+                    "2858": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    },
+                    "3670": {
+                        "Button": {
+                            "Name": "Are there 3 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2858|3670\", \"compiled\": [\"|\", 2858, 3670]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies or there are 3 or more Vegeta's Family Category allies "
+        },
+        "8004917": {
+            "ID": 8004917,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2859 || 3671 )",
+                "Causalities": {
+                    "2859": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    },
+                    "3671": {
+                        "Button": {
+                            "Name": "Are there 4 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2859|3671\", \"compiled\": [\"|\", 2859, 3671]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies or there are 4 or more Vegeta's Family Category allies "
+        },
+        "9004917": {
+            "ID": 9004917,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2860 || 3672 )",
+                "Causalities": {
+                    "2860": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    },
+                    "3672": {
+                        "Button": {
+                            "Name": "Are there 5 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2860|3672\", \"compiled\": [\"|\", 2860, 3672]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies or there are 5 or more Vegeta's Family Category allies "
+        },
+        "10004917": {
+            "ID": 10004917,
+            "Timing": "Start of turn",
+            "Crit Chance": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2856 || 3668 )",
+                "Causalities": {
+                    "2856": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    },
+                    "3668": {
+                        "Button": {
+                            "Name": "Are there 1 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2856|3668\", \"compiled\": [\"|\", 2856, 3668]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies or there are 1 or more Vegeta's Family Category allies "
+        },
+        "11004917": {
+            "ID": 11004917,
+            "Timing": "Start of turn",
+            "Crit Chance": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2857 || 3669 )",
+                "Causalities": {
+                    "2857": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    },
+                    "3669": {
+                        "Button": {
+                            "Name": "Are there 2 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2857|3669\", \"compiled\": [\"|\", 2857, 3669]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies or there are 2 or more Vegeta's Family Category allies "
+        },
+        "12004917": {
+            "ID": 12004917,
+            "Timing": "Start of turn",
+            "Crit Chance": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2858 || 3670 )",
+                "Causalities": {
+                    "2858": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    },
+                    "3670": {
+                        "Button": {
+                            "Name": "Are there 3 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2858|3670\", \"compiled\": [\"|\", 2858, 3670]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies or there are 3 or more Vegeta's Family Category allies "
+        },
+        "13004917": {
+            "ID": 13004917,
+            "Timing": "Start of turn",
+            "Crit Chance": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2859 || 3671 )",
+                "Causalities": {
+                    "2859": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    },
+                    "3671": {
+                        "Button": {
+                            "Name": "Are there 4 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2859|3671\", \"compiled\": [\"|\", 2859, 3671]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies or there are 4 or more Vegeta's Family Category allies "
+        },
+        "14004917": {
+            "ID": 14004917,
+            "Timing": "Start of turn",
+            "Crit Chance": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2860 || 3672 )",
+                "Causalities": {
+                    "2860": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    },
+                    "3672": {
+                        "Button": {
+                            "Name": "Are there 5 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2860|3672\", \"compiled\": [\"|\", 2860, 3672]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +5%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies or there are 5 or more Vegeta's Family Category allies "
+        },
+        "15004917": {
+            "ID": 15004917,
+            "Dodge Chance": 5,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2856 || 3668 )",
+                "Causalities": {
+                    "2856": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    },
+                    "3668": {
+                        "Button": {
+                            "Name": "Are there 1 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2856|3668\", \"compiled\": [\"|\", 2856, 3668]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +5% ",
+            "Line description": "Chance of evading enemy attacks +5% ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies or there are 1 or more Vegeta's Family Category allies "
+        },
+        "16004917": {
+            "ID": 16004917,
+            "Dodge Chance": 5,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2857 || 3669 )",
+                "Causalities": {
+                    "2857": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    },
+                    "3669": {
+                        "Button": {
+                            "Name": "Are there 2 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2857|3669\", \"compiled\": [\"|\", 2857, 3669]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +5% ",
+            "Line description": "Chance of evading enemy attacks +5% ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies or there are 2 or more Vegeta's Family Category allies "
+        },
+        "17004917": {
+            "ID": 17004917,
+            "Dodge Chance": 5,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2858 || 3670 )",
+                "Causalities": {
+                    "2858": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    },
+                    "3670": {
+                        "Button": {
+                            "Name": "Are there 3 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2858|3670\", \"compiled\": [\"|\", 2858, 3670]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +5% ",
+            "Line description": "Chance of evading enemy attacks +5% ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies or there are 3 or more Vegeta's Family Category allies "
+        },
+        "18004917": {
+            "ID": 18004917,
+            "Dodge Chance": 5,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2859 || 3671 )",
+                "Causalities": {
+                    "2859": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    },
+                    "3671": {
+                        "Button": {
+                            "Name": "Are there 4 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2859|3671\", \"compiled\": [\"|\", 2859, 3671]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +5% ",
+            "Line description": "Chance of evading enemy attacks +5% ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies or there are 4 or more Vegeta's Family Category allies "
+        },
+        "19004917": {
+            "ID": 19004917,
+            "Dodge Chance": 5,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2860 || 3672 )",
+                "Causalities": {
+                    "2860": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    },
+                    "3672": {
+                        "Button": {
+                            "Name": "Are there 5 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2860|3672\", \"compiled\": [\"|\", 2860, 3672]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +5% ",
+            "Line description": "Chance of evading enemy attacks +5% ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies or there are 5 or more Vegeta's Family Category allies "
+        },
+        "20004917": {
+            "ID": 20004917,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "21004917": {
+            "ID": 21004917,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack when attacking",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "22004917": {
+            "ID": 22004917,
+            "Timing": "Right before being hit",
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 200%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 200%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When Ki is 12 or more"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +1 and DEF 150%{passiveImg:up_g}\n- Damage reduction rate 20%{passiveImg:up_g}\n- \"Crossover\" or \"Vegeta's Family\" Category allies' ATK & DEF 20%{passiveImg:up_g}\n*Per \"Crossover\" or \"Vegeta's Family\" Category ally on the team\n(depending on which Category has more members)*\n- ATK & DEF 50%{passiveImg:up_g} (up to 250%)\n- Chance of performing a critical hit & chance of evading enemy's\nattack 5%{passiveImg:up_g} (up to 25%)\n*When attacking with 12 or more Ki*\n- ATK & DEF 150%{passiveImg:up_g}\n- Launches an additional attack that has a great chance of becoming\na Super Attack\n*When receiving an attack with 12 or more Ki*\n- DEF 200%{passiveImg:up_g}",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "80": {
+            "HP": 11887,
+            "ATK": 7422,
+            "DEF": 3319
+        },
+        "81": {
+            "HP": 11893,
+            "ATK": 7429,
+            "DEF": 3320
+        },
+        "82": {
+            "HP": 11899,
+            "ATK": 7436,
+            "DEF": 3322
+        },
+        "83": {
+            "HP": 11905,
+            "ATK": 7444,
+            "DEF": 3323
+        },
+        "84": {
+            "HP": 11911,
+            "ATK": 7451,
+            "DEF": 3325
+        },
+        "85": {
+            "HP": 11918,
+            "ATK": 7458,
+            "DEF": 3326
+        },
+        "86": {
+            "HP": 11924,
+            "ATK": 7466,
+            "DEF": 3328
+        },
+        "87": {
+            "HP": 11930,
+            "ATK": 7473,
+            "DEF": 3329
+        },
+        "88": {
+            "HP": 11936,
+            "ATK": 7480,
+            "DEF": 3331
+        },
+        "89": {
+            "HP": 11943,
+            "ATK": 7487,
+            "DEF": 3332
+        },
+        "90": {
+            "HP": 11949,
+            "ATK": 7495,
+            "DEF": 3334
+        },
+        "91": {
+            "HP": 11955,
+            "ATK": 7502,
+            "DEF": 3335
+        },
+        "92": {
+            "HP": 11961,
+            "ATK": 7509,
+            "DEF": 3337
+        },
+        "93": {
+            "HP": 11967,
+            "ATK": 7516,
+            "DEF": 3338
+        },
+        "94": {
+            "HP": 11973,
+            "ATK": 7524,
+            "DEF": 3340
+        },
+        "95": {
+            "HP": 11979,
+            "ATK": 7531,
+            "DEF": 3341
+        },
+        "96": {
+            "HP": 11986,
+            "ATK": 7539,
+            "DEF": 3343
+        },
+        "97": {
+            "HP": 11992,
+            "ATK": 7546,
+            "DEF": 3344
+        },
+        "98": {
+            "HP": 11998,
+            "ATK": 7553,
+            "DEF": 3346
+        },
+        "99": {
+            "HP": 12004,
+            "ATK": 7560,
+            "DEF": 3347
+        },
+        "100": {
+            "HP": 12011,
+            "ATK": 7568,
+            "DEF": 3349
+        }
+    },
+    "Leader Skill": {
+        "Name": "Atonement for Time Traveling",
+        "10336100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "10336101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10336102": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Defenders of Justice"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "10336103": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Defenders of Justice"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 1700,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8752": {
+            "superID": "8752",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Burning Slash",
+            "superDescription": "Raises ATK for 1 turn, \ncauses supreme damage to enemy \nand lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8752": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1008752": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "40"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp3015"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8752",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

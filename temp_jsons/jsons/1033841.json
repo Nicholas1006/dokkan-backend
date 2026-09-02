@@ -1,0 +1,3649 @@
+{
+    "ID": "1033841",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Metal Cooler Army",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 120,
+    "Categories": [
+        "Movie Bosses",
+        "Target: Goku",
+        "Terrifying Conquerors",
+        "Artificial Life Forms",
+        "Resurrected Warriors",
+        "Wicked Bloodline",
+        "Joined Forces",
+        "Revenge",
+        "Corroded Body and Mind",
+        "Accelerated Battle",
+        "Power Absorption"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Auto Regeneration",
+        "Nightmare",
+        "Thirst for Conquest",
+        "Strongest Clan in Space",
+        "Big Bad Bosses",
+        "Fear and Faith",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1033840,
+    "Passive": {
+        "4966": {
+            "ID": 4966,
+            "Timing": "End of turn",
+            "Heals": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3049 )",
+                "Causalities": {
+                    "3049": {
+                        "Button": {
+                            "Name": "Has 1 or more INT Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many INT Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more INT Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3049\", \"compiled\": 3049}",
+            "Type": "Single activator",
+            "Brief effect description": "Heals +10% at the end of turn",
+            "Line description": "Heals +10% at the end of turn",
+            "Paragraph Title": "When with 1 or more INT Ki Spheres obtained"
+        },
+        "1004966": {
+            "ID": 1004966,
+            "Timing": "When ki spheres collected",
+            "Heals": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 796 )",
+                "Causalities": {
+                    "796": {
+                        "Button": {
+                            "Name": "Has 1 or more PHY Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many PHY Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more PHY Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"796\", \"compiled\": 796}",
+            "Type": "Single activator",
+            "Brief effect description": "Heals +5% after this unit collects ki spheres",
+            "Line description": "Heals +5% after this unit collects ki spheres",
+            "Paragraph Title": "When with 1 or more PHY Ki Spheres obtained"
+        },
+        "2004966": {
+            "ID": 2004966,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3608 || 122 )",
+                "Causalities": {
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    },
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3608|122\", \"compiled\": [\"|\", 3608, 122]}",
+            "Once Only": true,
+            "Has Animation": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 20%{passiveImg:up_g} for 1 turn ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "3004966": {
+            "ID": 3004966,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": 100
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3608 || 122 )",
+                "Causalities": {
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies ?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies ",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    },
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies ?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies ",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3608|122\", \"compiled\": [\"|\", 3608, 122]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "None",
+            "Line description": "{passiveImg:forever} {passiveImg:once}None",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "4004966": {
+            "ID": 4004966,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3608 || 122 )",
+                "Causalities": {
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies ?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies ",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    },
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies ?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies ",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3608|122\", \"compiled\": [\"|\", 3608, 122]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "5004966": {
+            "ID": 5004966,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004966": {
+            "ID": 6004966,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 121 || 3706 )",
+                "Causalities": {
+                    "121": {
+                        "Button": {
+                            "Name": "Are there 2 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies "
+                    },
+                    "3706": {
+                        "Button": {
+                            "Name": "Are there 2 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"121|3706\", \"compiled\": [\"|\", 121, 3706]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies or there are 2 or more Movie Bosses Category allies "
+        },
+        "7004966": {
+            "ID": 7004966,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 122 || 3608 )",
+                "Causalities": {
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    },
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"122|3608\", \"compiled\": [\"|\", 122, 3608]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "8004966": {
+            "ID": 8004966,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 123 || 3319 )",
+                "Causalities": {
+                    "123": {
+                        "Button": {
+                            "Name": "Are there 4 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies "
+                    },
+                    "3319": {
+                        "Button": {
+                            "Name": "Are there 4 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"123|3319\", \"compiled\": [\"|\", 123, 3319]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies or there are 4 or more Movie Bosses Category allies "
+        },
+        "9004966": {
+            "ID": 9004966,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 124 || 3707 )",
+                "Causalities": {
+                    "124": {
+                        "Button": {
+                            "Name": "Are there 5 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Wicked Bloodline Category allies "
+                    },
+                    "3707": {
+                        "Button": {
+                            "Name": "Are there 5 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"124|3707\", \"compiled\": [\"|\", 124, 3707]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are starting from the 4th turn from the start of battle or more Wicked Bloodline Category allies or there are starting from the 4th turn from the start of battle or more Movie Bosses Category allies "
+        },
+        "10004966": {
+            "ID": 10004966,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004966": {
+            "ID": 11004966,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 121 || 3706 )",
+                "Causalities": {
+                    "121": {
+                        "Button": {
+                            "Name": "Are there 2 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies "
+                    },
+                    "3706": {
+                        "Button": {
+                            "Name": "Are there 2 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"121|3706\", \"compiled\": [\"|\", 121, 3706]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies or there are 2 or more Movie Bosses Category allies "
+        },
+        "12004966": {
+            "ID": 12004966,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 122 || 3608 )",
+                "Causalities": {
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    },
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"122|3608\", \"compiled\": [\"|\", 122, 3608]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "13004966": {
+            "ID": 13004966,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 123 || 3319 )",
+                "Causalities": {
+                    "123": {
+                        "Button": {
+                            "Name": "Are there 4 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies "
+                    },
+                    "3319": {
+                        "Button": {
+                            "Name": "Are there 4 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"123|3319\", \"compiled\": [\"|\", 123, 3319]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies or there are 4 or more Movie Bosses Category allies "
+        },
+        "14004966": {
+            "ID": 14004966,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 124 || 3707 )",
+                "Causalities": {
+                    "124": {
+                        "Button": {
+                            "Name": "Are there 5 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Wicked Bloodline Category allies "
+                    },
+                    "3707": {
+                        "Button": {
+                            "Name": "Are there 5 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"124|3707\", \"compiled\": [\"|\", 124, 3707]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are starting from the 4th turn from the start of battle or more Wicked Bloodline Category allies or there are starting from the 4th turn from the start of battle or more Movie Bosses Category allies "
+        },
+        "15004966": {
+            "ID": 15004966,
+            "Dodge Chance": 10,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% ",
+            "Line description": "Chance of evading enemy attacks +10% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "16004966": {
+            "ID": 16004966,
+            "Dodge Chance": 10,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 121 || 3706 )",
+                "Causalities": {
+                    "121": {
+                        "Button": {
+                            "Name": "Are there 2 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies "
+                    },
+                    "3706": {
+                        "Button": {
+                            "Name": "Are there 2 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"121|3706\", \"compiled\": [\"|\", 121, 3706]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% ",
+            "Line description": "Chance of evading enemy attacks +10% ",
+            "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies or there are 2 or more Movie Bosses Category allies "
+        },
+        "17004966": {
+            "ID": 17004966,
+            "Dodge Chance": 10,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 122 || 3608 )",
+                "Causalities": {
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    },
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"122|3608\", \"compiled\": [\"|\", 122, 3608]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% ",
+            "Line description": "Chance of evading enemy attacks +10% ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "18004966": {
+            "ID": 18004966,
+            "Dodge Chance": 10,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 123 || 3319 )",
+                "Causalities": {
+                    "123": {
+                        "Button": {
+                            "Name": "Are there 4 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies "
+                    },
+                    "3319": {
+                        "Button": {
+                            "Name": "Are there 4 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"123|3319\", \"compiled\": [\"|\", 123, 3319]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% ",
+            "Line description": "Chance of evading enemy attacks +10% ",
+            "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies or there are 4 or more Movie Bosses Category allies "
+        },
+        "19004966": {
+            "ID": 19004966,
+            "Dodge Chance": 10,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 124 || 3707 )",
+                "Causalities": {
+                    "124": {
+                        "Button": {
+                            "Name": "Are there 5 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Wicked Bloodline Category allies "
+                    },
+                    "3707": {
+                        "Button": {
+                            "Name": "Are there 5 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"124|3707\", \"compiled\": [\"|\", 124, 3707]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% ",
+            "Line description": "Chance of evading enemy attacks +10% ",
+            "Paragraph Title": "When there are starting from the 4th turn from the start of battle or more Wicked Bloodline Category allies or there are starting from the 4th turn from the start of battle or more Movie Bosses Category allies "
+        },
+        "20004966": {
+            "ID": 20004966,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "21004966": {
+            "ID": 21004966,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 121 || 3706 )",
+                "Causalities": {
+                    "121": {
+                        "Button": {
+                            "Name": "Are there 2 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies "
+                    },
+                    "3706": {
+                        "Button": {
+                            "Name": "Are there 2 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"121|3706\", \"compiled\": [\"|\", 121, 3706]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Wicked Bloodline Category allies or there are 2 or more Movie Bosses Category allies "
+        },
+        "22004966": {
+            "ID": 22004966,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 122 || 3608 )",
+                "Causalities": {
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    },
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"122|3608\", \"compiled\": [\"|\", 122, 3608]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "23004966": {
+            "ID": 23004966,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 123 || 3319 )",
+                "Causalities": {
+                    "123": {
+                        "Button": {
+                            "Name": "Are there 4 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies "
+                    },
+                    "3319": {
+                        "Button": {
+                            "Name": "Are there 4 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"123|3319\", \"compiled\": [\"|\", 123, 3319]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Wicked Bloodline Category allies or there are 4 or more Movie Bosses Category allies "
+        },
+        "24004966": {
+            "ID": 24004966,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 124 || 3707 )",
+                "Causalities": {
+                    "124": {
+                        "Button": {
+                            "Name": "Are there 5 or more Wicked Bloodline category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Wicked Bloodline Category allies "
+                    },
+                    "3707": {
+                        "Button": {
+                            "Name": "Are there 5 or more Movie Bosses category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Movie Bosses Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"124|3707\", \"compiled\": [\"|\", 124, 3707]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are starting from the 4th turn from the start of battle or more Wicked Bloodline Category allies or there are starting from the 4th turn from the start of battle or more Movie Bosses Category allies "
+        },
+        "25004966": {
+            "ID": 25004966,
+            "Dodge Chance": 25,
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2756 )",
+                "Causalities": {
+                    "2756": {
+                        "Button": {
+                            "Name": "Has 1 or more AGL Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many AGL Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more AGL Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2756\", \"compiled\": 2756}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +25% after this unit collects ki spheres",
+            "Line description": "Chance of evading enemy attacks +25% after this unit collects ki spheres",
+            "Paragraph Title": "When with 1 or more AGL Ki Spheres obtained"
+        },
+        "26004966": {
+            "ID": 26004966,
+            "Timing": "Right after attack",
+            "ATK": 25,
+            "DEF": 25,
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 2,
+            "Condition": {
+                "Logic": "( 792 )",
+                "Causalities": {
+                    "792": {
+                        "Button": {
+                            "Name": "Has 1 or more TEQ Ki Spheres been obtained within the last 2 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ Ki Spheres have been obtained within the last 2 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more TEQ Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"792\", \"compiled\": 792}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 25%{passiveImg:down_r} after attacking",
+            "Line description": "ATK and DEF 25%{passiveImg:down_r} after attacking",
+            "Paragraph Title": "When with 1 or more TEQ Ki Spheres obtained"
+        },
+        "27004966": {
+            "ID": 27004966,
+            "Timing": "Right after attack",
+            "Status": [
+                "Seal"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 2,
+            "Condition": {
+                "Logic": "( 792 )",
+                "Causalities": {
+                    "792": {
+                        "Button": {
+                            "Name": "Has 1 or more TEQ Ki Spheres been obtained within the last 2 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ Ki Spheres have been obtained within the last 2 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more TEQ Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"792\", \"compiled\": 792}",
+            "Type": "Single activator",
+            "Brief effect description": "Seal after attacking",
+            "Line description": "Seal after attacking",
+            "Paragraph Title": "When with 1 or more TEQ Ki Spheres obtained"
+        },
+        "28004966": {
+            "ID": 28004966,
+            "Timing": "When ki spheres collected",
+            "Status": [
+                "Survive K.O attacks"
+            ],
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3049 )",
+                "Causalities": {
+                    "3049": {
+                        "Button": {
+                            "Name": "Has 1 or more INT Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many INT Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more INT Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3049\", \"compiled\": 3049}",
+            "Type": "Single activator",
+            "Brief effect description": "Survive K.O attacks after this unit collects ki spheres",
+            "Line description": "Survive K.O attacks after this unit collects ki spheres",
+            "Paragraph Title": "When with 1 or more INT Ki Spheres obtained"
+        },
+        "29004966": {
+            "ID": 29004966,
+            "Timing": "When ki spheres collected",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "allies",
+                "Class": "Extreme"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2761 )",
+                "Causalities": {
+                    "2761": {
+                        "Button": {
+                            "Name": "Has 1 or more STR Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many STR Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more STR Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2761\", \"compiled\": 2761}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} after this unit collects ki spheres for all Extreme class allies ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} after this unit collects ki spheres for all Extreme class allies ",
+            "Paragraph Title": "When with 1 or more STR Ki Spheres obtained"
+        },
+        "30004966": {
+            "ID": 30004966,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 10,
+                "Max": 200,
+                "Stat Per Proc": 1.9,
+                "Cause": {
+                    "Cause": "HP",
+                    "Type": "More HP remaining"
+                },
+                "Slider": "What percentage of HP is remaining?"
+            },
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} ({currentValue} / 200%) based on 'What percentage of HP is remaining' ",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} ({currentValue} / 200%) based on 'What percentage of HP is remaining' ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "31004966": {
+            "ID": 31004966,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks recieved or evaded"
+                },
+                "Slider": "How many attacks has this unit recieved or evaded?"
+            },
+            "ATK": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24|365\", \"compiled\": [\"|\", 24, 365]}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this unit recieved or evaded' after being hit",
+            "Line description": "{passiveImg:forever}ATK 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this unit recieved or evaded' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "32004966": {
+            "ID": 32004966,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks recieved or evaded"
+                },
+                "Slider": "How many attacks has this unit recieved or evaded?"
+            },
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24|365\", \"compiled\": [\"|\", 24, 365]}",
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this unit recieved or evaded' after being hit",
+            "Line description": "{passiveImg:forever}DEF 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this unit recieved or evaded' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "33004966": {
+            "ID": 33004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 933 || 3590 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"933|3590\", \"compiled\": [\"|\", 933, 3590]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "34004966": {
+            "ID": 34004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 3590 ) || 2403 || 3785 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&3590)|2403|3785\", \"compiled\": [\"|\", [\"&\", 933, 3590], 2403, 3785]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler or after recieving 2 attacks or 378 ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "35004966": {
+            "ID": 35004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 3785 ) || ( 3590 && 2403 ) || 791 || 1676 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "1676": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&3785)|(3590&2403)|791|1676\", \"compiled\": [\"|\", [\"&\", 933, 3785], [\"&\", 3590, 2403], 791, 1676]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler 378 or after recieving 2 attacks or after recieving 3 attacks or the character has evaded 3 or more attacks ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "36004966": {
+            "ID": 36004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 1676 ) || ( 2403 && 3785 ) || ( 791 && 3590 ) || 746 || 959 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "1676": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    },
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "746": {
+                        "Button": {
+                            "Name": "Has this character recieved their 4th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "After recieving 4 attacks"
+                    },
+                    "959": {
+                        "Button": {
+                            "Name": "Has this character evaded 4th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "When the character has evaded 4 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&1676)|(2403&3785)|(791&3590)|746|959\", \"compiled\": [\"|\", [\"&\", 933, 1676], [\"&\", 2403, 3785], [\"&\", 791, 3590], 746, 959]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler when the character has evaded 3 or more attacks or after recieving 2 attacks and 378 or after recieving 3 attacks or after recieving 4 attacks or 99 ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "37004966": {
+            "ID": 37004966,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 5 )",
+                "Causalities": {
+                    "5": {
+                        "Button": {
+                            "Name": "Is the turn count 4 or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What turn is it on this turn?",
+                            "Logic": ">=4",
+                            "Min": 1
+                        },
+                        "Paragraph Title": "Starting from the 4th turn from the start of battle"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"5\", \"compiled\": 5}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When starting from the 4th turn from the start of battle"
+        },
+        "38004966": {
+            "ID": 38004966,
+            "Transformation": {
+                "Activated": true,
+                "Unit": 4033851,
+                "Giant/Rage": true,
+                "Min Turns": "2",
+                "Max Turns": "4",
+                "Reverse chance": "50"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( ( 5 && 25 ) || 388 )",
+                "Causalities": {
+                    "5": {
+                        "Button": {
+                            "Name": "Is the turn count 4 or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What turn is it on this turn?",
+                            "Logic": ">=4",
+                            "Min": 1
+                        },
+                        "Paragraph Title": "Starting from the 4th turn from the start of battle"
+                    },
+                    "25": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==1",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 1st attacker in the turn"
+                    },
+                    "388": {
+                        "Button": {
+                            "Name": "Is the turn count 6 or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What turn is it on this turn?",
+                            "Logic": ">=6",
+                            "Min": 1
+                        },
+                        "Paragraph Title": "Starting from the 6th turn from the start of battle"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(5&25)|388\", \"compiled\": [\"|\", [\"&\", 5, 25], 388]}",
+            "Type": "Single activator",
+            "Brief effect description": "Transforms into 4033851 as a giant form for 2 to 4 turns ",
+            "Line description": "Transforms into 4033851 as a giant form for 2 to 4 turns 2 or starting from the 6th turn from the start of battle ",
+            "Paragraph Title": "When starting from the 4th turn from the start of battle"
+        },
+        "39004966": {
+            "ID": 39004966,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3608 || 122 )",
+                "Causalities": {
+                    "3608": {
+                        "Button": {
+                            "Name": "Are there 3 or more Movie Bosses category allies ?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category allies ",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Movie Bosses Category allies "
+                    },
+                    "122": {
+                        "Button": {
+                            "Name": "Are there 3 or more Wicked Bloodline category allies ?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category allies ",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Wicked Bloodline Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3608|122\", \"compiled\": [\"|\", 3608, 122]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Ki +1 ",
+            "Paragraph Title": "Activates the Entrance Animation when there are 3 or more Movie Bosses Category allies or there are 3 or more Wicked Bloodline Category allies "
+        },
+        "40004966": {
+            "ID": 40004966,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 792 )",
+                "Causalities": {
+                    "792": {
+                        "Button": {
+                            "Name": "Has 1 or more TEQ Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more TEQ Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"792\", \"compiled\": 792}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack after this unit collects ki spheres",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack after this unit collects ki spheres",
+            "Paragraph Title": "When with 1 or more TEQ Ki Spheres obtained"
+        },
+        "41004966": {
+            "ID": 41004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 959 ) || ( 2403 && 1676 ) || ( 791 && 3785 ) || ( 746 && 3590 ) || 681 || 3066 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "959": {
+                        "Button": {
+                            "Name": "Has this character evaded 4th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "When the character has evaded 4 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "1676": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    },
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    },
+                    "746": {
+                        "Button": {
+                            "Name": "Has this character recieved their 4th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "After recieving 4 attacks"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "681": {
+                        "Button": {
+                            "Name": "Has this character recieved their 5th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "After recieving 5 attacks"
+                    },
+                    "3066": {
+                        "Button": {
+                            "Name": "Has this character evaded 5th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has evaded 5 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&959)|(2403&1676)|(791&3785)|(746&3590)|681|3066\", \"compiled\": [\"|\", [\"&\", 933, 959], [\"&\", 2403, 1676], [\"&\", 791, 3785], [\"&\", 746, 3590], 681, 3066]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Cooler 99 or after recieving 2 attacks and the character has evaded 3 or more attacks or after recieving 3 attacks and 378 or after recieving 4 attacks or after recieving 5 attacks or the character has evaded 5 or more attacks ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "42004966": {
+            "ID": 42004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Metal Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 933 || 3590 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"933|3590\", \"compiled\": [\"|\", 933, 3590]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "43004966": {
+            "ID": 43004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Metal Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 3590 ) || 2403 || 3785 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&3590)|2403|3785\", \"compiled\": [\"|\", [\"&\", 933, 3590], 2403, 3785]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler or after recieving 2 attacks or 378 ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "44004966": {
+            "ID": 44004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Metal Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 3785 ) || ( 3590 && 2403 ) || 791 || 1676 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "1676": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&3785)|(3590&2403)|791|1676\", \"compiled\": [\"|\", [\"&\", 933, 3785], [\"&\", 3590, 2403], 791, 1676]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler 378 or after recieving 2 attacks or after recieving 3 attacks or the character has evaded 3 or more attacks ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "45004966": {
+            "ID": 45004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Metal Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 1676 ) || ( 2403 && 3785 ) || ( 791 && 3590 ) || 746 || 959 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "1676": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    },
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "746": {
+                        "Button": {
+                            "Name": "Has this character recieved their 4th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "After recieving 4 attacks"
+                    },
+                    "959": {
+                        "Button": {
+                            "Name": "Has this character evaded 4th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "When the character has evaded 4 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&1676)|(2403&3785)|(791&3590)|746|959\", \"compiled\": [\"|\", [\"&\", 933, 1676], [\"&\", 2403, 3785], [\"&\", 791, 3590], 746, 959]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler when the character has evaded 3 or more attacks or after recieving 2 attacks and 378 or after recieving 3 attacks or after recieving 4 attacks or 99 ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        },
+        "46004966": {
+            "ID": 46004966,
+            "Timing": "Right after being hit",
+            "ATK": 5,
+            "DEF": 5,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Metal Cooler"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( ( 933 && 959 ) || ( 2403 && 1676 ) || ( 791 && 3785 ) || ( 746 && 3590 ) || 681 || 3066 )",
+                "Causalities": {
+                    "933": {
+                        "Button": {
+                            "Name": "Has this character recieved their 1st attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "959": {
+                        "Button": {
+                            "Name": "Has this character evaded 4th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "When the character has evaded 4 or more attacks"
+                    },
+                    "2403": {
+                        "Button": {
+                            "Name": "Has this character recieved their 2nd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "After recieving 2 attacks"
+                    },
+                    "1676": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    },
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "3785": {
+                        "Button": {
+                            "Name": "Has this character evaded 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has evaded 2 or more attacks"
+                    },
+                    "746": {
+                        "Button": {
+                            "Name": "Has this character recieved their 4th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "After recieving 4 attacks"
+                    },
+                    "3590": {
+                        "Button": {
+                            "Name": "Has this character evaded 1st times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "When the character has evaded 1 or more attacks"
+                    },
+                    "681": {
+                        "Button": {
+                            "Name": "Has this character recieved their 5th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "After recieving 5 attacks"
+                    },
+                    "3066": {
+                        "Button": {
+                            "Name": "Has this character evaded 5th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has evaded 5 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"(933&959)|(2403&1676)|(791&3785)|(746&3590)|681|3066\", \"compiled\": [\"|\", [\"&\", 933, 959], [\"&\", 2403, 1676], [\"&\", 791, 3785], [\"&\", 746, 3590], 681, 3066]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler",
+            "Line description": "{passiveImg:forever}ATK and DEF 5%{passiveImg:up_g} after being hit for all allies whose name includes Metal Cooler 99 or after recieving 2 attacks and the character has evaded 3 or more attacks or after recieving 3 attacks and 378 or after recieving 4 attacks or after recieving 5 attacks or the character has evaded 5 or more attacks ",
+            "Paragraph Title": "When after recieving an attack or the character has evaded 1 or more attacks"
+        }
+    },
+    "Itemized Passive Description": "*Activates the Entrance Animation when 3 or more \"Movie Bosses\"\nor \"Wicked Bloodline\" Category allies are on the team upon the\ncharacter's entry*\n- {passiveImg:once}{passiveImg:forever}Launches 2 additional attacks, each of which\nhas a high chance of becoming a Super Attack\n- {passiveImg:once}{passiveImg:forever}Ki +1 and damage reduction rate 20%{passiveImg:up_g}\n- {passiveImg:once}Damage reduction rate 20%{passiveImg:up_g} for 1 turn\n*Per \"Movie Bosses\" or \"Wicked Bloodline\" Category ally on the team\n(depending on which Category has more members)*\n- ATK & DEF 100%{passiveImg:up_g} (up to 500%)\n- Chance of performing a critical hit, chance of evading enemy's\nattack & damage reduction rate 10%{passiveImg:up_g} (up to 50%)\n*1 or more AGL Ki Spheres obtained*\n- Chance of evading enemy's attack 25%{passiveImg:up_g}\n*1 or more TEQ Ki Spheres obtained*\n- Launches an additional attack that has a great chance of becoming\na Super Attack\n- Attacked enemy's ATK & DEF 25%{passiveImg:down_y} for 2 turns and\nseals the attacked enemy's Super Attack for 2 turns\n*1 or more INT Ki Spheres obtained*\n- Survives K.O. attacks (up to once within a turn)\n- Recovers 10% HP at the end of turn\n*1 or more STR Ki Spheres obtained*\n- Extreme Class allies' ATK & DEF 50%{passiveImg:up_g}\n*1 or more PHY Ki Spheres obtained*\n- Recovers 5% of damage dealt as HP\n*The more HP remaining*\n- ATK & DEF{passiveImg:up_g} (up to 200%)\n*For every attack received or evaded*\n- {passiveImg:forever}ATK & DEF 30%{passiveImg:up_g} (up to 150%)\n- {passiveImg:forever}ATK & DEF 5%{passiveImg:up_g} (up to 25%) for allies whose\nnames include \"Cooler\" (Cooler's Armored Squad excluded),\nplus an additional ATK & DEF 5%{passiveImg:up_g} (up to 25%) if their\nnames also include \"Metal Cooler\"\n*Starting from the 4th turn from the start of battle*\n- Launches an additional Super Attack\n*When the character is the 1st attacker at the start of turn\nstarting from the 4th turn from the start of battle,\nor starting from the 6th turn from the start of battle*\n- {passiveImg:once}Calls in reinforcements",
+    "Max Attacks": 6,
+    "Max Super Attacks": 6,
+    "Stats at levels": {
+        "1": {
+            "HP": 4884,
+            "ATK": 3556,
+            "DEF": 1990
+        },
+        "2": {
+            "HP": 4976,
+            "ATK": 3623,
+            "DEF": 2027
+        },
+        "3": {
+            "HP": 5073,
+            "ATK": 3694,
+            "DEF": 2067
+        },
+        "4": {
+            "HP": 5166,
+            "ATK": 3761,
+            "DEF": 2104
+        },
+        "5": {
+            "HP": 5263,
+            "ATK": 3832,
+            "DEF": 2144
+        },
+        "6": {
+            "HP": 5356,
+            "ATK": 3899,
+            "DEF": 2182
+        },
+        "7": {
+            "HP": 5448,
+            "ATK": 3966,
+            "DEF": 2219
+        },
+        "8": {
+            "HP": 5545,
+            "ATK": 4037,
+            "DEF": 2259
+        },
+        "9": {
+            "HP": 5638,
+            "ATK": 4104,
+            "DEF": 2297
+        },
+        "10": {
+            "HP": 5735,
+            "ATK": 4176,
+            "DEF": 2337
+        },
+        "11": {
+            "HP": 5828,
+            "ATK": 4243,
+            "DEF": 2374
+        },
+        "12": {
+            "HP": 5920,
+            "ATK": 4310,
+            "DEF": 2412
+        },
+        "13": {
+            "HP": 6017,
+            "ATK": 4381,
+            "DEF": 2452
+        },
+        "14": {
+            "HP": 6110,
+            "ATK": 4448,
+            "DEF": 2489
+        },
+        "15": {
+            "HP": 6207,
+            "ATK": 4519,
+            "DEF": 2529
+        },
+        "16": {
+            "HP": 6300,
+            "ATK": 4586,
+            "DEF": 2567
+        },
+        "17": {
+            "HP": 6392,
+            "ATK": 4653,
+            "DEF": 2604
+        },
+        "18": {
+            "HP": 6489,
+            "ATK": 4725,
+            "DEF": 2644
+        },
+        "19": {
+            "HP": 6582,
+            "ATK": 4792,
+            "DEF": 2682
+        },
+        "20": {
+            "HP": 6679,
+            "ATK": 4863,
+            "DEF": 2722
+        },
+        "21": {
+            "HP": 6772,
+            "ATK": 4930,
+            "DEF": 2759
+        },
+        "22": {
+            "HP": 6864,
+            "ATK": 4997,
+            "DEF": 2797
+        },
+        "23": {
+            "HP": 6961,
+            "ATK": 5068,
+            "DEF": 2837
+        },
+        "24": {
+            "HP": 7054,
+            "ATK": 5135,
+            "DEF": 2874
+        },
+        "25": {
+            "HP": 7151,
+            "ATK": 5207,
+            "DEF": 2914
+        },
+        "26": {
+            "HP": 7244,
+            "ATK": 5274,
+            "DEF": 2951
+        },
+        "27": {
+            "HP": 7336,
+            "ATK": 5341,
+            "DEF": 2989
+        },
+        "28": {
+            "HP": 7433,
+            "ATK": 5412,
+            "DEF": 3029
+        },
+        "29": {
+            "HP": 7526,
+            "ATK": 5479,
+            "DEF": 3066
+        },
+        "30": {
+            "HP": 7623,
+            "ATK": 5550,
+            "DEF": 3106
+        },
+        "31": {
+            "HP": 7716,
+            "ATK": 5617,
+            "DEF": 3144
+        },
+        "32": {
+            "HP": 7813,
+            "ATK": 5688,
+            "DEF": 3184
+        },
+        "33": {
+            "HP": 7905,
+            "ATK": 5756,
+            "DEF": 3221
+        },
+        "34": {
+            "HP": 7998,
+            "ATK": 5823,
+            "DEF": 3259
+        },
+        "35": {
+            "HP": 8095,
+            "ATK": 5894,
+            "DEF": 3299
+        },
+        "36": {
+            "HP": 8188,
+            "ATK": 5961,
+            "DEF": 3336
+        },
+        "37": {
+            "HP": 8285,
+            "ATK": 6032,
+            "DEF": 3376
+        },
+        "38": {
+            "HP": 8377,
+            "ATK": 6099,
+            "DEF": 3414
+        },
+        "39": {
+            "HP": 8470,
+            "ATK": 6166,
+            "DEF": 3451
+        },
+        "40": {
+            "HP": 8567,
+            "ATK": 6237,
+            "DEF": 3491
+        },
+        "41": {
+            "HP": 8660,
+            "ATK": 6305,
+            "DEF": 3529
+        },
+        "42": {
+            "HP": 8757,
+            "ATK": 6376,
+            "DEF": 3569
+        },
+        "43": {
+            "HP": 8849,
+            "ATK": 6443,
+            "DEF": 3606
+        },
+        "44": {
+            "HP": 8942,
+            "ATK": 6510,
+            "DEF": 3644
+        },
+        "45": {
+            "HP": 9039,
+            "ATK": 6581,
+            "DEF": 3684
+        },
+        "46": {
+            "HP": 9132,
+            "ATK": 6648,
+            "DEF": 3721
+        },
+        "47": {
+            "HP": 9229,
+            "ATK": 6719,
+            "DEF": 3761
+        },
+        "48": {
+            "HP": 9321,
+            "ATK": 6786,
+            "DEF": 3799
+        },
+        "49": {
+            "HP": 9414,
+            "ATK": 6854,
+            "DEF": 3836
+        },
+        "50": {
+            "HP": 9511,
+            "ATK": 6925,
+            "DEF": 3876
+        },
+        "51": {
+            "HP": 9604,
+            "ATK": 6992,
+            "DEF": 3913
+        },
+        "52": {
+            "HP": 9701,
+            "ATK": 7063,
+            "DEF": 3953
+        },
+        "53": {
+            "HP": 9793,
+            "ATK": 7130,
+            "DEF": 3991
+        },
+        "54": {
+            "HP": 9886,
+            "ATK": 7197,
+            "DEF": 4028
+        },
+        "55": {
+            "HP": 9983,
+            "ATK": 7268,
+            "DEF": 4068
+        },
+        "56": {
+            "HP": 10076,
+            "ATK": 7335,
+            "DEF": 4106
+        },
+        "57": {
+            "HP": 10173,
+            "ATK": 7407,
+            "DEF": 4146
+        },
+        "58": {
+            "HP": 10265,
+            "ATK": 7474,
+            "DEF": 4183
+        },
+        "59": {
+            "HP": 10358,
+            "ATK": 7541,
+            "DEF": 4221
+        },
+        "60": {
+            "HP": 10455,
+            "ATK": 7612,
+            "DEF": 4261
+        },
+        "61": {
+            "HP": 10548,
+            "ATK": 7679,
+            "DEF": 4298
+        },
+        "62": {
+            "HP": 10645,
+            "ATK": 7750,
+            "DEF": 4338
+        },
+        "63": {
+            "HP": 10738,
+            "ATK": 7817,
+            "DEF": 4376
+        },
+        "64": {
+            "HP": 10830,
+            "ATK": 7884,
+            "DEF": 4413
+        },
+        "65": {
+            "HP": 10927,
+            "ATK": 7956,
+            "DEF": 4453
+        },
+        "66": {
+            "HP": 11020,
+            "ATK": 8023,
+            "DEF": 4491
+        },
+        "67": {
+            "HP": 11117,
+            "ATK": 8094,
+            "DEF": 4531
+        },
+        "68": {
+            "HP": 11210,
+            "ATK": 8161,
+            "DEF": 4568
+        },
+        "69": {
+            "HP": 11302,
+            "ATK": 8228,
+            "DEF": 4606
+        },
+        "70": {
+            "HP": 11399,
+            "ATK": 8299,
+            "DEF": 4646
+        },
+        "71": {
+            "HP": 11492,
+            "ATK": 8366,
+            "DEF": 4683
+        },
+        "72": {
+            "HP": 11589,
+            "ATK": 8437,
+            "DEF": 4723
+        },
+        "73": {
+            "HP": 11682,
+            "ATK": 8505,
+            "DEF": 4760
+        },
+        "74": {
+            "HP": 11774,
+            "ATK": 8572,
+            "DEF": 4798
+        },
+        "75": {
+            "HP": 11871,
+            "ATK": 8643,
+            "DEF": 4838
+        },
+        "76": {
+            "HP": 11964,
+            "ATK": 8710,
+            "DEF": 4875
+        },
+        "77": {
+            "HP": 12061,
+            "ATK": 8781,
+            "DEF": 4915
+        },
+        "78": {
+            "HP": 12154,
+            "ATK": 8848,
+            "DEF": 4953
+        },
+        "79": {
+            "HP": 12246,
+            "ATK": 8915,
+            "DEF": 4990
+        },
+        "80": {
+            "HP": 12343,
+            "ATK": 8986,
+            "DEF": 5030
+        },
+        "81": {
+            "HP": 12436,
+            "ATK": 9054,
+            "DEF": 5068
+        },
+        "82": {
+            "HP": 12533,
+            "ATK": 9125,
+            "DEF": 5108
+        },
+        "83": {
+            "HP": 12626,
+            "ATK": 9192,
+            "DEF": 5145
+        },
+        "84": {
+            "HP": 12718,
+            "ATK": 9259,
+            "DEF": 5183
+        },
+        "85": {
+            "HP": 12815,
+            "ATK": 9330,
+            "DEF": 5223
+        },
+        "86": {
+            "HP": 12908,
+            "ATK": 9397,
+            "DEF": 5260
+        },
+        "87": {
+            "HP": 13005,
+            "ATK": 9468,
+            "DEF": 5300
+        },
+        "88": {
+            "HP": 13098,
+            "ATK": 9535,
+            "DEF": 5338
+        },
+        "89": {
+            "HP": 13190,
+            "ATK": 9603,
+            "DEF": 5375
+        },
+        "90": {
+            "HP": 13287,
+            "ATK": 9674,
+            "DEF": 5415
+        },
+        "91": {
+            "HP": 13380,
+            "ATK": 9741,
+            "DEF": 5453
+        },
+        "92": {
+            "HP": 13477,
+            "ATK": 9812,
+            "DEF": 5493
+        },
+        "93": {
+            "HP": 13570,
+            "ATK": 9879,
+            "DEF": 5530
+        },
+        "94": {
+            "HP": 13667,
+            "ATK": 9950,
+            "DEF": 5570
+        },
+        "95": {
+            "HP": 13759,
+            "ATK": 10017,
+            "DEF": 5608
+        },
+        "96": {
+            "HP": 13852,
+            "ATK": 10084,
+            "DEF": 5645
+        },
+        "97": {
+            "HP": 13949,
+            "ATK": 10156,
+            "DEF": 5685
+        },
+        "98": {
+            "HP": 14042,
+            "ATK": 10223,
+            "DEF": 5722
+        },
+        "99": {
+            "HP": 14139,
+            "ATK": 10294,
+            "DEF": 5762
+        },
+        "100": {
+            "HP": 14231,
+            "ATK": 10361,
+            "DEF": 5800
+        },
+        "101": {
+            "HP": 14324,
+            "ATK": 10428,
+            "DEF": 5837
+        },
+        "102": {
+            "HP": 14421,
+            "ATK": 10499,
+            "DEF": 5877
+        },
+        "103": {
+            "HP": 14514,
+            "ATK": 10566,
+            "DEF": 5915
+        },
+        "104": {
+            "HP": 14611,
+            "ATK": 10638,
+            "DEF": 5955
+        },
+        "105": {
+            "HP": 14703,
+            "ATK": 10705,
+            "DEF": 5992
+        },
+        "106": {
+            "HP": 14796,
+            "ATK": 10772,
+            "DEF": 6030
+        },
+        "107": {
+            "HP": 14893,
+            "ATK": 10843,
+            "DEF": 6070
+        },
+        "108": {
+            "HP": 14986,
+            "ATK": 10910,
+            "DEF": 6107
+        },
+        "109": {
+            "HP": 15083,
+            "ATK": 10981,
+            "DEF": 6147
+        },
+        "110": {
+            "HP": 15175,
+            "ATK": 11048,
+            "DEF": 6185
+        },
+        "111": {
+            "HP": 15268,
+            "ATK": 11115,
+            "DEF": 6222
+        },
+        "112": {
+            "HP": 15365,
+            "ATK": 11187,
+            "DEF": 6262
+        },
+        "113": {
+            "HP": 15458,
+            "ATK": 11254,
+            "DEF": 6300
+        },
+        "114": {
+            "HP": 15555,
+            "ATK": 11325,
+            "DEF": 6340
+        },
+        "115": {
+            "HP": 15647,
+            "ATK": 11392,
+            "DEF": 6377
+        },
+        "116": {
+            "HP": 15740,
+            "ATK": 11459,
+            "DEF": 6415
+        },
+        "117": {
+            "HP": 15837,
+            "ATK": 11530,
+            "DEF": 6455
+        },
+        "118": {
+            "HP": 15930,
+            "ATK": 11597,
+            "DEF": 6492
+        },
+        "119": {
+            "HP": 16027,
+            "ATK": 11668,
+            "DEF": 6532
+        },
+        "120": {
+            "HP": 16120,
+            "ATK": 11736,
+            "DEF": 6570
+        }
+    },
+    "Leader Skill": {
+        "Name": "Earth-Blanketing Army",
+        "10338400": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10338401": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 200,
+            "Ki": 0
+        },
+        "10338402": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Absorption"
+                ],
+                "Excluded Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10338403": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Absorption"
+                ],
+                "Excluded Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 200,
+            "Ki": 0
+        },
+        "10338404": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors",
+                    "Movie Bosses"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10338405": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors",
+                    "Artificial Life Forms"
+                ],
+                "Excluded Category": [
+                    "Movie Bosses"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10338406": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors",
+                    "Target: Goku"
+                ],
+                "Excluded Category": [
+                    "Movie Bosses",
+                    "Artificial Life Forms"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10338407": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Absorption",
+                    "Movie Bosses"
+                ],
+                "Excluded Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10338408": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Absorption",
+                    "Artificial Life Forms"
+                ],
+                "Excluded Category": [
+                    "Movie Bosses",
+                    "Terrifying Conquerors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10338409": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Absorption",
+                    "Target: Goku"
+                ],
+                "Excluded Category": [
+                    "Movie Bosses",
+                    "Terrifying Conquerors",
+                    "Artificial Life Forms"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8831": {
+            "superID": "8831",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Supernova",
+            "superDescription": "Greatly raises ATK for 1 turn and \ncauses immense damage to enemy; \nraises Extreme Class allies' \nDEF by 6% for 2 turns",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8831": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50"
+                },
+                "1008831": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Extreme class allies",
+                    "DEF": "6"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp3023"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Life Force Absorption",
+        "Effect Description": "Fully recovers HP; \nKi +1 and ATK & DEF +30% in battle",
+        "Condition Description": "Can be activated when HP is 50% or less, \nor starting from the 4th turn from \nthe start of battle (once only)",
+        "Condition": {
+            "Logic": "( 27 || 5 )",
+            "Causalities": {
+                "27": {
+                    "Button": {
+                        "Name": "Is HP 50 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": "<=50",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 50% or less"
+                },
+                "5": {
+                    "Button": {
+                        "Name": "Is the turn count 4 or more?"
+                    },
+                    "Slider": {
+                        "Name": "What turn is it?",
+                        "Logic": ">=4",
+                        "Min": 1
+                    },
+                    "Paragraph Title": "Starting from the 4th turn from the start of battle"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "538": {
+                "Duration": "99",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Heals",
+                    "Amount": 100
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "539": {
+                "Duration": "99",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Ki Buff",
+                    "Amount": 1
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "540": {
+                "Duration": "99",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "ATK Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "541": {
+                "Duration": "99",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "DEF Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "4033851"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8831",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

@@ -1,0 +1,903 @@
+{
+    "ID": "1033541",
+    "Type": "AGL",
+    "Class": "Extreme",
+    "Name": "Vegeta",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Saiyan Saga",
+        "Accelerated Battle",
+        "Mission Execution",
+        "Giant Ape Power",
+        "Final Trump Card",
+        "Pure Saiyans",
+        "Dragon Ball Seekers",
+        "Vegeta's Family",
+        "Terrifying Conquerors",
+        "Inhuman Deeds",
+        "Space-Traveling Warriors",
+        "Gifted Warriors",
+        "Planetary Destruction",
+        "Successors"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Saiyan Warrior Race",
+        "Prodigies",
+        "Royal Lineage",
+        "Over 9000",
+        "Saiyan Pride",
+        "Prepared for Battle"
+    ],
+    "Resource ID": 1033540,
+    "Passive": {
+        "4895": {
+            "ID": 4895,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004895": {
+            "ID": 1004895,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004895": {
+            "ID": 2004895,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004895": {
+            "ID": 3004895,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004895": {
+            "ID": 4004895,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Giant Ape Power"
+                    ],
+                    "Excluded": [
+                        "Saiyan Saga"
+                    ]
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all Giant Ape Power category allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all Giant Ape Power category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004895": {
+            "ID": 5004895,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004895": {
+            "ID": 6004895,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 545 )",
+                "Causalities": {
+                    "545": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"545\", \"compiled\": 545}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "7004895": {
+            "ID": 7004895,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 545 )",
+                "Causalities": {
+                    "545": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"545\", \"compiled\": 545}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack when attacking",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack when attacking",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "8004895": {
+            "ID": 8004895,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right after attack",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 2609 )",
+                "Causalities": {
+                    "2609": {
+                        "Slider": {
+                            "Name": "How many attacks has this character performed in battle?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has performed 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2609\", \"compiled\": 2609}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after attacking",
+            "Line description": "{passiveImg:forever}Performs an additional attack with a 50% chance of becoming a super attack after attacking",
+            "Paragraph Title": "When the character has performed 2 or more attacks"
+        },
+        "9004895": {
+            "ID": 9004895,
+            "Timing": "Right after attack",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 2609 )",
+                "Causalities": {
+                    "2609": {
+                        "Slider": {
+                            "Name": "How many attacks has this character performed in battle?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has performed 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2609\", \"compiled\": 2609}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} after attacking",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +10%{passiveImg:up_g} after attacking",
+            "Paragraph Title": "When the character has performed 2 or more attacks"
+        },
+        "10004895": {
+            "ID": 10004895,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right after attack",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1094 )",
+                "Causalities": {
+                    "1094": {
+                        "Slider": {
+                            "Name": "How many attacks has this character performed in battle?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "When the character has performed 6 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1094\", \"compiled\": 1094}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after attacking",
+            "Line description": "{passiveImg:forever}Performs an additional attack with a 50% chance of becoming a super attack after attacking",
+            "Paragraph Title": "When the character has performed 6 or more attacks"
+        },
+        "11004895": {
+            "ID": 11004895,
+            "Timing": "Right after attack",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1094 )",
+                "Causalities": {
+                    "1094": {
+                        "Slider": {
+                            "Name": "How many attacks has this character performed in battle?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "When the character has performed 6 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1094\", \"compiled\": 1094}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} after attacking",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +10%{passiveImg:up_g} after attacking",
+            "Paragraph Title": "When the character has performed 6 or more attacks"
+        },
+        "12004895": {
+            "ID": 12004895,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 99999,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Attacks performed on this turn"
+                },
+                "Slider": "How many attacks has this character performed on this turn?"
+            },
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ({currentValue} / 99999%) based on 'How many attacks has this character performed on this turn' after attacking",
+            "Line description": "ATK 50%{passiveImg:up_g} ({currentValue} / 99999%) based on 'How many attacks has this character performed on this turn' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 150%{passiveImg:up_g}\n- Chance of performing a critical hit & damage reduction rate 20%{passiveImg:up_g}\n- \"Saiyan Saga\" or \"Giant Ape Power\" Category allies' ATK & DEF\n20%{passiveImg:up_g}\n*When attacking*\n- ATK & DEF 100%{passiveImg:up_g}\n- ATK & DEF 50%{passiveImg:up_g} and launches an additional attack that has a\nhigh chance of becoming a Super Attack when facing only 1 enemy\n*After performing 2 or more attacks in battle*\n- {passiveImg:forever}Launches an additional attack that has a high chance of\nbecoming a Super Attack\n- {passiveImg:forever}Chance of performing a critical hit 10%{passiveImg:up_g}\n*After performing 6 or more attacks in battle*\n- {passiveImg:forever}Launches an additional attack that has a high chance of\nbecoming a Super Attack\n- {passiveImg:forever}Chance of performing a critical hit 10%{passiveImg:up_g}\n*For every attack performed*\n- ATK 50%{passiveImg:up_g} within the turn",
+    "Max Attacks": 5,
+    "Max Super Attacks": 5,
+    "Stats at levels": {
+        "80": {
+            "HP": 13782,
+            "ATK": 9042,
+            "DEF": 4825
+        },
+        "81": {
+            "HP": 13811,
+            "ATK": 9060,
+            "DEF": 4835
+        },
+        "82": {
+            "HP": 13840,
+            "ATK": 9077,
+            "DEF": 4844
+        },
+        "83": {
+            "HP": 13869,
+            "ATK": 9095,
+            "DEF": 4853
+        },
+        "84": {
+            "HP": 13897,
+            "ATK": 9112,
+            "DEF": 4863
+        },
+        "85": {
+            "HP": 13926,
+            "ATK": 9130,
+            "DEF": 4872
+        },
+        "86": {
+            "HP": 13957,
+            "ATK": 9148,
+            "DEF": 4882
+        },
+        "87": {
+            "HP": 13986,
+            "ATK": 9166,
+            "DEF": 4891
+        },
+        "88": {
+            "HP": 14014,
+            "ATK": 9183,
+            "DEF": 4900
+        },
+        "89": {
+            "HP": 14043,
+            "ATK": 9201,
+            "DEF": 4910
+        },
+        "90": {
+            "HP": 14072,
+            "ATK": 9218,
+            "DEF": 4919
+        },
+        "91": {
+            "HP": 14101,
+            "ATK": 9236,
+            "DEF": 4928
+        },
+        "92": {
+            "HP": 14130,
+            "ATK": 9253,
+            "DEF": 4938
+        },
+        "93": {
+            "HP": 14159,
+            "ATK": 9271,
+            "DEF": 4947
+        },
+        "94": {
+            "HP": 14188,
+            "ATK": 9288,
+            "DEF": 4956
+        },
+        "95": {
+            "HP": 14217,
+            "ATK": 9306,
+            "DEF": 4965
+        },
+        "96": {
+            "HP": 14247,
+            "ATK": 9324,
+            "DEF": 4975
+        },
+        "97": {
+            "HP": 14276,
+            "ATK": 9342,
+            "DEF": 4985
+        },
+        "98": {
+            "HP": 14305,
+            "ATK": 9359,
+            "DEF": 4994
+        },
+        "99": {
+            "HP": 14334,
+            "ATK": 9377,
+            "DEF": 5003
+        },
+        "100": {
+            "HP": 14363,
+            "ATK": 9395,
+            "DEF": 5013
+        }
+    },
+    "Leader Skill": {
+        "Name": "Disciplinary Blow",
+        "10335400": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Saiyan Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 150,
+            "Ki": 0
+        },
+        "10335401": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Saiyan Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10335402": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [
+                    "Saiyan Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 150,
+            "Ki": 0
+        },
+        "10335403": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [
+                    "Saiyan Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10335404": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Saiyan Saga",
+                    "Mission Execution"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10335405": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Accelerated Battle",
+                    "Mission Execution"
+                ],
+                "Excluded Category": [
+                    "Saiyan Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10335406": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Giant Ape Power",
+                    "Saiyan Saga"
+                ],
+                "Excluded Category": [
+                    "Mission Execution"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10335407": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Giant Ape Power",
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [
+                    "Mission Execution",
+                    "Saiyan Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10335408": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card",
+                    "Saiyan Saga"
+                ],
+                "Excluded Category": [
+                    "Mission Execution",
+                    "Giant Ape Power"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10335409": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card",
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [
+                    "Mission Execution",
+                    "Giant Ape Power",
+                    "Saiyan Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8665": {
+            "superID": "8665",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Galick Beam",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8665": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp3008"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8665",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

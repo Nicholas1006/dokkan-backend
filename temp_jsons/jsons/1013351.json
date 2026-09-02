@@ -1,0 +1,387 @@
+{
+    "ID": "1013351",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Yamcha",
+    "Rarity": "ssr",
+    "Min Level": 60,
+    "Max Level": 80,
+    "Categories": [
+        "World Tournament",
+        "Worthy Rivals",
+        "Final Trump Card",
+        "Earthlings",
+        "Turtle School",
+        "Earth-Bred Fighters",
+        "Tournament Participants"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Turtle School",
+        "Speedy Retribution",
+        "The Incredible Adventure",
+        "Guidance of the Dragon Balls"
+    ],
+    "Resource ID": 1013350,
+    "Passive": {
+        "1147": {
+            "ID": 1147,
+            "Timing": "Right before attack(SOT stat)",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 60 )",
+                "Causalities": {
+                    "60": {
+                        "Button": {
+                            "Name": "Is Ki at least 7 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 7 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"60\", \"compiled\": 60}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 7 or more"
+        },
+        "1001147": {
+            "ID": 1001147,
+            "Timing": "Start of turn",
+            "Ki": 4,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 74 )",
+                "Causalities": {
+                    "74": {
+                        "Button": {
+                            "Name": "Is HP 70 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=70",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 70% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"74\", \"compiled\": 74}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +4 ",
+            "Line description": "Ki +4 ",
+            "Paragraph Title": "When HP is 70% or less"
+        }
+    },
+    "Itemized Passive Description": "*When attacking with 7 or more Ki*\n- ATK & DEF 50%{passiveImg:up_g}\n*When HP is 70% or less*\n- Ki +4",
+    "Max Attacks": 1,
+    "Max Super Attacks": 1,
+    "Stats at levels": {
+        "60": {
+            "HP": 6322,
+            "ATK": 5184,
+            "DEF": 3381
+        },
+        "61": {
+            "HP": 6332,
+            "ATK": 5213,
+            "DEF": 3386
+        },
+        "62": {
+            "HP": 6342,
+            "ATK": 5244,
+            "DEF": 3391
+        },
+        "63": {
+            "HP": 6353,
+            "ATK": 5275,
+            "DEF": 3397
+        },
+        "64": {
+            "HP": 6364,
+            "ATK": 5306,
+            "DEF": 3402
+        },
+        "65": {
+            "HP": 6375,
+            "ATK": 5338,
+            "DEF": 3407
+        },
+        "66": {
+            "HP": 6386,
+            "ATK": 5370,
+            "DEF": 3413
+        },
+        "67": {
+            "HP": 6397,
+            "ATK": 5403,
+            "DEF": 3418
+        },
+        "68": {
+            "HP": 6409,
+            "ATK": 5436,
+            "DEF": 3424
+        },
+        "69": {
+            "HP": 6420,
+            "ATK": 5470,
+            "DEF": 3430
+        },
+        "70": {
+            "HP": 6432,
+            "ATK": 5504,
+            "DEF": 3436
+        },
+        "71": {
+            "HP": 6444,
+            "ATK": 5538,
+            "DEF": 3441
+        },
+        "72": {
+            "HP": 6456,
+            "ATK": 5574,
+            "DEF": 3447
+        },
+        "73": {
+            "HP": 6469,
+            "ATK": 5610,
+            "DEF": 3454
+        },
+        "74": {
+            "HP": 6481,
+            "ATK": 5646,
+            "DEF": 3460
+        },
+        "75": {
+            "HP": 6494,
+            "ATK": 5682,
+            "DEF": 3466
+        },
+        "76": {
+            "HP": 6506,
+            "ATK": 5719,
+            "DEF": 3472
+        },
+        "77": {
+            "HP": 6519,
+            "ATK": 5757,
+            "DEF": 3479
+        },
+        "78": {
+            "HP": 6533,
+            "ATK": 5795,
+            "DEF": 3485
+        },
+        "79": {
+            "HP": 6546,
+            "ATK": 5834,
+            "DEF": 3492
+        },
+        "80": {
+            "HP": 6560,
+            "ATK": 5874,
+            "DEF": 3499
+        }
+    },
+    "Leader Skill": {
+        "Name": "Ace in the Hole",
+        "5591": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "1218": {
+            "superID": "1218",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Spirit Ball",
+            "superDescription": "Causes extreme damage to enemy and \nlowers ATK",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "1218": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "10"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 355,
+            "relevantLua": [
+                "sp0174"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "silver": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "bronze": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "overall": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "1218",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

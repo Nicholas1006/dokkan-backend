@@ -1,0 +1,498 @@
+{
+    "ID": "1007771",
+    "Type": "STR",
+    "Class": "Extreme",
+    "Name": "Baby (Youth Form)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Transformation Boost",
+        "Artificial Life Forms",
+        "Terrifying Conquerors",
+        "Target: Goku",
+        "Revenge",
+        "Inhuman Deeds",
+        "Space-Traveling Warriors",
+        "GT Bosses"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Thirst for Conquest",
+        "Metamorphosis",
+        "Coward",
+        "GT",
+        "Hatred of Saiyans",
+        "Nightmare"
+    ],
+    "Resource ID": 1007770,
+    "Passive": {
+        "2678": {
+            "ID": 2678,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002678": {
+            "ID": 1002678,
+            "Timing": "End of turn",
+            "Heals": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2739 )",
+                "Causalities": {
+                    "2739": {
+                        "Button": {
+                            "Name": "Has this character been hit on this turn?"
+                        },
+                        "Paragraph Title": "When this character has been hit on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2739\", \"compiled\": 2739}",
+            "Type": "Single activator",
+            "Brief effect description": "Heals +20% at the end of turn",
+            "Line description": "Heals +20% at the end of turn",
+            "Paragraph Title": "When this character has been hit on this turn"
+        },
+        "2002678": {
+            "ID": 2002678,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1204 || 1205 )",
+                "Causalities": {
+                    "1204": {
+                        "Button": {
+                            "Name": "Are there 1 or more Pure Saiyans category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Pure Saiyans Category enemies "
+                    },
+                    "1205": {
+                        "Button": {
+                            "Name": "Are there 1 or more Hybrid Saiyans category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Hybrid Saiyans category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Hybrid Saiyans Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1204|1205\", \"compiled\": [\"|\", 1204, 1205]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Pure Saiyans Category enemies or there are 1 or more Hybrid Saiyans Category enemies "
+        },
+        "3002678": {
+            "ID": 3002678,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1204 || 1205 )",
+                "Causalities": {
+                    "1204": {
+                        "Button": {
+                            "Name": "Are there 1 or more Pure Saiyans category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Pure Saiyans Category enemies "
+                    },
+                    "1205": {
+                        "Button": {
+                            "Name": "Are there 1 or more Hybrid Saiyans category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Hybrid Saiyans category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Hybrid Saiyans Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1204|1205\", \"compiled\": [\"|\", 1204, 1205]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Paragraph Title": "When there are 1 or more Pure Saiyans Category enemies or there are 1 or more Hybrid Saiyans Category enemies "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 100%{passiveImg:up_g}\n*When there is a \"Pure Saiyans\" or \"Hybrid Saiyans\" Category\nenemy*\n- ATK & DEF 100%{passiveImg:up_g}\n- Launches an additional attack that has a great chance of\nbecoming a Super Attack\n*After receiving an attack*\n- Recovers 20% HP at the end of turn",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "80": {
+            "HP": 10036,
+            "ATK": 7356,
+            "DEF": 4053
+        },
+        "81": {
+            "HP": 10052,
+            "ATK": 7368,
+            "DEF": 4059
+        },
+        "82": {
+            "HP": 10069,
+            "ATK": 7380,
+            "DEF": 4065
+        },
+        "83": {
+            "HP": 10085,
+            "ATK": 7392,
+            "DEF": 4071
+        },
+        "84": {
+            "HP": 10101,
+            "ATK": 7404,
+            "DEF": 4077
+        },
+        "85": {
+            "HP": 10117,
+            "ATK": 7416,
+            "DEF": 4083
+        },
+        "86": {
+            "HP": 10134,
+            "ATK": 7428,
+            "DEF": 4089
+        },
+        "87": {
+            "HP": 10150,
+            "ATK": 7440,
+            "DEF": 4095
+        },
+        "88": {
+            "HP": 10166,
+            "ATK": 7452,
+            "DEF": 4101
+        },
+        "89": {
+            "HP": 10182,
+            "ATK": 7464,
+            "DEF": 4107
+        },
+        "90": {
+            "HP": 10198,
+            "ATK": 7476,
+            "DEF": 4113
+        },
+        "91": {
+            "HP": 10215,
+            "ATK": 7488,
+            "DEF": 4119
+        },
+        "92": {
+            "HP": 10231,
+            "ATK": 7500,
+            "DEF": 4125
+        },
+        "93": {
+            "HP": 10247,
+            "ATK": 7512,
+            "DEF": 4131
+        },
+        "94": {
+            "HP": 10263,
+            "ATK": 7524,
+            "DEF": 4137
+        },
+        "95": {
+            "HP": 10279,
+            "ATK": 7535,
+            "DEF": 4142
+        },
+        "96": {
+            "HP": 10296,
+            "ATK": 7548,
+            "DEF": 4149
+        },
+        "97": {
+            "HP": 10312,
+            "ATK": 7560,
+            "DEF": 4155
+        },
+        "98": {
+            "HP": 10328,
+            "ATK": 7572,
+            "DEF": 4161
+        },
+        "99": {
+            "HP": 10344,
+            "ATK": 7584,
+            "DEF": 4167
+        },
+        "100": {
+            "HP": 10361,
+            "ATK": 7596,
+            "DEF": 4173
+        }
+    },
+    "Leader Skill": {
+        "Name": "Metamorphic Parasite",
+        "10886": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "STR"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10887": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "STR"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1020,
+            "ATK": 1260,
+            "DEF": 780,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "3508": {
+            "superID": "3508",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Revenge Blast",
+            "superDescription": "Raises DEF for 1 turn, \ncauses supreme damage to enemy \nand lowers ATK",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3508": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "1003508": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp0178"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 67.5,
+        "1": 73.125,
+        "2": 78.75,
+        "3": 84.375,
+        "4": 90.0,
+        "5": 95.625,
+        "6": 101.25,
+        "7": 106.875,
+        "8": 112.5,
+        "9": 118.125,
+        "10": 123.75,
+        "11": 129.375,
+        "12": 135.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3508",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

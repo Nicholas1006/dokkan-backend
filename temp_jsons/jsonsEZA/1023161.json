@@ -1,0 +1,658 @@
+{
+    "ID": "1023161",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Hacchan & Android #17",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Androids",
+        "Joined Forces"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Android Assault",
+        "Infighter",
+        "Tough as Nails",
+        "Cold Judgment",
+        "Solid Support",
+        "Courage",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1023160,
+    "Passive": {
+        "3007": {
+            "ID": 3007,
+            "Timing": "Start of turn",
+            "ATK": 125,
+            "DEF": 125,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 125%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 125%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003007": {
+            "ID": 1003007,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1789 )",
+                "Causalities": {
+                    "1789": {
+                        "Button": {
+                            "Name": "Is HP 80 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=80",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 80% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1789\", \"compiled\": 1789}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 80% or less"
+        },
+        "2003007": {
+            "ID": 2003007,
+            "Timing": "Start of turn",
+            "Crit Chance": 25,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1789 )",
+                "Causalities": {
+                    "1789": {
+                        "Button": {
+                            "Name": "Is HP 80 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=80",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 80% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1789\", \"compiled\": 1789}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +25%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +25%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 80% or less"
+        },
+        "3003007": {
+            "ID": 3003007,
+            "Timing": "Start of turn",
+            "DR": 25,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1789 )",
+                "Causalities": {
+                    "1789": {
+                        "Button": {
+                            "Name": "Is HP 80 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=80",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 80% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1789\", \"compiled\": 1789}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 25%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 25%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 80% or less"
+        },
+        "4003007": {
+            "ID": 4003007,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 8,
+            "CausalityLogic": "{\"source\": \"8000000000000\", \"compiled\": 8000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 8000000000000 )",
+                "Causalities": {
+                    "8000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 8 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 8 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Guards all attacks ",
+            "Line description": " {passiveImg:once}Guards all attacks for 8 turn ",
+            "Paragraph Title": "For 8 turn(s) from the character's entry turn"
+        },
+        "5003007": {
+            "ID": 5003007,
+            "Timing": "Right after being hit",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 8,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 8 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 8 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} after being hit",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        },
+        "6003007": {
+            "ID": 6003007,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 30,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 8,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 8 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 8 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 30% chance of becoming a super attack after being hit",
+            "Line description": "Performs an additional attack with a 30% chance of becoming a super attack after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        },
+        "7003007": {
+            "ID": 7003007,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 46,
+                "Stat Per Proc": 2,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Sweet treats",
+                        "Cookies"
+                    ]
+                },
+                "Slider": "How many Sweet treats or Cookies Ki Spheres have been obtained?"
+            },
+            "Heals": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Heals +2% per Sweet treats and Cookies Ki Spheres obtained{currentValue} / 46 ",
+            "Line description": "Heals +2% per Sweet treats and Cookies Ki Spheres obtained{currentValue} / 46 ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 125%{passiveImg:up_g}\n- Recovers HP with sweet treats\n*When HP is 80% or less*\n- ATK & DEF 80%{passiveImg:up_g}\n- Chance of performing a critical hit & damage reduction rate\n25%{passiveImg:up_g}\n*For 8 turn(s) from the character's entry turn*\n- Guards all attacks\n*After receiving an attack*\n- ATK & DEF 80%{passiveImg:up_g} and launches an additional attack that has\na medium chance of becoming a Super Attack for 8 turn(s)",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "120": {
+            "HP": 9701,
+            "ATK": 7379,
+            "DEF": 3733
+        },
+        "121": {
+            "HP": 9864,
+            "ATK": 7503,
+            "DEF": 3795
+        },
+        "122": {
+            "HP": 10028,
+            "ATK": 7627,
+            "DEF": 3858
+        },
+        "123": {
+            "HP": 10191,
+            "ATK": 7752,
+            "DEF": 3921
+        },
+        "124": {
+            "HP": 10355,
+            "ATK": 7876,
+            "DEF": 3984
+        },
+        "125": {
+            "HP": 10519,
+            "ATK": 8001,
+            "DEF": 4047
+        },
+        "126": {
+            "HP": 10682,
+            "ATK": 8125,
+            "DEF": 4110
+        },
+        "127": {
+            "HP": 10846,
+            "ATK": 8250,
+            "DEF": 4173
+        },
+        "128": {
+            "HP": 11010,
+            "ATK": 8374,
+            "DEF": 4236
+        },
+        "129": {
+            "HP": 11173,
+            "ATK": 8499,
+            "DEF": 4299
+        },
+        "130": {
+            "HP": 11337,
+            "ATK": 8623,
+            "DEF": 4362
+        },
+        "131": {
+            "HP": 11501,
+            "ATK": 8748,
+            "DEF": 4425
+        },
+        "132": {
+            "HP": 11664,
+            "ATK": 8872,
+            "DEF": 4488
+        },
+        "133": {
+            "HP": 11828,
+            "ATK": 8997,
+            "DEF": 4551
+        },
+        "134": {
+            "HP": 11992,
+            "ATK": 9121,
+            "DEF": 4614
+        },
+        "135": {
+            "HP": 12155,
+            "ATK": 9246,
+            "DEF": 4677
+        },
+        "136": {
+            "HP": 12319,
+            "ATK": 9370,
+            "DEF": 4740
+        },
+        "137": {
+            "HP": 12483,
+            "ATK": 9494,
+            "DEF": 4803
+        },
+        "138": {
+            "HP": 12646,
+            "ATK": 9619,
+            "DEF": 4866
+        },
+        "139": {
+            "HP": 12810,
+            "ATK": 9743,
+            "DEF": 4929
+        },
+        "140": {
+            "HP": 12974,
+            "ATK": 9868,
+            "DEF": 4992
+        }
+    },
+    "Leader Skill": {
+        "Name": "Unusual Encounter and Mission",
+        "12156": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Androids"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "12157": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Androids"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 77,
+            "DEF": 77,
+            "HP": 77,
+            "Ki": 0
+        },
+        "12158": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Androids"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "PHY"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "12159": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Androids"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "PHY"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1260,
+            "ATK": 1020,
+            "DEF": 780,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4164": {
+            "superID": "4164",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Double Mission 8+17 (Extreme)",
+            "superDescription": "Raises ATK for 1 turn and \ncauses supreme damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4164": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1004164": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "1",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attacks will become more powerful!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "20"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp2292"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 67.5,
+        "1": 73.125,
+        "2": 78.75,
+        "3": 84.375,
+        "4": 90.0,
+        "5": 95.625,
+        "6": 101.25,
+        "7": 106.875,
+        "8": 112.5,
+        "9": 118.125,
+        "10": 123.75,
+        "11": 129.375,
+        "12": 135.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4164",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

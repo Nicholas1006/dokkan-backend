@@ -1,0 +1,1115 @@
+{
+    "ID": "1027180",
+    "Type": "AGL",
+    "Class": "Extreme",
+    "Name": "Mamba",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Peppy Gals",
+        "Earthlings",
+        "Battle of Wits",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Flee",
+        "Coward",
+        "Battlefield Diva",
+        "GT",
+        "Metamorphosis",
+        "More Than Meets the Eye",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1027180,
+    "Passive": {
+        "3542": {
+            "ID": 3542,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003542": {
+            "ID": 1003542,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003542": {
+            "ID": 2003542,
+            "Timing": "Right before attack(MOT stat)",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2574 )",
+                "Causalities": {
+                    "2574": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2574\", \"compiled\": 2574}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3003542": {
+            "ID": 3003542,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 500,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( ( 2574 && 2575 ) || ( 2574 && 2576 ) || ( 2574 && 2577 ) || ( 2574 && 2578 ) )",
+                "Causalities": {
+                    "2574": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    },
+                    "2575": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down}"
+                    },
+                    "2576": {
+                        "Button": {
+                            "Name": "Is the target enemy in DEF Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:def_down}"
+                    },
+                    "2577": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+                    },
+                    "2578": {
+                        "Button": {
+                            "Name": "Is the target enemy in Sealed on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:astute}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2574&2575|2574&2576|2574&2577|2574&2578\", \"compiled\": [\"|\", [\"&\", 2574, 2575], [\"&\", 2574, 2576], [\"&\", 2574, 2577], [\"&\", 2574, 2578]]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 500%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 500%{passiveImg:up_g} when attacking when the target enemy is in the following status{passiveImg:atk_down} or the target enemy is in the following status{passiveImg:def_down} or the target enemy is in the following status{passiveImg:stun} or the target enemy is in the following status{passiveImg:astute} ",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "4003542": {
+            "ID": 4003542,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2575 || 2576 || 2577 || 2578 )",
+                "Causalities": {
+                    "2575": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down}"
+                    },
+                    "2576": {
+                        "Button": {
+                            "Name": "Is the target enemy in DEF Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:def_down}"
+                    },
+                    "2577": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+                    },
+                    "2578": {
+                        "Button": {
+                            "Name": "Is the target enemy in Sealed on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:astute}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2575|2576|2577|2578\", \"compiled\": [\"|\", 2575, 2576, 2577, 2578]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit when attacking",
+            "Line description": "Performs a Critical Hit when attacking",
+            "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down} or the target enemy is in the following status{passiveImg:def_down} or the target enemy is in the following status{passiveImg:stun} or the target enemy is in the following status{passiveImg:astute}"
+        },
+        "5003542": {
+            "ID": 5003542,
+            "Timing": "Right after attack",
+            "Status": [
+                "Disable action"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2575 || 2576 || 2577 || 2578 )",
+                "Causalities": {
+                    "2575": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down}"
+                    },
+                    "2576": {
+                        "Button": {
+                            "Name": "Is the target enemy in DEF Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:def_down}"
+                    },
+                    "2577": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+                    },
+                    "2578": {
+                        "Button": {
+                            "Name": "Is the target enemy in Sealed on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:astute}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2575|2576|2577|2578\", \"compiled\": [\"|\", 2575, 2576, 2577, 2578]}",
+            "Type": "Single activator",
+            "Brief effect description": "Disable action after attacking",
+            "Line description": "Disable action after attacking",
+            "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down} or the target enemy is in the following status{passiveImg:def_down} or the target enemy is in the following status{passiveImg:stun} or the target enemy is in the following status{passiveImg:astute}"
+        },
+        "6003542": {
+            "ID": 6003542,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2579 || 2580 )",
+                "Causalities": {
+                    "2579": {
+                        "Button": {
+                            "Name": "Are there 5 or more Peppy Gals category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Peppy Gals Category allies "
+                    },
+                    "2580": {
+                        "Button": {
+                            "Name": "Is there 1 or more STR  type enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many STR  type enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more STR  type enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2579|2580\", \"compiled\": [\"|\", 2579, 2580]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK 40%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "When there are 5 or more Peppy Gals Category allies or there are 1 or more STR type enemies "
+        },
+        "7003542": {
+            "ID": 7003542,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2579 || 2580 )",
+                "Causalities": {
+                    "2579": {
+                        "Button": {
+                            "Name": "Are there 5 or more Peppy Gals category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Peppy Gals Category allies "
+                    },
+                    "2580": {
+                        "Button": {
+                            "Name": "Is there 1 or more STR  type enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many STR  type enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more STR  type enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2579|2580\", \"compiled\": [\"|\", 2579, 2580]}",
+            "Type": "Single activator",
+            "Brief effect description": "High chance of ATK 20%{passiveImg:down_r} ",
+            "Line description": "High chance of ATK 20%{passiveImg:down_r} ",
+            "Paragraph Title": "When there are 5 or more Peppy Gals Category allies or there are 1 or more STR type enemies "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 150%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- DEF 100%{passiveImg:up_g}\n*When the target enemy is in the following\nstatus: {passiveImg:atk_down}, {passiveImg:def_down}, {passiveImg:stun} or {passiveImg:astute}*\n- ATK 500%{passiveImg:up_g} when attacking with 12 or more Ki\n- Performs a critical hit\n- Interrupts the attacked enemy\n*When another 4 or more \"Peppy Gals\" Category allies are on\nthe team, or when there is a STR Type enemy*\n- All allies' ATK 40%{passiveImg:up_g}\n- High chance of all enemies' ATK 20%{passiveImg:down_y}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 2921,
+            "ATK": 1899,
+            "DEF": 1523
+        },
+        "2": {
+            "HP": 2989,
+            "ATK": 1943,
+            "DEF": 1558
+        },
+        "3": {
+            "HP": 3057,
+            "ATK": 1988,
+            "DEF": 1594
+        },
+        "4": {
+            "HP": 3126,
+            "ATK": 2032,
+            "DEF": 1630
+        },
+        "5": {
+            "HP": 3194,
+            "ATK": 2077,
+            "DEF": 1665
+        },
+        "6": {
+            "HP": 3266,
+            "ATK": 2123,
+            "DEF": 1703
+        },
+        "7": {
+            "HP": 3335,
+            "ATK": 2168,
+            "DEF": 1739
+        },
+        "8": {
+            "HP": 3403,
+            "ATK": 2212,
+            "DEF": 1774
+        },
+        "9": {
+            "HP": 3472,
+            "ATK": 2257,
+            "DEF": 1810
+        },
+        "10": {
+            "HP": 3540,
+            "ATK": 2301,
+            "DEF": 1846
+        },
+        "11": {
+            "HP": 3609,
+            "ATK": 2346,
+            "DEF": 1881
+        },
+        "12": {
+            "HP": 3677,
+            "ATK": 2390,
+            "DEF": 1917
+        },
+        "13": {
+            "HP": 3746,
+            "ATK": 2435,
+            "DEF": 1953
+        },
+        "14": {
+            "HP": 3814,
+            "ATK": 2480,
+            "DEF": 1988
+        },
+        "15": {
+            "HP": 3883,
+            "ATK": 2524,
+            "DEF": 2024
+        },
+        "16": {
+            "HP": 3955,
+            "ATK": 2571,
+            "DEF": 2062
+        },
+        "17": {
+            "HP": 4023,
+            "ATK": 2615,
+            "DEF": 2097
+        },
+        "18": {
+            "HP": 4092,
+            "ATK": 2660,
+            "DEF": 2133
+        },
+        "19": {
+            "HP": 4160,
+            "ATK": 2704,
+            "DEF": 2169
+        },
+        "20": {
+            "HP": 4229,
+            "ATK": 2749,
+            "DEF": 2205
+        },
+        "21": {
+            "HP": 4297,
+            "ATK": 2793,
+            "DEF": 2240
+        },
+        "22": {
+            "HP": 4366,
+            "ATK": 2838,
+            "DEF": 2276
+        },
+        "23": {
+            "HP": 4434,
+            "ATK": 2882,
+            "DEF": 2312
+        },
+        "24": {
+            "HP": 4503,
+            "ATK": 2927,
+            "DEF": 2347
+        },
+        "25": {
+            "HP": 4571,
+            "ATK": 2971,
+            "DEF": 2383
+        },
+        "26": {
+            "HP": 4643,
+            "ATK": 3018,
+            "DEF": 2421
+        },
+        "27": {
+            "HP": 4712,
+            "ATK": 3063,
+            "DEF": 2456
+        },
+        "28": {
+            "HP": 4780,
+            "ATK": 3107,
+            "DEF": 2492
+        },
+        "29": {
+            "HP": 4849,
+            "ATK": 3152,
+            "DEF": 2528
+        },
+        "30": {
+            "HP": 4917,
+            "ATK": 3196,
+            "DEF": 2563
+        },
+        "31": {
+            "HP": 4986,
+            "ATK": 3241,
+            "DEF": 2599
+        },
+        "32": {
+            "HP": 5054,
+            "ATK": 3285,
+            "DEF": 2635
+        },
+        "33": {
+            "HP": 5123,
+            "ATK": 3330,
+            "DEF": 2671
+        },
+        "34": {
+            "HP": 5191,
+            "ATK": 3374,
+            "DEF": 2706
+        },
+        "35": {
+            "HP": 5260,
+            "ATK": 3419,
+            "DEF": 2742
+        },
+        "36": {
+            "HP": 5331,
+            "ATK": 3466,
+            "DEF": 2779
+        },
+        "37": {
+            "HP": 5400,
+            "ATK": 3510,
+            "DEF": 2815
+        },
+        "38": {
+            "HP": 5468,
+            "ATK": 3555,
+            "DEF": 2851
+        },
+        "39": {
+            "HP": 5537,
+            "ATK": 3599,
+            "DEF": 2887
+        },
+        "40": {
+            "HP": 5605,
+            "ATK": 3644,
+            "DEF": 2922
+        },
+        "41": {
+            "HP": 5674,
+            "ATK": 3688,
+            "DEF": 2958
+        },
+        "42": {
+            "HP": 5742,
+            "ATK": 3733,
+            "DEF": 2994
+        },
+        "43": {
+            "HP": 5811,
+            "ATK": 3777,
+            "DEF": 3029
+        },
+        "44": {
+            "HP": 5879,
+            "ATK": 3822,
+            "DEF": 3065
+        },
+        "45": {
+            "HP": 5948,
+            "ATK": 3866,
+            "DEF": 3101
+        },
+        "46": {
+            "HP": 6020,
+            "ATK": 3913,
+            "DEF": 3138
+        },
+        "47": {
+            "HP": 6088,
+            "ATK": 3958,
+            "DEF": 3174
+        },
+        "48": {
+            "HP": 6157,
+            "ATK": 4002,
+            "DEF": 3210
+        },
+        "49": {
+            "HP": 6225,
+            "ATK": 4047,
+            "DEF": 3245
+        },
+        "50": {
+            "HP": 6294,
+            "ATK": 4091,
+            "DEF": 3281
+        },
+        "51": {
+            "HP": 6362,
+            "ATK": 4136,
+            "DEF": 3317
+        },
+        "52": {
+            "HP": 6431,
+            "ATK": 4180,
+            "DEF": 3353
+        },
+        "53": {
+            "HP": 6499,
+            "ATK": 4225,
+            "DEF": 3388
+        },
+        "54": {
+            "HP": 6568,
+            "ATK": 4269,
+            "DEF": 3424
+        },
+        "55": {
+            "HP": 6636,
+            "ATK": 4314,
+            "DEF": 3460
+        },
+        "56": {
+            "HP": 6708,
+            "ATK": 4361,
+            "DEF": 3497
+        },
+        "57": {
+            "HP": 6777,
+            "ATK": 4405,
+            "DEF": 3533
+        },
+        "58": {
+            "HP": 6845,
+            "ATK": 4450,
+            "DEF": 3569
+        },
+        "59": {
+            "HP": 6914,
+            "ATK": 4494,
+            "DEF": 3604
+        },
+        "60": {
+            "HP": 6982,
+            "ATK": 4539,
+            "DEF": 3640
+        },
+        "61": {
+            "HP": 7051,
+            "ATK": 4583,
+            "DEF": 3676
+        },
+        "62": {
+            "HP": 7119,
+            "ATK": 4628,
+            "DEF": 3711
+        },
+        "63": {
+            "HP": 7188,
+            "ATK": 4672,
+            "DEF": 3747
+        },
+        "64": {
+            "HP": 7256,
+            "ATK": 4717,
+            "DEF": 3783
+        },
+        "65": {
+            "HP": 7325,
+            "ATK": 4761,
+            "DEF": 3819
+        },
+        "66": {
+            "HP": 7396,
+            "ATK": 4808,
+            "DEF": 3856
+        },
+        "67": {
+            "HP": 7465,
+            "ATK": 4853,
+            "DEF": 3892
+        },
+        "68": {
+            "HP": 7533,
+            "ATK": 4897,
+            "DEF": 3927
+        },
+        "69": {
+            "HP": 7602,
+            "ATK": 4942,
+            "DEF": 3963
+        },
+        "70": {
+            "HP": 7670,
+            "ATK": 4986,
+            "DEF": 3999
+        },
+        "71": {
+            "HP": 7739,
+            "ATK": 5031,
+            "DEF": 4035
+        },
+        "72": {
+            "HP": 7807,
+            "ATK": 5075,
+            "DEF": 4070
+        },
+        "73": {
+            "HP": 7876,
+            "ATK": 5120,
+            "DEF": 4106
+        },
+        "74": {
+            "HP": 7944,
+            "ATK": 5164,
+            "DEF": 4142
+        },
+        "75": {
+            "HP": 8013,
+            "ATK": 5209,
+            "DEF": 4177
+        },
+        "76": {
+            "HP": 8085,
+            "ATK": 5256,
+            "DEF": 4215
+        },
+        "77": {
+            "HP": 8153,
+            "ATK": 5300,
+            "DEF": 4251
+        },
+        "78": {
+            "HP": 8222,
+            "ATK": 5345,
+            "DEF": 4286
+        },
+        "79": {
+            "HP": 8290,
+            "ATK": 5389,
+            "DEF": 4322
+        },
+        "80": {
+            "HP": 8359,
+            "ATK": 5434,
+            "DEF": 4358
+        },
+        "81": {
+            "HP": 8427,
+            "ATK": 5478,
+            "DEF": 4393
+        },
+        "82": {
+            "HP": 8496,
+            "ATK": 5523,
+            "DEF": 4429
+        },
+        "83": {
+            "HP": 8564,
+            "ATK": 5567,
+            "DEF": 4465
+        },
+        "84": {
+            "HP": 8633,
+            "ATK": 5612,
+            "DEF": 4501
+        },
+        "85": {
+            "HP": 8701,
+            "ATK": 5656,
+            "DEF": 4536
+        },
+        "86": {
+            "HP": 8773,
+            "ATK": 5703,
+            "DEF": 4574
+        },
+        "87": {
+            "HP": 8842,
+            "ATK": 5747,
+            "DEF": 4610
+        },
+        "88": {
+            "HP": 8910,
+            "ATK": 5792,
+            "DEF": 4645
+        },
+        "89": {
+            "HP": 8979,
+            "ATK": 5837,
+            "DEF": 4681
+        },
+        "90": {
+            "HP": 9047,
+            "ATK": 5881,
+            "DEF": 4717
+        },
+        "91": {
+            "HP": 9116,
+            "ATK": 5926,
+            "DEF": 4752
+        },
+        "92": {
+            "HP": 9184,
+            "ATK": 5970,
+            "DEF": 4788
+        },
+        "93": {
+            "HP": 9253,
+            "ATK": 6015,
+            "DEF": 4824
+        },
+        "94": {
+            "HP": 9321,
+            "ATK": 6059,
+            "DEF": 4859
+        },
+        "95": {
+            "HP": 9390,
+            "ATK": 6104,
+            "DEF": 4895
+        },
+        "96": {
+            "HP": 9462,
+            "ATK": 6150,
+            "DEF": 4933
+        },
+        "97": {
+            "HP": 9530,
+            "ATK": 6195,
+            "DEF": 4968
+        },
+        "98": {
+            "HP": 9599,
+            "ATK": 6239,
+            "DEF": 5004
+        },
+        "99": {
+            "HP": 9667,
+            "ATK": 6284,
+            "DEF": 5040
+        },
+        "100": {
+            "HP": 9736,
+            "ATK": 6329,
+            "DEF": 5076
+        }
+    },
+    "Leader Skill": {
+        "Name": "True Nature of the Beautiful Demon",
+        "10271800": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Peppy Gals"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10271801": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Peppy Gals"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 120,
+            "HP": 120,
+            "Ki": 0
+        },
+        "10271802": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10271803": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 120,
+            "HP": 120,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "4798": {
+            "superID": "4798",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Demon Scythe",
+            "superDescription": "Greatly raises DEF for 4 turns, \ncauses supreme damage to enemy \nand lowers ATK",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4798": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "4",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                },
+                "1004798": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2581"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4798",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

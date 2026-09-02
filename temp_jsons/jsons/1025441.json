@@ -1,0 +1,699 @@
+{
+    "ID": "1025441",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Janemba (Modified)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Crossover",
+        "Dragon Ball Heroes",
+        "Corroded Body and Mind",
+        "Accelerated Battle"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Brutal Beatdown",
+        "Metamorphosis",
+        "Big Bad Bosses",
+        "Shocking Speed",
+        "Nightmare",
+        "Fear and Faith"
+    ],
+    "Resource ID": 1025440,
+    "Passive": {
+        "3070": {
+            "ID": 3070,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1958 )",
+                "Causalities": {
+                    "1958": {
+                        "Button": {
+                            "Name": "Is it within the first 5 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=5",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "For 5 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1958\", \"compiled\": 1958}",
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Guards all attacks ",
+            "Line description": "High chance of Guards all attacks ",
+            "Paragraph Title": "For 5 turns from the chraracter's entry turn"
+        },
+        "1003070": {
+            "ID": 1003070,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1933 && 1958 )",
+                "Causalities": {
+                    "1933": {
+                        "Button": {
+                            "Name": "Is there 2 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 2 or more enemies"
+                    },
+                    "1958": {
+                        "Button": {
+                            "Name": "Is it within the first 5 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=5",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "For 5 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1933&1958\", \"compiled\": [\"&\", 1933, 1958]}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks when there are 2 or more enemies ",
+            "Paragraph Title": "For 5 turns from the chraracter's entry turn"
+        },
+        "2003070": {
+            "ID": 2003070,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1927 )",
+                "Causalities": {
+                    "1927": {
+                        "Button": {
+                            "Name": "Are there 1 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1927\", \"compiled\": 1927}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Crossover Category allies "
+        },
+        "3003070": {
+            "ID": 3003070,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1928 )",
+                "Causalities": {
+                    "1928": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1928\", \"compiled\": 1928}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "4003070": {
+            "ID": 4003070,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1929 )",
+                "Causalities": {
+                    "1929": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1929\", \"compiled\": 1929}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies "
+        },
+        "5003070": {
+            "ID": 5003070,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1930 )",
+                "Causalities": {
+                    "1930": {
+                        "Button": {
+                            "Name": "Are there 4 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1930\", \"compiled\": 1930}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Crossover Category allies "
+        },
+        "6003070": {
+            "ID": 6003070,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1931 )",
+                "Causalities": {
+                    "1931": {
+                        "Button": {
+                            "Name": "Are there 5 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1931\", \"compiled\": 1931}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Crossover Category allies "
+        },
+        "7003070": {
+            "ID": 7003070,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Super being performed"
+                },
+                "Slider": "How many super attacks has this character performed?"
+            },
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"1934\", \"compiled\": 1934}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many super attacks has this character performed' after attacking",
+            "Line description": "{passiveImg:forever}ATK 50%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many super attacks has this character performed' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8003070": {
+            "ID": 8003070,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 90,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 30%{passiveImg:up_g} ({currentValue} / 90%) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}DEF 30%{passiveImg:up_g} ({currentValue} / 90%) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "9003070": {
+            "ID": 9003070,
+            "Timing": "Start of turn",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1935 || 1936 )",
+                "Causalities": {
+                    "1935": {
+                        "Slider": {
+                            "Name": "How many attacks has this character performed in battle?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has performed 5 or more attacks"
+                    },
+                    "1936": {
+                        "Button": {
+                            "Name": "Has this character recieved their 5th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "After recieving 5 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1935|1936\", \"compiled\": [\"|\", 1935, 1936]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Paragraph Title": "When the character has performed 5 or more attacks or after recieving 5 attacks "
+        }
+    },
+    "Itemized Passive Description": "*For 5 turn(s) from the character's entry turn*\n- High chance of guarding all attacks\n- Guards all attacks when facing 2 or more enemies\n*Per \"Crossover\" Category ally on the team*\n- ATK & DEF 30%{passiveImg:up_g} (up to 150%)\n*For every Super Attack performed*\n- {passiveImg:forever}ATK 50%{passiveImg:up_g} (up to 150%)\n*For every attack received*\n- {passiveImg:forever}DEF 30%{passiveImg:up_g} (up to 90%)\n*After performing 5 attack(s) or receiving 5 attack(s) in\nbattle*\n- {passiveImg:forever}High chance of performing a critical hit starting from\nthe character's next attacking turn",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 7646,
+            "ATK": 6761,
+            "DEF": 3749
+        },
+        "81": {
+            "HP": 7650,
+            "ATK": 6768,
+            "DEF": 3751
+        },
+        "82": {
+            "HP": 7654,
+            "ATK": 6775,
+            "DEF": 3753
+        },
+        "83": {
+            "HP": 7658,
+            "ATK": 6781,
+            "DEF": 3755
+        },
+        "84": {
+            "HP": 7661,
+            "ATK": 6788,
+            "DEF": 3756
+        },
+        "85": {
+            "HP": 7665,
+            "ATK": 6795,
+            "DEF": 3758
+        },
+        "86": {
+            "HP": 7669,
+            "ATK": 6802,
+            "DEF": 3760
+        },
+        "87": {
+            "HP": 7673,
+            "ATK": 6809,
+            "DEF": 3762
+        },
+        "88": {
+            "HP": 7677,
+            "ATK": 6816,
+            "DEF": 3763
+        },
+        "89": {
+            "HP": 7681,
+            "ATK": 6823,
+            "DEF": 3765
+        },
+        "90": {
+            "HP": 7685,
+            "ATK": 6830,
+            "DEF": 3767
+        },
+        "91": {
+            "HP": 7689,
+            "ATK": 6837,
+            "DEF": 3769
+        },
+        "92": {
+            "HP": 7692,
+            "ATK": 6844,
+            "DEF": 3770
+        },
+        "93": {
+            "HP": 7696,
+            "ATK": 6851,
+            "DEF": 3772
+        },
+        "94": {
+            "HP": 7700,
+            "ATK": 6858,
+            "DEF": 3774
+        },
+        "95": {
+            "HP": 7704,
+            "ATK": 6865,
+            "DEF": 3776
+        },
+        "96": {
+            "HP": 7708,
+            "ATK": 6872,
+            "DEF": 3778
+        },
+        "97": {
+            "HP": 7712,
+            "ATK": 6879,
+            "DEF": 3779
+        },
+        "98": {
+            "HP": 7716,
+            "ATK": 6886,
+            "DEF": 3781
+        },
+        "99": {
+            "HP": 7720,
+            "ATK": 6893,
+            "DEF": 3783
+        },
+        "100": {
+            "HP": 7724,
+            "ATK": 6900,
+            "DEF": 3785
+        }
+    },
+    "Leader Skill": {
+        "Name": "Modified Evil",
+        "12374": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Crossover"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "12375": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Crossover"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 120,
+            "HP": 120,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4190": {
+            "superID": "4190",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Rakshasa's Radiant Bullet",
+            "superDescription": "Causes supreme damage to enemy and \nraises ATK & DEF by 30% for 3 turns",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4190": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 400,
+            "relevantLua": [
+                "sp2454"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4190",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

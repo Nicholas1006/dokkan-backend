@@ -1,0 +1,630 @@
+{
+    "ID": "1014491",
+    "Type": "STR",
+    "Class": "Super",
+    "Name": "Goku (GT)",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Full Power",
+        "Pure Saiyans",
+        "Goku's Family",
+        "Final Trump Card",
+        "Battle of Wits",
+        "Turtle School",
+        "GT Heroes",
+        "Bond of Friendship",
+        "Accelerated Battle",
+        "Battle of Fate",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Earth-Protecting Heroes"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "All in the Family",
+        "The Saiyan Lineage",
+        "Saiyan Warrior Race",
+        "Experienced Fighters",
+        "Prepared for Battle",
+        "GT",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1014490,
+    "Passive": {
+        "3563": {
+            "ID": 3563,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003563": {
+            "ID": 1003563,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 180,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2610 )",
+                "Causalities": {
+                    "2610": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2610\", \"compiled\": 2610}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 180% and DEF 80%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 180% and DEF 80%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2003563": {
+            "ID": 2003563,
+            "Timing": "Start of turn",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3003563": {
+            "ID": 3003563,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 3,
+            "CausalityLogic": "{\"source\": \"3000000000000\", \"compiled\": 3000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 3000000000000 )",
+                "Causalities": {
+                    "3000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 3 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 3 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Guards all attacks ",
+            "Line description": " {passiveImg:once}Guards all attacks for 3 turn ",
+            "Paragraph Title": "For 3 turn(s) from the character's entry turn"
+        },
+        "4003563": {
+            "ID": 4003563,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2611 )",
+                "Causalities": {
+                    "2611": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2611\", \"compiled\": 2611}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "5003563": {
+            "ID": 5003563,
+            "Guaranteed Hit": true,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2611 )",
+                "Causalities": {
+                    "2611": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2611\", \"compiled\": 2611}",
+            "Type": "Single activator",
+            "Brief effect description": "Attacks guaranteed to hit ",
+            "Line description": "Attacks guaranteed to hit ",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "6003563": {
+            "ID": 6003563,
+            "Timing": "Start of turn",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2611 && 2612 )",
+                "Causalities": {
+                    "2611": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "2612": {
+                        "Button": {
+                            "Name": "Are there 1 or more GT Bosses category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many GT Bosses category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more GT Bosses Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2611&2612\", \"compiled\": [\"&\", 2611, 2612]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} when there are 1 or more GT Bosses Category enemies ",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "7003563": {
+            "ID": 7003563,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2611 && 2612 )",
+                "Causalities": {
+                    "2611": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "2612": {
+                        "Button": {
+                            "Name": "Are there 1 or more GT Bosses category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many GT Bosses category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more GT Bosses Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2611&2612\", \"compiled\": [\"&\", 2611, 2612]}",
+            "Type": "Single activator",
+            "Brief effect description": "High chance of ATK 100%{passiveImg:up_g} ",
+            "Line description": "High chance of ATK 100%{passiveImg:up_g} when there are 1 or more GT Bosses Category enemies ",
+            "Paragraph Title": "When there are less than 2 enemies"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 100%{passiveImg:up_g}\n- High chance of performing a critical hit\n*For 3 turn(s) from the character's entry turn*\n- Guards all attacks\n*When attacking with 12 or more Ki*\n- ATK 180%{passiveImg:up_g}\n- DEF 80%{passiveImg:up_g}\n*When facing only 1 enemy*\n- Ki +3\n- Attacks guaranteed to hit\n- Chance of performing a critical hit 50%{passiveImg:up_g} and high chance of\nATK 100%{passiveImg:up_g} when the enemy is a \"GT Bosses\" Category\ncharacter",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 8811,
+            "ATK": 8281,
+            "DEF": 4516
+        },
+        "121": {
+            "HP": 8959,
+            "ATK": 8420,
+            "DEF": 4592
+        },
+        "122": {
+            "HP": 9107,
+            "ATK": 8559,
+            "DEF": 4668
+        },
+        "123": {
+            "HP": 9255,
+            "ATK": 8699,
+            "DEF": 4744
+        },
+        "124": {
+            "HP": 9404,
+            "ATK": 8838,
+            "DEF": 4820
+        },
+        "125": {
+            "HP": 9552,
+            "ATK": 8978,
+            "DEF": 4896
+        },
+        "126": {
+            "HP": 9700,
+            "ATK": 9117,
+            "DEF": 4972
+        },
+        "127": {
+            "HP": 9849,
+            "ATK": 9257,
+            "DEF": 5048
+        },
+        "128": {
+            "HP": 9997,
+            "ATK": 9396,
+            "DEF": 5124
+        },
+        "129": {
+            "HP": 10145,
+            "ATK": 9536,
+            "DEF": 5200
+        },
+        "130": {
+            "HP": 10294,
+            "ATK": 9675,
+            "DEF": 5276
+        },
+        "131": {
+            "HP": 10442,
+            "ATK": 9815,
+            "DEF": 5352
+        },
+        "132": {
+            "HP": 10590,
+            "ATK": 9954,
+            "DEF": 5428
+        },
+        "133": {
+            "HP": 10739,
+            "ATK": 10094,
+            "DEF": 5504
+        },
+        "134": {
+            "HP": 10887,
+            "ATK": 10233,
+            "DEF": 5580
+        },
+        "135": {
+            "HP": 11035,
+            "ATK": 10373,
+            "DEF": 5656
+        },
+        "136": {
+            "HP": 11183,
+            "ATK": 10512,
+            "DEF": 5732
+        },
+        "137": {
+            "HP": 11332,
+            "ATK": 10652,
+            "DEF": 5808
+        },
+        "138": {
+            "HP": 11480,
+            "ATK": 10791,
+            "DEF": 5884
+        },
+        "139": {
+            "HP": 11628,
+            "ATK": 10931,
+            "DEF": 5960
+        },
+        "140": {
+            "HP": 11777,
+            "ATK": 11070,
+            "DEF": 6036
+        }
+    },
+    "Leader Skill": {
+        "Name": "Victory Clincher",
+        "101449100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "STR"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101449101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "STR"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 110,
+            "DEF": 110,
+            "HP": 110,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4828": {
+            "superID": "4828",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Dragon Fist (Extreme)",
+            "superDescription": "Raises ATK & DEF for 1 turn, \ncauses immense damage to enemy \nand greatly lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4828": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                },
+                "1004828": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp1184"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4828",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

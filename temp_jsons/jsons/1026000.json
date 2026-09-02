@@ -1,0 +1,1187 @@
+{
+    "ID": "1026000",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Super Saiyan Goten (Kid)",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Hybrid Saiyans",
+        "Dragon Ball Seekers",
+        "Movie Heroes",
+        "Goku's Family",
+        "Youth",
+        "Siblings' Bond",
+        "Super Saiyans",
+        "Kamehameha",
+        "Gifted Warriors",
+        "Bond of Friendship",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Majin Buu Saga",
+        "Earth-Protecting Heroes",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "The Innocents",
+        "Golden Warrior",
+        "Super Saiyan",
+        "Kamehameha",
+        "Budding Warrior",
+        "Blazing Battle",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1026000,
+    "Passive": {
+        "3086": {
+            "ID": 3086,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003086": {
+            "ID": 1003086,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003086": {
+            "ID": 2003086,
+            "Timing": "Right before attack(MOT stat)",
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1984 )",
+                "Causalities": {
+                    "1984": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1984\", \"compiled\": 1984}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 70%{passiveImg:up_g} when attacking",
+            "Line description": "DEF 70%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3003086": {
+            "ID": 3003086,
+            "Dodge Chance": 30,
+            "Timing": "After all ki collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 198900000 ",
+                "Causalities": {
+                    "198900000": {
+                        "Button": {
+                            "Name": "Is this the 2nd or 3rd attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 2nd or 3rd attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"198900000\", \"compiled\": 198900000}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% after all ki collected",
+            "Line description": "Chance of evading enemy attacks +30% after all ki collected",
+            "Paragraph Title": "When as the 2nd or 3rd attacker in a turn"
+        },
+        "4003086": {
+            "ID": 4003086,
+            "Timing": "Start of turn",
+            "ATK": 70,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1990 )",
+                "Causalities": {
+                    "1990": {
+                        "Button": {
+                            "Name": "Are there 1 or more Vegeta's Family category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Vegeta's Family category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Vegeta's Family Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1990\", \"compiled\": 1990}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Vegeta's Family Category allies "
+        },
+        "5003086": {
+            "ID": 5003086,
+            "Timing": "Start of turn",
+            "ATK": 70,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991\", \"compiled\": 1991}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "6003086": {
+            "ID": 6003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1992 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1992": {
+                        "Button": {
+                            "Name": "Has 1 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1992\", \"compiled\": [\"&\", 1991, 1992]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 1 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "7003086": {
+            "ID": 7003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1993 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1993": {
+                        "Button": {
+                            "Name": "Has 2 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "With 2 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1993\", \"compiled\": [\"&\", 1991, 1993]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 2 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "8003086": {
+            "ID": 8003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1994 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1994": {
+                        "Button": {
+                            "Name": "Has 3 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "With 3 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1994\", \"compiled\": [\"&\", 1991, 1994]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 3 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "9003086": {
+            "ID": 9003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1995 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1995": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1995\", \"compiled\": [\"&\", 1991, 1995]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 4 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "10003086": {
+            "ID": 10003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1996 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1996": {
+                        "Button": {
+                            "Name": "Has 5 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1996\", \"compiled\": [\"&\", 1991, 1996]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 5 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "11003086": {
+            "ID": 11003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1997 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1997": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1997\", \"compiled\": [\"&\", 1991, 1997]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 6 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        },
+        "12003086": {
+            "ID": 12003086,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1991 && 1998 )",
+                "Causalities": {
+                    "1991": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Trunks (Kid)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+                    },
+                    "1998": {
+                        "Button": {
+                            "Name": "Has 7 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "With 7 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1991&1998\", \"compiled\": [\"&\", 1991, 1998]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres with 7 or more Ki Spheres obtained ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Trunks (Kid)\" attacking in the same turn "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2\n- ATK & DEF 120%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- DEF 70%{passiveImg:up_g}\n*As the 2nd or 3rd attacker in a turn*\n- Medium chance of evading enemy's attack\n*When there is a \"Vegeta's Family\" Category ally on the team*\n- ATK & DEF 70%{passiveImg:up_g}\n*When there is an ally whose name includes \"Trunks (Kid)\"\nattacking in the same turn*\n- ATK & DEF 70%{passiveImg:up_g}\n- ATK 20%{passiveImg:up_g} per Ki Sphere obtained (up to 140%)",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 2328,
+            "ATK": 2171,
+            "DEF": 1239
+        },
+        "2": {
+            "HP": 2382,
+            "ATK": 2221,
+            "DEF": 1268
+        },
+        "3": {
+            "HP": 2437,
+            "ATK": 2272,
+            "DEF": 1297
+        },
+        "4": {
+            "HP": 2491,
+            "ATK": 2323,
+            "DEF": 1326
+        },
+        "5": {
+            "HP": 2546,
+            "ATK": 2374,
+            "DEF": 1355
+        },
+        "6": {
+            "HP": 2603,
+            "ATK": 2428,
+            "DEF": 1385
+        },
+        "7": {
+            "HP": 2658,
+            "ATK": 2479,
+            "DEF": 1414
+        },
+        "8": {
+            "HP": 2712,
+            "ATK": 2530,
+            "DEF": 1443
+        },
+        "9": {
+            "HP": 2767,
+            "ATK": 2580,
+            "DEF": 1472
+        },
+        "10": {
+            "HP": 2821,
+            "ATK": 2631,
+            "DEF": 1501
+        },
+        "11": {
+            "HP": 2876,
+            "ATK": 2682,
+            "DEF": 1530
+        },
+        "12": {
+            "HP": 2931,
+            "ATK": 2733,
+            "DEF": 1559
+        },
+        "13": {
+            "HP": 2985,
+            "ATK": 2784,
+            "DEF": 1588
+        },
+        "14": {
+            "HP": 3040,
+            "ATK": 2835,
+            "DEF": 1618
+        },
+        "15": {
+            "HP": 3094,
+            "ATK": 2886,
+            "DEF": 1647
+        },
+        "16": {
+            "HP": 3152,
+            "ATK": 2939,
+            "DEF": 1677
+        },
+        "17": {
+            "HP": 3206,
+            "ATK": 2990,
+            "DEF": 1706
+        },
+        "18": {
+            "HP": 3261,
+            "ATK": 3041,
+            "DEF": 1735
+        },
+        "19": {
+            "HP": 3315,
+            "ATK": 3092,
+            "DEF": 1764
+        },
+        "20": {
+            "HP": 3370,
+            "ATK": 3143,
+            "DEF": 1793
+        },
+        "21": {
+            "HP": 3425,
+            "ATK": 3194,
+            "DEF": 1822
+        },
+        "22": {
+            "HP": 3479,
+            "ATK": 3245,
+            "DEF": 1851
+        },
+        "23": {
+            "HP": 3534,
+            "ATK": 3296,
+            "DEF": 1880
+        },
+        "24": {
+            "HP": 3588,
+            "ATK": 3347,
+            "DEF": 1909
+        },
+        "25": {
+            "HP": 3643,
+            "ATK": 3398,
+            "DEF": 1938
+        },
+        "26": {
+            "HP": 3700,
+            "ATK": 3451,
+            "DEF": 1969
+        },
+        "27": {
+            "HP": 3755,
+            "ATK": 3502,
+            "DEF": 1998
+        },
+        "28": {
+            "HP": 3809,
+            "ATK": 3553,
+            "DEF": 2027
+        },
+        "29": {
+            "HP": 3864,
+            "ATK": 3604,
+            "DEF": 2056
+        },
+        "30": {
+            "HP": 3919,
+            "ATK": 3655,
+            "DEF": 2085
+        },
+        "31": {
+            "HP": 3973,
+            "ATK": 3706,
+            "DEF": 2114
+        },
+        "32": {
+            "HP": 4028,
+            "ATK": 3757,
+            "DEF": 2143
+        },
+        "33": {
+            "HP": 4082,
+            "ATK": 3808,
+            "DEF": 2172
+        },
+        "34": {
+            "HP": 4137,
+            "ATK": 3859,
+            "DEF": 2201
+        },
+        "35": {
+            "HP": 4192,
+            "ATK": 3910,
+            "DEF": 2230
+        },
+        "36": {
+            "HP": 4249,
+            "ATK": 3963,
+            "DEF": 2261
+        },
+        "37": {
+            "HP": 4303,
+            "ATK": 4014,
+            "DEF": 2290
+        },
+        "38": {
+            "HP": 4358,
+            "ATK": 4065,
+            "DEF": 2319
+        },
+        "39": {
+            "HP": 4413,
+            "ATK": 4116,
+            "DEF": 2348
+        },
+        "40": {
+            "HP": 4467,
+            "ATK": 4167,
+            "DEF": 2377
+        },
+        "41": {
+            "HP": 4522,
+            "ATK": 4218,
+            "DEF": 2406
+        },
+        "42": {
+            "HP": 4576,
+            "ATK": 4269,
+            "DEF": 2435
+        },
+        "43": {
+            "HP": 4631,
+            "ATK": 4320,
+            "DEF": 2464
+        },
+        "44": {
+            "HP": 4685,
+            "ATK": 4370,
+            "DEF": 2493
+        },
+        "45": {
+            "HP": 4740,
+            "ATK": 4421,
+            "DEF": 2522
+        },
+        "46": {
+            "HP": 4797,
+            "ATK": 4475,
+            "DEF": 2553
+        },
+        "47": {
+            "HP": 4852,
+            "ATK": 4526,
+            "DEF": 2582
+        },
+        "48": {
+            "HP": 4907,
+            "ATK": 4577,
+            "DEF": 2611
+        },
+        "49": {
+            "HP": 4961,
+            "ATK": 4628,
+            "DEF": 2640
+        },
+        "50": {
+            "HP": 5016,
+            "ATK": 4679,
+            "DEF": 2669
+        },
+        "51": {
+            "HP": 5070,
+            "ATK": 4729,
+            "DEF": 2698
+        },
+        "52": {
+            "HP": 5125,
+            "ATK": 4780,
+            "DEF": 2727
+        },
+        "53": {
+            "HP": 5179,
+            "ATK": 4831,
+            "DEF": 2756
+        },
+        "54": {
+            "HP": 5234,
+            "ATK": 4882,
+            "DEF": 2785
+        },
+        "55": {
+            "HP": 5289,
+            "ATK": 4933,
+            "DEF": 2814
+        },
+        "56": {
+            "HP": 5346,
+            "ATK": 4987,
+            "DEF": 2845
+        },
+        "57": {
+            "HP": 5401,
+            "ATK": 5038,
+            "DEF": 2874
+        },
+        "58": {
+            "HP": 5455,
+            "ATK": 5088,
+            "DEF": 2903
+        },
+        "59": {
+            "HP": 5510,
+            "ATK": 5139,
+            "DEF": 2932
+        },
+        "60": {
+            "HP": 5564,
+            "ATK": 5190,
+            "DEF": 2961
+        },
+        "61": {
+            "HP": 5619,
+            "ATK": 5241,
+            "DEF": 2990
+        },
+        "62": {
+            "HP": 5673,
+            "ATK": 5292,
+            "DEF": 3019
+        },
+        "63": {
+            "HP": 5728,
+            "ATK": 5343,
+            "DEF": 3048
+        },
+        "64": {
+            "HP": 5783,
+            "ATK": 5394,
+            "DEF": 3077
+        },
+        "65": {
+            "HP": 5837,
+            "ATK": 5445,
+            "DEF": 3106
+        },
+        "66": {
+            "HP": 5894,
+            "ATK": 5498,
+            "DEF": 3137
+        },
+        "67": {
+            "HP": 5949,
+            "ATK": 5549,
+            "DEF": 3166
+        },
+        "68": {
+            "HP": 6004,
+            "ATK": 5600,
+            "DEF": 3195
+        },
+        "69": {
+            "HP": 6058,
+            "ATK": 5651,
+            "DEF": 3224
+        },
+        "70": {
+            "HP": 6113,
+            "ATK": 5702,
+            "DEF": 3253
+        },
+        "71": {
+            "HP": 6167,
+            "ATK": 5753,
+            "DEF": 3282
+        },
+        "72": {
+            "HP": 6222,
+            "ATK": 5804,
+            "DEF": 3311
+        },
+        "73": {
+            "HP": 6277,
+            "ATK": 5855,
+            "DEF": 3340
+        },
+        "74": {
+            "HP": 6331,
+            "ATK": 5906,
+            "DEF": 3369
+        },
+        "75": {
+            "HP": 6386,
+            "ATK": 5957,
+            "DEF": 3398
+        },
+        "76": {
+            "HP": 6443,
+            "ATK": 6010,
+            "DEF": 3429
+        },
+        "77": {
+            "HP": 6498,
+            "ATK": 6061,
+            "DEF": 3458
+        },
+        "78": {
+            "HP": 6552,
+            "ATK": 6112,
+            "DEF": 3487
+        },
+        "79": {
+            "HP": 6607,
+            "ATK": 6163,
+            "DEF": 3516
+        },
+        "80": {
+            "HP": 6661,
+            "ATK": 6214,
+            "DEF": 3545
+        },
+        "81": {
+            "HP": 6716,
+            "ATK": 6265,
+            "DEF": 3574
+        },
+        "82": {
+            "HP": 6771,
+            "ATK": 6316,
+            "DEF": 3603
+        },
+        "83": {
+            "HP": 6825,
+            "ATK": 6367,
+            "DEF": 3632
+        },
+        "84": {
+            "HP": 6880,
+            "ATK": 6418,
+            "DEF": 3661
+        },
+        "85": {
+            "HP": 6934,
+            "ATK": 6469,
+            "DEF": 3690
+        },
+        "86": {
+            "HP": 6992,
+            "ATK": 6522,
+            "DEF": 3720
+        },
+        "87": {
+            "HP": 7046,
+            "ATK": 6573,
+            "DEF": 3749
+        },
+        "88": {
+            "HP": 7101,
+            "ATK": 6624,
+            "DEF": 3779
+        },
+        "89": {
+            "HP": 7155,
+            "ATK": 6675,
+            "DEF": 3808
+        },
+        "90": {
+            "HP": 7210,
+            "ATK": 6726,
+            "DEF": 3837
+        },
+        "91": {
+            "HP": 7265,
+            "ATK": 6777,
+            "DEF": 3866
+        },
+        "92": {
+            "HP": 7319,
+            "ATK": 6828,
+            "DEF": 3895
+        },
+        "93": {
+            "HP": 7374,
+            "ATK": 6878,
+            "DEF": 3924
+        },
+        "94": {
+            "HP": 7428,
+            "ATK": 6929,
+            "DEF": 3953
+        },
+        "95": {
+            "HP": 7483,
+            "ATK": 6980,
+            "DEF": 3982
+        },
+        "96": {
+            "HP": 7540,
+            "ATK": 7034,
+            "DEF": 4012
+        },
+        "97": {
+            "HP": 7595,
+            "ATK": 7085,
+            "DEF": 4041
+        },
+        "98": {
+            "HP": 7649,
+            "ATK": 7136,
+            "DEF": 4070
+        },
+        "99": {
+            "HP": 7704,
+            "ATK": 7187,
+            "DEF": 4099
+        },
+        "100": {
+            "HP": 7759,
+            "ATK": 7238,
+            "DEF": 4129
+        }
+    },
+    "Leader Skill": {
+        "Name": "Pint-Sized Saiyan Goes Wild",
+        "12417": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "Enemies"
+            },
+            "ATK": 40,
+            "DEF": 40,
+            "HP": 0,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "4266": {
+            "superID": "4266",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Kamehameha",
+            "superDescription": "Raises ATK, raises DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4266": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1004266": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 400,
+            "relevantLua": [
+                "sp2489"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4266",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

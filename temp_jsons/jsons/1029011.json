@@ -1,0 +1,494 @@
+{
+    "ID": "1029011",
+    "Type": "STR",
+    "Class": "Super",
+    "Name": "Dyspo",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Accelerated Battle",
+        "Universe Survival Saga",
+        "Special Pose",
+        "Universe 11",
+        "Space-Traveling Warriors",
+        "Defenders of Justice",
+        "Tournament Participants"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Signature Pose",
+        "Hero of Justice",
+        "Speedy Retribution",
+        "Shocking Speed",
+        "Infighter",
+        "Tournament of Power"
+    ],
+    "Resource ID": 1029010,
+    "Passive": {
+        "4187": {
+            "ID": 4187,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004187": {
+            "ID": 1004187,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2004187": {
+            "ID": 2004187,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004187": {
+            "ID": 3004187,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 678 || 3185 )",
+                "Causalities": {
+                    "678": {
+                        "Button": {
+                            "Name": "Are there 2 or more Universe 11 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 11 category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Universe 11 Category allies attacking on this turn"
+                    },
+                    "3185": {
+                        "Button": {
+                            "Name": "Are there 3 or more Tournament Participants category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Tournament Participants category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Tournament Participants Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"678|3185\", \"compiled\": [\"|\", 678, 3185]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "When there are 2 or more Universe 11 Category allies attacking on this turn or there are 3 or more Tournament Participants Category allies attacking on this turn "
+        },
+        "4004187": {
+            "ID": 4004187,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 1000,
+                "Stat Per Proc": 11,
+                "Cause": {
+                    "Cause": "Super being performed"
+                },
+                "Slider": "How many super attacks has this character performed?"
+            },
+            "ATK": 11,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"141\", \"compiled\": 141}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 11%{passiveImg:up_g} ({currentValue} / 1000%) based on 'How many super attacks has this character performed' after attacking",
+            "Line description": "{passiveImg:forever}ATK 11%{passiveImg:up_g} ({currentValue} / 1000%) based on 'How many super attacks has this character performed' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 100%{passiveImg:up_g}\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n*When attacking with 12 or more Ki*\n- ATK & DEF 100%{passiveImg:up_g}\n*When there is another \"Universe 11\" Category ally attacking in\nthe same turn, or when there are 3 \"Tournament Participants\"\nCategory allies attacking in the same turn*\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n*For every Super Attack performed*\n- {passiveImg:forever}ATK 11%{passiveImg:up_g}",
+    "Max Attacks": 4,
+    "Max Super Attacks": 4,
+    "Stats at levels": {
+        "80": {
+            "HP": 7431,
+            "ATK": 7278,
+            "DEF": 3211
+        },
+        "81": {
+            "HP": 7435,
+            "ATK": 7286,
+            "DEF": 3212
+        },
+        "82": {
+            "HP": 7439,
+            "ATK": 7293,
+            "DEF": 3214
+        },
+        "83": {
+            "HP": 7442,
+            "ATK": 7300,
+            "DEF": 3215
+        },
+        "84": {
+            "HP": 7446,
+            "ATK": 7307,
+            "DEF": 3217
+        },
+        "85": {
+            "HP": 7450,
+            "ATK": 7314,
+            "DEF": 3218
+        },
+        "86": {
+            "HP": 7454,
+            "ATK": 7322,
+            "DEF": 3219
+        },
+        "87": {
+            "HP": 7457,
+            "ATK": 7329,
+            "DEF": 3221
+        },
+        "88": {
+            "HP": 7461,
+            "ATK": 7336,
+            "DEF": 3222
+        },
+        "89": {
+            "HP": 7465,
+            "ATK": 7343,
+            "DEF": 3224
+        },
+        "90": {
+            "HP": 7468,
+            "ATK": 7350,
+            "DEF": 3225
+        },
+        "91": {
+            "HP": 7472,
+            "ATK": 7358,
+            "DEF": 3227
+        },
+        "92": {
+            "HP": 7476,
+            "ATK": 7365,
+            "DEF": 3228
+        },
+        "93": {
+            "HP": 7479,
+            "ATK": 7372,
+            "DEF": 3229
+        },
+        "94": {
+            "HP": 7483,
+            "ATK": 7379,
+            "DEF": 3231
+        },
+        "95": {
+            "HP": 7487,
+            "ATK": 7386,
+            "DEF": 3232
+        },
+        "96": {
+            "HP": 7491,
+            "ATK": 7394,
+            "DEF": 3234
+        },
+        "97": {
+            "HP": 7494,
+            "ATK": 7401,
+            "DEF": 3235
+        },
+        "98": {
+            "HP": 7498,
+            "ATK": 7408,
+            "DEF": 3237
+        },
+        "99": {
+            "HP": 7502,
+            "ATK": 7415,
+            "DEF": 3238
+        },
+        "100": {
+            "HP": 7506,
+            "ATK": 7423,
+            "DEF": 3240
+        }
+    },
+    "Leader Skill": {
+        "Name": "Pride Trooper's Blitz Captain",
+        "10290100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10290101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5708": {
+            "superID": "5708",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Circle Flash",
+            "superDescription": "Causes supreme damage to enemy \nand raises ATK for 11 turns",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5708": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "11",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 380,
+            "relevantLua": [
+                "sp2727"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5708",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

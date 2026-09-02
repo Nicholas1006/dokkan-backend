@@ -1,0 +1,935 @@
+{
+    "ID": "1030650",
+    "Type": "INT",
+    "Class": "None",
+    "Name": "Super Saiyan Goku (Mini) (DAIMA)",
+    "Rarity": "ssr",
+    "Min Level": 1,
+    "Max Level": 80,
+    "Categories": [
+        "Transformation Boost",
+        "Dragon Ball Seekers",
+        "Pure Saiyans",
+        "Accelerated Battle",
+        "Time Travelers",
+        "Goku's Family",
+        "Super Saiyans",
+        "Turtle School",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Bond of Friendship",
+        "DAIMA",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Golden Warrior",
+        "Saiyan Warrior Race",
+        "Super Saiyan",
+        "Infighter",
+        "All in the Family",
+        "Prepared for Battle"
+    ],
+    "Resource ID": 1030650,
+    "Passive": {
+        "4460": {
+            "ID": 4460,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004460": {
+            "ID": 1004460,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004460": {
+            "ID": 2004460,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004460": {
+            "ID": 3004460,
+            "Dodge Chance": 30,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% ",
+            "Line description": "Chance of evading enemy attacks +30% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004460": {
+            "ID": 4004460,
+            "Timing": "After all ki collected",
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 735 )",
+                "Causalities": {
+                    "735": {
+                        "Button": {
+                            "Name": "Is this the 2nd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==2",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 2nd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"735\", \"compiled\": 735}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 100%{passiveImg:up_g} after all ki collected",
+            "Line description": "ATK 100%{passiveImg:up_g} after all ki collected",
+            "Paragraph Title": "When as the 2nd attacker in the turn"
+        },
+        "5004460": {
+            "ID": 5004460,
+            "Timing": "Right before being hit",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 100%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004460": {
+            "ID": 6004460,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 100,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Attacks recieved or evaded"
+                },
+                "Slider": "How many attacks has this unit recieved or evaded?"
+            },
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24|365\", \"compiled\": [\"|\", 24, 365]}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} ({currentValue} / 100%) based on 'How many attacks has this unit recieved or evaded' after being hit",
+            "Line description": "{passiveImg:forever}ATK 20%{passiveImg:up_g} ({currentValue} / 100%) based on 'How many attacks has this unit recieved or evaded' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 100%{passiveImg:up_g}\n- Damage reduction rate 20%{passiveImg:up_g}\n- Medium chance of evading enemy's attack\n*As the 2nd attacker in a turn*\n- ATK 100%{passiveImg:up_g}\n*When receiving an attack*\n- DEF 100%{passiveImg:up_g}\n*For every attack received or evaded*\n- {passiveImg:forever}ATK 20%{passiveImg:up_g} (up to 100%)",
+    "Max Attacks": 1,
+    "Max Super Attacks": 1,
+    "Stats at levels": {
+        "1": {
+            "HP": 2728,
+            "ATK": 2419,
+            "DEF": 1256
+        },
+        "2": {
+            "HP": 2809,
+            "ATK": 2491,
+            "DEF": 1293
+        },
+        "3": {
+            "HP": 2888,
+            "ATK": 2560,
+            "DEF": 1329
+        },
+        "4": {
+            "HP": 2969,
+            "ATK": 2633,
+            "DEF": 1367
+        },
+        "5": {
+            "HP": 3051,
+            "ATK": 2705,
+            "DEF": 1404
+        },
+        "6": {
+            "HP": 3129,
+            "ATK": 2775,
+            "DEF": 1441
+        },
+        "7": {
+            "HP": 3211,
+            "ATK": 2847,
+            "DEF": 1478
+        },
+        "8": {
+            "HP": 3293,
+            "ATK": 2920,
+            "DEF": 1516
+        },
+        "9": {
+            "HP": 3371,
+            "ATK": 2989,
+            "DEF": 1552
+        },
+        "10": {
+            "HP": 3453,
+            "ATK": 3062,
+            "DEF": 1590
+        },
+        "11": {
+            "HP": 3535,
+            "ATK": 3134,
+            "DEF": 1627
+        },
+        "12": {
+            "HP": 3613,
+            "ATK": 3204,
+            "DEF": 1663
+        },
+        "13": {
+            "HP": 3695,
+            "ATK": 3276,
+            "DEF": 1701
+        },
+        "14": {
+            "HP": 3776,
+            "ATK": 3349,
+            "DEF": 1739
+        },
+        "15": {
+            "HP": 3855,
+            "ATK": 3418,
+            "DEF": 1775
+        },
+        "16": {
+            "HP": 3937,
+            "ATK": 3491,
+            "DEF": 1812
+        },
+        "17": {
+            "HP": 4018,
+            "ATK": 3563,
+            "DEF": 1850
+        },
+        "18": {
+            "HP": 4097,
+            "ATK": 3632,
+            "DEF": 1886
+        },
+        "19": {
+            "HP": 4178,
+            "ATK": 3705,
+            "DEF": 1924
+        },
+        "20": {
+            "HP": 4260,
+            "ATK": 3777,
+            "DEF": 1961
+        },
+        "21": {
+            "HP": 4339,
+            "ATK": 3847,
+            "DEF": 1998
+        },
+        "22": {
+            "HP": 4420,
+            "ATK": 3919,
+            "DEF": 2035
+        },
+        "23": {
+            "HP": 4499,
+            "ATK": 3989,
+            "DEF": 2071
+        },
+        "24": {
+            "HP": 4580,
+            "ATK": 4061,
+            "DEF": 2109
+        },
+        "25": {
+            "HP": 4662,
+            "ATK": 4134,
+            "DEF": 2147
+        },
+        "26": {
+            "HP": 4741,
+            "ATK": 4203,
+            "DEF": 2183
+        },
+        "27": {
+            "HP": 4822,
+            "ATK": 4276,
+            "DEF": 2220
+        },
+        "28": {
+            "HP": 4904,
+            "ATK": 4348,
+            "DEF": 2258
+        },
+        "29": {
+            "HP": 4982,
+            "ATK": 4418,
+            "DEF": 2294
+        },
+        "30": {
+            "HP": 5064,
+            "ATK": 4490,
+            "DEF": 2332
+        },
+        "31": {
+            "HP": 5146,
+            "ATK": 4563,
+            "DEF": 2369
+        },
+        "32": {
+            "HP": 5224,
+            "ATK": 4632,
+            "DEF": 2405
+        },
+        "33": {
+            "HP": 5306,
+            "ATK": 4704,
+            "DEF": 2443
+        },
+        "34": {
+            "HP": 5388,
+            "ATK": 4777,
+            "DEF": 2481
+        },
+        "35": {
+            "HP": 5466,
+            "ATK": 4846,
+            "DEF": 2517
+        },
+        "36": {
+            "HP": 5548,
+            "ATK": 4919,
+            "DEF": 2554
+        },
+        "37": {
+            "HP": 5629,
+            "ATK": 4991,
+            "DEF": 2592
+        },
+        "38": {
+            "HP": 5708,
+            "ATK": 5061,
+            "DEF": 2628
+        },
+        "39": {
+            "HP": 5790,
+            "ATK": 5133,
+            "DEF": 2666
+        },
+        "40": {
+            "HP": 5871,
+            "ATK": 5206,
+            "DEF": 2703
+        },
+        "41": {
+            "HP": 5950,
+            "ATK": 5275,
+            "DEF": 2740
+        },
+        "42": {
+            "HP": 6031,
+            "ATK": 5348,
+            "DEF": 2777
+        },
+        "43": {
+            "HP": 6113,
+            "ATK": 5420,
+            "DEF": 2815
+        },
+        "44": {
+            "HP": 6192,
+            "ATK": 5490,
+            "DEF": 2851
+        },
+        "45": {
+            "HP": 6273,
+            "ATK": 5562,
+            "DEF": 2889
+        },
+        "46": {
+            "HP": 6355,
+            "ATK": 5635,
+            "DEF": 2926
+        },
+        "47": {
+            "HP": 6433,
+            "ATK": 5704,
+            "DEF": 2962
+        },
+        "48": {
+            "HP": 6515,
+            "ATK": 5777,
+            "DEF": 3000
+        },
+        "49": {
+            "HP": 6597,
+            "ATK": 5849,
+            "DEF": 3038
+        },
+        "50": {
+            "HP": 6675,
+            "ATK": 5918,
+            "DEF": 3074
+        },
+        "51": {
+            "HP": 6757,
+            "ATK": 5991,
+            "DEF": 3111
+        },
+        "52": {
+            "HP": 6839,
+            "ATK": 6063,
+            "DEF": 3149
+        },
+        "53": {
+            "HP": 6917,
+            "ATK": 6133,
+            "DEF": 3185
+        },
+        "54": {
+            "HP": 6999,
+            "ATK": 6205,
+            "DEF": 3223
+        },
+        "55": {
+            "HP": 7080,
+            "ATK": 6278,
+            "DEF": 3260
+        },
+        "56": {
+            "HP": 7159,
+            "ATK": 6347,
+            "DEF": 3296
+        },
+        "57": {
+            "HP": 7241,
+            "ATK": 6420,
+            "DEF": 3334
+        },
+        "58": {
+            "HP": 7322,
+            "ATK": 6492,
+            "DEF": 3372
+        },
+        "59": {
+            "HP": 7401,
+            "ATK": 6562,
+            "DEF": 3408
+        },
+        "60": {
+            "HP": 7482,
+            "ATK": 6634,
+            "DEF": 3445
+        },
+        "61": {
+            "HP": 7561,
+            "ATK": 6704,
+            "DEF": 3482
+        },
+        "62": {
+            "HP": 7643,
+            "ATK": 6776,
+            "DEF": 3519
+        },
+        "63": {
+            "HP": 7724,
+            "ATK": 6849,
+            "DEF": 3557
+        },
+        "64": {
+            "HP": 7803,
+            "ATK": 6918,
+            "DEF": 3593
+        },
+        "65": {
+            "HP": 7884,
+            "ATK": 6990,
+            "DEF": 3631
+        },
+        "66": {
+            "HP": 7966,
+            "ATK": 7063,
+            "DEF": 3668
+        },
+        "67": {
+            "HP": 8045,
+            "ATK": 7132,
+            "DEF": 3704
+        },
+        "68": {
+            "HP": 8126,
+            "ATK": 7205,
+            "DEF": 3742
+        },
+        "69": {
+            "HP": 8208,
+            "ATK": 7277,
+            "DEF": 3780
+        },
+        "70": {
+            "HP": 8286,
+            "ATK": 7347,
+            "DEF": 3816
+        },
+        "71": {
+            "HP": 8368,
+            "ATK": 7419,
+            "DEF": 3853
+        },
+        "72": {
+            "HP": 8450,
+            "ATK": 7492,
+            "DEF": 3891
+        },
+        "73": {
+            "HP": 8528,
+            "ATK": 7561,
+            "DEF": 3927
+        },
+        "74": {
+            "HP": 8610,
+            "ATK": 7634,
+            "DEF": 3965
+        },
+        "75": {
+            "HP": 8692,
+            "ATK": 7706,
+            "DEF": 4002
+        },
+        "76": {
+            "HP": 8770,
+            "ATK": 7776,
+            "DEF": 4039
+        },
+        "77": {
+            "HP": 8852,
+            "ATK": 7848,
+            "DEF": 4076
+        },
+        "78": {
+            "HP": 8933,
+            "ATK": 7921,
+            "DEF": 4114
+        },
+        "79": {
+            "HP": 9012,
+            "ATK": 7990,
+            "DEF": 4150
+        },
+        "80": {
+            "HP": 9094,
+            "ATK": 8063,
+            "DEF": 4188
+        }
+    },
+    "Leader Skill": {
+        "Name": "Challenging the Demon Realm",
+        "10306500": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Transformation Boost"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10306501": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Seekers"
+                ],
+                "Excluded Category": [
+                    "Transformation Boost"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10306502": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Transformation Boost"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10306503": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Seekers"
+                ],
+                "Excluded Category": [
+                    "Transformation Boost"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10306504": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Transformation Boost",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10306505": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Seekers",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Transformation Boost"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10306506": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Transformation Boost",
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10306507": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Seekers",
+                    "Accelerated Battle"
+                ],
+                "Excluded Category": [
+                    "Transformation Boost",
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "7012": {
+            "superID": "7012",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Power Pole Dance",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7012": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp2825"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "silver": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "bronze": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "overall": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "7012",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

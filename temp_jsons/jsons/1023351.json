@@ -1,0 +1,564 @@
+{
+    "ID": "1023351",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Androids #17 (Future) & #18 (Future)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Worldwide Chaos",
+        "Androids",
+        "Future Saga",
+        "Siblings' Bond",
+        "Androids/Cell Saga",
+        "Joined Forces",
+        "Uncontrollable Power"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Android Assault",
+        "Organic Upgrade",
+        "Twin Terrors",
+        "Nightmare",
+        "Brutal Beatdown",
+        "Dismal Future"
+    ],
+    "Resource ID": 1023350,
+    "Passive": {
+        "2665": {
+            "ID": 2665,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 130,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 120% and DEF 130%{passiveImg:up_g} ",
+            "Line description": "ATK 120% and DEF 130%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002665": {
+            "ID": 1002665,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "INT",
+                    "AGL"
+                ],
+                "To": [
+                    "TEQ"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Randomly changes Ki Spheres of a certain Type(TEQ excluded) to TEQ Ki Spheres ",
+            "Line description": "Randomly changes Ki Spheres of a certain Type(TEQ excluded) to TEQ Ki Spheres ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002665": {
+            "ID": 2002665,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 460,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "TEQ"
+                    ]
+                },
+                "Slider": "How many TEQ Ki Spheres have been obtained?"
+            },
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 20%{passiveImg:up_g} per TEQ Ki Spheres obtained{currentValue} / 460 ",
+            "Line description": "DEF 20%{passiveImg:up_g} per TEQ Ki Spheres obtained{currentValue} / 460 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002665": {
+            "ID": 3002665,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 460,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "TEQ"
+                    ]
+                },
+                "Slider": "How many TEQ Ki Spheres have been obtained?"
+            },
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} per TEQ Ki Spheres obtained{currentValue} / 460 ",
+            "Line description": "ATK 20%{passiveImg:up_g} per TEQ Ki Spheres obtained{currentValue} / 460 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4002665": {
+            "ID": 4002665,
+            "Timing": "When ki spheres collected",
+            "ATK": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1180 )",
+                "Causalities": {
+                    "1180": {
+                        "Button": {
+                            "Name": "Has 7 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "With 7 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1180\", \"compiled\": 1180}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 40%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 40%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 7 or more Ki Spheres obtained"
+        },
+        "5002665": {
+            "ID": 5002665,
+            "Timing": "When ki spheres collected",
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1181 )",
+                "Causalities": {
+                    "1181": {
+                        "Button": {
+                            "Name": "Has 8 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "With 8 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1181\", \"compiled\": 1181}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "DEF 50%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 8 or more Ki Spheres obtained"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK 120%{passiveImg:up_g}\n- DEF 130%{passiveImg:up_g}\n- Randomly changes Ki Spheres of a certain Type (TEQ\nexcluded) to TEQ Ki Spheres\n*For every TEQ Ki Sphere obtained*\n- ATK & DEF 20%{passiveImg:up_g}\n*7 or more Ki Spheres obtained*\n- ATK 40%{passiveImg:up_g}\n*8 or more Ki Spheres obtained*\n- DEF 50%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 7966,
+            "ATK": 10033,
+            "DEF": 4879
+        },
+        "81": {
+            "HP": 7982,
+            "ATK": 10053,
+            "DEF": 4888
+        },
+        "82": {
+            "HP": 7998,
+            "ATK": 10072,
+            "DEF": 4898
+        },
+        "83": {
+            "HP": 8014,
+            "ATK": 10092,
+            "DEF": 4907
+        },
+        "84": {
+            "HP": 8030,
+            "ATK": 10112,
+            "DEF": 4917
+        },
+        "85": {
+            "HP": 8046,
+            "ATK": 10132,
+            "DEF": 4926
+        },
+        "86": {
+            "HP": 8063,
+            "ATK": 10152,
+            "DEF": 4936
+        },
+        "87": {
+            "HP": 8079,
+            "ATK": 10172,
+            "DEF": 4945
+        },
+        "88": {
+            "HP": 8095,
+            "ATK": 10192,
+            "DEF": 4955
+        },
+        "89": {
+            "HP": 8111,
+            "ATK": 10211,
+            "DEF": 4964
+        },
+        "90": {
+            "HP": 8127,
+            "ATK": 10231,
+            "DEF": 4974
+        },
+        "91": {
+            "HP": 8143,
+            "ATK": 10251,
+            "DEF": 4983
+        },
+        "92": {
+            "HP": 8159,
+            "ATK": 10271,
+            "DEF": 4993
+        },
+        "93": {
+            "HP": 8175,
+            "ATK": 10290,
+            "DEF": 5002
+        },
+        "94": {
+            "HP": 8191,
+            "ATK": 10310,
+            "DEF": 5011
+        },
+        "95": {
+            "HP": 8207,
+            "ATK": 10330,
+            "DEF": 5021
+        },
+        "96": {
+            "HP": 8223,
+            "ATK": 10351,
+            "DEF": 5031
+        },
+        "97": {
+            "HP": 8239,
+            "ATK": 10370,
+            "DEF": 5040
+        },
+        "98": {
+            "HP": 8255,
+            "ATK": 10390,
+            "DEF": 5050
+        },
+        "99": {
+            "HP": 8271,
+            "ATK": 10410,
+            "DEF": 5059
+        },
+        "100": {
+            "HP": 8288,
+            "ATK": 10430,
+            "DEF": 5069
+        }
+    },
+    "Leader Skill": {
+        "Name": "Future in Ruins",
+        "10821": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Worldwide Chaos"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 140,
+            "DEF": 140,
+            "HP": 140,
+            "Ki": 0
+        },
+        "10822": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Worldwide Chaos"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10823": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Future Saga"
+                ],
+                "Excluded Category": [
+                    "Worldwide Chaos"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 140,
+            "DEF": 140,
+            "HP": 140,
+            "Ki": 0
+        },
+        "10824": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Future Saga"
+                ],
+                "Excluded Category": [
+                    "Worldwide Chaos"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "3483": {
+            "superID": "3483",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Non-stop Violence",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3483": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp2310"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3483",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

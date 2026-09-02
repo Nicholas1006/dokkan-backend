@@ -1,0 +1,991 @@
+{
+    "ID": "1022221",
+    "Type": "AGL",
+    "Class": "Super",
+    "Name": "Gohan (Kid)",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Heavenly Events",
+        "Hybrid Saiyans",
+        "Goku's Family",
+        "Youth",
+        "Bond of Master and Disciple",
+        "Planetary Destruction",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Demonic Power",
+        "Earth-Protecting Heroes"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "The Innocents",
+        "Demonic Ways",
+        "Saiyan Warrior Race",
+        "All in the Family",
+        "The Saiyan Lineage",
+        "Gaze of Respect",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1022220,
+    "Passive": {
+        "4771": {
+            "ID": 4771,
+            "Timing": "Start of turn",
+            "DEF": 258,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 258%{passiveImg:up_g} ",
+            "Line description": "DEF 258%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004771": {
+            "ID": 1004771,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 for all allies ",
+            "Line description": "Ki +3 for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004771": {
+            "ID": 2004771,
+            "Timing": "Start of turn",
+            "DEF": 58,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 58%{passiveImg:up_g} for all allies ",
+            "Line description": "DEF 58%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004771": {
+            "ID": 3004771,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 3,
+            "Condition": {
+                "Logic": "( 1188 )",
+                "Causalities": {
+                    "1188": {
+                        "Button": {
+                            "Name": "Is HP 58 % or more within the last 3 turns?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining within the last 3 turns?",
+                            "Logic": ">=58",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 58% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1188\", \"compiled\": 1188}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": " {passiveImg:once}Guards all attacks for 3 turn ",
+            "Paragraph Title": "When HP is 58% or more"
+        },
+        "4004771": {
+            "ID": 4004771,
+            "Timing": "Right before being hit",
+            "DEF": 15,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 2,
+            "Condition": {
+                "Logic": "( 1188 )",
+                "Causalities": {
+                    "1188": {
+                        "Button": {
+                            "Name": "Is HP 58 % or more within the last 2 turns?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining within the last 2 turns?",
+                            "Logic": ">=58",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 58% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1188\", \"compiled\": 1188}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 15%{passiveImg:up_g} right before being hit for all allies ",
+            "Line description": "DEF 15%{passiveImg:up_g} right before being hit for all allies ",
+            "Paragraph Title": "When HP is 58% or more"
+        },
+        "5004771": {
+            "ID": 5004771,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 258,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2091 )",
+                "Causalities": {
+                    "2091": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2091\", \"compiled\": 2091}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 258%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 258%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "6004771": {
+            "ID": 6004771,
+            "Timing": "Right after attack",
+            "Status": [
+                "Stun"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2091 )",
+                "Causalities": {
+                    "2091": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2091\", \"compiled\": 2091}",
+            "Type": "Single activator",
+            "Brief effect description": "Stun after attacking",
+            "Line description": "Stun after attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "7004771": {
+            "ID": 7004771,
+            "Timing": "Start of turn",
+            "ATK": 158,
+            "DEF": 158,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 883 || 3329 )",
+                "Causalities": {
+                    "883": {
+                        "Button": {
+                            "Name": "Are there 2 or more Heavenly Events category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Heavenly Events category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Heavenly Events Category allies attacking on this turn"
+                    },
+                    "3329": {
+                        "Button": {
+                            "Name": "Are there 2 or more Demonic Power category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Demonic Power category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Demonic Power Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"883|3329\", \"compiled\": [\"|\", 883, 3329]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 158%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 158%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Heavenly Events Category allies attacking on this turn or there are 2 or more Demonic Power Category allies attacking on this turn "
+        },
+        "8004771": {
+            "ID": 8004771,
+            "Timing": "Start of turn",
+            "DR": 58,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 883 || 3329 )",
+                "Causalities": {
+                    "883": {
+                        "Button": {
+                            "Name": "Are there 2 or more Heavenly Events category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Heavenly Events category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Heavenly Events Category allies attacking on this turn"
+                    },
+                    "3329": {
+                        "Button": {
+                            "Name": "Are there 2 or more Demonic Power category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Demonic Power category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Demonic Power Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"883|3329\", \"compiled\": [\"|\", 883, 3329]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 58%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 58%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Heavenly Events Category allies attacking on this turn or there are 2 or more Demonic Power Category allies attacking on this turn "
+        },
+        "9004771": {
+            "ID": 9004771,
+            "Timing": "Right before being hit",
+            "DEF": 58,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 883 || 3329 )",
+                "Causalities": {
+                    "883": {
+                        "Button": {
+                            "Name": "Are there 2 or more Heavenly Events category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Heavenly Events category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Heavenly Events Category allies attacking on this turn"
+                    },
+                    "3329": {
+                        "Button": {
+                            "Name": "Are there 2 or more Demonic Power category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Demonic Power category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Demonic Power Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"883|3329\", \"compiled\": [\"|\", 883, 3329]}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 58%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 58%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When there are 2 or more Heavenly Events Category allies attacking on this turn or there are 2 or more Demonic Power Category allies attacking on this turn "
+        },
+        "10004771": {
+            "ID": 10004771,
+            "Timing": "Right after being hit",
+            "ATK": 158,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 5,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 5 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 5 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 158%{passiveImg:up_g} after being hit",
+            "Line description": "ATK 158%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        },
+        "11004771": {
+            "ID": 11004771,
+            "Timing": "Right after being hit",
+            "Crit Chance": 58,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 5,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 5 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 5 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +58%{passiveImg:up_g} after being hit",
+            "Line description": "Chance of performing a critical hit +58%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        },
+        "12004771": {
+            "ID": 12004771,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 5,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 5 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 5 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack after being hit",
+            "Line description": "Performs an additional super attack after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- DEF 258%{passiveImg:up_g}\n- All allies' Ki +3 and DEF 58%{passiveImg:up_g}\n*When HP is 58% or more*\n- {passiveImg:once}Guards all attacks for 3 turns\n- All allies' DEF 15%{passiveImg:up_g} for 2 turns when receiving an attack\n*When attacking with 12 or more Ki*\n- ATK 258%{passiveImg:up_g}\n- Stuns the attacked enemy\n*When there is another \"Heavenly Events\" or \"Demonic Power\"\nCategory ally attacking in the same turn*\n- ATK & DEF 158%{passiveImg:up_g}\n- Damage reduction rate 58%{passiveImg:up_g}\n- DEF 58%{passiveImg:up_g} when receiving an attack\n*After receiving an attack*\n- ATK 158%{passiveImg:up_g}, chance of performing a critical hit 58%{passiveImg:up_g} and\nlaunches an additional Super Attack for 5 turns",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "120": {
+            "HP": 14235,
+            "ATK": 10924,
+            "DEF": 6353
+        },
+        "121": {
+            "HP": 14475,
+            "ATK": 11108,
+            "DEF": 6460
+        },
+        "122": {
+            "HP": 14715,
+            "ATK": 11292,
+            "DEF": 6567
+        },
+        "123": {
+            "HP": 14955,
+            "ATK": 11476,
+            "DEF": 6674
+        },
+        "124": {
+            "HP": 15195,
+            "ATK": 11661,
+            "DEF": 6781
+        },
+        "125": {
+            "HP": 15435,
+            "ATK": 11845,
+            "DEF": 6888
+        },
+        "126": {
+            "HP": 15675,
+            "ATK": 12029,
+            "DEF": 6995
+        },
+        "127": {
+            "HP": 15915,
+            "ATK": 12213,
+            "DEF": 7103
+        },
+        "128": {
+            "HP": 16156,
+            "ATK": 12398,
+            "DEF": 7210
+        },
+        "129": {
+            "HP": 16396,
+            "ATK": 12582,
+            "DEF": 7317
+        },
+        "130": {
+            "HP": 16636,
+            "ATK": 12766,
+            "DEF": 7424
+        },
+        "131": {
+            "HP": 16876,
+            "ATK": 12950,
+            "DEF": 7531
+        },
+        "132": {
+            "HP": 17116,
+            "ATK": 13135,
+            "DEF": 7638
+        },
+        "133": {
+            "HP": 17356,
+            "ATK": 13319,
+            "DEF": 7746
+        },
+        "134": {
+            "HP": 17596,
+            "ATK": 13503,
+            "DEF": 7853
+        },
+        "135": {
+            "HP": 17836,
+            "ATK": 13688,
+            "DEF": 7960
+        },
+        "136": {
+            "HP": 18077,
+            "ATK": 13872,
+            "DEF": 8067
+        },
+        "137": {
+            "HP": 18317,
+            "ATK": 14056,
+            "DEF": 8174
+        },
+        "138": {
+            "HP": 18557,
+            "ATK": 14240,
+            "DEF": 8281
+        },
+        "139": {
+            "HP": 18797,
+            "ATK": 14425,
+            "DEF": 8389
+        },
+        "140": {
+            "HP": 19037,
+            "ATK": 14609,
+            "DEF": 8496
+        }
+    },
+    "Leader Skill": {
+        "Name": "The Power to Protect",
+        "102222100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Heavenly Events"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102222101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Heavenly Events"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102222102": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Bond of Master and Disciple"
+                ],
+                "Excluded Category": [
+                    "Heavenly Events"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102222103": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Bond of Master and Disciple"
+                ],
+                "Excluded Category": [
+                    "Heavenly Events"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8133": {
+            "superID": "8133",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Full Power Masenko (Extreme)",
+            "superDescription": "Raises DEF, \ngreatly raises ATK for 1 turn and \ncauses immense damage with \na medium chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8133": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "1008133": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50"
+                },
+                "2008133": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "30",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp2201"
+            ]
+        },
+        "8134": {
+            "superID": "8134",
+            "Type": "Other",
+            "special_name_no": "3",
+            "superName": "Full Power Masenko (Extreme)",
+            "superDescription": "Greatly raises DEF, \ngreatly raises ATK for 1 turn and \ncauses immense damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "10.0",
+            "superStyle": "Condition",
+            "superMinLVL": "14",
+            "superCausality": "Activated when there is an ally \nwhose name includes \"Piccolo\" \n(Demon King and Majin Buu excluded) \nor \"Krillin\" (Youth excluded) on the team",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8134": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                },
+                "1008134": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50"
+                },
+                "2008134": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "superCondition": {
+                "Logic": "( 885 || 886 )",
+                "Causalities": {
+                    "885": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies on the team whose name includes Piccolo?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Piccolo\""
+                    },
+                    "886": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies on the team whose name includes Krillin?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Krillin\""
+                    }
+                }
+            },
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp2208"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Shield of Light",
+        "Effect Description": "Recovers 30% HP; \nguards all attacks and \nraises all allies' DEF by 20% for 2 turns",
+        "Condition Description": "Can be activated when \nHP is 58% or less (once only)",
+        "Condition": {
+            "Logic": "( 887 )",
+            "Causalities": {
+                "887": {
+                    "Button": {
+                        "Name": "Is HP 58 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": "<=58",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 58% or less"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "110": {
+                "Duration": "2",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Heals",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "111": {
+                "Duration": "2",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Guard"
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "112": {
+                "Duration": "2",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "DEF Buff",
+                    "Amount": 20
+                },
+                "Target": {
+                    "Target": "All allies"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8133",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

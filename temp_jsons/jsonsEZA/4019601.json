@@ -1,0 +1,689 @@
+{
+    "ID": "4019601",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Majin Buu (Pure Evil)",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Majin Power",
+        "Majin Buu Saga",
+        "Resurrected Warriors",
+        "Transformation Boost",
+        "Time Travelers",
+        "Artificial Life Forms",
+        "Kamehameha",
+        "Power Absorption",
+        "Storied Figures",
+        "Heavenly Events",
+        "Gifted Warriors",
+        "Sworn Enemies",
+        "Legendary Existence",
+        "Bond of Friendship",
+        "Worldwide Chaos",
+        "Uncontrollable Power",
+        "Demonic Power"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Majin",
+        "Brutal Beatdown",
+        "Berserker",
+        "Infinite Regeneration",
+        "Fear and Faith",
+        "The Wall Standing Tall",
+        "Fierce Battle"
+    ],
+    "Resource ID": 4019600,
+    "Passive": {
+        "4144": {
+            "ID": 4144,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004144": {
+            "ID": 1004144,
+            "Timing": "Start of turn",
+            "ATK": 200,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 200% and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK 200% and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004144": {
+            "ID": 2004144,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 70%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 70%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3004144": {
+            "ID": 3004144,
+            "Timing": "Right before being hit",
+            "DR": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 40%{passiveImg:up_g} right before being hit",
+            "Line description": "Damage Reduction Rate 40%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004144": {
+            "ID": 4004144,
+            "Timing": "Right before being hit",
+            "DR": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1606 )",
+                "Causalities": {
+                    "1606": {
+                        "Button": {
+                            "Name": "Are there 2 or more Majin Power category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Majin Power category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Majin Power Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1606\", \"compiled\": 1606}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 30%{passiveImg:up_g} right before being hit",
+            "Line description": "Damage Reduction Rate 30%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When there are 2 or more Majin Power Category allies attacking on this turn"
+        },
+        "5004144": {
+            "ID": 5004144,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} until ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004144": {
+            "ID": 6004144,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 5004144
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3149 )",
+                "Causalities": {
+                    "3149": {
+                        "Button": {
+                            "Name": "Are there 1 or more Majin Power category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Majin Power category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Majin Power Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3149\", \"compiled\": 3149}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:5004144 ",
+            "Line description": "Disables a different passive line:5004144 ",
+            "Paragraph Title": "When there are 1 or more Majin Power Category enemies "
+        },
+        "7004144": {
+            "ID": 7004144,
+            "Timing": "Right after attack",
+            "Status": [
+                "Stun"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 70,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Great chance of Stun after attacking",
+            "Line description": "Great chance of Stun after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8004144": {
+            "ID": 8004144,
+            "Dodge Chance": 50,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +50% ",
+            "Line description": "Chance of evading enemy attacks +50% ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +3\n- ATK 200%{passiveImg:up_g}\n- DEF 150%{passiveImg:up_g}\n- Damage reduction rate 40%{passiveImg:up_g}\n- Great chance of stunning the attacked enemy\n- High chance of evading enemy's attack\n*When attacking with 12 or more Ki*\n- ATK 70%{passiveImg:up_g}\n*When there is another \"Majin Power\" Category ally\nattacking in the same turn*\n- Damage reduction rate 30%{passiveImg:up_g}\n*When there are no \"Majin Power\" Category enemies*\n- ATK & DEF 50%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 12000,
+            "ATK": 11540,
+            "DEF": 7450
+        },
+        "121": {
+            "HP": 12202,
+            "ATK": 11734,
+            "DEF": 7575
+        },
+        "122": {
+            "HP": 12404,
+            "ATK": 11929,
+            "DEF": 7701
+        },
+        "123": {
+            "HP": 12607,
+            "ATK": 12124,
+            "DEF": 7827
+        },
+        "124": {
+            "HP": 12809,
+            "ATK": 12318,
+            "DEF": 7952
+        },
+        "125": {
+            "HP": 13012,
+            "ATK": 12513,
+            "DEF": 8078
+        },
+        "126": {
+            "HP": 13214,
+            "ATK": 12708,
+            "DEF": 8204
+        },
+        "127": {
+            "HP": 13416,
+            "ATK": 12902,
+            "DEF": 8329
+        },
+        "128": {
+            "HP": 13619,
+            "ATK": 13097,
+            "DEF": 8455
+        },
+        "129": {
+            "HP": 13821,
+            "ATK": 13292,
+            "DEF": 8581
+        },
+        "130": {
+            "HP": 14024,
+            "ATK": 13486,
+            "DEF": 8706
+        },
+        "131": {
+            "HP": 14226,
+            "ATK": 13681,
+            "DEF": 8832
+        },
+        "132": {
+            "HP": 14429,
+            "ATK": 13876,
+            "DEF": 8958
+        },
+        "133": {
+            "HP": 14631,
+            "ATK": 14070,
+            "DEF": 9083
+        },
+        "134": {
+            "HP": 14833,
+            "ATK": 14265,
+            "DEF": 9209
+        },
+        "135": {
+            "HP": 15036,
+            "ATK": 14460,
+            "DEF": 9335
+        },
+        "136": {
+            "HP": 15238,
+            "ATK": 14654,
+            "DEF": 9460
+        },
+        "137": {
+            "HP": 15441,
+            "ATK": 14849,
+            "DEF": 9586
+        },
+        "138": {
+            "HP": 15643,
+            "ATK": 15044,
+            "DEF": 9712
+        },
+        "139": {
+            "HP": 15846,
+            "ATK": 15238,
+            "DEF": 9837
+        },
+        "140": {
+            "HP": 16048,
+            "ATK": 15433,
+            "DEF": 9963
+        }
+    },
+    "Leader Skill": {
+        "Name": "Split Into Good and Evil",
+        "101959100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Majin Power"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "101959101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Majin Power"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        },
+        "101959102": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Artificial Life Forms"
+                ],
+                "Excluded Category": [
+                    "Majin Power"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "101959103": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Artificial Life Forms"
+                ],
+                "Excluded Category": [
+                    "Majin Power"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5553": {
+            "superID": "5553",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Guilty Flash (Extreme)",
+            "superDescription": "Greatly raises ATK and \nraises DEF for 3 turns, \ncauses immense damage to enemy \nand seals Super Attack",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5553": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50"
+                },
+                "1005553": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Seals"
+                },
+                "2005553": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp1433"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Absorption",
+        "Effect Description": "Absorbs Majin Buu (Good)",
+        "Condition Description": "Can be activated when HP is 70% or more starting \nfrom the 4th turn after Exchange (once only)",
+        "Condition": {
+            "Logic": "( 628 && 629 )",
+            "Causalities": {
+                "628": {
+                    "Button": {
+                        "Name": "Is it on or after the first 4 turns from this characters entry turn?"
+                    },
+                    "Slider": {
+                        "Name": "How many turns is it since entry turn?",
+                        "Logic": ">=4",
+                        "Min": 0,
+                        "Max": 4
+                    },
+                    "Paragraph Title": "Starting from the 4 turn from the character's entry turn"
+                },
+                "629": {
+                    "Button": {
+                        "Name": "Is HP 70 % or more?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": ">=70",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 70% or more"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "55": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Transforms",
+                    "Unit": "4019611"
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "4019611"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5553",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

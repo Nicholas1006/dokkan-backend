@@ -1,0 +1,1232 @@
+{
+    "ID": "1024080",
+    "Type": "STR",
+    "Class": "Extreme",
+    "Name": "Nappa",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Saiyan Saga",
+        "Pure Saiyans",
+        "Terrifying Conquerors",
+        "Space-Traveling Warriors",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Brutal Beatdown",
+        "Saiyan Warrior Race",
+        "Infighter",
+        "Berserker",
+        "Tough as Nails",
+        "Shocking Speed",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1024080,
+    "Passive": {
+        "2810": {
+            "ID": 2810,
+            "Timing": "Start of turn",
+            "ATK": 178,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 178%{passiveImg:up_g} ",
+            "Line description": "ATK 178%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002810": {
+            "ID": 1002810,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 10,
+                "Max": 780,
+                "Stat Per Proc": 1100,
+                "Cause": {
+                    "Cause": "HP",
+                    "Type": "More HP remaining"
+                },
+                "Slider": "What percentage of HP is remaining?"
+            },
+            "DEF": 780,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 780%{passiveImg:up_g} ({currentValue} / 780%) based on 'What percentage of HP is remaining' ",
+            "Line description": "DEF 780%{passiveImg:up_g} ({currentValue} / 780%) based on 'What percentage of HP is remaining' ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002810": {
+            "ID": 2002810,
+            "Timing": "Start of turn",
+            "ATK": 78,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1387 )",
+                "Causalities": {
+                    "1387": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1387\", \"compiled\": 1387}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 78%{passiveImg:up_g} ",
+            "Line description": "ATK 78%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "3002810": {
+            "ID": 3002810,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all Saiyan Saga category allies ",
+            "Line description": "Ki +2 for all Saiyan Saga category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4002810": {
+            "ID": 4002810,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5002810": {
+            "ID": 5002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1393 )",
+                "Causalities": {
+                    "1393": {
+                        "Button": {
+                            "Name": "Is there 1 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1393\", \"compiled\": 1393}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 1 or more Super class enemies"
+        },
+        "6002810": {
+            "ID": 6002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1394 )",
+                "Causalities": {
+                    "1394": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1394\", \"compiled\": 1394}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 2 or more Super class enemies"
+        },
+        "7002810": {
+            "ID": 7002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1395 )",
+                "Causalities": {
+                    "1395": {
+                        "Button": {
+                            "Name": "Is there 3 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1395\", \"compiled\": 1395}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 3 or more Super class enemies"
+        },
+        "8002810": {
+            "ID": 8002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1396 )",
+                "Causalities": {
+                    "1396": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1396\", \"compiled\": 1396}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 4 or more Super class enemies"
+        },
+        "9002810": {
+            "ID": 9002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1397 )",
+                "Causalities": {
+                    "1397": {
+                        "Button": {
+                            "Name": "Is there 5 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1397\", \"compiled\": 1397}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 5 or more Super class enemies"
+        },
+        "10002810": {
+            "ID": 10002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1398 )",
+                "Causalities": {
+                    "1398": {
+                        "Button": {
+                            "Name": "Is there 6 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=6",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 6 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1398\", \"compiled\": 1398}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 6 or more Super class enemies"
+        },
+        "11002810": {
+            "ID": 11002810,
+            "Timing": "Start of turn",
+            "ATK": 7,
+            "DEF": 8,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Saiyan Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1399 )",
+                "Causalities": {
+                    "1399": {
+                        "Button": {
+                            "Name": "Is there 7 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=7",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 7 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1399\", \"compiled\": 1399}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Line description": "ATK 7% and DEF 8%{passiveImg:up_g} for all Saiyan Saga category allies ",
+            "Paragraph Title": "When there are 7 or more Super class enemies"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK 178%{passiveImg:up_g}\n- \"Saiyan Saga\" Category allies' Ki +2 and ATK & DEF 30%{passiveImg:up_g}\n*The more HP remaining*\n- DEF{passiveImg:up_g} (up to 780%)\n*When facing only 1 enemy*\n- ATK 78%{passiveImg:up_g}\n*Per existing Super Class enemy*\n- \"Saiyan Saga\" Category allies' ATK 7%{passiveImg:up_g} and DEF 8%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 2034,
+            "ATK": 2608,
+            "DEF": 1509
+        },
+        "2": {
+            "HP": 2081,
+            "ATK": 2669,
+            "DEF": 1544
+        },
+        "3": {
+            "HP": 2129,
+            "ATK": 2730,
+            "DEF": 1579
+        },
+        "4": {
+            "HP": 2177,
+            "ATK": 2791,
+            "DEF": 1615
+        },
+        "5": {
+            "HP": 2224,
+            "ATK": 2852,
+            "DEF": 1650
+        },
+        "6": {
+            "HP": 2274,
+            "ATK": 2916,
+            "DEF": 1687
+        },
+        "7": {
+            "HP": 2322,
+            "ATK": 2978,
+            "DEF": 1723
+        },
+        "8": {
+            "HP": 2370,
+            "ATK": 3039,
+            "DEF": 1758
+        },
+        "9": {
+            "HP": 2417,
+            "ATK": 3100,
+            "DEF": 1793
+        },
+        "10": {
+            "HP": 2465,
+            "ATK": 3161,
+            "DEF": 1829
+        },
+        "11": {
+            "HP": 2513,
+            "ATK": 3222,
+            "DEF": 1864
+        },
+        "12": {
+            "HP": 2560,
+            "ATK": 3283,
+            "DEF": 1900
+        },
+        "13": {
+            "HP": 2608,
+            "ATK": 3345,
+            "DEF": 1935
+        },
+        "14": {
+            "HP": 2656,
+            "ATK": 3406,
+            "DEF": 1970
+        },
+        "15": {
+            "HP": 2704,
+            "ATK": 3467,
+            "DEF": 2006
+        },
+        "16": {
+            "HP": 2754,
+            "ATK": 3531,
+            "DEF": 2043
+        },
+        "17": {
+            "HP": 2801,
+            "ATK": 3592,
+            "DEF": 2078
+        },
+        "18": {
+            "HP": 2849,
+            "ATK": 3653,
+            "DEF": 2114
+        },
+        "19": {
+            "HP": 2897,
+            "ATK": 3715,
+            "DEF": 2149
+        },
+        "20": {
+            "HP": 2944,
+            "ATK": 3776,
+            "DEF": 2185
+        },
+        "21": {
+            "HP": 2992,
+            "ATK": 3837,
+            "DEF": 2220
+        },
+        "22": {
+            "HP": 3040,
+            "ATK": 3898,
+            "DEF": 2255
+        },
+        "23": {
+            "HP": 3087,
+            "ATK": 3959,
+            "DEF": 2291
+        },
+        "24": {
+            "HP": 3135,
+            "ATK": 4020,
+            "DEF": 2326
+        },
+        "25": {
+            "HP": 3183,
+            "ATK": 4082,
+            "DEF": 2362
+        },
+        "26": {
+            "HP": 3233,
+            "ATK": 4146,
+            "DEF": 2399
+        },
+        "27": {
+            "HP": 3281,
+            "ATK": 4207,
+            "DEF": 2434
+        },
+        "28": {
+            "HP": 3328,
+            "ATK": 4268,
+            "DEF": 2470
+        },
+        "29": {
+            "HP": 3376,
+            "ATK": 4329,
+            "DEF": 2505
+        },
+        "30": {
+            "HP": 3424,
+            "ATK": 4390,
+            "DEF": 2540
+        },
+        "31": {
+            "HP": 3471,
+            "ATK": 4452,
+            "DEF": 2576
+        },
+        "32": {
+            "HP": 3519,
+            "ATK": 4513,
+            "DEF": 2611
+        },
+        "33": {
+            "HP": 3567,
+            "ATK": 4574,
+            "DEF": 2647
+        },
+        "34": {
+            "HP": 3614,
+            "ATK": 4635,
+            "DEF": 2682
+        },
+        "35": {
+            "HP": 3662,
+            "ATK": 4696,
+            "DEF": 2717
+        },
+        "36": {
+            "HP": 3712,
+            "ATK": 4761,
+            "DEF": 2754
+        },
+        "37": {
+            "HP": 3760,
+            "ATK": 4822,
+            "DEF": 2790
+        },
+        "38": {
+            "HP": 3808,
+            "ATK": 4883,
+            "DEF": 2825
+        },
+        "39": {
+            "HP": 3855,
+            "ATK": 4944,
+            "DEF": 2861
+        },
+        "40": {
+            "HP": 3903,
+            "ATK": 5005,
+            "DEF": 2896
+        },
+        "41": {
+            "HP": 3951,
+            "ATK": 5066,
+            "DEF": 2931
+        },
+        "42": {
+            "HP": 3998,
+            "ATK": 5128,
+            "DEF": 2967
+        },
+        "43": {
+            "HP": 4046,
+            "ATK": 5189,
+            "DEF": 3002
+        },
+        "44": {
+            "HP": 4094,
+            "ATK": 5250,
+            "DEF": 3038
+        },
+        "45": {
+            "HP": 4141,
+            "ATK": 5311,
+            "DEF": 3073
+        },
+        "46": {
+            "HP": 4191,
+            "ATK": 5375,
+            "DEF": 3110
+        },
+        "47": {
+            "HP": 4239,
+            "ATK": 5436,
+            "DEF": 3146
+        },
+        "48": {
+            "HP": 4287,
+            "ATK": 5498,
+            "DEF": 3181
+        },
+        "49": {
+            "HP": 4334,
+            "ATK": 5559,
+            "DEF": 3216
+        },
+        "50": {
+            "HP": 4382,
+            "ATK": 5620,
+            "DEF": 3252
+        },
+        "51": {
+            "HP": 4430,
+            "ATK": 5681,
+            "DEF": 3287
+        },
+        "52": {
+            "HP": 4478,
+            "ATK": 5742,
+            "DEF": 3323
+        },
+        "53": {
+            "HP": 4525,
+            "ATK": 5803,
+            "DEF": 3358
+        },
+        "54": {
+            "HP": 4573,
+            "ATK": 5865,
+            "DEF": 3393
+        },
+        "55": {
+            "HP": 4621,
+            "ATK": 5926,
+            "DEF": 3429
+        },
+        "56": {
+            "HP": 4671,
+            "ATK": 5990,
+            "DEF": 3466
+        },
+        "57": {
+            "HP": 4718,
+            "ATK": 6051,
+            "DEF": 3501
+        },
+        "58": {
+            "HP": 4766,
+            "ATK": 6112,
+            "DEF": 3537
+        },
+        "59": {
+            "HP": 4814,
+            "ATK": 6173,
+            "DEF": 3572
+        },
+        "60": {
+            "HP": 4861,
+            "ATK": 6235,
+            "DEF": 3608
+        },
+        "61": {
+            "HP": 4909,
+            "ATK": 6296,
+            "DEF": 3643
+        },
+        "62": {
+            "HP": 4957,
+            "ATK": 6357,
+            "DEF": 3678
+        },
+        "63": {
+            "HP": 5004,
+            "ATK": 6418,
+            "DEF": 3714
+        },
+        "64": {
+            "HP": 5052,
+            "ATK": 6479,
+            "DEF": 3749
+        },
+        "65": {
+            "HP": 5100,
+            "ATK": 6540,
+            "DEF": 3785
+        },
+        "66": {
+            "HP": 5150,
+            "ATK": 6605,
+            "DEF": 3822
+        },
+        "67": {
+            "HP": 5198,
+            "ATK": 6666,
+            "DEF": 3857
+        },
+        "68": {
+            "HP": 5245,
+            "ATK": 6727,
+            "DEF": 3892
+        },
+        "69": {
+            "HP": 5293,
+            "ATK": 6788,
+            "DEF": 3928
+        },
+        "70": {
+            "HP": 5341,
+            "ATK": 6849,
+            "DEF": 3963
+        },
+        "71": {
+            "HP": 5388,
+            "ATK": 6911,
+            "DEF": 3999
+        },
+        "72": {
+            "HP": 5436,
+            "ATK": 6972,
+            "DEF": 4034
+        },
+        "73": {
+            "HP": 5484,
+            "ATK": 7033,
+            "DEF": 4069
+        },
+        "74": {
+            "HP": 5531,
+            "ATK": 7094,
+            "DEF": 4105
+        },
+        "75": {
+            "HP": 5579,
+            "ATK": 7155,
+            "DEF": 4140
+        },
+        "76": {
+            "HP": 5629,
+            "ATK": 7219,
+            "DEF": 4177
+        },
+        "77": {
+            "HP": 5677,
+            "ATK": 7281,
+            "DEF": 4213
+        },
+        "78": {
+            "HP": 5725,
+            "ATK": 7342,
+            "DEF": 4248
+        },
+        "79": {
+            "HP": 5772,
+            "ATK": 7403,
+            "DEF": 4284
+        },
+        "80": {
+            "HP": 5820,
+            "ATK": 7464,
+            "DEF": 4319
+        },
+        "81": {
+            "HP": 5868,
+            "ATK": 7525,
+            "DEF": 4354
+        },
+        "82": {
+            "HP": 5915,
+            "ATK": 7586,
+            "DEF": 4390
+        },
+        "83": {
+            "HP": 5963,
+            "ATK": 7648,
+            "DEF": 4425
+        },
+        "84": {
+            "HP": 6011,
+            "ATK": 7709,
+            "DEF": 4461
+        },
+        "85": {
+            "HP": 6058,
+            "ATK": 7770,
+            "DEF": 4496
+        },
+        "86": {
+            "HP": 6108,
+            "ATK": 7834,
+            "DEF": 4533
+        },
+        "87": {
+            "HP": 6156,
+            "ATK": 7895,
+            "DEF": 4569
+        },
+        "88": {
+            "HP": 6204,
+            "ATK": 7956,
+            "DEF": 4604
+        },
+        "89": {
+            "HP": 6252,
+            "ATK": 8018,
+            "DEF": 4639
+        },
+        "90": {
+            "HP": 6299,
+            "ATK": 8079,
+            "DEF": 4675
+        },
+        "91": {
+            "HP": 6347,
+            "ATK": 8140,
+            "DEF": 4710
+        },
+        "92": {
+            "HP": 6395,
+            "ATK": 8201,
+            "DEF": 4746
+        },
+        "93": {
+            "HP": 6442,
+            "ATK": 8262,
+            "DEF": 4781
+        },
+        "94": {
+            "HP": 6490,
+            "ATK": 8323,
+            "DEF": 4816
+        },
+        "95": {
+            "HP": 6538,
+            "ATK": 8385,
+            "DEF": 4852
+        },
+        "96": {
+            "HP": 6588,
+            "ATK": 8449,
+            "DEF": 4889
+        },
+        "97": {
+            "HP": 6635,
+            "ATK": 8510,
+            "DEF": 4924
+        },
+        "98": {
+            "HP": 6683,
+            "ATK": 8571,
+            "DEF": 4960
+        },
+        "99": {
+            "HP": 6731,
+            "ATK": 8632,
+            "DEF": 4995
+        },
+        "100": {
+            "HP": 6779,
+            "ATK": 8694,
+            "DEF": 5031
+        }
+    },
+    "Leader Skill": {
+        "Name": "Cruel Pursuit",
+        "11619": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Saiyan Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "11620": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Saiyan Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "3796": {
+            "superID": "3796",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Blazing Storm",
+            "superDescription": "Greatly raises DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3796": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2346"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Saibaiman Attack",
+        "Effect Description": "Causes ultimate damage to enemy and \nlowers ATK by 31%, lowers DEF by 81% \nand seals Super Attack for 1 turn",
+        "Condition Description": "Can be activated when facing 3 or more enemies, \nor after the character receives an attack \n6 or more times in battle (once only)",
+        "Condition": {
+            "Logic": "( 1401 || 1402 )",
+            "Causalities": {
+                "1401": {
+                    "Button": {
+                        "Name": "Is there 3 or more enemies?"
+                    },
+                    "Slider": {
+                        "Name": "How many enemies are there?",
+                        "Logic": ">=3",
+                        "Min": 1,
+                        "Max": 7
+                    },
+                    "Paragraph Title": "When there are 3 or more enemies"
+                },
+                "1402": {
+                    "Button": {
+                        "Name": "Has this character recieved their 6th attack in battle?"
+                    },
+                    "Slider": {
+                        "Name": "How many attacks has this character recieved?",
+                        "Logic": ">=6",
+                        "Min": 0,
+                        "Max": 6
+                    },
+                    "Paragraph Title": "After recieving 6 attacks"
+                }
+            }
+        },
+        "Uses": 1,
+        "Attack": {
+            "Multiplier": 550,
+            "Target": "Enemy"
+        },
+        "Effects": {
+            "161": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "ATK Buff",
+                    "Amount": 31
+                },
+                "Target": {
+                    "Target": "Enemy"
+                }
+            },
+            "162": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Seal"
+                },
+                "Target": {
+                    "Target": "Enemy"
+                }
+            },
+            "205": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "DEF Buff",
+                    "Amount": 81
+                },
+                "Target": {
+                    "Target": "Enemy"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3796",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

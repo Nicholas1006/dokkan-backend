@@ -1,0 +1,1778 @@
+{
+    "ID": "1031780",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Goku Black (Super Saiyan Ros\u00e9) (Clone) [TEQ]",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Realm of Gods",
+        "Future Saga",
+        "Time Travelers",
+        "Inhuman Deeds",
+        "Corroded Body and Mind",
+        "Accelerated Battle",
+        "Worldwide Chaos",
+        "Power Beyond Super Saiyan",
+        "Power of Wishes",
+        "Super Bosses",
+        "Successors"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Dismal Future",
+        "Fear and Faith",
+        "Nightmare",
+        "Super Saiyan",
+        "Big Bad Bosses",
+        "Attack of the Clones",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1031780,
+    "Passive": {
+        "4648": {
+            "ID": 4648,
+            "Timing": "Right before being hit",
+            "DR": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 792 && 2269 )",
+                "Causalities": {
+                    "792": {
+                        "Button": {
+                            "Name": "Has 1 or more TEQ Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more TEQ Ki Spheres obtained"
+                    },
+                    "2269": {
+                        "Button": {
+                            "Name": "Has the enemy been hit by the characters super attack on this turn?"
+                        },
+                        "Paragraph Title": "When the enemy has been hit by the characters super attack?"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"792&2269\", \"compiled\": [\"&\", 792, 2269]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 40%{passiveImg:up_g} right before being hit",
+            "Line description": "Damage Reduction Rate 40%{passiveImg:up_g} while being hit",
+            "Paragraph Title": "When ( with 1 or more TEQ Ki Spheres obtained and the enemy has been hit by the characters super attack? )"
+        },
+        "1004648": {
+            "ID": 1004648,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 4648
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:4648 after being hit",
+            "Line description": "Disables a different passive line:4648 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004648": {
+            "ID": 2004648,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": "AGL",
+                "To": "TEQ",
+                "Style": "Single"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 3300000 ",
+                "Causalities": {
+                    "3300000": {
+                        "Button": {
+                            "Name": "Is this the 2nd or 3rd attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 2nd or 3rd attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3300000\", \"compiled\": 3300000}",
+            "Type": "Single activator",
+            "Brief effect description": "Changes AGL Ki Spheres to TEQ Ki Spheres ",
+            "Line description": "Changes AGL Ki Spheres to TEQ Ki Spheres ",
+            "Paragraph Title": "When as the 2nd or 3rd attacker in a turn"
+        },
+        "3004648": {
+            "ID": 3004648,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3498 )",
+                "Causalities": {
+                    "3498": {
+                        "Button": {
+                            "Name": "Are there 1 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3498\", \"compiled\": 3498}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+        },
+        "4004648": {
+            "ID": 4004648,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2543 )",
+                "Causalities": {
+                    "2543": {
+                        "Button": {
+                            "Name": "Are there 2 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2543\", \"compiled\": 2543}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+        },
+        "5004648": {
+            "ID": 5004648,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3499 )",
+                "Causalities": {
+                    "3499": {
+                        "Button": {
+                            "Name": "Are there 3 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3499\", \"compiled\": 3499}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+        },
+        "6004648": {
+            "ID": 6004648,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3500 )",
+                "Causalities": {
+                    "3500": {
+                        "Button": {
+                            "Name": "Are there 4 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3500\", \"compiled\": 3500}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+        },
+        "7004648": {
+            "ID": 7004648,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3501 )",
+                "Causalities": {
+                    "3501": {
+                        "Button": {
+                            "Name": "Are there 5 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3501\", \"compiled\": 3501}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+        },
+        "8004648": {
+            "ID": 8004648,
+            "Timing": "Start of turn",
+            "ATK": 8,
+            "DEF": 8,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3498 )",
+                "Causalities": {
+                    "3498": {
+                        "Button": {
+                            "Name": "Are there 1 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3498\", \"compiled\": 3498}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+        },
+        "9004648": {
+            "ID": 9004648,
+            "Timing": "Start of turn",
+            "ATK": 8,
+            "DEF": 8,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2543 )",
+                "Causalities": {
+                    "2543": {
+                        "Button": {
+                            "Name": "Are there 2 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2543\", \"compiled\": 2543}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+        },
+        "10004648": {
+            "ID": 10004648,
+            "Timing": "Start of turn",
+            "ATK": 8,
+            "DEF": 8,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3499 )",
+                "Causalities": {
+                    "3499": {
+                        "Button": {
+                            "Name": "Are there 3 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3499\", \"compiled\": 3499}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+        },
+        "11004648": {
+            "ID": 11004648,
+            "Timing": "Start of turn",
+            "ATK": 8,
+            "DEF": 8,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3500 )",
+                "Causalities": {
+                    "3500": {
+                        "Button": {
+                            "Name": "Are there 4 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3500\", \"compiled\": 3500}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+        },
+        "12004648": {
+            "ID": 12004648,
+            "Timing": "Start of turn",
+            "ATK": 8,
+            "DEF": 8,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3501 )",
+                "Causalities": {
+                    "3501": {
+                        "Button": {
+                            "Name": "Are there 5 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3501\", \"compiled\": 3501}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 8%{passiveImg:down_r} ",
+            "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+        },
+        "13004648": {
+            "ID": 13004648,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3502 && 3498 )",
+                "Causalities": {
+                    "3502": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3498": {
+                        "Button": {
+                            "Name": "Are there 1 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3502&3498\", \"compiled\": [\"&\", 3502, 3498]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} when there are 1 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+        },
+        "14004648": {
+            "ID": 14004648,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3503 && 2543 )",
+                "Causalities": {
+                    "3503": {
+                        "Button": {
+                            "Name": "Is there 2 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 2 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "2543": {
+                        "Button": {
+                            "Name": "Are there 2 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3503&2543\", \"compiled\": [\"&\", 3503, 2543]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} when there are 2 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+        },
+        "15004648": {
+            "ID": 15004648,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3504 && 3499 )",
+                "Causalities": {
+                    "3504": {
+                        "Button": {
+                            "Name": "Is there 3 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 3 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3499": {
+                        "Button": {
+                            "Name": "Are there 3 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3504&3499\", \"compiled\": [\"&\", 3504, 3499]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} when there are 3 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+        },
+        "16004648": {
+            "ID": 16004648,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3505 && 3500 )",
+                "Causalities": {
+                    "3505": {
+                        "Button": {
+                            "Name": "Is there 4 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 4 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3500": {
+                        "Button": {
+                            "Name": "Are there 4 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3505&3500\", \"compiled\": [\"&\", 3505, 3500]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} when there are 4 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+        },
+        "17004648": {
+            "ID": 17004648,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3506 && 3501 )",
+                "Causalities": {
+                    "3506": {
+                        "Button": {
+                            "Name": "Is there 5 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 5 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3501": {
+                        "Button": {
+                            "Name": "Are there 5 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3506&3501\", \"compiled\": [\"&\", 3506, 3501]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} when there are 5 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+        },
+        "18004648": {
+            "ID": 18004648,
+            "Timing": "Start of turn",
+            "ATK": 6,
+            "DEF": 6,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3502 && 3498 )",
+                "Causalities": {
+                    "3502": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3498": {
+                        "Button": {
+                            "Name": "Are there 1 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3502&3498\", \"compiled\": [\"&\", 3502, 3498]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 6%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 6%{passiveImg:down_r} when there are 1 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 1 or more Future Saga Category allies "
+        },
+        "19004648": {
+            "ID": 19004648,
+            "Timing": "Start of turn",
+            "ATK": 6,
+            "DEF": 6,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3503 && 2543 )",
+                "Causalities": {
+                    "3503": {
+                        "Button": {
+                            "Name": "Is there 2 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 2 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "2543": {
+                        "Button": {
+                            "Name": "Are there 2 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3503&2543\", \"compiled\": [\"&\", 3503, 2543]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 6%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 6%{passiveImg:down_r} when there are 2 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 2 or more Future Saga Category allies "
+        },
+        "20004648": {
+            "ID": 20004648,
+            "Timing": "Start of turn",
+            "ATK": 6,
+            "DEF": 6,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3504 && 3499 )",
+                "Causalities": {
+                    "3504": {
+                        "Button": {
+                            "Name": "Is there 3 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 3 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3499": {
+                        "Button": {
+                            "Name": "Are there 3 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3504&3499\", \"compiled\": [\"&\", 3504, 3499]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 6%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 6%{passiveImg:down_r} when there are 3 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 3 or more Future Saga Category allies "
+        },
+        "21004648": {
+            "ID": 21004648,
+            "Timing": "Start of turn",
+            "ATK": 6,
+            "DEF": 6,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3505 && 3500 )",
+                "Causalities": {
+                    "3505": {
+                        "Button": {
+                            "Name": "Is there 4 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 4 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3500": {
+                        "Button": {
+                            "Name": "Are there 4 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3505&3500\", \"compiled\": [\"&\", 3505, 3500]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 6%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 6%{passiveImg:down_r} when there are 4 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 4 or more Future Saga Category allies "
+        },
+        "22004648": {
+            "ID": 22004648,
+            "Timing": "Start of turn",
+            "ATK": 6,
+            "DEF": 6,
+            "Target": {
+                "Target": "Enemies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3506 && 3501 )",
+                "Causalities": {
+                    "3506": {
+                        "Button": {
+                            "Name": "Is there 5 or more allies on the team whose name includes Goku Black (Super Saiyan Ros\u00e9) (Clone) [ on this turn?"
+                        },
+                        "Paragraph Title": "When there are 5 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\""
+                    },
+                    "3501": {
+                        "Button": {
+                            "Name": "Are there 5 or more Future Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3506&3501\", \"compiled\": [\"&\", 3506, 3501]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 6%{passiveImg:down_r} ",
+            "Line description": "ATK and DEF 6%{passiveImg:down_r} when there are 5 or more allies whose name includes \"Goku Black (Super Saiyan Ros\u00e9) (Clone) [\" ",
+            "Paragraph Title": "When there are 5 or more Future Saga Category allies "
+        },
+        "23004648": {
+            "ID": 23004648,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 348000000 ",
+                "Causalities": {
+                    "348000000": {
+                        "Button": {
+                            "Name": "Does the team include 5 Extreme Types?"
+                        },
+                        "Paragraph Title": "When the team includes all five Extreme Types"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"348000000\", \"compiled\": 348000000}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "When the team includes all five Extreme Types"
+        },
+        "24004648": {
+            "ID": 24004648,
+            "Timing": "Right after attack",
+            "Status": [
+                "Disable action"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 348000000 ",
+                "Causalities": {
+                    "348000000": {
+                        "Button": {
+                            "Name": "Does the team include 5 Extreme Types?"
+                        },
+                        "Paragraph Title": "When the team includes all five Extreme Types"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"348000000\", \"compiled\": 348000000}",
+            "Type": "Single activator",
+            "Brief effect description": "Disable action after attacking",
+            "Line description": "Disable action after attacking",
+            "Paragraph Title": "When the team includes all five Extreme Types"
+        },
+        "25004648": {
+            "ID": 25004648,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "26004648": {
+            "ID": 26004648,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 && ( 816 || 3081 ) )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    },
+                    "816": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down or DEF Down or Stunned or Sealed on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down} or {passiveImg:def_down} or {passiveImg:stun} or {passiveImg:astute}"
+                    },
+                    "3081": {
+                        "Button": {
+                            "Name": "Is the enemy's health 60 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP does the enemy have on this turn?",
+                            "Logic": "<=60",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When enemy health is 60% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47&(816|3081)\", \"compiled\": [\"&\", 47, [\"|\", 816, 3081]]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} when attacking when the target enemy is in the following status{passiveImg:atk_down} or {passiveImg:def_down} or {passiveImg:stun} or {passiveImg:astute} or enemy health is 60% or less ",
+            "Paragraph Title": "When Ki is 12 or more"
+        }
+    },
+    "Itemized Passive Description": "*As the 2nd or 3rd attacker in a turn at the start of turn*\n- Changes Ki Spheres: AGL to TEQ\n*Per \"Future Saga\" Category ally on the team*\n- ATK & DEF 40%{passiveImg:up_g} (up to 200%)\n- All enemies' ATK & DEF 8%{passiveImg:down_y} (no more than -40%)\n*Per \"Future Saga\" Category ally whose name includes\n\"Clone\" on the team*\n- ATK & DEF 20%{passiveImg:up_g} (up to 100%)\n- All enemies' ATK & DEF 6%{passiveImg:down_y} (no more than -30%)\n*When the team includes all five Extreme Types*\n- ATK & DEF 150%{passiveImg:up_g}\n- Interrupts the attacked enemy\n*1 or more TEQ Ki Spheres obtained*\n- Damage reduction rate 40%{passiveImg:up_g} when receiving an attack\nfrom an enemy who is hit by the character's Super Attack\n*When attacking with 12 or more Ki*\n- ATK & DEF 200%{passiveImg:up_g}\n- ATK & DEF 200%{passiveImg:up_g} when the target enemy is in the\nfollowing status: HP is 60% or less, {passiveImg:atk_down}, {passiveImg:def_down},\n{passiveImg:stun} or {passiveImg:astute}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 2294,
+            "ATK": 2264,
+            "DEF": 1084
+        },
+        "2": {
+            "HP": 2347,
+            "ATK": 2317,
+            "DEF": 1109
+        },
+        "3": {
+            "HP": 2401,
+            "ATK": 2370,
+            "DEF": 1134
+        },
+        "4": {
+            "HP": 2455,
+            "ATK": 2423,
+            "DEF": 1160
+        },
+        "5": {
+            "HP": 2509,
+            "ATK": 2476,
+            "DEF": 1185
+        },
+        "6": {
+            "HP": 2565,
+            "ATK": 2532,
+            "DEF": 1212
+        },
+        "7": {
+            "HP": 2619,
+            "ATK": 2585,
+            "DEF": 1237
+        },
+        "8": {
+            "HP": 2673,
+            "ATK": 2638,
+            "DEF": 1263
+        },
+        "9": {
+            "HP": 2726,
+            "ATK": 2691,
+            "DEF": 1288
+        },
+        "10": {
+            "HP": 2780,
+            "ATK": 2744,
+            "DEF": 1314
+        },
+        "11": {
+            "HP": 2834,
+            "ATK": 2797,
+            "DEF": 1339
+        },
+        "12": {
+            "HP": 2888,
+            "ATK": 2850,
+            "DEF": 1364
+        },
+        "13": {
+            "HP": 2942,
+            "ATK": 2903,
+            "DEF": 1390
+        },
+        "14": {
+            "HP": 2995,
+            "ATK": 2956,
+            "DEF": 1415
+        },
+        "15": {
+            "HP": 3049,
+            "ATK": 3009,
+            "DEF": 1441
+        },
+        "16": {
+            "HP": 3106,
+            "ATK": 3065,
+            "DEF": 1467
+        },
+        "17": {
+            "HP": 3159,
+            "ATK": 3118,
+            "DEF": 1493
+        },
+        "18": {
+            "HP": 3213,
+            "ATK": 3171,
+            "DEF": 1518
+        },
+        "19": {
+            "HP": 3267,
+            "ATK": 3224,
+            "DEF": 1544
+        },
+        "20": {
+            "HP": 3321,
+            "ATK": 3277,
+            "DEF": 1569
+        },
+        "21": {
+            "HP": 3375,
+            "ATK": 3331,
+            "DEF": 1594
+        },
+        "22": {
+            "HP": 3428,
+            "ATK": 3384,
+            "DEF": 1620
+        },
+        "23": {
+            "HP": 3482,
+            "ATK": 3437,
+            "DEF": 1645
+        },
+        "24": {
+            "HP": 3536,
+            "ATK": 3490,
+            "DEF": 1671
+        },
+        "25": {
+            "HP": 3590,
+            "ATK": 3543,
+            "DEF": 1696
+        },
+        "26": {
+            "HP": 3646,
+            "ATK": 3599,
+            "DEF": 1723
+        },
+        "27": {
+            "HP": 3700,
+            "ATK": 3652,
+            "DEF": 1748
+        },
+        "28": {
+            "HP": 3754,
+            "ATK": 3705,
+            "DEF": 1774
+        },
+        "29": {
+            "HP": 3808,
+            "ATK": 3758,
+            "DEF": 1799
+        },
+        "30": {
+            "HP": 3861,
+            "ATK": 3811,
+            "DEF": 1824
+        },
+        "31": {
+            "HP": 3915,
+            "ATK": 3864,
+            "DEF": 1850
+        },
+        "32": {
+            "HP": 3969,
+            "ATK": 3917,
+            "DEF": 1875
+        },
+        "33": {
+            "HP": 4023,
+            "ATK": 3970,
+            "DEF": 1901
+        },
+        "34": {
+            "HP": 4077,
+            "ATK": 4023,
+            "DEF": 1926
+        },
+        "35": {
+            "HP": 4130,
+            "ATK": 4076,
+            "DEF": 1951
+        },
+        "36": {
+            "HP": 4187,
+            "ATK": 4132,
+            "DEF": 1978
+        },
+        "37": {
+            "HP": 4241,
+            "ATK": 4185,
+            "DEF": 2004
+        },
+        "38": {
+            "HP": 4294,
+            "ATK": 4238,
+            "DEF": 2029
+        },
+        "39": {
+            "HP": 4348,
+            "ATK": 4291,
+            "DEF": 2054
+        },
+        "40": {
+            "HP": 4402,
+            "ATK": 4344,
+            "DEF": 2080
+        },
+        "41": {
+            "HP": 4456,
+            "ATK": 4398,
+            "DEF": 2105
+        },
+        "42": {
+            "HP": 4510,
+            "ATK": 4451,
+            "DEF": 2131
+        },
+        "43": {
+            "HP": 4563,
+            "ATK": 4504,
+            "DEF": 2156
+        },
+        "44": {
+            "HP": 4617,
+            "ATK": 4557,
+            "DEF": 2182
+        },
+        "45": {
+            "HP": 4671,
+            "ATK": 4610,
+            "DEF": 2207
+        },
+        "46": {
+            "HP": 4727,
+            "ATK": 4666,
+            "DEF": 2234
+        },
+        "47": {
+            "HP": 4781,
+            "ATK": 4719,
+            "DEF": 2259
+        },
+        "48": {
+            "HP": 4835,
+            "ATK": 4772,
+            "DEF": 2284
+        },
+        "49": {
+            "HP": 4889,
+            "ATK": 4825,
+            "DEF": 2310
+        },
+        "50": {
+            "HP": 4943,
+            "ATK": 4878,
+            "DEF": 2335
+        },
+        "51": {
+            "HP": 4996,
+            "ATK": 4931,
+            "DEF": 2361
+        },
+        "52": {
+            "HP": 5050,
+            "ATK": 4984,
+            "DEF": 2386
+        },
+        "53": {
+            "HP": 5104,
+            "ATK": 5037,
+            "DEF": 2412
+        },
+        "54": {
+            "HP": 5158,
+            "ATK": 5090,
+            "DEF": 2437
+        },
+        "55": {
+            "HP": 5212,
+            "ATK": 5143,
+            "DEF": 2462
+        },
+        "56": {
+            "HP": 5268,
+            "ATK": 5199,
+            "DEF": 2489
+        },
+        "57": {
+            "HP": 5322,
+            "ATK": 5252,
+            "DEF": 2514
+        },
+        "58": {
+            "HP": 5376,
+            "ATK": 5305,
+            "DEF": 2540
+        },
+        "59": {
+            "HP": 5429,
+            "ATK": 5358,
+            "DEF": 2565
+        },
+        "60": {
+            "HP": 5483,
+            "ATK": 5411,
+            "DEF": 2591
+        },
+        "61": {
+            "HP": 5537,
+            "ATK": 5465,
+            "DEF": 2616
+        },
+        "62": {
+            "HP": 5591,
+            "ATK": 5518,
+            "DEF": 2642
+        },
+        "63": {
+            "HP": 5645,
+            "ATK": 5571,
+            "DEF": 2667
+        },
+        "64": {
+            "HP": 5698,
+            "ATK": 5624,
+            "DEF": 2692
+        },
+        "65": {
+            "HP": 5752,
+            "ATK": 5677,
+            "DEF": 2718
+        },
+        "66": {
+            "HP": 5809,
+            "ATK": 5733,
+            "DEF": 2745
+        },
+        "67": {
+            "HP": 5862,
+            "ATK": 5786,
+            "DEF": 2770
+        },
+        "68": {
+            "HP": 5916,
+            "ATK": 5839,
+            "DEF": 2795
+        },
+        "69": {
+            "HP": 5970,
+            "ATK": 5892,
+            "DEF": 2821
+        },
+        "70": {
+            "HP": 6024,
+            "ATK": 5945,
+            "DEF": 2846
+        },
+        "71": {
+            "HP": 6078,
+            "ATK": 5998,
+            "DEF": 2872
+        },
+        "72": {
+            "HP": 6131,
+            "ATK": 6051,
+            "DEF": 2897
+        },
+        "73": {
+            "HP": 6185,
+            "ATK": 6104,
+            "DEF": 2922
+        },
+        "74": {
+            "HP": 6239,
+            "ATK": 6157,
+            "DEF": 2948
+        },
+        "75": {
+            "HP": 6293,
+            "ATK": 6210,
+            "DEF": 2973
+        },
+        "76": {
+            "HP": 6349,
+            "ATK": 6266,
+            "DEF": 3000
+        },
+        "77": {
+            "HP": 6403,
+            "ATK": 6319,
+            "DEF": 3025
+        },
+        "78": {
+            "HP": 6457,
+            "ATK": 6372,
+            "DEF": 3051
+        },
+        "79": {
+            "HP": 6511,
+            "ATK": 6425,
+            "DEF": 3076
+        },
+        "80": {
+            "HP": 6564,
+            "ATK": 6478,
+            "DEF": 3102
+        },
+        "81": {
+            "HP": 6618,
+            "ATK": 6532,
+            "DEF": 3127
+        },
+        "82": {
+            "HP": 6672,
+            "ATK": 6585,
+            "DEF": 3152
+        },
+        "83": {
+            "HP": 6726,
+            "ATK": 6638,
+            "DEF": 3178
+        },
+        "84": {
+            "HP": 6780,
+            "ATK": 6691,
+            "DEF": 3203
+        },
+        "85": {
+            "HP": 6833,
+            "ATK": 6744,
+            "DEF": 3229
+        },
+        "86": {
+            "HP": 6890,
+            "ATK": 6800,
+            "DEF": 3255
+        },
+        "87": {
+            "HP": 6944,
+            "ATK": 6853,
+            "DEF": 3281
+        },
+        "88": {
+            "HP": 6997,
+            "ATK": 6906,
+            "DEF": 3306
+        },
+        "89": {
+            "HP": 7051,
+            "ATK": 6959,
+            "DEF": 3332
+        },
+        "90": {
+            "HP": 7105,
+            "ATK": 7012,
+            "DEF": 3357
+        },
+        "91": {
+            "HP": 7159,
+            "ATK": 7065,
+            "DEF": 3382
+        },
+        "92": {
+            "HP": 7213,
+            "ATK": 7118,
+            "DEF": 3408
+        },
+        "93": {
+            "HP": 7266,
+            "ATK": 7171,
+            "DEF": 3433
+        },
+        "94": {
+            "HP": 7320,
+            "ATK": 7224,
+            "DEF": 3459
+        },
+        "95": {
+            "HP": 7374,
+            "ATK": 7277,
+            "DEF": 3484
+        },
+        "96": {
+            "HP": 7430,
+            "ATK": 7333,
+            "DEF": 3511
+        },
+        "97": {
+            "HP": 7484,
+            "ATK": 7386,
+            "DEF": 3536
+        },
+        "98": {
+            "HP": 7538,
+            "ATK": 7439,
+            "DEF": 3562
+        },
+        "99": {
+            "HP": 7592,
+            "ATK": 7492,
+            "DEF": 3587
+        },
+        "100": {
+            "HP": 7646,
+            "ATK": 7546,
+            "DEF": 3613
+        }
+    },
+    "Leader Skill": {
+        "Name": "Embodiment of Endless Fury",
+        "10321600": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10321601": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "7717": {
+            "superID": "7717",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Waltz of Chaos",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses supreme damage to enemy \nand seals Super Attack",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7717": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1007717": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Seals"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "20",
+                "Type": "SA multiplier increase",
+                "Description": "50% chance of Super Attack transforming \nfor supreme power!",
+                "Chance": "50",
+                "Duration": "1",
+                "Amount": "100"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2893"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "7717",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

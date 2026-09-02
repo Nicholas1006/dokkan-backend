@@ -1,0 +1,542 @@
+{
+    "ID": "4013581",
+    "Type": "AGL",
+    "Class": "Extreme",
+    "Name": "Turles",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Movie Bosses",
+        "Low-Class Warrior",
+        "Pure Saiyans",
+        "Terrifying Conquerors",
+        "Final Trump Card",
+        "Space-Traveling Warriors",
+        "Planetary Destruction"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Destroyer of the Universe",
+        "Saiyan Warrior Race",
+        "Prepared for Battle",
+        "Thirst for Conquest",
+        "Brutal Beatdown",
+        "Big Bad Bosses",
+        "Fierce Battle"
+    ],
+    "Resource ID": 4013580,
+    "Passive": {
+        "2815": {
+            "ID": 2815,
+            "Timing": "Start of turn",
+            "Heals": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Heals +20% ",
+            "Line description": "Heals +20% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002815": {
+            "ID": 1002815,
+            "Timing": "Start of turn",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002815": {
+            "ID": 2002815,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 for all allies ",
+            "Line description": "Ki +3 for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002815": {
+            "ID": 3002815,
+            "Timing": "Start of turn",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1403 )",
+                "Causalities": {
+                    "1403": {
+                        "Button": {
+                            "Name": "Is there 1 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1403\", \"compiled\": 1403}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} ",
+            "Line description": "DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Super class enemies"
+        },
+        "4002815": {
+            "ID": 4002815,
+            "Timing": "Start of turn",
+            "DEF": 80,
+            "Target": {
+                "Target": "Enemies",
+                "Class": "Super"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 80%{passiveImg:down_r} ",
+            "Line description": "DEF 80%{passiveImg:down_r} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5002815": {
+            "ID": 5002815,
+            "Effective Against All": true,
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1404 )",
+                "Causalities": {
+                    "1404": {
+                        "Button": {
+                            "Name": "Is HP 80 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=80",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 80% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1404\", \"compiled\": 1404}",
+            "Type": "Single activator",
+            "Brief effect description": "Attacks effective against all Types when attacking",
+            "Line description": "Attacks effective against all Types when attacking",
+            "Paragraph Title": "When HP is 80% or more"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Recovers 20% HP at the start of turn\n- ATK & DEF 200%{passiveImg:up_g}\n- All allies' Ki +3\n- Super Class enemies' DEF 80%{passiveImg:down_y}\n*When there is a Super Class enemy*\n- DEF 100%{passiveImg:up_g}\n*If HP is 80% or more when attacking*\n- Attacks are effective against all Types",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 11410,
+            "ATK": 10676,
+            "DEF": 5825
+        },
+        "121": {
+            "HP": 11587,
+            "ATK": 10842,
+            "DEF": 5915
+        },
+        "122": {
+            "HP": 11765,
+            "ATK": 11008,
+            "DEF": 6006
+        },
+        "123": {
+            "HP": 11942,
+            "ATK": 11174,
+            "DEF": 6096
+        },
+        "124": {
+            "HP": 12120,
+            "ATK": 11340,
+            "DEF": 6187
+        },
+        "125": {
+            "HP": 12297,
+            "ATK": 11506,
+            "DEF": 6278
+        },
+        "126": {
+            "HP": 12475,
+            "ATK": 11672,
+            "DEF": 6368
+        },
+        "127": {
+            "HP": 12652,
+            "ATK": 11838,
+            "DEF": 6459
+        },
+        "128": {
+            "HP": 12830,
+            "ATK": 12004,
+            "DEF": 6550
+        },
+        "129": {
+            "HP": 13007,
+            "ATK": 12171,
+            "DEF": 6640
+        },
+        "130": {
+            "HP": 13185,
+            "ATK": 12337,
+            "DEF": 6731
+        },
+        "131": {
+            "HP": 13362,
+            "ATK": 12503,
+            "DEF": 6821
+        },
+        "132": {
+            "HP": 13540,
+            "ATK": 12669,
+            "DEF": 6912
+        },
+        "133": {
+            "HP": 13717,
+            "ATK": 12835,
+            "DEF": 7003
+        },
+        "134": {
+            "HP": 13895,
+            "ATK": 13001,
+            "DEF": 7093
+        },
+        "135": {
+            "HP": 14072,
+            "ATK": 13167,
+            "DEF": 7184
+        },
+        "136": {
+            "HP": 14250,
+            "ATK": 13333,
+            "DEF": 7275
+        },
+        "137": {
+            "HP": 14427,
+            "ATK": 13500,
+            "DEF": 7365
+        },
+        "138": {
+            "HP": 14605,
+            "ATK": 13666,
+            "DEF": 7456
+        },
+        "139": {
+            "HP": 14782,
+            "ATK": 13832,
+            "DEF": 7547
+        },
+        "140": {
+            "HP": 14960,
+            "ATK": 13998,
+            "DEF": 7637
+        }
+    },
+    "Leader Skill": {
+        "Name": "Explosive Evolution",
+        "11621": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Movie Bosses"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "11622": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Movie Bosses"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "11623": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Movie Bosses"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "11624": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Movie Bosses"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "3822": {
+            "superID": "3822",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Calamity Blaster (Extreme)",
+            "superDescription": "Raises ATK & DEF and \ncauses immense damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3822": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "20",
+                    "DEF": "20"
+                },
+                "1003822": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 610,
+            "relevantLua": [
+                "sp1158"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3822",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

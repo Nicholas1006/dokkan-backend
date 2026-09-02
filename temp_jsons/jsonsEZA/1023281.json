@@ -1,0 +1,552 @@
+{
+    "ID": "1023281",
+    "Type": "AGL",
+    "Class": "Super",
+    "Name": "Super Saiyan 3 Gotenks (Xeno)",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Fusion",
+        "Hybrid Saiyans",
+        "Kamehameha",
+        "Time Travelers",
+        "Dragon Ball Heroes",
+        "Crossover",
+        "Defenders of Justice",
+        "Time Limit",
+        "Super Saiyan 3",
+        "Fused Fighters",
+        "Power Beyond Super Saiyan",
+        "Earth-Bred Fighters",
+        "Mission Execution",
+        "Golden Fighters"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Super Saiyan",
+        "Over in a Flash",
+        "The Innocents",
+        "Shocking Speed",
+        "Fused Fighter",
+        "Kamehameha",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1023280,
+    "Passive": {
+        "4311": {
+            "ID": 4311,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004311": {
+            "ID": 1004311,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1150 )",
+                "Causalities": {
+                    "1150": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1150\", \"compiled\": 1150}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 150%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 150%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2004311": {
+            "ID": 2004311,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Super being performed"
+                },
+                "Slider": "How many super attacks has this character performed?"
+            },
+            "ATK": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"1170\", \"compiled\": 1170}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many super attacks has this character performed' after attacking",
+            "Line description": "{passiveImg:forever}ATK 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many super attacks has this character performed' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004311": {
+            "ID": 3004311,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Super being performed"
+                },
+                "Slider": "How many super attacks has this character performed?"
+            },
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"1170\", \"compiled\": 1170}",
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many super attacks has this character performed' after attacking",
+            "Line description": "{passiveImg:forever}DEF 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many super attacks has this character performed' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004311": {
+            "ID": 4004311,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": 100
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2891 || 633 )",
+                "Causalities": {
+                    "2891": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies attacking on this turn"
+                    },
+                    "633": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned or Sealed on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun} or {passiveImg:astute}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2891|633\", \"compiled\": [\"|\", 2891, 633]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack with a 100% chance of another additional super attack when attacking",
+            "Line description": "Performs an additional super attack with a 100% chance of another additional super attack when attacking",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies attacking on this turn or the target enemy is in the following status{passiveImg:stun} or {passiveImg:astute} "
+        },
+        "5004311": {
+            "ID": 5004311,
+            "Timing": "Start of turn",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3318 )",
+                "Causalities": {
+                    "3318": {
+                        "Button": {
+                            "Name": "Are there 2 or more Super Saiyan 3 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super Saiyan 3 category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super Saiyan 3 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3318\", \"compiled\": 3318}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit ",
+            "Line description": "Performs a Critical Hit ",
+            "Paragraph Title": "When there are 2 or more Super Saiyan 3 Category allies attacking on this turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 150%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK 150%{passiveImg:up_g}\n*For every Super Attack performed*\n- {passiveImg:forever}ATK & DEF 30%{passiveImg:up_g} (up to 150%)\n*When there is another \"Crossover\" Category ally attacking in\nthe same turn, or when the target enemy is in the following\nstatus: {passiveImg:stun} or {passiveImg:astute}*\n- Launches 2 additional Super Attack(s)\n*When there is another \"Super Saiyan 3\" Category ally\nattacking in the same turn*\n- Performs a critical hit",
+    "Max Attacks": 4,
+    "Max Super Attacks": 4,
+    "Stats at levels": {
+        "120": {
+            "HP": 8267,
+            "ATK": 9263,
+            "DEF": 5323
+        },
+        "121": {
+            "HP": 8406,
+            "ATK": 9419,
+            "DEF": 5412
+        },
+        "122": {
+            "HP": 8545,
+            "ATK": 9575,
+            "DEF": 5502
+        },
+        "123": {
+            "HP": 8685,
+            "ATK": 9731,
+            "DEF": 5592
+        },
+        "124": {
+            "HP": 8824,
+            "ATK": 9888,
+            "DEF": 5682
+        },
+        "125": {
+            "HP": 8964,
+            "ATK": 10044,
+            "DEF": 5771
+        },
+        "126": {
+            "HP": 9103,
+            "ATK": 10200,
+            "DEF": 5861
+        },
+        "127": {
+            "HP": 9243,
+            "ATK": 10356,
+            "DEF": 5951
+        },
+        "128": {
+            "HP": 9382,
+            "ATK": 10513,
+            "DEF": 6041
+        },
+        "129": {
+            "HP": 9522,
+            "ATK": 10669,
+            "DEF": 6131
+        },
+        "130": {
+            "HP": 9661,
+            "ATK": 10825,
+            "DEF": 6220
+        },
+        "131": {
+            "HP": 9800,
+            "ATK": 10981,
+            "DEF": 6310
+        },
+        "132": {
+            "HP": 9940,
+            "ATK": 11138,
+            "DEF": 6400
+        },
+        "133": {
+            "HP": 10079,
+            "ATK": 11294,
+            "DEF": 6490
+        },
+        "134": {
+            "HP": 10219,
+            "ATK": 11450,
+            "DEF": 6580
+        },
+        "135": {
+            "HP": 10358,
+            "ATK": 11607,
+            "DEF": 6669
+        },
+        "136": {
+            "HP": 10498,
+            "ATK": 11763,
+            "DEF": 6759
+        },
+        "137": {
+            "HP": 10637,
+            "ATK": 11919,
+            "DEF": 6849
+        },
+        "138": {
+            "HP": 10777,
+            "ATK": 12075,
+            "DEF": 6939
+        },
+        "139": {
+            "HP": 10916,
+            "ATK": 12232,
+            "DEF": 7028
+        },
+        "140": {
+            "HP": 11056,
+            "ATK": 12388,
+            "DEF": 7118
+        }
+    },
+    "Leader Skill": {
+        "Name": "Power to Overcome Crisis",
+        "102328100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "102328101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "6066": {
+            "superID": "6066",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Super Ultra Burning Kamehameha (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses supreme damage to enemy \nand lowers ATK & DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "6066": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1006066": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp2290"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "6066",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

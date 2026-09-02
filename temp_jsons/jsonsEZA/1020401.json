@@ -1,0 +1,605 @@
+{
+    "ID": "1020401",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Super Saiyan 2 Kale",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Peppy Gals",
+        "Universe Survival Saga",
+        "Pure Saiyans",
+        "Full Power",
+        "Universe 6",
+        "Super Saiyan 2",
+        "Rapid Growth",
+        "Miraculous Awakening",
+        "Bond of Friendship",
+        "Power Beyond Super Saiyan",
+        "Tournament Participants",
+        "Super Bosses",
+        "Golden Fighters"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Super Saiyan",
+        "Battlefield Diva",
+        "Solid Support",
+        "Warriors of Universe 6 ",
+        "Prepared for Battle",
+        "Tournament of Power",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1020400,
+    "Passive": {
+        "2618": {
+            "ID": 2618,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1073 )",
+                "Causalities": {
+                    "1073": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1073\", \"compiled\": 1073}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "1002618": {
+            "ID": 1002618,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Universe Survival Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all Universe Survival Saga category allies ",
+            "Line description": "Ki +2 for all Universe Survival Saga category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002618": {
+            "ID": 2002618,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Universe Survival Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} for all Universe Survival Saga category allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} for all Universe Survival Saga category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002618": {
+            "ID": 3002618,
+            "Timing": "Start of turn",
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1074 )",
+                "Causalities": {
+                    "1074": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies on the team whose name includes Caulifla on this turn?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\""
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1074\", \"compiled\": 1074}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 70%{passiveImg:up_g} ",
+            "Line description": "DEF 70%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\""
+        },
+        "4002618": {
+            "ID": 4002618,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1075 )",
+                "Causalities": {
+                    "1075": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Caulifla?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1075\", \"compiled\": 1075}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all allies ",
+            "Line description": "Ki +1 for all allies ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\" attacking in the same turn "
+        },
+        "5002618": {
+            "ID": 5002618,
+            "Timing": "Start of turn",
+            "ATK": 16,
+            "DEF": 16,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1075 )",
+                "Causalities": {
+                    "1075": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Caulifla?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1075\", \"compiled\": 1075}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 16%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK and DEF 16%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\" attacking in the same turn "
+        },
+        "6002618": {
+            "ID": 6002618,
+            "Timing": "Start of turn",
+            "Crit Chance": 16,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1075 )",
+                "Causalities": {
+                    "1075": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Caulifla?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1075\", \"compiled\": 1075}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +16%{passiveImg:up_g} for all allies ",
+            "Line description": "Chance of performing a critical hit +16%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Caulifla\" attacking in the same turn "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- \"Universe Survival Saga\" Category allies' Ki +2 and ATK &\nDEF 30%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 120%{passiveImg:up_g}\n*When there is an ally whose name includes \"Caulifla\" on the\nteam*\n- DEF 70%{passiveImg:up_g}\n- All allies' Ki +1, ATK & DEF 16%{passiveImg:up_g} and chance of performing\na critical hit 16%{passiveImg:up_g} if that ally is attacking in the same turn",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 9166,
+            "ATK": 6901,
+            "DEF": 5048
+        },
+        "121": {
+            "HP": 9320,
+            "ATK": 7017,
+            "DEF": 5133
+        },
+        "122": {
+            "HP": 9475,
+            "ATK": 7133,
+            "DEF": 5218
+        },
+        "123": {
+            "HP": 9629,
+            "ATK": 7250,
+            "DEF": 5303
+        },
+        "124": {
+            "HP": 9784,
+            "ATK": 7366,
+            "DEF": 5388
+        },
+        "125": {
+            "HP": 9939,
+            "ATK": 7483,
+            "DEF": 5473
+        },
+        "126": {
+            "HP": 10093,
+            "ATK": 7599,
+            "DEF": 5558
+        },
+        "127": {
+            "HP": 10248,
+            "ATK": 7715,
+            "DEF": 5643
+        },
+        "128": {
+            "HP": 10402,
+            "ATK": 7832,
+            "DEF": 5729
+        },
+        "129": {
+            "HP": 10557,
+            "ATK": 7948,
+            "DEF": 5814
+        },
+        "130": {
+            "HP": 10712,
+            "ATK": 8065,
+            "DEF": 5899
+        },
+        "131": {
+            "HP": 10866,
+            "ATK": 8181,
+            "DEF": 5984
+        },
+        "132": {
+            "HP": 11021,
+            "ATK": 8297,
+            "DEF": 6069
+        },
+        "133": {
+            "HP": 11175,
+            "ATK": 8414,
+            "DEF": 6154
+        },
+        "134": {
+            "HP": 11330,
+            "ATK": 8530,
+            "DEF": 6239
+        },
+        "135": {
+            "HP": 11485,
+            "ATK": 8647,
+            "DEF": 6325
+        },
+        "136": {
+            "HP": 11639,
+            "ATK": 8763,
+            "DEF": 6410
+        },
+        "137": {
+            "HP": 11794,
+            "ATK": 8879,
+            "DEF": 6495
+        },
+        "138": {
+            "HP": 11948,
+            "ATK": 8996,
+            "DEF": 6580
+        },
+        "139": {
+            "HP": 12103,
+            "ATK": 9112,
+            "DEF": 6665
+        },
+        "140": {
+            "HP": 12258,
+            "ATK": 9229,
+            "DEF": 6750
+        }
+    },
+    "Leader Skill": {
+        "Name": "First Step as a Warrior",
+        "10601": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Full Power"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 77,
+            "DEF": 77,
+            "HP": 77,
+            "Ki": 0
+        },
+        "10602": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Full Power"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10603": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Full Power"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10604": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Full Power"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1020,
+            "ATK": 1020,
+            "DEF": 1020,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "3391": {
+            "superID": "3391",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Resist Blast (Extreme)",
+            "superDescription": "Raises ATK for 1 turn, \ncauses supreme damage to enemy \nand lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3391": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1003391": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "40"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp0441"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 600,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 2200,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 72.5,
+        "1": 78.54166666666667,
+        "2": 84.58333333333333,
+        "3": 90.625,
+        "4": 96.66666666666666,
+        "5": 102.70833333333334,
+        "6": 108.75,
+        "7": 114.79166666666667,
+        "8": 120.83333333333333,
+        "9": 126.875,
+        "10": 132.91666666666669,
+        "11": 138.95833333333331,
+        "12": 145.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3391",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

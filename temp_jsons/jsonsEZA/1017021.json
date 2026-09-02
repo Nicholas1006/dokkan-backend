@@ -1,0 +1,601 @@
+{
+    "ID": "1017021",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Gowasu & Zamasu",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Realm of Gods",
+        "Future Saga",
+        "Potara",
+        "Time Travelers",
+        "Joined Forces",
+        "Bond of Master and Disciple",
+        "Successors"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Godly Power",
+        "Cold Judgment",
+        "Solid Support",
+        "Gentleman",
+        "More Than Meets the Eye",
+        "Brainiacs",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1017020,
+    "Passive": {
+        "3566": {
+            "ID": 3566,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 for all allies ",
+            "Line description": "Ki +3 for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003566": {
+            "ID": 1003566,
+            "Timing": "Start of turn",
+            "DEF": 70,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 70%{passiveImg:up_g} for all allies ",
+            "Line description": "DEF 70%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003566": {
+            "ID": 2003566,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2626 )",
+                "Causalities": {
+                    "2626": {
+                        "Button": {
+                            "Name": "Are there 3 or more Realm of Gods category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Realm of Gods category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Realm of Gods Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2626\", \"compiled\": 2626}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all allies ",
+            "Line description": "Ki +1 for all allies ",
+            "Paragraph Title": "When there are 3 or more Realm of Gods Category allies attacking on this turn"
+        },
+        "3003566": {
+            "ID": 3003566,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2626 )",
+                "Causalities": {
+                    "2626": {
+                        "Button": {
+                            "Name": "Are there 3 or more Realm of Gods category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Realm of Gods category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Realm of Gods Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2626\", \"compiled\": 2626}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK 30%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "When there are 3 or more Realm of Gods Category allies attacking on this turn"
+        },
+        "4003566": {
+            "ID": 4003566,
+            "Dodge Chance": 50,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +50% ",
+            "Line description": "Chance of evading enemy attacks +50% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5003566": {
+            "ID": 5003566,
+            "Timing": "Right before attack(SOT stat)",
+            "Ki": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2627 )",
+                "Causalities": {
+                    "2627": {
+                        "Button": {
+                            "Name": "Is this unit attacking an extreme class enemy on this turn?"
+                        },
+                        "Paragraph Title": "When the unit is attacking an extreme class enemy"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2627\", \"compiled\": 2627}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +5 when attacking",
+            "Line description": "Ki +5 when attacking",
+            "Paragraph Title": "When the unit is attacking an extreme class enemy"
+        },
+        "6003566": {
+            "ID": 6003566,
+            "Timing": "Right before attack(SOT stat)",
+            "ATK": 140,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2627 )",
+                "Causalities": {
+                    "2627": {
+                        "Button": {
+                            "Name": "Is this unit attacking an extreme class enemy on this turn?"
+                        },
+                        "Paragraph Title": "When the unit is attacking an extreme class enemy"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2627\", \"compiled\": 2627}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 140% and DEF 70%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 140% and DEF 70%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When the unit is attacking an extreme class enemy"
+        },
+        "7003566": {
+            "ID": 7003566,
+            "Timing": "Right before attack(SOT stat)",
+            "ATK": 70,
+            "DEF": 140,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2628 )",
+                "Causalities": {
+                    "2628": {
+                        "Button": {
+                            "Name": "Is this unit attacking a super class enemy on this turn?"
+                        },
+                        "Paragraph Title": "When the unit is attacking a super class enemy"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2628\", \"compiled\": 2628}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 70% and DEF 140%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 70% and DEF 140%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When the unit is attacking a super class enemy"
+        },
+        "8003566": {
+            "ID": 8003566,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 70,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2629 )",
+                "Causalities": {
+                    "2629": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2629\", \"compiled\": 2629}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 70%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 70%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- All allies' Ki +3 and DEF 70%{passiveImg:up_g}\n- High chance of evading enemy's attack\n*When there are 3 \"Realm of Gods\" Category allies\nattacking in the same turn*\n- All allies' Ki +1 and ATK 30%{passiveImg:up_g}\n*When attacking an Extreme Class enemy*\n- Ki +5\n- ATK 140%{passiveImg:up_g}\n- DEF 70%{passiveImg:up_g}\n*When attacking a Super Class enemy*\n- ATK 70%{passiveImg:up_g}\n- DEF 140%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 70%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 9167,
+            "ATK": 8797,
+            "DEF": 5193
+        },
+        "121": {
+            "HP": 9321,
+            "ATK": 8945,
+            "DEF": 5280
+        },
+        "122": {
+            "HP": 9476,
+            "ATK": 9093,
+            "DEF": 5368
+        },
+        "123": {
+            "HP": 9630,
+            "ATK": 9242,
+            "DEF": 5455
+        },
+        "124": {
+            "HP": 9785,
+            "ATK": 9390,
+            "DEF": 5543
+        },
+        "125": {
+            "HP": 9940,
+            "ATK": 9539,
+            "DEF": 5631
+        },
+        "126": {
+            "HP": 10094,
+            "ATK": 9687,
+            "DEF": 5718
+        },
+        "127": {
+            "HP": 10249,
+            "ATK": 9835,
+            "DEF": 5806
+        },
+        "128": {
+            "HP": 10404,
+            "ATK": 9984,
+            "DEF": 5893
+        },
+        "129": {
+            "HP": 10558,
+            "ATK": 10132,
+            "DEF": 5981
+        },
+        "130": {
+            "HP": 10713,
+            "ATK": 10281,
+            "DEF": 6069
+        },
+        "131": {
+            "HP": 10868,
+            "ATK": 10429,
+            "DEF": 6156
+        },
+        "132": {
+            "HP": 11022,
+            "ATK": 10577,
+            "DEF": 6244
+        },
+        "133": {
+            "HP": 11177,
+            "ATK": 10726,
+            "DEF": 6331
+        },
+        "134": {
+            "HP": 11332,
+            "ATK": 10874,
+            "DEF": 6419
+        },
+        "135": {
+            "HP": 11486,
+            "ATK": 11023,
+            "DEF": 6507
+        },
+        "136": {
+            "HP": 11641,
+            "ATK": 11171,
+            "DEF": 6594
+        },
+        "137": {
+            "HP": 11796,
+            "ATK": 11319,
+            "DEF": 6682
+        },
+        "138": {
+            "HP": 11950,
+            "ATK": 11468,
+            "DEF": 6769
+        },
+        "139": {
+            "HP": 12105,
+            "ATK": 11616,
+            "DEF": 6857
+        },
+        "140": {
+            "HP": 12259,
+            "ATK": 11765,
+            "DEF": 6945
+        }
+    },
+    "Leader Skill": {
+        "Name": "A Lesson in Good and Evil",
+        "101702100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Realm of Gods"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101702101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Realm of Gods"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 2100,
+            "ATK": 1700,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4835": {
+            "superID": "4835",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Fierce God Slicer (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses supreme damage to enemy \nand seals Super Attack",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4835": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1004835": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Seals"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp1290"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4835",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

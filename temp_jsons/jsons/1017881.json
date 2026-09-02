@@ -1,0 +1,895 @@
+{
+    "ID": "1017881",
+    "Type": "INT",
+    "Class": "Extreme",
+    "Name": "Cell (Perfect Form)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Androids/Cell Saga",
+        "Androids",
+        "Transformation Boost",
+        "Time Travelers",
+        "Artificial Life Forms",
+        "Target: Goku",
+        "Power Absorption",
+        "Sworn Enemies",
+        "Accelerated Battle",
+        "Worldwide Chaos",
+        "Tournament Participants"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Gentleman",
+        "Messenger from the Future",
+        "Big Bad Bosses",
+        "Shocking Speed",
+        "Ultimate Lifeform"
+    ],
+    "Resource ID": 1017880,
+    "Passive": {
+        "1670": {
+            "ID": 1670,
+            "Timing": "Start of turn",
+            "ATK": 60,
+            "DEF": 60,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 60%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 60%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1001670": {
+            "ID": 1001670,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 1,
+                "Max": 60,
+                "Stat Per Proc": 1100,
+                "Cause": {
+                    "Cause": "HP",
+                    "Type": "More HP remaining"
+                },
+                "Slider": "What percentage of HP is remaining?"
+            },
+            "DEF": 60,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 60%{passiveImg:up_g} ({currentValue} / 60%) based on 'What percentage of HP is remaining' ",
+            "Line description": "DEF 60%{passiveImg:up_g} ({currentValue} / 60%) based on 'What percentage of HP is remaining' ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2001670": {
+            "ID": 2001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3001670": {
+            "ID": 3001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 22 )",
+                "Causalities": {
+                    "22": {
+                        "Button": {
+                            "Name": "Is there 2 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 2 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"22\", \"compiled\": 22}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 2 or more enemies"
+        },
+        "4001670": {
+            "ID": 4001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 18 )",
+                "Causalities": {
+                    "18": {
+                        "Button": {
+                            "Name": "Is there 3 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=3",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 3 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"18\", \"compiled\": 18}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 3 or more enemies"
+        },
+        "5001670": {
+            "ID": 5001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 101 )",
+                "Causalities": {
+                    "101": {
+                        "Button": {
+                            "Name": "Is there 4 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=4",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 4 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"101\", \"compiled\": 101}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 4 or more enemies"
+        },
+        "6001670": {
+            "ID": 6001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 102 )",
+                "Causalities": {
+                    "102": {
+                        "Button": {
+                            "Name": "Is there 5 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=5",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 5 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"102\", \"compiled\": 102}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 5 or more enemies"
+        },
+        "7001670": {
+            "ID": 7001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 103 )",
+                "Causalities": {
+                    "103": {
+                        "Button": {
+                            "Name": "Is there 6 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=6",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 6 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"103\", \"compiled\": 103}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 6 or more enemies"
+        },
+        "8001670": {
+            "ID": 8001670,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 104 )",
+                "Causalities": {
+                    "104": {
+                        "Button": {
+                            "Name": "Is there 7 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=7",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 7 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"104\", \"compiled\": 104}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 7 or more enemies"
+        },
+        "9001670": {
+            "ID": 9001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10001670": {
+            "ID": 10001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 22 )",
+                "Causalities": {
+                    "22": {
+                        "Button": {
+                            "Name": "Is there 2 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 2 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"22\", \"compiled\": 22}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more enemies"
+        },
+        "11001670": {
+            "ID": 11001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 18 )",
+                "Causalities": {
+                    "18": {
+                        "Button": {
+                            "Name": "Is there 3 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=3",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 3 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"18\", \"compiled\": 18}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more enemies"
+        },
+        "12001670": {
+            "ID": 12001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 101 )",
+                "Causalities": {
+                    "101": {
+                        "Button": {
+                            "Name": "Is there 4 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=4",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 4 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"101\", \"compiled\": 101}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more enemies"
+        },
+        "13001670": {
+            "ID": 13001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 102 )",
+                "Causalities": {
+                    "102": {
+                        "Button": {
+                            "Name": "Is there 5 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=5",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 5 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"102\", \"compiled\": 102}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more enemies"
+        },
+        "14001670": {
+            "ID": 14001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 103 )",
+                "Causalities": {
+                    "103": {
+                        "Button": {
+                            "Name": "Is there 6 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=6",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 6 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"103\", \"compiled\": 103}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 6 or more enemies"
+        },
+        "15001670": {
+            "ID": 15001670,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 104 )",
+                "Causalities": {
+                    "104": {
+                        "Button": {
+                            "Name": "Is there 7 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=7",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 7 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"104\", \"compiled\": 104}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 7 or more enemies"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 60%{passiveImg:up_g}\n*The more HP remaining*\n- DEF{passiveImg:up_g} (up to 60%)\n*Per existing enemy*\n- Ki +1 and ATK 10%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 8278,
+            "ATK": 7881,
+            "DEF": 4089
+        },
+        "81": {
+            "HP": 8291,
+            "ATK": 7894,
+            "DEF": 4095
+        },
+        "82": {
+            "HP": 8304,
+            "ATK": 7907,
+            "DEF": 4101
+        },
+        "83": {
+            "HP": 8318,
+            "ATK": 7919,
+            "DEF": 4107
+        },
+        "84": {
+            "HP": 8331,
+            "ATK": 7932,
+            "DEF": 4113
+        },
+        "85": {
+            "HP": 8344,
+            "ATK": 7945,
+            "DEF": 4119
+        },
+        "86": {
+            "HP": 8358,
+            "ATK": 7959,
+            "DEF": 4126
+        },
+        "87": {
+            "HP": 8371,
+            "ATK": 7972,
+            "DEF": 4132
+        },
+        "88": {
+            "HP": 8385,
+            "ATK": 7985,
+            "DEF": 4138
+        },
+        "89": {
+            "HP": 8398,
+            "ATK": 7998,
+            "DEF": 4144
+        },
+        "90": {
+            "HP": 8411,
+            "ATK": 8011,
+            "DEF": 4150
+        },
+        "91": {
+            "HP": 8424,
+            "ATK": 8024,
+            "DEF": 4156
+        },
+        "92": {
+            "HP": 8438,
+            "ATK": 8036,
+            "DEF": 4162
+        },
+        "93": {
+            "HP": 8451,
+            "ATK": 8049,
+            "DEF": 4168
+        },
+        "94": {
+            "HP": 8464,
+            "ATK": 8062,
+            "DEF": 4175
+        },
+        "95": {
+            "HP": 8478,
+            "ATK": 8075,
+            "DEF": 4181
+        },
+        "96": {
+            "HP": 8491,
+            "ATK": 8089,
+            "DEF": 4187
+        },
+        "97": {
+            "HP": 8505,
+            "ATK": 8102,
+            "DEF": 4193
+        },
+        "98": {
+            "HP": 8518,
+            "ATK": 8115,
+            "DEF": 4199
+        },
+        "99": {
+            "HP": 8531,
+            "ATK": 8128,
+            "DEF": 4205
+        },
+        "100": {
+            "HP": 8545,
+            "ATK": 8141,
+            "DEF": 4212
+        }
+    },
+    "Leader Skill": {
+        "Name": "Onset of a Hellish Fight",
+        "7341": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Androids/Cell Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 140,
+            "HP": 120,
+            "Ki": 0
+        },
+        "7342": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Androids/Cell Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "7343": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Androids/Cell Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "7344": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Androids/Cell Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 1700,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "1874": {
+            "superID": "1874",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Perfect Attack",
+            "superDescription": "Causes immense damage to enemy \nand greatly lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "1874": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp1324"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "1874",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

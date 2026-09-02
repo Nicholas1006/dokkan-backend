@@ -1,0 +1,828 @@
+{
+    "ID": "1032861",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Super Saiyan 4 Vegeta",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "GT Heroes",
+        "Power of Wishes",
+        "Power Beyond Super Saiyan",
+        "All-Out Struggle",
+        "Earth-Bred Fighters",
+        "Giant Ape Power",
+        "Shadow Dragon Saga",
+        "Pure Saiyans",
+        "Vegeta's Family",
+        "Worthy Rivals",
+        "Saviors",
+        "Miraculous Awakening",
+        "Gifted Warriors",
+        "Battle of Fate",
+        "Bond of Parent and Child",
+        "Earth-Protecting Heroes",
+        "Successors"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Super Saiyan",
+        "Royal Lineage",
+        "Saiyan Roar",
+        "Shocking Speed",
+        "GT"
+    ],
+    "Resource ID": 1032860,
+    "Passive": {
+        "4842": {
+            "ID": 4842,
+            "Timing": "Start of turn",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004842": {
+            "ID": 1004842,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 5,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow"
+                    ]
+                },
+                "Slider": "How many Rainbow Ki Spheres have been obtained?"
+            },
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +1 per Rainbow Ki Spheres obtained{currentValue} / 5 ",
+            "Line description": "Ki +1 per Rainbow Ki Spheres obtained{currentValue} / 5 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004842": {
+            "ID": 2004842,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004842": {
+            "ID": 3004842,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004842": {
+            "ID": 4004842,
+            "Timing": "When ki spheres collected",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2063 )",
+                "Causalities": {
+                    "2063": {
+                        "Button": {
+                            "Name": "Has 3 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "With 3 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2063\", \"compiled\": 2063}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 3 or more Rainbow Ki Spheres obtained"
+        },
+        "5004842": {
+            "ID": 5004842,
+            "Timing": "Right after being hit",
+            "DEF": 10,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 24 || 365 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    },
+                    "365": {
+                        "Button": {
+                            "Name": "Has this unit evaded an attack on this turn?"
+                        },
+                        "Paragraph Title": "After evading an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24|365\", \"compiled\": [\"|\", 24, 365]}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 10%{passiveImg:up_g} after being hit for all allies(self excluded) ",
+            "Line description": "DEF 10%{passiveImg:up_g} after being hit for all allies(self excluded) ",
+            "Paragraph Title": "When ( after recieving an attack or after evading an attack )"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 200%{passiveImg:up_g}\n- Receives an additional Ki +1 per Rainbow Ki Sphere obtained\n- Guards all attacks\n- Damage reduction rate 10%{passiveImg:up_g}\n*3 or more Rainbow Ki Spheres obtained*\n- Damage reduction rate 10%{passiveImg:up_g}\n*After receiving or evading an attack*\n- All allies' DEF 10%{passiveImg:up_g} (self excluded)",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 10330,
+            "ATK": 7881,
+            "DEF": 3918
+        },
+        "81": {
+            "HP": 10347,
+            "ATK": 7894,
+            "DEF": 3924
+        },
+        "82": {
+            "HP": 10364,
+            "ATK": 7907,
+            "DEF": 3930
+        },
+        "83": {
+            "HP": 10381,
+            "ATK": 7919,
+            "DEF": 3935
+        },
+        "84": {
+            "HP": 10398,
+            "ATK": 7932,
+            "DEF": 3941
+        },
+        "85": {
+            "HP": 10415,
+            "ATK": 7945,
+            "DEF": 3947
+        },
+        "86": {
+            "HP": 10432,
+            "ATK": 7959,
+            "DEF": 3953
+        },
+        "87": {
+            "HP": 10449,
+            "ATK": 7972,
+            "DEF": 3959
+        },
+        "88": {
+            "HP": 10466,
+            "ATK": 7985,
+            "DEF": 3965
+        },
+        "89": {
+            "HP": 10483,
+            "ATK": 7998,
+            "DEF": 3970
+        },
+        "90": {
+            "HP": 10500,
+            "ATK": 8011,
+            "DEF": 3976
+        },
+        "91": {
+            "HP": 10517,
+            "ATK": 8024,
+            "DEF": 3982
+        },
+        "92": {
+            "HP": 10534,
+            "ATK": 8036,
+            "DEF": 3988
+        },
+        "93": {
+            "HP": 10550,
+            "ATK": 8049,
+            "DEF": 3994
+        },
+        "94": {
+            "HP": 10567,
+            "ATK": 8062,
+            "DEF": 3999
+        },
+        "95": {
+            "HP": 10584,
+            "ATK": 8075,
+            "DEF": 4005
+        },
+        "96": {
+            "HP": 10602,
+            "ATK": 8089,
+            "DEF": 4011
+        },
+        "97": {
+            "HP": 10619,
+            "ATK": 8102,
+            "DEF": 4017
+        },
+        "98": {
+            "HP": 10636,
+            "ATK": 8115,
+            "DEF": 4023
+        },
+        "99": {
+            "HP": 10653,
+            "ATK": 8128,
+            "DEF": 4029
+        },
+        "100": {
+            "HP": 10670,
+            "ATK": 8141,
+            "DEF": 4035
+        }
+    },
+    "Leader Skill": {
+        "Name": "In Pursuit of Further Evolution",
+        "10328600": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 150,
+            "Ki": 0
+        },
+        "10328601": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10328602": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes"
+                ],
+                "Excluded Category": [
+                    "GT Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 150,
+            "Ki": 0
+        },
+        "10328603": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes"
+                ],
+                "Excluded Category": [
+                    "GT Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10328604": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Beyond Super Saiyan"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 150,
+            "Ki": 0
+        },
+        "10328605": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Beyond Super Saiyan"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10328606": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes",
+                    "All-Out Struggle"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328607": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes",
+                    "Earth-Bred Fighters"
+                ],
+                "Excluded Category": [
+                    "All-Out Struggle"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328608": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes",
+                    "Giant Ape Power"
+                ],
+                "Excluded Category": [
+                    "All-Out Struggle",
+                    "Earth-Bred Fighters"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328609": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "All-Out Struggle"
+                ],
+                "Excluded Category": [
+                    "GT Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328610": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "Earth-Bred Fighters"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "All-Out Struggle"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328611": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "Giant Ape Power"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "All-Out Struggle",
+                    "Earth-Bred Fighters"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328612": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Beyond Super Saiyan",
+                    "All-Out Struggle"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328613": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Beyond Super Saiyan",
+                    "Earth-Bred Fighters"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "Power of Wishes",
+                    "All-Out Struggle"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        },
+        "10328614": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power Beyond Super Saiyan",
+                    "Giant Ape Power"
+                ],
+                "Excluded Category": [
+                    "GT Heroes",
+                    "Power of Wishes",
+                    "All-Out Struggle",
+                    "Earth-Bred Fighters"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 20,
+            "DEF": 20,
+            "HP": 20,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 1700,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8290": {
+            "superID": "8290",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Spirit Break Cannon",
+            "superDescription": "Raises ATK & DEF and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8290": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "20",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 410,
+            "relevantLua": [
+                "sp2985"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 600,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 2200,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8290",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

@@ -1,0 +1,1555 @@
+{
+    "ID": "1031620",
+    "Type": "PHY",
+    "Class": "Extreme",
+    "Name": "Spopovich",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Corroded Body and Mind",
+        "Majin Buu Saga",
+        "World Tournament",
+        "Terrifying Conquerors",
+        "Earthlings",
+        "Earth-Bred Fighters",
+        "Tournament Participants",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Brutal Beatdown",
+        "Evil Autocrats",
+        "Demonic Power",
+        "Berserker",
+        "Tough as Nails",
+        "Infighter",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1031620,
+    "Passive": {
+        "4667": {
+            "ID": 4667,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004667": {
+            "ID": 1004667,
+            "Timing": "Start of turn",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004667": {
+            "ID": 2004667,
+            "Timing": "Start of turn",
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"99000000000000\", \"compiled\": 99000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 99000000000000 )",
+                "Causalities": {
+                    "99000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 99 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 99 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "DEF 200%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}DEF 200%{passiveImg:up_g} until after being hit",
+            "Paragraph Title": "For 99 turn(s) from the character's entry turn"
+        },
+        "3004667": {
+            "ID": 3004667,
+            "Timing": "Start of turn",
+            "DR": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"99000000000000\", \"compiled\": 99000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 99000000000000 )",
+                "Causalities": {
+                    "99000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 99 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 99 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Damage Reduction Rate 40%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Damage Reduction Rate 40%{passiveImg:up_g} until after being hit",
+            "Paragraph Title": "For 99 turn(s) from the character's entry turn"
+        },
+        "4004667": {
+            "ID": 4004667,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 2004667
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1786 )",
+                "Causalities": {
+                    "1786": {
+                        "Button": {
+                            "Name": "Has this character recieved their 8th attack in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "After recieving 8 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1786\", \"compiled\": 1786}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:2004667 after being hit",
+            "Line description": "Disables a different passive line:2004667 after being hit",
+            "Paragraph Title": "When after recieving 8 attacks"
+        },
+        "5004667": {
+            "ID": 5004667,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 3004667
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1786 )",
+                "Causalities": {
+                    "1786": {
+                        "Button": {
+                            "Name": "Has this character recieved their 8th attack in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "After recieving 8 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1786\", \"compiled\": 1786}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:3004667 after being hit",
+            "Line description": "Disables a different passive line:3004667 after being hit",
+            "Paragraph Title": "When after recieving 8 attacks"
+        },
+        "6004667": {
+            "ID": 6004667,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1254 )",
+                "Causalities": {
+                    "1254": {
+                        "Button": {
+                            "Name": "Is there 2 or more Extreme class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies attacking on this turn?",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Extreme class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1254\", \"compiled\": 1254}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "When there are 2 or more Extreme class allies attacking on this turn"
+        },
+        "7004667": {
+            "ID": 7004667,
+            "Timing": "Start of turn",
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1254 )",
+                "Causalities": {
+                    "1254": {
+                        "Button": {
+                            "Name": "Is there 2 or more Extreme class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies attacking on this turn?",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Extreme class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1254\", \"compiled\": 1254}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} ",
+            "Line description": "DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Extreme class allies attacking on this turn"
+        },
+        "8004667": {
+            "ID": 8004667,
+            "Timing": "Start of turn",
+            "DR": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1254 )",
+                "Causalities": {
+                    "1254": {
+                        "Button": {
+                            "Name": "Is there 2 or more Extreme class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies attacking on this turn?",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Extreme class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1254\", \"compiled\": 1254}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 40%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Extreme class allies attacking on this turn"
+        },
+        "9004667": {
+            "ID": 9004667,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10004667": {
+            "ID": 10004667,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 10000,
+                "Stat Per Proc": 100,
+                "Cause": {
+                    "Cause": "Attacks performed on this turn"
+                },
+                "Slider": "How many attacks has this character performed on this turn?"
+            },
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 100%{passiveImg:up_g} ({currentValue} / 10000%) based on 'How many attacks has this character performed on this turn' after attacking",
+            "Line description": "ATK 100%{passiveImg:up_g} ({currentValue} / 10000%) based on 'How many attacks has this character performed on this turn' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004667": {
+            "ID": 11004667,
+            "Forsee Super Attack": true,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1786 )",
+                "Causalities": {
+                    "1786": {
+                        "Button": {
+                            "Name": "Has this character recieved their 8th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "After recieving 8 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1786\", \"compiled\": 1786}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Forsee enemy super attack ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Forsee enemy super attack ",
+            "Paragraph Title": "When after recieving 8 attacks"
+        },
+        "12004667": {
+            "ID": 12004667,
+            "Timing": "Right after being hit",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1786 )",
+                "Causalities": {
+                    "1786": {
+                        "Button": {
+                            "Name": "Has this character recieved their 8th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "After recieving 8 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1786\", \"compiled\": 1786}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever} {passiveImg:once}ATK and DEF 200%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When after recieving 8 attacks"
+        },
+        "13004667": {
+            "ID": 13004667,
+            "Timing": "Right after being hit",
+            "Crit Chance": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1786 )",
+                "Causalities": {
+                    "1786": {
+                        "Button": {
+                            "Name": "Has this character recieved their 8th attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "After recieving 8 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1786\", \"compiled\": 1786}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +40%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Chance of performing a critical hit +40%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When after recieving 8 attacks"
+        },
+        "14004667": {
+            "ID": 14004667,
+            "Timing": "Start of turn",
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1079 )",
+                "Causalities": {
+                    "1079": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earthlings category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earthlings category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1079\", \"compiled\": 1079}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} ",
+            "Line description": "DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+        },
+        "15004667": {
+            "ID": 15004667,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1079 )",
+                "Causalities": {
+                    "1079": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earthlings category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earthlings category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1079\", \"compiled\": 1079}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+        },
+        "16004667": {
+            "ID": 16004667,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1079 )",
+                "Causalities": {
+                    "1079": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earthlings category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earthlings category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1079\", \"compiled\": 1079}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+        },
+        "17004667": {
+            "ID": 17004667,
+            "Timing": "Start of turn",
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2817 )",
+                "Causalities": {
+                    "2817": {
+                        "Button": {
+                            "Name": "Are there 1 or more Tournament Participants category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Tournament Participants category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2817\", \"compiled\": 2817}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} ",
+            "Line description": "DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+        },
+        "18004667": {
+            "ID": 18004667,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2817 )",
+                "Causalities": {
+                    "2817": {
+                        "Button": {
+                            "Name": "Are there 1 or more Tournament Participants category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Tournament Participants category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2817\", \"compiled\": 2817}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+        },
+        "19004667": {
+            "ID": 19004667,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2817 )",
+                "Causalities": {
+                    "2817": {
+                        "Button": {
+                            "Name": "Are there 1 or more Tournament Participants category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Tournament Participants category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2817\", \"compiled\": 2817}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+        },
+        "20004667": {
+            "ID": 20004667,
+            "Timing": "Start of turn",
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 127 )",
+                "Causalities": {
+                    "127": {
+                        "Button": {
+                            "Name": "Are there 1 or more Peppy Gals category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Peppy Gals Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"127\", \"compiled\": 127}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} ",
+            "Line description": "DEF 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Peppy Gals Category enemies "
+        },
+        "21004667": {
+            "ID": 21004667,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 127 )",
+                "Causalities": {
+                    "127": {
+                        "Button": {
+                            "Name": "Are there 1 or more Peppy Gals category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Peppy Gals Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"127\", \"compiled\": 127}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Peppy Gals Category enemies "
+        },
+        "22004667": {
+            "ID": 22004667,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 127 )",
+                "Causalities": {
+                    "127": {
+                        "Button": {
+                            "Name": "Are there 1 or more Peppy Gals category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Peppy Gals Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"127\", \"compiled\": 127}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When there are 1 or more Peppy Gals Category enemies "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 200%{passiveImg:up_g}\n*When there is another Extreme Class ally attacking in the same turn*\n- Ki +2 and DEF 50%{passiveImg:up_g}\n- Damage reduction rate 40%{passiveImg:up_g}\n*When attacking*\n- ATK & DEF 200%{passiveImg:up_g}\n*For every attack performed*\n- ATK 100%{passiveImg:up_g} within the turn\n*Before receiving 8 attacks in battle*\n- DEF 200%{passiveImg:up_g}\n- Damage reduction rate 40%{passiveImg:up_g}\n*After receiving 8 or more attacks in battle*\n- {passiveImg:forever}ATK & DEF 200%{passiveImg:up_g}\n- {passiveImg:forever}Chance of performing a critical hit 40%{passiveImg:up_g}\n- {passiveImg:forever}Foresees enemy's Super Attack within the character's\nattacking turn\n*When there is a \"Tournament Participants\" Category enemy*\n- DEF 50%{passiveImg:up_g}\n- Chance of performing a critical hit 20%{passiveImg:up_g}\n- Launches an additional Super Attack\n*When there is an \"Earthlings\" Category enemy*\n- DEF 50%{passiveImg:up_g}\n- Chance of performing a critical hit 20%{passiveImg:up_g}\n- Launches an additional Super Attack\n*When there is a \"Peppy Gals\" Category enemy*\n- DEF 50%{passiveImg:up_g}\n- Chance of performing a critical hit 20%{passiveImg:up_g}\n- Launches an additional Super Attack",
+    "Max Attacks": 5,
+    "Max Super Attacks": 5,
+    "Stats at levels": {
+        "1": {
+            "HP": 2783,
+            "ATK": 2474,
+            "DEF": 1300
+        },
+        "2": {
+            "HP": 2848,
+            "ATK": 2532,
+            "DEF": 1330
+        },
+        "3": {
+            "HP": 2913,
+            "ATK": 2590,
+            "DEF": 1360
+        },
+        "4": {
+            "HP": 2978,
+            "ATK": 2648,
+            "DEF": 1391
+        },
+        "5": {
+            "HP": 3044,
+            "ATK": 2706,
+            "DEF": 1421
+        },
+        "6": {
+            "HP": 3112,
+            "ATK": 2766,
+            "DEF": 1453
+        },
+        "7": {
+            "HP": 3177,
+            "ATK": 2824,
+            "DEF": 1484
+        },
+        "8": {
+            "HP": 3243,
+            "ATK": 2882,
+            "DEF": 1514
+        },
+        "9": {
+            "HP": 3308,
+            "ATK": 2940,
+            "DEF": 1545
+        },
+        "10": {
+            "HP": 3373,
+            "ATK": 2998,
+            "DEF": 1575
+        },
+        "11": {
+            "HP": 3439,
+            "ATK": 3057,
+            "DEF": 1606
+        },
+        "12": {
+            "HP": 3504,
+            "ATK": 3115,
+            "DEF": 1636
+        },
+        "13": {
+            "HP": 3569,
+            "ATK": 3173,
+            "DEF": 1667
+        },
+        "14": {
+            "HP": 3634,
+            "ATK": 3231,
+            "DEF": 1697
+        },
+        "15": {
+            "HP": 3700,
+            "ATK": 3289,
+            "DEF": 1728
+        },
+        "16": {
+            "HP": 3768,
+            "ATK": 3349,
+            "DEF": 1760
+        },
+        "17": {
+            "HP": 3833,
+            "ATK": 3407,
+            "DEF": 1790
+        },
+        "18": {
+            "HP": 3899,
+            "ATK": 3465,
+            "DEF": 1821
+        },
+        "19": {
+            "HP": 3964,
+            "ATK": 3523,
+            "DEF": 1851
+        },
+        "20": {
+            "HP": 4029,
+            "ATK": 3581,
+            "DEF": 1882
+        },
+        "21": {
+            "HP": 4095,
+            "ATK": 3640,
+            "DEF": 1912
+        },
+        "22": {
+            "HP": 4160,
+            "ATK": 3698,
+            "DEF": 1943
+        },
+        "23": {
+            "HP": 4225,
+            "ATK": 3756,
+            "DEF": 1973
+        },
+        "24": {
+            "HP": 4290,
+            "ATK": 3814,
+            "DEF": 2004
+        },
+        "25": {
+            "HP": 4356,
+            "ATK": 3872,
+            "DEF": 2034
+        },
+        "26": {
+            "HP": 4424,
+            "ATK": 3932,
+            "DEF": 2066
+        },
+        "27": {
+            "HP": 4489,
+            "ATK": 3990,
+            "DEF": 2097
+        },
+        "28": {
+            "HP": 4555,
+            "ATK": 4048,
+            "DEF": 2127
+        },
+        "29": {
+            "HP": 4620,
+            "ATK": 4106,
+            "DEF": 2158
+        },
+        "30": {
+            "HP": 4685,
+            "ATK": 4164,
+            "DEF": 2188
+        },
+        "31": {
+            "HP": 4751,
+            "ATK": 4223,
+            "DEF": 2219
+        },
+        "32": {
+            "HP": 4816,
+            "ATK": 4281,
+            "DEF": 2249
+        },
+        "33": {
+            "HP": 4881,
+            "ATK": 4339,
+            "DEF": 2280
+        },
+        "34": {
+            "HP": 4946,
+            "ATK": 4397,
+            "DEF": 2310
+        },
+        "35": {
+            "HP": 5012,
+            "ATK": 4455,
+            "DEF": 2340
+        },
+        "36": {
+            "HP": 5080,
+            "ATK": 4515,
+            "DEF": 2372
+        },
+        "37": {
+            "HP": 5145,
+            "ATK": 4573,
+            "DEF": 2403
+        },
+        "38": {
+            "HP": 5211,
+            "ATK": 4631,
+            "DEF": 2433
+        },
+        "39": {
+            "HP": 5276,
+            "ATK": 4689,
+            "DEF": 2464
+        },
+        "40": {
+            "HP": 5341,
+            "ATK": 4747,
+            "DEF": 2494
+        },
+        "41": {
+            "HP": 5407,
+            "ATK": 4806,
+            "DEF": 2525
+        },
+        "42": {
+            "HP": 5472,
+            "ATK": 4864,
+            "DEF": 2555
+        },
+        "43": {
+            "HP": 5537,
+            "ATK": 4922,
+            "DEF": 2586
+        },
+        "44": {
+            "HP": 5602,
+            "ATK": 4980,
+            "DEF": 2616
+        },
+        "45": {
+            "HP": 5668,
+            "ATK": 5038,
+            "DEF": 2647
+        },
+        "46": {
+            "HP": 5736,
+            "ATK": 5098,
+            "DEF": 2679
+        },
+        "47": {
+            "HP": 5802,
+            "ATK": 5156,
+            "DEF": 2709
+        },
+        "48": {
+            "HP": 5867,
+            "ATK": 5214,
+            "DEF": 2740
+        },
+        "49": {
+            "HP": 5932,
+            "ATK": 5272,
+            "DEF": 2770
+        },
+        "50": {
+            "HP": 5997,
+            "ATK": 5330,
+            "DEF": 2801
+        },
+        "51": {
+            "HP": 6063,
+            "ATK": 5389,
+            "DEF": 2831
+        },
+        "52": {
+            "HP": 6128,
+            "ATK": 5447,
+            "DEF": 2862
+        },
+        "53": {
+            "HP": 6193,
+            "ATK": 5505,
+            "DEF": 2892
+        },
+        "54": {
+            "HP": 6258,
+            "ATK": 5563,
+            "DEF": 2923
+        },
+        "55": {
+            "HP": 6324,
+            "ATK": 5621,
+            "DEF": 2953
+        },
+        "56": {
+            "HP": 6392,
+            "ATK": 5681,
+            "DEF": 2985
+        },
+        "57": {
+            "HP": 6458,
+            "ATK": 5739,
+            "DEF": 3016
+        },
+        "58": {
+            "HP": 6523,
+            "ATK": 5797,
+            "DEF": 3046
+        },
+        "59": {
+            "HP": 6588,
+            "ATK": 5855,
+            "DEF": 3077
+        },
+        "60": {
+            "HP": 6653,
+            "ATK": 5913,
+            "DEF": 3107
+        },
+        "61": {
+            "HP": 6719,
+            "ATK": 5972,
+            "DEF": 3138
+        },
+        "62": {
+            "HP": 6784,
+            "ATK": 6030,
+            "DEF": 3168
+        },
+        "63": {
+            "HP": 6849,
+            "ATK": 6088,
+            "DEF": 3199
+        },
+        "64": {
+            "HP": 6915,
+            "ATK": 6146,
+            "DEF": 3229
+        },
+        "65": {
+            "HP": 6980,
+            "ATK": 6204,
+            "DEF": 3260
+        },
+        "66": {
+            "HP": 7048,
+            "ATK": 6264,
+            "DEF": 3292
+        },
+        "67": {
+            "HP": 7114,
+            "ATK": 6322,
+            "DEF": 3322
+        },
+        "68": {
+            "HP": 7179,
+            "ATK": 6380,
+            "DEF": 3352
+        },
+        "69": {
+            "HP": 7244,
+            "ATK": 6438,
+            "DEF": 3383
+        },
+        "70": {
+            "HP": 7309,
+            "ATK": 6496,
+            "DEF": 3413
+        },
+        "71": {
+            "HP": 7375,
+            "ATK": 6555,
+            "DEF": 3444
+        },
+        "72": {
+            "HP": 7440,
+            "ATK": 6613,
+            "DEF": 3474
+        },
+        "73": {
+            "HP": 7505,
+            "ATK": 6671,
+            "DEF": 3505
+        },
+        "74": {
+            "HP": 7571,
+            "ATK": 6729,
+            "DEF": 3535
+        },
+        "75": {
+            "HP": 7636,
+            "ATK": 6787,
+            "DEF": 3566
+        },
+        "76": {
+            "HP": 7704,
+            "ATK": 6847,
+            "DEF": 3598
+        },
+        "77": {
+            "HP": 7770,
+            "ATK": 6905,
+            "DEF": 3628
+        },
+        "78": {
+            "HP": 7835,
+            "ATK": 6963,
+            "DEF": 3659
+        },
+        "79": {
+            "HP": 7900,
+            "ATK": 7021,
+            "DEF": 3689
+        },
+        "80": {
+            "HP": 7965,
+            "ATK": 7079,
+            "DEF": 3720
+        },
+        "81": {
+            "HP": 8031,
+            "ATK": 7138,
+            "DEF": 3750
+        },
+        "82": {
+            "HP": 8096,
+            "ATK": 7196,
+            "DEF": 3781
+        },
+        "83": {
+            "HP": 8161,
+            "ATK": 7254,
+            "DEF": 3811
+        },
+        "84": {
+            "HP": 8227,
+            "ATK": 7312,
+            "DEF": 3842
+        },
+        "85": {
+            "HP": 8292,
+            "ATK": 7370,
+            "DEF": 3872
+        },
+        "86": {
+            "HP": 8360,
+            "ATK": 7430,
+            "DEF": 3904
+        },
+        "87": {
+            "HP": 8426,
+            "ATK": 7488,
+            "DEF": 3935
+        },
+        "88": {
+            "HP": 8491,
+            "ATK": 7546,
+            "DEF": 3965
+        },
+        "89": {
+            "HP": 8556,
+            "ATK": 7604,
+            "DEF": 3996
+        },
+        "90": {
+            "HP": 8621,
+            "ATK": 7662,
+            "DEF": 4026
+        },
+        "91": {
+            "HP": 8687,
+            "ATK": 7721,
+            "DEF": 4057
+        },
+        "92": {
+            "HP": 8752,
+            "ATK": 7779,
+            "DEF": 4087
+        },
+        "93": {
+            "HP": 8817,
+            "ATK": 7837,
+            "DEF": 4118
+        },
+        "94": {
+            "HP": 8883,
+            "ATK": 7895,
+            "DEF": 4148
+        },
+        "95": {
+            "HP": 8948,
+            "ATK": 7953,
+            "DEF": 4179
+        },
+        "96": {
+            "HP": 9016,
+            "ATK": 8013,
+            "DEF": 4211
+        },
+        "97": {
+            "HP": 9082,
+            "ATK": 8071,
+            "DEF": 4241
+        },
+        "98": {
+            "HP": 9147,
+            "ATK": 8129,
+            "DEF": 4272
+        },
+        "99": {
+            "HP": 9212,
+            "ATK": 8187,
+            "DEF": 4302
+        },
+        "100": {
+            "HP": 9278,
+            "ATK": 8246,
+            "DEF": 4333
+        }
+    },
+    "Leader Skill": {
+        "Name": "Power Bestowed by Magic",
+        "10316200": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Corroded Body and Mind"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10316201": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Corroded Body and Mind"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10316202": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Corroded Body and Mind"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10316203": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Corroded Body and Mind"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "7810": {
+            "superID": "7810",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Berserker Crash",
+            "superDescription": "Raises ATK & DEF for 1 turn, \ncauses supreme damage to enemy \nand lowers ATK & DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7810": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                },
+                "1007810": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2894"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "7810",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

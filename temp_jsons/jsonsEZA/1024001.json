@@ -1,0 +1,887 @@
+{
+    "ID": "1024001",
+    "Type": "TEQ",
+    "Class": "Super",
+    "Name": "Piccolo",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Namekians",
+        "Worthy Rivals",
+        "Androids/Cell Saga",
+        "Bond of Master and Disciple",
+        "Battle of Wits",
+        "Gifted Warriors",
+        "Heavenly Events",
+        "Entrusted Will",
+        "Fused Fighters",
+        "Earth-Bred Fighters",
+        "Demonic Power",
+        "Successors"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Prodigies",
+        "Experienced Fighters",
+        "Namekians",
+        "Super Strike",
+        "Soul vs Soul",
+        "Supreme Power",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1024000,
+    "Passive": {
+        "3555": {
+            "ID": 3555,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003555": {
+            "ID": 1003555,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2602 )",
+                "Causalities": {
+                    "2602": {
+                        "Button": {
+                            "Name": "Is Ki at least 9 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=9",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 9 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2602\", \"compiled\": 2602}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 9 or more"
+        },
+        "2003555": {
+            "ID": 2003555,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3003555": {
+            "ID": 3003555,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "INT",
+                    "AGL"
+                ],
+                "To": [
+                    "TEQ"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Randomly changes Ki Spheres of a certain Type(TEQ excluded) to TEQ Ki Spheres ",
+            "Line description": "Randomly changes Ki Spheres of a certain Type(TEQ excluded) to TEQ Ki Spheres ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4003555": {
+            "ID": 4003555,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2603 )",
+                "Causalities": {
+                    "2603": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2603\", \"compiled\": 2603}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 4 or more Ki Spheres obtained"
+        },
+        "5003555": {
+            "ID": 5003555,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2604 )",
+                "Causalities": {
+                    "2604": {
+                        "Button": {
+                            "Name": "Has 5 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2604\", \"compiled\": 2604}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 5 or more Ki Spheres obtained"
+        },
+        "6003555": {
+            "ID": 6003555,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2605 )",
+                "Causalities": {
+                    "2605": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2605\", \"compiled\": 2605}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "ATK 20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 6 or more Ki Spheres obtained"
+        },
+        "7003555": {
+            "ID": 7003555,
+            "Timing": "When ki spheres collected",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2603 )",
+                "Causalities": {
+                    "2603": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2603\", \"compiled\": 2603}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 4 or more Ki Spheres obtained"
+        },
+        "8003555": {
+            "ID": 8003555,
+            "Timing": "When ki spheres collected",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2604 )",
+                "Causalities": {
+                    "2604": {
+                        "Button": {
+                            "Name": "Has 5 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2604\", \"compiled\": 2604}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 5 or more Ki Spheres obtained"
+        },
+        "9003555": {
+            "ID": 9003555,
+            "Timing": "When ki spheres collected",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2605 )",
+                "Causalities": {
+                    "2605": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2605\", \"compiled\": 2605}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 6 or more Ki Spheres obtained"
+        },
+        "10003555": {
+            "ID": 10003555,
+            "Timing": "When ki spheres collected",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2603 )",
+                "Causalities": {
+                    "2603": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2603\", \"compiled\": 2603}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 after this unit collects ki spheres for all allies(self excluded) ",
+            "Line description": "Ki +1 after this unit collects ki spheres for all allies(self excluded) ",
+            "Paragraph Title": "When with 4 or more Ki Spheres obtained"
+        },
+        "11003555": {
+            "ID": 11003555,
+            "Timing": "When ki spheres collected",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2604 )",
+                "Causalities": {
+                    "2604": {
+                        "Button": {
+                            "Name": "Has 5 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2604\", \"compiled\": 2604}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 after this unit collects ki spheres for all allies(self excluded) ",
+            "Line description": "Ki +1 after this unit collects ki spheres for all allies(self excluded) ",
+            "Paragraph Title": "When with 5 or more Ki Spheres obtained"
+        },
+        "12003555": {
+            "ID": 12003555,
+            "Timing": "When ki spheres collected",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2605 )",
+                "Causalities": {
+                    "2605": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2605\", \"compiled\": 2605}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 after this unit collects ki spheres for all allies(self excluded) ",
+            "Line description": "Ki +1 after this unit collects ki spheres for all allies(self excluded) ",
+            "Paragraph Title": "When with 6 or more Ki Spheres obtained"
+        },
+        "13003555": {
+            "ID": 13003555,
+            "Timing": "When ki spheres collected",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2603 )",
+                "Causalities": {
+                    "2603": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2603\", \"compiled\": 2603}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} after this unit collects ki spheres for all allies(self excluded) ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} after this unit collects ki spheres for all allies(self excluded) ",
+            "Paragraph Title": "When with 4 or more Ki Spheres obtained"
+        },
+        "14003555": {
+            "ID": 14003555,
+            "Timing": "When ki spheres collected",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2604 )",
+                "Causalities": {
+                    "2604": {
+                        "Button": {
+                            "Name": "Has 5 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2604\", \"compiled\": 2604}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} after this unit collects ki spheres for all allies(self excluded) ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} after this unit collects ki spheres for all allies(self excluded) ",
+            "Paragraph Title": "When with 5 or more Ki Spheres obtained"
+        },
+        "15003555": {
+            "ID": 15003555,
+            "Timing": "When ki spheres collected",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2605 )",
+                "Causalities": {
+                    "2605": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2605\", \"compiled\": 2605}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} after this unit collects ki spheres for all allies(self excluded) ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} after this unit collects ki spheres for all allies(self excluded) ",
+            "Paragraph Title": "When with 6 or more Ki Spheres obtained"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 100%{passiveImg:up_g}\n- All allies' ATK & DEF 20%{passiveImg:up_g}\n- Randomly changes Ki Spheres of a certain Type (TEQ\nexcluded) to TEQ Ki Spheres\n*When attacking with 9 or more Ki*\n- ATK & DEF 100%{passiveImg:up_g}\n*For every Ki Sphere obtained with 4 or more Ki Spheres\nobtained (count starts from the 4th Ki Sphere)*\n- ATK 20%{passiveImg:up_g} (up to 60%)\n- Chance of performing a critical hit 20%{passiveImg:up_g} (up to 60%)\n- All allies' Ki +1 (up to +3) and ATK & DEF 10%{passiveImg:up_g} (up to 30%)\n(self excluded)",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 9701,
+            "ATK": 7910,
+            "DEF": 4771
+        },
+        "121": {
+            "HP": 9864,
+            "ATK": 8043,
+            "DEF": 4851
+        },
+        "122": {
+            "HP": 10028,
+            "ATK": 8176,
+            "DEF": 4931
+        },
+        "123": {
+            "HP": 10191,
+            "ATK": 8310,
+            "DEF": 5012
+        },
+        "124": {
+            "HP": 10355,
+            "ATK": 8443,
+            "DEF": 5092
+        },
+        "125": {
+            "HP": 10519,
+            "ATK": 8577,
+            "DEF": 5173
+        },
+        "126": {
+            "HP": 10682,
+            "ATK": 8710,
+            "DEF": 5253
+        },
+        "127": {
+            "HP": 10846,
+            "ATK": 8844,
+            "DEF": 5334
+        },
+        "128": {
+            "HP": 11010,
+            "ATK": 8977,
+            "DEF": 5414
+        },
+        "129": {
+            "HP": 11173,
+            "ATK": 9111,
+            "DEF": 5495
+        },
+        "130": {
+            "HP": 11337,
+            "ATK": 9244,
+            "DEF": 5575
+        },
+        "131": {
+            "HP": 11501,
+            "ATK": 9377,
+            "DEF": 5656
+        },
+        "132": {
+            "HP": 11664,
+            "ATK": 9511,
+            "DEF": 5736
+        },
+        "133": {
+            "HP": 11828,
+            "ATK": 9644,
+            "DEF": 5817
+        },
+        "134": {
+            "HP": 11992,
+            "ATK": 9778,
+            "DEF": 5897
+        },
+        "135": {
+            "HP": 12155,
+            "ATK": 9911,
+            "DEF": 5978
+        },
+        "136": {
+            "HP": 12319,
+            "ATK": 10045,
+            "DEF": 6058
+        },
+        "137": {
+            "HP": 12483,
+            "ATK": 10178,
+            "DEF": 6139
+        },
+        "138": {
+            "HP": 12646,
+            "ATK": 10312,
+            "DEF": 6219
+        },
+        "139": {
+            "HP": 12810,
+            "ATK": 10445,
+            "DEF": 6300
+        },
+        "140": {
+            "HP": 12974,
+            "ATK": 10578,
+            "DEF": 6380
+        }
+    },
+    "Leader Skill": {
+        "Name": "Full-Throttle Focused Attack",
+        "102400200": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "TEQ"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102400201": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "TEQ"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 77,
+            "DEF": 77,
+            "HP": 77,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 780,
+            "ATK": 1260,
+            "DEF": 1020,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4808": {
+            "superID": "4808",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Hellzone Grenade (Extreme)",
+            "superDescription": "Raises ATK for 1 turn, \ncauses supreme damage to enemy \nand lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "19",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4808": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1004808": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "40"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "4",
+                "Type": "Ki requirement decrease",
+                "Description": "Launches Super Attack when Ki is 9 or more!",
+                "Chance": "0",
+                "Duration": "0",
+                "Amount": "3"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp2404"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 67.5,
+        "1": 73.125,
+        "2": 78.75,
+        "3": 84.375,
+        "4": 90.0,
+        "5": 95.625,
+        "6": 101.25,
+        "7": 106.875,
+        "8": 112.5,
+        "9": 118.125,
+        "10": 123.75,
+        "11": 129.375,
+        "12": 135.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4808",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

@@ -260,6 +260,8 @@ def sub_target_types_extractor(sub_target_type_set_id,DEVELOPEREXCEPTIONS=False)
     output={}
     output["Category"]=[]
     output["Excluded Category"]=[]
+    output["Name"]=[]
+    output["Excluded Name"]=[]
     for line in temp:   
         if(line[2]=="1"):
             output["Category"].append(CategoryExtractor(line[3]))
@@ -267,6 +269,12 @@ def sub_target_types_extractor(sub_target_type_set_id,DEVELOPEREXCEPTIONS=False)
             output["Excluded Category"].append(CategoryExtractor(line[3]))
         elif(line[2]=="3"):
             output["Amount of times to turn giant"]=1
+        elif(line[2]=="4"):
+            likelyName=longestCommonSubstring(list(card_unique_info_id_memorisation.values())) 
+            output["Name"]=likelyName
+        elif(line[2]=="5"):
+            likelyName=longestCommonSubstring(list(card_unique_info_id_memorisation.values())) 
+            output["Excluded Name"]=likelyName
         else:
             output["Category"].append("UNKNOWN")
             if(DEVELOPEREXCEPTIONS==True):
@@ -1452,6 +1460,8 @@ def parseFinish(unit,DEVEXCEPTIONS=False):
                     output[finish_skill_set_id]["Disable Other Line"]={}
                     output[finish_skill_set_id]["Disable Other Line"]["Activated"]=True
                     output[finish_skill_set_id]["Disable Other Line"]["Line"]=efficacy_value[2]
+                elif(finish_skill_row[6]=="111"):
+                    output[finish_skill_set_id]["CONFUSION"]=True
                 elif(finish_skill_row[6]=="115"):
                     output[finish_skill_set_id]["Standby Exclusivity"]=efficacy_value[0][5:]
                 elif(finish_skill_row[6]=="116"):
@@ -4391,6 +4401,10 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                     output["Slider"]["Max"]=7
                     output["Slider"]["Logic"]=">=7"
 
+            elif(CausalityRow[1]=="1000"):
+                output["Button"]["Name"]="[Node-Specific]"
+                output["Paragraph Title"]="[Node-Specific]"
+
             elif(CausalityRow[1]=="1004"):
                 output["Button"]["Name"]=("Is there another ally whose HP is ")
                 output["Button"]["Name"]+=CausalityRow[2]
@@ -4415,6 +4429,13 @@ def causalityLogicFinder(unit,causalityCondition,printing=True,DEVEXCEPTIONS=Fal
                 output["Slider"]["Min"]=0
                 output["Slider"]["Max"]=int(CausalityRow[3])
                 output["Slider"]["Logic"]="<"+CausalityRow[3]
+            elif(CausalityRow[1]=="1002"):
+                output["Button"]["Name"]="Is there " + str(CausalityRow[3]) + " or more LOST allies in the same group?"
+                output["Paragraph Title"]="When there are " + str(CausalityRow[3]) + " or more LOST allies in the same group"
+                output["Slider"]["Name"]="How many LOST allies are are in the same group?"
+                output["Slider"]["Min"]=0
+                output["Slider"]["Max"]=2
+                output["Slider"]["Logic"]=">"+CausalityRow[3]
 
 
             else:
@@ -6502,7 +6523,10 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Super attacks been performed with at least 24 Ki?"
         output["Building Stat"]["Slider"]="How many super attacks have been performed with at least 24 Ki?"
-
+    elif(parsedLine["Timing"]=="Right after being hit" and len(causalities)==2 and (causalities[0][-52:]=="or more Extreme class allies attacking on this turn?") and causalities[1]=="Has this character been hit?"):
+        del output["Condition"]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks recievede with "+causalities[0][9]+" or more Extreme class allies attacking on the turn"
+        output["Building Stat"]["Slider"]="How many attacks have been recieved with "+causalities[0][9]+" or more Extreme class allies attacking on this turn?"
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine,causalities)
         if(DEVECXEPTION):
@@ -6619,6 +6643,8 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Changes orbs"
                 output["Effects"][line[0]]["Effect"]["From"]=KiOrbType(line[6],DEVEXCEPTIONS)
                 output["Effects"][line[0]]["Effect"]["To"]=KiOrbType(line[7],DEVEXCEPTIONS)
+            elif(line[5]=="52"):
+                output["Effects"][line[0]]["Effect"]["Buff"]="Survive K.O. Attacks"
             elif(line[5]=="76"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Effective Against All"
             elif(line[5]=="78"):

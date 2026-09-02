@@ -1,0 +1,1342 @@
+{
+    "ID": "1029670",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Super Saiyan Trunks (Kid)",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Hybrid Saiyans",
+        "Dragon Ball Seekers",
+        "Movie Heroes",
+        "Vegeta's Family",
+        "Youth",
+        "Super Saiyans",
+        "Gifted Warriors",
+        "Bond of Friendship",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Majin Buu Saga",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "The Innocents",
+        "Golden Warrior",
+        "Super Saiyan",
+        "Budding Warrior",
+        "Prepared for Battle",
+        "Z Fighters",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1029670,
+    "Passive": {
+        "4203": {
+            "ID": 4203,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004203": {
+            "ID": 1004203,
+            "Timing": "Start of turn",
+            "ATK": 140,
+            "DEF": 140,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 140%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 140%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004203": {
+            "ID": 2004203,
+            "Timing": "Start of turn",
+            "ATK": 140,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3200 )",
+                "Causalities": {
+                    "3200": {
+                        "Button": {
+                            "Name": "Are there 2 or more Hybrid Saiyans category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Hybrid Saiyans category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Hybrid Saiyans Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3200\", \"compiled\": 3200}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 140%{passiveImg:up_g} ",
+            "Line description": "ATK 140%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Hybrid Saiyans Category allies attacking on this turn"
+        },
+        "3004203": {
+            "ID": 3004203,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3200 )",
+                "Causalities": {
+                    "3200": {
+                        "Button": {
+                            "Name": "Are there 2 or more Hybrid Saiyans category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Hybrid Saiyans category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Hybrid Saiyans Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3200\", \"compiled\": 3200}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "When there are 2 or more Hybrid Saiyans Category allies attacking on this turn"
+        },
+        "4004203": {
+            "ID": 4004203,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Hybrid Saiyans"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all Hybrid Saiyans category allies ",
+            "Line description": "Ki +1 for all Hybrid Saiyans category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004203": {
+            "ID": 5004203,
+            "Timing": "Start of turn",
+            "ATK": 25,
+            "DEF": 25,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Hybrid Saiyans"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 25%{passiveImg:up_g} for all Hybrid Saiyans category allies ",
+            "Line description": "ATK and DEF 25%{passiveImg:up_g} for all Hybrid Saiyans category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004203": {
+            "ID": 6004203,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Gohan (Teen)"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1380 )",
+                "Causalities": {
+                    "1380": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1380\", \"compiled\": 1380}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all allies whose name includes Gohan (Teen)",
+            "Line description": "Ki +1 for all allies whose name includes Gohan (Teen)",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "7004203": {
+            "ID": 7004203,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Goten (Kid)"
+                    ],
+                    "Excluded": "Gohan (Teen)"
+                }
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1380 )",
+                "Causalities": {
+                    "1380": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1380\", \"compiled\": 1380}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all allies whose name includes Goten (Kid)",
+            "Line description": "Ki +1 for all allies whose name includes Goten (Kid)",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "8004203": {
+            "ID": 8004203,
+            "Timing": "Start of turn",
+            "ATK": 25,
+            "DEF": 25,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Gohan (Teen)"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1380 )",
+                "Causalities": {
+                    "1380": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1380\", \"compiled\": 1380}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 25%{passiveImg:up_g} for all allies whose name includes Gohan (Teen)",
+            "Line description": "ATK and DEF 25%{passiveImg:up_g} for all allies whose name includes Gohan (Teen)",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "9004203": {
+            "ID": 9004203,
+            "Timing": "Start of turn",
+            "ATK": 25,
+            "DEF": 25,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Goten (Kid)"
+                    ],
+                    "Excluded": "Gohan (Teen)"
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1380 )",
+                "Causalities": {
+                    "1380": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1380\", \"compiled\": 1380}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 25%{passiveImg:up_g} for all allies whose name includes Goten (Kid)",
+            "Line description": "ATK and DEF 25%{passiveImg:up_g} for all allies whose name includes Goten (Kid)",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "10004203": {
+            "ID": 10004203,
+            "Timing": "Right before being hit",
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 40%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 40%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004203": {
+            "ID": 11004203,
+            "Dodge Chance": 50,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +50% ",
+            "Line description": "Chance of evading enemy attacks +50% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "12004203": {
+            "ID": 12004203,
+            "Dodge Chance": 20,
+            "Timing": "After all ki collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2921 )",
+                "Causalities": {
+                    "2921": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==1",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 1st attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2921\", \"compiled\": 2921}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +20% after all ki collected",
+            "Line description": "Chance of evading enemy attacks +20% after all ki collected",
+            "Paragraph Title": "When as the 1st attacker in the turn"
+        },
+        "13004203": {
+            "ID": 13004203,
+            "Timing": "Right after being hit",
+            "ATK": 140,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 365 )",
+                "Causalities": {
+                    "365": {
+                        "Button": {
+                            "Name": "Has this unit evaded an attack?"
+                        },
+                        "Paragraph Title": "After evading an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"365\", \"compiled\": 365}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 140%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}ATK 140%{passiveImg:up_g} after being hit until after attacking",
+            "Paragraph Title": "When after evading an attack"
+        },
+        "14004203": {
+            "ID": 14004203,
+            "Timing": "Right after being hit",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 365 )",
+                "Causalities": {
+                    "365": {
+                        "Button": {
+                            "Name": "Has this unit evaded an attack?"
+                        },
+                        "Paragraph Title": "After evading an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"365\", \"compiled\": 365}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +50%{passiveImg:up_g} after being hit until after attacking",
+            "Paragraph Title": "When after evading an attack"
+        },
+        "15004203": {
+            "ID": 15004203,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 13004203
+            },
+            "Timing": "Right after attack",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:13004203 after attacking",
+            "Line description": "Disables a different passive line:13004203 after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "16004203": {
+            "ID": 16004203,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 14004203
+            },
+            "Timing": "Right after attack",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:14004203 after attacking",
+            "Line description": "Disables a different passive line:14004203 after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "17004203": {
+            "ID": 17004203,
+            "Dodge Chance": 20,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3066 )",
+                "Causalities": {
+                    "3066": {
+                        "Button": {
+                            "Name": "Has this character evaded 5th times in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has evaded 5 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3066\", \"compiled\": 3066}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +20% ",
+            "Line description": "Chance of evading enemy attacks +20% ",
+            "Paragraph Title": "When the character has evaded 5 or more attacks"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2\n- ATK & DEF 140%{passiveImg:up_g}\n- \"Hybrid Saiyans\" Category allies' Ki +1 and ATK & DEF\n25%{passiveImg:up_g}\n- High chance of evading enemy's attack\n*When receiving an attack*\n- DEF 40%{passiveImg:up_g}\n*When there is another \"Hybrid Saiyans\" Category ally\nattacking in the same turn*\n- ATK 140%{passiveImg:up_g}\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n*For 4 turns from the character's entry turn*\n- Ki +1 and ATK & DEF 25%{passiveImg:up_g} for allies whose names include\n\"Gohan (Teen)\" or \"Goten (Kid)\" within the character's\nattacking turn\n*As the 1st attacker in a turn*\n- Chance of evading enemy's attack 20%{passiveImg:up_g}\n*After evading an attack*\n- ATK 140%{passiveImg:up_g} temporarily and high chance of performing a\ncritical hit upon the character's next attack\n*Every time the character evades 5 or more attacks in battle*\n- Chance of evading enemy's attack 20%{passiveImg:up_g} within the\ncharacter's next attacking turn (up to 20% within a turn)",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 2110,
+            "ATK": 2246,
+            "DEF": 1199
+        },
+        "2": {
+            "HP": 2159,
+            "ATK": 2298,
+            "DEF": 1227
+        },
+        "3": {
+            "HP": 2208,
+            "ATK": 2351,
+            "DEF": 1255
+        },
+        "4": {
+            "HP": 2258,
+            "ATK": 2403,
+            "DEF": 1283
+        },
+        "5": {
+            "HP": 2307,
+            "ATK": 2456,
+            "DEF": 1311
+        },
+        "6": {
+            "HP": 2359,
+            "ATK": 2511,
+            "DEF": 1341
+        },
+        "7": {
+            "HP": 2409,
+            "ATK": 2564,
+            "DEF": 1369
+        },
+        "8": {
+            "HP": 2458,
+            "ATK": 2617,
+            "DEF": 1397
+        },
+        "9": {
+            "HP": 2508,
+            "ATK": 2669,
+            "DEF": 1425
+        },
+        "10": {
+            "HP": 2557,
+            "ATK": 2722,
+            "DEF": 1453
+        },
+        "11": {
+            "HP": 2607,
+            "ATK": 2775,
+            "DEF": 1481
+        },
+        "12": {
+            "HP": 2656,
+            "ATK": 2827,
+            "DEF": 1509
+        },
+        "13": {
+            "HP": 2706,
+            "ATK": 2880,
+            "DEF": 1537
+        },
+        "14": {
+            "HP": 2755,
+            "ATK": 2933,
+            "DEF": 1565
+        },
+        "15": {
+            "HP": 2805,
+            "ATK": 2985,
+            "DEF": 1594
+        },
+        "16": {
+            "HP": 2857,
+            "ATK": 3041,
+            "DEF": 1623
+        },
+        "17": {
+            "HP": 2906,
+            "ATK": 3093,
+            "DEF": 1651
+        },
+        "18": {
+            "HP": 2956,
+            "ATK": 3146,
+            "DEF": 1679
+        },
+        "19": {
+            "HP": 3005,
+            "ATK": 3199,
+            "DEF": 1707
+        },
+        "20": {
+            "HP": 3055,
+            "ATK": 3251,
+            "DEF": 1736
+        },
+        "21": {
+            "HP": 3104,
+            "ATK": 3304,
+            "DEF": 1764
+        },
+        "22": {
+            "HP": 3153,
+            "ATK": 3356,
+            "DEF": 1792
+        },
+        "23": {
+            "HP": 3203,
+            "ATK": 3409,
+            "DEF": 1820
+        },
+        "24": {
+            "HP": 3252,
+            "ATK": 3462,
+            "DEF": 1848
+        },
+        "25": {
+            "HP": 3302,
+            "ATK": 3514,
+            "DEF": 1876
+        },
+        "26": {
+            "HP": 3354,
+            "ATK": 3570,
+            "DEF": 1906
+        },
+        "27": {
+            "HP": 3403,
+            "ATK": 3622,
+            "DEF": 1934
+        },
+        "28": {
+            "HP": 3453,
+            "ATK": 3675,
+            "DEF": 1962
+        },
+        "29": {
+            "HP": 3502,
+            "ATK": 3728,
+            "DEF": 1990
+        },
+        "30": {
+            "HP": 3552,
+            "ATK": 3780,
+            "DEF": 2018
+        },
+        "31": {
+            "HP": 3601,
+            "ATK": 3833,
+            "DEF": 2046
+        },
+        "32": {
+            "HP": 3651,
+            "ATK": 3886,
+            "DEF": 2074
+        },
+        "33": {
+            "HP": 3700,
+            "ATK": 3938,
+            "DEF": 2103
+        },
+        "34": {
+            "HP": 3750,
+            "ATK": 3991,
+            "DEF": 2131
+        },
+        "35": {
+            "HP": 3799,
+            "ATK": 4044,
+            "DEF": 2159
+        },
+        "36": {
+            "HP": 3851,
+            "ATK": 4099,
+            "DEF": 2188
+        },
+        "37": {
+            "HP": 3901,
+            "ATK": 4152,
+            "DEF": 2216
+        },
+        "38": {
+            "HP": 3950,
+            "ATK": 4204,
+            "DEF": 2245
+        },
+        "39": {
+            "HP": 4000,
+            "ATK": 4257,
+            "DEF": 2273
+        },
+        "40": {
+            "HP": 4049,
+            "ATK": 4310,
+            "DEF": 2301
+        },
+        "41": {
+            "HP": 4098,
+            "ATK": 4362,
+            "DEF": 2329
+        },
+        "42": {
+            "HP": 4148,
+            "ATK": 4415,
+            "DEF": 2357
+        },
+        "43": {
+            "HP": 4197,
+            "ATK": 4467,
+            "DEF": 2385
+        },
+        "44": {
+            "HP": 4247,
+            "ATK": 4520,
+            "DEF": 2413
+        },
+        "45": {
+            "HP": 4296,
+            "ATK": 4573,
+            "DEF": 2441
+        },
+        "46": {
+            "HP": 4348,
+            "ATK": 4628,
+            "DEF": 2471
+        },
+        "47": {
+            "HP": 4398,
+            "ATK": 4681,
+            "DEF": 2499
+        },
+        "48": {
+            "HP": 4447,
+            "ATK": 4733,
+            "DEF": 2527
+        },
+        "49": {
+            "HP": 4497,
+            "ATK": 4786,
+            "DEF": 2555
+        },
+        "50": {
+            "HP": 4546,
+            "ATK": 4839,
+            "DEF": 2583
+        },
+        "51": {
+            "HP": 4596,
+            "ATK": 4891,
+            "DEF": 2612
+        },
+        "52": {
+            "HP": 4645,
+            "ATK": 4944,
+            "DEF": 2640
+        },
+        "53": {
+            "HP": 4695,
+            "ATK": 4997,
+            "DEF": 2668
+        },
+        "54": {
+            "HP": 4744,
+            "ATK": 5049,
+            "DEF": 2696
+        },
+        "55": {
+            "HP": 4794,
+            "ATK": 5102,
+            "DEF": 2724
+        },
+        "56": {
+            "HP": 4846,
+            "ATK": 5157,
+            "DEF": 2754
+        },
+        "57": {
+            "HP": 4895,
+            "ATK": 5210,
+            "DEF": 2782
+        },
+        "58": {
+            "HP": 4945,
+            "ATK": 5263,
+            "DEF": 2810
+        },
+        "59": {
+            "HP": 4994,
+            "ATK": 5315,
+            "DEF": 2838
+        },
+        "60": {
+            "HP": 5044,
+            "ATK": 5368,
+            "DEF": 2866
+        },
+        "61": {
+            "HP": 5093,
+            "ATK": 5420,
+            "DEF": 2894
+        },
+        "62": {
+            "HP": 5142,
+            "ATK": 5473,
+            "DEF": 2922
+        },
+        "63": {
+            "HP": 5192,
+            "ATK": 5526,
+            "DEF": 2950
+        },
+        "64": {
+            "HP": 5241,
+            "ATK": 5578,
+            "DEF": 2979
+        },
+        "65": {
+            "HP": 5291,
+            "ATK": 5631,
+            "DEF": 3007
+        },
+        "66": {
+            "HP": 5343,
+            "ATK": 5686,
+            "DEF": 3036
+        },
+        "67": {
+            "HP": 5392,
+            "ATK": 5739,
+            "DEF": 3064
+        },
+        "68": {
+            "HP": 5442,
+            "ATK": 5792,
+            "DEF": 3092
+        },
+        "69": {
+            "HP": 5491,
+            "ATK": 5844,
+            "DEF": 3121
+        },
+        "70": {
+            "HP": 5541,
+            "ATK": 5897,
+            "DEF": 3149
+        },
+        "71": {
+            "HP": 5590,
+            "ATK": 5950,
+            "DEF": 3177
+        },
+        "72": {
+            "HP": 5640,
+            "ATK": 6002,
+            "DEF": 3205
+        },
+        "73": {
+            "HP": 5689,
+            "ATK": 6055,
+            "DEF": 3233
+        },
+        "74": {
+            "HP": 5739,
+            "ATK": 6108,
+            "DEF": 3261
+        },
+        "75": {
+            "HP": 5788,
+            "ATK": 6160,
+            "DEF": 3289
+        },
+        "76": {
+            "HP": 5840,
+            "ATK": 6216,
+            "DEF": 3319
+        },
+        "77": {
+            "HP": 5890,
+            "ATK": 6268,
+            "DEF": 3347
+        },
+        "78": {
+            "HP": 5939,
+            "ATK": 6321,
+            "DEF": 3375
+        },
+        "79": {
+            "HP": 5989,
+            "ATK": 6374,
+            "DEF": 3403
+        },
+        "80": {
+            "HP": 6038,
+            "ATK": 6426,
+            "DEF": 3431
+        },
+        "81": {
+            "HP": 6087,
+            "ATK": 6479,
+            "DEF": 3459
+        },
+        "82": {
+            "HP": 6137,
+            "ATK": 6531,
+            "DEF": 3488
+        },
+        "83": {
+            "HP": 6186,
+            "ATK": 6584,
+            "DEF": 3516
+        },
+        "84": {
+            "HP": 6236,
+            "ATK": 6637,
+            "DEF": 3544
+        },
+        "85": {
+            "HP": 6285,
+            "ATK": 6689,
+            "DEF": 3572
+        },
+        "86": {
+            "HP": 6337,
+            "ATK": 6745,
+            "DEF": 3601
+        },
+        "87": {
+            "HP": 6387,
+            "ATK": 6797,
+            "DEF": 3630
+        },
+        "88": {
+            "HP": 6436,
+            "ATK": 6850,
+            "DEF": 3658
+        },
+        "89": {
+            "HP": 6486,
+            "ATK": 6903,
+            "DEF": 3686
+        },
+        "90": {
+            "HP": 6535,
+            "ATK": 6955,
+            "DEF": 3714
+        },
+        "91": {
+            "HP": 6585,
+            "ATK": 7008,
+            "DEF": 3742
+        },
+        "92": {
+            "HP": 6634,
+            "ATK": 7061,
+            "DEF": 3770
+        },
+        "93": {
+            "HP": 6684,
+            "ATK": 7113,
+            "DEF": 3798
+        },
+        "94": {
+            "HP": 6733,
+            "ATK": 7166,
+            "DEF": 3826
+        },
+        "95": {
+            "HP": 6783,
+            "ATK": 7219,
+            "DEF": 3854
+        },
+        "96": {
+            "HP": 6835,
+            "ATK": 7274,
+            "DEF": 3884
+        },
+        "97": {
+            "HP": 6884,
+            "ATK": 7327,
+            "DEF": 3912
+        },
+        "98": {
+            "HP": 6934,
+            "ATK": 7379,
+            "DEF": 3940
+        },
+        "99": {
+            "HP": 6983,
+            "ATK": 7432,
+            "DEF": 3968
+        },
+        "100": {
+            "HP": 7033,
+            "ATK": 7485,
+            "DEF": 3997
+        }
+    },
+    "Leader Skill": {
+        "Name": "Brilliant Plan to Conquer the Enemy",
+        "10296700": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Hybrid Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10296701": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Hybrid Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "5783": {
+            "superID": "5783",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Burning Breaker",
+            "superDescription": "Greatly raises DEF for 3 turns and \ncauses supreme damage to enemy; \nraises allies' DEF by 30% for 1 turn",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5783": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                },
+                "1005783": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "allies",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2757"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Come Paddle My Bottom!",
+        "Effect Description": "DEF +40% and directs enemy's attack \ntowards the character for 1 turn; \n\"Hybrid Saiyans\" Category allies' Ki +4 for 1 turn",
+        "Condition Description": "Can be activated after the character \nevades 5 or more enemy attacks \n(including Super Attacks) \nin battle (once only)",
+        "Condition": {
+            "Logic": "( 3066 )",
+            "Causalities": {
+                "3066": {
+                    "Button": {
+                        "Name": "Has this character evaded 5th times in battle?"
+                    },
+                    "Slider": {
+                        "Name": "How many attacks have been evaded?",
+                        "Logic": ">=5",
+                        "Min": 0,
+                        "Max": 5
+                    },
+                    "Paragraph Title": "When the character has evaded 5 or more attacks"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "326": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "DEF Buff",
+                    "Amount": 40
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "327": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Redirect attacks to me"
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "328": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Ki Buff",
+                    "Amount": 4
+                },
+                "Target": {
+                    "Target": "All allies"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5783",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

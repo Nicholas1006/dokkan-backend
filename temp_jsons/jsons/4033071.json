@@ -1,0 +1,2278 @@
+{
+    "ID": "4033071",
+    "Type": "PHY",
+    "Class": "Extreme",
+    "Name": "Super Saiyan 2 Goku (Angel) + Majin Vegeta",
+    "Rarity": "lr",
+    "Min Level": 1,
+    "Max Level": 150,
+    "Categories": [
+        "Pure Saiyans",
+        "Corroded Body and Mind",
+        "Gifted Warriors",
+        "Majin Buu Saga",
+        "Uncontrollable Power",
+        "Resurrected Warriors",
+        "Vegeta's Family",
+        "Worthy Rivals",
+        "Super Saiyan 2",
+        "Power Beyond Super Saiyan",
+        "Goku's Family",
+        "Otherworld Warriors",
+        "Turtle School",
+        "Time Limit",
+        "Mastered Evolution",
+        "Bond of Friendship",
+        "Accelerated Battle",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Kamehameha",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Golden Warrior",
+        "Super Saiyan",
+        "All in the Family",
+        "Prepared for Battle",
+        "Kamehameha",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 4033070,
+    "Passive": {
+        "4889": {
+            "ID": 4889,
+            "Reversible exchange": {
+                "Activated": true,
+                "Unit": 1033061
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Meets up with Majin Vegeta and can perform Reversible Exchange ",
+            "Line description": "Meets up with Majin Vegeta and can perform Reversible Exchange ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004889": {
+            "ID": 1004889,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004889": {
+            "ID": 2004889,
+            "Timing": "Start of turn",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004889": {
+            "ID": 3004889,
+            "Timing": "Start of turn",
+            "DR": 18,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 18%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 18%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004889": {
+            "ID": 4004889,
+            "Dodge Chance": 40,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +40% ",
+            "Line description": "Chance of evading enemy attacks +40% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004889": {
+            "ID": 5004889,
+            "Timing": "When ki spheres collected",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1291 || 1798 )",
+                "Causalities": {
+                    "1291": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    },
+                    "1798": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1291|1798\", \"compiled\": [\"|\", 1291, 1798]}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 after this unit collects ki spheres",
+            "Line description": "Ki +3 after this unit collects ki spheres",
+            "Paragraph Title": "When ( with 4 or more Ki Spheres obtained or there are 2 or more Super class allies on the team )"
+        },
+        "6004889": {
+            "ID": 6004889,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1291 || 1798 )",
+                "Causalities": {
+                    "1291": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    },
+                    "1798": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1291|1798\", \"compiled\": [\"|\", 1291, 1798]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When ( with 4 or more Ki Spheres obtained or there are 2 or more Super class allies on the team )"
+        },
+        "7004889": {
+            "ID": 7004889,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1291 || 1798 )",
+                "Causalities": {
+                    "1291": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    },
+                    "1798": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1291|1798\", \"compiled\": [\"|\", 1291, 1798]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack when attacking",
+            "Line description": "Performs an additional super attack when attacking",
+            "Paragraph Title": "When ( with 4 or more Ki Spheres obtained or there are 2 or more Super class allies on the team )"
+        },
+        "8004889": {
+            "ID": 8004889,
+            "Timing": "Right before being hit",
+            "DEF": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1291 || 1798 )",
+                "Causalities": {
+                    "1291": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    },
+                    "1798": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1291|1798\", \"compiled\": [\"|\", 1291, 1798]}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 180%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 180%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When ( with 4 or more Ki Spheres obtained or there are 2 or more Super class allies on the team )"
+        },
+        "9004889": {
+            "ID": 9004889,
+            "Dodge Chance": 35,
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1291 || 1798 )",
+                "Causalities": {
+                    "1291": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    },
+                    "1798": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1291|1798\", \"compiled\": [\"|\", 1291, 1798]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +35% right before being hit",
+            "Line description": "Chance of evading enemy attacks +35% right before being hit",
+            "Paragraph Title": "When ( with 4 or more Ki Spheres obtained or there are 2 or more Super class allies on the team )"
+        },
+        "10004889": {
+            "ID": 10004889,
+            "Timing": "Right before being hit",
+            "DR": 35,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1291 || 1798 )",
+                "Causalities": {
+                    "1291": {
+                        "Button": {
+                            "Name": "Has 4 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Ki Spheres obtained"
+                    },
+                    "1798": {
+                        "Button": {
+                            "Name": "Is there 2 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1291|1798\", \"compiled\": [\"|\", 1291, 1798]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 35%{passiveImg:up_g} right before being hit",
+            "Line description": "Damage Reduction Rate 35%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When ( with 4 or more Ki Spheres obtained or there are 2 or more Super class allies on the team )"
+        },
+        "11004889": {
+            "ID": 11004889,
+            "Timing": "When ki spheres collected",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2165 || 2210 )",
+                "Causalities": {
+                    "2165": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    },
+                    "2210": {
+                        "Button": {
+                            "Name": "Is there 3 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2165|2210\", \"compiled\": [\"|\", 2165, 2210]}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 after this unit collects ki spheres",
+            "Line description": "Ki +3 after this unit collects ki spheres",
+            "Paragraph Title": "When ( with 6 or more Ki Spheres obtained or there are 3 or more Super class allies on the team )"
+        },
+        "12004889": {
+            "ID": 12004889,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2165 || 2210 )",
+                "Causalities": {
+                    "2165": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    },
+                    "2210": {
+                        "Button": {
+                            "Name": "Is there 3 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2165|2210\", \"compiled\": [\"|\", 2165, 2210]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When ( with 6 or more Ki Spheres obtained or there are 3 or more Super class allies on the team )"
+        },
+        "13004889": {
+            "ID": 13004889,
+            "Timing": "When ki spheres collected",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2165 || 2210 )",
+                "Causalities": {
+                    "2165": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    },
+                    "2210": {
+                        "Button": {
+                            "Name": "Is there 3 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2165|2210\", \"compiled\": [\"|\", 2165, 2210]}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks after this unit collects ki spheres",
+            "Line description": "Guards all attacks after this unit collects ki spheres",
+            "Paragraph Title": "When ( with 6 or more Ki Spheres obtained or there are 3 or more Super class allies on the team )"
+        },
+        "14004889": {
+            "ID": 14004889,
+            "Timing": "When ki spheres collected",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3572 || 2211 )",
+                "Causalities": {
+                    "3572": {
+                        "Button": {
+                            "Name": "Has 8 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "With 8 or more Ki Spheres obtained"
+                    },
+                    "2211": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3572|2211\", \"compiled\": [\"|\", 3572, 2211]}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 after this unit collects ki spheres",
+            "Line description": "Ki +3 after this unit collects ki spheres",
+            "Paragraph Title": "When ( with 8 or more Ki Spheres obtained or there are 4 or more Super class allies on the team )"
+        },
+        "15004889": {
+            "ID": 15004889,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3572 || 2211 )",
+                "Causalities": {
+                    "3572": {
+                        "Button": {
+                            "Name": "Has 8 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "With 8 or more Ki Spheres obtained"
+                    },
+                    "2211": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3572|2211\", \"compiled\": [\"|\", 3572, 2211]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When ( with 8 or more Ki Spheres obtained or there are 4 or more Super class allies on the team )"
+        },
+        "16004889": {
+            "ID": 16004889,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3572 || 2211 )",
+                "Causalities": {
+                    "3572": {
+                        "Button": {
+                            "Name": "Has 8 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "With 8 or more Ki Spheres obtained"
+                    },
+                    "2211": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3572|2211\", \"compiled\": [\"|\", 3572, 2211]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} when attacking",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When ( with 8 or more Ki Spheres obtained or there are 4 or more Super class allies on the team )"
+        },
+        "17004889": {
+            "ID": 17004889,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3572 || 2211 )",
+                "Causalities": {
+                    "3572": {
+                        "Button": {
+                            "Name": "Has 8 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "With 8 or more Ki Spheres obtained"
+                    },
+                    "2211": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3572|2211\", \"compiled\": [\"|\", 3572, 2211]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} when attacking for all allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} when attacking for all allies ",
+            "Paragraph Title": "When ( with 8 or more Ki Spheres obtained or there are 4 or more Super class allies on the team )"
+        },
+        "18004889": {
+            "ID": 18004889,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Majin Buu Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3572 || 2211 )",
+                "Causalities": {
+                    "3572": {
+                        "Button": {
+                            "Name": "Has 8 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=8",
+                            "Min": 0,
+                            "Max": 8
+                        },
+                        "Paragraph Title": "With 8 or more Ki Spheres obtained"
+                    },
+                    "2211": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3572|2211\", \"compiled\": [\"|\", 3572, 2211]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} when attacking for all Majin Buu Saga category allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} when attacking for all Majin Buu Saga category allies ",
+            "Paragraph Title": "When ( with 8 or more Ki Spheres obtained or there are 4 or more Super class allies on the team )"
+        },
+        "19004889": {
+            "ID": 19004889,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 300,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3230 )",
+                "Causalities": {
+                    "3230": {
+                        "Button": {
+                            "Name": "Is Ki at least 18 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=18",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 18 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3230\", \"compiled\": 3230}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 300%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 300%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 18 or more"
+        },
+        "20004889": {
+            "ID": 20004889,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3230 )",
+                "Causalities": {
+                    "3230": {
+                        "Button": {
+                            "Name": "Is Ki at least 18 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=18",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 18 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3230\", \"compiled\": 3230}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} when attacking",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 18 or more"
+        },
+        "21004889": {
+            "ID": 21004889,
+            "Dodge Chance": 10,
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2165 || 2210 )",
+                "Causalities": {
+                    "2165": {
+                        "Button": {
+                            "Name": "Has 6 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "With 6 or more Ki Spheres obtained"
+                    },
+                    "2210": {
+                        "Button": {
+                            "Name": "Is there 3 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2165|2210\", \"compiled\": [\"|\", 2165, 2210]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% right before being hit",
+            "Line description": " {passiveImg:once}Chance of evading enemy attacks +10% right before being hit for 1 turn ",
+            "Paragraph Title": "When ( with 6 or more Ki Spheres obtained or there are 3 or more Super class allies on the team )"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Can perform Reversible Exchange with Majin Vegeta\n- Ki +3 and ATK & DEF 250%{passiveImg:up_g}\n- Damage reduction rate 18%{passiveImg:up_g}\n- Chance of evading enemy's attack 40%{passiveImg:up_g}\n*4 or more Ki Spheres obtained, or when 2 or more\nSuper Class allies are on the team*\n- Ki +3 with at least 1 Ki Sphere obtained\n- ATK 180%{passiveImg:up_g} and launches an additional Super Attack\nwhen attacking\n- DEF 180%{passiveImg:up_g} and chance of evading enemy's attack &\ndamage reduction rate 35%{passiveImg:up_g} when receiving an attack\n*6 or more Ki Spheres obtained, or when 3 or more\nSuper Class allies are on the team*\n- Guards all attacks\n- Ki +3 with at least 1 Ki Sphere obtained\n- ATK 180%{passiveImg:up_g} when attacking\n- {passiveImg:once}Chance of evading enemy's attack 10%{passiveImg:up_g}\nwhen receiving an attack\n*8 or more Ki Spheres obtained, or when 4 or more\nSuper Class allies are on the team*\n- Ki +3 with at least 1 Ki Sphere obtained\n- ATK 180%{passiveImg:up_g}, chance of performing a critical hit 30%{passiveImg:up_g} and\nall allies' ATK & DEF 20%{passiveImg:up_g}, plus an additional ATK & DEF 30%{passiveImg:up_g}\nfor characters who also belong to the \"Majin Buu Saga\" Category,\nwhen attacking\n*When activating the Active Skill or when attacking with 18 or more Ki*\n- ATK 300%{passiveImg:up_g}\n- Chance of performing a critical hit 30%{passiveImg:up_g}",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 7310,
+            "ATK": 4448,
+            "DEF": 2829
+        },
+        "2": {
+            "HP": 7425,
+            "ATK": 4518,
+            "DEF": 2873
+        },
+        "3": {
+            "HP": 7532,
+            "ATK": 4583,
+            "DEF": 2914
+        },
+        "4": {
+            "HP": 7647,
+            "ATK": 4653,
+            "DEF": 2959
+        },
+        "5": {
+            "HP": 7762,
+            "ATK": 4723,
+            "DEF": 3004
+        },
+        "6": {
+            "HP": 7877,
+            "ATK": 4793,
+            "DEF": 3048
+        },
+        "7": {
+            "HP": 7984,
+            "ATK": 4858,
+            "DEF": 3090
+        },
+        "8": {
+            "HP": 8100,
+            "ATK": 4928,
+            "DEF": 3134
+        },
+        "9": {
+            "HP": 8215,
+            "ATK": 4998,
+            "DEF": 3179
+        },
+        "10": {
+            "HP": 8322,
+            "ATK": 5063,
+            "DEF": 3220
+        },
+        "11": {
+            "HP": 8437,
+            "ATK": 5134,
+            "DEF": 3265
+        },
+        "12": {
+            "HP": 8552,
+            "ATK": 5204,
+            "DEF": 3310
+        },
+        "13": {
+            "HP": 8668,
+            "ATK": 5274,
+            "DEF": 3354
+        },
+        "14": {
+            "HP": 8774,
+            "ATK": 5339,
+            "DEF": 3396
+        },
+        "15": {
+            "HP": 8890,
+            "ATK": 5409,
+            "DEF": 3440
+        },
+        "16": {
+            "HP": 9005,
+            "ATK": 5479,
+            "DEF": 3485
+        },
+        "17": {
+            "HP": 9112,
+            "ATK": 5544,
+            "DEF": 3526
+        },
+        "18": {
+            "HP": 9227,
+            "ATK": 5614,
+            "DEF": 3571
+        },
+        "19": {
+            "HP": 9342,
+            "ATK": 5685,
+            "DEF": 3615
+        },
+        "20": {
+            "HP": 9458,
+            "ATK": 5755,
+            "DEF": 3660
+        },
+        "21": {
+            "HP": 9565,
+            "ATK": 5820,
+            "DEF": 3701
+        },
+        "22": {
+            "HP": 9680,
+            "ATK": 5890,
+            "DEF": 3746
+        },
+        "23": {
+            "HP": 9795,
+            "ATK": 5960,
+            "DEF": 3791
+        },
+        "24": {
+            "HP": 9902,
+            "ATK": 6025,
+            "DEF": 3832
+        },
+        "25": {
+            "HP": 10017,
+            "ATK": 6095,
+            "DEF": 3877
+        },
+        "26": {
+            "HP": 10133,
+            "ATK": 6165,
+            "DEF": 3921
+        },
+        "27": {
+            "HP": 10239,
+            "ATK": 6230,
+            "DEF": 3963
+        },
+        "28": {
+            "HP": 10355,
+            "ATK": 6301,
+            "DEF": 4007
+        },
+        "29": {
+            "HP": 10470,
+            "ATK": 6371,
+            "DEF": 4052
+        },
+        "30": {
+            "HP": 10585,
+            "ATK": 6441,
+            "DEF": 4097
+        },
+        "31": {
+            "HP": 10692,
+            "ATK": 6506,
+            "DEF": 4138
+        },
+        "32": {
+            "HP": 10807,
+            "ATK": 6576,
+            "DEF": 4183
+        },
+        "33": {
+            "HP": 10923,
+            "ATK": 6646,
+            "DEF": 4227
+        },
+        "34": {
+            "HP": 11030,
+            "ATK": 6711,
+            "DEF": 4269
+        },
+        "35": {
+            "HP": 11145,
+            "ATK": 6781,
+            "DEF": 4313
+        },
+        "36": {
+            "HP": 11260,
+            "ATK": 6852,
+            "DEF": 4358
+        },
+        "37": {
+            "HP": 11375,
+            "ATK": 6922,
+            "DEF": 4402
+        },
+        "38": {
+            "HP": 11482,
+            "ATK": 6987,
+            "DEF": 4444
+        },
+        "39": {
+            "HP": 11598,
+            "ATK": 7057,
+            "DEF": 4488
+        },
+        "40": {
+            "HP": 11713,
+            "ATK": 7127,
+            "DEF": 4533
+        },
+        "41": {
+            "HP": 11820,
+            "ATK": 7192,
+            "DEF": 4574
+        },
+        "42": {
+            "HP": 11935,
+            "ATK": 7262,
+            "DEF": 4619
+        },
+        "43": {
+            "HP": 12050,
+            "ATK": 7332,
+            "DEF": 4664
+        },
+        "44": {
+            "HP": 12166,
+            "ATK": 7402,
+            "DEF": 4708
+        },
+        "45": {
+            "HP": 12272,
+            "ATK": 7467,
+            "DEF": 4750
+        },
+        "46": {
+            "HP": 12388,
+            "ATK": 7538,
+            "DEF": 4794
+        },
+        "47": {
+            "HP": 12503,
+            "ATK": 7608,
+            "DEF": 4839
+        },
+        "48": {
+            "HP": 12610,
+            "ATK": 7673,
+            "DEF": 4880
+        },
+        "49": {
+            "HP": 12725,
+            "ATK": 7743,
+            "DEF": 4925
+        },
+        "50": {
+            "HP": 12840,
+            "ATK": 7813,
+            "DEF": 4970
+        },
+        "51": {
+            "HP": 12956,
+            "ATK": 7883,
+            "DEF": 5014
+        },
+        "52": {
+            "HP": 13063,
+            "ATK": 7948,
+            "DEF": 5055
+        },
+        "53": {
+            "HP": 13178,
+            "ATK": 8018,
+            "DEF": 5100
+        },
+        "54": {
+            "HP": 13293,
+            "ATK": 8089,
+            "DEF": 5145
+        },
+        "55": {
+            "HP": 13400,
+            "ATK": 8154,
+            "DEF": 5186
+        },
+        "56": {
+            "HP": 13515,
+            "ATK": 8224,
+            "DEF": 5231
+        },
+        "57": {
+            "HP": 13631,
+            "ATK": 8294,
+            "DEF": 5275
+        },
+        "58": {
+            "HP": 13746,
+            "ATK": 8364,
+            "DEF": 5320
+        },
+        "59": {
+            "HP": 13853,
+            "ATK": 8429,
+            "DEF": 5361
+        },
+        "60": {
+            "HP": 13968,
+            "ATK": 8499,
+            "DEF": 5406
+        },
+        "61": {
+            "HP": 14083,
+            "ATK": 8569,
+            "DEF": 5451
+        },
+        "62": {
+            "HP": 14190,
+            "ATK": 8634,
+            "DEF": 5492
+        },
+        "63": {
+            "HP": 14305,
+            "ATK": 8705,
+            "DEF": 5537
+        },
+        "64": {
+            "HP": 14421,
+            "ATK": 8775,
+            "DEF": 5581
+        },
+        "65": {
+            "HP": 14536,
+            "ATK": 8845,
+            "DEF": 5626
+        },
+        "66": {
+            "HP": 14643,
+            "ATK": 8910,
+            "DEF": 5667
+        },
+        "67": {
+            "HP": 14758,
+            "ATK": 8980,
+            "DEF": 5712
+        },
+        "68": {
+            "HP": 14873,
+            "ATK": 9050,
+            "DEF": 5756
+        },
+        "69": {
+            "HP": 14980,
+            "ATK": 9115,
+            "DEF": 5798
+        },
+        "70": {
+            "HP": 15096,
+            "ATK": 9185,
+            "DEF": 5842
+        },
+        "71": {
+            "HP": 15211,
+            "ATK": 9256,
+            "DEF": 5887
+        },
+        "72": {
+            "HP": 15326,
+            "ATK": 9326,
+            "DEF": 5932
+        },
+        "73": {
+            "HP": 15433,
+            "ATK": 9391,
+            "DEF": 5973
+        },
+        "74": {
+            "HP": 15548,
+            "ATK": 9461,
+            "DEF": 6018
+        },
+        "75": {
+            "HP": 15664,
+            "ATK": 9531,
+            "DEF": 6062
+        },
+        "76": {
+            "HP": 15770,
+            "ATK": 9596,
+            "DEF": 6104
+        },
+        "77": {
+            "HP": 15886,
+            "ATK": 9666,
+            "DEF": 6148
+        },
+        "78": {
+            "HP": 16001,
+            "ATK": 9736,
+            "DEF": 6193
+        },
+        "79": {
+            "HP": 16108,
+            "ATK": 9801,
+            "DEF": 6234
+        },
+        "80": {
+            "HP": 16223,
+            "ATK": 9871,
+            "DEF": 6279
+        },
+        "81": {
+            "HP": 16338,
+            "ATK": 9942,
+            "DEF": 6324
+        },
+        "82": {
+            "HP": 16454,
+            "ATK": 10012,
+            "DEF": 6368
+        },
+        "83": {
+            "HP": 16561,
+            "ATK": 10077,
+            "DEF": 6410
+        },
+        "84": {
+            "HP": 16676,
+            "ATK": 10147,
+            "DEF": 6454
+        },
+        "85": {
+            "HP": 16791,
+            "ATK": 10217,
+            "DEF": 6499
+        },
+        "86": {
+            "HP": 16898,
+            "ATK": 10282,
+            "DEF": 6540
+        },
+        "87": {
+            "HP": 17013,
+            "ATK": 10352,
+            "DEF": 6585
+        },
+        "88": {
+            "HP": 17129,
+            "ATK": 10422,
+            "DEF": 6629
+        },
+        "89": {
+            "HP": 17244,
+            "ATK": 10493,
+            "DEF": 6674
+        },
+        "90": {
+            "HP": 17351,
+            "ATK": 10558,
+            "DEF": 6715
+        },
+        "91": {
+            "HP": 17466,
+            "ATK": 10628,
+            "DEF": 6760
+        },
+        "92": {
+            "HP": 17581,
+            "ATK": 10698,
+            "DEF": 6805
+        },
+        "93": {
+            "HP": 17688,
+            "ATK": 10763,
+            "DEF": 6846
+        },
+        "94": {
+            "HP": 17803,
+            "ATK": 10833,
+            "DEF": 6891
+        },
+        "95": {
+            "HP": 17919,
+            "ATK": 10903,
+            "DEF": 6935
+        },
+        "96": {
+            "HP": 18034,
+            "ATK": 10973,
+            "DEF": 6980
+        },
+        "97": {
+            "HP": 18141,
+            "ATK": 11038,
+            "DEF": 7021
+        },
+        "98": {
+            "HP": 18256,
+            "ATK": 11109,
+            "DEF": 7066
+        },
+        "99": {
+            "HP": 18371,
+            "ATK": 11179,
+            "DEF": 7111
+        },
+        "100": {
+            "HP": 18478,
+            "ATK": 11244,
+            "DEF": 7152
+        },
+        "101": {
+            "HP": 18594,
+            "ATK": 11314,
+            "DEF": 7196
+        },
+        "102": {
+            "HP": 18709,
+            "ATK": 11384,
+            "DEF": 7241
+        },
+        "103": {
+            "HP": 18824,
+            "ATK": 11454,
+            "DEF": 7286
+        },
+        "104": {
+            "HP": 18931,
+            "ATK": 11519,
+            "DEF": 7327
+        },
+        "105": {
+            "HP": 19046,
+            "ATK": 11589,
+            "DEF": 7372
+        },
+        "106": {
+            "HP": 19162,
+            "ATK": 11660,
+            "DEF": 7416
+        },
+        "107": {
+            "HP": 19268,
+            "ATK": 11725,
+            "DEF": 7458
+        },
+        "108": {
+            "HP": 19384,
+            "ATK": 11795,
+            "DEF": 7502
+        },
+        "109": {
+            "HP": 19499,
+            "ATK": 11865,
+            "DEF": 7547
+        },
+        "110": {
+            "HP": 19614,
+            "ATK": 11935,
+            "DEF": 7592
+        },
+        "111": {
+            "HP": 19721,
+            "ATK": 12000,
+            "DEF": 7633
+        },
+        "112": {
+            "HP": 19836,
+            "ATK": 12070,
+            "DEF": 7678
+        },
+        "113": {
+            "HP": 19952,
+            "ATK": 12140,
+            "DEF": 7722
+        },
+        "114": {
+            "HP": 20059,
+            "ATK": 12205,
+            "DEF": 7764
+        },
+        "115": {
+            "HP": 20174,
+            "ATK": 12275,
+            "DEF": 7808
+        },
+        "116": {
+            "HP": 20289,
+            "ATK": 12346,
+            "DEF": 7853
+        },
+        "117": {
+            "HP": 20404,
+            "ATK": 12416,
+            "DEF": 7897
+        },
+        "118": {
+            "HP": 20511,
+            "ATK": 12481,
+            "DEF": 7939
+        },
+        "119": {
+            "HP": 20627,
+            "ATK": 12551,
+            "DEF": 7983
+        },
+        "120": {
+            "HP": 20742,
+            "ATK": 12621,
+            "DEF": 8028
+        },
+        "121": {
+            "HP": 20849,
+            "ATK": 12686,
+            "DEF": 8069
+        },
+        "122": {
+            "HP": 20964,
+            "ATK": 12756,
+            "DEF": 8114
+        },
+        "123": {
+            "HP": 21079,
+            "ATK": 12826,
+            "DEF": 8159
+        },
+        "124": {
+            "HP": 21195,
+            "ATK": 12897,
+            "DEF": 8203
+        },
+        "125": {
+            "HP": 21301,
+            "ATK": 12962,
+            "DEF": 8245
+        },
+        "126": {
+            "HP": 21417,
+            "ATK": 13032,
+            "DEF": 8289
+        },
+        "127": {
+            "HP": 21532,
+            "ATK": 13102,
+            "DEF": 8334
+        },
+        "128": {
+            "HP": 21639,
+            "ATK": 13167,
+            "DEF": 8375
+        },
+        "129": {
+            "HP": 21754,
+            "ATK": 13237,
+            "DEF": 8420
+        },
+        "130": {
+            "HP": 21869,
+            "ATK": 13307,
+            "DEF": 8465
+        },
+        "131": {
+            "HP": 21976,
+            "ATK": 13372,
+            "DEF": 8506
+        },
+        "132": {
+            "HP": 22092,
+            "ATK": 13442,
+            "DEF": 8551
+        },
+        "133": {
+            "HP": 22207,
+            "ATK": 13513,
+            "DEF": 8595
+        },
+        "134": {
+            "HP": 22322,
+            "ATK": 13583,
+            "DEF": 8640
+        },
+        "135": {
+            "HP": 22429,
+            "ATK": 13648,
+            "DEF": 8681
+        },
+        "136": {
+            "HP": 22544,
+            "ATK": 13718,
+            "DEF": 8726
+        },
+        "137": {
+            "HP": 22660,
+            "ATK": 13788,
+            "DEF": 8770
+        },
+        "138": {
+            "HP": 22766,
+            "ATK": 13853,
+            "DEF": 8812
+        },
+        "139": {
+            "HP": 22882,
+            "ATK": 13923,
+            "DEF": 8856
+        },
+        "140": {
+            "HP": 22997,
+            "ATK": 13993,
+            "DEF": 8901
+        },
+        "141": {
+            "HP": 23112,
+            "ATK": 14064,
+            "DEF": 8946
+        },
+        "142": {
+            "HP": 23219,
+            "ATK": 14129,
+            "DEF": 8987
+        },
+        "143": {
+            "HP": 23334,
+            "ATK": 14199,
+            "DEF": 9032
+        },
+        "144": {
+            "HP": 23450,
+            "ATK": 14269,
+            "DEF": 9076
+        },
+        "145": {
+            "HP": 23557,
+            "ATK": 14334,
+            "DEF": 9118
+        },
+        "146": {
+            "HP": 23672,
+            "ATK": 14404,
+            "DEF": 9162
+        },
+        "147": {
+            "HP": 23787,
+            "ATK": 14474,
+            "DEF": 9207
+        },
+        "148": {
+            "HP": 23902,
+            "ATK": 14544,
+            "DEF": 9252
+        },
+        "149": {
+            "HP": 24009,
+            "ATK": 14609,
+            "DEF": 9293
+        },
+        "150": {
+            "HP": 24125,
+            "ATK": 14680,
+            "DEF": 9338
+        }
+    },
+    "Leader Skill": {
+        "Name": "Fated Showdown",
+        "10330600": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 200,
+            "Ki": 0
+        },
+        "10330601": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10330602": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Corroded Body and Mind"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 200,
+            "Ki": 0
+        },
+        "10330603": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Corroded Body and Mind"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10330604": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Gifted Warriors"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans",
+                    "Corroded Body and Mind"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 200,
+            "Ki": 0
+        },
+        "10330605": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Gifted Warriors"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans",
+                    "Corroded Body and Mind"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10330606": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10330607": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Corroded Body and Mind",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10330608": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Uncontrollable Power",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Majin Buu Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10330609": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Uncontrollable Power",
+                    "Corroded Body and Mind"
+                ],
+                "Excluded Category": [
+                    "Majin Buu Saga",
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10330610": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Gifted Warriors",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans",
+                    "Corroded Body and Mind"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "10330611": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Uncontrollable Power",
+                    "Gifted Warriors"
+                ],
+                "Excluded Category": [
+                    "Majin Buu Saga",
+                    "Pure Saiyans",
+                    "Corroded Body and Mind"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 2100,
+            "ATK": 1700,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8637": {
+            "superID": "8637",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Super Ki Wave",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses colossal damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8637": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 395,
+            "relevantLua": [
+                "sp3004"
+            ]
+        },
+        "8638": {
+            "superID": "8638",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Super Kamehameha",
+            "superDescription": "Raises ATK & DEF and \ncauses mega-colossal damage to enemy; \nraises allies' DEF by 18% for 3 turns",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8638": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "20",
+                    "DEF": "20"
+                },
+                "1008638": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "allies",
+                    "DEF": "18"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 520,
+            "relevantLua": [
+                "sp3005"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "True Might of the Warrior Race",
+        "Effect Description": "Greatly raises ATK temporarily, \ncauses ultimate damage to enemy and, \nwithin the turn activated, \nall attacks become critical hits; \nchanges all Ki Spheres \nto PHY & INT Ki Spheres",
+        "Condition Description": "Can be activated when there are \n3 or more Extreme Class allies and \n3 or more Super Class allies on the team, \nor starting from the 4th turn \nfrom the start of battle (once only)",
+        "Condition": {
+            "Logic": "( ( 3001 && 3537 ) || 549 )",
+            "Causalities": {
+                "3001": {
+                    "Button": {
+                        "Name": "Is there 3 or more Extreme class allies on the team?"
+                    },
+                    "Slider": {
+                        "Name": "How many Extreme class allies on the team?",
+                        "Logic": ">=3",
+                        "Max": 7,
+                        "Min": 0
+                    },
+                    "Paragraph Title": "When there are 3 or more Extreme class allies on the team"
+                },
+                "3537": {
+                    "Button": {
+                        "Name": "Is there 3 or more Super class allies on the team?"
+                    },
+                    "Slider": {
+                        "Name": "How many Super class allies on the team?",
+                        "Logic": ">=3",
+                        "Max": 7,
+                        "Min": 0
+                    },
+                    "Paragraph Title": "When there are 3 or more Super class allies on the team"
+                },
+                "549": {
+                    "Button": {
+                        "Name": "Is the turn count 4 or more?"
+                    },
+                    "Slider": {
+                        "Name": "What turn is it?",
+                        "Logic": ">=4",
+                        "Min": 1
+                    },
+                    "Paragraph Title": "Starting from the 4th turn from the start of battle"
+                }
+            }
+        },
+        "Uses": 1,
+        "Attack": {
+            "Multiplier": 600,
+            "Target": "Enemy"
+        },
+        "Effects": {
+            "509": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Crit Chance",
+                    "Amount": 100
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "510": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Changes orbs",
+                    "From": [
+                        "AGL",
+                        "TEQ",
+                        "INT",
+                        "STR",
+                        "PHY",
+                        "Rainbow",
+                        "Sweet treats"
+                    ],
+                    "To": [
+                        "INT"
+                    ]
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "1033061"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 100.0,
+        "1": 104.16666666666666,
+        "2": 108.33333333333333,
+        "3": 112.5,
+        "4": 116.66666666666666,
+        "5": 120.83333333333333,
+        "6": 125.0,
+        "7": 129.16666666666666,
+        "8": 133.33333333333334,
+        "9": 137.5,
+        "10": 141.66666666666666,
+        "11": 145.83333333333334,
+        "12": 150.0,
+        "13": 154.16666666666666,
+        "14": 158.33333333333334,
+        "15": 162.5,
+        "16": 166.66666666666666,
+        "17": 170.83333333333334,
+        "18": 175.0,
+        "19": 179.16666666666666,
+        "20": 183.33333333333334,
+        "21": 187.5,
+        "22": 191.66666666666669,
+        "23": 195.83333333333334,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8637",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

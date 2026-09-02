@@ -1,0 +1,1225 @@
+{
+    "ID": "1017780",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Demon King Piccolo (Elder)",
+    "Rarity": "lr",
+    "Min Level": 1,
+    "Max Level": 150,
+    "Categories": [
+        "Resurrected Warriors",
+        "Namekians",
+        "Dragon Ball Seekers",
+        "Time Travelers",
+        "DB Saga",
+        "Terrifying Conquerors",
+        "Full Power",
+        "Gifted Warriors",
+        "Storied Figures",
+        "Sworn Enemies",
+        "Legendary Existence",
+        "Accelerated Battle",
+        "Worldwide Chaos",
+        "Battle of Fate",
+        "Power of Wishes",
+        "Demonic Power",
+        "Successors"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Revival",
+        "Demonic Ways",
+        "The Incredible Adventure",
+        "Guidance of the Dragon Balls",
+        "Nightmare",
+        "Shattering the Limit",
+        "Legendary Power"
+    ],
+    "Resource ID": 1017780,
+    "Passive": {
+        "2076": {
+            "ID": 2076,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 138000,
+                "Stat Per Proc": 6000,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "TEQ"
+                    ]
+                },
+                "Slider": "How many TEQ Ki Spheres have been obtained?"
+            },
+            "ATK": 6000,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 6000{passiveImg:up_g} per TEQ Ki Spheres obtained{currentValue} / 138000 ",
+            "Line description": "ATK 6000{passiveImg:up_g} per TEQ Ki Spheres obtained{currentValue} / 138000 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002076": {
+            "ID": 1002076,
+            "Timing": "When ki spheres collected",
+            "DR": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 575 )",
+                "Causalities": {
+                    "575": {
+                        "Button": {
+                            "Name": "Has 5 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"575\", \"compiled\": 575}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 50%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "Damage Reduction Rate 50%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 5 or more Ki Spheres obtained"
+        },
+        "2002076": {
+            "ID": 2002076,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "INT",
+                    "AGL"
+                ],
+                "To": [
+                    "TEQ"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Randomly changes Ki Spheres of a certain Type(TEQ excluded) to TEQ Ki Spheres ",
+            "Line description": "Randomly changes Ki Spheres of a certain Type(TEQ excluded) to TEQ Ki Spheres ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002076": {
+            "ID": 3002076,
+            "Transformation": {
+                "Activated": true,
+                "Unit": 4017790,
+                "Giant/Rage": false,
+                "Min Turns": null,
+                "Max Turns": null,
+                "Reverse chance": null
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "First Turn To Activate": 1,
+            "Condition": {
+                "Logic": "( 580 || 576 || 577 || 578 )",
+                "Causalities": {
+                    "580": {
+                        "Button": {
+                            "Name": "Is the turn count 7 or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What turn is it on this turn?",
+                            "Logic": ">=7",
+                            "Min": 1
+                        },
+                        "Paragraph Title": "Starting from the 7th turn from the start of battle"
+                    },
+                    "576": {
+                        "Button": {
+                            "Name": "Are there 1 or more DB Saga category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many DB Saga category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more DB Saga Category enemies "
+                    },
+                    "577": {
+                        "Button": {
+                            "Name": "Are there 1 or more World Tournament category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many World Tournament category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more World Tournament Category enemies "
+                    },
+                    "578": {
+                        "Button": {
+                            "Name": "Are there 1 or more Dragon Ball Seekers category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Dragon Ball Seekers category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Dragon Ball Seekers Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"580|576|577|578\", \"compiled\": [\"|\", 580, 576, 577, 578]}",
+            "Type": "Single activator",
+            "Brief effect description": "Transforms into 4017790 ",
+            "Line description": "Transforms into 4017790 ",
+            "Paragraph Title": "When ( starting from the 7th turn from the start of battle or there are 1 or more DB Saga Category enemies or there are 1 or more World Tournament Category enemies or there are 1 or more Dragon Ball Seekers Category enemies )"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Randomly changes Ki Spheres of a certain Type (TEQ\nexcluded) to TEQ Ki Spheres\n*For every TEQ Ki Sphere obtained*\n- ATK 6000{passiveImg:up_g}\n*5 or more Ki Spheres obtained*\n- Damage reduction rate 50%{passiveImg:up_g}\n*Starting from the 7th turn from the start of battle, or when\nthere is a \"DB Saga\", \"World Tournament\" or \"Dragon Ball\nSeekers\" Category enemy*\n- Restores youth using the Dragon Balls' power",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 3388,
+            "ATK": 3766,
+            "DEF": 2512
+        },
+        "2": {
+            "HP": 3442,
+            "ATK": 3826,
+            "DEF": 2552
+        },
+        "3": {
+            "HP": 3492,
+            "ATK": 3882,
+            "DEF": 2589
+        },
+        "4": {
+            "HP": 3546,
+            "ATK": 3942,
+            "DEF": 2629
+        },
+        "5": {
+            "HP": 3600,
+            "ATK": 4002,
+            "DEF": 2669
+        },
+        "6": {
+            "HP": 3654,
+            "ATK": 4062,
+            "DEF": 2709
+        },
+        "7": {
+            "HP": 3705,
+            "ATK": 4118,
+            "DEF": 2747
+        },
+        "8": {
+            "HP": 3759,
+            "ATK": 4178,
+            "DEF": 2787
+        },
+        "9": {
+            "HP": 3813,
+            "ATK": 4239,
+            "DEF": 2827
+        },
+        "10": {
+            "HP": 3863,
+            "ATK": 4294,
+            "DEF": 2864
+        },
+        "11": {
+            "HP": 3918,
+            "ATK": 4355,
+            "DEF": 2904
+        },
+        "12": {
+            "HP": 3972,
+            "ATK": 4415,
+            "DEF": 2945
+        },
+        "13": {
+            "HP": 4026,
+            "ATK": 4475,
+            "DEF": 2985
+        },
+        "14": {
+            "HP": 4076,
+            "ATK": 4531,
+            "DEF": 3022
+        },
+        "15": {
+            "HP": 4130,
+            "ATK": 4591,
+            "DEF": 3062
+        },
+        "16": {
+            "HP": 4185,
+            "ATK": 4652,
+            "DEF": 3102
+        },
+        "17": {
+            "HP": 4235,
+            "ATK": 4707,
+            "DEF": 3140
+        },
+        "18": {
+            "HP": 4289,
+            "ATK": 4768,
+            "DEF": 3180
+        },
+        "19": {
+            "HP": 4343,
+            "ATK": 4828,
+            "DEF": 3220
+        },
+        "20": {
+            "HP": 4397,
+            "ATK": 4888,
+            "DEF": 3260
+        },
+        "21": {
+            "HP": 4448,
+            "ATK": 4944,
+            "DEF": 3297
+        },
+        "22": {
+            "HP": 4502,
+            "ATK": 5004,
+            "DEF": 3338
+        },
+        "23": {
+            "HP": 4556,
+            "ATK": 5064,
+            "DEF": 3378
+        },
+        "24": {
+            "HP": 4606,
+            "ATK": 5120,
+            "DEF": 3415
+        },
+        "25": {
+            "HP": 4660,
+            "ATK": 5181,
+            "DEF": 3455
+        },
+        "26": {
+            "HP": 4715,
+            "ATK": 5241,
+            "DEF": 3495
+        },
+        "27": {
+            "HP": 4765,
+            "ATK": 5297,
+            "DEF": 3533
+        },
+        "28": {
+            "HP": 4819,
+            "ATK": 5357,
+            "DEF": 3573
+        },
+        "29": {
+            "HP": 4873,
+            "ATK": 5417,
+            "DEF": 3613
+        },
+        "30": {
+            "HP": 4927,
+            "ATK": 5477,
+            "DEF": 3653
+        },
+        "31": {
+            "HP": 4978,
+            "ATK": 5533,
+            "DEF": 3690
+        },
+        "32": {
+            "HP": 5032,
+            "ATK": 5593,
+            "DEF": 3731
+        },
+        "33": {
+            "HP": 5086,
+            "ATK": 5654,
+            "DEF": 3771
+        },
+        "34": {
+            "HP": 5136,
+            "ATK": 5710,
+            "DEF": 3808
+        },
+        "35": {
+            "HP": 5190,
+            "ATK": 5770,
+            "DEF": 3848
+        },
+        "36": {
+            "HP": 5245,
+            "ATK": 5830,
+            "DEF": 3888
+        },
+        "37": {
+            "HP": 5299,
+            "ATK": 5890,
+            "DEF": 3928
+        },
+        "38": {
+            "HP": 5349,
+            "ATK": 5946,
+            "DEF": 3966
+        },
+        "39": {
+            "HP": 5403,
+            "ATK": 6006,
+            "DEF": 4006
+        },
+        "40": {
+            "HP": 5457,
+            "ATK": 6067,
+            "DEF": 4046
+        },
+        "41": {
+            "HP": 5508,
+            "ATK": 6122,
+            "DEF": 4083
+        },
+        "42": {
+            "HP": 5562,
+            "ATK": 6183,
+            "DEF": 4123
+        },
+        "43": {
+            "HP": 5616,
+            "ATK": 6243,
+            "DEF": 4164
+        },
+        "44": {
+            "HP": 5670,
+            "ATK": 6303,
+            "DEF": 4204
+        },
+        "45": {
+            "HP": 5720,
+            "ATK": 6359,
+            "DEF": 4241
+        },
+        "46": {
+            "HP": 5775,
+            "ATK": 6419,
+            "DEF": 4281
+        },
+        "47": {
+            "HP": 5829,
+            "ATK": 6479,
+            "DEF": 4321
+        },
+        "48": {
+            "HP": 5879,
+            "ATK": 6535,
+            "DEF": 4359
+        },
+        "49": {
+            "HP": 5933,
+            "ATK": 6596,
+            "DEF": 4399
+        },
+        "50": {
+            "HP": 5987,
+            "ATK": 6656,
+            "DEF": 4439
+        },
+        "51": {
+            "HP": 6042,
+            "ATK": 6716,
+            "DEF": 4479
+        },
+        "52": {
+            "HP": 6092,
+            "ATK": 6772,
+            "DEF": 4516
+        },
+        "53": {
+            "HP": 6146,
+            "ATK": 6832,
+            "DEF": 4557
+        },
+        "54": {
+            "HP": 6200,
+            "ATK": 6892,
+            "DEF": 4597
+        },
+        "55": {
+            "HP": 6250,
+            "ATK": 6948,
+            "DEF": 4634
+        },
+        "56": {
+            "HP": 6305,
+            "ATK": 7008,
+            "DEF": 4674
+        },
+        "57": {
+            "HP": 6359,
+            "ATK": 7069,
+            "DEF": 4714
+        },
+        "58": {
+            "HP": 6413,
+            "ATK": 7129,
+            "DEF": 4755
+        },
+        "59": {
+            "HP": 6463,
+            "ATK": 7185,
+            "DEF": 4792
+        },
+        "60": {
+            "HP": 6517,
+            "ATK": 7245,
+            "DEF": 4832
+        },
+        "61": {
+            "HP": 6572,
+            "ATK": 7305,
+            "DEF": 4872
+        },
+        "62": {
+            "HP": 6622,
+            "ATK": 7361,
+            "DEF": 4909
+        },
+        "63": {
+            "HP": 6676,
+            "ATK": 7421,
+            "DEF": 4950
+        },
+        "64": {
+            "HP": 6730,
+            "ATK": 7482,
+            "DEF": 4990
+        },
+        "65": {
+            "HP": 6784,
+            "ATK": 7542,
+            "DEF": 5030
+        },
+        "66": {
+            "HP": 6835,
+            "ATK": 7598,
+            "DEF": 5067
+        },
+        "67": {
+            "HP": 6889,
+            "ATK": 7658,
+            "DEF": 5107
+        },
+        "68": {
+            "HP": 6943,
+            "ATK": 7718,
+            "DEF": 5148
+        },
+        "69": {
+            "HP": 6993,
+            "ATK": 7774,
+            "DEF": 5185
+        },
+        "70": {
+            "HP": 7047,
+            "ATK": 7834,
+            "DEF": 5225
+        },
+        "71": {
+            "HP": 7102,
+            "ATK": 7895,
+            "DEF": 5265
+        },
+        "72": {
+            "HP": 7156,
+            "ATK": 7955,
+            "DEF": 5305
+        },
+        "73": {
+            "HP": 7206,
+            "ATK": 8011,
+            "DEF": 5343
+        },
+        "74": {
+            "HP": 7260,
+            "ATK": 8071,
+            "DEF": 5383
+        },
+        "75": {
+            "HP": 7314,
+            "ATK": 8131,
+            "DEF": 5423
+        },
+        "76": {
+            "HP": 7365,
+            "ATK": 8187,
+            "DEF": 5460
+        },
+        "77": {
+            "HP": 7419,
+            "ATK": 8247,
+            "DEF": 5500
+        },
+        "78": {
+            "HP": 7473,
+            "ATK": 8307,
+            "DEF": 5540
+        },
+        "79": {
+            "HP": 7523,
+            "ATK": 8363,
+            "DEF": 5578
+        },
+        "80": {
+            "HP": 7577,
+            "ATK": 8423,
+            "DEF": 5618
+        },
+        "81": {
+            "HP": 7632,
+            "ATK": 8484,
+            "DEF": 5658
+        },
+        "82": {
+            "HP": 7686,
+            "ATK": 8544,
+            "DEF": 5698
+        },
+        "83": {
+            "HP": 7736,
+            "ATK": 8600,
+            "DEF": 5735
+        },
+        "84": {
+            "HP": 7790,
+            "ATK": 8660,
+            "DEF": 5776
+        },
+        "85": {
+            "HP": 7844,
+            "ATK": 8720,
+            "DEF": 5816
+        },
+        "86": {
+            "HP": 7895,
+            "ATK": 8776,
+            "DEF": 5853
+        },
+        "87": {
+            "HP": 7949,
+            "ATK": 8836,
+            "DEF": 5893
+        },
+        "88": {
+            "HP": 8003,
+            "ATK": 8897,
+            "DEF": 5933
+        },
+        "89": {
+            "HP": 8057,
+            "ATK": 8957,
+            "DEF": 5974
+        },
+        "90": {
+            "HP": 8107,
+            "ATK": 9013,
+            "DEF": 6011
+        },
+        "91": {
+            "HP": 8162,
+            "ATK": 9073,
+            "DEF": 6051
+        },
+        "92": {
+            "HP": 8216,
+            "ATK": 9133,
+            "DEF": 6091
+        },
+        "93": {
+            "HP": 8266,
+            "ATK": 9189,
+            "DEF": 6128
+        },
+        "94": {
+            "HP": 8320,
+            "ATK": 9249,
+            "DEF": 6169
+        },
+        "95": {
+            "HP": 8374,
+            "ATK": 9310,
+            "DEF": 6209
+        },
+        "96": {
+            "HP": 8429,
+            "ATK": 9370,
+            "DEF": 6249
+        },
+        "97": {
+            "HP": 8479,
+            "ATK": 9426,
+            "DEF": 6286
+        },
+        "98": {
+            "HP": 8533,
+            "ATK": 9486,
+            "DEF": 6326
+        },
+        "99": {
+            "HP": 8587,
+            "ATK": 9546,
+            "DEF": 6367
+        },
+        "100": {
+            "HP": 8637,
+            "ATK": 9602,
+            "DEF": 6404
+        },
+        "101": {
+            "HP": 8692,
+            "ATK": 9662,
+            "DEF": 6444
+        },
+        "102": {
+            "HP": 8746,
+            "ATK": 9722,
+            "DEF": 6484
+        },
+        "103": {
+            "HP": 8800,
+            "ATK": 9783,
+            "DEF": 6524
+        },
+        "104": {
+            "HP": 8850,
+            "ATK": 9839,
+            "DEF": 6562
+        },
+        "105": {
+            "HP": 8904,
+            "ATK": 9899,
+            "DEF": 6602
+        },
+        "106": {
+            "HP": 8959,
+            "ATK": 9959,
+            "DEF": 6642
+        },
+        "107": {
+            "HP": 9009,
+            "ATK": 10015,
+            "DEF": 6679
+        },
+        "108": {
+            "HP": 9063,
+            "ATK": 10075,
+            "DEF": 6719
+        },
+        "109": {
+            "HP": 9117,
+            "ATK": 10135,
+            "DEF": 6760
+        },
+        "110": {
+            "HP": 9171,
+            "ATK": 10196,
+            "DEF": 6800
+        },
+        "111": {
+            "HP": 9222,
+            "ATK": 10251,
+            "DEF": 6837
+        },
+        "112": {
+            "HP": 9276,
+            "ATK": 10312,
+            "DEF": 6877
+        },
+        "113": {
+            "HP": 9330,
+            "ATK": 10372,
+            "DEF": 6917
+        },
+        "114": {
+            "HP": 9380,
+            "ATK": 10428,
+            "DEF": 6955
+        },
+        "115": {
+            "HP": 9434,
+            "ATK": 10488,
+            "DEF": 6995
+        },
+        "116": {
+            "HP": 9489,
+            "ATK": 10548,
+            "DEF": 7035
+        },
+        "117": {
+            "HP": 9543,
+            "ATK": 10608,
+            "DEF": 7075
+        },
+        "118": {
+            "HP": 9593,
+            "ATK": 10664,
+            "DEF": 7112
+        },
+        "119": {
+            "HP": 9647,
+            "ATK": 10725,
+            "DEF": 7152
+        },
+        "120": {
+            "HP": 9701,
+            "ATK": 10785,
+            "DEF": 7193
+        },
+        "121": {
+            "HP": 9752,
+            "ATK": 10841,
+            "DEF": 7230
+        },
+        "122": {
+            "HP": 9806,
+            "ATK": 10901,
+            "DEF": 7270
+        },
+        "123": {
+            "HP": 9860,
+            "ATK": 10961,
+            "DEF": 7310
+        },
+        "124": {
+            "HP": 9914,
+            "ATK": 11021,
+            "DEF": 7350
+        },
+        "125": {
+            "HP": 9964,
+            "ATK": 11077,
+            "DEF": 7388
+        },
+        "126": {
+            "HP": 10019,
+            "ATK": 11137,
+            "DEF": 7428
+        },
+        "127": {
+            "HP": 10073,
+            "ATK": 11198,
+            "DEF": 7468
+        },
+        "128": {
+            "HP": 10123,
+            "ATK": 11254,
+            "DEF": 7505
+        },
+        "129": {
+            "HP": 10177,
+            "ATK": 11314,
+            "DEF": 7545
+        },
+        "130": {
+            "HP": 10231,
+            "ATK": 11374,
+            "DEF": 7586
+        },
+        "131": {
+            "HP": 10282,
+            "ATK": 11430,
+            "DEF": 7623
+        },
+        "132": {
+            "HP": 10336,
+            "ATK": 11490,
+            "DEF": 7663
+        },
+        "133": {
+            "HP": 10390,
+            "ATK": 11550,
+            "DEF": 7703
+        },
+        "134": {
+            "HP": 10444,
+            "ATK": 11611,
+            "DEF": 7743
+        },
+        "135": {
+            "HP": 10494,
+            "ATK": 11666,
+            "DEF": 7781
+        },
+        "136": {
+            "HP": 10549,
+            "ATK": 11727,
+            "DEF": 7821
+        },
+        "137": {
+            "HP": 10603,
+            "ATK": 11787,
+            "DEF": 7861
+        },
+        "138": {
+            "HP": 10653,
+            "ATK": 11843,
+            "DEF": 7898
+        },
+        "139": {
+            "HP": 10707,
+            "ATK": 11903,
+            "DEF": 7938
+        },
+        "140": {
+            "HP": 10761,
+            "ATK": 11963,
+            "DEF": 7979
+        },
+        "141": {
+            "HP": 10816,
+            "ATK": 12024,
+            "DEF": 8019
+        },
+        "142": {
+            "HP": 10866,
+            "ATK": 12079,
+            "DEF": 8056
+        },
+        "143": {
+            "HP": 10920,
+            "ATK": 12140,
+            "DEF": 8096
+        },
+        "144": {
+            "HP": 10974,
+            "ATK": 12200,
+            "DEF": 8136
+        },
+        "145": {
+            "HP": 11025,
+            "ATK": 12256,
+            "DEF": 8174
+        },
+        "146": {
+            "HP": 11079,
+            "ATK": 12316,
+            "DEF": 8214
+        },
+        "147": {
+            "HP": 11133,
+            "ATK": 12376,
+            "DEF": 8254
+        },
+        "148": {
+            "HP": 11187,
+            "ATK": 12436,
+            "DEF": 8294
+        },
+        "149": {
+            "HP": 11237,
+            "ATK": 12492,
+            "DEF": 8331
+        },
+        "150": {
+            "HP": 11292,
+            "ATK": 12553,
+            "DEF": 8372
+        }
+    },
+    "Leader Skill": {
+        "Name": "Overwhelming Power Restored",
+        "8356": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 120,
+            "HP": 120,
+            "Ki": 0
+        },
+        "8357": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "2327": {
+            "superID": "2327",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Magekisen",
+            "superDescription": "Raises DEF for 1 turn and \ncauses colossal damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "2327": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 395,
+            "relevantLua": [
+                "sp1381"
+            ]
+        },
+        "2328": {
+            "superID": "2328",
+            "Type": "Ki blast",
+            "special_name_no": "2",
+            "superName": "Makosen",
+            "superDescription": "Greatly raises DEF for 1 turn and \ncauses mega-colossal damage to enemy",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "2328": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 540,
+            "relevantLua": [
+                "sp0602"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "4017790"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 80.0,
+        "1": 85.0,
+        "2": 90.0,
+        "3": 95.0,
+        "4": 100.0,
+        "5": 105.0,
+        "6": 110.0,
+        "7": 115.0,
+        "8": 120.0,
+        "9": 125.0,
+        "10": 130.0,
+        "11": 135.0,
+        "12": 140.0,
+        "13": 145.0,
+        "14": 150.0,
+        "15": 155.0,
+        "16": 160.0,
+        "17": 165.0,
+        "18": 170.0,
+        "19": 175.0,
+        "20": 180.0,
+        "21": 185.0,
+        "22": 190.0,
+        "23": 195.0,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "2327",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

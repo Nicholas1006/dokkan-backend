@@ -1,0 +1,613 @@
+{
+    "ID": "1029921",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Dark King Demigra (Power of Time Unleashed)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Demonic Power",
+        "Resurrected Warriors",
+        "Realm of Gods",
+        "Time Travelers",
+        "Dragon Ball Heroes",
+        "Crossover",
+        "Storied Figures"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Brainiacs",
+        "Big Bad Bosses",
+        "Revival",
+        "Master of Magic",
+        "Godly Power",
+        "Fear and Faith"
+    ],
+    "Resource ID": 1029920,
+    "Passive": {
+        "4324": {
+            "ID": 4324,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004324": {
+            "ID": 1004324,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004324": {
+            "ID": 2004324,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 60,
+            "DEF": 60,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 60%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 60%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3004324": {
+            "ID": 3004324,
+            "Timing": "Start of turn",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004324": {
+            "ID": 4004324,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004324": {
+            "ID": 5004324,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1173 || 3329 )",
+                "Causalities": {
+                    "1173": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies attacking on this turn"
+                    },
+                    "3329": {
+                        "Button": {
+                            "Name": "Are there 2 or more Demonic Power category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Demonic Power category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Demonic Power Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1173|3329\", \"compiled\": [\"|\", 1173, 3329]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies attacking on this turn or there are 2 or more Demonic Power Category allies attacking on this turn "
+        },
+        "6004324": {
+            "ID": 6004324,
+            "Timing": "After all ki collected",
+            "ATK": 60,
+            "DEF": 60,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2921 )",
+                "Causalities": {
+                    "2921": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==1",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 1st attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2921\", \"compiled\": 2921}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 60%{passiveImg:up_g} after all ki collected",
+            "Line description": "ATK and DEF 60%{passiveImg:up_g} after all ki collected",
+            "Paragraph Title": "When as the 1st attacker in the turn"
+        },
+        "7004324": {
+            "ID": 7004324,
+            "Timing": "After all ki collected",
+            "ATK": 30,
+            "Target": {
+                "Target": "allies",
+                "Class": "Extreme"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 292300000 ",
+                "Causalities": {
+                    "292300000": {
+                        "Button": {
+                            "Name": "Is this the 2nd or 3rd attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 2nd or 3rd attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"292300000\", \"compiled\": 292300000}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} after all ki collected for all Extreme class allies ",
+            "Line description": "ATK 30%{passiveImg:up_g} after all ki collected for all Extreme class allies ",
+            "Paragraph Title": "When as the 2nd or 3rd attacker in a turn"
+        },
+        "8004324": {
+            "ID": 8004324,
+            "Timing": "After all ki collected",
+            "Crit Chance": 12,
+            "Target": {
+                "Target": "allies",
+                "Class": "Extreme"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": " 292300000 ",
+                "Causalities": {
+                    "292300000": {
+                        "Button": {
+                            "Name": "Is this the 2nd or 3rd attacker in a turn"
+                        },
+                        "Paragraph Title": "As the 2nd or 3rd attacker in a turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"292300000\", \"compiled\": 292300000}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +12%{passiveImg:up_g} after all ki collected for all Extreme class allies ",
+            "Line description": "Chance of performing a critical hit +12%{passiveImg:up_g} after all ki collected for all Extreme class allies ",
+            "Paragraph Title": "When as the 2nd or 3rd attacker in a turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +1 and ATK & DEF 120%{passiveImg:up_g}\n- Medium chance of performing a critical hit\n- Damage reduction rate 20%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 60%{passiveImg:up_g}\n*When there is another \"Crossover\" or \"Demonic Power\"\nCategory ally attacking in the same turn*\n- Damage reduction rate 20%{passiveImg:up_g}\n*As the 1st attacker in a turn*\n- ATK & DEF 60%{passiveImg:up_g}\n*As the 2nd or 3rd attacker in a turn*\n- Extreme Class allies' ATK 30%{passiveImg:up_g} and chance of performing a\ncritical hit 12%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 6425,
+            "ATK": 7221,
+            "DEF": 3786
+        },
+        "81": {
+            "HP": 6429,
+            "ATK": 7228,
+            "DEF": 3788
+        },
+        "82": {
+            "HP": 6432,
+            "ATK": 7235,
+            "DEF": 3790
+        },
+        "83": {
+            "HP": 6435,
+            "ATK": 7242,
+            "DEF": 3792
+        },
+        "84": {
+            "HP": 6438,
+            "ATK": 7250,
+            "DEF": 3793
+        },
+        "85": {
+            "HP": 6441,
+            "ATK": 7257,
+            "DEF": 3795
+        },
+        "86": {
+            "HP": 6444,
+            "ATK": 7264,
+            "DEF": 3797
+        },
+        "87": {
+            "HP": 6448,
+            "ATK": 7271,
+            "DEF": 3799
+        },
+        "88": {
+            "HP": 6451,
+            "ATK": 7279,
+            "DEF": 3800
+        },
+        "89": {
+            "HP": 6454,
+            "ATK": 7286,
+            "DEF": 3802
+        },
+        "90": {
+            "HP": 6457,
+            "ATK": 7293,
+            "DEF": 3804
+        },
+        "91": {
+            "HP": 6460,
+            "ATK": 7300,
+            "DEF": 3806
+        },
+        "92": {
+            "HP": 6463,
+            "ATK": 7307,
+            "DEF": 3807
+        },
+        "93": {
+            "HP": 6466,
+            "ATK": 7314,
+            "DEF": 3809
+        },
+        "94": {
+            "HP": 6470,
+            "ATK": 7321,
+            "DEF": 3811
+        },
+        "95": {
+            "HP": 6473,
+            "ATK": 7328,
+            "DEF": 3813
+        },
+        "96": {
+            "HP": 6476,
+            "ATK": 7336,
+            "DEF": 3815
+        },
+        "97": {
+            "HP": 6479,
+            "ATK": 7343,
+            "DEF": 3816
+        },
+        "98": {
+            "HP": 6482,
+            "ATK": 7350,
+            "DEF": 3818
+        },
+        "99": {
+            "HP": 6485,
+            "ATK": 7357,
+            "DEF": 3820
+        },
+        "100": {
+            "HP": 6489,
+            "ATK": 7365,
+            "DEF": 3822
+        }
+    },
+    "Leader Skill": {
+        "Name": "King of Darkness",
+        "10299200": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Demonic Power"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10299201": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Demonic Power"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "6007": {
+            "superID": "6007",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Chaotic Gigantes",
+            "superDescription": "Raises ATK for 1 turn and \ncauses supreme damage to enemy; \nExtreme Class allies' DEF +20% \nfor 1 turn (self excluded)",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "6007": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1006007": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Extreme class allies",
+                    "DEF": "20"
+                },
+                "2006007": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Self",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2781"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "6007",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

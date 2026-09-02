@@ -1,0 +1,987 @@
+{
+    "ID": "1030820",
+    "Type": "AGL",
+    "Class": "None",
+    "Name": "Beerus",
+    "Rarity": "ssr",
+    "Min Level": 1,
+    "Max Level": 80,
+    "Categories": [
+        "Successors",
+        "Legendary Existence",
+        "Realm of Gods",
+        "Movie Bosses",
+        "Siblings' Bond",
+        "Worthy Rivals",
+        "Bond of Master and Disciple",
+        "Space-Traveling Warriors",
+        "Planetary Destruction"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "The Innocents",
+        "Prodigies",
+        "Berserker",
+        "Shocking Speed",
+        "Connoisseur",
+        "Godly Power"
+    ],
+    "Resource ID": 1030820,
+    "Passive": {
+        "4500": {
+            "ID": 4500,
+            "Timing": "Start of turn",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2305 )",
+                "Causalities": {
+                    "2305": {
+                        "Button": {
+                            "Name": "Is HP 90 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=90",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 90% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2305\", \"compiled\": 2305}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} ",
+            "Line description": "DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 90% or more"
+        },
+        "1004500": {
+            "ID": 1004500,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2004500": {
+            "ID": 2004500,
+            "Dodge Chance": 30,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% ",
+            "Line description": "Chance of evading enemy attacks +30% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004500": {
+            "ID": 3004500,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 30,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004500": {
+            "ID": 4004500,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2607 )",
+                "Causalities": {
+                    "2607": {
+                        "Button": {
+                            "Name": "Is HP 90 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=90",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 90% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2607\", \"compiled\": 2607}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When HP is 90% or less"
+        },
+        "5004500": {
+            "ID": 5004500,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2966 && 788 )",
+                "Causalities": {
+                    "2966": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "788": {
+                        "Button": {
+                            "Name": "Is the enemy's health 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP does the enemy have on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When enemy health is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2966&788\", \"compiled\": [\"&\", 2966, 788]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ",
+            "Line description": "ATK 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are less than 2 enemies and enemy health is 50% or more "
+        },
+        "6004500": {
+            "ID": 6004500,
+            "Timing": "Start of turn",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2966 && 788 )",
+                "Causalities": {
+                    "2966": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "788": {
+                        "Button": {
+                            "Name": "Is the enemy's health 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP does the enemy have on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When enemy health is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2966&788\", \"compiled\": [\"&\", 2966, 788]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are less than 2 enemies and enemy health is 50% or more "
+        },
+        "7004500": {
+            "ID": 7004500,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Successors"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all Successors category allies ",
+            "Line description": "Ki +1 for all Successors category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8004500": {
+            "ID": 8004500,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Successors"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} for all Successors category allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} for all Successors category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Medium chance of evading enemy's attack\n- Launches an additional attack that has a medium chance of \nbecoming a Super Attack\n- \"Successors\" Category allies' Ki +1 and ATK & DEF 30%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 100%{passiveImg:up_g}\n*When HP is 90% or more*\n- DEF 100%{passiveImg:up_g}\n*When HP is 90% or less*\n- Launches an additional Super Attack\n*When facing only 1 enemy*\n- ATK & chance of performing a critical hit 50%{passiveImg:up_g} when the \nenemy's HP is 50% or more",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 1874,
+            "ATK": 2013,
+            "DEF": 1064
+        },
+        "2": {
+            "HP": 1930,
+            "ATK": 2073,
+            "DEF": 1095
+        },
+        "3": {
+            "HP": 1983,
+            "ATK": 2131,
+            "DEF": 1126
+        },
+        "4": {
+            "HP": 2040,
+            "ATK": 2191,
+            "DEF": 1158
+        },
+        "5": {
+            "HP": 2096,
+            "ATK": 2251,
+            "DEF": 1190
+        },
+        "6": {
+            "HP": 2150,
+            "ATK": 2309,
+            "DEF": 1220
+        },
+        "7": {
+            "HP": 2206,
+            "ATK": 2369,
+            "DEF": 1252
+        },
+        "8": {
+            "HP": 2262,
+            "ATK": 2430,
+            "DEF": 1284
+        },
+        "9": {
+            "HP": 2316,
+            "ATK": 2488,
+            "DEF": 1314
+        },
+        "10": {
+            "HP": 2372,
+            "ATK": 2548,
+            "DEF": 1346
+        },
+        "11": {
+            "HP": 2428,
+            "ATK": 2608,
+            "DEF": 1378
+        },
+        "12": {
+            "HP": 2482,
+            "ATK": 2666,
+            "DEF": 1409
+        },
+        "13": {
+            "HP": 2538,
+            "ATK": 2726,
+            "DEF": 1440
+        },
+        "14": {
+            "HP": 2594,
+            "ATK": 2786,
+            "DEF": 1472
+        },
+        "15": {
+            "HP": 2648,
+            "ATK": 2844,
+            "DEF": 1503
+        },
+        "16": {
+            "HP": 2704,
+            "ATK": 2905,
+            "DEF": 1535
+        },
+        "17": {
+            "HP": 2760,
+            "ATK": 2965,
+            "DEF": 1567
+        },
+        "18": {
+            "HP": 2814,
+            "ATK": 3023,
+            "DEF": 1597
+        },
+        "19": {
+            "HP": 2870,
+            "ATK": 3083,
+            "DEF": 1629
+        },
+        "20": {
+            "HP": 2926,
+            "ATK": 3143,
+            "DEF": 1661
+        },
+        "21": {
+            "HP": 2980,
+            "ATK": 3201,
+            "DEF": 1691
+        },
+        "22": {
+            "HP": 3036,
+            "ATK": 3261,
+            "DEF": 1723
+        },
+        "23": {
+            "HP": 3090,
+            "ATK": 3319,
+            "DEF": 1754
+        },
+        "24": {
+            "HP": 3146,
+            "ATK": 3380,
+            "DEF": 1786
+        },
+        "25": {
+            "HP": 3202,
+            "ATK": 3440,
+            "DEF": 1817
+        },
+        "26": {
+            "HP": 3256,
+            "ATK": 3498,
+            "DEF": 1848
+        },
+        "27": {
+            "HP": 3312,
+            "ATK": 3558,
+            "DEF": 1880
+        },
+        "28": {
+            "HP": 3368,
+            "ATK": 3618,
+            "DEF": 1912
+        },
+        "29": {
+            "HP": 3422,
+            "ATK": 3676,
+            "DEF": 1942
+        },
+        "30": {
+            "HP": 3478,
+            "ATK": 3737,
+            "DEF": 1974
+        },
+        "31": {
+            "HP": 3534,
+            "ATK": 3797,
+            "DEF": 2006
+        },
+        "32": {
+            "HP": 3588,
+            "ATK": 3855,
+            "DEF": 2037
+        },
+        "33": {
+            "HP": 3644,
+            "ATK": 3915,
+            "DEF": 2068
+        },
+        "34": {
+            "HP": 3700,
+            "ATK": 3975,
+            "DEF": 2100
+        },
+        "35": {
+            "HP": 3754,
+            "ATK": 4033,
+            "DEF": 2131
+        },
+        "36": {
+            "HP": 3810,
+            "ATK": 4093,
+            "DEF": 2163
+        },
+        "37": {
+            "HP": 3866,
+            "ATK": 4154,
+            "DEF": 2194
+        },
+        "38": {
+            "HP": 3920,
+            "ATK": 4212,
+            "DEF": 2225
+        },
+        "39": {
+            "HP": 3976,
+            "ATK": 4272,
+            "DEF": 2257
+        },
+        "40": {
+            "HP": 4033,
+            "ATK": 4332,
+            "DEF": 2289
+        },
+        "41": {
+            "HP": 4086,
+            "ATK": 4390,
+            "DEF": 2319
+        },
+        "42": {
+            "HP": 4143,
+            "ATK": 4450,
+            "DEF": 2351
+        },
+        "43": {
+            "HP": 4199,
+            "ATK": 4510,
+            "DEF": 2383
+        },
+        "44": {
+            "HP": 4253,
+            "ATK": 4568,
+            "DEF": 2414
+        },
+        "45": {
+            "HP": 4309,
+            "ATK": 4629,
+            "DEF": 2445
+        },
+        "46": {
+            "HP": 4365,
+            "ATK": 4689,
+            "DEF": 2477
+        },
+        "47": {
+            "HP": 4419,
+            "ATK": 4747,
+            "DEF": 2508
+        },
+        "48": {
+            "HP": 4475,
+            "ATK": 4807,
+            "DEF": 2540
+        },
+        "49": {
+            "HP": 4531,
+            "ATK": 4867,
+            "DEF": 2571
+        },
+        "50": {
+            "HP": 4585,
+            "ATK": 4925,
+            "DEF": 2602
+        },
+        "51": {
+            "HP": 4641,
+            "ATK": 4985,
+            "DEF": 2634
+        },
+        "52": {
+            "HP": 4697,
+            "ATK": 5046,
+            "DEF": 2666
+        },
+        "53": {
+            "HP": 4751,
+            "ATK": 5104,
+            "DEF": 2696
+        },
+        "54": {
+            "HP": 4807,
+            "ATK": 5164,
+            "DEF": 2728
+        },
+        "55": {
+            "HP": 4863,
+            "ATK": 5224,
+            "DEF": 2760
+        },
+        "56": {
+            "HP": 4917,
+            "ATK": 5282,
+            "DEF": 2791
+        },
+        "57": {
+            "HP": 4973,
+            "ATK": 5342,
+            "DEF": 2822
+        },
+        "58": {
+            "HP": 5029,
+            "ATK": 5403,
+            "DEF": 2854
+        },
+        "59": {
+            "HP": 5083,
+            "ATK": 5461,
+            "DEF": 2885
+        },
+        "60": {
+            "HP": 5139,
+            "ATK": 5521,
+            "DEF": 2917
+        },
+        "61": {
+            "HP": 5193,
+            "ATK": 5579,
+            "DEF": 2947
+        },
+        "62": {
+            "HP": 5249,
+            "ATK": 5639,
+            "DEF": 2979
+        },
+        "63": {
+            "HP": 5305,
+            "ATK": 5699,
+            "DEF": 3011
+        },
+        "64": {
+            "HP": 5359,
+            "ATK": 5757,
+            "DEF": 3041
+        },
+        "65": {
+            "HP": 5415,
+            "ATK": 5817,
+            "DEF": 3073
+        },
+        "66": {
+            "HP": 5471,
+            "ATK": 5878,
+            "DEF": 3105
+        },
+        "67": {
+            "HP": 5525,
+            "ATK": 5936,
+            "DEF": 3136
+        },
+        "68": {
+            "HP": 5581,
+            "ATK": 5996,
+            "DEF": 3168
+        },
+        "69": {
+            "HP": 5637,
+            "ATK": 6056,
+            "DEF": 3199
+        },
+        "70": {
+            "HP": 5691,
+            "ATK": 6114,
+            "DEF": 3230
+        },
+        "71": {
+            "HP": 5747,
+            "ATK": 6174,
+            "DEF": 3262
+        },
+        "72": {
+            "HP": 5803,
+            "ATK": 6234,
+            "DEF": 3294
+        },
+        "73": {
+            "HP": 5857,
+            "ATK": 6292,
+            "DEF": 3324
+        },
+        "74": {
+            "HP": 5913,
+            "ATK": 6353,
+            "DEF": 3356
+        },
+        "75": {
+            "HP": 5969,
+            "ATK": 6413,
+            "DEF": 3388
+        },
+        "76": {
+            "HP": 6023,
+            "ATK": 6471,
+            "DEF": 3418
+        },
+        "77": {
+            "HP": 6079,
+            "ATK": 6531,
+            "DEF": 3450
+        },
+        "78": {
+            "HP": 6136,
+            "ATK": 6591,
+            "DEF": 3482
+        },
+        "79": {
+            "HP": 6189,
+            "ATK": 6649,
+            "DEF": 3513
+        },
+        "80": {
+            "HP": 6246,
+            "ATK": 6710,
+            "DEF": 3545
+        }
+    },
+    "Leader Skill": {
+        "Name": "A Gourmet God of Destruction",
+        "10308200": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Successors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "10308201": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Successors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10308202": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Legendary Existence"
+                ],
+                "Excluded Category": [
+                    "Successors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "10308203": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Legendary Existence"
+                ],
+                "Excluded Category": [
+                    "Successors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "6986": {
+            "superID": "6986",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "God of Destruction's Rampage",
+            "superDescription": "Raises ATK & DEF, \ncauses supreme damage to enemy \nand recovers 3% HP",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "6986": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "20",
+                    "DEF": "20"
+                },
+                "1006986": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "Heals": "3"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 410,
+            "relevantLua": [
+                "sp2829"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "silver": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "bronze": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "overall": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "6986",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

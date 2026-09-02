@@ -1,0 +1,914 @@
+{
+    "ID": "1019991",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Super Saiyan God SS Goku (Kaioken) & \nSuper Saiyan God SS Evolved Vegeta",
+    "Rarity": "lr",
+    "Min Level": 150,
+    "Max Level": 150,
+    "Categories": [
+        "All-Out Struggle",
+        "Representatives of Universe 7",
+        "Universe Survival Saga",
+        "Realm of Gods",
+        "Pure Saiyans",
+        "Joined Forces",
+        "Full Power",
+        "Kamehameha",
+        "Powerful Comeback",
+        "Power Beyond Super Saiyan",
+        "Bond of Parent and Child",
+        "Super Heroes",
+        "Tournament Participants"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Super Saiyan",
+        "Godly Power",
+        "Warrior Gods",
+        "Kamehameha",
+        "Tournament of Power",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 1019990,
+    "Passive": {
+        "4039": {
+            "ID": 4039,
+            "Timing": "Start of turn",
+            "Ki": 4,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +4 ",
+            "Line description": "Ki +4 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004039": {
+            "ID": 1004039,
+            "Timing": "Start of turn",
+            "ATK": 170,
+            "DEF": 170,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 170%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 170%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004039": {
+            "ID": 2004039,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "INT",
+                    "TEQ",
+                    "AGL"
+                ],
+                "To": [
+                    "Rainbow"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3086 )",
+                "Causalities": {
+                    "3086": {
+                        "Button": {
+                            "Name": "Are there 2 or more Super Heroes category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super Heroes category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Super Heroes Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3086\", \"compiled\": 3086}",
+            "Type": "Single activator",
+            "Brief effect description": "Rainbow Ki Spheres ",
+            "Line description": "Rainbow Ki Spheres ",
+            "Paragraph Title": "When there are 2 or more Super Heroes Category allies "
+        },
+        "3004039": {
+            "ID": 3004039,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 10,
+                "Stat Per Proc": 2,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow"
+                    ]
+                },
+                "Slider": "How many Rainbow Ki Spheres have been obtained?"
+            },
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +2 per Rainbow Ki Spheres obtained{currentValue} / 10 ",
+            "Line description": "Ki +2 per Rainbow Ki Spheres obtained{currentValue} / 10 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004039": {
+            "ID": 4004039,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 35,
+                "Stat Per Proc": 7,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow"
+                    ]
+                },
+                "Slider": "How many Rainbow Ki Spheres have been obtained?"
+            },
+            "Crit Chance": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Chance of performing a critical hit +7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Line description": "Chance of performing a critical hit +7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004039": {
+            "ID": 5004039,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 35,
+                "Stat Per Proc": 7,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow"
+                    ]
+                },
+                "Slider": "How many Rainbow Ki Spheres have been obtained?"
+            },
+            "DR": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Damage Reduction Rate 7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Line description": "Damage Reduction Rate 7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004039": {
+            "ID": 6004039,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 665 )",
+                "Causalities": {
+                    "665": {
+                        "Button": {
+                            "Name": "Has 1 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"665\", \"compiled\": 665}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after this unit collects ki spheres",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack after this unit collects ki spheres",
+            "Paragraph Title": "When with 1 or more Rainbow Ki Spheres obtained"
+        },
+        "7004039": {
+            "ID": 7004039,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 666 )",
+                "Causalities": {
+                    "666": {
+                        "Button": {
+                            "Name": "Has 2 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "With 2 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"666\", \"compiled\": 666}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after this unit collects ki spheres",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack after this unit collects ki spheres",
+            "Paragraph Title": "When with 2 or more Rainbow Ki Spheres obtained"
+        },
+        "8004039": {
+            "ID": 8004039,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 667 )",
+                "Causalities": {
+                    "667": {
+                        "Button": {
+                            "Name": "Has 3 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "With 3 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"667\", \"compiled\": 667}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after this unit collects ki spheres",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack after this unit collects ki spheres",
+            "Paragraph Title": "When with 3 or more Rainbow Ki Spheres obtained"
+        },
+        "9004039": {
+            "ID": 9004039,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 70,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 75 )",
+                "Causalities": {
+                    "75": {
+                        "Button": {
+                            "Name": "Is Ki at least 18 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=18",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 18 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"75\", \"compiled\": 75}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 70%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 70%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 18 or more"
+        },
+        "10004039": {
+            "ID": 10004039,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 612 )",
+                "Causalities": {
+                    "612": {
+                        "Button": {
+                            "Name": "Is Ki at least 24 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=24",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 24 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"612\", \"compiled\": 612}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit when attacking",
+            "Line description": "Performs a Critical Hit when attacking",
+            "Paragraph Title": "When Ki is 24 or more"
+        },
+        "11004039": {
+            "ID": 11004039,
+            "Timing": "Right before attack(MOT stat)",
+            "DR": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 612 && 27 )",
+                "Causalities": {
+                    "612": {
+                        "Button": {
+                            "Name": "Is Ki at least 24 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=24",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 24 or more"
+                    },
+                    "27": {
+                        "Button": {
+                            "Name": "Is HP 50 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"612&27\", \"compiled\": [\"&\", 612, 27]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 70%{passiveImg:up_g} when attacking",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 70%{passiveImg:up_g} when attacking when HP is 50% or less for 1 turn ",
+            "Paragraph Title": "When Ki is 24 or more"
+        },
+        "12004039": {
+            "ID": 12004039,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 161,
+                "Stat Per Proc": 7,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow",
+                        "PHY",
+                        "STR",
+                        "INT",
+                        "TEQ",
+                        "AGL"
+                    ]
+                },
+                "Slider": "How many Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained?"
+            },
+            "ATK": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 7%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 161 ",
+            "Line description": "ATK 7%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 161 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "13004039": {
+            "ID": 13004039,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 161,
+                "Stat Per Proc": 7,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow",
+                        "PHY",
+                        "STR",
+                        "INT",
+                        "TEQ",
+                        "AGL"
+                    ]
+                },
+                "Slider": "How many Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained?"
+            },
+            "DEF": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 7%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 161 ",
+            "Line description": "DEF 7%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 161 ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +4 and ATK & DEF 170%{passiveImg:up_g}\n- Receives an additional Ki +2 per Rainbow Ki Sphere obtained\n*When there is another \"Super Heroes\" Category ally on the\nteam*\n- Randomly changes Ki Spheres of a certain Type to Rainbow\nKi Spheres\n*For every Ki Sphere obtained*\n- ATK & DEF 7%{passiveImg:up_g}\n*For every Rainbow Ki Sphere obtained*\n- Chance of performing a critical hit & damage reduction rate\n7%{passiveImg:up_g}\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack (up to 3 time(s) within a turn)\n*When attacking with 18 or more Ki*\n- ATK & DEF 70%{passiveImg:up_g}\n*When attacking with 24 Ki*\n- Performs a critical hit\n- {passiveImg:once}Damage reduction rate 70%{passiveImg:up_g} when HP is 50% or less",
+    "Max Attacks": 5,
+    "Max Super Attacks": 5,
+    "Stats at levels": {
+        "150": {
+            "HP": 15625,
+            "ATK": 16295,
+            "DEF": 9444
+        }
+    },
+    "Leader Skill": {
+        "Name": "Beyond Boundless Power",
+        "101999100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "All-Out Struggle"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101999101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "All-Out Struggle"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "101999102": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [
+                    "All-Out Struggle"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101999103": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [
+                    "All-Out Struggle"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 2100,
+            "ATK": 1700,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5272": {
+            "superID": "5272",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Destructo-Disc & Galick Gun (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses colossal damage to enemy \nand lowers ATK & DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5272": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1005272": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 420,
+            "relevantLua": [
+                "sp2016"
+            ]
+        },
+        "5273": {
+            "superID": "5273",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Kamehameha & Final Flash (Extreme)",
+            "superDescription": "Massively raises ATK & DEF for 1 turn, \ncauses mega-colossal damage to enemy \nand greatly lowers ATK & DEF",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5273": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "100",
+                    "DEF": "100"
+                },
+                "1005273": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 590,
+            "relevantLua": [
+                "sp2025"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Body, Soul and Power Unleashed",
+        "Effect Description": "Ki +24, ATK +70% and DEF -50% for 1 turn",
+        "Condition Description": "Can be activated when HP is 50% or less \n(once only)",
+        "Condition": {
+            "Logic": "( 673 )",
+            "Causalities": {
+                "673": {
+                    "Button": {
+                        "Name": "Is HP 50 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": "<=50",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 50% or less"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "58": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Ki Buff",
+                    "Amount": 24
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "59": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "ATK Buff",
+                    "Amount": 70
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "60": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "DEF Buff",
+                    "Amount": 50
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 100.0,
+        "1": 104.16666666666666,
+        "2": 108.33333333333333,
+        "3": 112.5,
+        "4": 116.66666666666666,
+        "5": 120.83333333333333,
+        "6": 125.0,
+        "7": 129.16666666666666,
+        "8": 133.33333333333334,
+        "9": 137.5,
+        "10": 141.66666666666666,
+        "11": 145.83333333333334,
+        "12": 150.0,
+        "13": 154.16666666666666,
+        "14": 158.33333333333334,
+        "15": 162.5,
+        "16": 166.66666666666666,
+        "17": 170.83333333333334,
+        "18": 175.0,
+        "19": 179.16666666666666,
+        "20": 183.33333333333334,
+        "21": 187.5,
+        "22": 191.66666666666669,
+        "23": 195.83333333333334,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5272",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

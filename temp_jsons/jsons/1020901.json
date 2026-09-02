@@ -1,0 +1,502 @@
+{
+    "ID": "1020901",
+    "Type": "AGL",
+    "Class": "Extreme",
+    "Name": "Demon God Dabura (Xeno)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Crossover",
+        "Dragon Ball Heroes",
+        "Terrifying Conquerors",
+        "Siblings' Bond",
+        "Time Travelers",
+        "Dragon Ball Seekers",
+        "Demonic Power",
+        "Successors",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Loyalty",
+        "Shocking Speed",
+        "Brutal Beatdown",
+        "Master of Magic",
+        "Nightmare",
+        "Fear and Faith"
+    ],
+    "Resource ID": 1020900,
+    "Passive": {
+        "2289": {
+            "ID": 2289,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002289": {
+            "ID": 1002289,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 9 )",
+                "Causalities": {
+                    "9": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"9\", \"compiled\": 9}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "2002289": {
+            "ID": 2002289,
+            "Timing": "Right after attack",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 9 )",
+                "Causalities": {
+                    "9": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"9\", \"compiled\": 9}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:down_r} after attacking",
+            "Line description": "ATK and DEF 20%{passiveImg:down_r} after attacking",
+            "Paragraph Title": "When there are less than 2 enemies"
+        },
+        "3002289": {
+            "ID": 3002289,
+            "Timing": "Start of turn",
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 22 )",
+                "Causalities": {
+                    "22": {
+                        "Button": {
+                            "Name": "Is there 2 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 2 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"22\", \"compiled\": 22}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 80%{passiveImg:up_g} ",
+            "Line description": "DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more enemies"
+        },
+        "4002289": {
+            "ID": 4002289,
+            "Dodge Chance": 30,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 22 )",
+                "Causalities": {
+                    "22": {
+                        "Button": {
+                            "Name": "Is there 2 or more enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": ">=2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are 2 or more enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"22\", \"compiled\": 22}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% ",
+            "Line description": "Chance of evading enemy attacks +30% ",
+            "Paragraph Title": "When there are 2 or more enemies"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 80%{passiveImg:up_g}\n*When facing only 1 enemy*\n- ATK & DEF 80%{passiveImg:up_g}\n- Attacked enemy's ATK & DEF 20%{passiveImg:down_y}\n*When facing 2 or more enemies*\n- DEF 80%{passiveImg:up_g}\n- Medium chance of evading enemy's attack",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 7961,
+            "ATK": 7255,
+            "DEF": 3237
+        },
+        "81": {
+            "HP": 7965,
+            "ATK": 7262,
+            "DEF": 3238
+        },
+        "82": {
+            "HP": 7969,
+            "ATK": 7269,
+            "DEF": 3240
+        },
+        "83": {
+            "HP": 7973,
+            "ATK": 7276,
+            "DEF": 3241
+        },
+        "84": {
+            "HP": 7977,
+            "ATK": 7284,
+            "DEF": 3243
+        },
+        "85": {
+            "HP": 7981,
+            "ATK": 7291,
+            "DEF": 3244
+        },
+        "86": {
+            "HP": 7985,
+            "ATK": 7298,
+            "DEF": 3245
+        },
+        "87": {
+            "HP": 7989,
+            "ATK": 7305,
+            "DEF": 3247
+        },
+        "88": {
+            "HP": 7993,
+            "ATK": 7313,
+            "DEF": 3248
+        },
+        "89": {
+            "HP": 7997,
+            "ATK": 7320,
+            "DEF": 3250
+        },
+        "90": {
+            "HP": 8001,
+            "ATK": 7327,
+            "DEF": 3251
+        },
+        "91": {
+            "HP": 8005,
+            "ATK": 7334,
+            "DEF": 3253
+        },
+        "92": {
+            "HP": 8009,
+            "ATK": 7341,
+            "DEF": 3254
+        },
+        "93": {
+            "HP": 8013,
+            "ATK": 7348,
+            "DEF": 3255
+        },
+        "94": {
+            "HP": 8017,
+            "ATK": 7355,
+            "DEF": 3257
+        },
+        "95": {
+            "HP": 8021,
+            "ATK": 7362,
+            "DEF": 3258
+        },
+        "96": {
+            "HP": 8025,
+            "ATK": 7370,
+            "DEF": 3260
+        },
+        "97": {
+            "HP": 8029,
+            "ATK": 7377,
+            "DEF": 3261
+        },
+        "98": {
+            "HP": 8033,
+            "ATK": 7384,
+            "DEF": 3263
+        },
+        "99": {
+            "HP": 8037,
+            "ATK": 7391,
+            "DEF": 3264
+        },
+        "100": {
+            "HP": 8041,
+            "ATK": 7399,
+            "DEF": 3266
+        }
+    },
+    "Leader Skill": {
+        "Name": "Resurrected from Sheer Darkness",
+        "9221": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "9222": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "2787": {
+            "superID": "2787",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Hell Gate Slasher",
+            "superDescription": "Causes immense damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "2787": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp2091"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "2787",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

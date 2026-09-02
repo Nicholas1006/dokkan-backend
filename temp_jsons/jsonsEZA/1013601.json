@@ -1,0 +1,538 @@
+{
+    "ID": "1013601",
+    "Type": "STR",
+    "Class": "Super",
+    "Name": "Super Saiyan God Goku",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Realm of Gods",
+        "Pure Saiyans",
+        "Movie Heroes",
+        "Goku's Family",
+        "Turtle School",
+        "Miraculous Awakening",
+        "Legendary Existence",
+        "Bond of Friendship",
+        "Accelerated Battle",
+        "Battle of Fate",
+        "Power Beyond Super Saiyan",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Power of Wishes",
+        "Earth-Protecting Heroes"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Godly Power",
+        "Shocking Speed",
+        "Super Saiyan",
+        "Over in a Flash",
+        "Warrior Gods",
+        "The First Awakened",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1013600,
+    "Passive": {
+        "3393": {
+            "ID": 3393,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003393": {
+            "ID": 1003393,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003393": {
+            "ID": 2003393,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3003393": {
+            "ID": 3003393,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 30,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2198 )",
+                "Causalities": {
+                    "2198": {
+                        "Button": {
+                            "Name": "Is HP 59 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=59",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 59% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2198\", \"compiled\": 2198}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Paragraph Title": "When HP is 59% or more"
+        },
+        "4003393": {
+            "ID": 4003393,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 50,
+                "Stat Per Proc": 10,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ({currentValue} / 50%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}ATK 10%{passiveImg:up_g} ({currentValue} / 50%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5003393": {
+            "ID": 5003393,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 50,
+                "Stat Per Proc": 10,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "DEF": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 10%{passiveImg:up_g} ({currentValue} / 50%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}DEF 10%{passiveImg:up_g} ({currentValue} / 50%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6003393": {
+            "ID": 6003393,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 30,
+                "Stat Per Proc": 6,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "DR": 6,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "Damage Reduction Rate 6%{passiveImg:up_g} ({currentValue} / 30%) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}Damage Reduction Rate 6%{passiveImg:up_g} ({currentValue} / 30%) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2\n- ATK & DEF 120%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 80%{passiveImg:up_g}\n*When HP is 59% or more*\n- Launches an additional attack that has a medium chance of\nbecoming a Super Attack\n*For every attack performed*\n- {passiveImg:forever}ATK & DEF 10%{passiveImg:up_g} (up to 50%)\n*For every attack received*\n- {passiveImg:forever}Damage reduction rate 6%{passiveImg:up_g} (up to 30%)",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "120": {
+            "HP": 10997,
+            "ATK": 8344,
+            "DEF": 3420
+        },
+        "121": {
+            "HP": 11182,
+            "ATK": 8484,
+            "DEF": 3477
+        },
+        "122": {
+            "HP": 11368,
+            "ATK": 8625,
+            "DEF": 3535
+        },
+        "123": {
+            "HP": 11553,
+            "ATK": 8766,
+            "DEF": 3593
+        },
+        "124": {
+            "HP": 11739,
+            "ATK": 8907,
+            "DEF": 3650
+        },
+        "125": {
+            "HP": 11924,
+            "ATK": 9047,
+            "DEF": 3708
+        },
+        "126": {
+            "HP": 12110,
+            "ATK": 9188,
+            "DEF": 3766
+        },
+        "127": {
+            "HP": 12295,
+            "ATK": 9329,
+            "DEF": 3823
+        },
+        "128": {
+            "HP": 12481,
+            "ATK": 9470,
+            "DEF": 3881
+        },
+        "129": {
+            "HP": 12666,
+            "ATK": 9610,
+            "DEF": 3939
+        },
+        "130": {
+            "HP": 12852,
+            "ATK": 9751,
+            "DEF": 3996
+        },
+        "131": {
+            "HP": 13037,
+            "ATK": 9892,
+            "DEF": 4054
+        },
+        "132": {
+            "HP": 13223,
+            "ATK": 10033,
+            "DEF": 4112
+        },
+        "133": {
+            "HP": 13408,
+            "ATK": 10173,
+            "DEF": 4170
+        },
+        "134": {
+            "HP": 13594,
+            "ATK": 10314,
+            "DEF": 4227
+        },
+        "135": {
+            "HP": 13779,
+            "ATK": 10455,
+            "DEF": 4285
+        },
+        "136": {
+            "HP": 13965,
+            "ATK": 10596,
+            "DEF": 4343
+        },
+        "137": {
+            "HP": 14150,
+            "ATK": 10736,
+            "DEF": 4400
+        },
+        "138": {
+            "HP": 14336,
+            "ATK": 10877,
+            "DEF": 4458
+        },
+        "139": {
+            "HP": 14521,
+            "ATK": 11018,
+            "DEF": 4516
+        },
+        "140": {
+            "HP": 14707,
+            "ATK": 11159,
+            "DEF": 4573
+        }
+    },
+    "Leader Skill": {
+        "Name": "Divine Power Within",
+        "101360100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101360101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 80,
+            "DEF": 80,
+            "HP": 80,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4540": {
+            "superID": "4540",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Dragon Smash (Extreme)",
+            "superDescription": "Causes supreme damage to enemy and \nraises ATK & DEF by 50% for 3 turns",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4540": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 480,
+            "relevantLua": [
+                "sp1037"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4540",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

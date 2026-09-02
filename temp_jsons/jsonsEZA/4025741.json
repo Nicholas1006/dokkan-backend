@@ -1,0 +1,930 @@
+{
+    "ID": "4025741",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Goku & Vegeta",
+    "Rarity": "lr",
+    "Min Level": 150,
+    "Max Level": 150,
+    "Categories": [
+        "Power of Wishes",
+        "Final Trump Card",
+        "Connected Hope",
+        "Majin Buu Saga",
+        "Pure Saiyans",
+        "Joined Forces",
+        "Battle of Wits",
+        "Mastered Evolution",
+        "Battle of Fate",
+        "Power Beyond Super Saiyan",
+        "Bond of Parent and Child",
+        "All-Out Struggle",
+        "Earth-Protecting Heroes",
+        "Golden Fighters"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Saiyan Warrior Race",
+        "Experienced Fighters",
+        "The Saiyan Lineage",
+        "Tough as Nails",
+        "Prepared for Battle",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 4025740,
+    "Passive": {
+        "4791": {
+            "ID": 4791,
+            "Timing": "Start of turn",
+            "Status": [
+                "Unable to attack"
+            ],
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Unable to attack ",
+            "Line description": "Unable to attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004791": {
+            "ID": 1004791,
+            "Timing": "Start of turn",
+            "DEF": 500,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 500%{passiveImg:up_g} ",
+            "Line description": "DEF 500%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004791": {
+            "ID": 2004791,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 4,
+            "CausalityLogic": "{\"source\": \"4000000000000\", \"compiled\": 4000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 4000000000000 )",
+                "Causalities": {
+                    "4000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Guards all attacks ",
+            "Line description": " {passiveImg:once}Guards all attacks for 4 turn ",
+            "Paragraph Title": "For 4 turn(s) from the character's entry turn"
+        },
+        "3004791": {
+            "ID": 3004791,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "INT",
+                    "TEQ",
+                    "AGL"
+                ],
+                "To": [
+                    "Rainbow"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2204 )",
+                "Causalities": {
+                    "2204": {
+                        "Button": {
+                            "Name": "Is it within the first 4 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=4",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2204\", \"compiled\": 2204}",
+            "Type": "Single activator",
+            "Brief effect description": "Rainbow Ki Spheres ",
+            "Line description": "Rainbow Ki Spheres ",
+            "Paragraph Title": "For 4 turns from the chraracter's entry turn"
+        },
+        "4004791": {
+            "ID": 4004791,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "AGL",
+                    "TEQ",
+                    "INT",
+                    "STR",
+                    "PHY",
+                    "Rainbow",
+                    "Sweet treats"
+                ],
+                "To": [
+                    "Rainbow",
+                    "PHY"
+                ],
+                "Style": "All"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2819 )",
+                "Causalities": {
+                    "2819": {
+                        "Button": {
+                            "Name": "Is it on or after the first 5 turns from this characters entry turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "Starting from the 5 turn from the character's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2819\", \"compiled\": 2819}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Changes all Ki Spheres to Rainbow Ki Spheres ",
+            "Line description": " {passiveImg:once}Changes all Ki Spheres to Rainbow Ki Spheres for 1 turn ",
+            "Paragraph Title": "When starting from the 5 turn from the character's entry turn"
+        },
+        "5004791": {
+            "ID": 5004791,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 253,
+                "Stat Per Proc": 11,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow",
+                        "PHY",
+                        "STR",
+                        "INT",
+                        "TEQ",
+                        "AGL"
+                    ]
+                },
+                "Slider": "How many Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained?"
+            },
+            "DR": 11,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Damage Reduction Rate 11%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 253 ",
+            "Line description": "Damage Reduction Rate 11%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 253 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004791": {
+            "ID": 6004791,
+            "Timing": "When ki spheres collected",
+            "ATK": 77,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 2383 )",
+                "Causalities": {
+                    "2383": {
+                        "Button": {
+                            "Name": "Has 7 or more Ki Spheres been obtained?"
+                        },
+                        "Slider": {
+                            "Name": "What is the most amount of Ki Spheres have been obtained in one turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "With 7 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2383\", \"compiled\": 2383}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 77%{passiveImg:up_g} after this unit collects ki spheres",
+            "Line description": "{passiveImg:forever}ATK 77%{passiveImg:up_g} after this unit collects ki spheres",
+            "Paragraph Title": "When with 7 or more Ki Spheres obtained"
+        },
+        "7004791": {
+            "ID": 7004791,
+            "Timing": "When ki spheres collected",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 2383 )",
+                "Causalities": {
+                    "2383": {
+                        "Button": {
+                            "Name": "Has 7 or more Ki Spheres been obtained?"
+                        },
+                        "Slider": {
+                            "Name": "What is the most amount of Ki Spheres have been obtained in one turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "With 7 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2383\", \"compiled\": 2383}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit after this unit collects ki spheres",
+            "Line description": "{passiveImg:forever}Performs a Critical Hit after this unit collects ki spheres",
+            "Paragraph Title": "When with 7 or more Ki Spheres obtained"
+        },
+        "8004791": {
+            "ID": 8004791,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 888,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 888%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 888%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "9004791": {
+            "ID": 9004791,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 1,
+                "Max": 1,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Charging standby skills"
+                },
+                "Slider": "WIP"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "({currentValue} / 1) based on 'WI' after attacking",
+            "Line description": "({currentValue} / 1) based on 'WI' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10004791": {
+            "ID": 10004791,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 1,
+                "Max": 1,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Charging standby skills"
+                },
+                "Slider": "WIP"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "({currentValue} / 1) based on 'WI' after attacking",
+            "Line description": "({currentValue} / 1) based on 'WI' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004791": {
+            "ID": 11004791,
+            "Standby": {
+                "Activated": true,
+                "Change form": {
+                    "Activated": true,
+                    "Unit": "1025730"
+                }
+            },
+            "Timing": "Activating standby",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2121 )",
+                "Causalities": {
+                    "2121": {
+                        "Button": {
+                            "Name": "Is it on or after the first 6 turns from this characters entry turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": ">=6",
+                            "Min": 0,
+                            "Max": 6
+                        },
+                        "Paragraph Title": "Starting from the 6 turn from the character's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2121\", \"compiled\": 2121}",
+            "Type": "Single activator",
+            "Brief effect description": "Reverts standby to 1025730 when activating standby",
+            "Line description": "Reverts standby to 1025730 when activating standby",
+            "Paragraph Title": "When starting from the 6 turn from the character's entry turn"
+        }
+    },
+    "Itemized Passive Description": "*When the Finish Effect is not activated*\n- Unable to attack\n*Basic effect(s)*\n- DEF 500%{passiveImg:up_g}\n*For 4 turns from the character's entry turn*\n- Guards all attacks\n- Randomly changes Ki Spheres of a certain Type to Rainbow\nKi Spheres\n*Starting from the 5th turn from the character's entry turn*\n- {passiveImg:once}Changes Ki Spheres: All to PHY & Rainbow\n*For every Ki Sphere obtained*\n- Damage reduction rate 11%{passiveImg:up_g} (up to 100%)\n*7 or more Ki Spheres obtained*\n- {passiveImg:forever}ATK 77%{passiveImg:up_g} and performs a critical hit\n*When the Finish Effect is activated*\n- ATK 888%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "150": {
+            "HP": 17113,
+            "ATK": 16040,
+            "DEF": 9019
+        }
+    },
+    "Leader Skill": {
+        "Name": "Universe's Last Hope",
+        "102573100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102573101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102573102": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card"
+                ],
+                "Excluded Category": [
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102573103": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card"
+                ],
+                "Excluded Category": [
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102573104": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "Connected Hope"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102573105": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Connected Hope"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102573106": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card",
+                    "Connected Hope"
+                ],
+                "Excluded Category": [
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102573107": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Power of Wishes",
+                    "Connected Hope"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102573108": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "Connected Hope"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        },
+        "102573109": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Power of Wishes",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Connected Hope"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        },
+        "102573110": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card",
+                    "Connected Hope"
+                ],
+                "Excluded Category": [
+                    "Power of Wishes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        },
+        "102573111": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Final Trump Card",
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [
+                    "Power of Wishes",
+                    "Connected Hope"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 2100,
+            "ATK": 1700,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {},
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": {
+        "3": {
+            "ID": "3",
+            "Name": "Spirit Bomb",
+            "Description": "Raises ATK by 15% temporarily \nper charge count and \ncauses ultimate damage to enemy",
+            "Timing": "On activation",
+            "Condition": {
+                "Logic": "11&3211",
+                "Causalities": {
+                    "11": {
+                        "Button": {
+                            "Name": "Is it on or after the first 2 turns from this characters entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "Starting from the 2 turn from the character's entry turn"
+                    },
+                    "3211": {
+                        "Button": {
+                            "Name": "Is the charge count less than 39"
+                        },
+                        "Slider": {
+                            "Name": "What is the charge count at?",
+                            "Logic": "<=38",
+                            "Min": 0,
+                            "Max": 38
+                        },
+                        "Paragraph Title": "When the charge count is 39 or less"
+                    }
+                }
+            },
+            "Multiplier": 550,
+            "Standby Exclusivity": "charge",
+            "CONFUSION": true,
+            "Multiplier per charge": 15,
+            "Max multiplier": 570,
+            "Exchanges to": "1025731"
+        },
+        "4": {
+            "ID": "4",
+            "Name": "Super Spirit Bomb",
+            "Description": "Raises ATK by 20% temporarily \nper charge count and causes \nsuper-ultimate damage to enemy",
+            "Timing": "On activation",
+            "Condition": {
+                "Logic": "11&3212",
+                "Causalities": {
+                    "11": {
+                        "Button": {
+                            "Name": "Is it on or after the first 2 turns from this characters entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "Starting from the 2 turn from the character's entry turn"
+                    },
+                    "3212": {
+                        "Button": {
+                            "Name": "Is the charge count greater than or equal to 39"
+                        },
+                        "Slider": {
+                            "Name": "What is the charge count at?",
+                            "Logic": ">=39",
+                            "Min": 39,
+                            "Max": 322
+                        },
+                        "Paragraph Title": "When the charge count is 39 or more"
+                    }
+                }
+            },
+            "Multiplier": 750,
+            "Standby Exclusivity": "charge",
+            "CONFUSION": true,
+            "Multiplier per charge": 20,
+            "Max multiplier": 6440,
+            "Exchanges to": "1025731"
+        }
+    },
+    "Transforms from": [
+        "1025731"
+    ],
+    "Transformations": [
+        "1025730",
+        "1025731"
+    ],
+    "Max Appearances In Form": 3,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 120.0,
+        "1": 123.33333333333333,
+        "2": 126.66666666666666,
+        "3": 130.0,
+        "4": 133.33333333333334,
+        "5": 136.66666666666666,
+        "6": 140.0,
+        "7": 143.33333333333334,
+        "8": 146.66666666666666,
+        "9": 150.0,
+        "10": 153.33333333333334,
+        "11": 156.66666666666666,
+        "12": 160.0,
+        "13": 163.33333333333334,
+        "14": 166.66666666666666,
+        "15": 170.0,
+        "16": 173.33333333333334,
+        "17": 176.66666666666666,
+        "18": 180.0,
+        "19": 183.33333333333334,
+        "20": 186.66666666666666,
+        "21": 190.0,
+        "22": 193.33333333333334,
+        "23": 196.66666666666669,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": null,
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

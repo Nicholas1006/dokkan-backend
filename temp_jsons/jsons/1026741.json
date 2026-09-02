@@ -1,0 +1,635 @@
+{
+    "ID": "1026741",
+    "Type": "PHY",
+    "Class": "Extreme",
+    "Name": "Turles",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Space-Traveling Warriors",
+        "Pure Saiyans",
+        "Planetary Destruction",
+        "Low-Class Warrior",
+        "Movie Bosses",
+        "Terrifying Conquerors",
+        "Final Trump Card"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Saiyan Warrior Race",
+        "Big Bad Bosses",
+        "Thirst for Conquest",
+        "Brutal Beatdown",
+        "Prepared for Battle",
+        "Destroyer of the Universe"
+    ],
+    "Resource ID": 1026740,
+    "Passive": {
+        "3488": {
+            "ID": 3488,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003488": {
+            "ID": 1003488,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2422 )",
+                "Causalities": {
+                    "2422": {
+                        "Button": {
+                            "Name": "Is HP 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2422\", \"compiled\": 2422}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ",
+            "Line description": "ATK 50%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 50% or more"
+        },
+        "2003488": {
+            "ID": 2003488,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 30,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2422 )",
+                "Causalities": {
+                    "2422": {
+                        "Button": {
+                            "Name": "Is HP 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2422\", \"compiled\": 2422}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Paragraph Title": "When HP is 50% or more"
+        },
+        "3003488": {
+            "ID": 3003488,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2421 )",
+                "Causalities": {
+                    "2421": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2421\", \"compiled\": 2421}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 50%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "4003488": {
+            "ID": 4003488,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 4,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Super being performed"
+                },
+                "Slider": "How many super attacks has this character performed?"
+            },
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"2423\", \"compiled\": 2423}",
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +1 ({currentValue} / 4) based on 'How many super attacks has this character performed' after attacking",
+            "Line description": "{passiveImg:forever}Ki +1 ({currentValue} / 4) based on 'How many super attacks has this character performed' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 100%{passiveImg:up_g}\n*When HP is 50% or more*\n- ATK 50%{passiveImg:up_g}\n- Launches an additional attack that has a medium chance of\nbecoming a Super Attack\n*When attacking with 12 or more Ki*\n- ATK 50%{passiveImg:up_g}\n*For every Super Attack performed*\n- {passiveImg:forever}Ki +1 (up to +4)",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "80": {
+            "HP": 11843,
+            "ATK": 6931,
+            "DEF": 6818
+        },
+        "81": {
+            "HP": 11868,
+            "ATK": 6944,
+            "DEF": 6831
+        },
+        "82": {
+            "HP": 11892,
+            "ATK": 6957,
+            "DEF": 6845
+        },
+        "83": {
+            "HP": 11917,
+            "ATK": 6970,
+            "DEF": 6859
+        },
+        "84": {
+            "HP": 11942,
+            "ATK": 6983,
+            "DEF": 6872
+        },
+        "85": {
+            "HP": 11966,
+            "ATK": 6995,
+            "DEF": 6886
+        },
+        "86": {
+            "HP": 11992,
+            "ATK": 7009,
+            "DEF": 6901
+        },
+        "87": {
+            "HP": 12017,
+            "ATK": 7022,
+            "DEF": 6914
+        },
+        "88": {
+            "HP": 12041,
+            "ATK": 7035,
+            "DEF": 6928
+        },
+        "89": {
+            "HP": 12066,
+            "ATK": 7047,
+            "DEF": 6942
+        },
+        "90": {
+            "HP": 12090,
+            "ATK": 7060,
+            "DEF": 6956
+        },
+        "91": {
+            "HP": 12115,
+            "ATK": 7073,
+            "DEF": 6969
+        },
+        "92": {
+            "HP": 12140,
+            "ATK": 7086,
+            "DEF": 6983
+        },
+        "93": {
+            "HP": 12164,
+            "ATK": 7099,
+            "DEF": 6997
+        },
+        "94": {
+            "HP": 12189,
+            "ATK": 7112,
+            "DEF": 7010
+        },
+        "95": {
+            "HP": 12213,
+            "ATK": 7125,
+            "DEF": 7024
+        },
+        "96": {
+            "HP": 12239,
+            "ATK": 7138,
+            "DEF": 7039
+        },
+        "97": {
+            "HP": 12264,
+            "ATK": 7151,
+            "DEF": 7052
+        },
+        "98": {
+            "HP": 12288,
+            "ATK": 7164,
+            "DEF": 7066
+        },
+        "99": {
+            "HP": 12313,
+            "ATK": 7177,
+            "DEF": 7080
+        },
+        "100": {
+            "HP": 12338,
+            "ATK": 7190,
+            "DEF": 7094
+        }
+    },
+    "Leader Skill": {
+        "Name": "Saiyan with Enormous Ambitions",
+        "10267400": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Space-Traveling Warriors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10267401": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Space-Traveling Warriors"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10267402": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Space-Traveling Warriors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10267403": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Space-Traveling Warriors"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10267404": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans",
+                    "Planetary Destruction"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10267405": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Pure Saiyans",
+                    "Low-Class Warrior"
+                ],
+                "Excluded Category": [
+                    "Planetary Destruction"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10267406": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Space-Traveling Warriors",
+                    "Planetary Destruction"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10267407": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Space-Traveling Warriors",
+                    "Low-Class Warrior"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans",
+                    "Planetary Destruction"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 2100,
+            "ATK": 1700,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4714": {
+            "superID": "4714",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Sonic Meteor",
+            "superDescription": "Raises ATK and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4714": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 475,
+            "relevantLua": [
+                "sp2571"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4714",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

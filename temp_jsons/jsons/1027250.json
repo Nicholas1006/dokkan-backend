@@ -1,0 +1,972 @@
+{
+    "ID": "1027250",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Trunks (Teen) (Future)",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Future Saga",
+        "Hybrid Saiyans",
+        "Time Travelers",
+        "Vegeta's Family",
+        "Androids/Cell Saga",
+        "Bond of Master and Disciple",
+        "Battle of Wits",
+        "Entrusted Will",
+        "Earth-Bred Fighters",
+        "Revenge",
+        "Bond of Parent and Child",
+        "Earth-Protecting Heroes"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Messenger from the Future",
+        "Cold Judgment",
+        "Royal Lineage",
+        "Dismal Future",
+        "Z Fighters",
+        "Soul vs Soul",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1027250,
+    "Passive": {
+        "3520": {
+            "ID": 3520,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003520": {
+            "ID": 1003520,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003520": {
+            "ID": 2003520,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 80,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "ATK": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 20%{passiveImg:up_g} ({currentValue} / 80%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}ATK 20%{passiveImg:up_g} ({currentValue} / 80%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3003520": {
+            "ID": 3003520,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 80,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 20%{passiveImg:up_g} ({currentValue} / 80%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}DEF 20%{passiveImg:up_g} ({currentValue} / 80%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4003520": {
+            "ID": 4003520,
+            "Timing": "Start of turn",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2527 || 2528 )",
+                "Causalities": {
+                    "2527": {
+                        "Button": {
+                            "Name": "Are there 1 or more Future Saga category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Future Saga Category enemies "
+                    },
+                    "2528": {
+                        "Button": {
+                            "Name": "Are there 1 or more Time Travelers category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Time Travelers category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Time Travelers Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2527|2528\", \"compiled\": [\"|\", 2527, 2528]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Future Saga Category enemies or there are 1 or more Time Travelers Category enemies "
+        },
+        "5003520": {
+            "ID": 5003520,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2524 && 2525 )",
+                "Causalities": {
+                    "2524": {
+                        "Button": {
+                            "Name": "Are there 2 or more Future Saga category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Future Saga category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Future Saga Category allies attacking on this turn"
+                    },
+                    "2525": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2524&2525\", \"compiled\": [\"&\", 2524, 2525]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When there are 2 or more Future Saga Category allies attacking on this turn and Ki is 12 or more "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 80%{passiveImg:up_g}\n*For every attack performed*\n- {passiveImg:forever}ATK & DEF 20%{passiveImg:up_g} (up to 80%)\n*When there is a \"Future Saga\" or \"Time Travelers\" Category\nenemy*\n- Medium chance of performing a critical hit\n*When there is another \"Future Saga\" Category ally attacking\nin the same turn*\n- ATK & DEF 40%{passiveImg:up_g} when attacking with 12 or more Ki",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 2363,
+            "ATK": 2006,
+            "DEF": 1371
+        },
+        "2": {
+            "HP": 2418,
+            "ATK": 2053,
+            "DEF": 1403
+        },
+        "3": {
+            "HP": 2473,
+            "ATK": 2100,
+            "DEF": 1435
+        },
+        "4": {
+            "HP": 2529,
+            "ATK": 2147,
+            "DEF": 1467
+        },
+        "5": {
+            "HP": 2584,
+            "ATK": 2194,
+            "DEF": 1499
+        },
+        "6": {
+            "HP": 2642,
+            "ATK": 2243,
+            "DEF": 1533
+        },
+        "7": {
+            "HP": 2698,
+            "ATK": 2290,
+            "DEF": 1565
+        },
+        "8": {
+            "HP": 2753,
+            "ATK": 2337,
+            "DEF": 1597
+        },
+        "9": {
+            "HP": 2809,
+            "ATK": 2384,
+            "DEF": 1629
+        },
+        "10": {
+            "HP": 2864,
+            "ATK": 2431,
+            "DEF": 1662
+        },
+        "11": {
+            "HP": 2919,
+            "ATK": 2478,
+            "DEF": 1694
+        },
+        "12": {
+            "HP": 2975,
+            "ATK": 2525,
+            "DEF": 1726
+        },
+        "13": {
+            "HP": 3030,
+            "ATK": 2573,
+            "DEF": 1758
+        },
+        "14": {
+            "HP": 3086,
+            "ATK": 2620,
+            "DEF": 1790
+        },
+        "15": {
+            "HP": 3141,
+            "ATK": 2667,
+            "DEF": 1822
+        },
+        "16": {
+            "HP": 3199,
+            "ATK": 2716,
+            "DEF": 1856
+        },
+        "17": {
+            "HP": 3255,
+            "ATK": 2763,
+            "DEF": 1888
+        },
+        "18": {
+            "HP": 3310,
+            "ATK": 2810,
+            "DEF": 1920
+        },
+        "19": {
+            "HP": 3365,
+            "ATK": 2857,
+            "DEF": 1953
+        },
+        "20": {
+            "HP": 3421,
+            "ATK": 2904,
+            "DEF": 1985
+        },
+        "21": {
+            "HP": 3476,
+            "ATK": 2951,
+            "DEF": 2017
+        },
+        "22": {
+            "HP": 3532,
+            "ATK": 2998,
+            "DEF": 2049
+        },
+        "23": {
+            "HP": 3587,
+            "ATK": 3045,
+            "DEF": 2081
+        },
+        "24": {
+            "HP": 3642,
+            "ATK": 3092,
+            "DEF": 2113
+        },
+        "25": {
+            "HP": 3698,
+            "ATK": 3140,
+            "DEF": 2146
+        },
+        "26": {
+            "HP": 3756,
+            "ATK": 3189,
+            "DEF": 2179
+        },
+        "27": {
+            "HP": 3811,
+            "ATK": 3236,
+            "DEF": 2212
+        },
+        "28": {
+            "HP": 3867,
+            "ATK": 3283,
+            "DEF": 2244
+        },
+        "29": {
+            "HP": 3922,
+            "ATK": 3330,
+            "DEF": 2276
+        },
+        "30": {
+            "HP": 3978,
+            "ATK": 3377,
+            "DEF": 2308
+        },
+        "31": {
+            "HP": 4033,
+            "ATK": 3424,
+            "DEF": 2340
+        },
+        "32": {
+            "HP": 4088,
+            "ATK": 3471,
+            "DEF": 2372
+        },
+        "33": {
+            "HP": 4144,
+            "ATK": 3518,
+            "DEF": 2404
+        },
+        "34": {
+            "HP": 4199,
+            "ATK": 3565,
+            "DEF": 2437
+        },
+        "35": {
+            "HP": 4255,
+            "ATK": 3612,
+            "DEF": 2469
+        },
+        "36": {
+            "HP": 4313,
+            "ATK": 3662,
+            "DEF": 2503
+        },
+        "37": {
+            "HP": 4368,
+            "ATK": 3709,
+            "DEF": 2535
+        },
+        "38": {
+            "HP": 4424,
+            "ATK": 3756,
+            "DEF": 2567
+        },
+        "39": {
+            "HP": 4479,
+            "ATK": 3803,
+            "DEF": 2599
+        },
+        "40": {
+            "HP": 4534,
+            "ATK": 3850,
+            "DEF": 2631
+        },
+        "41": {
+            "HP": 4590,
+            "ATK": 3897,
+            "DEF": 2663
+        },
+        "42": {
+            "HP": 4645,
+            "ATK": 3944,
+            "DEF": 2696
+        },
+        "43": {
+            "HP": 4701,
+            "ATK": 3991,
+            "DEF": 2728
+        },
+        "44": {
+            "HP": 4756,
+            "ATK": 4038,
+            "DEF": 2760
+        },
+        "45": {
+            "HP": 4811,
+            "ATK": 4085,
+            "DEF": 2792
+        },
+        "46": {
+            "HP": 4870,
+            "ATK": 4135,
+            "DEF": 2826
+        },
+        "47": {
+            "HP": 4925,
+            "ATK": 4182,
+            "DEF": 2858
+        },
+        "48": {
+            "HP": 4980,
+            "ATK": 4229,
+            "DEF": 2890
+        },
+        "49": {
+            "HP": 5036,
+            "ATK": 4276,
+            "DEF": 2922
+        },
+        "50": {
+            "HP": 5091,
+            "ATK": 4323,
+            "DEF": 2954
+        },
+        "51": {
+            "HP": 5147,
+            "ATK": 4370,
+            "DEF": 2987
+        },
+        "52": {
+            "HP": 5202,
+            "ATK": 4417,
+            "DEF": 3019
+        },
+        "53": {
+            "HP": 5258,
+            "ATK": 4464,
+            "DEF": 3051
+        },
+        "54": {
+            "HP": 5313,
+            "ATK": 4511,
+            "DEF": 3083
+        },
+        "55": {
+            "HP": 5368,
+            "ATK": 4558,
+            "DEF": 3115
+        },
+        "56": {
+            "HP": 5427,
+            "ATK": 4608,
+            "DEF": 3149
+        },
+        "57": {
+            "HP": 5482,
+            "ATK": 4655,
+            "DEF": 3181
+        },
+        "58": {
+            "HP": 5537,
+            "ATK": 4702,
+            "DEF": 3213
+        },
+        "59": {
+            "HP": 5593,
+            "ATK": 4749,
+            "DEF": 3245
+        },
+        "60": {
+            "HP": 5648,
+            "ATK": 4796,
+            "DEF": 3278
+        },
+        "61": {
+            "HP": 5704,
+            "ATK": 4843,
+            "DEF": 3310
+        },
+        "62": {
+            "HP": 5759,
+            "ATK": 4890,
+            "DEF": 3342
+        },
+        "63": {
+            "HP": 5814,
+            "ATK": 4937,
+            "DEF": 3374
+        },
+        "64": {
+            "HP": 5870,
+            "ATK": 4984,
+            "DEF": 3406
+        },
+        "65": {
+            "HP": 5925,
+            "ATK": 5031,
+            "DEF": 3438
+        },
+        "66": {
+            "HP": 5983,
+            "ATK": 5081,
+            "DEF": 3472
+        },
+        "67": {
+            "HP": 6039,
+            "ATK": 5128,
+            "DEF": 3504
+        },
+        "68": {
+            "HP": 6094,
+            "ATK": 5175,
+            "DEF": 3537
+        },
+        "69": {
+            "HP": 6150,
+            "ATK": 5222,
+            "DEF": 3569
+        },
+        "70": {
+            "HP": 6205,
+            "ATK": 5269,
+            "DEF": 3601
+        },
+        "71": {
+            "HP": 6260,
+            "ATK": 5316,
+            "DEF": 3633
+        },
+        "72": {
+            "HP": 6316,
+            "ATK": 5363,
+            "DEF": 3665
+        },
+        "73": {
+            "HP": 6371,
+            "ATK": 5410,
+            "DEF": 3697
+        },
+        "74": {
+            "HP": 6427,
+            "ATK": 5457,
+            "DEF": 3729
+        },
+        "75": {
+            "HP": 6482,
+            "ATK": 5504,
+            "DEF": 3762
+        },
+        "76": {
+            "HP": 6540,
+            "ATK": 5553,
+            "DEF": 3795
+        },
+        "77": {
+            "HP": 6596,
+            "ATK": 5601,
+            "DEF": 3828
+        },
+        "78": {
+            "HP": 6651,
+            "ATK": 5648,
+            "DEF": 3860
+        },
+        "79": {
+            "HP": 6706,
+            "ATK": 5695,
+            "DEF": 3892
+        },
+        "80": {
+            "HP": 6762,
+            "ATK": 5742,
+            "DEF": 3924
+        },
+        "81": {
+            "HP": 6817,
+            "ATK": 5789,
+            "DEF": 3956
+        },
+        "82": {
+            "HP": 6873,
+            "ATK": 5836,
+            "DEF": 3988
+        },
+        "83": {
+            "HP": 6928,
+            "ATK": 5883,
+            "DEF": 4021
+        },
+        "84": {
+            "HP": 6983,
+            "ATK": 5930,
+            "DEF": 4053
+        },
+        "85": {
+            "HP": 7039,
+            "ATK": 5977,
+            "DEF": 4085
+        },
+        "86": {
+            "HP": 7097,
+            "ATK": 6026,
+            "DEF": 4119
+        },
+        "87": {
+            "HP": 7152,
+            "ATK": 6073,
+            "DEF": 4151
+        },
+        "88": {
+            "HP": 7208,
+            "ATK": 6120,
+            "DEF": 4183
+        },
+        "89": {
+            "HP": 7263,
+            "ATK": 6168,
+            "DEF": 4215
+        },
+        "90": {
+            "HP": 7319,
+            "ATK": 6215,
+            "DEF": 4247
+        },
+        "91": {
+            "HP": 7374,
+            "ATK": 6262,
+            "DEF": 4279
+        },
+        "92": {
+            "HP": 7429,
+            "ATK": 6309,
+            "DEF": 4312
+        },
+        "93": {
+            "HP": 7485,
+            "ATK": 6356,
+            "DEF": 4344
+        },
+        "94": {
+            "HP": 7540,
+            "ATK": 6403,
+            "DEF": 4376
+        },
+        "95": {
+            "HP": 7596,
+            "ATK": 6450,
+            "DEF": 4408
+        },
+        "96": {
+            "HP": 7654,
+            "ATK": 6499,
+            "DEF": 4442
+        },
+        "97": {
+            "HP": 7709,
+            "ATK": 6546,
+            "DEF": 4474
+        },
+        "98": {
+            "HP": 7765,
+            "ATK": 6593,
+            "DEF": 4506
+        },
+        "99": {
+            "HP": 7820,
+            "ATK": 6640,
+            "DEF": 4538
+        },
+        "100": {
+            "HP": 7876,
+            "ATK": 6688,
+            "DEF": 4571
+        }
+    },
+    "Leader Skill": {
+        "Name": "The Result of Time Traveling",
+        "10272500": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Future Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10272501": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Future Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "4773": {
+            "superID": "4773",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Burning Attack",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4773": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2593"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "I'm Taking This Fight Somewhere Else",
+        "Effect Description": "Creates the Domain \"Wasteland (Future)\" for 4 turns",
+        "Condition Description": "Can be activated when there is a \n\"Time Travelers\" Category enemy, \nor starting from the 5th turn from \nthe character's entry turn (once only)",
+        "Condition": {
+            "Logic": "( ( 2526 && 2528 ) || ( 2526 && 2529 ) )",
+            "Causalities": {
+                "2526": {
+                    "Button": {
+                        "Name": "Is no domain active?"
+                    },
+                    "Paragraph Title": "When no domain is active"
+                },
+                "2528": {
+                    "Button": {
+                        "Name": "Are there 1 or more Time Travelers category enemies ?"
+                    },
+                    "Slider": {
+                        "Name": "How many Time Travelers category enemies ",
+                        "Logic": ">=1",
+                        "Max": 7,
+                        "Min": 0
+                    },
+                    "Paragraph Title": "When there are 1 or more Time Travelers Category enemies "
+                },
+                "2529": {
+                    "Button": {
+                        "Name": "Is the turn count 5 or more?"
+                    },
+                    "Slider": {
+                        "Name": "What turn is it?",
+                        "Logic": ">=5",
+                        "Min": 1
+                    },
+                    "Paragraph Title": "Starting from the 5th turn from the start of battle"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {},
+        "Domain": "1"
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4773",
+    "Domain": {
+        "ID": "1",
+        "Locked": false
+    },
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

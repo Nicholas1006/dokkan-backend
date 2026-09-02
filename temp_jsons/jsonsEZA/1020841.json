@@ -1,0 +1,590 @@
+{
+    "ID": "1020841",
+    "Type": "INT",
+    "Class": "Extreme",
+    "Name": "Dark Masked King",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Pure Saiyans",
+        "Time Travelers",
+        "Vegeta's Family",
+        "Dragon Ball Heroes",
+        "Crossover",
+        "Corroded Body and Mind",
+        "Storied Figures",
+        "Mission Execution"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "The Saiyan Lineage",
+        "Saiyan Warrior Race",
+        "Royal Lineage",
+        "Loyalty",
+        "Berserker",
+        "Prepared for Battle",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1020840,
+    "Passive": {
+        "3953": {
+            "ID": 3953,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003953": {
+            "ID": 1003953,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003953": {
+            "ID": 2003953,
+            "Timing": "Right after being hit",
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 5,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 5 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 5 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 150%{passiveImg:up_g} after being hit",
+            "Line description": "DEF 150%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        },
+        "3003953": {
+            "ID": 3003953,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}ATK 50%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4003953": {
+            "ID": 4003953,
+            "Timing": "Start of turn",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2985 )",
+                "Causalities": {
+                    "2985": {
+                        "Button": {
+                            "Name": "Are there 2 or more Dragon Ball Heroes category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Dragon Ball Heroes category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Dragon Ball Heroes Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2985\", \"compiled\": 2985}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} ",
+            "Line description": "DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Dragon Ball Heroes Category allies attacking on this turn"
+        },
+        "5003953": {
+            "ID": 5003953,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2985 )",
+                "Causalities": {
+                    "2985": {
+                        "Button": {
+                            "Name": "Are there 2 or more Dragon Ball Heroes category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Dragon Ball Heroes category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Dragon Ball Heroes Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2985\", \"compiled\": 2985}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks ",
+            "Paragraph Title": "When there are 2 or more Dragon Ball Heroes Category allies attacking on this turn"
+        },
+        "6003953": {
+            "ID": 6003953,
+            "Timing": "Right after attack",
+            "Heals": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Heals +10% after attacking",
+            "Line description": "Heals +10% after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 150%{passiveImg:up_g}\n- Recovers 10% of damage dealt as HP\n*After receiving an attack*\n- DEF 150%{passiveImg:up_g} for 5 turn(s)\n*For every attack received*\n- {passiveImg:forever}ATK 50%{passiveImg:up_g} (up to 150%)\n*When there is another \"Dragon Ball Heroes\" Category ally\nattacking in the same turn*\n- DEF 100%{passiveImg:up_g}\n- Guards all attacks",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 9995,
+            "ATK": 9047,
+            "DEF": 4477
+        },
+        "121": {
+            "HP": 10163,
+            "ATK": 9199,
+            "DEF": 4552
+        },
+        "122": {
+            "HP": 10332,
+            "ATK": 9352,
+            "DEF": 4628
+        },
+        "123": {
+            "HP": 10500,
+            "ATK": 9504,
+            "DEF": 4703
+        },
+        "124": {
+            "HP": 10669,
+            "ATK": 9657,
+            "DEF": 4779
+        },
+        "125": {
+            "HP": 10838,
+            "ATK": 9810,
+            "DEF": 4854
+        },
+        "126": {
+            "HP": 11006,
+            "ATK": 9962,
+            "DEF": 4930
+        },
+        "127": {
+            "HP": 11175,
+            "ATK": 10115,
+            "DEF": 5005
+        },
+        "128": {
+            "HP": 11343,
+            "ATK": 10267,
+            "DEF": 5081
+        },
+        "129": {
+            "HP": 11512,
+            "ATK": 10420,
+            "DEF": 5156
+        },
+        "130": {
+            "HP": 11681,
+            "ATK": 10573,
+            "DEF": 5232
+        },
+        "131": {
+            "HP": 11849,
+            "ATK": 10725,
+            "DEF": 5307
+        },
+        "132": {
+            "HP": 12018,
+            "ATK": 10878,
+            "DEF": 5383
+        },
+        "133": {
+            "HP": 12186,
+            "ATK": 11031,
+            "DEF": 5458
+        },
+        "134": {
+            "HP": 12355,
+            "ATK": 11183,
+            "DEF": 5534
+        },
+        "135": {
+            "HP": 12524,
+            "ATK": 11336,
+            "DEF": 5610
+        },
+        "136": {
+            "HP": 12692,
+            "ATK": 11488,
+            "DEF": 5685
+        },
+        "137": {
+            "HP": 12861,
+            "ATK": 11641,
+            "DEF": 5761
+        },
+        "138": {
+            "HP": 13030,
+            "ATK": 11794,
+            "DEF": 5836
+        },
+        "139": {
+            "HP": 13198,
+            "ATK": 11946,
+            "DEF": 5912
+        },
+        "140": {
+            "HP": 13367,
+            "ATK": 12099,
+            "DEF": 5987
+        }
+    },
+    "Leader Skill": {
+        "Name": "Warrior Shrouded in Darkness",
+        "102084100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102084101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "102084102": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102084103": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 1700,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5047": {
+            "superID": "5047",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Dark King's Flash (Extreme)",
+            "superDescription": "Raises DEF for 1 turn, \ncauses immense damage to enemy \nand greatly lowers ATK & DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5047": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "1005047": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp2116"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5047",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

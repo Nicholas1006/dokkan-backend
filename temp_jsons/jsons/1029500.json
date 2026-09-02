@@ -1,0 +1,973 @@
+{
+    "ID": "1029500",
+    "Type": "TEQ",
+    "Class": "Super",
+    "Name": "Grandpa Gohan",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Turtle School",
+        "Goku's Family",
+        "DB Saga",
+        "Bond of Master and Disciple",
+        "Otherworld Warriors",
+        "Earthlings",
+        "Time Limit",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Turtle School",
+        "Kamehameha",
+        "All in the Family",
+        "The Incredible Adventure",
+        "Guidance of the Dragon Balls",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1029500,
+    "Passive": {
+        "4271": {
+            "ID": 4271,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004271": {
+            "ID": 1004271,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2004271": {
+            "ID": 2004271,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3352 )",
+                "Causalities": {
+                    "3352": {
+                        "Button": {
+                            "Name": "Are there 3 or more Kamehameha category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Kamehameha category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Kamehameha Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3352\", \"compiled\": 3352}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "When there are 3 or more Kamehameha Category allies attacking on this turn"
+        },
+        "3004271": {
+            "ID": 3004271,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3133 )",
+                "Causalities": {
+                    "3133": {
+                        "Button": {
+                            "Name": "Are there 2 or more Kamehameha category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Kamehameha category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Kamehameha Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3133\", \"compiled\": 3133}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "When there are 2 or more Kamehameha Category allies attacking on this turn"
+        },
+        "4004271": {
+            "ID": 4004271,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 802 )",
+                "Causalities": {
+                    "802": {
+                        "Button": {
+                            "Name": "Are there 2 or more Turtle School category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Turtle School Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"802\", \"compiled\": 802}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "When there are 2 or more Turtle School Category allies attacking on this turn"
+        },
+        "5004271": {
+            "ID": 5004271,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3196 )",
+                "Causalities": {
+                    "3196": {
+                        "Button": {
+                            "Name": "Are there 3 or more Turtle School category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Turtle School Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3196\", \"compiled\": 3196}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "When there are 3 or more Turtle School Category allies attacking on this turn"
+        },
+        "6004271": {
+            "ID": 6004271,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 70,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 723 || 724 )",
+                "Causalities": {
+                    "723": {
+                        "Button": {
+                            "Name": "Is there 1 or more enemies whose name includes Goku on this turn?"
+                        },
+                        "Paragraph Title": "\"Goku\""
+                    },
+                    "724": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Goku?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Goku\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"723|724\", \"compiled\": [\"|\", 723, 724]}",
+            "Type": "Single activator",
+            "Brief effect description": "Great chance of Performs an additional super attack ",
+            "Line description": "Great chance of Performs an additional super attack ",
+            "Paragraph Title": "When ( \"Goku\" or there are 1 or more allies whose name includes \"Goku\" attacking in the same turn )"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 120%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 120%{passiveImg:up_g}\n*Per \"Turtle School\" or \"Kamehameha\" Category ally\nattacking in the same turn (self excluded)*\n- Ki +2\n*When the name of an ally who is attacking in the same turn or\nan enemy includes \"Goku\" (Captain Ginyu, Jr., etc. excluded)*\n- Great chance of launching an additional Super Attack",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 2001,
+            "ATK": 2405,
+            "DEF": 1159
+        },
+        "2": {
+            "HP": 2047,
+            "ATK": 2461,
+            "DEF": 1186
+        },
+        "3": {
+            "HP": 2094,
+            "ATK": 2517,
+            "DEF": 1213
+        },
+        "4": {
+            "HP": 2141,
+            "ATK": 2574,
+            "DEF": 1240
+        },
+        "5": {
+            "HP": 2188,
+            "ATK": 2630,
+            "DEF": 1267
+        },
+        "6": {
+            "HP": 2238,
+            "ATK": 2689,
+            "DEF": 1296
+        },
+        "7": {
+            "HP": 2284,
+            "ATK": 2746,
+            "DEF": 1323
+        },
+        "8": {
+            "HP": 2331,
+            "ATK": 2802,
+            "DEF": 1350
+        },
+        "9": {
+            "HP": 2378,
+            "ATK": 2858,
+            "DEF": 1377
+        },
+        "10": {
+            "HP": 2425,
+            "ATK": 2915,
+            "DEF": 1404
+        },
+        "11": {
+            "HP": 2472,
+            "ATK": 2971,
+            "DEF": 1432
+        },
+        "12": {
+            "HP": 2519,
+            "ATK": 3028,
+            "DEF": 1459
+        },
+        "13": {
+            "HP": 2566,
+            "ATK": 3084,
+            "DEF": 1486
+        },
+        "14": {
+            "HP": 2613,
+            "ATK": 3140,
+            "DEF": 1513
+        },
+        "15": {
+            "HP": 2660,
+            "ATK": 3197,
+            "DEF": 1540
+        },
+        "16": {
+            "HP": 2709,
+            "ATK": 3256,
+            "DEF": 1569
+        },
+        "17": {
+            "HP": 2756,
+            "ATK": 3312,
+            "DEF": 1596
+        },
+        "18": {
+            "HP": 2803,
+            "ATK": 3369,
+            "DEF": 1623
+        },
+        "19": {
+            "HP": 2850,
+            "ATK": 3425,
+            "DEF": 1650
+        },
+        "20": {
+            "HP": 2897,
+            "ATK": 3482,
+            "DEF": 1677
+        },
+        "21": {
+            "HP": 2944,
+            "ATK": 3538,
+            "DEF": 1705
+        },
+        "22": {
+            "HP": 2991,
+            "ATK": 3594,
+            "DEF": 1732
+        },
+        "23": {
+            "HP": 3038,
+            "ATK": 3651,
+            "DEF": 1759
+        },
+        "24": {
+            "HP": 3085,
+            "ATK": 3707,
+            "DEF": 1786
+        },
+        "25": {
+            "HP": 3132,
+            "ATK": 3764,
+            "DEF": 1813
+        },
+        "26": {
+            "HP": 3181,
+            "ATK": 3823,
+            "DEF": 1842
+        },
+        "27": {
+            "HP": 3228,
+            "ATK": 3879,
+            "DEF": 1869
+        },
+        "28": {
+            "HP": 3275,
+            "ATK": 3936,
+            "DEF": 1896
+        },
+        "29": {
+            "HP": 3322,
+            "ATK": 3992,
+            "DEF": 1923
+        },
+        "30": {
+            "HP": 3369,
+            "ATK": 4048,
+            "DEF": 1950
+        },
+        "31": {
+            "HP": 3416,
+            "ATK": 4105,
+            "DEF": 1978
+        },
+        "32": {
+            "HP": 3463,
+            "ATK": 4161,
+            "DEF": 2005
+        },
+        "33": {
+            "HP": 3509,
+            "ATK": 4218,
+            "DEF": 2032
+        },
+        "34": {
+            "HP": 3556,
+            "ATK": 4274,
+            "DEF": 2059
+        },
+        "35": {
+            "HP": 3603,
+            "ATK": 4330,
+            "DEF": 2086
+        },
+        "36": {
+            "HP": 3653,
+            "ATK": 4389,
+            "DEF": 2115
+        },
+        "37": {
+            "HP": 3700,
+            "ATK": 4446,
+            "DEF": 2142
+        },
+        "38": {
+            "HP": 3746,
+            "ATK": 4502,
+            "DEF": 2169
+        },
+        "39": {
+            "HP": 3793,
+            "ATK": 4559,
+            "DEF": 2196
+        },
+        "40": {
+            "HP": 3840,
+            "ATK": 4615,
+            "DEF": 2223
+        },
+        "41": {
+            "HP": 3887,
+            "ATK": 4671,
+            "DEF": 2251
+        },
+        "42": {
+            "HP": 3934,
+            "ATK": 4728,
+            "DEF": 2278
+        },
+        "43": {
+            "HP": 3981,
+            "ATK": 4784,
+            "DEF": 2305
+        },
+        "44": {
+            "HP": 4028,
+            "ATK": 4841,
+            "DEF": 2332
+        },
+        "45": {
+            "HP": 4075,
+            "ATK": 4897,
+            "DEF": 2359
+        },
+        "46": {
+            "HP": 4124,
+            "ATK": 4956,
+            "DEF": 2388
+        },
+        "47": {
+            "HP": 4171,
+            "ATK": 5013,
+            "DEF": 2415
+        },
+        "48": {
+            "HP": 4218,
+            "ATK": 5069,
+            "DEF": 2442
+        },
+        "49": {
+            "HP": 4265,
+            "ATK": 5125,
+            "DEF": 2469
+        },
+        "50": {
+            "HP": 4312,
+            "ATK": 5182,
+            "DEF": 2496
+        },
+        "51": {
+            "HP": 4359,
+            "ATK": 5238,
+            "DEF": 2524
+        },
+        "52": {
+            "HP": 4406,
+            "ATK": 5295,
+            "DEF": 2551
+        },
+        "53": {
+            "HP": 4453,
+            "ATK": 5351,
+            "DEF": 2578
+        },
+        "54": {
+            "HP": 4500,
+            "ATK": 5407,
+            "DEF": 2605
+        },
+        "55": {
+            "HP": 4547,
+            "ATK": 5464,
+            "DEF": 2632
+        },
+        "56": {
+            "HP": 4596,
+            "ATK": 5523,
+            "DEF": 2661
+        },
+        "57": {
+            "HP": 4643,
+            "ATK": 5579,
+            "DEF": 2688
+        },
+        "58": {
+            "HP": 4690,
+            "ATK": 5636,
+            "DEF": 2715
+        },
+        "59": {
+            "HP": 4737,
+            "ATK": 5692,
+            "DEF": 2742
+        },
+        "60": {
+            "HP": 4784,
+            "ATK": 5749,
+            "DEF": 2769
+        },
+        "61": {
+            "HP": 4831,
+            "ATK": 5805,
+            "DEF": 2797
+        },
+        "62": {
+            "HP": 4878,
+            "ATK": 5861,
+            "DEF": 2824
+        },
+        "63": {
+            "HP": 4925,
+            "ATK": 5918,
+            "DEF": 2851
+        },
+        "64": {
+            "HP": 4971,
+            "ATK": 5974,
+            "DEF": 2878
+        },
+        "65": {
+            "HP": 5018,
+            "ATK": 6031,
+            "DEF": 2905
+        },
+        "66": {
+            "HP": 5068,
+            "ATK": 6090,
+            "DEF": 2934
+        },
+        "67": {
+            "HP": 5115,
+            "ATK": 6146,
+            "DEF": 2961
+        },
+        "68": {
+            "HP": 5162,
+            "ATK": 6202,
+            "DEF": 2988
+        },
+        "69": {
+            "HP": 5208,
+            "ATK": 6259,
+            "DEF": 3015
+        },
+        "70": {
+            "HP": 5255,
+            "ATK": 6315,
+            "DEF": 3042
+        },
+        "71": {
+            "HP": 5302,
+            "ATK": 6372,
+            "DEF": 3070
+        },
+        "72": {
+            "HP": 5349,
+            "ATK": 6428,
+            "DEF": 3097
+        },
+        "73": {
+            "HP": 5396,
+            "ATK": 6484,
+            "DEF": 3124
+        },
+        "74": {
+            "HP": 5443,
+            "ATK": 6541,
+            "DEF": 3151
+        },
+        "75": {
+            "HP": 5490,
+            "ATK": 6597,
+            "DEF": 3178
+        },
+        "76": {
+            "HP": 5539,
+            "ATK": 6656,
+            "DEF": 3207
+        },
+        "77": {
+            "HP": 5586,
+            "ATK": 6713,
+            "DEF": 3234
+        },
+        "78": {
+            "HP": 5633,
+            "ATK": 6769,
+            "DEF": 3261
+        },
+        "79": {
+            "HP": 5680,
+            "ATK": 6826,
+            "DEF": 3288
+        },
+        "80": {
+            "HP": 5727,
+            "ATK": 6882,
+            "DEF": 3315
+        },
+        "81": {
+            "HP": 5774,
+            "ATK": 6938,
+            "DEF": 3343
+        },
+        "82": {
+            "HP": 5821,
+            "ATK": 6995,
+            "DEF": 3370
+        },
+        "83": {
+            "HP": 5868,
+            "ATK": 7051,
+            "DEF": 3397
+        },
+        "84": {
+            "HP": 5915,
+            "ATK": 7108,
+            "DEF": 3424
+        },
+        "85": {
+            "HP": 5962,
+            "ATK": 7164,
+            "DEF": 3451
+        },
+        "86": {
+            "HP": 6011,
+            "ATK": 7223,
+            "DEF": 3480
+        },
+        "87": {
+            "HP": 6058,
+            "ATK": 7280,
+            "DEF": 3507
+        },
+        "88": {
+            "HP": 6105,
+            "ATK": 7336,
+            "DEF": 3534
+        },
+        "89": {
+            "HP": 6152,
+            "ATK": 7392,
+            "DEF": 3561
+        },
+        "90": {
+            "HP": 6199,
+            "ATK": 7449,
+            "DEF": 3588
+        },
+        "91": {
+            "HP": 6246,
+            "ATK": 7505,
+            "DEF": 3616
+        },
+        "92": {
+            "HP": 6293,
+            "ATK": 7562,
+            "DEF": 3643
+        },
+        "93": {
+            "HP": 6340,
+            "ATK": 7618,
+            "DEF": 3670
+        },
+        "94": {
+            "HP": 6387,
+            "ATK": 7674,
+            "DEF": 3697
+        },
+        "95": {
+            "HP": 6433,
+            "ATK": 7731,
+            "DEF": 3724
+        },
+        "96": {
+            "HP": 6483,
+            "ATK": 7790,
+            "DEF": 3753
+        },
+        "97": {
+            "HP": 6530,
+            "ATK": 7846,
+            "DEF": 3780
+        },
+        "98": {
+            "HP": 6577,
+            "ATK": 7903,
+            "DEF": 3807
+        },
+        "99": {
+            "HP": 6624,
+            "ATK": 7959,
+            "DEF": 3834
+        },
+        "100": {
+            "HP": 6671,
+            "ATK": 8016,
+            "DEF": 3862
+        }
+    },
+    "Leader Skill": {
+        "Name": "Baba's Trump Card",
+        "10295000": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10295001": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "5834": {
+            "superID": "5834",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Turtle School Four Virtues",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5834": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2750"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5834",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

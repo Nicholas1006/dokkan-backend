@@ -1,0 +1,519 @@
+{
+    "ID": "1029811",
+    "Type": "AGL",
+    "Class": "Super",
+    "Name": "Bardock",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Time Travelers",
+        "Low-Class Warrior",
+        "Pure Saiyans",
+        "Goku's Family",
+        "Team Bardock",
+        "Bond of Parent and Child",
+        "Resurrected Warriors",
+        "Revenge",
+        "Powerful Comeback",
+        "Storied Figures"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Saiyan Warrior Race",
+        "The Saiyan Lineage",
+        "Team Bardock",
+        "Prepared for Battle",
+        "Saiyan Pride"
+    ],
+    "Resource ID": 1029810,
+    "Passive": {
+        "4192": {
+            "ID": 4192,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004192": {
+            "ID": 1004192,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "allies",
+                "Class": "Super"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all Super class allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all Super class allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004192": {
+            "ID": 2004192,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 543 )",
+                "Causalities": {
+                    "543": {
+                        "Button": {
+                            "Name": "Are there 1 or more Wicked Bloodline category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Wicked Bloodline category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Wicked Bloodline Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"543\", \"compiled\": 543}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 80%{passiveImg:up_g} ",
+            "Line description": "ATK 80%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Wicked Bloodline Category enemies "
+        },
+        "3004192": {
+            "ID": 3004192,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 30,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1574 )",
+                "Causalities": {
+                    "1574": {
+                        "Button": {
+                            "Name": "Is there 3 or more Super class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies attacking on this turn?",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Super class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1574\", \"compiled\": 1574}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 30% chance of becoming a super attack ",
+            "Paragraph Title": "When there are 3 or more Super class allies attacking on this turn"
+        },
+        "4004192": {
+            "ID": 4004192,
+            "Timing": "Start of turn",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004192": {
+            "ID": 5004192,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 80%{passiveImg:up_g}\n- Super Class allies' ATK & DEF 20%{passiveImg:up_g}\n- Medium chance of performing a critical hit\n*When there is a \"Wicked Bloodline\" Category enemy*\n- ATK 80%{passiveImg:up_g}\n*When there are 3 Super Class allies attacking in the same turn*\n- Launches an additional attack that has a medium chance of\nbecoming a Super Attack\n*When attacking with 12 or more Ki*\n- ATK & DEF 40%{passiveImg:up_g}",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "80": {
+            "HP": 5704,
+            "ATK": 7477,
+            "DEF": 3820
+        },
+        "81": {
+            "HP": 5709,
+            "ATK": 7487,
+            "DEF": 3823
+        },
+        "82": {
+            "HP": 5714,
+            "ATK": 7496,
+            "DEF": 3827
+        },
+        "83": {
+            "HP": 5720,
+            "ATK": 7505,
+            "DEF": 3830
+        },
+        "84": {
+            "HP": 5725,
+            "ATK": 7515,
+            "DEF": 3833
+        },
+        "85": {
+            "HP": 5730,
+            "ATK": 7524,
+            "DEF": 3837
+        },
+        "86": {
+            "HP": 5735,
+            "ATK": 7534,
+            "DEF": 3840
+        },
+        "87": {
+            "HP": 5741,
+            "ATK": 7543,
+            "DEF": 3844
+        },
+        "88": {
+            "HP": 5746,
+            "ATK": 7552,
+            "DEF": 3847
+        },
+        "89": {
+            "HP": 5751,
+            "ATK": 7562,
+            "DEF": 3850
+        },
+        "90": {
+            "HP": 5756,
+            "ATK": 7571,
+            "DEF": 3854
+        },
+        "91": {
+            "HP": 5761,
+            "ATK": 7580,
+            "DEF": 3857
+        },
+        "92": {
+            "HP": 5767,
+            "ATK": 7590,
+            "DEF": 3860
+        },
+        "93": {
+            "HP": 5772,
+            "ATK": 7599,
+            "DEF": 3864
+        },
+        "94": {
+            "HP": 5777,
+            "ATK": 7608,
+            "DEF": 3867
+        },
+        "95": {
+            "HP": 5782,
+            "ATK": 7618,
+            "DEF": 3871
+        },
+        "96": {
+            "HP": 5788,
+            "ATK": 7627,
+            "DEF": 3874
+        },
+        "97": {
+            "HP": 5793,
+            "ATK": 7637,
+            "DEF": 3877
+        },
+        "98": {
+            "HP": 5798,
+            "ATK": 7646,
+            "DEF": 3881
+        },
+        "99": {
+            "HP": 5803,
+            "ATK": 7655,
+            "DEF": 3884
+        },
+        "100": {
+            "HP": 5809,
+            "ATK": 7665,
+            "DEF": 3888
+        }
+    },
+    "Leader Skill": {
+        "Name": "New Battle in Another World",
+        "10298100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Time Travelers"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10298101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Time Travelers"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5716": {
+            "superID": "5716",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Final Spirit Cannon",
+            "superDescription": "Raises ATK, raises DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5716": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1005716": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 400,
+            "relevantLua": [
+                "sp0054"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1500,
+            "DEF": 1500
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 4000,
+            "DEF": 4000
+        }
+    },
+    "Ki Multiplier": {
+        "0": 67.5,
+        "1": 73.125,
+        "2": 78.75,
+        "3": 84.375,
+        "4": 90.0,
+        "5": 95.625,
+        "6": 101.25,
+        "7": 106.875,
+        "8": 112.5,
+        "9": 118.125,
+        "10": 123.75,
+        "11": 129.375,
+        "12": 135.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5716",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

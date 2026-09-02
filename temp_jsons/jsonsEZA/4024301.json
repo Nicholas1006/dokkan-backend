@@ -1,0 +1,1230 @@
+{
+    "ID": "4024301",
+    "Type": "STR",
+    "Class": "Super",
+    "Name": "Super Saiyan Gohan (Youth)",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Super Saiyans",
+        "Goku's Family",
+        "Pure Saiyans",
+        "Androids/Cell Saga",
+        "Kamehameha",
+        "Bond of Master and Disciple",
+        "Turtle School",
+        "Heavenly Events",
+        "Bond of Friendship",
+        "Accelerated Battle",
+        "Entrusted Will",
+        "Full Power",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Tournament Participants",
+        "Golden Fighters"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Golden Warrior",
+        "Saiyan Warrior Race",
+        "All in the Family",
+        "Super Saiyan",
+        "Kamehameha",
+        "Prepared for Battle",
+        "Fierce Battle"
+    ],
+    "Resource ID": 4024300,
+    "Passive": {
+        "4562": {
+            "ID": 4562,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004562": {
+            "ID": 1004562,
+            "Timing": "Start of turn",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004562": {
+            "ID": 2004562,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 58,
+                "Stat Per Proc": 58,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "ATK": 58,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 58%{passiveImg:up_g} ({currentValue} / 58%) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}ATK 58%{passiveImg:up_g} ({currentValue} / 58%) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004562": {
+            "ID": 3004562,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 10,
+                "Max": 158,
+                "Stat Per Proc": 1100,
+                "Cause": {
+                    "Cause": "HP",
+                    "Type": "More HP remaining"
+                },
+                "Slider": "What percentage of HP is remaining?"
+            },
+            "DEF": 158,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 158%{passiveImg:up_g} ({currentValue} / 158%) based on 'What percentage of HP is remaining' ",
+            "Line description": "DEF 158%{passiveImg:up_g} ({currentValue} / 158%) based on 'What percentage of HP is remaining' ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004562": {
+            "ID": 4004562,
+            "Nullification": {
+                "Activated": true,
+                "Absorbed": 0
+            },
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1410 && 141 && 684 )",
+                "Causalities": {
+                    "1410": {
+                        "Button": {
+                            "Name": "Has this character been hit by a ki blast super attack on this turn?"
+                        },
+                        "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+                    },
+                    "141": {
+                        "Button": {
+                            "Name": "Is a super being performed on this turn?"
+                        },
+                        "Paragraph Title": "When a super is being performed"
+                    },
+                    "684": {
+                        "Button": {
+                            "Name": "Is HP 77 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=77",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 77% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1410&141&684\", \"compiled\": [\"&\", 1410, 141, 684]}",
+            "Type": "Single activator",
+            "Brief effect description": "Nullifies enemy attack right before being hit",
+            "Line description": "Nullifies enemy attack right before being hit and HP is 77% or less until after being hit",
+            "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+        },
+        "5004562": {
+            "ID": 5004562,
+            "Counter": {
+                "Activated": true,
+                "Multiplier": 400
+            },
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1410 && 141 && 684 )",
+                "Causalities": {
+                    "1410": {
+                        "Button": {
+                            "Name": "Has this character been hit by a ki blast super attack on this turn?"
+                        },
+                        "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+                    },
+                    "141": {
+                        "Button": {
+                            "Name": "Is a super being performed on this turn?"
+                        },
+                        "Paragraph Title": "When a super is being performed"
+                    },
+                    "684": {
+                        "Button": {
+                            "Name": "Is HP 77 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=77",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 77% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1410&141&684\", \"compiled\": [\"&\", 1410, 141, 684]}",
+            "Type": "Single activator",
+            "Brief effect description": "Counter attacks with a 400% multiplier right before being hit",
+            "Line description": "Counter attacks with a 400% multiplier right before being hit and HP is 77% or less until after being hit",
+            "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+        },
+        "6004562": {
+            "ID": 6004562,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 4004562
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:4004562 after being hit",
+            "Line description": "Disables a different passive line:4004562 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004562": {
+            "ID": 7004562,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 5004562
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:5004562 after being hit",
+            "Line description": "Disables a different passive line:5004562 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8004562": {
+            "ID": 8004562,
+            "Nullification": {
+                "Activated": true,
+                "Absorbed": 0
+            },
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 70,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1410 && 141 )",
+                "Causalities": {
+                    "1410": {
+                        "Button": {
+                            "Name": "Has this character been hit by a ki blast super attack on this turn?"
+                        },
+                        "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+                    },
+                    "141": {
+                        "Button": {
+                            "Name": "Is a super being performed on this turn?"
+                        },
+                        "Paragraph Title": "When a super is being performed"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1410&141\", \"compiled\": [\"&\", 1410, 141]}",
+            "Type": "Single activator",
+            "Brief effect description": "Great chance of Nullifies enemy attack right before being hit",
+            "Line description": "Great chance of Nullifies enemy attack while being hit",
+            "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+        },
+        "9004562": {
+            "ID": 9004562,
+            "Counter": {
+                "Activated": true,
+                "Multiplier": 400
+            },
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 70,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1410 && 141 )",
+                "Causalities": {
+                    "1410": {
+                        "Button": {
+                            "Name": "Has this character been hit by a ki blast super attack on this turn?"
+                        },
+                        "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+                    },
+                    "141": {
+                        "Button": {
+                            "Name": "Is a super being performed on this turn?"
+                        },
+                        "Paragraph Title": "When a super is being performed"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1410&141\", \"compiled\": [\"&\", 1410, 141]}",
+            "Type": "Single activator",
+            "Brief effect description": "Great chance of Counter attacks with a 400% multiplier right before being hit",
+            "Line description": "Great chance of Counter attacks with a 400% multiplier while being hit",
+            "Paragraph Title": "When this character has been hit by a ki blast super attack?"
+        },
+        "10004562": {
+            "ID": 10004562,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 8004562
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:8004562 after being hit",
+            "Line description": "Disables a different passive line:8004562 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004562": {
+            "ID": 11004562,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 9004562
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:9004562 after being hit",
+            "Line description": "Disables a different passive line:9004562 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "12004562": {
+            "ID": 12004562,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1444 )",
+                "Causalities": {
+                    "1444": {
+                        "Button": {
+                            "Name": "Is it within the first 3 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=3",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "For 3 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1444\", \"compiled\": 1444}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks ",
+            "Paragraph Title": "For 3 turns from the chraracter's entry turn"
+        },
+        "13004562": {
+            "ID": 13004562,
+            "Timing": "Start of turn",
+            "DR": 58,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1444 )",
+                "Causalities": {
+                    "1444": {
+                        "Button": {
+                            "Name": "Is it within the first 3 turn(s) from the character's entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": "<=3",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "For 3 turns from the chraracter's entry turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1444\", \"compiled\": 1444}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 58%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 58%{passiveImg:up_g} ",
+            "Paragraph Title": "For 3 turns from the chraracter's entry turn"
+        },
+        "14004562": {
+            "ID": 14004562,
+            "Timing": "Right after being hit",
+            "DEF": 158,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1445 )",
+                "Causalities": {
+                    "1445": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has guarded 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1445\", \"compiled\": 1445}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 158%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}DEF 158%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 2 or more attacks"
+        },
+        "15004562": {
+            "ID": 15004562,
+            "Timing": "Right after being hit",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1445 )",
+                "Causalities": {
+                    "1445": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has guarded 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1445\", \"compiled\": 1445}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Damage Reduction Rate 10%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 2 or more attacks"
+        },
+        "16004562": {
+            "ID": 16004562,
+            "Timing": "Right after being hit",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1445 )",
+                "Causalities": {
+                    "1445": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 2nd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When the character has guarded 2 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1445\", \"compiled\": 1445}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +20%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 2 or more attacks"
+        },
+        "17004562": {
+            "ID": 17004562,
+            "Timing": "Right after being hit",
+            "ATK": 158,
+            "DEF": 158,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3462 )",
+                "Causalities": {
+                    "3462": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has guarded 3 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3462\", \"compiled\": 3462}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 158%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}ATK and DEF 158%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 3 or more attacks"
+        },
+        "18004562": {
+            "ID": 18004562,
+            "Timing": "Right after being hit",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3462 )",
+                "Causalities": {
+                    "3462": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has guarded 3 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3462\", \"compiled\": 3462}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Damage Reduction Rate 10%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 3 or more attacks"
+        },
+        "19004562": {
+            "ID": 19004562,
+            "Timing": "Right after being hit",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3462 )",
+                "Causalities": {
+                    "3462": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has guarded 3 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3462\", \"compiled\": 3462}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +30%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 3 or more attacks"
+        },
+        "20004562": {
+            "ID": 20004562,
+            "Timing": "Right after being hit",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3463 )",
+                "Causalities": {
+                    "3463": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 5th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has guarded 5 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3463\", \"compiled\": 3463}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks after being hit",
+            "Line description": "{passiveImg:forever}Guards all attacks after being hit",
+            "Paragraph Title": "When the character has guarded 5 or more attacks"
+        },
+        "21004562": {
+            "ID": 21004562,
+            "Timing": "Right after being hit",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3463 )",
+                "Causalities": {
+                    "3463": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 5th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has guarded 5 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3463\", \"compiled\": 3463}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Damage Reduction Rate 10%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 5 or more attacks"
+        },
+        "22004562": {
+            "ID": 22004562,
+            "Timing": "Right after being hit",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 3463 )",
+                "Causalities": {
+                    "3463": {
+                        "Button": {
+                            "Name": "Has this character's guard been activated 5th times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character's guard been activated?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "When the character has guarded 5 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3463\", \"compiled\": 3463}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} after being hit",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +50%{passiveImg:up_g} after being hit",
+            "Paragraph Title": "When the character has guarded 5 or more attacks"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 250%{passiveImg:up_g}\n*After receiving an attack*\n- {passiveImg:forever}ATK 58%{passiveImg:up_g}\n*The more HP remaining*\n- DEF{passiveImg:up_g} (up to 158%)\n*For 3 turns from the character's entry turn*\n- Guards all attacks\n- Damage reduction rate 58%{passiveImg:up_g}\n*After guard is activated 2 times in battle*\n- {passiveImg:forever}DEF 158%{passiveImg:up_g}\n- {passiveImg:forever}Damage reduction rate 10%{passiveImg:up_g}\n- {passiveImg:forever}Chance of performing a critical hit 20%{passiveImg:up_g}\n*After guard is activated 3 times in battle*\n- {passiveImg:forever}ATK & DEF 158%{passiveImg:up_g}\n- {passiveImg:forever}Damage reduction rate 10%{passiveImg:up_g}\n- {passiveImg:forever}Chance of performing a critical hit 30%{passiveImg:up_g}\n*After guard is activated 5 times in battle*\n- {passiveImg:forever}Guards all attacks\n- {passiveImg:forever}Damage reduction rate 10%{passiveImg:up_g}\n- {passiveImg:forever}Chance of performing a critical hit 50%{passiveImg:up_g}\n*When receiving a Ki Blast Super Attack*\n- Great chance of nullifying it and countering with ferocious power\n- Nullifies it and counters with ferocious power when HP is 77% or less",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 13510,
+            "ATK": 12084,
+            "DEF": 5265
+        },
+        "121": {
+            "HP": 13737,
+            "ATK": 12287,
+            "DEF": 5353
+        },
+        "122": {
+            "HP": 13965,
+            "ATK": 12491,
+            "DEF": 5442
+        },
+        "123": {
+            "HP": 14193,
+            "ATK": 12695,
+            "DEF": 5531
+        },
+        "124": {
+            "HP": 14421,
+            "ATK": 12899,
+            "DEF": 5620
+        },
+        "125": {
+            "HP": 14649,
+            "ATK": 13103,
+            "DEF": 5709
+        },
+        "126": {
+            "HP": 14877,
+            "ATK": 13307,
+            "DEF": 5797
+        },
+        "127": {
+            "HP": 15105,
+            "ATK": 13510,
+            "DEF": 5886
+        },
+        "128": {
+            "HP": 15333,
+            "ATK": 13714,
+            "DEF": 5975
+        },
+        "129": {
+            "HP": 15561,
+            "ATK": 13918,
+            "DEF": 6064
+        },
+        "130": {
+            "HP": 15789,
+            "ATK": 14122,
+            "DEF": 6153
+        },
+        "131": {
+            "HP": 16016,
+            "ATK": 14326,
+            "DEF": 6242
+        },
+        "132": {
+            "HP": 16244,
+            "ATK": 14530,
+            "DEF": 6330
+        },
+        "133": {
+            "HP": 16472,
+            "ATK": 14734,
+            "DEF": 6419
+        },
+        "134": {
+            "HP": 16700,
+            "ATK": 14937,
+            "DEF": 6508
+        },
+        "135": {
+            "HP": 16928,
+            "ATK": 15141,
+            "DEF": 6597
+        },
+        "136": {
+            "HP": 17156,
+            "ATK": 15345,
+            "DEF": 6686
+        },
+        "137": {
+            "HP": 17384,
+            "ATK": 15549,
+            "DEF": 6774
+        },
+        "138": {
+            "HP": 17612,
+            "ATK": 15753,
+            "DEF": 6863
+        },
+        "139": {
+            "HP": 17840,
+            "ATK": 15957,
+            "DEF": 6952
+        },
+        "140": {
+            "HP": 18068,
+            "ATK": 16161,
+            "DEF": 7041
+        }
+    },
+    "Leader Skill": {
+        "Name": "Warriors Entrusted with Earth's Fate",
+        "102429100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102429101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102429102": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Goku's Family"
+                ],
+                "Excluded Category": [
+                    "Super Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "102429103": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Goku's Family"
+                ],
+                "Excluded Category": [
+                    "Super Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "102429104": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans",
+                    "Androids/Cell Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102429105": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Goku's Family",
+                    "Androids/Cell Saga"
+                ],
+                "Excluded Category": [
+                    "Super Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "102429106": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans",
+                    "Androids/Cell Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        },
+        "102429107": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Goku's Family",
+                    "Androids/Cell Saga"
+                ],
+                "Excluded Category": [
+                    "Super Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 1
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "7538": {
+            "superID": "7538",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Masenko (Extreme)",
+            "superDescription": "Massively raises ATK & DEF for 1 turn and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7538": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "100",
+                    "DEF": "100"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 630,
+            "relevantLua": [
+                "sp2361"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [
+        "1024291"
+    ],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "7538",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

@@ -1,0 +1,802 @@
+{
+    "ID": "1012461",
+    "Type": "TEQ",
+    "Class": "Super",
+    "Name": "Tapion",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Resurrected Warriors",
+        "Time Travelers",
+        "Movie Heroes",
+        "Siblings' Bond",
+        "Storied Figures",
+        "Legendary Existence",
+        "Power of Wishes"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Hero",
+        "Courage",
+        "Experienced Fighters",
+        "Revival",
+        "Brainiacs",
+        "Solid Support",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1012460,
+    "Passive": {
+        "3993": {
+            "ID": 3993,
+            "Timing": "Start of turn",
+            "ATK": 160,
+            "DEF": 160,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 160%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 160%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003993": {
+            "ID": 1003993,
+            "Timing": "Start of turn",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003993": {
+            "ID": 2003993,
+            "Timing": "Start of turn",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 136 )",
+                "Causalities": {
+                    "136": {
+                        "Button": {
+                            "Name": "Are there 1 or more Movie Bosses category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Movie Bosses Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"136\", \"compiled\": 136}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Movie Bosses Category enemies "
+        },
+        "3003993": {
+            "ID": 3003993,
+            "Timing": "Start of turn",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 136 )",
+                "Causalities": {
+                    "136": {
+                        "Button": {
+                            "Name": "Are there 1 or more Movie Bosses category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Movie Bosses category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Movie Bosses Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"136\", \"compiled\": 136}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit ",
+            "Line description": "Performs a Critical Hit ",
+            "Paragraph Title": "When there are 1 or more Movie Bosses Category enemies "
+        },
+        "4003993": {
+            "ID": 4003993,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": "STR",
+                "To": "RAINBOW",
+                "Style": "Single"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Changes STR Ki Spheres to RAINBOW Ki Spheres ",
+            "Line description": "Changes STR Ki Spheres to RAINBOW Ki Spheres ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5003993": {
+            "ID": 5003993,
+            "Timing": "Start of turn",
+            "ATK": 40,
+            "DEF": 40,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Movie Heroes"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 40%{passiveImg:up_g} for all Movie Heroes category allies ",
+            "Line description": "ATK and DEF 40%{passiveImg:up_g} for all Movie Heroes category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6003993": {
+            "ID": 6003993,
+            "Dodge Chance": 30,
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 665 )",
+                "Causalities": {
+                    "665": {
+                        "Button": {
+                            "Name": "Has 1 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"665\", \"compiled\": 665}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% after this unit collects ki spheres",
+            "Line description": "Chance of evading enemy attacks +30% after this unit collects ki spheres",
+            "Paragraph Title": "When with 1 or more Rainbow Ki Spheres obtained"
+        },
+        "7003993": {
+            "ID": 7003993,
+            "Timing": "When ki spheres collected",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Movie Heroes"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 665 )",
+                "Causalities": {
+                    "665": {
+                        "Button": {
+                            "Name": "Has 1 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"665\", \"compiled\": 665}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 after this unit collects ki spheres for all Movie Heroes category allies ",
+            "Line description": "Ki +2 after this unit collects ki spheres for all Movie Heroes category allies ",
+            "Paragraph Title": "When with 1 or more Rainbow Ki Spheres obtained"
+        },
+        "8003993": {
+            "ID": 8003993,
+            "Timing": "When ki spheres collected",
+            "Crit Chance": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Movie Heroes"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 665 )",
+                "Causalities": {
+                    "665": {
+                        "Button": {
+                            "Name": "Has 1 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"665\", \"compiled\": 665}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres for all Movie Heroes category allies ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} after this unit collects ki spheres for all Movie Heroes category allies ",
+            "Paragraph Title": "When with 1 or more Rainbow Ki Spheres obtained"
+        },
+        "9003993": {
+            "ID": 9003993,
+            "Dodge Chance": 10,
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 666 )",
+                "Causalities": {
+                    "666": {
+                        "Button": {
+                            "Name": "Has 2 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "With 2 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"666\", \"compiled\": 666}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Line description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Paragraph Title": "When with 2 or more Rainbow Ki Spheres obtained"
+        },
+        "10003993": {
+            "ID": 10003993,
+            "Dodge Chance": 10,
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 667 )",
+                "Causalities": {
+                    "667": {
+                        "Button": {
+                            "Name": "Has 3 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "With 3 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"667\", \"compiled\": 667}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Line description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Paragraph Title": "When with 3 or more Rainbow Ki Spheres obtained"
+        },
+        "11003993": {
+            "ID": 11003993,
+            "Dodge Chance": 10,
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2064 )",
+                "Causalities": {
+                    "2064": {
+                        "Button": {
+                            "Name": "Has 4 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=4",
+                            "Min": 0,
+                            "Max": 4
+                        },
+                        "Paragraph Title": "With 4 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2064\", \"compiled\": 2064}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Line description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Paragraph Title": "When with 4 or more Rainbow Ki Spheres obtained"
+        },
+        "12003993": {
+            "ID": 12003993,
+            "Dodge Chance": 10,
+            "Timing": "When ki spheres collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2065 )",
+                "Causalities": {
+                    "2065": {
+                        "Button": {
+                            "Name": "Has 5 or more Rainbow Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Rainbow Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "With 5 or more Rainbow Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2065\", \"compiled\": 2065}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Line description": "Chance of evading enemy attacks +10% after this unit collects ki spheres",
+            "Paragraph Title": "When with 5 or more Rainbow Ki Spheres obtained"
+        },
+        "13003993": {
+            "ID": 13003993,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 301 )",
+                "Causalities": {
+                    "301": {
+                        "Button": {
+                            "Name": "Has 3 or more Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "With 3 or more Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"301\", \"compiled\": 301}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When with 3 or more Ki Spheres obtained"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 160%{passiveImg:up_g}\n- Medium chance of performing a critical hit\n- Changes Ki Spheres: STR to Rainbow\n- \"Movie Heroes\" Category allies' ATK & DEF 40%{passiveImg:up_g}\n*When there is a \"Movie Bosses\" Category enemy*\n- ATK & DEF 80%{passiveImg:up_g}\n- Performs a critical hit\n*With a Rainbow Ki Sphere obtained*\n- Chance of evading enemy's attack 30%{passiveImg:up_g}\n- \"Movie Heroes\" Category allies' Ki +2 and chance of\nperforming a critical hit 20%{passiveImg:up_g}\n*2 or more Rainbow Ki Spheres obtained*\n- Chance of evading enemy's attack 10%{passiveImg:up_g} per Rainbow\nKi Sphere obtained (count starts from the 2nd Ki Sphere)\n*3 or more Ki Spheres obtained*\n- ATK & DEF 80%{passiveImg:up_g} when attacking",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 9320,
+            "ATK": 8195,
+            "DEF": 4444
+        },
+        "121": {
+            "HP": 9477,
+            "ATK": 8333,
+            "DEF": 4518
+        },
+        "122": {
+            "HP": 9634,
+            "ATK": 8471,
+            "DEF": 4593
+        },
+        "123": {
+            "HP": 9791,
+            "ATK": 8609,
+            "DEF": 4667
+        },
+        "124": {
+            "HP": 9948,
+            "ATK": 8747,
+            "DEF": 4742
+        },
+        "125": {
+            "HP": 10106,
+            "ATK": 8886,
+            "DEF": 4817
+        },
+        "126": {
+            "HP": 10263,
+            "ATK": 9024,
+            "DEF": 4891
+        },
+        "127": {
+            "HP": 10420,
+            "ATK": 9162,
+            "DEF": 4966
+        },
+        "128": {
+            "HP": 10577,
+            "ATK": 9300,
+            "DEF": 5041
+        },
+        "129": {
+            "HP": 10734,
+            "ATK": 9439,
+            "DEF": 5115
+        },
+        "130": {
+            "HP": 10892,
+            "ATK": 9577,
+            "DEF": 5190
+        },
+        "131": {
+            "HP": 11049,
+            "ATK": 9715,
+            "DEF": 5265
+        },
+        "132": {
+            "HP": 11206,
+            "ATK": 9853,
+            "DEF": 5339
+        },
+        "133": {
+            "HP": 11363,
+            "ATK": 9992,
+            "DEF": 5414
+        },
+        "134": {
+            "HP": 11520,
+            "ATK": 10130,
+            "DEF": 5488
+        },
+        "135": {
+            "HP": 11678,
+            "ATK": 10268,
+            "DEF": 5563
+        },
+        "136": {
+            "HP": 11835,
+            "ATK": 10406,
+            "DEF": 5638
+        },
+        "137": {
+            "HP": 11992,
+            "ATK": 10545,
+            "DEF": 5712
+        },
+        "138": {
+            "HP": 12149,
+            "ATK": 10683,
+            "DEF": 5787
+        },
+        "139": {
+            "HP": 12307,
+            "ATK": 10821,
+            "DEF": 5862
+        },
+        "140": {
+            "HP": 12464,
+            "ATK": 10959,
+            "DEF": 5936
+        }
+    },
+    "Leader Skill": {
+        "Name": "Hero on a Mission",
+        "101246100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "TEQ"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        },
+        "101246101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "TEQ"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5172": {
+            "superID": "5172",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Brave Sword Attack (Extreme)",
+            "superDescription": "Raises ATK & DEF for 1 turn, \ncauses supreme damage to enemy \nand lowers ATK",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5172": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                },
+                "1005172": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp1138"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 72.5,
+        "1": 78.54166666666667,
+        "2": 84.58333333333333,
+        "3": 90.625,
+        "4": 96.66666666666666,
+        "5": 102.70833333333334,
+        "6": 108.75,
+        "7": 114.79166666666667,
+        "8": 120.83333333333333,
+        "9": 126.875,
+        "10": 132.91666666666669,
+        "11": 138.95833333333331,
+        "12": 145.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5172",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

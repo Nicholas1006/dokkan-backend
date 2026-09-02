@@ -1,0 +1,480 @@
+{
+    "ID": "1016731",
+    "Type": "AGL",
+    "Class": "Extreme",
+    "Name": "Baby Janemba",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Transformation Boost",
+        "Artificial Life Forms",
+        "Terrifying Conquerors",
+        "Dragon Ball Heroes",
+        "Crossover",
+        "Corroded Body and Mind"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Thirst for Conquest",
+        "Shocking Speed",
+        "Metamorphosis",
+        "Coward",
+        "Fear and Faith",
+        "Hatred of Saiyans",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1016730,
+    "Passive": {
+        "2639": {
+            "ID": 2639,
+            "Timing": "Start of turn",
+            "Heals": 12,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Heals +12% ",
+            "Line description": "Heals +12% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002639": {
+            "ID": 1002639,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002639": {
+            "ID": 2002639,
+            "Dodge Chance": 50,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +50% ",
+            "Line description": "Chance of evading enemy attacks +50% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002639": {
+            "ID": 3002639,
+            "Dodge Chance": 12,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 100,
+                "Stat Per Proc": 12,
+                "Cause": {
+                    "Cause": "Attacks evaded on this turn"
+                },
+                "Slider": "How many attacks have been evaded on this turn?"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": "{\"source\": \"1118\", \"compiled\": 1118}",
+            "Type": "Building Stat",
+            "Brief effect description": "Chance of evading enemy attacks +12% ({currentValue} / 100%) based on 'How many attacks have been evaded on this turn' after being hit",
+            "Line description": "Chance of evading enemy attacks +12% ({currentValue} / 100%) based on 'How many attacks have been evaded on this turn' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4002639": {
+            "ID": 4002639,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1219 && 1119 )",
+                "Causalities": {
+                    "1219": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    },
+                    "1119": {
+                        "Button": {
+                            "Name": "Is HP 60 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=60",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 60% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1219&1119\", \"compiled\": [\"&\", 1219, 1119]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more and HP is 60% or more "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Recovers 12% HP at the start of turn\n- ATK & DEF 120%{passiveImg:up_g}\n- High chance of evading enemy's attack\n*For every attack evaded*\n- Chance of evading enemy's attack 12%{passiveImg:up_g} within the turn\n*If HP is 60% or more when attacking with 12 or more Ki*\n- ATK & DEF 120%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 8474,
+            "ATK": 8134,
+            "DEF": 4717
+        },
+        "121": {
+            "HP": 8616,
+            "ATK": 8271,
+            "DEF": 4796
+        },
+        "122": {
+            "HP": 8759,
+            "ATK": 8408,
+            "DEF": 4876
+        },
+        "123": {
+            "HP": 8902,
+            "ATK": 8545,
+            "DEF": 4955
+        },
+        "124": {
+            "HP": 9045,
+            "ATK": 8682,
+            "DEF": 5035
+        },
+        "125": {
+            "HP": 9188,
+            "ATK": 8819,
+            "DEF": 5114
+        },
+        "126": {
+            "HP": 9331,
+            "ATK": 8957,
+            "DEF": 5194
+        },
+        "127": {
+            "HP": 9474,
+            "ATK": 9094,
+            "DEF": 5274
+        },
+        "128": {
+            "HP": 9617,
+            "ATK": 9231,
+            "DEF": 5353
+        },
+        "129": {
+            "HP": 9760,
+            "ATK": 9368,
+            "DEF": 5433
+        },
+        "130": {
+            "HP": 9903,
+            "ATK": 9505,
+            "DEF": 5512
+        },
+        "131": {
+            "HP": 10046,
+            "ATK": 9643,
+            "DEF": 5592
+        },
+        "132": {
+            "HP": 10189,
+            "ATK": 9780,
+            "DEF": 5672
+        },
+        "133": {
+            "HP": 10332,
+            "ATK": 9917,
+            "DEF": 5751
+        },
+        "134": {
+            "HP": 10475,
+            "ATK": 10054,
+            "DEF": 5831
+        },
+        "135": {
+            "HP": 10618,
+            "ATK": 10191,
+            "DEF": 5910
+        },
+        "136": {
+            "HP": 10761,
+            "ATK": 10329,
+            "DEF": 5990
+        },
+        "137": {
+            "HP": 10904,
+            "ATK": 10466,
+            "DEF": 6070
+        },
+        "138": {
+            "HP": 11047,
+            "ATK": 10603,
+            "DEF": 6149
+        },
+        "139": {
+            "HP": 11190,
+            "ATK": 10740,
+            "DEF": 6229
+        },
+        "140": {
+            "HP": 11333,
+            "ATK": 10877,
+            "DEF": 6308
+        }
+    },
+    "Leader Skill": {
+        "Name": "The Ultimate Evil and Hatred",
+        "10691": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "10692": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "3455": {
+            "superID": "3455",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Hell Gate (Extreme)",
+            "superDescription": "Raises ATK for 1 turn, \ncauses supreme damage to enemy and \nmassively lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3455": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1003455": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "80"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp0242"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3455",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

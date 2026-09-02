@@ -1,0 +1,941 @@
+{
+    "ID": "1032230",
+    "Type": "AGL",
+    "Class": "None",
+    "Name": "Yamcha (Angel)",
+    "Rarity": "ssr",
+    "Min Level": 1,
+    "Max Level": 80,
+    "Categories": [
+        "Joined Forces",
+        "Otherworld Warriors"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Turtle School",
+        "Infighter",
+        "Solid Support",
+        "Shocking Speed",
+        "Courage",
+        "Otherworld Warriors"
+    ],
+    "Resource ID": 1032230,
+    "Passive": {
+        "4718": {
+            "ID": 4718,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004718": {
+            "ID": 1004718,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004718": {
+            "ID": 2004718,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 46,
+                "Stat Per Proc": 2,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Sweet treats",
+                        "Cookies"
+                    ]
+                },
+                "Slider": "How many Sweet treats or Cookies Ki Spheres have been obtained?"
+            },
+            "Heals": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Heals +2% per Sweet treats and Cookies Ki Spheres obtained{currentValue} / 46 ",
+            "Line description": "Heals +2% per Sweet treats and Cookies Ki Spheres obtained{currentValue} / 46 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004718": {
+            "ID": 3004718,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "4004718": {
+            "ID": 4004718,
+            "Timing": "Start of turn",
+            "ATK": 70,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1800 )",
+                "Causalities": {
+                    "1800": {
+                        "Button": {
+                            "Name": "Is there 4 or more Super class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Super class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1800\", \"compiled\": 1800}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Super class allies on the team"
+        },
+        "5004718": {
+            "ID": 5004718,
+            "Timing": "Start of turn",
+            "ATK": 70,
+            "DEF": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 849 || 498 )",
+                "Causalities": {
+                    "849": {
+                        "Button": {
+                            "Name": "Are there 1 or more Peppy Gals category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Peppy Gals Category allies attacking on this turn"
+                    },
+                    "498": {
+                        "Button": {
+                            "Name": "Are there 2 or more Joined Forces category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Joined Forces Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"849|498\", \"compiled\": [\"|\", 849, 498]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 70%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Peppy Gals Category allies attacking on this turn or there are 2 or more Joined Forces Category allies attacking on this turn "
+        },
+        "6004718": {
+            "ID": 6004718,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 849 || 498 )",
+                "Causalities": {
+                    "849": {
+                        "Button": {
+                            "Name": "Are there 1 or more Peppy Gals category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Peppy Gals Category allies attacking on this turn"
+                    },
+                    "498": {
+                        "Button": {
+                            "Name": "Are there 2 or more Joined Forces category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Joined Forces Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"849|498\", \"compiled\": [\"|\", 849, 498]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "When there are 1 or more Peppy Gals Category allies attacking on this turn or there are 2 or more Joined Forces Category allies attacking on this turn "
+        },
+        "7004718": {
+            "ID": 7004718,
+            "Timing": "Start of turn",
+            "Heals": 55,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3298 )",
+                "Causalities": {
+                    "3298": {
+                        "Button": {
+                            "Name": "Is HP 50 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3298\", \"compiled\": 3298}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Heals +55% ",
+            "Line description": " {passiveImg:once}Heals +55% for 1 turn ",
+            "Paragraph Title": "When HP is 50% or less"
+        },
+        "8004718": {
+            "ID": 8004718,
+            "Timing": "Start of turn",
+            "DR": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3298 )",
+                "Causalities": {
+                    "3298": {
+                        "Button": {
+                            "Name": "Is HP 50 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3298\", \"compiled\": 3298}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 30%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 30%{passiveImg:up_g} for 1 turn ",
+            "Paragraph Title": "When HP is 50% or less"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +1 and ATK & DEF 150%{passiveImg:up_g}\n- Recovers HP with sweet treats\n*When attacking with 12 or more Ki*\n- ATK & DEF 100%{passiveImg:up_g}\n*When 4 or more Super Class allies are on the team*\n- ATK & DEF 70%{passiveImg:up_g}\n*When there is another \"Peppy Gals\" or \"Joined Forces\" Category ally\nattacking in the same turn*\n- ATK & DEF 70%{passiveImg:up_g}\n- Launches an additional attack that has a high chance of becoming\na Super Attack\n*When HP is 50% or less at the start of turn*\n- {passiveImg:once}Recovers 55% HP\n- {passiveImg:once}Damage reduction rate 30%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 1937,
+            "ATK": 2028,
+            "DEF": 943
+        },
+        "2": {
+            "HP": 1994,
+            "ATK": 2088,
+            "DEF": 971
+        },
+        "3": {
+            "HP": 2050,
+            "ATK": 2147,
+            "DEF": 998
+        },
+        "4": {
+            "HP": 2108,
+            "ATK": 2207,
+            "DEF": 1026
+        },
+        "5": {
+            "HP": 2166,
+            "ATK": 2268,
+            "DEF": 1054
+        },
+        "6": {
+            "HP": 2222,
+            "ATK": 2326,
+            "DEF": 1081
+        },
+        "7": {
+            "HP": 2280,
+            "ATK": 2387,
+            "DEF": 1110
+        },
+        "8": {
+            "HP": 2338,
+            "ATK": 2448,
+            "DEF": 1138
+        },
+        "9": {
+            "HP": 2394,
+            "ATK": 2506,
+            "DEF": 1165
+        },
+        "10": {
+            "HP": 2451,
+            "ATK": 2567,
+            "DEF": 1193
+        },
+        "11": {
+            "HP": 2509,
+            "ATK": 2627,
+            "DEF": 1221
+        },
+        "12": {
+            "HP": 2565,
+            "ATK": 2686,
+            "DEF": 1248
+        },
+        "13": {
+            "HP": 2623,
+            "ATK": 2746,
+            "DEF": 1277
+        },
+        "14": {
+            "HP": 2681,
+            "ATK": 2807,
+            "DEF": 1305
+        },
+        "15": {
+            "HP": 2737,
+            "ATK": 2865,
+            "DEF": 1332
+        },
+        "16": {
+            "HP": 2795,
+            "ATK": 2926,
+            "DEF": 1360
+        },
+        "17": {
+            "HP": 2853,
+            "ATK": 2987,
+            "DEF": 1388
+        },
+        "18": {
+            "HP": 2909,
+            "ATK": 3045,
+            "DEF": 1415
+        },
+        "19": {
+            "HP": 2966,
+            "ATK": 3106,
+            "DEF": 1444
+        },
+        "20": {
+            "HP": 3024,
+            "ATK": 3167,
+            "DEF": 1472
+        },
+        "21": {
+            "HP": 3080,
+            "ATK": 3225,
+            "DEF": 1499
+        },
+        "22": {
+            "HP": 3138,
+            "ATK": 3286,
+            "DEF": 1527
+        },
+        "23": {
+            "HP": 3194,
+            "ATK": 3344,
+            "DEF": 1554
+        },
+        "24": {
+            "HP": 3252,
+            "ATK": 3405,
+            "DEF": 1583
+        },
+        "25": {
+            "HP": 3310,
+            "ATK": 3465,
+            "DEF": 1611
+        },
+        "26": {
+            "HP": 3366,
+            "ATK": 3524,
+            "DEF": 1638
+        },
+        "27": {
+            "HP": 3424,
+            "ATK": 3584,
+            "DEF": 1666
+        },
+        "28": {
+            "HP": 3481,
+            "ATK": 3645,
+            "DEF": 1694
+        },
+        "29": {
+            "HP": 3537,
+            "ATK": 3703,
+            "DEF": 1721
+        },
+        "30": {
+            "HP": 3595,
+            "ATK": 3764,
+            "DEF": 1750
+        },
+        "31": {
+            "HP": 3653,
+            "ATK": 3825,
+            "DEF": 1778
+        },
+        "32": {
+            "HP": 3709,
+            "ATK": 3883,
+            "DEF": 1805
+        },
+        "33": {
+            "HP": 3767,
+            "ATK": 3944,
+            "DEF": 1833
+        },
+        "34": {
+            "HP": 3825,
+            "ATK": 4004,
+            "DEF": 1861
+        },
+        "35": {
+            "HP": 3881,
+            "ATK": 4063,
+            "DEF": 1888
+        },
+        "36": {
+            "HP": 3939,
+            "ATK": 4123,
+            "DEF": 1917
+        },
+        "37": {
+            "HP": 3996,
+            "ATK": 4184,
+            "DEF": 1945
+        },
+        "38": {
+            "HP": 4052,
+            "ATK": 4242,
+            "DEF": 1972
+        },
+        "39": {
+            "HP": 4110,
+            "ATK": 4303,
+            "DEF": 2000
+        },
+        "40": {
+            "HP": 4168,
+            "ATK": 4364,
+            "DEF": 2028
+        },
+        "41": {
+            "HP": 4224,
+            "ATK": 4422,
+            "DEF": 2056
+        },
+        "42": {
+            "HP": 4282,
+            "ATK": 4483,
+            "DEF": 2084
+        },
+        "43": {
+            "HP": 4340,
+            "ATK": 4544,
+            "DEF": 2112
+        },
+        "44": {
+            "HP": 4396,
+            "ATK": 4602,
+            "DEF": 2139
+        },
+        "45": {
+            "HP": 4453,
+            "ATK": 4663,
+            "DEF": 2167
+        },
+        "46": {
+            "HP": 4511,
+            "ATK": 4723,
+            "DEF": 2196
+        },
+        "47": {
+            "HP": 4567,
+            "ATK": 4782,
+            "DEF": 2223
+        },
+        "48": {
+            "HP": 4625,
+            "ATK": 4842,
+            "DEF": 2251
+        },
+        "49": {
+            "HP": 4683,
+            "ATK": 4903,
+            "DEF": 2279
+        },
+        "50": {
+            "HP": 4739,
+            "ATK": 4961,
+            "DEF": 2306
+        },
+        "51": {
+            "HP": 4797,
+            "ATK": 5022,
+            "DEF": 2334
+        },
+        "52": {
+            "HP": 4855,
+            "ATK": 5083,
+            "DEF": 2363
+        },
+        "53": {
+            "HP": 4911,
+            "ATK": 5141,
+            "DEF": 2390
+        },
+        "54": {
+            "HP": 4968,
+            "ATK": 5202,
+            "DEF": 2418
+        },
+        "55": {
+            "HP": 5026,
+            "ATK": 5262,
+            "DEF": 2446
+        },
+        "56": {
+            "HP": 5082,
+            "ATK": 5321,
+            "DEF": 2473
+        },
+        "57": {
+            "HP": 5140,
+            "ATK": 5381,
+            "DEF": 2501
+        },
+        "58": {
+            "HP": 5198,
+            "ATK": 5442,
+            "DEF": 2530
+        },
+        "59": {
+            "HP": 5254,
+            "ATK": 5500,
+            "DEF": 2557
+        },
+        "60": {
+            "HP": 5312,
+            "ATK": 5561,
+            "DEF": 2585
+        },
+        "61": {
+            "HP": 5368,
+            "ATK": 5619,
+            "DEF": 2612
+        },
+        "62": {
+            "HP": 5426,
+            "ATK": 5680,
+            "DEF": 2640
+        },
+        "63": {
+            "HP": 5483,
+            "ATK": 5741,
+            "DEF": 2669
+        },
+        "64": {
+            "HP": 5539,
+            "ATK": 5799,
+            "DEF": 2696
+        },
+        "65": {
+            "HP": 5597,
+            "ATK": 5860,
+            "DEF": 2724
+        },
+        "66": {
+            "HP": 5655,
+            "ATK": 5921,
+            "DEF": 2752
+        },
+        "67": {
+            "HP": 5711,
+            "ATK": 5979,
+            "DEF": 2779
+        },
+        "68": {
+            "HP": 5769,
+            "ATK": 6040,
+            "DEF": 2807
+        },
+        "69": {
+            "HP": 5827,
+            "ATK": 6100,
+            "DEF": 2836
+        },
+        "70": {
+            "HP": 5883,
+            "ATK": 6159,
+            "DEF": 2863
+        },
+        "71": {
+            "HP": 5941,
+            "ATK": 6219,
+            "DEF": 2891
+        },
+        "72": {
+            "HP": 5998,
+            "ATK": 6280,
+            "DEF": 2919
+        },
+        "73": {
+            "HP": 6054,
+            "ATK": 6338,
+            "DEF": 2946
+        },
+        "74": {
+            "HP": 6112,
+            "ATK": 6399,
+            "DEF": 2974
+        },
+        "75": {
+            "HP": 6170,
+            "ATK": 6460,
+            "DEF": 3003
+        },
+        "76": {
+            "HP": 6226,
+            "ATK": 6518,
+            "DEF": 3030
+        },
+        "77": {
+            "HP": 6284,
+            "ATK": 6579,
+            "DEF": 3058
+        },
+        "78": {
+            "HP": 6342,
+            "ATK": 6639,
+            "DEF": 3086
+        },
+        "79": {
+            "HP": 6398,
+            "ATK": 6698,
+            "DEF": 3113
+        },
+        "80": {
+            "HP": 6456,
+            "ATK": 6759,
+            "DEF": 3142
+        }
+    },
+    "Leader Skill": {
+        "Name": "Starting Over in the Otherworld",
+        "10322300": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10322301": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "7993": {
+            "superID": "7993",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Kamehameha",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7993": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp0001"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "silver": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "bronze": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "overall": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "7993",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

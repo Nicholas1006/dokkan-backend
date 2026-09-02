@@ -1,0 +1,696 @@
+{
+    "ID": "1017801",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Cyborg Tao",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Resurrected Warriors",
+        "World Tournament",
+        "Siblings' Bond",
+        "Revenge",
+        "Earthlings",
+        "Sworn Enemies",
+        "Earth-Bred Fighters",
+        "Tournament Participants",
+        "Mission Execution"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Crane School",
+        "Supreme Warrior",
+        "Coward",
+        "Revival",
+        "Dodon Ray",
+        "Brutal Beatdown",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1017800,
+    "Passive": {
+        "4168": {
+            "ID": 4168,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 457 )",
+                "Causalities": {
+                    "457": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"457\", \"compiled\": 457}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 200%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "1004168": {
+            "ID": 1004168,
+            "Guaranteed Hit": true,
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 457 )",
+                "Causalities": {
+                    "457": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"457\", \"compiled\": 457}",
+            "Type": "Single activator",
+            "Brief effect description": "Attacks guaranteed to hit when attacking",
+            "Line description": "Attacks guaranteed to hit when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2004168": {
+            "ID": 2004168,
+            "Timing": "Right before being hit",
+            "DR": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2269 )",
+                "Causalities": {
+                    "2269": {
+                        "Button": {
+                            "Name": "Has the enemy been hit by the characters super attack on this turn?"
+                        },
+                        "Paragraph Title": "When the enemy has been hit by the characters super attack?"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2269\", \"compiled\": 2269}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 50%{passiveImg:up_g} right before being hit",
+            "Line description": "Damage Reduction Rate 50%{passiveImg:up_g} while being hit",
+            "Paragraph Title": "When the enemy has been hit by the characters super attack?"
+        },
+        "3004168": {
+            "ID": 3004168,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 2004168
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:2004168 after being hit",
+            "Line description": "Disables a different passive line:2004168 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004168": {
+            "ID": 4004168,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 200,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}ATK 50%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004168": {
+            "ID": 5004168,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 200,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}DEF 50%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004168": {
+            "ID": 6004168,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 4,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +1 ({currentValue} / 4) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}Ki +1 ({currentValue} / 4) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004168": {
+            "ID": 7004168,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1079 || 2817 )",
+                "Causalities": {
+                    "1079": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earthlings category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earthlings category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+                    },
+                    "2817": {
+                        "Button": {
+                            "Name": "Are there 1 or more Tournament Participants category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Tournament Participants category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1079|2817\", \"compiled\": [\"|\", 1079, 2817]}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 1 or more Earthlings Category enemies or there are 1 or more Tournament Participants Category enemies "
+        },
+        "8004168": {
+            "ID": 8004168,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1079 || 2817 )",
+                "Causalities": {
+                    "1079": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earthlings category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earthlings category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earthlings Category enemies "
+                    },
+                    "2817": {
+                        "Button": {
+                            "Name": "Are there 1 or more Tournament Participants category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Tournament Participants category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Tournament Participants Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1079|2817\", \"compiled\": [\"|\", 1079, 2817]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Earthlings Category enemies or there are 1 or more Tournament Participants Category enemies "
+        },
+        "9004168": {
+            "ID": 9004168,
+            "Timing": "Start of turn",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1201 )",
+                "Causalities": {
+                    "1201": {
+                        "Button": {
+                            "Name": "Are there 1 or more Turtle School category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Turtle School Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1201\", \"compiled\": 1201}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit ",
+            "Line description": "Performs a Critical Hit ",
+            "Paragraph Title": "When there are 1 or more Turtle School Category enemies "
+        }
+    },
+    "Itemized Passive Description": "*When attacking with 12 or more Ki*\n- ATK & DEF 200%{passiveImg:up_g}\n- Attacks guaranteed to hit\n*When receiving an attack from an enemy who is hit by the\ncharacter's Super Attack*\n- Damage reduction rate 50%{passiveImg:up_g}\n*For every attack received*\n- {passiveImg:forever}Ki +1 (up to +4)\n- {passiveImg:forever}ATK & DEF 50%{passiveImg:up_g} (up to 200%)\n*When there is an \"Earthlings\" or \"Tournament Participants\"\nCategory enemy*\n- Ki +1\n- ATK & DEF 100%{passiveImg:up_g}\n*When there is a \"Turtle School\" Category enemy*\n- Performs a critical hit",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 7040,
+            "ATK": 8192,
+            "DEF": 4365
+        },
+        "121": {
+            "HP": 7158,
+            "ATK": 8330,
+            "DEF": 4438
+        },
+        "122": {
+            "HP": 7277,
+            "ATK": 8468,
+            "DEF": 4512
+        },
+        "123": {
+            "HP": 7396,
+            "ATK": 8606,
+            "DEF": 4585
+        },
+        "124": {
+            "HP": 7515,
+            "ATK": 8744,
+            "DEF": 4659
+        },
+        "125": {
+            "HP": 7633,
+            "ATK": 8882,
+            "DEF": 4733
+        },
+        "126": {
+            "HP": 7752,
+            "ATK": 9021,
+            "DEF": 4806
+        },
+        "127": {
+            "HP": 7871,
+            "ATK": 9159,
+            "DEF": 4880
+        },
+        "128": {
+            "HP": 7990,
+            "ATK": 9297,
+            "DEF": 4954
+        },
+        "129": {
+            "HP": 8108,
+            "ATK": 9435,
+            "DEF": 5027
+        },
+        "130": {
+            "HP": 8227,
+            "ATK": 9573,
+            "DEF": 5101
+        },
+        "131": {
+            "HP": 8346,
+            "ATK": 9712,
+            "DEF": 5175
+        },
+        "132": {
+            "HP": 8465,
+            "ATK": 9850,
+            "DEF": 5248
+        },
+        "133": {
+            "HP": 8583,
+            "ATK": 9988,
+            "DEF": 5322
+        },
+        "134": {
+            "HP": 8702,
+            "ATK": 10126,
+            "DEF": 5396
+        },
+        "135": {
+            "HP": 8821,
+            "ATK": 10264,
+            "DEF": 5469
+        },
+        "136": {
+            "HP": 8940,
+            "ATK": 10403,
+            "DEF": 5543
+        },
+        "137": {
+            "HP": 9058,
+            "ATK": 10541,
+            "DEF": 5616
+        },
+        "138": {
+            "HP": 9177,
+            "ATK": 10679,
+            "DEF": 5690
+        },
+        "139": {
+            "HP": 9296,
+            "ATK": 10817,
+            "DEF": 5764
+        },
+        "140": {
+            "HP": 9415,
+            "ATK": 10955,
+            "DEF": 5837
+        }
+    },
+    "Leader Skill": {
+        "Name": "Keen Bloodlust",
+        "101780200": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "TEQ"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "101780201": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "TEQ"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 780,
+            "ATK": 1260,
+            "DEF": 1020,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5688": {
+            "superID": "5688",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Super Dodon Ray (Extreme)",
+            "superDescription": "Greatly raises ATK and raises DEF for 1 turn \nand causes supreme damage with \na great chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5688": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50"
+                },
+                "1005688": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "2005688": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "70",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp1380"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5688",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

@@ -1,0 +1,949 @@
+{
+    "ID": "1022341",
+    "Type": "STR",
+    "Class": "Extreme",
+    "Name": "Mercenary Tao",
+    "Rarity": "lr",
+    "Min Level": 150,
+    "Max Level": 150,
+    "Categories": [
+        "Dragon Ball Seekers",
+        "DB Saga",
+        "Siblings' Bond",
+        "Target: Goku",
+        "Earthlings",
+        "Sworn Enemies",
+        "Earth-Bred Fighters",
+        "Mission Execution"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Crane School",
+        "Supreme Warrior",
+        "Coward",
+        "Brutal Beatdown",
+        "Dodon Ray",
+        "Shattering the Limit",
+        "Legendary Power"
+    ],
+    "Resource ID": 1022340,
+    "Passive": {
+        "4609": {
+            "ID": 4609,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 1288,
+                "Stat Per Proc": 56,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "AGL",
+                        "INT",
+                        "PHY",
+                        "STR",
+                        "TEQ",
+                        "Rainbow",
+                        "Sweet treats"
+                    ]
+                },
+                "Slider": "How many Ki Spheres have been obtained?"
+            },
+            "ATK": 56,
+            "DEF": 56,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK and DEF 56%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 1288 ",
+            "Line description": "ATK and DEF 56%{passiveImg:up_g} per Ki Sphere obtained{currentValue} / 1288 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004609": {
+            "ID": 1004609,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 75,
+            "DEF": 64,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3490 )",
+                "Causalities": {
+                    "3490": {
+                        "Button": {
+                            "Name": "Has 3 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "With 3 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3490\", \"compiled\": 3490}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 75% and DEF 64%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 75% and DEF 64%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When with 3 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres obtained"
+        },
+        "2004609": {
+            "ID": 2004609,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 108,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 69 )",
+                "Causalities": {
+                    "69": {
+                        "Button": {
+                            "Name": "Is Ki at least 10 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=10",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 10 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"69\", \"compiled\": 69}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 108%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 108%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 10 or more"
+        },
+        "3004609": {
+            "ID": 3004609,
+            "Timing": "Right before being hit",
+            "DEF": 108,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 69 )",
+                "Causalities": {
+                    "69": {
+                        "Button": {
+                            "Name": "Is Ki at least 10 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=10",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 10 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"69\", \"compiled\": 69}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 108%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 108%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When Ki is 10 or more"
+        },
+        "4004609": {
+            "ID": 4004609,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 46,
+                "Stat Per Proc": 2,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow",
+                        "PHY",
+                        "STR",
+                        "INT",
+                        "TEQ",
+                        "AGL"
+                    ]
+                },
+                "Slider": "How many Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained?"
+            },
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +2 per Ki Sphere obtained{currentValue} / 46 ",
+            "Line description": "Ki +2 per Ki Sphere obtained{currentValue} / 46 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004609": {
+            "ID": 5004609,
+            "Timing": "Start of turn",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1516 )",
+                "Causalities": {
+                    "1516": {
+                        "Button": {
+                            "Name": "Is HP 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1516\", \"compiled\": 1516}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} ",
+            "Line description": "DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 50% or more"
+        },
+        "6004609": {
+            "ID": 6004609,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1516 )",
+                "Causalities": {
+                    "1516": {
+                        "Button": {
+                            "Name": "Is HP 50 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1516\", \"compiled\": 1516}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 50% or more"
+        },
+        "7004609": {
+            "ID": 7004609,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"99000000000000\", \"compiled\": 99000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 99000000000000 )",
+                "Causalities": {
+                    "99000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 99 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 99 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Damage Reduction Rate 20%{passiveImg:up_g} until after being hit",
+            "Paragraph Title": "For 99 turn(s) from the character's entry turn"
+        },
+        "8004609": {
+            "ID": 8004609,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 7004609
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2171 )",
+                "Causalities": {
+                    "2171": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2171\", \"compiled\": 2171}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:7004609 after being hit",
+            "Line description": "Disables a different passive line:7004609 after being hit",
+            "Paragraph Title": "When after recieving 3 attacks"
+        },
+        "9004609": {
+            "ID": 9004609,
+            "Timing": "Start of turn",
+            "DR": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 791 && 528 )",
+                "Causalities": {
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "528": {
+                        "Button": {
+                            "Name": "Is HP 50 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"791&528\", \"compiled\": [\"&\", 791, 528]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 50%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 50%{passiveImg:up_g} for 1 turn ",
+            "Paragraph Title": "When ( after recieving 3 attacks and HP is 50% or less )"
+        },
+        "10004609": {
+            "ID": 10004609,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "INT",
+                    "TEQ",
+                    "AGL"
+                ],
+                "To": [
+                    "STR"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 791 && 528 )",
+                "Causalities": {
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    },
+                    "528": {
+                        "Button": {
+                            "Name": "Is HP 50 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=50",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 50% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"791&528\", \"compiled\": [\"&\", 791, 528]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Randomly changes Ki Spheres of a certain Type(STR excluded) to STR Ki Spheres ",
+            "Line description": " {passiveImg:once}Randomly changes Ki Spheres of a certain Type(STR excluded) to STR Ki Spheres for 1 turn ",
+            "Paragraph Title": "When ( after recieving 3 attacks and HP is 50% or less )"
+        },
+        "11004609": {
+            "ID": 11004609,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 444,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK 444%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 444%{passiveImg:up_g} when attacking until after attacking until when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "12004609": {
+            "ID": 12004609,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit when attacking",
+            "Line description": "Performs a Critical Hit when attacking until after attacking until when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "13004609": {
+            "ID": 13004609,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 11004609
+            },
+            "Timing": "Right after attack",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:11004609 after attacking",
+            "Line description": "Disables a different passive line:11004609 after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "14004609": {
+            "ID": 14004609,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 11004609
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3464 )",
+                "Causalities": {
+                    "3464": {
+                        "Button": {
+                            "Name": "Has 1 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3464\", \"compiled\": 3464}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:11004609 when attacking",
+            "Line description": "Disables a different passive line:11004609 when attacking",
+            "Paragraph Title": "When with 1 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres obtained"
+        },
+        "15004609": {
+            "ID": 15004609,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 12004609
+            },
+            "Timing": "Right after attack",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:12004609 after attacking",
+            "Line description": "Disables a different passive line:12004609 after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "16004609": {
+            "ID": 16004609,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 12004609
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3464 )",
+                "Causalities": {
+                    "3464": {
+                        "Button": {
+                            "Name": "Has 1 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres been obtained on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained on this turn?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "With 1 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres obtained"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3464\", \"compiled\": 3464}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:12004609 when attacking",
+            "Line description": "Disables a different passive line:12004609 when attacking",
+            "Paragraph Title": "When with 1 or more Cookies or Rainbow or PHY or STR or INT or TEQ or AGL Ki Spheres obtained"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Receives an additional Ki +2 per Ki Sphere obtained\n*For every Ki Sphere obtained*\n- ATK 56%{passiveImg:up_g}\n- DEF 48%{passiveImg:up_g}\n*3 or more Ki Spheres obtained*\n- ATK 75%{passiveImg:up_g} and DEF 64%{passiveImg:up_g} when attacking\n*When attacking with 10 or more Ki*\n- ATK 108%{passiveImg:up_g}\n*When receiving an attack with 10 or more Ki*\n- DEF 108%{passiveImg:up_g}\n*When HP is 50% or more*\n- DEF 100%{passiveImg:up_g}\n- Damage reduction rate 20%{passiveImg:up_g}\n*Before receiving 3 attacks in battle*\n- Damage reduction rate 20%{passiveImg:up_g}\n*When HP is 50% or less at the start of the character's\nattacking turn after the character receives 3 or more attacks\nin battle*\n- {passiveImg:once}Damage reduction rate 50%{passiveImg:up_g}\n- {passiveImg:once}Randomly changes Ki Spheres of a certain Type\n(STR excluded) to STR Ki Spheres\n*When activating the Active Skill*\n- ATK 444%{passiveImg:up_g} temporarily and performs a critical hit",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "150": {
+            "HP": 16369,
+            "ATK": 11885,
+            "DEF": 10272
+        }
+    },
+    "Leader Skill": {
+        "Name": "Bloodstained Sanctuary",
+        "102234100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "DB Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 150,
+            "DEF": 150,
+            "HP": 150,
+            "Ki": 0
+        },
+        "102234101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "DB Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "7684": {
+            "superID": "7684",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Thrusting Blue Dragon Blade (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses colossal damage to enemy \nand great chance of performing \na critical hit for 1 turn",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7684": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1007684": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "Crit Chance": "70"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 420,
+            "relevantLua": [
+                "sp2216"
+            ]
+        },
+        "7685": {
+            "superID": "7685",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Devastating Dodon Ray (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses mega-colossal damage to enemy \nand great chance of performing \na critical hit for 1 turn",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "7685": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1007685": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "Crit Chance": "70"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 590,
+            "relevantLua": [
+                "sp2219"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Last-Ditch Attempt",
+        "Effect Description": "Massively raises ATK temporarily, \ncauses ultimate damage and \nstuns the enemy for 1 turn",
+        "Condition Description": "Can be activated when HP is 50% or less \nif the character receives an attack \n3 or more times in battle (once only)",
+        "Condition": {
+            "Logic": "( 791 && 673 )",
+            "Causalities": {
+                "791": {
+                    "Button": {
+                        "Name": "Has this character recieved their 3rd attack in battle?"
+                    },
+                    "Slider": {
+                        "Name": "How many attacks has this character recieved?",
+                        "Logic": ">=3",
+                        "Min": 0,
+                        "Max": 3
+                    },
+                    "Paragraph Title": "After recieving 3 attacks"
+                },
+                "673": {
+                    "Button": {
+                        "Name": "Is HP 50 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": "<=50",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 50% or less"
+                }
+            }
+        },
+        "Uses": 1,
+        "Attack": {
+            "Multiplier": 650,
+            "Target": "Enemy"
+        },
+        "Effects": {
+            "118": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Stun"
+                },
+                "Target": {
+                    "Target": "Enemy"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 80.0,
+        "1": 85.0,
+        "2": 90.0,
+        "3": 95.0,
+        "4": 100.0,
+        "5": 105.0,
+        "6": 110.0,
+        "7": 115.0,
+        "8": 120.0,
+        "9": 125.0,
+        "10": 130.0,
+        "11": 135.0,
+        "12": 140.0,
+        "13": 145.0,
+        "14": 150.0,
+        "15": 155.0,
+        "16": 160.0,
+        "17": 165.0,
+        "18": 170.0,
+        "19": 175.0,
+        "20": 180.0,
+        "21": 185.0,
+        "22": 190.0,
+        "23": 195.0,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "7684",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

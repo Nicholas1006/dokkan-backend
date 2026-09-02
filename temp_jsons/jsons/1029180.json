@@ -1,0 +1,1135 @@
+{
+    "ID": "1029180",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Cocotte",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Peppy Gals",
+        "Universe Survival Saga",
+        "Special Pose",
+        "Universe 11",
+        "Space-Traveling Warriors",
+        "Defenders of Justice",
+        "Tournament Participants"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Supreme Warrior",
+        "Signature Pose",
+        "Battlefield Diva",
+        "Hero of Justice",
+        "Shocking Speed",
+        "Tournament of Power",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1029180,
+    "Passive": {
+        "4229": {
+            "ID": 4229,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004229": {
+            "ID": 1004229,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004229": {
+            "ID": 2004229,
+            "Timing": "Start of turn",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004229": {
+            "ID": 3004229,
+            "Timing": "Start of turn",
+            "DR": 11,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 11%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 11%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004229": {
+            "ID": 4004229,
+            "Timing": "Start of turn",
+            "DR": 11,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 716 || 918 )",
+                "Causalities": {
+                    "716": {
+                        "Button": {
+                            "Name": "Are there 2 or more Peppy Gals category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Peppy Gals Category allies attacking on this turn"
+                    },
+                    "918": {
+                        "Button": {
+                            "Name": "Are there 2 or more Universe 11 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 11 category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Universe 11 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"716|918\", \"compiled\": [\"|\", 716, 918]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 11%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 11%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Peppy Gals Category allies attacking on this turn or there are 2 or more Universe 11 Category allies attacking on this turn "
+        },
+        "5004229": {
+            "ID": 5004229,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 716 || 918 )",
+                "Causalities": {
+                    "716": {
+                        "Button": {
+                            "Name": "Are there 2 or more Peppy Gals category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Peppy Gals Category allies attacking on this turn"
+                    },
+                    "918": {
+                        "Button": {
+                            "Name": "Are there 2 or more Universe 11 category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 11 category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Universe 11 Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"716|918\", \"compiled\": [\"|\", 716, 918]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When there are 2 or more Peppy Gals Category allies attacking on this turn or there are 2 or more Universe 11 Category allies attacking on this turn "
+        },
+        "6004229": {
+            "ID": 6004229,
+            "Forsee Super Attack": true,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 996 || 3237 || 3238 )",
+                "Causalities": {
+                    "996": {
+                        "Button": {
+                            "Name": "Are there 4 or more Peppy Gals category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Peppy Gals Category allies "
+                    },
+                    "3237": {
+                        "Button": {
+                            "Name": "Are there 4 or more Universe 11 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 11 category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Universe 11 Category allies "
+                    },
+                    "3238": {
+                        "Button": {
+                            "Name": "Is there 1 or more TEQ  type enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ  type enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more TEQ  type enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"996|3237|3238\", \"compiled\": [\"|\", 996, 3237, 3238]}",
+            "Type": "Single activator",
+            "Brief effect description": "Forsee enemy super attack ",
+            "Line description": "Forsee enemy super attack ",
+            "Paragraph Title": "When there are 4 or more Peppy Gals Category allies or there are 4 or more Universe 11 Category allies or there are 1 or more TEQ type enemies "
+        },
+        "7004229": {
+            "ID": 7004229,
+            "Timing": "Start of turn",
+            "DR": 11,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 996 || 3237 || 3238 )",
+                "Causalities": {
+                    "996": {
+                        "Button": {
+                            "Name": "Are there 4 or more Peppy Gals category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Peppy Gals Category allies "
+                    },
+                    "3237": {
+                        "Button": {
+                            "Name": "Are there 4 or more Universe 11 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 11 category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Universe 11 Category allies "
+                    },
+                    "3238": {
+                        "Button": {
+                            "Name": "Is there 1 or more TEQ  type enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ  type enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more TEQ  type enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"996|3237|3238\", \"compiled\": [\"|\", 996, 3237, 3238]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 11%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 11%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Peppy Gals Category allies or there are 4 or more Universe 11 Category allies or there are 1 or more TEQ type enemies "
+        },
+        "8004229": {
+            "ID": 8004229,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 300,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 996 || 3237 || 3238 )",
+                "Causalities": {
+                    "996": {
+                        "Button": {
+                            "Name": "Are there 4 or more Peppy Gals category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Peppy Gals Category allies "
+                    },
+                    "3237": {
+                        "Button": {
+                            "Name": "Are there 4 or more Universe 11 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 11 category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Universe 11 Category allies "
+                    },
+                    "3238": {
+                        "Button": {
+                            "Name": "Is there 1 or more TEQ  type enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many TEQ  type enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more TEQ  type enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"996|3237|3238\", \"compiled\": [\"|\", 996, 3237, 3238]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 300%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 300%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When there are 4 or more Peppy Gals Category allies or there are 4 or more Universe 11 Category allies or there are 1 or more TEQ type enemies "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 150%{passiveImg:up_g}\n- High chance of performing a critical hit\n- Damage reduction rate 11%{passiveImg:up_g}\n*When attacking*\n- ATK & DEF 150%{passiveImg:up_g}\n*When there is another \"Peppy Gals\" or \"Universe 11\"\nCategory ally attacking in the same turn*\n- Damage reduction rate 11%{passiveImg:up_g}\n- Launches an additional Super Attack\n*When another 3 or more \"Peppy Gals\" or \"Universe 11\"\nCategory allies are on the team, or when there is a TEQ Type\nenemy*\n- Foresees enemy's Super Attack\n- Damage reduction rate 11%{passiveImg:up_g}\n- ATK 300%{passiveImg:up_g} when attacking",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 2272,
+            "ATK": 2378,
+            "DEF": 1248
+        },
+        "2": {
+            "HP": 2325,
+            "ATK": 2433,
+            "DEF": 1277
+        },
+        "3": {
+            "HP": 2378,
+            "ATK": 2489,
+            "DEF": 1306
+        },
+        "4": {
+            "HP": 2431,
+            "ATK": 2545,
+            "DEF": 1335
+        },
+        "5": {
+            "HP": 2485,
+            "ATK": 2601,
+            "DEF": 1365
+        },
+        "6": {
+            "HP": 2540,
+            "ATK": 2659,
+            "DEF": 1395
+        },
+        "7": {
+            "HP": 2594,
+            "ATK": 2715,
+            "DEF": 1425
+        },
+        "8": {
+            "HP": 2647,
+            "ATK": 2771,
+            "DEF": 1454
+        },
+        "9": {
+            "HP": 2700,
+            "ATK": 2826,
+            "DEF": 1483
+        },
+        "10": {
+            "HP": 2754,
+            "ATK": 2882,
+            "DEF": 1512
+        },
+        "11": {
+            "HP": 2807,
+            "ATK": 2938,
+            "DEF": 1542
+        },
+        "12": {
+            "HP": 2860,
+            "ATK": 2994,
+            "DEF": 1571
+        },
+        "13": {
+            "HP": 2913,
+            "ATK": 3049,
+            "DEF": 1600
+        },
+        "14": {
+            "HP": 2967,
+            "ATK": 3105,
+            "DEF": 1630
+        },
+        "15": {
+            "HP": 3020,
+            "ATK": 3161,
+            "DEF": 1659
+        },
+        "16": {
+            "HP": 3076,
+            "ATK": 3219,
+            "DEF": 1690
+        },
+        "17": {
+            "HP": 3129,
+            "ATK": 3275,
+            "DEF": 1719
+        },
+        "18": {
+            "HP": 3182,
+            "ATK": 3331,
+            "DEF": 1748
+        },
+        "19": {
+            "HP": 3236,
+            "ATK": 3387,
+            "DEF": 1777
+        },
+        "20": {
+            "HP": 3289,
+            "ATK": 3442,
+            "DEF": 1807
+        },
+        "21": {
+            "HP": 3342,
+            "ATK": 3498,
+            "DEF": 1836
+        },
+        "22": {
+            "HP": 3395,
+            "ATK": 3554,
+            "DEF": 1865
+        },
+        "23": {
+            "HP": 3449,
+            "ATK": 3610,
+            "DEF": 1895
+        },
+        "24": {
+            "HP": 3502,
+            "ATK": 3666,
+            "DEF": 1924
+        },
+        "25": {
+            "HP": 3555,
+            "ATK": 3721,
+            "DEF": 1953
+        },
+        "26": {
+            "HP": 3611,
+            "ATK": 3780,
+            "DEF": 1984
+        },
+        "27": {
+            "HP": 3664,
+            "ATK": 3836,
+            "DEF": 2013
+        },
+        "28": {
+            "HP": 3718,
+            "ATK": 3891,
+            "DEF": 2042
+        },
+        "29": {
+            "HP": 3771,
+            "ATK": 3947,
+            "DEF": 2072
+        },
+        "30": {
+            "HP": 3824,
+            "ATK": 4003,
+            "DEF": 2101
+        },
+        "31": {
+            "HP": 3877,
+            "ATK": 4059,
+            "DEF": 2130
+        },
+        "32": {
+            "HP": 3931,
+            "ATK": 4114,
+            "DEF": 2159
+        },
+        "33": {
+            "HP": 3984,
+            "ATK": 4170,
+            "DEF": 2189
+        },
+        "34": {
+            "HP": 4037,
+            "ATK": 4226,
+            "DEF": 2218
+        },
+        "35": {
+            "HP": 4091,
+            "ATK": 4282,
+            "DEF": 2247
+        },
+        "36": {
+            "HP": 4146,
+            "ATK": 4340,
+            "DEF": 2278
+        },
+        "37": {
+            "HP": 4200,
+            "ATK": 4396,
+            "DEF": 2307
+        },
+        "38": {
+            "HP": 4253,
+            "ATK": 4452,
+            "DEF": 2337
+        },
+        "39": {
+            "HP": 4306,
+            "ATK": 4507,
+            "DEF": 2366
+        },
+        "40": {
+            "HP": 4360,
+            "ATK": 4563,
+            "DEF": 2395
+        },
+        "41": {
+            "HP": 4413,
+            "ATK": 4619,
+            "DEF": 2424
+        },
+        "42": {
+            "HP": 4466,
+            "ATK": 4675,
+            "DEF": 2454
+        },
+        "43": {
+            "HP": 4519,
+            "ATK": 4731,
+            "DEF": 2483
+        },
+        "44": {
+            "HP": 4573,
+            "ATK": 4786,
+            "DEF": 2512
+        },
+        "45": {
+            "HP": 4626,
+            "ATK": 4842,
+            "DEF": 2542
+        },
+        "46": {
+            "HP": 4682,
+            "ATK": 4901,
+            "DEF": 2572
+        },
+        "47": {
+            "HP": 4735,
+            "ATK": 4956,
+            "DEF": 2602
+        },
+        "48": {
+            "HP": 4788,
+            "ATK": 5012,
+            "DEF": 2631
+        },
+        "49": {
+            "HP": 4842,
+            "ATK": 5068,
+            "DEF": 2660
+        },
+        "50": {
+            "HP": 4895,
+            "ATK": 5124,
+            "DEF": 2689
+        },
+        "51": {
+            "HP": 4948,
+            "ATK": 5179,
+            "DEF": 2719
+        },
+        "52": {
+            "HP": 5001,
+            "ATK": 5235,
+            "DEF": 2748
+        },
+        "53": {
+            "HP": 5055,
+            "ATK": 5291,
+            "DEF": 2777
+        },
+        "54": {
+            "HP": 5108,
+            "ATK": 5347,
+            "DEF": 2806
+        },
+        "55": {
+            "HP": 5161,
+            "ATK": 5402,
+            "DEF": 2836
+        },
+        "56": {
+            "HP": 5217,
+            "ATK": 5461,
+            "DEF": 2866
+        },
+        "57": {
+            "HP": 5270,
+            "ATK": 5517,
+            "DEF": 2896
+        },
+        "58": {
+            "HP": 5324,
+            "ATK": 5572,
+            "DEF": 2925
+        },
+        "59": {
+            "HP": 5377,
+            "ATK": 5628,
+            "DEF": 2954
+        },
+        "60": {
+            "HP": 5430,
+            "ATK": 5684,
+            "DEF": 2984
+        },
+        "61": {
+            "HP": 5483,
+            "ATK": 5740,
+            "DEF": 3013
+        },
+        "62": {
+            "HP": 5537,
+            "ATK": 5796,
+            "DEF": 3042
+        },
+        "63": {
+            "HP": 5590,
+            "ATK": 5851,
+            "DEF": 3071
+        },
+        "64": {
+            "HP": 5643,
+            "ATK": 5907,
+            "DEF": 3101
+        },
+        "65": {
+            "HP": 5697,
+            "ATK": 5963,
+            "DEF": 3130
+        },
+        "66": {
+            "HP": 5752,
+            "ATK": 6021,
+            "DEF": 3161
+        },
+        "67": {
+            "HP": 5806,
+            "ATK": 6077,
+            "DEF": 3190
+        },
+        "68": {
+            "HP": 5859,
+            "ATK": 6133,
+            "DEF": 3219
+        },
+        "69": {
+            "HP": 5912,
+            "ATK": 6189,
+            "DEF": 3249
+        },
+        "70": {
+            "HP": 5966,
+            "ATK": 6244,
+            "DEF": 3278
+        },
+        "71": {
+            "HP": 6019,
+            "ATK": 6300,
+            "DEF": 3307
+        },
+        "72": {
+            "HP": 6072,
+            "ATK": 6356,
+            "DEF": 3336
+        },
+        "73": {
+            "HP": 6125,
+            "ATK": 6412,
+            "DEF": 3366
+        },
+        "74": {
+            "HP": 6179,
+            "ATK": 6467,
+            "DEF": 3395
+        },
+        "75": {
+            "HP": 6232,
+            "ATK": 6523,
+            "DEF": 3424
+        },
+        "76": {
+            "HP": 6288,
+            "ATK": 6582,
+            "DEF": 3455
+        },
+        "77": {
+            "HP": 6341,
+            "ATK": 6637,
+            "DEF": 3484
+        },
+        "78": {
+            "HP": 6394,
+            "ATK": 6693,
+            "DEF": 3513
+        },
+        "79": {
+            "HP": 6448,
+            "ATK": 6749,
+            "DEF": 3543
+        },
+        "80": {
+            "HP": 6501,
+            "ATK": 6805,
+            "DEF": 3572
+        },
+        "81": {
+            "HP": 6554,
+            "ATK": 6861,
+            "DEF": 3601
+        },
+        "82": {
+            "HP": 6607,
+            "ATK": 6916,
+            "DEF": 3631
+        },
+        "83": {
+            "HP": 6661,
+            "ATK": 6972,
+            "DEF": 3660
+        },
+        "84": {
+            "HP": 6714,
+            "ATK": 7028,
+            "DEF": 3689
+        },
+        "85": {
+            "HP": 6767,
+            "ATK": 7084,
+            "DEF": 3718
+        },
+        "86": {
+            "HP": 6823,
+            "ATK": 7142,
+            "DEF": 3749
+        },
+        "87": {
+            "HP": 6876,
+            "ATK": 7198,
+            "DEF": 3778
+        },
+        "88": {
+            "HP": 6930,
+            "ATK": 7254,
+            "DEF": 3808
+        },
+        "89": {
+            "HP": 6983,
+            "ATK": 7309,
+            "DEF": 3837
+        },
+        "90": {
+            "HP": 7036,
+            "ATK": 7365,
+            "DEF": 3866
+        },
+        "91": {
+            "HP": 7089,
+            "ATK": 7421,
+            "DEF": 3896
+        },
+        "92": {
+            "HP": 7143,
+            "ATK": 7477,
+            "DEF": 3925
+        },
+        "93": {
+            "HP": 7196,
+            "ATK": 7532,
+            "DEF": 3954
+        },
+        "94": {
+            "HP": 7249,
+            "ATK": 7588,
+            "DEF": 3983
+        },
+        "95": {
+            "HP": 7303,
+            "ATK": 7644,
+            "DEF": 4013
+        },
+        "96": {
+            "HP": 7358,
+            "ATK": 7702,
+            "DEF": 4043
+        },
+        "97": {
+            "HP": 7412,
+            "ATK": 7758,
+            "DEF": 4073
+        },
+        "98": {
+            "HP": 7465,
+            "ATK": 7814,
+            "DEF": 4102
+        },
+        "99": {
+            "HP": 7518,
+            "ATK": 7870,
+            "DEF": 4131
+        },
+        "100": {
+            "HP": 7572,
+            "ATK": 7926,
+            "DEF": 4161
+        }
+    },
+    "Leader Skill": {
+        "Name": "Illusionist of Dimensions",
+        "10291800": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Peppy Gals"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10291801": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Peppy Gals"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 120,
+            "HP": 120,
+            "Ki": 0
+        },
+        "10291802": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10291803": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 120,
+            "DEF": 120,
+            "HP": 120,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "5738": {
+            "superID": "5738",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Cocotte Zone",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5738": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2734"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5738",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

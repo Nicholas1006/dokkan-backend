@@ -1,0 +1,806 @@
+{
+    "ID": "1019911",
+    "Type": "TEQ",
+    "Class": "Super",
+    "Name": "Jiren (Full Power)",
+    "Rarity": "lr",
+    "Min Level": 150,
+    "Max Level": 150,
+    "Categories": [
+        "Universe 11",
+        "Universe Survival Saga",
+        "Realm of Gods",
+        "Full Power",
+        "Space-Traveling Warriors",
+        "Powerful Comeback",
+        "Defenders of Justice",
+        "Battle of Fate",
+        "Tournament Participants",
+        "Super Bosses"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Supreme Warrior",
+        "Shocking Speed",
+        "Infighter",
+        "Godly Power",
+        "Tournament of Power",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 1019910,
+    "Passive": {
+        "4194": {
+            "ID": 4194,
+            "Timing": "Start of turn",
+            "ATK": 300,
+            "DEF": 300,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 300%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 300%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004194": {
+            "ID": 1004194,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 68 )",
+                "Causalities": {
+                    "68": {
+                        "Button": {
+                            "Name": "Is HP 40 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=40",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 40% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"68\", \"compiled\": 68}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 40% or more"
+        },
+        "2004194": {
+            "ID": 2004194,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 68 )",
+                "Causalities": {
+                    "68": {
+                        "Button": {
+                            "Name": "Is HP 40 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=40",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 40% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"68\", \"compiled\": 68}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks ",
+            "Paragraph Title": "When HP is 40% or more"
+        },
+        "3004194": {
+            "ID": 3004194,
+            "Timing": "Start of turn",
+            "ATK": 200,
+            "DEF": 200,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 61 || ( 2375 && 42 ) )",
+                "Causalities": {
+                    "61": {
+                        "Button": {
+                            "Name": "Is HP 40 % or less?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining?",
+                            "Logic": "<=40",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 40% or less"
+                    },
+                    "2375": {
+                        "Button": {
+                            "Name": "Is it on or after the first 5 turns from this characters entry turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn?",
+                            "Logic": ">=5",
+                            "Min": 0,
+                            "Max": 5
+                        },
+                        "Paragraph Title": "Starting from the 5 turn from the character's entry turn"
+                    },
+                    "42": {
+                        "Button": {
+                            "Name": "Is HP 80 % or less?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining?",
+                            "Logic": "<=80",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 80% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"61|2375&42\", \"compiled\": [\"|\", 61, [\"&\", 2375, 42]]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 200%{passiveImg:up_g} ",
+            "Line description": "{passiveImg:forever} {passiveImg:once}ATK and DEF 200%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 40% or less or starting from the 5 turn from the character's entry turn"
+        },
+        "4004194": {
+            "ID": 4004194,
+            "Timing": "Right after being hit",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 11,
+                "Stat Per Proc": 3,
+                "Cause": {
+                    "Cause": "Attacks recieved"
+                },
+                "Slider": "How many attacks has this character recieved?"
+            },
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +3 ({currentValue} / 11) based on 'How many attacks has this character recieved' after being hit",
+            "Line description": "{passiveImg:forever}Ki +3 ({currentValue} / 11) based on 'How many attacks has this character recieved' after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004194": {
+            "ID": 5004194,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 791 )",
+                "Causalities": {
+                    "791": {
+                        "Button": {
+                            "Name": "Has this character recieved their 3rd attack in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks has this character recieved?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "After recieving 3 attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"791\", \"compiled\": 791}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack after being hit",
+            "Line description": "{passiveImg:forever}Performs an additional super attack after being hit",
+            "Paragraph Title": "When after recieving 3 attacks"
+        },
+        "6004194": {
+            "ID": 6004194,
+            "Effective Against All": true,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Attacks effective against all Types ",
+            "Line description": "Attacks effective against all Types ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004194": {
+            "ID": 7004194,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 421 || 422 || 535 )",
+                "Causalities": {
+                    "421": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down}"
+                    },
+                    "422": {
+                        "Button": {
+                            "Name": "Is the target enemy in DEF Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:def_down}"
+                    },
+                    "535": {
+                        "Button": {
+                            "Name": "Is the target enemy in Stunned on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:stun}"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"421|422|535\", \"compiled\": [\"|\", 421, 422, 535]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs a Critical Hit when attacking",
+            "Line description": "Performs a Critical Hit when attacking",
+            "Paragraph Title": "When HP is 80% or less1 or HP is 80% or less2 or the target enemy is in the following status{passiveImg:stun}"
+        },
+        "8004194": {
+            "ID": 8004194,
+            "Timing": "Right after attack",
+            "Status": [
+                "Disable action"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 612 )",
+                "Causalities": {
+                    "612": {
+                        "Button": {
+                            "Name": "Is Ki at least 24 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=24",
+                            "Min": 0,
+                            "Max": 24
+                        },
+                        "Paragraph Title": "When Ki is 24 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"612\", \"compiled\": 612}",
+            "Type": "Single activator",
+            "Brief effect description": "Disable action after attacking",
+            "Line description": "Disable action after attacking 2 ",
+            "Paragraph Title": "When HP is 40% or less2"
+        },
+        "9004194": {
+            "ID": 9004194,
+            "Timing": "Start of turn",
+            "DR": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": "{\"source\": \"1000000000000\", \"compiled\": 1000000000000}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 1000000000000 )",
+                "Causalities": {
+                    "1000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 1 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 1 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Damage Reduction Rate 30%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 30%{passiveImg:up_g} for 1 turn ",
+            "Paragraph Title": "For 1 turn(s) from the character's entry turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 300%{passiveImg:up_g}\n- Attacks are effective against all Types\n*For 1 turn from the character's entry turn*\n- Damage reduction rate 30%{passiveImg:up_g}\n*When HP is 40% or more*\n- ATK & DEF 100%{passiveImg:up_g}\n- Guards all attacks\n*When HP is 40% or less, or when HP is 80% or less starting\nfrom the 5th turn from the character's entry turn*\n- {passiveImg:forever}ATK & DEF 200%{passiveImg:up_g}\n*For every attack received*\n- {passiveImg:forever}Ki +3 (up to +11)\n*After receiving 3 or more attacks in battle*\n- {passiveImg:forever}Launches an additional Super Attack\n*When the target enemy is in the following status: {passiveImg:atk_down}, {passiveImg:def_down}\nor {passiveImg:stun}*\n- Performs a critical hit\n*When attacking with 24 Ki*\n- Interrupts the attacked enemy",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "150": {
+            "HP": 16263,
+            "ATK": 16125,
+            "DEF": 9338
+        }
+    },
+    "Leader Skill": {
+        "Name": "Majesty of the Mighty",
+        "101991100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe 11"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101991101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe 11"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "101991102": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe Survival Saga"
+                ],
+                "Excluded Category": [
+                    "Universe 11"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101991103": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Universe Survival Saga"
+                ],
+                "Excluded Category": [
+                    "Universe 11"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5741": {
+            "superID": "5741",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Heatwave Magnetron (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses colossal damage to enemy \nand greatly lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5741": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1005741": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 420,
+            "relevantLua": [
+                "sp2028"
+            ]
+        },
+        "5742": {
+            "superID": "5742",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Omega Heat Magnetron (Extreme)",
+            "superDescription": "Massively raises ATK & DEF for 1 turn, \ncauses mega-colossal damage and \nmassively lowers DEF with \na high chance of stunning the enemy",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5742": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "100",
+                    "DEF": "100"
+                },
+                "1005742": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "DEF": "80"
+                },
+                "2005742": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 590,
+            "relevantLua": [
+                "sp2029"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Strength Is Everything",
+        "Effect Description": "ATK & DEF +30%, all enemies' ATK & DEF -30% \nand stuns all enemies for 1 turn",
+        "Condition Description": "Can be activated after the character receives \nan attack 5 or more times in battle (once only)",
+        "Condition": {
+            "Logic": "( 681 )",
+            "Causalities": {
+                "681": {
+                    "Button": {
+                        "Name": "Has this character recieved their 5th attack in battle?"
+                    },
+                    "Slider": {
+                        "Name": "How many attacks has this character recieved?",
+                        "Logic": ">=5",
+                        "Min": 0,
+                        "Max": 5
+                    },
+                    "Paragraph Title": "After recieving 5 attacks"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "61": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "ATK Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "62": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "ATK Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "All enemies"
+                }
+            },
+            "63": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Stun"
+                },
+                "Target": {
+                    "Target": "All enemies"
+                }
+            },
+            "193": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "DEF Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "194": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "DEF Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "All enemies"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 100.0,
+        "1": 104.16666666666666,
+        "2": 108.33333333333333,
+        "3": 112.5,
+        "4": 116.66666666666666,
+        "5": 120.83333333333333,
+        "6": 125.0,
+        "7": 129.16666666666666,
+        "8": 133.33333333333334,
+        "9": 137.5,
+        "10": 141.66666666666666,
+        "11": 145.83333333333334,
+        "12": 150.0,
+        "13": 154.16666666666666,
+        "14": 158.33333333333334,
+        "15": 162.5,
+        "16": 166.66666666666666,
+        "17": 170.83333333333334,
+        "18": 175.0,
+        "19": 179.16666666666666,
+        "20": 183.33333333333334,
+        "21": 187.5,
+        "22": 191.66666666666669,
+        "23": 195.83333333333334,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5741",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

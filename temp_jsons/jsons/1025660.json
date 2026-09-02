@@ -1,0 +1,1250 @@
+{
+    "ID": "1025660",
+    "Type": "INT",
+    "Class": "None",
+    "Name": "Tora",
+    "Rarity": "ssr",
+    "Min Level": 1,
+    "Max Level": 80,
+    "Categories": [
+        "Storied Figures",
+        "Low-Class Warrior",
+        "Pure Saiyans",
+        "Team Bardock",
+        "Space-Traveling Warriors",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Saiyan Warrior Race",
+        "The Saiyan Lineage",
+        "Cold Judgment",
+        "Team Bardock",
+        "Saiyan Pride",
+        "Prepared for Battle"
+    ],
+    "Resource ID": 1025660,
+    "Passive": {
+        "3030": {
+            "ID": 3030,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003030": {
+            "ID": 1003030,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003030": {
+            "ID": 2003030,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1847 )",
+                "Causalities": {
+                    "1847": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1847\", \"compiled\": 1847}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "3003030": {
+            "ID": 3003030,
+            "Timing": "Start of turn",
+            "Crit Chance": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1843 )",
+                "Causalities": {
+                    "1843": {
+                        "Button": {
+                            "Name": "Are there 1 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1843\", \"compiled\": 1843}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +7%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +7%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Team Bardock Category allies attacking on this turn"
+        },
+        "4003030": {
+            "ID": 4003030,
+            "Dodge Chance": 7,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1843 )",
+                "Causalities": {
+                    "1843": {
+                        "Button": {
+                            "Name": "Are there 1 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1843\", \"compiled\": 1843}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +7% ",
+            "Line description": "Chance of evading enemy attacks +7% ",
+            "Paragraph Title": "When there are 1 or more Team Bardock Category allies attacking on this turn"
+        },
+        "5003030": {
+            "ID": 5003030,
+            "Timing": "Start of turn",
+            "DR": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1843 )",
+                "Causalities": {
+                    "1843": {
+                        "Button": {
+                            "Name": "Are there 1 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1843\", \"compiled\": 1843}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 7{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 7{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Team Bardock Category allies attacking on this turn"
+        },
+        "6003030": {
+            "ID": 6003030,
+            "Timing": "Start of turn",
+            "Crit Chance": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1844 )",
+                "Causalities": {
+                    "1844": {
+                        "Button": {
+                            "Name": "Are there 2 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1844\", \"compiled\": 1844}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +7%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +7%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Team Bardock Category allies attacking on this turn"
+        },
+        "7003030": {
+            "ID": 7003030,
+            "Dodge Chance": 7,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1844 )",
+                "Causalities": {
+                    "1844": {
+                        "Button": {
+                            "Name": "Are there 2 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1844\", \"compiled\": 1844}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +7% ",
+            "Line description": "Chance of evading enemy attacks +7% ",
+            "Paragraph Title": "When there are 2 or more Team Bardock Category allies attacking on this turn"
+        },
+        "8003030": {
+            "ID": 8003030,
+            "Timing": "Start of turn",
+            "DR": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1844 )",
+                "Causalities": {
+                    "1844": {
+                        "Button": {
+                            "Name": "Are there 2 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1844\", \"compiled\": 1844}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 7{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 7{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Team Bardock Category allies attacking on this turn"
+        },
+        "9003030": {
+            "ID": 9003030,
+            "Timing": "Start of turn",
+            "Crit Chance": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1845 )",
+                "Causalities": {
+                    "1845": {
+                        "Button": {
+                            "Name": "Are there 3 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1845\", \"compiled\": 1845}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +7%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +7%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Team Bardock Category allies attacking on this turn"
+        },
+        "10003030": {
+            "ID": 10003030,
+            "Dodge Chance": 7,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1845 )",
+                "Causalities": {
+                    "1845": {
+                        "Button": {
+                            "Name": "Are there 3 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1845\", \"compiled\": 1845}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +7% ",
+            "Line description": "Chance of evading enemy attacks +7% ",
+            "Paragraph Title": "When there are 3 or more Team Bardock Category allies attacking on this turn"
+        },
+        "11003030": {
+            "ID": 11003030,
+            "Timing": "Start of turn",
+            "DR": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1845 )",
+                "Causalities": {
+                    "1845": {
+                        "Button": {
+                            "Name": "Are there 3 or more Team Bardock category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Team Bardock category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Team Bardock Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1845\", \"compiled\": 1845}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 7{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 7{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Team Bardock Category allies attacking on this turn"
+        },
+        "12003030": {
+            "ID": 12003030,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1838 )",
+                "Causalities": {
+                    "1838": {
+                        "Button": {
+                            "Name": "Are there 1 or more Storied Figures category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Storied Figures category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Storied Figures Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1838\", \"compiled\": 1838}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Storied Figures Category allies "
+        },
+        "13003030": {
+            "ID": 13003030,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1839 )",
+                "Causalities": {
+                    "1839": {
+                        "Button": {
+                            "Name": "Are there 2 or more Storied Figures category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Storied Figures category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Storied Figures Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1839\", \"compiled\": 1839}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Storied Figures Category allies "
+        },
+        "14003030": {
+            "ID": 14003030,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1840 )",
+                "Causalities": {
+                    "1840": {
+                        "Button": {
+                            "Name": "Are there 3 or more Storied Figures category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Storied Figures category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Storied Figures Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1840\", \"compiled\": 1840}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Storied Figures Category allies "
+        },
+        "15003030": {
+            "ID": 15003030,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1841 )",
+                "Causalities": {
+                    "1841": {
+                        "Button": {
+                            "Name": "Are there 4 or more Storied Figures category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Storied Figures category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Storied Figures Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1841\", \"compiled\": 1841}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Storied Figures Category allies "
+        },
+        "16003030": {
+            "ID": 16003030,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1842 )",
+                "Causalities": {
+                    "1842": {
+                        "Button": {
+                            "Name": "Are there 5 or more Storied Figures category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Storied Figures category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Storied Figures Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1842\", \"compiled\": 1842}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Storied Figures Category allies "
+        },
+        "17003030": {
+            "ID": 17003030,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Storied Figures"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all Storied Figures category allies ",
+            "Line description": "Ki +2 for all Storied Figures category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "18003030": {
+            "ID": 18003030,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Storied Figures"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all Storied Figures category allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all Storied Figures category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +1\n- ATK & DEF 100%{passiveImg:up_g}\n- \"Storied Figures\" Category allies' Ki +2 and ATK & DEF\n20%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 50%{passiveImg:up_g}\n*Per \"Storied Figures\" Category ally on the team*\n- ATK & DEF 10%{passiveImg:up_g} (up to 50%)\n*Per \"Team Bardock\" Category ally attacking in the same\nturn*\n- Chance of performing a critical hit, chance of evading\nenemy's attack & damage reduction rate 7%{passiveImg:up_g}",
+    "Max Attacks": 1,
+    "Max Super Attacks": 1,
+    "Stats at levels": {
+        "1": {
+            "HP": 2142,
+            "ATK": 1823,
+            "DEF": 1166
+        },
+        "2": {
+            "HP": 2206,
+            "ATK": 1877,
+            "DEF": 1200
+        },
+        "3": {
+            "HP": 2267,
+            "ATK": 1930,
+            "DEF": 1234
+        },
+        "4": {
+            "HP": 2331,
+            "ATK": 1984,
+            "DEF": 1269
+        },
+        "5": {
+            "HP": 2395,
+            "ATK": 2039,
+            "DEF": 1304
+        },
+        "6": {
+            "HP": 2457,
+            "ATK": 2091,
+            "DEF": 1337
+        },
+        "7": {
+            "HP": 2521,
+            "ATK": 2146,
+            "DEF": 1372
+        },
+        "8": {
+            "HP": 2585,
+            "ATK": 2200,
+            "DEF": 1407
+        },
+        "9": {
+            "HP": 2647,
+            "ATK": 2253,
+            "DEF": 1441
+        },
+        "10": {
+            "HP": 2711,
+            "ATK": 2307,
+            "DEF": 1476
+        },
+        "11": {
+            "HP": 2775,
+            "ATK": 2362,
+            "DEF": 1511
+        },
+        "12": {
+            "HP": 2837,
+            "ATK": 2414,
+            "DEF": 1544
+        },
+        "13": {
+            "HP": 2901,
+            "ATK": 2469,
+            "DEF": 1579
+        },
+        "14": {
+            "HP": 2965,
+            "ATK": 2524,
+            "DEF": 1614
+        },
+        "15": {
+            "HP": 3027,
+            "ATK": 2576,
+            "DEF": 1648
+        },
+        "16": {
+            "HP": 3091,
+            "ATK": 2631,
+            "DEF": 1683
+        },
+        "17": {
+            "HP": 3155,
+            "ATK": 2685,
+            "DEF": 1717
+        },
+        "18": {
+            "HP": 3216,
+            "ATK": 2738,
+            "DEF": 1751
+        },
+        "19": {
+            "HP": 3280,
+            "ATK": 2792,
+            "DEF": 1786
+        },
+        "20": {
+            "HP": 3345,
+            "ATK": 2847,
+            "DEF": 1821
+        },
+        "21": {
+            "HP": 3406,
+            "ATK": 2899,
+            "DEF": 1854
+        },
+        "22": {
+            "HP": 3470,
+            "ATK": 2954,
+            "DEF": 1889
+        },
+        "23": {
+            "HP": 3532,
+            "ATK": 3006,
+            "DEF": 1923
+        },
+        "24": {
+            "HP": 3596,
+            "ATK": 3061,
+            "DEF": 1958
+        },
+        "25": {
+            "HP": 3660,
+            "ATK": 3116,
+            "DEF": 1993
+        },
+        "26": {
+            "HP": 3722,
+            "ATK": 3168,
+            "DEF": 2026
+        },
+        "27": {
+            "HP": 3786,
+            "ATK": 3223,
+            "DEF": 2061
+        },
+        "28": {
+            "HP": 3850,
+            "ATK": 3277,
+            "DEF": 2096
+        },
+        "29": {
+            "HP": 3912,
+            "ATK": 3330,
+            "DEF": 2130
+        },
+        "30": {
+            "HP": 3976,
+            "ATK": 3384,
+            "DEF": 2165
+        },
+        "31": {
+            "HP": 4040,
+            "ATK": 3439,
+            "DEF": 2200
+        },
+        "32": {
+            "HP": 4101,
+            "ATK": 3491,
+            "DEF": 2233
+        },
+        "33": {
+            "HP": 4165,
+            "ATK": 3546,
+            "DEF": 2268
+        },
+        "34": {
+            "HP": 4230,
+            "ATK": 3600,
+            "DEF": 2303
+        },
+        "35": {
+            "HP": 4291,
+            "ATK": 3653,
+            "DEF": 2336
+        },
+        "36": {
+            "HP": 4355,
+            "ATK": 3708,
+            "DEF": 2371
+        },
+        "37": {
+            "HP": 4419,
+            "ATK": 3762,
+            "DEF": 2406
+        },
+        "38": {
+            "HP": 4481,
+            "ATK": 3815,
+            "DEF": 2440
+        },
+        "39": {
+            "HP": 4545,
+            "ATK": 3869,
+            "DEF": 2475
+        },
+        "40": {
+            "HP": 4609,
+            "ATK": 3924,
+            "DEF": 2510
+        },
+        "41": {
+            "HP": 4671,
+            "ATK": 3976,
+            "DEF": 2543
+        },
+        "42": {
+            "HP": 4735,
+            "ATK": 4031,
+            "DEF": 2578
+        },
+        "43": {
+            "HP": 4799,
+            "ATK": 4085,
+            "DEF": 2613
+        },
+        "44": {
+            "HP": 4861,
+            "ATK": 4138,
+            "DEF": 2647
+        },
+        "45": {
+            "HP": 4925,
+            "ATK": 4192,
+            "DEF": 2682
+        },
+        "46": {
+            "HP": 4989,
+            "ATK": 4247,
+            "DEF": 2717
+        },
+        "47": {
+            "HP": 5050,
+            "ATK": 4300,
+            "DEF": 2750
+        },
+        "48": {
+            "HP": 5115,
+            "ATK": 4354,
+            "DEF": 2785
+        },
+        "49": {
+            "HP": 5179,
+            "ATK": 4409,
+            "DEF": 2820
+        },
+        "50": {
+            "HP": 5240,
+            "ATK": 4461,
+            "DEF": 2853
+        },
+        "51": {
+            "HP": 5304,
+            "ATK": 4516,
+            "DEF": 2888
+        },
+        "52": {
+            "HP": 5368,
+            "ATK": 4570,
+            "DEF": 2923
+        },
+        "53": {
+            "HP": 5430,
+            "ATK": 4623,
+            "DEF": 2957
+        },
+        "54": {
+            "HP": 5494,
+            "ATK": 4677,
+            "DEF": 2992
+        },
+        "55": {
+            "HP": 5558,
+            "ATK": 4732,
+            "DEF": 3027
+        },
+        "56": {
+            "HP": 5620,
+            "ATK": 4784,
+            "DEF": 3060
+        },
+        "57": {
+            "HP": 5684,
+            "ATK": 4839,
+            "DEF": 3095
+        },
+        "58": {
+            "HP": 5748,
+            "ATK": 4894,
+            "DEF": 3130
+        },
+        "59": {
+            "HP": 5810,
+            "ATK": 4946,
+            "DEF": 3164
+        },
+        "60": {
+            "HP": 5874,
+            "ATK": 5001,
+            "DEF": 3199
+        },
+        "61": {
+            "HP": 5935,
+            "ATK": 5053,
+            "DEF": 3232
+        },
+        "62": {
+            "HP": 6000,
+            "ATK": 5108,
+            "DEF": 3267
+        },
+        "63": {
+            "HP": 6064,
+            "ATK": 5162,
+            "DEF": 3302
+        },
+        "64": {
+            "HP": 6125,
+            "ATK": 5215,
+            "DEF": 3336
+        },
+        "65": {
+            "HP": 6189,
+            "ATK": 5269,
+            "DEF": 3370
+        },
+        "66": {
+            "HP": 6253,
+            "ATK": 5324,
+            "DEF": 3405
+        },
+        "67": {
+            "HP": 6315,
+            "ATK": 5376,
+            "DEF": 3439
+        },
+        "68": {
+            "HP": 6379,
+            "ATK": 5431,
+            "DEF": 3474
+        },
+        "69": {
+            "HP": 6443,
+            "ATK": 5486,
+            "DEF": 3509
+        },
+        "70": {
+            "HP": 6505,
+            "ATK": 5538,
+            "DEF": 3542
+        },
+        "71": {
+            "HP": 6569,
+            "ATK": 5593,
+            "DEF": 3577
+        },
+        "72": {
+            "HP": 6633,
+            "ATK": 5647,
+            "DEF": 3612
+        },
+        "73": {
+            "HP": 6695,
+            "ATK": 5700,
+            "DEF": 3646
+        },
+        "74": {
+            "HP": 6759,
+            "ATK": 5754,
+            "DEF": 3681
+        },
+        "75": {
+            "HP": 6823,
+            "ATK": 5809,
+            "DEF": 3716
+        },
+        "76": {
+            "HP": 6885,
+            "ATK": 5861,
+            "DEF": 3749
+        },
+        "77": {
+            "HP": 6949,
+            "ATK": 5916,
+            "DEF": 3784
+        },
+        "78": {
+            "HP": 7013,
+            "ATK": 5970,
+            "DEF": 3819
+        },
+        "79": {
+            "HP": 7074,
+            "ATK": 6023,
+            "DEF": 3853
+        },
+        "80": {
+            "HP": 7139,
+            "ATK": 6078,
+            "DEF": 3888
+        }
+    },
+    "Leader Skill": {
+        "Name": "Serving in the Shadows",
+        "12258": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Storied Figures"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "12259": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Storied Figures"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "4193": {
+            "superID": "4193",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Flame Bullet",
+            "superDescription": "Causes supreme damage to enemy; \nraises Super Class allies' ATK by 20% for 1 turn",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4193": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Super class allies",
+                    "ATK": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 410,
+            "relevantLua": [
+                "sp2470"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "silver": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "bronze": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        },
+        "overall": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4193",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

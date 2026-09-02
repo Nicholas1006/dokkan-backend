@@ -1,0 +1,1014 @@
+{
+    "ID": "1029461",
+    "Type": "STR",
+    "Class": "Super",
+    "Name": "Super Saiyan Gohan (Teen)",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 120,
+    "Categories": [
+        "Kamehameha",
+        "Hybrid Saiyans",
+        "Majin Buu Saga",
+        "Movie Heroes",
+        "Goku's Family",
+        "Siblings' Bond",
+        "Super Saiyans",
+        "Saviors",
+        "Defenders of Justice",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters",
+        "Demonic Power",
+        "Earth-Protecting Heroes",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Super Saiyan",
+        "Golden Warrior",
+        "Saiyan Warrior Race",
+        "All in the Family",
+        "Prepared for Battle",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1029460,
+    "Passive": {
+        "4249": {
+            "ID": 4249,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004249": {
+            "ID": 1004249,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004249": {
+            "ID": 2004249,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 150,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "ATK": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}ATK 30%{passiveImg:up_g} ({currentValue} / 150%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004249": {
+            "ID": 3004249,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 100,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 20%{passiveImg:up_g} ({currentValue} / 100%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}DEF 20%{passiveImg:up_g} ({currentValue} / 100%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004249": {
+            "ID": 4004249,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3266 )",
+                "Causalities": {
+                    "3266": {
+                        "Button": {
+                            "Name": "Are there 2 or more Earth-Bred Fighters category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earth-Bred Fighters category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Earth-Bred Fighters Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3266\", \"compiled\": 3266}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks ",
+            "Paragraph Title": "When there are 2 or more Earth-Bred Fighters Category allies attacking on this turn"
+        },
+        "5004249": {
+            "ID": 5004249,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3266 )",
+                "Causalities": {
+                    "3266": {
+                        "Button": {
+                            "Name": "Are there 2 or more Earth-Bred Fighters category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earth-Bred Fighters category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Earth-Bred Fighters Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3266\", \"compiled\": 3266}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "When there are 2 or more Earth-Bred Fighters Category allies attacking on this turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +3\n- ATK & DEF 150%{passiveImg:up_g}\n*For every attack performed*\n- {passiveImg:forever}ATK 30%{passiveImg:up_g} (up to 150%)\n- {passiveImg:forever}DEF 20%{passiveImg:up_g} (up to 100%)\n*When there is another \"Earth-Bred Fighters\" Category ally\nattacking in the same turn*\n- Ki +1\n- Guards all attacks",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "1": {
+            "HP": 3028,
+            "ATK": 2722,
+            "DEF": 1541
+        },
+        "2": {
+            "HP": 3085,
+            "ATK": 2773,
+            "DEF": 1570
+        },
+        "3": {
+            "HP": 3145,
+            "ATK": 2827,
+            "DEF": 1600
+        },
+        "4": {
+            "HP": 3202,
+            "ATK": 2879,
+            "DEF": 1630
+        },
+        "5": {
+            "HP": 3263,
+            "ATK": 2933,
+            "DEF": 1660
+        },
+        "6": {
+            "HP": 3320,
+            "ATK": 2985,
+            "DEF": 1690
+        },
+        "7": {
+            "HP": 3377,
+            "ATK": 3036,
+            "DEF": 1719
+        },
+        "8": {
+            "HP": 3438,
+            "ATK": 3090,
+            "DEF": 1749
+        },
+        "9": {
+            "HP": 3495,
+            "ATK": 3142,
+            "DEF": 1779
+        },
+        "10": {
+            "HP": 3556,
+            "ATK": 3196,
+            "DEF": 1809
+        },
+        "11": {
+            "HP": 3613,
+            "ATK": 3248,
+            "DEF": 1839
+        },
+        "12": {
+            "HP": 3670,
+            "ATK": 3299,
+            "DEF": 1868
+        },
+        "13": {
+            "HP": 3731,
+            "ATK": 3353,
+            "DEF": 1898
+        },
+        "14": {
+            "HP": 3788,
+            "ATK": 3405,
+            "DEF": 1928
+        },
+        "15": {
+            "HP": 3848,
+            "ATK": 3459,
+            "DEF": 1958
+        },
+        "16": {
+            "HP": 3905,
+            "ATK": 3511,
+            "DEF": 1988
+        },
+        "17": {
+            "HP": 3963,
+            "ATK": 3562,
+            "DEF": 2017
+        },
+        "18": {
+            "HP": 4023,
+            "ATK": 3616,
+            "DEF": 2047
+        },
+        "19": {
+            "HP": 4080,
+            "ATK": 3668,
+            "DEF": 2077
+        },
+        "20": {
+            "HP": 4141,
+            "ATK": 3722,
+            "DEF": 2107
+        },
+        "21": {
+            "HP": 4198,
+            "ATK": 3774,
+            "DEF": 2137
+        },
+        "22": {
+            "HP": 4255,
+            "ATK": 3825,
+            "DEF": 2166
+        },
+        "23": {
+            "HP": 4316,
+            "ATK": 3879,
+            "DEF": 2196
+        },
+        "24": {
+            "HP": 4373,
+            "ATK": 3931,
+            "DEF": 2226
+        },
+        "25": {
+            "HP": 4434,
+            "ATK": 3985,
+            "DEF": 2256
+        },
+        "26": {
+            "HP": 4491,
+            "ATK": 4037,
+            "DEF": 2286
+        },
+        "27": {
+            "HP": 4548,
+            "ATK": 4088,
+            "DEF": 2315
+        },
+        "28": {
+            "HP": 4608,
+            "ATK": 4142,
+            "DEF": 2345
+        },
+        "29": {
+            "HP": 4666,
+            "ATK": 4194,
+            "DEF": 2375
+        },
+        "30": {
+            "HP": 4726,
+            "ATK": 4248,
+            "DEF": 2405
+        },
+        "31": {
+            "HP": 4783,
+            "ATK": 4300,
+            "DEF": 2435
+        },
+        "32": {
+            "HP": 4844,
+            "ATK": 4354,
+            "DEF": 2465
+        },
+        "33": {
+            "HP": 4901,
+            "ATK": 4405,
+            "DEF": 2494
+        },
+        "34": {
+            "HP": 4958,
+            "ATK": 4457,
+            "DEF": 2524
+        },
+        "35": {
+            "HP": 5019,
+            "ATK": 4511,
+            "DEF": 2554
+        },
+        "36": {
+            "HP": 5076,
+            "ATK": 4563,
+            "DEF": 2584
+        },
+        "37": {
+            "HP": 5137,
+            "ATK": 4617,
+            "DEF": 2614
+        },
+        "38": {
+            "HP": 5194,
+            "ATK": 4668,
+            "DEF": 2643
+        },
+        "39": {
+            "HP": 5251,
+            "ATK": 4720,
+            "DEF": 2673
+        },
+        "40": {
+            "HP": 5311,
+            "ATK": 4774,
+            "DEF": 2703
+        },
+        "41": {
+            "HP": 5369,
+            "ATK": 4826,
+            "DEF": 2733
+        },
+        "42": {
+            "HP": 5429,
+            "ATK": 4880,
+            "DEF": 2763
+        },
+        "43": {
+            "HP": 5486,
+            "ATK": 4931,
+            "DEF": 2792
+        },
+        "44": {
+            "HP": 5543,
+            "ATK": 4983,
+            "DEF": 2822
+        },
+        "45": {
+            "HP": 5604,
+            "ATK": 5037,
+            "DEF": 2852
+        },
+        "46": {
+            "HP": 5661,
+            "ATK": 5089,
+            "DEF": 2882
+        },
+        "47": {
+            "HP": 5722,
+            "ATK": 5143,
+            "DEF": 2912
+        },
+        "48": {
+            "HP": 5779,
+            "ATK": 5194,
+            "DEF": 2941
+        },
+        "49": {
+            "HP": 5836,
+            "ATK": 5246,
+            "DEF": 2971
+        },
+        "50": {
+            "HP": 5897,
+            "ATK": 5300,
+            "DEF": 3001
+        },
+        "51": {
+            "HP": 5954,
+            "ATK": 5352,
+            "DEF": 3031
+        },
+        "52": {
+            "HP": 6014,
+            "ATK": 5406,
+            "DEF": 3061
+        },
+        "53": {
+            "HP": 6072,
+            "ATK": 5457,
+            "DEF": 3090
+        },
+        "54": {
+            "HP": 6129,
+            "ATK": 5509,
+            "DEF": 3120
+        },
+        "55": {
+            "HP": 6189,
+            "ATK": 5563,
+            "DEF": 3150
+        },
+        "56": {
+            "HP": 6246,
+            "ATK": 5615,
+            "DEF": 3180
+        },
+        "57": {
+            "HP": 6307,
+            "ATK": 5669,
+            "DEF": 3210
+        },
+        "58": {
+            "HP": 6364,
+            "ATK": 5720,
+            "DEF": 3239
+        },
+        "59": {
+            "HP": 6421,
+            "ATK": 5772,
+            "DEF": 3269
+        },
+        "60": {
+            "HP": 6482,
+            "ATK": 5826,
+            "DEF": 3299
+        },
+        "61": {
+            "HP": 6539,
+            "ATK": 5878,
+            "DEF": 3329
+        },
+        "62": {
+            "HP": 6600,
+            "ATK": 5932,
+            "DEF": 3359
+        },
+        "63": {
+            "HP": 6657,
+            "ATK": 5984,
+            "DEF": 3389
+        },
+        "64": {
+            "HP": 6714,
+            "ATK": 6035,
+            "DEF": 3418
+        },
+        "65": {
+            "HP": 6775,
+            "ATK": 6089,
+            "DEF": 3448
+        },
+        "66": {
+            "HP": 6832,
+            "ATK": 6141,
+            "DEF": 3478
+        },
+        "67": {
+            "HP": 6892,
+            "ATK": 6195,
+            "DEF": 3508
+        },
+        "68": {
+            "HP": 6949,
+            "ATK": 6247,
+            "DEF": 3538
+        },
+        "69": {
+            "HP": 7007,
+            "ATK": 6298,
+            "DEF": 3567
+        },
+        "70": {
+            "HP": 7067,
+            "ATK": 6352,
+            "DEF": 3597
+        },
+        "71": {
+            "HP": 7124,
+            "ATK": 6404,
+            "DEF": 3627
+        },
+        "72": {
+            "HP": 7185,
+            "ATK": 6458,
+            "DEF": 3657
+        },
+        "73": {
+            "HP": 7242,
+            "ATK": 6510,
+            "DEF": 3687
+        },
+        "74": {
+            "HP": 7299,
+            "ATK": 6561,
+            "DEF": 3716
+        },
+        "75": {
+            "HP": 7360,
+            "ATK": 6615,
+            "DEF": 3746
+        },
+        "76": {
+            "HP": 7417,
+            "ATK": 6667,
+            "DEF": 3776
+        },
+        "77": {
+            "HP": 7478,
+            "ATK": 6721,
+            "DEF": 3806
+        },
+        "78": {
+            "HP": 7535,
+            "ATK": 6773,
+            "DEF": 3836
+        },
+        "79": {
+            "HP": 7592,
+            "ATK": 6824,
+            "DEF": 3865
+        },
+        "80": {
+            "HP": 7652,
+            "ATK": 6878,
+            "DEF": 3895
+        },
+        "81": {
+            "HP": 7710,
+            "ATK": 6930,
+            "DEF": 3925
+        },
+        "82": {
+            "HP": 7770,
+            "ATK": 6984,
+            "DEF": 3955
+        },
+        "83": {
+            "HP": 7827,
+            "ATK": 7036,
+            "DEF": 3985
+        },
+        "84": {
+            "HP": 7884,
+            "ATK": 7087,
+            "DEF": 4014
+        },
+        "85": {
+            "HP": 7945,
+            "ATK": 7141,
+            "DEF": 4044
+        },
+        "86": {
+            "HP": 8002,
+            "ATK": 7193,
+            "DEF": 4074
+        },
+        "87": {
+            "HP": 8063,
+            "ATK": 7247,
+            "DEF": 4104
+        },
+        "88": {
+            "HP": 8120,
+            "ATK": 7299,
+            "DEF": 4134
+        },
+        "89": {
+            "HP": 8177,
+            "ATK": 7350,
+            "DEF": 4163
+        },
+        "90": {
+            "HP": 8238,
+            "ATK": 7404,
+            "DEF": 4193
+        },
+        "91": {
+            "HP": 8295,
+            "ATK": 7456,
+            "DEF": 4223
+        },
+        "92": {
+            "HP": 8355,
+            "ATK": 7510,
+            "DEF": 4253
+        },
+        "93": {
+            "HP": 8413,
+            "ATK": 7562,
+            "DEF": 4283
+        },
+        "94": {
+            "HP": 8473,
+            "ATK": 7616,
+            "DEF": 4313
+        },
+        "95": {
+            "HP": 8530,
+            "ATK": 7667,
+            "DEF": 4342
+        },
+        "96": {
+            "HP": 8587,
+            "ATK": 7719,
+            "DEF": 4372
+        },
+        "97": {
+            "HP": 8648,
+            "ATK": 7773,
+            "DEF": 4402
+        },
+        "98": {
+            "HP": 8705,
+            "ATK": 7825,
+            "DEF": 4432
+        },
+        "99": {
+            "HP": 8766,
+            "ATK": 7879,
+            "DEF": 4462
+        },
+        "100": {
+            "HP": 8823,
+            "ATK": 7930,
+            "DEF": 4491
+        },
+        "101": {
+            "HP": 8880,
+            "ATK": 7982,
+            "DEF": 4521
+        },
+        "102": {
+            "HP": 8941,
+            "ATK": 8036,
+            "DEF": 4551
+        },
+        "103": {
+            "HP": 8998,
+            "ATK": 8088,
+            "DEF": 4581
+        },
+        "104": {
+            "HP": 9058,
+            "ATK": 8142,
+            "DEF": 4611
+        },
+        "105": {
+            "HP": 9116,
+            "ATK": 8193,
+            "DEF": 4640
+        },
+        "106": {
+            "HP": 9173,
+            "ATK": 8245,
+            "DEF": 4670
+        },
+        "107": {
+            "HP": 9233,
+            "ATK": 8299,
+            "DEF": 4700
+        },
+        "108": {
+            "HP": 9290,
+            "ATK": 8351,
+            "DEF": 4730
+        },
+        "109": {
+            "HP": 9351,
+            "ATK": 8405,
+            "DEF": 4760
+        },
+        "110": {
+            "HP": 9408,
+            "ATK": 8456,
+            "DEF": 4789
+        },
+        "111": {
+            "HP": 9465,
+            "ATK": 8508,
+            "DEF": 4819
+        },
+        "112": {
+            "HP": 9526,
+            "ATK": 8562,
+            "DEF": 4849
+        },
+        "113": {
+            "HP": 9583,
+            "ATK": 8614,
+            "DEF": 4879
+        },
+        "114": {
+            "HP": 9644,
+            "ATK": 8668,
+            "DEF": 4909
+        },
+        "115": {
+            "HP": 9701,
+            "ATK": 8719,
+            "DEF": 4938
+        },
+        "116": {
+            "HP": 9758,
+            "ATK": 8771,
+            "DEF": 4968
+        },
+        "117": {
+            "HP": 9819,
+            "ATK": 8825,
+            "DEF": 4998
+        },
+        "118": {
+            "HP": 9876,
+            "ATK": 8877,
+            "DEF": 5028
+        },
+        "119": {
+            "HP": 9936,
+            "ATK": 8931,
+            "DEF": 5058
+        },
+        "120": {
+            "HP": 9994,
+            "ATK": 8983,
+            "DEF": 5088
+        }
+    },
+    "Leader Skill": {
+        "Name": "Determined Confrontation",
+        "10294600": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Kamehameha"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10294601": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Kamehameha"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5860": {
+            "superID": "5860",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Masenko",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses supreme damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5860": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                },
+                "1005860": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2751"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5860",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

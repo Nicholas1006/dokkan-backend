@@ -1,0 +1,408 @@
+{
+    "ID": "1012071",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Chi-Chi (Youth)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Youth",
+        "DB Saga",
+        "Earthlings",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Battlefield Diva",
+        "The Innocents",
+        "More Than Meets the Eye",
+        "The Incredible Adventure",
+        "Guidance of the Dragon Balls"
+    ],
+    "Resource ID": 1012070,
+    "Passive": {
+        "1335": {
+            "ID": 1335,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 180%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "1001335": {
+            "ID": 1001335,
+            "Timing": "Right after being hit",
+            "ATK": 60,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "-"
+            },
+            "Length": 3,
+            "Condition": {
+                "Logic": "( 24 )",
+                "Causalities": {
+                    "24": {
+                        "Button": {
+                            "Name": "Has this character been hit within the last 3 turns?"
+                        },
+                        "Slider": {
+                            "Name": "How many times has this character been hit within the last 3 turns?",
+                            "Logic": ">=1",
+                            "Min": 0,
+                            "Max": 1
+                        },
+                        "Paragraph Title": "After recieving an attack"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"24\", \"compiled\": 24}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 60%{passiveImg:down_r} after being hit",
+            "Line description": "ATK 60%{passiveImg:down_r} after being hit",
+            "Paragraph Title": "When after recieving an attack"
+        }
+    },
+    "Itemized Passive Description": "*When attacking with 12 or more Ki*\n- ATK 180%{passiveImg:up_g}\n*After receiving an attack*\n- ATK 60%{passiveImg:down_r} for 3 turn(s)",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 5219,
+            "ATK": 7027,
+            "DEF": 3714
+        },
+        "81": {
+            "HP": 5225,
+            "ATK": 7037,
+            "DEF": 3718
+        },
+        "82": {
+            "HP": 5231,
+            "ATK": 7047,
+            "DEF": 3723
+        },
+        "83": {
+            "HP": 5237,
+            "ATK": 7057,
+            "DEF": 3727
+        },
+        "84": {
+            "HP": 5243,
+            "ATK": 7066,
+            "DEF": 3731
+        },
+        "85": {
+            "HP": 5249,
+            "ATK": 7076,
+            "DEF": 3735
+        },
+        "86": {
+            "HP": 5255,
+            "ATK": 7087,
+            "DEF": 3739
+        },
+        "87": {
+            "HP": 5261,
+            "ATK": 7097,
+            "DEF": 3743
+        },
+        "88": {
+            "HP": 5267,
+            "ATK": 7106,
+            "DEF": 3748
+        },
+        "89": {
+            "HP": 5273,
+            "ATK": 7116,
+            "DEF": 3752
+        },
+        "90": {
+            "HP": 5279,
+            "ATK": 7126,
+            "DEF": 3756
+        },
+        "91": {
+            "HP": 5285,
+            "ATK": 7136,
+            "DEF": 3760
+        },
+        "92": {
+            "HP": 5291,
+            "ATK": 7146,
+            "DEF": 3764
+        },
+        "93": {
+            "HP": 5297,
+            "ATK": 7156,
+            "DEF": 3768
+        },
+        "94": {
+            "HP": 5303,
+            "ATK": 7166,
+            "DEF": 3772
+        },
+        "95": {
+            "HP": 5309,
+            "ATK": 7176,
+            "DEF": 3777
+        },
+        "96": {
+            "HP": 5316,
+            "ATK": 7186,
+            "DEF": 3781
+        },
+        "97": {
+            "HP": 5322,
+            "ATK": 7196,
+            "DEF": 3785
+        },
+        "98": {
+            "HP": 5328,
+            "ATK": 7206,
+            "DEF": 3789
+        },
+        "99": {
+            "HP": 5334,
+            "ATK": 7216,
+            "DEF": 3793
+        },
+        "100": {
+            "HP": 5340,
+            "ATK": 7226,
+            "DEF": 3798
+        }
+    },
+    "Leader Skill": {
+        "Name": "Pure at Heart",
+        "6281": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "PHY",
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        },
+        "6282": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [
+                    "PHY",
+                    "INT"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 2100,
+            "ATK": 1700,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "1509": {
+            "superID": "1509",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Stay Away From Me!",
+            "superDescription": "Causes supreme damage with \na medium chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "1509": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "30",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp1229"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "1509",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

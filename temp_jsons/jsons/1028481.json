@@ -1,0 +1,666 @@
+{
+    "ID": "1028481",
+    "Type": "TEQ",
+    "Class": "Extreme",
+    "Name": "Vegeta",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Vegeta's Family",
+        "Super Saiyans",
+        "Pure Saiyans",
+        "Battle of Wits",
+        "Mastered Evolution",
+        "Androids/Cell Saga",
+        "Gifted Warriors",
+        "Successors",
+        "Golden Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Saiyan Warrior Race",
+        "Royal Lineage",
+        "Prepared for Battle",
+        "The Saiyan Lineage",
+        "Prodigies",
+        "Saiyan Pride"
+    ],
+    "Resource ID": 1028480,
+    "Passive": {
+        "4081": {
+            "ID": 4081,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004081": {
+            "ID": 1004081,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004081": {
+            "ID": 2004081,
+            "Timing": "Right before attack(MOT stat)",
+            "Building Stat": {
+                "Min": 10,
+                "Max": 100,
+                "Stat Per Proc": 1100,
+                "Cause": {
+                    "Cause": "HP",
+                    "Type": "More HP remaining"
+                },
+                "Slider": "What percentage of HP is remaining?"
+            },
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 100%{passiveImg:up_g} ({currentValue} / 100%) based on 'What percentage of HP is remaining' when attacking",
+            "Line description": "ATK 100%{passiveImg:up_g} ({currentValue} / 100%) based on 'What percentage of HP is remaining' when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004081": {
+            "ID": 3004081,
+            "Timing": "Right before being hit",
+            "Building Stat": {
+                "Min": 10,
+                "Max": 100,
+                "Stat Per Proc": 1100,
+                "Cause": {
+                    "Cause": "HP",
+                    "Type": "More HP remaining"
+                },
+                "Slider": "What percentage of HP is remaining?"
+            },
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} ({currentValue} / 100%) based on 'What percentage of HP is remaining' right before being hit",
+            "Line description": "DEF 100%{passiveImg:up_g} ({currentValue} / 100%) based on 'What percentage of HP is remaining' right before being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004081": {
+            "ID": 4004081,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2444 || 2899 )",
+                "Causalities": {
+                    "2444": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Goku?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Goku\" attacking in the same turn "
+                    },
+                    "2899": {
+                        "Button": {
+                            "Name": "Is there 1 or more enemies whose name includes Goku on this turn?"
+                        },
+                        "Paragraph Title": "\"Goku\""
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2444|2899\", \"compiled\": [\"|\", 2444, 2899]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Goku\" attacking in the same turn or \"Goku\" "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 100%{passiveImg:up_g}\n*When attacking for the 1st time*\n- The more HP remaining, the greater the ATK boost within\nthe turn (up to 100%{passiveImg:up_g})\n*When receiving an attack for the 1st time*\n- The more HP remaining, the greater the DEF boost within the\nturn (up to 100%{passiveImg:up_g})\n*When the name of an ally who is attacking in the same turn or\nan enemy includes \"Goku\" (Youth, Captain Ginyu, Jr., etc.\nexcluded)*\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "80": {
+            "HP": 8828,
+            "ATK": 8741,
+            "DEF": 6063
+        },
+        "81": {
+            "HP": 8845,
+            "ATK": 8757,
+            "DEF": 6075
+        },
+        "82": {
+            "HP": 8863,
+            "ATK": 8774,
+            "DEF": 6087
+        },
+        "83": {
+            "HP": 8881,
+            "ATK": 8791,
+            "DEF": 6099
+        },
+        "84": {
+            "HP": 8899,
+            "ATK": 8808,
+            "DEF": 6111
+        },
+        "85": {
+            "HP": 8917,
+            "ATK": 8825,
+            "DEF": 6124
+        },
+        "86": {
+            "HP": 8936,
+            "ATK": 8843,
+            "DEF": 6136
+        },
+        "87": {
+            "HP": 8954,
+            "ATK": 8859,
+            "DEF": 6148
+        },
+        "88": {
+            "HP": 8972,
+            "ATK": 8876,
+            "DEF": 6160
+        },
+        "89": {
+            "HP": 8990,
+            "ATK": 8893,
+            "DEF": 6172
+        },
+        "90": {
+            "HP": 9008,
+            "ATK": 8910,
+            "DEF": 6184
+        },
+        "91": {
+            "HP": 9025,
+            "ATK": 8927,
+            "DEF": 6196
+        },
+        "92": {
+            "HP": 9043,
+            "ATK": 8944,
+            "DEF": 6208
+        },
+        "93": {
+            "HP": 9061,
+            "ATK": 8961,
+            "DEF": 6221
+        },
+        "94": {
+            "HP": 9079,
+            "ATK": 8977,
+            "DEF": 6233
+        },
+        "95": {
+            "HP": 9097,
+            "ATK": 8994,
+            "DEF": 6245
+        },
+        "96": {
+            "HP": 9116,
+            "ATK": 9012,
+            "DEF": 6257
+        },
+        "97": {
+            "HP": 9134,
+            "ATK": 9029,
+            "DEF": 6269
+        },
+        "98": {
+            "HP": 9152,
+            "ATK": 9046,
+            "DEF": 6281
+        },
+        "99": {
+            "HP": 9170,
+            "ATK": 9063,
+            "DEF": 6293
+        },
+        "100": {
+            "HP": 9188,
+            "ATK": 9080,
+            "DEF": 6306
+        }
+    },
+    "Leader Skill": {
+        "Name": "Strong Sense of Competition",
+        "10284800": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10284801": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10284802": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10284803": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10284804": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10284805": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family",
+                    "Battle of Wits"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10284806": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Vegeta's Family",
+                    "Mastered Evolution"
+                ],
+                "Excluded Category": [
+                    "Pure Saiyans",
+                    "Battle of Wits"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10284807": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans",
+                    "Pure Saiyans"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10284808": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans",
+                    "Battle of Wits"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family",
+                    "Pure Saiyans"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        },
+        "10284809": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Super Saiyans",
+                    "Mastered Evolution"
+                ],
+                "Excluded Category": [
+                    "Vegeta's Family",
+                    "Pure Saiyans",
+                    "Battle of Wits"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 10,
+            "DEF": 10,
+            "HP": 10,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 2100,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5382": {
+            "superID": "5382",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Maximum Flasher",
+            "superDescription": "Raises ATK & DEF and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5382": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "20",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 485,
+            "relevantLua": [
+                "sp2672"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5382",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

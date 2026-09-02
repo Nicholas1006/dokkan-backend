@@ -1,0 +1,1375 @@
+{
+    "ID": "1016841",
+    "Type": "AGL",
+    "Class": "Super",
+    "Name": "Super Saiyan 2 Caulifla & \nSuper Saiyan 2 Kale",
+    "Rarity": "lr",
+    "Min Level": 150,
+    "Max Level": 150,
+    "Categories": [
+        "Joined Forces",
+        "Universe Survival Saga",
+        "Universe 6",
+        "Pure Saiyans",
+        "Peppy Gals",
+        "Full Power",
+        "Super Saiyan 2",
+        "Rapid Growth",
+        "Bond of Friendship",
+        "Power Beyond Super Saiyan",
+        "Tournament Participants",
+        "Super Bosses",
+        "Golden Fighters"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Super Saiyan",
+        "Battlefield Diva",
+        "Warriors of Universe 6 ",
+        "Tournament of Power",
+        "Prepared for Battle",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 1016840,
+    "Passive": {
+        "3435": {
+            "ID": 3435,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003435": {
+            "ID": 1003435,
+            "Timing": "Start of turn",
+            "ATK": 130,
+            "DEF": 130,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 130%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 130%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2003435": {
+            "ID": 2003435,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3003435": {
+            "ID": 3003435,
+            "Timing": "Start of turn",
+            "ATK": 66,
+            "DEF": 66,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2277 )",
+                "Causalities": {
+                    "2277": {
+                        "Button": {
+                            "Name": "Is HP 66 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=66",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 66% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2277\", \"compiled\": 2277}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 66%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 66%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 66% or less"
+        },
+        "4003435": {
+            "ID": 4003435,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2277 )",
+                "Causalities": {
+                    "2277": {
+                        "Button": {
+                            "Name": "Is HP 66 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=66",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 66% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2277\", \"compiled\": 2277}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Paragraph Title": "When HP is 66% or less"
+        },
+        "5003435": {
+            "ID": 5003435,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 6,
+                "Stat Per Proc": 1,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +1 ({currentValue} / 6) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}Ki +1 ({currentValue} / 6) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6003435": {
+            "ID": 6003435,
+            "Dodge Chance": 6,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 66,
+                "Stat Per Proc": 6,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Chance of evading enemy attacks +6% ({currentValue} / 66%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}Chance of evading enemy attacks +6% ({currentValue} / 66%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7003435": {
+            "ID": 7003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2278 )",
+                "Causalities": {
+                    "2278": {
+                        "Button": {
+                            "Name": "Are there 1 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2278\", \"compiled\": 2278}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Universe 6 Category allies "
+        },
+        "8003435": {
+            "ID": 8003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2279 )",
+                "Causalities": {
+                    "2279": {
+                        "Button": {
+                            "Name": "Are there 2 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2279\", \"compiled\": 2279}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Universe 6 Category allies "
+        },
+        "9003435": {
+            "ID": 9003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2280 )",
+                "Causalities": {
+                    "2280": {
+                        "Button": {
+                            "Name": "Are there 3 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2280\", \"compiled\": 2280}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Universe 6 Category allies "
+        },
+        "10003435": {
+            "ID": 10003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2281 )",
+                "Causalities": {
+                    "2281": {
+                        "Button": {
+                            "Name": "Are there 4 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2281\", \"compiled\": 2281}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Universe 6 Category allies "
+        },
+        "11003435": {
+            "ID": 11003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2282 )",
+                "Causalities": {
+                    "2282": {
+                        "Button": {
+                            "Name": "Are there 5 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2282\", \"compiled\": 2282}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Universe 6 Category allies "
+        },
+        "12003435": {
+            "ID": 12003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2283 )",
+                "Causalities": {
+                    "2283": {
+                        "Button": {
+                            "Name": "Are there 6 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=6",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 6 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2283\", \"compiled\": 2283}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 6 or more Universe 6 Category allies "
+        },
+        "13003435": {
+            "ID": 13003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2284 )",
+                "Causalities": {
+                    "2284": {
+                        "Button": {
+                            "Name": "Are there 7 or more Universe 6 category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe 6 category allies on this turn?",
+                            "Logic": ">=7",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 7 or more Universe 6 Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2284\", \"compiled\": 2284}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 7 or more Universe 6 Category allies "
+        },
+        "14003435": {
+            "ID": 14003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2285 )",
+                "Causalities": {
+                    "2285": {
+                        "Button": {
+                            "Name": "Are there 1 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2285\", \"compiled\": 2285}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Joined Forces Category allies "
+        },
+        "15003435": {
+            "ID": 15003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2286 )",
+                "Causalities": {
+                    "2286": {
+                        "Button": {
+                            "Name": "Are there 2 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2286\", \"compiled\": 2286}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Joined Forces Category allies "
+        },
+        "16003435": {
+            "ID": 16003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2287 )",
+                "Causalities": {
+                    "2287": {
+                        "Button": {
+                            "Name": "Are there 3 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2287\", \"compiled\": 2287}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Joined Forces Category allies "
+        },
+        "17003435": {
+            "ID": 17003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2288 )",
+                "Causalities": {
+                    "2288": {
+                        "Button": {
+                            "Name": "Are there 4 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2288\", \"compiled\": 2288}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Joined Forces Category allies "
+        },
+        "18003435": {
+            "ID": 18003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2289 )",
+                "Causalities": {
+                    "2289": {
+                        "Button": {
+                            "Name": "Are there 5 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2289\", \"compiled\": 2289}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Joined Forces Category allies "
+        },
+        "19003435": {
+            "ID": 19003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2290 )",
+                "Causalities": {
+                    "2290": {
+                        "Button": {
+                            "Name": "Are there 6 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=6",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 6 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2290\", \"compiled\": 2290}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 6 or more Joined Forces Category allies "
+        },
+        "20003435": {
+            "ID": 20003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2291 )",
+                "Causalities": {
+                    "2291": {
+                        "Button": {
+                            "Name": "Are there 7 or more Joined Forces category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Joined Forces category allies on this turn?",
+                            "Logic": ">=7",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 7 or more Joined Forces Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2291\", \"compiled\": 2291}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 7 or more Joined Forces Category allies "
+        },
+        "21003435": {
+            "ID": 21003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2292 )",
+                "Causalities": {
+                    "2292": {
+                        "Button": {
+                            "Name": "Are there 1 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2292\", \"compiled\": 2292}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Pure Saiyans Category allies "
+        },
+        "22003435": {
+            "ID": 22003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2293 )",
+                "Causalities": {
+                    "2293": {
+                        "Button": {
+                            "Name": "Are there 2 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2293\", \"compiled\": 2293}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Pure Saiyans Category allies "
+        },
+        "23003435": {
+            "ID": 23003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2294 )",
+                "Causalities": {
+                    "2294": {
+                        "Button": {
+                            "Name": "Are there 3 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2294\", \"compiled\": 2294}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Pure Saiyans Category allies "
+        },
+        "24003435": {
+            "ID": 24003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2295 )",
+                "Causalities": {
+                    "2295": {
+                        "Button": {
+                            "Name": "Are there 4 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2295\", \"compiled\": 2295}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 4 or more Pure Saiyans Category allies "
+        },
+        "25003435": {
+            "ID": 25003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2296 )",
+                "Causalities": {
+                    "2296": {
+                        "Button": {
+                            "Name": "Are there 5 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=5",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 5 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2296\", \"compiled\": 2296}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 5 or more Pure Saiyans Category allies "
+        },
+        "26003435": {
+            "ID": 26003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2297 )",
+                "Causalities": {
+                    "2297": {
+                        "Button": {
+                            "Name": "Are there 6 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=6",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 6 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2297\", \"compiled\": 2297}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 6 or more Pure Saiyans Category allies "
+        },
+        "27003435": {
+            "ID": 27003435,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2298 )",
+                "Causalities": {
+                    "2298": {
+                        "Button": {
+                            "Name": "Are there 7 or more Pure Saiyans category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category allies on this turn?",
+                            "Logic": ">=7",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 7 or more Pure Saiyans Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2298\", \"compiled\": 2298}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 10%{passiveImg:up_g} ",
+            "Line description": "ATK 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 7 or more Pure Saiyans Category allies "
+        },
+        "28003435": {
+            "ID": 28003435,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2299 )",
+                "Causalities": {
+                    "2299": {
+                        "Button": {
+                            "Name": "Are there 1 or more Universe Survival Saga category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Universe Survival Saga category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Universe Survival Saga Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2299\", \"compiled\": 2299}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack when attacking",
+            "Line description": "Performs an additional super attack when attacking",
+            "Paragraph Title": "When there are 1 or more Universe Survival Saga Category enemies "
+        },
+        "29003435": {
+            "ID": 29003435,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2300 )",
+                "Causalities": {
+                    "2300": {
+                        "Button": {
+                            "Name": "Are there 1 or more Pure Saiyans category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Pure Saiyans category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Pure Saiyans Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2300\", \"compiled\": 2300}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack when attacking",
+            "Line description": "Performs an additional super attack when attacking",
+            "Paragraph Title": "When there are 1 or more Pure Saiyans Category enemies "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +3\n- ATK & DEF 130%{passiveImg:up_g}\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n*When HP is 66% or less*\n- ATK & DEF 66%{passiveImg:up_g}\n- Launches an additional attack that has a great chance of\nbecoming a Super Attack\n*For every attack performed*\n- {passiveImg:forever}Ki +1 (up to +6)\n- {passiveImg:forever}Chance of evading enemy's attack 6%{passiveImg:up_g} (up to 66%)\n*Per \"Universe 6\", \"Joined Forces\" or \"Pure Saiyans\"\nCategory ally on the team*\n- ATK 10%{passiveImg:up_g}\n*When there is a \"Universe Survival Saga\" or \"Pure Saiyans\"\nCategory enemy*\n- Launches an additional Super Attack",
+    "Max Attacks": 6,
+    "Max Super Attacks": 6,
+    "Stats at levels": {
+        "150": {
+            "HP": 18175,
+            "ATK": 15020,
+            "DEF": 9763
+        }
+    },
+    "Leader Skill": {
+        "Name": "Two Makes the Strongest of All Universes",
+        "101684100": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        },
+        "101684101": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Joined Forces"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 150,
+            "DEF": 150,
+            "HP": 150,
+            "Ki": 0
+        },
+        "101684102": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Joined Forces"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 4
+        },
+        "101684103": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [
+                    "Joined Forces"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Super"
+                ],
+                "Type": [
+                    "AGL"
+                ],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1300,
+            "ATK": 1700,
+            "DEF": 2100,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4627": {
+            "superID": "4627",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Seismic Combat (Extreme)",
+            "superDescription": "Raises DEF, raises ATK for 1 turn and \ncauses colossal damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4627": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "1004627": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 420,
+            "relevantLua": [
+                "sp1281"
+            ]
+        },
+        "4628": {
+            "superID": "4628",
+            "Type": "Ki blast",
+            "special_name_no": "2",
+            "superName": "Limit Break Blaster (Extreme)",
+            "superDescription": "Raises DEF, causes mega-colossal damage \nto enemy and lowers ATK",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "24",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4628": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "30"
+                },
+                "1004628": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 590,
+            "relevantLua": [
+                "sp0551"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 600,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 2200,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 100.0,
+        "1": 104.16666666666666,
+        "2": 108.33333333333333,
+        "3": 112.5,
+        "4": 116.66666666666666,
+        "5": 120.83333333333333,
+        "6": 125.0,
+        "7": 129.16666666666666,
+        "8": 133.33333333333334,
+        "9": 137.5,
+        "10": 141.66666666666666,
+        "11": 145.83333333333334,
+        "12": 150.0,
+        "13": 154.16666666666666,
+        "14": 158.33333333333334,
+        "15": 162.5,
+        "16": 166.66666666666666,
+        "17": 170.83333333333334,
+        "18": 175.0,
+        "19": 179.16666666666666,
+        "20": 183.33333333333334,
+        "21": 187.5,
+        "22": 191.66666666666669,
+        "23": 195.83333333333334,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4627",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

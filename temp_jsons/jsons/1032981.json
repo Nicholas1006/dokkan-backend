@@ -1,0 +1,1625 @@
+{
+    "ID": "1032981",
+    "Type": "STR",
+    "Class": "Extreme",
+    "Name": "Yakon",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 120,
+    "Categories": [
+        "Majin Buu Saga",
+        "Terrifying Conquerors",
+        "Inhuman Deeds",
+        "Corroded Body and Mind",
+        "Demonic Power",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Brutal Beatdown",
+        "Evil Autocrats",
+        "Loyalty",
+        "Shocking Speed",
+        "Majin Resurrection Plan",
+        "Demonic Power",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1032980,
+    "Passive": {
+        "4883": {
+            "ID": 4883,
+            "Timing": "Start of turn",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004883": {
+            "ID": 1004883,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 0,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack ",
+            "Line description": "Performs an additional attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004883": {
+            "ID": 2004883,
+            "Dodge Chance": 70,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +70% ",
+            "Line description": "Chance of evading enemy attacks +70% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004883": {
+            "ID": 3004883,
+            "Timing": "Right before attack(MOT stat)",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004883": {
+            "ID": 4004883,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 200,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "ATK": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}ATK 30%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004883": {
+            "ID": 5004883,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 200,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 30%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}DEF 30%{passiveImg:up_g} ({currentValue} / 200%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004883": {
+            "ID": 6004883,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 105 || 206 || 3618 )",
+                "Causalities": {
+                    "105": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down}"
+                    },
+                    "206": {
+                        "Button": {
+                            "Name": "Is the target enemy in DEF Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:def_down}"
+                    },
+                    "3618": {
+                        "Button": {
+                            "Name": "Is HP 85 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=85",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 85% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"105|206|3618\", \"compiled\": [\"|\", 105, 206, 3618]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack when attacking",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack when attacking",
+            "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down} or the target enemy is in the following status{passiveImg:def_down} or HP is 85% or more "
+        },
+        "7004883": {
+            "ID": 7004883,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 300,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Attacking the enemy in ATK Down or DEF Downwhile HP is 85or less"
+                },
+                "Slider": "How many times has this character attacked the enemy in ATK Down or DEF Down while HP is 85or more?"
+            },
+            "ATK": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"105|206|3618\", \"compiled\": [\"|\", 105, 206, 3618]}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 50%{passiveImg:up_g} ({currentValue} / 300%) based on 'How many times has this character attacked the enemy in ATK Down or DEF Down while HP is 85or more' after attacking",
+            "Line description": "{passiveImg:forever}ATK 50%{passiveImg:up_g} ({currentValue} / 300%) based on 'How many times has this character attacked the enemy in ATK Down or DEF Down while HP is 85or more' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8004883": {
+            "ID": 8004883,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 300,
+                "Stat Per Proc": 50,
+                "Cause": {
+                    "Cause": "Attacking the enemy in ATK Down or DEF Downwhile HP is 85or less"
+                },
+                "Slider": "How many times has this character attacked the enemy in ATK Down or DEF Down while HP is 85or more?"
+            },
+            "DEF": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"105|206|3618\", \"compiled\": [\"|\", 105, 206, 3618]}",
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 50%{passiveImg:up_g} ({currentValue} / 300%) based on 'How many times has this character attacked the enemy in ATK Down or DEF Down while HP is 85or more' after attacking",
+            "Line description": "{passiveImg:forever}DEF 50%{passiveImg:up_g} ({currentValue} / 300%) based on 'How many times has this character attacked the enemy in ATK Down or DEF Down while HP is 85or more' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "9004883": {
+            "ID": 9004883,
+            "Timing": "Right before attack(MOT stat)",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 105 || 206 || 3618 )",
+                "Causalities": {
+                    "105": {
+                        "Button": {
+                            "Name": "Is the target enemy in ATK Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down}"
+                    },
+                    "206": {
+                        "Button": {
+                            "Name": "Is the target enemy in DEF Down on this turn?"
+                        },
+                        "Paragraph Title": "When the target enemy is in the following status{passiveImg:def_down}"
+                    },
+                    "3618": {
+                        "Button": {
+                            "Name": "Is HP 85 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=85",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 85% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"105|206|3618\", \"compiled\": [\"|\", 105, 206, 3618]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} when attacking",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When the target enemy is in the following status{passiveImg:atk_down} or the target enemy is in the following status{passiveImg:def_down} or HP is 85% or more "
+        },
+        "10004883": {
+            "ID": 10004883,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "Condition": {
+                "Logic": "( 1599 )",
+                "Causalities": {
+                    "1599": {
+                        "Button": {
+                            "Name": "Has this character evaded 3rd times in battle?"
+                        },
+                        "Slider": {
+                            "Name": "How many attacks have been evaded?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "When the character has evaded 3 or more attacks"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1599\", \"compiled\": 1599}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after being hit",
+            "Line description": "{passiveImg:forever} {passiveImg:once}Performs an additional attack with a 50% chance of becoming a super attack after being hit",
+            "Paragraph Title": "When the character has evaded 3 or more attacks"
+        },
+        "11004883": {
+            "ID": 11004883,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": "0"
+            },
+            "Timing": "After all ki collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 33 )",
+                "Causalities": {
+                    "33": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"33\", \"compiled\": 33}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 50% chance of becoming a super attack after all ki collected",
+            "Line description": "Performs an additional attack with a 50% chance of becoming a super attack after all ki collected",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "12004883": {
+            "ID": 12004883,
+            "Timing": "When ki spheres collected",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Majin Buu Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 3,
+            "Condition": {
+                "Logic": "( 33 )",
+                "Causalities": {
+                    "33": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn within the last 3 turns?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in within the last 3 turns?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"33\", \"compiled\": 33}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} after this unit collects ki spheres for all Majin Buu Saga category allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} after this unit collects ki spheres for all Majin Buu Saga category allies ",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "13004883": {
+            "ID": 13004883,
+            "Timing": "When ki spheres collected",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Majin Buu Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies",
+                "Class": "Extreme"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 3,
+            "Condition": {
+                "Logic": "( 33 )",
+                "Causalities": {
+                    "33": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn within the last 3 turns?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in within the last 3 turns?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"33\", \"compiled\": 33}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 after this unit collects ki spheres for all Extreme class Majin Buu Saga category allies ",
+            "Line description": "Ki +2 after this unit collects ki spheres for all Extreme class Majin Buu Saga category allies ",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "14004883": {
+            "ID": 14004883,
+            "Timing": "When ki spheres collected",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Majin Buu Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies",
+                "Class": "Extreme"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 3,
+            "Condition": {
+                "Logic": "( 33 )",
+                "Causalities": {
+                    "33": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn within the last 3 turns?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in within the last 3 turns?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"33\", \"compiled\": 33}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} after this unit collects ki spheres for all Extreme class Majin Buu Saga category allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} after this unit collects ki spheres for all Extreme class Majin Buu Saga category allies ",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "15004883": {
+            "ID": 15004883,
+            "Dodge Chance": 15,
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3162 || 3693 )",
+                "Causalities": {
+                    "3162": {
+                        "Button": {
+                            "Name": "Are there 4 or more Majin Buu Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Majin Buu Saga category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Majin Buu Saga Category allies "
+                    },
+                    "3693": {
+                        "Button": {
+                            "Name": "Are all allies Extreme class Characters on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class Characters on this turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When all allies are Extreme class Characters"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3162|3693\", \"compiled\": [\"|\", 3162, 3693]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +15% when attacking",
+            "Line description": "Chance of evading enemy attacks +15% when attacking",
+            "Paragraph Title": "When there are 4 or more Majin Buu Saga Category allies or all allies are Extreme class Characters"
+        },
+        "16004883": {
+            "ID": 16004883,
+            "Dodge Chance": 100,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 25 && ( 3162 || 3693 ) )",
+                "Causalities": {
+                    "25": {
+                        "Button": {
+                            "Name": "Is this the 1st attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==1",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 1st attacker in the turn"
+                    },
+                    "3162": {
+                        "Button": {
+                            "Name": "Are there 4 or more Majin Buu Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Majin Buu Saga category allies on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Majin Buu Saga Category allies "
+                    },
+                    "3693": {
+                        "Button": {
+                            "Name": "Are all allies Extreme class Characters on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class Characters on this turn?",
+                            "Logic": ">=7",
+                            "Min": 0,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When all allies are Extreme class Characters"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"25&(3162|3693)\", \"compiled\": [\"&\", 25, [\"|\", 3162, 3693]]}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Evades enemy attacks ",
+            "Line description": " {passiveImg:once}Evades enemy attacks as the 1st attacker in the turn and for 1 turn ",
+            "Paragraph Title": "When there are 4 or more Majin Buu Saga Category allies or all allies are Extreme class Characters"
+        },
+        "17004883": {
+            "ID": 17004883,
+            "Timing": "When ki spheres collected",
+            "Ki": 1,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Majin Buu Saga"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 3,
+            "Condition": {
+                "Logic": "( 33 )",
+                "Causalities": {
+                    "33": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn within the last 3 turns?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in within the last 3 turns?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"33\", \"compiled\": 33}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 after this unit collects ki spheres for all Majin Buu Saga category allies ",
+            "Line description": "Ki +1 after this unit collects ki spheres for all Majin Buu Saga category allies ",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 250%{passiveImg:up_g}\n- Launches an additional attack\n- Great chance of evading enemy's attack\n*When attacking*\n- DEF 100%{passiveImg:up_g}\n*For every attack performed*\n- {passiveImg:forever}ATK & DEF 30%{passiveImg:up_g} (up to 200%)\n*If HP is 85% or more when attacking, or if the target enemy\nis in the following status: {passiveImg:atk_down} or {passiveImg:def_down}*\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n- High chance of performing a critical hit\n- {passiveImg:forever}ATK & DEF 50%{passiveImg:up_g} for every attack performed\n(up to 300%)\n*After evading 3 or more attacks in battle*\n- {passiveImg:forever}Launches an additional attack that has a high chance\nof becoming a Super Attack\n*As the 3rd attacker in a turn*\n- Launches an additional attack that has a high chance of\nbecoming a Super Attack\n- \"Majin Buu Saga\" Category allies' Ki +1 and ATK & DEF 20%{passiveImg:up_g},\nplus an additional Ki +2 and ATK & DEF 30%{passiveImg:up_g} for characters\nwho are also Extreme Class, for 3 turns\n*When 4 or more \"Majin Buu Saga\" Category allies are on the team,\nor when all allies are Extreme Class characters*\n- Chance of evading enemy's attack 15%{passiveImg:up_g} when attacking\n- {passiveImg:once}Evades enemy's attack within the turn when the\ncharacter is the 1st attacker at the start of turn",
+    "Max Attacks": 6,
+    "Max Super Attacks": 6,
+    "Stats at levels": {
+        "1": {
+            "HP": 4862,
+            "ATK": 2814,
+            "DEF": 1433
+        },
+        "2": {
+            "HP": 4953,
+            "ATK": 2867,
+            "DEF": 1460
+        },
+        "3": {
+            "HP": 5051,
+            "ATK": 2923,
+            "DEF": 1488
+        },
+        "4": {
+            "HP": 5142,
+            "ATK": 2976,
+            "DEF": 1515
+        },
+        "5": {
+            "HP": 5240,
+            "ATK": 3032,
+            "DEF": 1544
+        },
+        "6": {
+            "HP": 5331,
+            "ATK": 3086,
+            "DEF": 1571
+        },
+        "7": {
+            "HP": 5423,
+            "ATK": 3139,
+            "DEF": 1598
+        },
+        "8": {
+            "HP": 5520,
+            "ATK": 3195,
+            "DEF": 1627
+        },
+        "9": {
+            "HP": 5612,
+            "ATK": 3248,
+            "DEF": 1654
+        },
+        "10": {
+            "HP": 5709,
+            "ATK": 3304,
+            "DEF": 1683
+        },
+        "11": {
+            "HP": 5801,
+            "ATK": 3358,
+            "DEF": 1710
+        },
+        "12": {
+            "HP": 5893,
+            "ATK": 3411,
+            "DEF": 1737
+        },
+        "13": {
+            "HP": 5990,
+            "ATK": 3467,
+            "DEF": 1765
+        },
+        "14": {
+            "HP": 6082,
+            "ATK": 3520,
+            "DEF": 1792
+        },
+        "15": {
+            "HP": 6179,
+            "ATK": 3576,
+            "DEF": 1821
+        },
+        "16": {
+            "HP": 6271,
+            "ATK": 3630,
+            "DEF": 1848
+        },
+        "17": {
+            "HP": 6363,
+            "ATK": 3683,
+            "DEF": 1875
+        },
+        "18": {
+            "HP": 6460,
+            "ATK": 3739,
+            "DEF": 1904
+        },
+        "19": {
+            "HP": 6552,
+            "ATK": 3792,
+            "DEF": 1931
+        },
+        "20": {
+            "HP": 6649,
+            "ATK": 3848,
+            "DEF": 1960
+        },
+        "21": {
+            "HP": 6741,
+            "ATK": 3902,
+            "DEF": 1987
+        },
+        "22": {
+            "HP": 6832,
+            "ATK": 3955,
+            "DEF": 2014
+        },
+        "23": {
+            "HP": 6930,
+            "ATK": 4011,
+            "DEF": 2042
+        },
+        "24": {
+            "HP": 7021,
+            "ATK": 4064,
+            "DEF": 2069
+        },
+        "25": {
+            "HP": 7119,
+            "ATK": 4120,
+            "DEF": 2098
+        },
+        "26": {
+            "HP": 7210,
+            "ATK": 4174,
+            "DEF": 2125
+        },
+        "27": {
+            "HP": 7302,
+            "ATK": 4227,
+            "DEF": 2152
+        },
+        "28": {
+            "HP": 7399,
+            "ATK": 4283,
+            "DEF": 2181
+        },
+        "29": {
+            "HP": 7491,
+            "ATK": 4336,
+            "DEF": 2208
+        },
+        "30": {
+            "HP": 7588,
+            "ATK": 4392,
+            "DEF": 2237
+        },
+        "31": {
+            "HP": 7680,
+            "ATK": 4446,
+            "DEF": 2264
+        },
+        "32": {
+            "HP": 7777,
+            "ATK": 4502,
+            "DEF": 2292
+        },
+        "33": {
+            "HP": 7869,
+            "ATK": 4555,
+            "DEF": 2320
+        },
+        "34": {
+            "HP": 7961,
+            "ATK": 4608,
+            "DEF": 2347
+        },
+        "35": {
+            "HP": 8058,
+            "ATK": 4664,
+            "DEF": 2375
+        },
+        "36": {
+            "HP": 8150,
+            "ATK": 4718,
+            "DEF": 2402
+        },
+        "37": {
+            "HP": 8247,
+            "ATK": 4774,
+            "DEF": 2431
+        },
+        "38": {
+            "HP": 8339,
+            "ATK": 4827,
+            "DEF": 2458
+        },
+        "39": {
+            "HP": 8431,
+            "ATK": 4880,
+            "DEF": 2485
+        },
+        "40": {
+            "HP": 8528,
+            "ATK": 4936,
+            "DEF": 2514
+        },
+        "41": {
+            "HP": 8620,
+            "ATK": 4990,
+            "DEF": 2541
+        },
+        "42": {
+            "HP": 8717,
+            "ATK": 5046,
+            "DEF": 2570
+        },
+        "43": {
+            "HP": 8809,
+            "ATK": 5099,
+            "DEF": 2597
+        },
+        "44": {
+            "HP": 8900,
+            "ATK": 5152,
+            "DEF": 2624
+        },
+        "45": {
+            "HP": 8998,
+            "ATK": 5208,
+            "DEF": 2652
+        },
+        "46": {
+            "HP": 9090,
+            "ATK": 5262,
+            "DEF": 2679
+        },
+        "47": {
+            "HP": 9187,
+            "ATK": 5318,
+            "DEF": 2708
+        },
+        "48": {
+            "HP": 9279,
+            "ATK": 5371,
+            "DEF": 2735
+        },
+        "49": {
+            "HP": 9370,
+            "ATK": 5424,
+            "DEF": 2762
+        },
+        "50": {
+            "HP": 9468,
+            "ATK": 5480,
+            "DEF": 2791
+        },
+        "51": {
+            "HP": 9559,
+            "ATK": 5534,
+            "DEF": 2818
+        },
+        "52": {
+            "HP": 9657,
+            "ATK": 5590,
+            "DEF": 2847
+        },
+        "53": {
+            "HP": 9748,
+            "ATK": 5643,
+            "DEF": 2874
+        },
+        "54": {
+            "HP": 9840,
+            "ATK": 5696,
+            "DEF": 2901
+        },
+        "55": {
+            "HP": 9937,
+            "ATK": 5752,
+            "DEF": 2929
+        },
+        "56": {
+            "HP": 10029,
+            "ATK": 5806,
+            "DEF": 2956
+        },
+        "57": {
+            "HP": 10126,
+            "ATK": 5862,
+            "DEF": 2985
+        },
+        "58": {
+            "HP": 10218,
+            "ATK": 5915,
+            "DEF": 3012
+        },
+        "59": {
+            "HP": 10310,
+            "ATK": 5968,
+            "DEF": 3039
+        },
+        "60": {
+            "HP": 10407,
+            "ATK": 6024,
+            "DEF": 3068
+        },
+        "61": {
+            "HP": 10499,
+            "ATK": 6078,
+            "DEF": 3095
+        },
+        "62": {
+            "HP": 10596,
+            "ATK": 6134,
+            "DEF": 3124
+        },
+        "63": {
+            "HP": 10688,
+            "ATK": 6187,
+            "DEF": 3151
+        },
+        "64": {
+            "HP": 10780,
+            "ATK": 6240,
+            "DEF": 3178
+        },
+        "65": {
+            "HP": 10877,
+            "ATK": 6296,
+            "DEF": 3207
+        },
+        "66": {
+            "HP": 10969,
+            "ATK": 6350,
+            "DEF": 3234
+        },
+        "67": {
+            "HP": 11066,
+            "ATK": 6406,
+            "DEF": 3262
+        },
+        "68": {
+            "HP": 11158,
+            "ATK": 6459,
+            "DEF": 3289
+        },
+        "69": {
+            "HP": 11249,
+            "ATK": 6512,
+            "DEF": 3316
+        },
+        "70": {
+            "HP": 11347,
+            "ATK": 6568,
+            "DEF": 3345
+        },
+        "71": {
+            "HP": 11438,
+            "ATK": 6622,
+            "DEF": 3372
+        },
+        "72": {
+            "HP": 11536,
+            "ATK": 6678,
+            "DEF": 3401
+        },
+        "73": {
+            "HP": 11627,
+            "ATK": 6731,
+            "DEF": 3428
+        },
+        "74": {
+            "HP": 11719,
+            "ATK": 6784,
+            "DEF": 3455
+        },
+        "75": {
+            "HP": 11816,
+            "ATK": 6840,
+            "DEF": 3484
+        },
+        "76": {
+            "HP": 11908,
+            "ATK": 6894,
+            "DEF": 3511
+        },
+        "77": {
+            "HP": 12006,
+            "ATK": 6950,
+            "DEF": 3539
+        },
+        "78": {
+            "HP": 12097,
+            "ATK": 7003,
+            "DEF": 3566
+        },
+        "79": {
+            "HP": 12189,
+            "ATK": 7056,
+            "DEF": 3593
+        },
+        "80": {
+            "HP": 12286,
+            "ATK": 7112,
+            "DEF": 3622
+        },
+        "81": {
+            "HP": 12378,
+            "ATK": 7166,
+            "DEF": 3649
+        },
+        "82": {
+            "HP": 12475,
+            "ATK": 7222,
+            "DEF": 3678
+        },
+        "83": {
+            "HP": 12567,
+            "ATK": 7275,
+            "DEF": 3705
+        },
+        "84": {
+            "HP": 12659,
+            "ATK": 7328,
+            "DEF": 3732
+        },
+        "85": {
+            "HP": 12756,
+            "ATK": 7384,
+            "DEF": 3761
+        },
+        "86": {
+            "HP": 12848,
+            "ATK": 7438,
+            "DEF": 3788
+        },
+        "87": {
+            "HP": 12945,
+            "ATK": 7494,
+            "DEF": 3816
+        },
+        "88": {
+            "HP": 13037,
+            "ATK": 7547,
+            "DEF": 3843
+        },
+        "89": {
+            "HP": 13129,
+            "ATK": 7600,
+            "DEF": 3871
+        },
+        "90": {
+            "HP": 13226,
+            "ATK": 7656,
+            "DEF": 3899
+        },
+        "91": {
+            "HP": 13318,
+            "ATK": 7710,
+            "DEF": 3926
+        },
+        "92": {
+            "HP": 13415,
+            "ATK": 7766,
+            "DEF": 3955
+        },
+        "93": {
+            "HP": 13507,
+            "ATK": 7819,
+            "DEF": 3982
+        },
+        "94": {
+            "HP": 13604,
+            "ATK": 7875,
+            "DEF": 4011
+        },
+        "95": {
+            "HP": 13696,
+            "ATK": 7928,
+            "DEF": 4038
+        },
+        "96": {
+            "HP": 13787,
+            "ATK": 7982,
+            "DEF": 4065
+        },
+        "97": {
+            "HP": 13885,
+            "ATK": 8038,
+            "DEF": 4094
+        },
+        "98": {
+            "HP": 13976,
+            "ATK": 8091,
+            "DEF": 4121
+        },
+        "99": {
+            "HP": 14074,
+            "ATK": 8147,
+            "DEF": 4149
+        },
+        "100": {
+            "HP": 14165,
+            "ATK": 8200,
+            "DEF": 4176
+        },
+        "101": {
+            "HP": 14257,
+            "ATK": 8254,
+            "DEF": 4203
+        },
+        "102": {
+            "HP": 14354,
+            "ATK": 8310,
+            "DEF": 4232
+        },
+        "103": {
+            "HP": 14446,
+            "ATK": 8363,
+            "DEF": 4259
+        },
+        "104": {
+            "HP": 14543,
+            "ATK": 8419,
+            "DEF": 4288
+        },
+        "105": {
+            "HP": 14635,
+            "ATK": 8472,
+            "DEF": 4315
+        },
+        "106": {
+            "HP": 14727,
+            "ATK": 8526,
+            "DEF": 4342
+        },
+        "107": {
+            "HP": 14824,
+            "ATK": 8582,
+            "DEF": 4371
+        },
+        "108": {
+            "HP": 14916,
+            "ATK": 8635,
+            "DEF": 4398
+        },
+        "109": {
+            "HP": 15013,
+            "ATK": 8691,
+            "DEF": 4426
+        },
+        "110": {
+            "HP": 15105,
+            "ATK": 8744,
+            "DEF": 4453
+        },
+        "111": {
+            "HP": 15197,
+            "ATK": 8798,
+            "DEF": 4480
+        },
+        "112": {
+            "HP": 15294,
+            "ATK": 8854,
+            "DEF": 4509
+        },
+        "113": {
+            "HP": 15386,
+            "ATK": 8907,
+            "DEF": 4536
+        },
+        "114": {
+            "HP": 15483,
+            "ATK": 8963,
+            "DEF": 4565
+        },
+        "115": {
+            "HP": 15575,
+            "ATK": 9016,
+            "DEF": 4592
+        },
+        "116": {
+            "HP": 15666,
+            "ATK": 9070,
+            "DEF": 4619
+        },
+        "117": {
+            "HP": 15764,
+            "ATK": 9126,
+            "DEF": 4648
+        },
+        "118": {
+            "HP": 15855,
+            "ATK": 9179,
+            "DEF": 4675
+        },
+        "119": {
+            "HP": 15953,
+            "ATK": 9235,
+            "DEF": 4703
+        },
+        "120": {
+            "HP": 16045,
+            "ATK": 9289,
+            "DEF": 4731
+        }
+    },
+    "Leader Skill": {
+        "Name": "Strike from the Dark",
+        "10329800": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10329801": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Majin Buu Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10329802": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Excluded Category": [
+                    "Majin Buu Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 130,
+            "DEF": 130,
+            "HP": 130,
+            "Ki": 0
+        },
+        "10329803": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Terrifying Conquerors"
+                ],
+                "Excluded Category": [
+                    "Majin Buu Saga"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 2100,
+            "DEF": 1300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8545": {
+            "superID": "8545",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Dark Scratch",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn, \ncauses supreme damage to enemy \nand lowers ATK & DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8545": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1008545": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20",
+                    "DEF": "20"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp3001"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Light Absorber",
+        "Effect Description": "ATK & DEF +40% and \nall enemies' ATK & DEF -40% for 4 turns; \nrecovers 60% HP",
+        "Condition Description": "Can be activated when there are another \n2 or more \"Majin Buu Saga\" Category allies \non the team starting from the 3rd turn \nfrom the start of battle (once only)",
+        "Condition": {
+            "Logic": "( 3161 && 4 )",
+            "Causalities": {
+                "3161": {
+                    "Button": {
+                        "Name": "Are there 3 or more Majin Buu Saga category allies ?"
+                    },
+                    "Slider": {
+                        "Name": "How many Majin Buu Saga category allies ",
+                        "Logic": ">=3",
+                        "Max": 7,
+                        "Min": 0
+                    },
+                    "Paragraph Title": "When there are 3 or more Majin Buu Saga Category allies "
+                },
+                "4": {
+                    "Button": {
+                        "Name": "Is the turn count 3 or more?"
+                    },
+                    "Slider": {
+                        "Name": "What turn is it?",
+                        "Logic": ">=3",
+                        "Min": 1
+                    },
+                    "Paragraph Title": "Starting from the 3rd turn from the start of battle"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "502": {
+                "Duration": "4",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "ATK Buff",
+                    "Amount": 40
+                },
+                "Target": {
+                    "Target": "All enemies"
+                }
+            },
+            "503": {
+                "Duration": "4",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "-",
+                    "Buff": "DEF Buff",
+                    "Amount": 40
+                },
+                "Target": {
+                    "Target": "All enemies"
+                }
+            },
+            "504": {
+                "Duration": "4",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "ATK Buff",
+                    "Amount": 40
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "505": {
+                "Duration": "4",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "DEF Buff",
+                    "Amount": 40
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            },
+            "506": {
+                "Duration": "4",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Heals",
+                    "Amount": 60
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8545",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

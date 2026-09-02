@@ -1,0 +1,1616 @@
+{
+    "ID": "1029140",
+    "Type": "STR",
+    "Class": "Super",
+    "Name": "Master Roshi",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Turtle School",
+        "DB Saga",
+        "Bond of Master and Disciple",
+        "Kamehameha",
+        "Full Power",
+        "Earthlings",
+        "Battle of Wits",
+        "Earth-Bred Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Turtle School",
+        "Infighter",
+        "Supreme Warrior",
+        "Kamehameha",
+        "World Tournament Champion",
+        "The Incredible Adventure",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1029140,
+    "Passive": {
+        "4199": {
+            "ID": 4199,
+            "Timing": "Start of turn",
+            "DR": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 7,
+            "CausalityLogic": "{\"source\": \"7000000000000\", \"compiled\": 7000000000000}",
+            "Once Only": true,
+            "Has Animation": true,
+            "Type": "Single activator",
+            "Condition": {
+                "Logic": "( 7000000000000 )",
+                "Causalities": {
+                    "7000000000000": {
+                        "Button": {
+                            "Name": "Is it within the first 7 turn(s) from the character's entry turn?"
+                        },
+                        "Paragraph Title": "For 7 turn(s) from the character's entry turn"
+                    }
+                }
+            },
+            "Brief effect description": "Damage Reduction Rate 30%{passiveImg:up_g} ",
+            "Line description": " {passiveImg:once}Damage Reduction Rate 30%{passiveImg:up_g} for 7 turn ",
+            "Paragraph Title": "Activates the Entrance Animation For 7 turn(s) from the character's entry turn"
+        },
+        "1004199": {
+            "ID": 1004199,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004199": {
+            "ID": 2004199,
+            "Timing": "Start of turn",
+            "Ki": 3,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 801 )",
+                "Causalities": {
+                    "801": {
+                        "Button": {
+                            "Name": "Are there 3 or more Turtle School category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"801\", \"compiled\": 801}",
+            "Type": "Single activator",
+            "Brief effect description": "Ki +3 ",
+            "Line description": "Ki +3 ",
+            "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+        },
+        "3004199": {
+            "ID": 3004199,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 801 )",
+                "Causalities": {
+                    "801": {
+                        "Button": {
+                            "Name": "Are there 3 or more Turtle School category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"801\", \"compiled\": 801}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+        },
+        "4004199": {
+            "ID": 4004199,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 801 && 46 )",
+                "Causalities": {
+                    "801": {
+                        "Button": {
+                            "Name": "Are there 3 or more Turtle School category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+                    },
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"801&46\", \"compiled\": [\"&\", 801, 46]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} when attacking when Ki is 12 or more ",
+            "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+        },
+        "5004199": {
+            "ID": 5004199,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 801 && 46 )",
+                "Causalities": {
+                    "801": {
+                        "Button": {
+                            "Name": "Are there 3 or more Turtle School category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Turtle School category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+                    },
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"801&46\", \"compiled\": [\"&\", 801, 46]}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack when attacking",
+            "Line description": "Performs an additional super attack when attacking when Ki is 12 or more ",
+            "Paragraph Title": "When there are 3 or more Turtle School Category allies "
+        },
+        "6004199": {
+            "ID": 6004199,
+            "Timing": "Start of turn",
+            "ATK": 82,
+            "DEF": 82,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3197 )",
+                "Causalities": {
+                    "3197": {
+                        "Button": {
+                            "Name": "Are there 1 or more Peppy Gals category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Peppy Gals Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3197\", \"compiled\": 3197}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 82%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 82%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Peppy Gals Category allies attacking on this turn"
+        },
+        "7004199": {
+            "ID": 7004199,
+            "Timing": "Start of turn",
+            "ATK": 82,
+            "DEF": 82,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3198 )",
+                "Causalities": {
+                    "3198": {
+                        "Button": {
+                            "Name": "Are there 2 or more Peppy Gals category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Peppy Gals category allies attacking on this turn",
+                            "Logic": ">=2",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Peppy Gals Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3198\", \"compiled\": 3198}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 82%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 82%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Peppy Gals Category allies attacking on this turn"
+        },
+        "8004199": {
+            "ID": 8004199,
+            "Timing": "Start of turn",
+            "ATK": 82,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3274 )",
+                "Causalities": {
+                    "3274": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Bulma?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Bulma\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3274\", \"compiled\": 3274}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 82%{passiveImg:up_g} ",
+            "Line description": "ATK 82%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Bulma\" attacking in the same turn "
+        },
+        "9004199": {
+            "ID": 9004199,
+            "Timing": "Start of turn",
+            "Crit Chance": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3274 )",
+                "Causalities": {
+                    "3274": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Bulma?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Bulma\" attacking in the same turn "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3274\", \"compiled\": 3274}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +50%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more allies whose name includes \"Bulma\" attacking in the same turn "
+        },
+        "10004199": {
+            "ID": 10004199,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Peppy Gals"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all Peppy Gals category allies(self excluded) ",
+            "Line description": "Ki +2 for all Peppy Gals category allies(self excluded) ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004199": {
+            "ID": 11004199,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Turtle School"
+                    ],
+                    "Excluded": [
+                        "Peppy Gals"
+                    ]
+                },
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all Turtle School category allies(self excluded) ",
+            "Line description": "Ki +2 for all Turtle School category allies(self excluded) ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "12004199": {
+            "ID": 12004199,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Peppy Gals"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} for all Peppy Gals category allies(self excluded) ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} for all Peppy Gals category allies(self excluded) ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "13004199": {
+            "ID": 13004199,
+            "Timing": "Start of turn",
+            "ATK": 50,
+            "DEF": 50,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Turtle School"
+                    ],
+                    "Excluded": [
+                        "Peppy Gals"
+                    ]
+                },
+                "Target": "allies(self excluded)"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 50%{passiveImg:up_g} for all Turtle School category allies(self excluded) ",
+            "Line description": "ATK and DEF 50%{passiveImg:up_g} for all Turtle School category allies(self excluded) ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Activates the Entrance Animation upon the character's\nentry*\n- {passiveImg:once}Damage reduction rate 30%{passiveImg:up_g} for 7 turn(s)\n*Basic effect(s)*\n- ATK & DEF 150%{passiveImg:up_g}\n- \"Turtle School\" or \"Peppy Gals\" Category allies' Ki +2 and\nATK & DEF 50%{passiveImg:up_g} (self excluded)\n*When another 2 or more \"Turtle School\" Category allies are\non the team*\n- Ki +3\n- Damage reduction rate 20%{passiveImg:up_g}\n- ATK & DEF 150%{passiveImg:up_g} and launches an additional Super Attack\nwhen attacking with 12 or more Ki\n*Per \"Peppy Gals\" Category ally attacking in the same turn*\n- ATK & DEF 82%{passiveImg:up_g}\n*When there is an ally whose name includes \"Bulma\"\nattacking in the same turn*\n- ATK 82%{passiveImg:up_g}\n- High chance of performing a critical hit",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 2852,
+            "ATK": 3244,
+            "DEF": 1926
+        },
+        "2": {
+            "HP": 2918,
+            "ATK": 3320,
+            "DEF": 1971
+        },
+        "3": {
+            "HP": 2985,
+            "ATK": 3396,
+            "DEF": 2016
+        },
+        "4": {
+            "HP": 3052,
+            "ATK": 3472,
+            "DEF": 2061
+        },
+        "5": {
+            "HP": 3119,
+            "ATK": 3548,
+            "DEF": 2106
+        },
+        "6": {
+            "HP": 3189,
+            "ATK": 3628,
+            "DEF": 2154
+        },
+        "7": {
+            "HP": 3256,
+            "ATK": 3704,
+            "DEF": 2199
+        },
+        "8": {
+            "HP": 3323,
+            "ATK": 3780,
+            "DEF": 2244
+        },
+        "9": {
+            "HP": 3390,
+            "ATK": 3856,
+            "DEF": 2289
+        },
+        "10": {
+            "HP": 3457,
+            "ATK": 3932,
+            "DEF": 2334
+        },
+        "11": {
+            "HP": 3523,
+            "ATK": 4008,
+            "DEF": 2379
+        },
+        "12": {
+            "HP": 3590,
+            "ATK": 4084,
+            "DEF": 2424
+        },
+        "13": {
+            "HP": 3657,
+            "ATK": 4160,
+            "DEF": 2470
+        },
+        "14": {
+            "HP": 3724,
+            "ATK": 4236,
+            "DEF": 2515
+        },
+        "15": {
+            "HP": 3791,
+            "ATK": 4312,
+            "DEF": 2560
+        },
+        "16": {
+            "HP": 3861,
+            "ATK": 4392,
+            "DEF": 2607
+        },
+        "17": {
+            "HP": 3928,
+            "ATK": 4468,
+            "DEF": 2653
+        },
+        "18": {
+            "HP": 3995,
+            "ATK": 4544,
+            "DEF": 2698
+        },
+        "19": {
+            "HP": 4062,
+            "ATK": 4620,
+            "DEF": 2743
+        },
+        "20": {
+            "HP": 4129,
+            "ATK": 4696,
+            "DEF": 2788
+        },
+        "21": {
+            "HP": 4195,
+            "ATK": 4773,
+            "DEF": 2833
+        },
+        "22": {
+            "HP": 4262,
+            "ATK": 4849,
+            "DEF": 2878
+        },
+        "23": {
+            "HP": 4329,
+            "ATK": 4925,
+            "DEF": 2923
+        },
+        "24": {
+            "HP": 4396,
+            "ATK": 5001,
+            "DEF": 2969
+        },
+        "25": {
+            "HP": 4463,
+            "ATK": 5077,
+            "DEF": 3014
+        },
+        "26": {
+            "HP": 4533,
+            "ATK": 5157,
+            "DEF": 3061
+        },
+        "27": {
+            "HP": 4600,
+            "ATK": 5233,
+            "DEF": 3106
+        },
+        "28": {
+            "HP": 4667,
+            "ATK": 5309,
+            "DEF": 3151
+        },
+        "29": {
+            "HP": 4734,
+            "ATK": 5385,
+            "DEF": 3197
+        },
+        "30": {
+            "HP": 4801,
+            "ATK": 5461,
+            "DEF": 3242
+        },
+        "31": {
+            "HP": 4867,
+            "ATK": 5537,
+            "DEF": 3287
+        },
+        "32": {
+            "HP": 4934,
+            "ATK": 5613,
+            "DEF": 3332
+        },
+        "33": {
+            "HP": 5001,
+            "ATK": 5689,
+            "DEF": 3377
+        },
+        "34": {
+            "HP": 5068,
+            "ATK": 5765,
+            "DEF": 3422
+        },
+        "35": {
+            "HP": 5135,
+            "ATK": 5841,
+            "DEF": 3468
+        },
+        "36": {
+            "HP": 5205,
+            "ATK": 5921,
+            "DEF": 3515
+        },
+        "37": {
+            "HP": 5272,
+            "ATK": 5997,
+            "DEF": 3560
+        },
+        "38": {
+            "HP": 5339,
+            "ATK": 6073,
+            "DEF": 3605
+        },
+        "39": {
+            "HP": 5406,
+            "ATK": 6149,
+            "DEF": 3650
+        },
+        "40": {
+            "HP": 5473,
+            "ATK": 6225,
+            "DEF": 3696
+        },
+        "41": {
+            "HP": 5539,
+            "ATK": 6302,
+            "DEF": 3741
+        },
+        "42": {
+            "HP": 5606,
+            "ATK": 6378,
+            "DEF": 3786
+        },
+        "43": {
+            "HP": 5673,
+            "ATK": 6454,
+            "DEF": 3831
+        },
+        "44": {
+            "HP": 5740,
+            "ATK": 6530,
+            "DEF": 3876
+        },
+        "45": {
+            "HP": 5807,
+            "ATK": 6606,
+            "DEF": 3921
+        },
+        "46": {
+            "HP": 5877,
+            "ATK": 6686,
+            "DEF": 3969
+        },
+        "47": {
+            "HP": 5944,
+            "ATK": 6762,
+            "DEF": 4014
+        },
+        "48": {
+            "HP": 6011,
+            "ATK": 6838,
+            "DEF": 4059
+        },
+        "49": {
+            "HP": 6078,
+            "ATK": 6914,
+            "DEF": 4104
+        },
+        "50": {
+            "HP": 6145,
+            "ATK": 6990,
+            "DEF": 4149
+        },
+        "51": {
+            "HP": 6211,
+            "ATK": 7066,
+            "DEF": 4195
+        },
+        "52": {
+            "HP": 6278,
+            "ATK": 7142,
+            "DEF": 4240
+        },
+        "53": {
+            "HP": 6345,
+            "ATK": 7218,
+            "DEF": 4285
+        },
+        "54": {
+            "HP": 6412,
+            "ATK": 7294,
+            "DEF": 4330
+        },
+        "55": {
+            "HP": 6479,
+            "ATK": 7370,
+            "DEF": 4375
+        },
+        "56": {
+            "HP": 6549,
+            "ATK": 7450,
+            "DEF": 4423
+        },
+        "57": {
+            "HP": 6616,
+            "ATK": 7526,
+            "DEF": 4468
+        },
+        "58": {
+            "HP": 6683,
+            "ATK": 7602,
+            "DEF": 4513
+        },
+        "59": {
+            "HP": 6750,
+            "ATK": 7678,
+            "DEF": 4558
+        },
+        "60": {
+            "HP": 6817,
+            "ATK": 7754,
+            "DEF": 4603
+        },
+        "61": {
+            "HP": 6883,
+            "ATK": 7831,
+            "DEF": 4648
+        },
+        "62": {
+            "HP": 6950,
+            "ATK": 7907,
+            "DEF": 4694
+        },
+        "63": {
+            "HP": 7017,
+            "ATK": 7983,
+            "DEF": 4739
+        },
+        "64": {
+            "HP": 7084,
+            "ATK": 8059,
+            "DEF": 4784
+        },
+        "65": {
+            "HP": 7151,
+            "ATK": 8135,
+            "DEF": 4829
+        },
+        "66": {
+            "HP": 7221,
+            "ATK": 8215,
+            "DEF": 4876
+        },
+        "67": {
+            "HP": 7288,
+            "ATK": 8291,
+            "DEF": 4922
+        },
+        "68": {
+            "HP": 7355,
+            "ATK": 8367,
+            "DEF": 4967
+        },
+        "69": {
+            "HP": 7422,
+            "ATK": 8443,
+            "DEF": 5012
+        },
+        "70": {
+            "HP": 7489,
+            "ATK": 8519,
+            "DEF": 5057
+        },
+        "71": {
+            "HP": 7555,
+            "ATK": 8595,
+            "DEF": 5102
+        },
+        "72": {
+            "HP": 7622,
+            "ATK": 8671,
+            "DEF": 5147
+        },
+        "73": {
+            "HP": 7689,
+            "ATK": 8747,
+            "DEF": 5193
+        },
+        "74": {
+            "HP": 7756,
+            "ATK": 8823,
+            "DEF": 5238
+        },
+        "75": {
+            "HP": 7823,
+            "ATK": 8899,
+            "DEF": 5283
+        },
+        "76": {
+            "HP": 7893,
+            "ATK": 8979,
+            "DEF": 5330
+        },
+        "77": {
+            "HP": 7960,
+            "ATK": 9055,
+            "DEF": 5375
+        },
+        "78": {
+            "HP": 8027,
+            "ATK": 9131,
+            "DEF": 5421
+        },
+        "79": {
+            "HP": 8094,
+            "ATK": 9207,
+            "DEF": 5466
+        },
+        "80": {
+            "HP": 8161,
+            "ATK": 9283,
+            "DEF": 5511
+        },
+        "81": {
+            "HP": 8227,
+            "ATK": 9360,
+            "DEF": 5556
+        },
+        "82": {
+            "HP": 8294,
+            "ATK": 9436,
+            "DEF": 5601
+        },
+        "83": {
+            "HP": 8361,
+            "ATK": 9512,
+            "DEF": 5646
+        },
+        "84": {
+            "HP": 8428,
+            "ATK": 9588,
+            "DEF": 5691
+        },
+        "85": {
+            "HP": 8495,
+            "ATK": 9664,
+            "DEF": 5737
+        },
+        "86": {
+            "HP": 8565,
+            "ATK": 9744,
+            "DEF": 5784
+        },
+        "87": {
+            "HP": 8632,
+            "ATK": 9820,
+            "DEF": 5829
+        },
+        "88": {
+            "HP": 8699,
+            "ATK": 9896,
+            "DEF": 5874
+        },
+        "89": {
+            "HP": 8766,
+            "ATK": 9972,
+            "DEF": 5920
+        },
+        "90": {
+            "HP": 8833,
+            "ATK": 10048,
+            "DEF": 5965
+        },
+        "91": {
+            "HP": 8899,
+            "ATK": 10124,
+            "DEF": 6010
+        },
+        "92": {
+            "HP": 8966,
+            "ATK": 10200,
+            "DEF": 6055
+        },
+        "93": {
+            "HP": 9033,
+            "ATK": 10276,
+            "DEF": 6100
+        },
+        "94": {
+            "HP": 9100,
+            "ATK": 10352,
+            "DEF": 6145
+        },
+        "95": {
+            "HP": 9167,
+            "ATK": 10428,
+            "DEF": 6190
+        },
+        "96": {
+            "HP": 9237,
+            "ATK": 10508,
+            "DEF": 6238
+        },
+        "97": {
+            "HP": 9304,
+            "ATK": 10584,
+            "DEF": 6283
+        },
+        "98": {
+            "HP": 9371,
+            "ATK": 10660,
+            "DEF": 6328
+        },
+        "99": {
+            "HP": 9438,
+            "ATK": 10736,
+            "DEF": 6373
+        },
+        "100": {
+            "HP": 9505,
+            "ATK": 10813,
+            "DEF": 6419
+        }
+    },
+    "Leader Skill": {
+        "Name": "Next-Generation-Guiding Turtle School",
+        "10291400": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Peppy Gals"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10291401": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Peppy Gals"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 200,
+            "DEF": 200,
+            "HP": 200,
+            "Ki": 0
+        },
+        "10291402": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10291403": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "10291404": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "DB Saga"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals",
+                    "Turtle School"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10291405": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "DB Saga"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals",
+                    "Turtle School"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "10291406": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School",
+                    "Bond of Master and Disciple"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "10291407": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "DB Saga",
+                    "Bond of Master and Disciple"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals",
+                    "Turtle School"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "10291408": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Turtle School",
+                    "Kamehameha"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals",
+                    "Bond of Master and Disciple"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "10291409": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "DB Saga",
+                    "Kamehameha"
+                ],
+                "Excluded Category": [
+                    "Peppy Gals",
+                    "Turtle School",
+                    "Bond of Master and Disciple"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "5677": {
+            "superID": "5677",
+            "Type": "Unarmed",
+            "special_name_no": "0",
+            "superName": "Turtle School Dance",
+            "superDescription": "Raises ATK & DEF for 1 turn and \ncauses immense damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5677": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30",
+                    "DEF": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 505,
+            "relevantLua": [
+                "sp2744"
+            ]
+        },
+        "5678": {
+            "superID": "5678",
+            "Type": "Other",
+            "special_name_no": "3",
+            "superName": "Master and Disciple Kamehameha",
+            "superDescription": "Raises ATK, \ngreatly raises DEF for 1 turn and \ncauses immense damage with \na great chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "10.0",
+            "superStyle": "Condition",
+            "superMinLVL": "0",
+            "superCausality": "Activated when there is an ally \nwhose name includes \"Goku (Youth)\" or \n\"Krillin (Youth)\" attacking in the same turn",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5678": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1005678": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                },
+                "2005678": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "70",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "superCondition": {
+                "Logic": "( 583 || 3199 )",
+                "Causalities": {
+                    "583": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Goku (Youth)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Goku (Youth)\" attacking in the same turn "
+                    },
+                    "3199": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Krillin (Youth)?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Krillin (Youth)\" attacking in the same turn "
+                    }
+                }
+            },
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 475,
+            "relevantLua": [
+                "sp2746"
+            ]
+        },
+        "5679": {
+            "superID": "5679",
+            "Type": "Ki blast",
+            "special_name_no": "4",
+            "superName": "Max Power Kamehameha",
+            "superDescription": "Raises ATK, \ngreatly raises DEF for 1 turn and \ncauses immense damage with \na great chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "11.0",
+            "superStyle": "Condition",
+            "superMinLVL": "0",
+            "superCausality": "Activated when there is an ally \nwhose name includes \"Bulma\" \nattacking in the same turn",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5679": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "99",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                },
+                "1005679": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "DEF": "50"
+                },
+                "2005679": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "70",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "superCondition": {
+                "Logic": "( 3274 )",
+                "Causalities": {
+                    "3274": {
+                        "Button": {
+                            "Name": "Is there 1 or more allies attacking on this turn whose name includes Bulma?"
+                        },
+                        "Paragraph Title": "When there are 1 or more allies whose name includes \"Bulma\" attacking in the same turn "
+                    }
+                }
+            },
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 475,
+            "relevantLua": [
+                "sp2745"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Turtle School's Teachings",
+        "Effect Description": "Recovers 50% HP and, for 1 turn, \nall allies' Ki +3 and ATK & DEF +30%",
+        "Condition Description": "Can be activated when \nHP is 70% or less starting from \nthe 3rd turn from the start of battle, \nor starting from the 5th turn \nfrom the start of battle (once only)",
+        "Condition": {
+            "Logic": "( ( 4 && 74 ) || 200 )",
+            "Causalities": {
+                "4": {
+                    "Button": {
+                        "Name": "Is the turn count 3 or more?"
+                    },
+                    "Slider": {
+                        "Name": "What turn is it?",
+                        "Logic": ">=3",
+                        "Min": 1
+                    },
+                    "Paragraph Title": "Starting from the 3rd turn from the start of battle"
+                },
+                "74": {
+                    "Button": {
+                        "Name": "Is HP 70 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": "<=70",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 70% or less"
+                },
+                "200": {
+                    "Button": {
+                        "Name": "Is the turn count 5 or more?"
+                    },
+                    "Slider": {
+                        "Name": "What turn is it?",
+                        "Logic": ">=5",
+                        "Min": 1
+                    },
+                    "Paragraph Title": "Starting from the 5th turn from the start of battle"
+                }
+            }
+        },
+        "Uses": 1,
+        "Effects": {
+            "317": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Ki Buff",
+                    "Amount": 3
+                },
+                "Target": {
+                    "Target": "All allies"
+                }
+            },
+            "318": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "ATK Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "All allies"
+                }
+            },
+            "319": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "DEF Buff",
+                    "Amount": 30
+                },
+                "Target": {
+                    "Target": "All allies"
+                }
+            },
+            "325": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Percentage",
+                    "+ or -": "+",
+                    "Buff": "Heals",
+                    "Amount": 50
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 75.0,
+        "1": 81.25,
+        "2": 87.5,
+        "3": 93.75,
+        "4": 100.0,
+        "5": 106.25,
+        "6": 112.5,
+        "7": 118.75,
+        "8": 125.0,
+        "9": 131.25,
+        "10": 137.5,
+        "11": 143.75,
+        "12": 150.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5677",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

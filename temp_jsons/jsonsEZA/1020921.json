@@ -1,0 +1,1003 @@
+{
+    "ID": "1020921",
+    "Type": "INT",
+    "Class": "Extreme",
+    "Name": "Demigra",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Resurrected Warriors",
+        "Realm of Gods",
+        "Time Travelers",
+        "Giant Form",
+        "Final Trump Card",
+        "Crossover",
+        "Storied Figures",
+        "Demonic Power"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Godly Power",
+        "Big Bad Bosses",
+        "Brainiacs",
+        "Revival",
+        "Fear and Faith",
+        "Xenoverse",
+        "Fierce Battle"
+    ],
+    "Resource ID": 1020920,
+    "Passive": {
+        "4950": {
+            "ID": 4950,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004950": {
+            "ID": 1004950,
+            "Timing": "Start of turn",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004950": {
+            "ID": 2004950,
+            "Timing": "Start of turn",
+            "Crit Chance": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004950": {
+            "ID": 3004950,
+            "Timing": "Start of turn",
+            "DR": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 20%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004950": {
+            "ID": 4004950,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 70,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Line description": "Performs an additional attack with a 70% chance of becoming a super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004950": {
+            "ID": 5004950,
+            "Timing": "Right after attack",
+            "Status": [
+                "Stun"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Stun after attacking",
+            "Line description": "High chance of Stun after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004950": {
+            "ID": 6004950,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004950": {
+            "ID": 7004950,
+            "Timing": "Start of turn",
+            "ATK": 300,
+            "DEF": 300,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 749 || 1238 || 1922 )",
+                "Causalities": {
+                    "749": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    },
+                    "1238": {
+                        "Button": {
+                            "Name": "Are there 3 or more Realm of Gods category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Realm of Gods category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Realm of Gods Category allies "
+                    },
+                    "1922": {
+                        "Button": {
+                            "Name": "Is there 3 or more Extreme class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies attacking on this turn?",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Extreme class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"749|1238|1922\", \"compiled\": [\"|\", 749, 1238, 1922]}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 300%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 300%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies or there are 3 or more Realm of Gods Category allies or there are 3 or more Extreme class allies attacking on this turn "
+        },
+        "8004950": {
+            "ID": 8004950,
+            "Timing": "Start of turn",
+            "Crit Chance": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 749 || 1238 || 1922 )",
+                "Causalities": {
+                    "749": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    },
+                    "1238": {
+                        "Button": {
+                            "Name": "Are there 3 or more Realm of Gods category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Realm of Gods category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Realm of Gods Category allies "
+                    },
+                    "1922": {
+                        "Button": {
+                            "Name": "Is there 3 or more Extreme class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies attacking on this turn?",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Extreme class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"749|1238|1922\", \"compiled\": [\"|\", 749, 1238, 1922]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +40%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies or there are 3 or more Realm of Gods Category allies or there are 3 or more Extreme class allies attacking on this turn "
+        },
+        "9004950": {
+            "ID": 9004950,
+            "Dodge Chance": 40,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 749 || 1238 || 1922 )",
+                "Causalities": {
+                    "749": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies "
+                    },
+                    "1238": {
+                        "Button": {
+                            "Name": "Are there 3 or more Realm of Gods category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Realm of Gods category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Realm of Gods Category allies "
+                    },
+                    "1922": {
+                        "Button": {
+                            "Name": "Is there 3 or more Extreme class allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies attacking on this turn?",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Extreme class allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"749|1238|1922\", \"compiled\": [\"|\", 749, 1238, 1922]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +40% ",
+            "Line description": "Chance of evading enemy attacks +40% ",
+            "Paragraph Title": "When there are 3 or more Crossover Category allies or there are 3 or more Realm of Gods Category allies or there are 3 or more Extreme class allies attacking on this turn "
+        },
+        "10004950": {
+            "ID": 10004950,
+            "Dodge Chance": 40,
+            "Timing": "After all ki collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1489 )",
+                "Causalities": {
+                    "1489": {
+                        "Button": {
+                            "Name": "Is this the 2nd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==2",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 2nd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1489\", \"compiled\": 1489}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +40% after all ki collected",
+            "Line description": " {passiveImg:once}Chance of evading enemy attacks +40% after all ki collected for 1 turn ",
+            "Paragraph Title": "When as the 2nd attacker in the turn"
+        },
+        "11004950": {
+            "ID": 11004950,
+            "Timing": "Right after attack",
+            "Status": [
+                "Disable action"
+            ],
+            "Target": {
+                "Target": "Enemy"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1489 )",
+                "Causalities": {
+                    "1489": {
+                        "Button": {
+                            "Name": "Is this the 2nd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==2",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 2nd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1489\", \"compiled\": 1489}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Disable action after attacking",
+            "Line description": " {passiveImg:once}Disable action after attacking for 1 turn ",
+            "Paragraph Title": "When as the 2nd attacker in the turn"
+        },
+        "12004950": {
+            "ID": 12004950,
+            "Dodge Chance": 30,
+            "Timing": "After all ki collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1490 )",
+                "Causalities": {
+                    "1490": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1490\", \"compiled\": 1490}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% after all ki collected",
+            "Line description": "Chance of evading enemy attacks +30% after all ki collected",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "13004950": {
+            "ID": 13004950,
+            "Timing": "After all ki collected",
+            "DR": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1490 )",
+                "Causalities": {
+                    "1490": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1490\", \"compiled\": 1490}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 30%{passiveImg:up_g} after all ki collected",
+            "Line description": "Damage Reduction Rate 30%{passiveImg:up_g} after all ki collected",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "14004950": {
+            "ID": 14004950,
+            "Guaranteed Hit": true,
+            "Timing": "After all ki collected",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1490 )",
+                "Causalities": {
+                    "1490": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1490\", \"compiled\": 1490}",
+            "Type": "Single activator",
+            "Brief effect description": "Attacks guaranteed to hit after all ki collected",
+            "Line description": "Attacks guaranteed to hit after all ki collected",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        },
+        "15004950": {
+            "ID": 15004950,
+            "Timing": "Start of turn",
+            "ATK": 266,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2304 )",
+                "Causalities": {
+                    "2304": {
+                        "Button": {
+                            "Name": "Is HP 60 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=60",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 60% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2304\", \"compiled\": 2304}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 266%{passiveImg:up_g} ",
+            "Line description": "ATK 266%{passiveImg:up_g} ",
+            "Paragraph Title": "When HP is 60% or more"
+        },
+        "16004950": {
+            "ID": 16004950,
+            "Dodge Chance": 6,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2304 )",
+                "Causalities": {
+                    "2304": {
+                        "Button": {
+                            "Name": "Is HP 60 % or more on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": ">=60",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 60% or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2304\", \"compiled\": 2304}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +6% ",
+            "Line description": "Chance of evading enemy attacks +6% ",
+            "Paragraph Title": "When HP is 60% or more"
+        },
+        "17004950": {
+            "ID": 17004950,
+            "Transformation": {
+                "Activated": true,
+                "Unit": 4020921,
+                "Giant/Rage": true,
+                "Min Turns": "2",
+                "Max Turns": "3",
+                "Reverse chance": "80"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 728 || ( 2703 && ( 3532 || 1923 ) && 1490 ) )",
+                "Causalities": {
+                    "728": {
+                        "Button": {
+                            "Name": "Is HP 60 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=60",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 60% or less"
+                    },
+                    "2703": {
+                        "Button": {
+                            "Name": "Is it on or after the first 3 turns from this characters entry turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many turns is it since entry turn on this turn?",
+                            "Logic": ">=3",
+                            "Min": 0,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "Starting from the 3 turn from the character's entry turn"
+                    },
+                    "3532": {
+                        "Button": {
+                            "Name": "Are there 3 or more Realm of Gods category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Realm of Gods category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Realm of Gods Category allies attacking on this turn"
+                    },
+                    "1923": {
+                        "Button": {
+                            "Name": "Are there 3 or more Crossover category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies attacking on this turn",
+                            "Logic": ">=3",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Crossover Category allies attacking on this turn"
+                    },
+                    "1490": {
+                        "Button": {
+                            "Name": "Is this the 3rd attacker in the turn on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What position is this character attacking in on this turn?",
+                            "Logic": "==3",
+                            "Min": 1,
+                            "Max": 3
+                        },
+                        "Paragraph Title": "As the 3rd attacker in the turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"728|2703&(3532|1923)&1490\", \"compiled\": [\"|\", 728, [\"&\", 2703, [\"|\", 3532, 1923], 1490]]}",
+            "Type": "Single activator",
+            "Brief effect description": "Transforms into 4020921 as a giant form for 2 to 3 turns ",
+            "Line description": "Transforms into 4020921 as a giant form for 2 to 3 turns when HP is 60% or less or starting from the 3 turn from the character's entry turn and there are 3 or more Realm of Gods Category allies attacking on this turn or there are 3 or more Crossover Category allies attacking on this turn ",
+            "Paragraph Title": "When as the 3rd attacker in the turn"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 250%{passiveImg:up_g}\n- Chance of performing a critical hit & damage reduction rate 20%{passiveImg:up_g}\n- Launches an additional attack that has a great chance of becoming\na Super Attack\n- High chance of stunning the attacked enemy\n*When attacking*\n- ATK & DEF 250%{passiveImg:up_g}\n*When 3 or more \"Crossover\" or \"Realm of Gods\" Category allies are\non the team, or when there are 3 Extreme Class allies attacking\nin the same turn*\n- ATK & DEF 300%{passiveImg:up_g}\n- Chance of performing a critical hit & chance of evading enemy's\nattack 40%{passiveImg:up_g}\n*As the 2nd attacker in a turn*\n- {passiveImg:once}Chance of evading enemy's attack 40%{passiveImg:up_g}\n- {passiveImg:once}Interrupts the attacked enemy\n*As the 3rd attacker in a turn*\n- Chance of evading enemy's attack & damage reduction rate 30%{passiveImg:up_g}\n- Attacks guaranteed to hit\n*When HP is 60% or more*\n- ATK 266%{passiveImg:up_g}\n- Chance of evading enemy's attack 6%{passiveImg:up_g}\n*When HP is 60% or less, or when the character is the 3rd attacker\nat the start of turn and there are 3 \"Crossover\" Category allies or\n3 \"Realm of Gods\" Category allies attacking in the same turn\nstarting from the 3rd turn from the character's entry turn*\n- {passiveImg:once}Turns into Giant Form",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "120": {
+            "HP": 10920,
+            "ATK": 8390,
+            "DEF": 4837
+        },
+        "121": {
+            "HP": 11104,
+            "ATK": 8531,
+            "DEF": 4918
+        },
+        "122": {
+            "HP": 11288,
+            "ATK": 8673,
+            "DEF": 5000
+        },
+        "123": {
+            "HP": 11472,
+            "ATK": 8814,
+            "DEF": 5081
+        },
+        "124": {
+            "HP": 11656,
+            "ATK": 8956,
+            "DEF": 5163
+        },
+        "125": {
+            "HP": 11840,
+            "ATK": 9097,
+            "DEF": 5245
+        },
+        "126": {
+            "HP": 12025,
+            "ATK": 9239,
+            "DEF": 5326
+        },
+        "127": {
+            "HP": 12209,
+            "ATK": 9380,
+            "DEF": 5408
+        },
+        "128": {
+            "HP": 12393,
+            "ATK": 9522,
+            "DEF": 5489
+        },
+        "129": {
+            "HP": 12577,
+            "ATK": 9663,
+            "DEF": 5571
+        },
+        "130": {
+            "HP": 12761,
+            "ATK": 9805,
+            "DEF": 5653
+        },
+        "131": {
+            "HP": 12946,
+            "ATK": 9946,
+            "DEF": 5734
+        },
+        "132": {
+            "HP": 13130,
+            "ATK": 10088,
+            "DEF": 5816
+        },
+        "133": {
+            "HP": 13314,
+            "ATK": 10229,
+            "DEF": 5897
+        },
+        "134": {
+            "HP": 13498,
+            "ATK": 10371,
+            "DEF": 5979
+        },
+        "135": {
+            "HP": 13682,
+            "ATK": 10512,
+            "DEF": 6061
+        },
+        "136": {
+            "HP": 13867,
+            "ATK": 10654,
+            "DEF": 6142
+        },
+        "137": {
+            "HP": 14051,
+            "ATK": 10796,
+            "DEF": 6224
+        },
+        "138": {
+            "HP": 14235,
+            "ATK": 10937,
+            "DEF": 6305
+        },
+        "139": {
+            "HP": 14419,
+            "ATK": 11079,
+            "DEF": 6387
+        },
+        "140": {
+            "HP": 14603,
+            "ATK": 11220,
+            "DEF": 6469
+        }
+    },
+    "Leader Skill": {
+        "Name": "Power to Distort History",
+        "102092100": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 90,
+            "DEF": 90,
+            "HP": 90,
+            "Ki": 0
+        },
+        "102092101": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 2000,
+            "ATK": 2000,
+            "DEF": 2000,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 300,
+            "ATK": 300,
+            "DEF": 300,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 310,
+            "ATK": 700,
+            "DEF": 310,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 690,
+            "ATK": 300,
+            "DEF": 690,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1700,
+            "ATK": 1700,
+            "DEF": 1700,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "8791": {
+            "superID": "8791",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Energy Jet (Extreme)",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn \nand causes supreme damage with \na high chance of stunning the enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "8791": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                },
+                "1008791": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "50",
+                    "Duration": "2",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Stun"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp2082"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [
+        "4020921"
+    ],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 72.5,
+        "1": 78.54166666666667,
+        "2": 84.58333333333333,
+        "3": 90.625,
+        "4": 96.66666666666666,
+        "5": 102.70833333333334,
+        "6": 108.75,
+        "7": 114.79166666666667,
+        "8": 120.83333333333333,
+        "9": 126.875,
+        "10": 132.91666666666669,
+        "11": 138.95833333333331,
+        "12": 145.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "8791",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

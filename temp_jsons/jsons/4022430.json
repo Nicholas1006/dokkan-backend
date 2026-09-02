@@ -1,0 +1,1500 @@
+{
+    "ID": "4022430",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Super Saiyan 4 Gogeta",
+    "Rarity": "lr",
+    "Min Level": 1,
+    "Max Level": 150,
+    "Categories": [
+        "Fused Fighters",
+        "GT Heroes",
+        "Shadow Dragon Saga",
+        "Pure Saiyans",
+        "Joined Forces",
+        "Kamehameha",
+        "Giant Ape Power",
+        "Battle of Fate",
+        "Power Beyond Super Saiyan",
+        "Fusion",
+        "Final Trump Card",
+        "Time Limit",
+        "Accelerated Battle",
+        "Bond of Parent and Child",
+        "Earth-Protecting Heroes"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Super Saiyan",
+        "Kamehameha",
+        "Saiyan Roar",
+        "Shocking Speed",
+        "GT",
+        "Fierce Battle",
+        "Legendary Power"
+    ],
+    "Resource ID": 4022430,
+    "Passive": {
+        "2734": {
+            "ID": 2734,
+            "Timing": "Start of turn",
+            "ATK": 177,
+            "DEF": 177,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 177%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 177%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1002734": {
+            "ID": 1002734,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 46,
+                "Stat Per Proc": 2,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "PHY",
+                        "STR",
+                        "INT",
+                        "TEQ",
+                        "AGL"
+                    ]
+                },
+                "Slider": "How many PHY or STR or INT or TEQ or AGL Ki Spheres have been obtained?"
+            },
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Ki +2 per Type Ki Sphere obtained{currentValue} / 46 ",
+            "Line description": "Ki +2 per Type Ki Sphere obtained{currentValue} / 46 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2002734": {
+            "ID": 2002734,
+            "Effective Against All": true,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Attacks effective against all Types ",
+            "Line description": "Attacks effective against all Types ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3002734": {
+            "ID": 3002734,
+            "Timing": "Start of turn",
+            "Crit Chance": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +30%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4002734": {
+            "ID": 4002734,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Performs an additional super attack ",
+            "Line description": "High chance of Performs an additional super attack ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5002734": {
+            "ID": 5002734,
+            "Nullification": {
+                "Activated": true,
+                "Absorbed": 0
+            },
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1880 )",
+                "Causalities": {
+                    "1880": {
+                        "Button": {
+                            "Name": "Has this character been hit by a super attack?"
+                        },
+                        "Paragraph Title": "When a super is being performed"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1880\", \"compiled\": 1880}",
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Nullifies enemy attack right before being hit",
+            "Line description": "High chance of Nullifies enemy attack while being hit",
+            "Paragraph Title": "When a super is being performed"
+        },
+        "6002734": {
+            "ID": 6002734,
+            "Counter": {
+                "Activated": true,
+                "Multiplier": 300
+            },
+            "Timing": "Right before being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1880 )",
+                "Causalities": {
+                    "1880": {
+                        "Button": {
+                            "Name": "Has this character been hit by a super attack?"
+                        },
+                        "Paragraph Title": "When a super is being performed"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1880\", \"compiled\": 1880}",
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Counter attacks with a 300% multiplier right before being hit",
+            "Line description": "High chance of Counter attacks with a 300% multiplier while being hit",
+            "Paragraph Title": "When a super is being performed"
+        },
+        "7002734": {
+            "ID": 7002734,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 5002734
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:5002734 after being hit",
+            "Line description": "Disables a different passive line:5002734 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8002734": {
+            "ID": 8002734,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 6002734
+            },
+            "Timing": "Right after being hit",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:6002734 after being hit",
+            "Line description": "Disables a different passive line:6002734 after being hit",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "9002734": {
+            "ID": 9002734,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 35,
+                "Stat Per Proc": 7,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow"
+                    ]
+                },
+                "Slider": "How many Rainbow Ki Spheres have been obtained?"
+            },
+            "Crit Chance": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Chance of performing a critical hit +7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Line description": "Chance of performing a critical hit +7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10002734": {
+            "ID": 10002734,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 35,
+                "Stat Per Proc": 7,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Rainbow"
+                    ]
+                },
+                "Slider": "How many Rainbow Ki Spheres have been obtained?"
+            },
+            "DR": 7,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Damage Reduction Rate 7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Line description": "Damage Reduction Rate 7%{passiveImg:up_g} per Rainbow Ki Spheres obtained{currentValue} / 35 ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 177%{passiveImg:up_g}\n- Receives an additional Ki +2 per Type Ki Sphere obtained\n- Attacks are effective against all Types\n- Medium chance of performing a critical hit\n- High chance of launching an additional Super Attack\n*For every Rainbow Ki Sphere obtained*\n- Chance of performing a critical hit 7%{passiveImg:up_g}\n- Damage reduction rate 7%{passiveImg:up_g}\n*When receiving a Super Attack*\n- High chance of nullifying it and countering with tremendous\npower",
+    "Max Attacks": 3,
+    "Max Super Attacks": 3,
+    "Stats at levels": {
+        "1": {
+            "HP": 4106,
+            "ATK": 4383,
+            "DEF": 1844
+        },
+        "2": {
+            "HP": 4171,
+            "ATK": 4453,
+            "DEF": 1873
+        },
+        "3": {
+            "HP": 4232,
+            "ATK": 4518,
+            "DEF": 1900
+        },
+        "4": {
+            "HP": 4298,
+            "ATK": 4588,
+            "DEF": 1930
+        },
+        "5": {
+            "HP": 4363,
+            "ATK": 4658,
+            "DEF": 1959
+        },
+        "6": {
+            "HP": 4429,
+            "ATK": 4728,
+            "DEF": 1989
+        },
+        "7": {
+            "HP": 4490,
+            "ATK": 4793,
+            "DEF": 2016
+        },
+        "8": {
+            "HP": 4556,
+            "ATK": 4863,
+            "DEF": 2046
+        },
+        "9": {
+            "HP": 4621,
+            "ATK": 4933,
+            "DEF": 2075
+        },
+        "10": {
+            "HP": 4682,
+            "ATK": 4998,
+            "DEF": 2102
+        },
+        "11": {
+            "HP": 4748,
+            "ATK": 5068,
+            "DEF": 2132
+        },
+        "12": {
+            "HP": 4814,
+            "ATK": 5138,
+            "DEF": 2161
+        },
+        "13": {
+            "HP": 4879,
+            "ATK": 5208,
+            "DEF": 2191
+        },
+        "14": {
+            "HP": 4940,
+            "ATK": 5273,
+            "DEF": 2218
+        },
+        "15": {
+            "HP": 5006,
+            "ATK": 5344,
+            "DEF": 2248
+        },
+        "16": {
+            "HP": 5072,
+            "ATK": 5414,
+            "DEF": 2277
+        },
+        "17": {
+            "HP": 5133,
+            "ATK": 5479,
+            "DEF": 2305
+        },
+        "18": {
+            "HP": 5198,
+            "ATK": 5549,
+            "DEF": 2334
+        },
+        "19": {
+            "HP": 5264,
+            "ATK": 5619,
+            "DEF": 2364
+        },
+        "20": {
+            "HP": 5330,
+            "ATK": 5689,
+            "DEF": 2393
+        },
+        "21": {
+            "HP": 5391,
+            "ATK": 5754,
+            "DEF": 2420
+        },
+        "22": {
+            "HP": 5456,
+            "ATK": 5824,
+            "DEF": 2450
+        },
+        "23": {
+            "HP": 5522,
+            "ATK": 5894,
+            "DEF": 2479
+        },
+        "24": {
+            "HP": 5583,
+            "ATK": 5959,
+            "DEF": 2507
+        },
+        "25": {
+            "HP": 5649,
+            "ATK": 6029,
+            "DEF": 2536
+        },
+        "26": {
+            "HP": 5714,
+            "ATK": 6099,
+            "DEF": 2566
+        },
+        "27": {
+            "HP": 5775,
+            "ATK": 6164,
+            "DEF": 2593
+        },
+        "28": {
+            "HP": 5841,
+            "ATK": 6234,
+            "DEF": 2622
+        },
+        "29": {
+            "HP": 5907,
+            "ATK": 6305,
+            "DEF": 2652
+        },
+        "30": {
+            "HP": 5972,
+            "ATK": 6375,
+            "DEF": 2681
+        },
+        "31": {
+            "HP": 6033,
+            "ATK": 6440,
+            "DEF": 2709
+        },
+        "32": {
+            "HP": 6099,
+            "ATK": 6510,
+            "DEF": 2738
+        },
+        "33": {
+            "HP": 6165,
+            "ATK": 6580,
+            "DEF": 2768
+        },
+        "34": {
+            "HP": 6225,
+            "ATK": 6645,
+            "DEF": 2795
+        },
+        "35": {
+            "HP": 6291,
+            "ATK": 6715,
+            "DEF": 2825
+        },
+        "36": {
+            "HP": 6357,
+            "ATK": 6785,
+            "DEF": 2854
+        },
+        "37": {
+            "HP": 6422,
+            "ATK": 6855,
+            "DEF": 2884
+        },
+        "38": {
+            "HP": 6483,
+            "ATK": 6920,
+            "DEF": 2911
+        },
+        "39": {
+            "HP": 6549,
+            "ATK": 6990,
+            "DEF": 2940
+        },
+        "40": {
+            "HP": 6615,
+            "ATK": 7060,
+            "DEF": 2970
+        },
+        "41": {
+            "HP": 6676,
+            "ATK": 7125,
+            "DEF": 2997
+        },
+        "42": {
+            "HP": 6741,
+            "ATK": 7196,
+            "DEF": 3027
+        },
+        "43": {
+            "HP": 6807,
+            "ATK": 7266,
+            "DEF": 3056
+        },
+        "44": {
+            "HP": 6873,
+            "ATK": 7336,
+            "DEF": 3086
+        },
+        "45": {
+            "HP": 6934,
+            "ATK": 7401,
+            "DEF": 3113
+        },
+        "46": {
+            "HP": 6999,
+            "ATK": 7471,
+            "DEF": 3142
+        },
+        "47": {
+            "HP": 7065,
+            "ATK": 7541,
+            "DEF": 3172
+        },
+        "48": {
+            "HP": 7126,
+            "ATK": 7606,
+            "DEF": 3199
+        },
+        "49": {
+            "HP": 7192,
+            "ATK": 7676,
+            "DEF": 3229
+        },
+        "50": {
+            "HP": 7257,
+            "ATK": 7746,
+            "DEF": 3258
+        },
+        "51": {
+            "HP": 7323,
+            "ATK": 7816,
+            "DEF": 3288
+        },
+        "52": {
+            "HP": 7384,
+            "ATK": 7881,
+            "DEF": 3315
+        },
+        "53": {
+            "HP": 7450,
+            "ATK": 7951,
+            "DEF": 3345
+        },
+        "54": {
+            "HP": 7515,
+            "ATK": 8021,
+            "DEF": 3374
+        },
+        "55": {
+            "HP": 7576,
+            "ATK": 8086,
+            "DEF": 3401
+        },
+        "56": {
+            "HP": 7642,
+            "ATK": 8157,
+            "DEF": 3431
+        },
+        "57": {
+            "HP": 7708,
+            "ATK": 8227,
+            "DEF": 3460
+        },
+        "58": {
+            "HP": 7773,
+            "ATK": 8297,
+            "DEF": 3490
+        },
+        "59": {
+            "HP": 7834,
+            "ATK": 8362,
+            "DEF": 3517
+        },
+        "60": {
+            "HP": 7900,
+            "ATK": 8432,
+            "DEF": 3547
+        },
+        "61": {
+            "HP": 7966,
+            "ATK": 8502,
+            "DEF": 3576
+        },
+        "62": {
+            "HP": 8026,
+            "ATK": 8567,
+            "DEF": 3603
+        },
+        "63": {
+            "HP": 8092,
+            "ATK": 8637,
+            "DEF": 3633
+        },
+        "64": {
+            "HP": 8158,
+            "ATK": 8707,
+            "DEF": 3662
+        },
+        "65": {
+            "HP": 8224,
+            "ATK": 8777,
+            "DEF": 3692
+        },
+        "66": {
+            "HP": 8284,
+            "ATK": 8842,
+            "DEF": 3719
+        },
+        "67": {
+            "HP": 8350,
+            "ATK": 8912,
+            "DEF": 3749
+        },
+        "68": {
+            "HP": 8416,
+            "ATK": 8982,
+            "DEF": 3778
+        },
+        "69": {
+            "HP": 8477,
+            "ATK": 9047,
+            "DEF": 3806
+        },
+        "70": {
+            "HP": 8542,
+            "ATK": 9118,
+            "DEF": 3835
+        },
+        "71": {
+            "HP": 8608,
+            "ATK": 9188,
+            "DEF": 3865
+        },
+        "72": {
+            "HP": 8674,
+            "ATK": 9258,
+            "DEF": 3894
+        },
+        "73": {
+            "HP": 8735,
+            "ATK": 9323,
+            "DEF": 3921
+        },
+        "74": {
+            "HP": 8800,
+            "ATK": 9393,
+            "DEF": 3951
+        },
+        "75": {
+            "HP": 8866,
+            "ATK": 9463,
+            "DEF": 3980
+        },
+        "76": {
+            "HP": 8927,
+            "ATK": 9528,
+            "DEF": 4008
+        },
+        "77": {
+            "HP": 8993,
+            "ATK": 9598,
+            "DEF": 4037
+        },
+        "78": {
+            "HP": 9058,
+            "ATK": 9668,
+            "DEF": 4067
+        },
+        "79": {
+            "HP": 9119,
+            "ATK": 9733,
+            "DEF": 4094
+        },
+        "80": {
+            "HP": 9185,
+            "ATK": 9803,
+            "DEF": 4123
+        },
+        "81": {
+            "HP": 9251,
+            "ATK": 9873,
+            "DEF": 4153
+        },
+        "82": {
+            "HP": 9316,
+            "ATK": 9944,
+            "DEF": 4182
+        },
+        "83": {
+            "HP": 9377,
+            "ATK": 10009,
+            "DEF": 4210
+        },
+        "84": {
+            "HP": 9443,
+            "ATK": 10079,
+            "DEF": 4239
+        },
+        "85": {
+            "HP": 9509,
+            "ATK": 10149,
+            "DEF": 4269
+        },
+        "86": {
+            "HP": 9569,
+            "ATK": 10214,
+            "DEF": 4296
+        },
+        "87": {
+            "HP": 9635,
+            "ATK": 10284,
+            "DEF": 4326
+        },
+        "88": {
+            "HP": 9701,
+            "ATK": 10354,
+            "DEF": 4355
+        },
+        "89": {
+            "HP": 9767,
+            "ATK": 10424,
+            "DEF": 4385
+        },
+        "90": {
+            "HP": 9827,
+            "ATK": 10489,
+            "DEF": 4412
+        },
+        "91": {
+            "HP": 9893,
+            "ATK": 10559,
+            "DEF": 4441
+        },
+        "92": {
+            "HP": 9959,
+            "ATK": 10629,
+            "DEF": 4471
+        },
+        "93": {
+            "HP": 10020,
+            "ATK": 10694,
+            "DEF": 4498
+        },
+        "94": {
+            "HP": 10085,
+            "ATK": 10764,
+            "DEF": 4528
+        },
+        "95": {
+            "HP": 10151,
+            "ATK": 10834,
+            "DEF": 4557
+        },
+        "96": {
+            "HP": 10217,
+            "ATK": 10905,
+            "DEF": 4587
+        },
+        "97": {
+            "HP": 10278,
+            "ATK": 10970,
+            "DEF": 4614
+        },
+        "98": {
+            "HP": 10343,
+            "ATK": 11040,
+            "DEF": 4643
+        },
+        "99": {
+            "HP": 10409,
+            "ATK": 11110,
+            "DEF": 4673
+        },
+        "100": {
+            "HP": 10470,
+            "ATK": 11175,
+            "DEF": 4700
+        },
+        "101": {
+            "HP": 10536,
+            "ATK": 11245,
+            "DEF": 4730
+        },
+        "102": {
+            "HP": 10601,
+            "ATK": 11315,
+            "DEF": 4759
+        },
+        "103": {
+            "HP": 10667,
+            "ATK": 11385,
+            "DEF": 4789
+        },
+        "104": {
+            "HP": 10728,
+            "ATK": 11450,
+            "DEF": 4816
+        },
+        "105": {
+            "HP": 10794,
+            "ATK": 11520,
+            "DEF": 4846
+        },
+        "106": {
+            "HP": 10859,
+            "ATK": 11590,
+            "DEF": 4875
+        },
+        "107": {
+            "HP": 10920,
+            "ATK": 11655,
+            "DEF": 4902
+        },
+        "108": {
+            "HP": 10986,
+            "ATK": 11725,
+            "DEF": 4932
+        },
+        "109": {
+            "HP": 11052,
+            "ATK": 11795,
+            "DEF": 4961
+        },
+        "110": {
+            "HP": 11117,
+            "ATK": 11866,
+            "DEF": 4991
+        },
+        "111": {
+            "HP": 11178,
+            "ATK": 11931,
+            "DEF": 5018
+        },
+        "112": {
+            "HP": 11244,
+            "ATK": 12001,
+            "DEF": 5048
+        },
+        "113": {
+            "HP": 11310,
+            "ATK": 12071,
+            "DEF": 5077
+        },
+        "114": {
+            "HP": 11371,
+            "ATK": 12136,
+            "DEF": 5104
+        },
+        "115": {
+            "HP": 11436,
+            "ATK": 12206,
+            "DEF": 5134
+        },
+        "116": {
+            "HP": 11502,
+            "ATK": 12276,
+            "DEF": 5163
+        },
+        "117": {
+            "HP": 11568,
+            "ATK": 12346,
+            "DEF": 5193
+        },
+        "118": {
+            "HP": 11628,
+            "ATK": 12411,
+            "DEF": 5220
+        },
+        "119": {
+            "HP": 11694,
+            "ATK": 12481,
+            "DEF": 5250
+        },
+        "120": {
+            "HP": 11760,
+            "ATK": 12551,
+            "DEF": 5279
+        },
+        "121": {
+            "HP": 11821,
+            "ATK": 12616,
+            "DEF": 5307
+        },
+        "122": {
+            "HP": 11886,
+            "ATK": 12686,
+            "DEF": 5336
+        },
+        "123": {
+            "HP": 11952,
+            "ATK": 12757,
+            "DEF": 5366
+        },
+        "124": {
+            "HP": 12018,
+            "ATK": 12827,
+            "DEF": 5395
+        },
+        "125": {
+            "HP": 12079,
+            "ATK": 12892,
+            "DEF": 5422
+        },
+        "126": {
+            "HP": 12144,
+            "ATK": 12962,
+            "DEF": 5452
+        },
+        "127": {
+            "HP": 12210,
+            "ATK": 13032,
+            "DEF": 5481
+        },
+        "128": {
+            "HP": 12271,
+            "ATK": 13097,
+            "DEF": 5509
+        },
+        "129": {
+            "HP": 12337,
+            "ATK": 13167,
+            "DEF": 5538
+        },
+        "130": {
+            "HP": 12402,
+            "ATK": 13237,
+            "DEF": 5568
+        },
+        "131": {
+            "HP": 12463,
+            "ATK": 13302,
+            "DEF": 5595
+        },
+        "132": {
+            "HP": 12529,
+            "ATK": 13372,
+            "DEF": 5624
+        },
+        "133": {
+            "HP": 12595,
+            "ATK": 13442,
+            "DEF": 5654
+        },
+        "134": {
+            "HP": 12660,
+            "ATK": 13512,
+            "DEF": 5683
+        },
+        "135": {
+            "HP": 12721,
+            "ATK": 13577,
+            "DEF": 5711
+        },
+        "136": {
+            "HP": 12787,
+            "ATK": 13647,
+            "DEF": 5740
+        },
+        "137": {
+            "HP": 12853,
+            "ATK": 13718,
+            "DEF": 5770
+        },
+        "138": {
+            "HP": 12914,
+            "ATK": 13783,
+            "DEF": 5797
+        },
+        "139": {
+            "HP": 12979,
+            "ATK": 13853,
+            "DEF": 5827
+        },
+        "140": {
+            "HP": 13045,
+            "ATK": 13923,
+            "DEF": 5856
+        },
+        "141": {
+            "HP": 13111,
+            "ATK": 13993,
+            "DEF": 5886
+        },
+        "142": {
+            "HP": 13172,
+            "ATK": 14058,
+            "DEF": 5913
+        },
+        "143": {
+            "HP": 13237,
+            "ATK": 14128,
+            "DEF": 5942
+        },
+        "144": {
+            "HP": 13303,
+            "ATK": 14198,
+            "DEF": 5972
+        },
+        "145": {
+            "HP": 13364,
+            "ATK": 14263,
+            "DEF": 5999
+        },
+        "146": {
+            "HP": 13430,
+            "ATK": 14333,
+            "DEF": 6029
+        },
+        "147": {
+            "HP": 13495,
+            "ATK": 14403,
+            "DEF": 6058
+        },
+        "148": {
+            "HP": 13561,
+            "ATK": 14473,
+            "DEF": 6088
+        },
+        "149": {
+            "HP": 13622,
+            "ATK": 14538,
+            "DEF": 6115
+        },
+        "150": {
+            "HP": 13688,
+            "ATK": 14609,
+            "DEF": 6145
+        }
+    },
+    "Leader Skill": {
+        "Name": "Saiyan Warriors with Ultimate Power",
+        "11405": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Fused Fighters"
+                ],
+                "Excluded Category": [
+                    "GT Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "11406": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Fused Fighters"
+                ],
+                "Excluded Category": [
+                    "GT Heroes"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "11407": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 170,
+            "DEF": 170,
+            "HP": 170,
+            "Ki": 0
+        },
+        "11408": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "11409": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Fused Fighters",
+                    "Kamehameha"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        },
+        "11410": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "GT Heroes",
+                    "Kamehameha"
+                ],
+                "Excluded Category": [
+                    "Fused Fighters"
+                ],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "3533": {
+            "superID": "3533",
+            "Type": "Other",
+            "special_name_no": "0",
+            "superName": "Clone Kamehameha",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn \nand causes colossal damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3533": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 395,
+            "relevantLua": [
+                "sp2281"
+            ]
+        },
+        "3534": {
+            "superID": "3534",
+            "Type": "Other",
+            "special_name_no": "2",
+            "superName": "Big Bang Kamehameha",
+            "superDescription": "Massively raises ATK & DEF for 1 turn and \ncauses mega-colossal damage to enemy; \ndisables enemy's action once within the turn",
+            "superMinKi": "18",
+            "superPriority": "0.0",
+            "superStyle": "Hyper",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "3534": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "100",
+                    "DEF": "100"
+                },
+                "1003534": {
+                    "Type": "ExtraEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Raw stats",
+                        "+ or -": "+"
+                    },
+                    "Target": "Enemy",
+                    "Status": "Disabled action"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "5",
+                "Type": "SA multiplier increase",
+                "Description": "Super Attack power will be increased even more!",
+                "Chance": "100",
+                "Duration": "1",
+                "Amount": "30"
+            },
+            "Multiplier": 540,
+            "relevantLua": [
+                "sp2282"
+            ]
+        }
+    },
+    "Active Skill": {
+        "Name": "Ultra Big Bang Kamehameha",
+        "Effect Description": "Causes ultimate damage to enemy and, \nwithin the turn activated, \nall attacks become critical hits",
+        "Condition Description": "Can be activated when HP is 50% or less, \nor when facing only 1 enemy, \nwhose HP is 50% or less (once only)",
+        "Condition": {
+            "Logic": "( 1278 || ( 1279 && 1280 ) )",
+            "Causalities": {
+                "1278": {
+                    "Button": {
+                        "Name": "Is HP 50 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP is remaining?",
+                        "Logic": "<=50",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When HP is 50% or less"
+                },
+                "1279": {
+                    "Button": {
+                        "Name": "Is the enemy's health 50 % or less?"
+                    },
+                    "Slider": {
+                        "Name": "What percentage of HP does the enemy have?",
+                        "Logic": "<=50",
+                        "Min": 0,
+                        "Max": 100
+                    },
+                    "Paragraph Title": "When enemy health is 50% or less"
+                },
+                "1280": {
+                    "Button": {
+                        "Name": "Is there less than 2 enemies?"
+                    },
+                    "Slider": {
+                        "Name": "How many enemies are there?",
+                        "Logic": "<2",
+                        "Min": 1,
+                        "Max": 7
+                    },
+                    "Paragraph Title": "When there are less than 2 enemies"
+                }
+            }
+        },
+        "Uses": 1,
+        "Attack": {
+            "Multiplier": 550,
+            "Target": "Enemy"
+        },
+        "Effects": {
+            "147": {
+                "Duration": "1",
+                "Effect": {
+                    "Type": "Raw stats",
+                    "+ or -": "+",
+                    "Buff": "Crit Chance",
+                    "Amount": 100
+                },
+                "Target": {
+                    "Target": "Self"
+                }
+            }
+        }
+    },
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [
+        "1022420"
+    ],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 600,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 2200,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 120.0,
+        "1": 123.33333333333333,
+        "2": 126.66666666666666,
+        "3": 130.0,
+        "4": 133.33333333333334,
+        "5": 136.66666666666666,
+        "6": 140.0,
+        "7": 143.33333333333334,
+        "8": 146.66666666666666,
+        "9": 150.0,
+        "10": 153.33333333333334,
+        "11": 156.66666666666666,
+        "12": 160.0,
+        "13": 163.33333333333334,
+        "14": 166.66666666666666,
+        "15": 170.0,
+        "16": 173.33333333333334,
+        "17": 176.66666666666666,
+        "18": 180.0,
+        "19": 183.33333333333334,
+        "20": 186.66666666666666,
+        "21": 190.0,
+        "22": 193.33333333333334,
+        "23": 196.66666666666669,
+        "24": 200.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "3533",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

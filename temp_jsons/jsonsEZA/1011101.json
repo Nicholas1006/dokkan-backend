@@ -1,0 +1,623 @@
+{
+    "ID": "1011101",
+    "Type": "PHY",
+    "Class": "Super",
+    "Name": "Kami",
+    "Rarity": "ur",
+    "Min Level": 120,
+    "Max Level": 140,
+    "Categories": [
+        "Realm of Gods",
+        "Namekians",
+        "DB Saga",
+        "Gifted Warriors",
+        "Heavenly Events",
+        "Earth-Bred Fighters",
+        "Demonic Power",
+        "Successors"
+    ],
+    "Can EZA": true,
+    "Can SEZA": false,
+    "Eza Level": "seza",
+    "Links": [
+        "Prodigies",
+        "Cold Judgment",
+        "Strength in Unity",
+        "The Incredible Adventure",
+        "Guidance of the Dragon Balls",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1011100,
+    "Passive": {
+        "3868": {
+            "ID": 3868,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003868": {
+            "ID": 1003868,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2718 )",
+                "Causalities": {
+                    "2718": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2718\", \"compiled\": 2718}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2003868": {
+            "ID": 2003868,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all allies ",
+            "Line description": "Ki +2 for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3003868": {
+            "ID": 3003868,
+            "Timing": "Start of turn",
+            "ATK": 25,
+            "DEF": 25,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 25%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK and DEF 25%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4003868": {
+            "ID": 4003868,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Earth-Bred Fighters"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all Earth-Bred Fighters category allies ",
+            "Line description": "Ki +1 for all Earth-Bred Fighters category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5003868": {
+            "ID": 5003868,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Earth-Bred Fighters"
+                    ],
+                    "Excluded": []
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} for all Earth-Bred Fighters category allies ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} for all Earth-Bred Fighters category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6003868": {
+            "ID": 6003868,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Gifted Warriors"
+                    ],
+                    "Excluded": [
+                        "Earth-Bred Fighters"
+                    ]
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 for all Gifted Warriors category allies ",
+            "Line description": "Ki +1 for all Gifted Warriors category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7003868": {
+            "ID": 7003868,
+            "Timing": "Start of turn",
+            "ATK": 10,
+            "DEF": 10,
+            "Target": {
+                "Category": {
+                    "Included": [
+                        "Gifted Warriors"
+                    ],
+                    "Excluded": [
+                        "Earth-Bred Fighters"
+                    ]
+                },
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 10%{passiveImg:up_g} for all Gifted Warriors category allies ",
+            "Line description": "ATK and DEF 10%{passiveImg:up_g} for all Gifted Warriors category allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "8003868": {
+            "ID": 8003868,
+            "Dodge Chance": 30,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% ",
+            "Line description": "Chance of evading enemy attacks +30% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "9003868": {
+            "ID": 9003868,
+            "Dodge Chance": 30,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +30% ",
+            "Line description": "Chance of evading enemy attacks +30% until when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10003868": {
+            "ID": 10003868,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 9003868
+            },
+            "Timing": "Right before attack(MOT stat)",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:9003868 when attacking",
+            "Line description": "Disables a different passive line:9003868 when attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11003868": {
+            "ID": 11003868,
+            "Timing": "Start of turn",
+            "Heals": 50,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2719 )",
+                "Causalities": {
+                    "2719": {
+                        "Button": {
+                            "Name": "Is HP 30 % or less on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "What percentage of HP is remaining on this turn?",
+                            "Logic": "<=30",
+                            "Min": 0,
+                            "Max": 100
+                        },
+                        "Paragraph Title": "When HP is 30% or less"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2719\", \"compiled\": 2719}",
+            "Once Only": true,
+            "Type": "Single activator",
+            "Brief effect description": "Heals +50% ",
+            "Line description": " {passiveImg:once}Heals +50% for 1 turn ",
+            "Paragraph Title": "When HP is 30% or less"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 100%{passiveImg:up_g}\n- All allies' Ki +2 and ATK & DEF 25%{passiveImg:up_g}\n- \"Earth-Bred Fighters\" or \"Gifted Warriors\" Category allies'\nKi +1 and ATK & DEF 10%{passiveImg:up_g}\n- Medium chance of evading enemy's attack\n*Before attacking*\n- Chance of evading enemy's attack 30%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK 100%{passiveImg:up_g}\n*When HP is 30% or less at the start of turn*\n- {passiveImg:once}Recovers 50% HP",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "120": {
+            "HP": 10355,
+            "ATK": 7546,
+            "DEF": 3515
+        },
+        "121": {
+            "HP": 10529,
+            "ATK": 7673,
+            "DEF": 3574
+        },
+        "122": {
+            "HP": 10704,
+            "ATK": 7800,
+            "DEF": 3633
+        },
+        "123": {
+            "HP": 10879,
+            "ATK": 7927,
+            "DEF": 3692
+        },
+        "124": {
+            "HP": 11053,
+            "ATK": 8055,
+            "DEF": 3752
+        },
+        "125": {
+            "HP": 11228,
+            "ATK": 8182,
+            "DEF": 3811
+        },
+        "126": {
+            "HP": 11403,
+            "ATK": 8309,
+            "DEF": 3870
+        },
+        "127": {
+            "HP": 11577,
+            "ATK": 8437,
+            "DEF": 3930
+        },
+        "128": {
+            "HP": 11752,
+            "ATK": 8564,
+            "DEF": 3989
+        },
+        "129": {
+            "HP": 11927,
+            "ATK": 8691,
+            "DEF": 4048
+        },
+        "130": {
+            "HP": 12101,
+            "ATK": 8819,
+            "DEF": 4107
+        },
+        "131": {
+            "HP": 12276,
+            "ATK": 8946,
+            "DEF": 4167
+        },
+        "132": {
+            "HP": 12451,
+            "ATK": 9073,
+            "DEF": 4226
+        },
+        "133": {
+            "HP": 12625,
+            "ATK": 9200,
+            "DEF": 4285
+        },
+        "134": {
+            "HP": 12800,
+            "ATK": 9328,
+            "DEF": 4345
+        },
+        "135": {
+            "HP": 12975,
+            "ATK": 9455,
+            "DEF": 4404
+        },
+        "136": {
+            "HP": 13150,
+            "ATK": 9582,
+            "DEF": 4463
+        },
+        "137": {
+            "HP": 13324,
+            "ATK": 9710,
+            "DEF": 4523
+        },
+        "138": {
+            "HP": 13499,
+            "ATK": 9837,
+            "DEF": 4582
+        },
+        "139": {
+            "HP": 13674,
+            "ATK": 9964,
+            "DEF": 4641
+        },
+        "140": {
+            "HP": 13848,
+            "ATK": 10092,
+            "DEF": 4700
+        }
+    },
+    "Leader Skill": {
+        "Name": "God-Guided Path",
+        "101110200": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "101110201": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 70,
+            "DEF": 70,
+            "HP": 70,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 5,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1260,
+            "ATK": 1020,
+            "DEF": 780,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "4893": {
+            "superID": "4893",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Dragon Light Bullet (Extreme)",
+            "superDescription": "Causes supreme damage to enemy, \nlowers ATK and greatly lowers DEF",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "14",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "4893": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "-"
+                    },
+                    "Target": "Enemy",
+                    "ATK": "20",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 530,
+            "relevantLua": [
+                "sp0163"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 67.5,
+        "1": 73.125,
+        "2": 78.75,
+        "3": 84.375,
+        "4": 90.0,
+        "5": 95.625,
+        "6": 101.25,
+        "7": 106.875,
+        "8": 112.5,
+        "9": 118.125,
+        "10": 123.75,
+        "11": 129.375,
+        "12": 135.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "4893",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 5
+    }
+}

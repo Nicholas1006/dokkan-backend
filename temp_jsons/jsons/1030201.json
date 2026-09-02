@@ -1,0 +1,520 @@
+{
+    "ID": "1030201",
+    "Type": "INT",
+    "Class": "Super",
+    "Name": "Goten (Kid)",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Bond of Friendship",
+        "Hybrid Saiyans",
+        "Goku's Family",
+        "Youth",
+        "Siblings' Bond",
+        "Kamehameha",
+        "Gifted Warriors",
+        "Bond of Parent and Child",
+        "Earth-Bred Fighters"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Kamehameha",
+        "The Innocents",
+        "Prepared for Battle",
+        "The Saiyan Lineage",
+        "Saiyan Warrior Race",
+        "All in the Family"
+    ],
+    "Resource ID": 1030200,
+    "Passive": {
+        "4306": {
+            "ID": 4306,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +1 ",
+            "Line description": "Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004306": {
+            "ID": 1004306,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2004306": {
+            "ID": 2004306,
+            "Timing": "Start of turn",
+            "Ki": 1,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "High chance of Ki +1 ",
+            "Line description": "High chance of Ki +1 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004306": {
+            "ID": 3004306,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Chance": 50,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "High chance of ATK 150%{passiveImg:up_g} ",
+            "Line description": "High chance of ATK 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004306": {
+            "ID": 4004306,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "5004306": {
+            "ID": 5004306,
+            "Timing": "Start of turn",
+            "Heals": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Heals +5% ",
+            "Line description": "Heals +5% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "6004306": {
+            "ID": 6004306,
+            "Timing": "Start of turn",
+            "Heals": 5,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Chance": 30,
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Medium chance of Heals +5% ",
+            "Line description": "Medium chance of Heals +5% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004306": {
+            "ID": 7004306,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 46,
+                "Stat Per Proc": 2,
+                "Cause": {
+                    "Cause": "Ki sphere obtained",
+                    "Type": [
+                        "Sweet treats",
+                        "Cookies"
+                    ]
+                },
+                "Slider": "How many Sweet treats or Cookies Ki Spheres have been obtained?"
+            },
+            "Heals": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Heals +2% per Sweet treats and Cookies Ki Spheres obtained{currentValue} / 46 ",
+            "Line description": "Heals +2% per Sweet treats and Cookies Ki Spheres obtained{currentValue} / 46 ",
+            "Paragraph Title": "Basic effect(s)"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +1\n- ATK & DEF 150%{passiveImg:up_g}\n- High chance of Ki +1 and ATK 150%{passiveImg:up_g}\n- Recovers 5% HP\n- Medium chance of recovering 5% HP\n- Recovers HP with sweet treats\n*When attacking with 12 or more Ki*\n- ATK & DEF 100%{passiveImg:up_g}",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 6752,
+            "ATK": 7311,
+            "DEF": 3849
+        },
+        "81": {
+            "HP": 6759,
+            "ATK": 7321,
+            "DEF": 3852
+        },
+        "82": {
+            "HP": 6767,
+            "ATK": 7331,
+            "DEF": 3856
+        },
+        "83": {
+            "HP": 6774,
+            "ATK": 7340,
+            "DEF": 3860
+        },
+        "84": {
+            "HP": 6781,
+            "ATK": 7350,
+            "DEF": 3864
+        },
+        "85": {
+            "HP": 6788,
+            "ATK": 7360,
+            "DEF": 3868
+        },
+        "86": {
+            "HP": 6795,
+            "ATK": 7370,
+            "DEF": 3872
+        },
+        "87": {
+            "HP": 6803,
+            "ATK": 7379,
+            "DEF": 3876
+        },
+        "88": {
+            "HP": 6810,
+            "ATK": 7389,
+            "DEF": 3879
+        },
+        "89": {
+            "HP": 6817,
+            "ATK": 7399,
+            "DEF": 3883
+        },
+        "90": {
+            "HP": 6824,
+            "ATK": 7408,
+            "DEF": 3887
+        },
+        "91": {
+            "HP": 6831,
+            "ATK": 7418,
+            "DEF": 3891
+        },
+        "92": {
+            "HP": 6838,
+            "ATK": 7428,
+            "DEF": 3895
+        },
+        "93": {
+            "HP": 6845,
+            "ATK": 7437,
+            "DEF": 3899
+        },
+        "94": {
+            "HP": 6852,
+            "ATK": 7447,
+            "DEF": 3902
+        },
+        "95": {
+            "HP": 6860,
+            "ATK": 7457,
+            "DEF": 3906
+        },
+        "96": {
+            "HP": 6867,
+            "ATK": 7467,
+            "DEF": 3910
+        },
+        "97": {
+            "HP": 6874,
+            "ATK": 7476,
+            "DEF": 3914
+        },
+        "98": {
+            "HP": 6881,
+            "ATK": 7486,
+            "DEF": 3918
+        },
+        "99": {
+            "HP": 6888,
+            "ATK": 7496,
+            "DEF": 3922
+        },
+        "100": {
+            "HP": 6896,
+            "ATK": 7506,
+            "DEF": 3926
+        }
+    },
+    "Leader Skill": {
+        "Name": "Joy of Learning Martial Arts",
+        "10302000": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Bond of Friendship"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10302001": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Bond of Friendship"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 5,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1020,
+            "ATK": 1020,
+            "DEF": 1020,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "6038": {
+            "superID": "6038",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Kamekameha",
+            "superDescription": "Raises ATK for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "6038": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp0001"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "6038",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

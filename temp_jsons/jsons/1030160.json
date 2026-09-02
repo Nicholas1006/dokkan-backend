@@ -1,0 +1,1156 @@
+{
+    "ID": "1030160",
+    "Type": "INT",
+    "Class": "Extreme",
+    "Name": "Female Warrior in Black",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Crossover",
+        "Peppy Gals",
+        "Time Travelers",
+        "Dragon Ball Heroes",
+        "Tournament Participants",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "The Innocents",
+        "Battlefield Diva",
+        "Solid Support",
+        "Shocking Speed",
+        "Loyalty",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1030160,
+    "Passive": {
+        "4294": {
+            "ID": 4294,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1004294": {
+            "ID": 1004294,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 47 )",
+                "Causalities": {
+                    "47": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"47\", \"compiled\": 47}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2004294": {
+            "ID": 2004294,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 for all allies ",
+            "Line description": "Ki +2 for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3004294": {
+            "ID": 3004294,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4004294": {
+            "ID": 4004294,
+            "Timing": "Start of turn",
+            "Crit Chance": 70,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +70%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +70%{passiveImg:up_g} until ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5004294": {
+            "ID": 5004294,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 4004294
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1928 )",
+                "Causalities": {
+                    "1928": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1928\", \"compiled\": 1928}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:4004294 ",
+            "Line description": "Disables a different passive line:4004294 ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "6004294": {
+            "ID": 6004294,
+            "Timing": "Start of turn",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} until ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "7004294": {
+            "ID": 7004294,
+            "Disable Other Line": {
+                "Activated": true,
+                "Line": 6004294
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1928 )",
+                "Causalities": {
+                    "1928": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1928\", \"compiled\": 1928}",
+            "Type": "Disable Other Line",
+            "Brief effect description": "Disables a different passive line:6004294 ",
+            "Line description": "Disables a different passive line:6004294 ",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "8004294": {
+            "ID": 8004294,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 30,
+                "Chance of another additional": 100
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1928 )",
+                "Causalities": {
+                    "1928": {
+                        "Button": {
+                            "Name": "Are there 2 or more Crossover category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Crossover category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Crossover Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1928\", \"compiled\": 1928}",
+            "Type": "Single activator",
+            "Brief effect description": "None",
+            "Line description": "None",
+            "Paragraph Title": "When there are 2 or more Crossover Category allies "
+        },
+        "9004294": {
+            "ID": 9004294,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 120,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks with 2 or more  category units on the team"
+                },
+                "Slider": "How many attacks has this character performed with 2 or more  category units on the team?"
+            },
+            "ATK": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"1928\", \"compiled\": 1928}",
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} ({currentValue} / 120%) based on 'How many attacks has this character performed with 2 or more category units on the team' after attacking",
+            "Line description": "{passiveImg:forever}ATK 30%{passiveImg:up_g} ({currentValue} / 120%) based on 'How many attacks has this character performed with 2 or more category units on the team' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "10004294": {
+            "ID": 10004294,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 120,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks with 2 or more  category units on the team"
+                },
+                "Slider": "How many attacks has this character performed with 2 or more  category units on the team?"
+            },
+            "DEF": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": "{\"source\": \"1928\", \"compiled\": 1928}",
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 30%{passiveImg:up_g} ({currentValue} / 120%) based on 'How many attacks has this character performed with 2 or more category units on the team' after attacking",
+            "Line description": "{passiveImg:forever}DEF 30%{passiveImg:up_g} ({currentValue} / 120%) based on 'How many attacks has this character performed with 2 or more category units on the team' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "11004294": {
+            "ID": 11004294,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": [
+                    "PHY",
+                    "STR",
+                    "TEQ",
+                    "AGL"
+                ],
+                "To": [
+                    "INT"
+                ],
+                "Style": "Randomly"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2047 )",
+                "Causalities": {
+                    "2047": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earth-Bred Fighters category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earth-Bred Fighters category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earth-Bred Fighters Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2047\", \"compiled\": 2047}",
+            "Type": "Single activator",
+            "Brief effect description": "Randomly changes Ki Spheres of a certain Type(INT excluded) to INT Ki Spheres ",
+            "Line description": "Randomly changes Ki Spheres of a certain Type(INT excluded) to INT Ki Spheres 20 ",
+            "Paragraph Title": "When 20 Ki is 12 or more"
+        },
+        "12004294": {
+            "ID": 12004294,
+            "Timing": "Start of turn",
+            "ATK": 86,
+            "DEF": 86,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2047 )",
+                "Causalities": {
+                    "2047": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earth-Bred Fighters category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earth-Bred Fighters category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earth-Bred Fighters Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2047\", \"compiled\": 2047}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 86%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 86%{passiveImg:up_g} 20 ",
+            "Paragraph Title": "When 20 Ki is 12 or more"
+        },
+        "13004294": {
+            "ID": 13004294,
+            "Timing": "Start of turn",
+            "ATK": 86,
+            "DEF": 86,
+            "Target": {
+                "Target": "allies",
+                "Name": {
+                    "Included": [
+                        "Yamcha"
+                    ],
+                    "Excluded": []
+                }
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2047 )",
+                "Causalities": {
+                    "2047": {
+                        "Button": {
+                            "Name": "Are there 1 or more Earth-Bred Fighters category allies attacking on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Earth-Bred Fighters category allies attacking on this turn",
+                            "Logic": ">=1",
+                            "Max": 3,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Earth-Bred Fighters Category allies attacking on this turn"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2047\", \"compiled\": 2047}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 86%{passiveImg:up_g} for all allies whose name includes Yamcha",
+            "Line description": "ATK and DEF 86%{passiveImg:up_g} for all allies whose name includes Yamcha 20 ",
+            "Paragraph Title": "When 20 Ki is 12 or more"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 150%{passiveImg:up_g}\n- All allies' Ki +2 and ATK & DEF 30%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 100%{passiveImg:up_g}\n*When the character is the only \"Crossover\" Category\ncharacter on the team*\n- Great chance of performing a critical hit\n- ATK & DEF 150%{passiveImg:up_g}\n*When there is another \"Crossover\" Category ally on the\nteam*\n- Launches 2 additional attacks, each of which has a medium\nchance of becoming a Super Attack\n- {passiveImg:forever}ATK & DEF 30%{passiveImg:up_g} for every attack performed (up to\n120%)\n*When there is an \"Earth-Bred Fighters\" Category ally\nattacking in the same turn*\n- Randomly changes Ki Spheres of a certain Type (INT\nexcluded) to INT Ki Spheres\n- ATK & DEF 86%{passiveImg:up_g} for the character and allies whose names\ninclude \"Yamcha\"",
+    "Max Attacks": 4,
+    "Max Super Attacks": 4,
+    "Stats at levels": {
+        "1": {
+            "HP": 2156,
+            "ATK": 2246,
+            "DEF": 1176
+        },
+        "2": {
+            "HP": 2206,
+            "ATK": 2298,
+            "DEF": 1203
+        },
+        "3": {
+            "HP": 2257,
+            "ATK": 2351,
+            "DEF": 1231
+        },
+        "4": {
+            "HP": 2307,
+            "ATK": 2403,
+            "DEF": 1258
+        },
+        "5": {
+            "HP": 2358,
+            "ATK": 2456,
+            "DEF": 1286
+        },
+        "6": {
+            "HP": 2411,
+            "ATK": 2511,
+            "DEF": 1315
+        },
+        "7": {
+            "HP": 2461,
+            "ATK": 2564,
+            "DEF": 1342
+        },
+        "8": {
+            "HP": 2512,
+            "ATK": 2617,
+            "DEF": 1370
+        },
+        "9": {
+            "HP": 2563,
+            "ATK": 2669,
+            "DEF": 1398
+        },
+        "10": {
+            "HP": 2613,
+            "ATK": 2722,
+            "DEF": 1425
+        },
+        "11": {
+            "HP": 2664,
+            "ATK": 2775,
+            "DEF": 1453
+        },
+        "12": {
+            "HP": 2714,
+            "ATK": 2827,
+            "DEF": 1480
+        },
+        "13": {
+            "HP": 2765,
+            "ATK": 2880,
+            "DEF": 1508
+        },
+        "14": {
+            "HP": 2815,
+            "ATK": 2933,
+            "DEF": 1535
+        },
+        "15": {
+            "HP": 2866,
+            "ATK": 2985,
+            "DEF": 1563
+        },
+        "16": {
+            "HP": 2919,
+            "ATK": 3041,
+            "DEF": 1592
+        },
+        "17": {
+            "HP": 2970,
+            "ATK": 3093,
+            "DEF": 1620
+        },
+        "18": {
+            "HP": 3020,
+            "ATK": 3146,
+            "DEF": 1647
+        },
+        "19": {
+            "HP": 3071,
+            "ATK": 3199,
+            "DEF": 1675
+        },
+        "20": {
+            "HP": 3121,
+            "ATK": 3251,
+            "DEF": 1702
+        },
+        "21": {
+            "HP": 3172,
+            "ATK": 3304,
+            "DEF": 1730
+        },
+        "22": {
+            "HP": 3222,
+            "ATK": 3356,
+            "DEF": 1757
+        },
+        "23": {
+            "HP": 3273,
+            "ATK": 3409,
+            "DEF": 1785
+        },
+        "24": {
+            "HP": 3324,
+            "ATK": 3462,
+            "DEF": 1813
+        },
+        "25": {
+            "HP": 3374,
+            "ATK": 3514,
+            "DEF": 1840
+        },
+        "26": {
+            "HP": 3427,
+            "ATK": 3570,
+            "DEF": 1869
+        },
+        "27": {
+            "HP": 3478,
+            "ATK": 3622,
+            "DEF": 1897
+        },
+        "28": {
+            "HP": 3528,
+            "ATK": 3675,
+            "DEF": 1924
+        },
+        "29": {
+            "HP": 3579,
+            "ATK": 3728,
+            "DEF": 1952
+        },
+        "30": {
+            "HP": 3629,
+            "ATK": 3780,
+            "DEF": 1979
+        },
+        "31": {
+            "HP": 3680,
+            "ATK": 3833,
+            "DEF": 2007
+        },
+        "32": {
+            "HP": 3731,
+            "ATK": 3886,
+            "DEF": 2035
+        },
+        "33": {
+            "HP": 3781,
+            "ATK": 3938,
+            "DEF": 2062
+        },
+        "34": {
+            "HP": 3832,
+            "ATK": 3991,
+            "DEF": 2090
+        },
+        "35": {
+            "HP": 3882,
+            "ATK": 4044,
+            "DEF": 2117
+        },
+        "36": {
+            "HP": 3935,
+            "ATK": 4099,
+            "DEF": 2146
+        },
+        "37": {
+            "HP": 3986,
+            "ATK": 4152,
+            "DEF": 2174
+        },
+        "38": {
+            "HP": 4036,
+            "ATK": 4204,
+            "DEF": 2201
+        },
+        "39": {
+            "HP": 4087,
+            "ATK": 4257,
+            "DEF": 2229
+        },
+        "40": {
+            "HP": 4138,
+            "ATK": 4310,
+            "DEF": 2257
+        },
+        "41": {
+            "HP": 4188,
+            "ATK": 4362,
+            "DEF": 2284
+        },
+        "42": {
+            "HP": 4239,
+            "ATK": 4415,
+            "DEF": 2312
+        },
+        "43": {
+            "HP": 4289,
+            "ATK": 4467,
+            "DEF": 2339
+        },
+        "44": {
+            "HP": 4340,
+            "ATK": 4520,
+            "DEF": 2367
+        },
+        "45": {
+            "HP": 4390,
+            "ATK": 4573,
+            "DEF": 2394
+        },
+        "46": {
+            "HP": 4443,
+            "ATK": 4628,
+            "DEF": 2423
+        },
+        "47": {
+            "HP": 4494,
+            "ATK": 4681,
+            "DEF": 2451
+        },
+        "48": {
+            "HP": 4545,
+            "ATK": 4733,
+            "DEF": 2479
+        },
+        "49": {
+            "HP": 4595,
+            "ATK": 4786,
+            "DEF": 2506
+        },
+        "50": {
+            "HP": 4646,
+            "ATK": 4839,
+            "DEF": 2534
+        },
+        "51": {
+            "HP": 4696,
+            "ATK": 4891,
+            "DEF": 2561
+        },
+        "52": {
+            "HP": 4747,
+            "ATK": 4944,
+            "DEF": 2589
+        },
+        "53": {
+            "HP": 4797,
+            "ATK": 4997,
+            "DEF": 2616
+        },
+        "54": {
+            "HP": 4848,
+            "ATK": 5049,
+            "DEF": 2644
+        },
+        "55": {
+            "HP": 4899,
+            "ATK": 5102,
+            "DEF": 2672
+        },
+        "56": {
+            "HP": 4952,
+            "ATK": 5157,
+            "DEF": 2701
+        },
+        "57": {
+            "HP": 5002,
+            "ATK": 5210,
+            "DEF": 2728
+        },
+        "58": {
+            "HP": 5053,
+            "ATK": 5263,
+            "DEF": 2756
+        },
+        "59": {
+            "HP": 5103,
+            "ATK": 5315,
+            "DEF": 2783
+        },
+        "60": {
+            "HP": 5154,
+            "ATK": 5368,
+            "DEF": 2811
+        },
+        "61": {
+            "HP": 5204,
+            "ATK": 5420,
+            "DEF": 2838
+        },
+        "62": {
+            "HP": 5255,
+            "ATK": 5473,
+            "DEF": 2866
+        },
+        "63": {
+            "HP": 5306,
+            "ATK": 5526,
+            "DEF": 2894
+        },
+        "64": {
+            "HP": 5356,
+            "ATK": 5578,
+            "DEF": 2921
+        },
+        "65": {
+            "HP": 5407,
+            "ATK": 5631,
+            "DEF": 2949
+        },
+        "66": {
+            "HP": 5460,
+            "ATK": 5686,
+            "DEF": 2978
+        },
+        "67": {
+            "HP": 5510,
+            "ATK": 5739,
+            "DEF": 3005
+        },
+        "68": {
+            "HP": 5561,
+            "ATK": 5792,
+            "DEF": 3033
+        },
+        "69": {
+            "HP": 5611,
+            "ATK": 5844,
+            "DEF": 3060
+        },
+        "70": {
+            "HP": 5662,
+            "ATK": 5897,
+            "DEF": 3088
+        },
+        "71": {
+            "HP": 5713,
+            "ATK": 5950,
+            "DEF": 3116
+        },
+        "72": {
+            "HP": 5763,
+            "ATK": 6002,
+            "DEF": 3143
+        },
+        "73": {
+            "HP": 5814,
+            "ATK": 6055,
+            "DEF": 3171
+        },
+        "74": {
+            "HP": 5864,
+            "ATK": 6108,
+            "DEF": 3198
+        },
+        "75": {
+            "HP": 5915,
+            "ATK": 6160,
+            "DEF": 3226
+        },
+        "76": {
+            "HP": 5968,
+            "ATK": 6216,
+            "DEF": 3255
+        },
+        "77": {
+            "HP": 6018,
+            "ATK": 6268,
+            "DEF": 3282
+        },
+        "78": {
+            "HP": 6069,
+            "ATK": 6321,
+            "DEF": 3310
+        },
+        "79": {
+            "HP": 6120,
+            "ATK": 6374,
+            "DEF": 3338
+        },
+        "80": {
+            "HP": 6170,
+            "ATK": 6426,
+            "DEF": 3365
+        },
+        "81": {
+            "HP": 6221,
+            "ATK": 6479,
+            "DEF": 3393
+        },
+        "82": {
+            "HP": 6271,
+            "ATK": 6531,
+            "DEF": 3420
+        },
+        "83": {
+            "HP": 6322,
+            "ATK": 6584,
+            "DEF": 3448
+        },
+        "84": {
+            "HP": 6372,
+            "ATK": 6637,
+            "DEF": 3475
+        },
+        "85": {
+            "HP": 6423,
+            "ATK": 6689,
+            "DEF": 3503
+        },
+        "86": {
+            "HP": 6476,
+            "ATK": 6745,
+            "DEF": 3532
+        },
+        "87": {
+            "HP": 6527,
+            "ATK": 6797,
+            "DEF": 3560
+        },
+        "88": {
+            "HP": 6577,
+            "ATK": 6850,
+            "DEF": 3587
+        },
+        "89": {
+            "HP": 6628,
+            "ATK": 6903,
+            "DEF": 3615
+        },
+        "90": {
+            "HP": 6678,
+            "ATK": 6955,
+            "DEF": 3642
+        },
+        "91": {
+            "HP": 6729,
+            "ATK": 7008,
+            "DEF": 3670
+        },
+        "92": {
+            "HP": 6779,
+            "ATK": 7061,
+            "DEF": 3697
+        },
+        "93": {
+            "HP": 6830,
+            "ATK": 7113,
+            "DEF": 3725
+        },
+        "94": {
+            "HP": 6881,
+            "ATK": 7166,
+            "DEF": 3753
+        },
+        "95": {
+            "HP": 6931,
+            "ATK": 7219,
+            "DEF": 3780
+        },
+        "96": {
+            "HP": 6984,
+            "ATK": 7274,
+            "DEF": 3809
+        },
+        "97": {
+            "HP": 7035,
+            "ATK": 7327,
+            "DEF": 3837
+        },
+        "98": {
+            "HP": 7085,
+            "ATK": 7379,
+            "DEF": 3864
+        },
+        "99": {
+            "HP": 7136,
+            "ATK": 7432,
+            "DEF": 3892
+        },
+        "100": {
+            "HP": 7187,
+            "ATK": 7485,
+            "DEF": 3920
+        }
+    },
+    "Leader Skill": {
+        "Name": "Love Birthed in Battle",
+        "10301600": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Crossover"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10301601": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Crossover"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 50,
+            "DEF": 50,
+            "HP": 50,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "5972": {
+            "superID": "5972",
+            "Type": "Physical",
+            "special_name_no": "0",
+            "superName": "Glass Fall",
+            "superDescription": "Causes supreme damage to enemy \nand raises ATK & DEF for 3 turns",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5972": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "3",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 380,
+            "relevantLua": [
+                "sp2779"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5972",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}

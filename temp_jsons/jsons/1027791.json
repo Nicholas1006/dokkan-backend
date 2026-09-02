@@ -1,0 +1,469 @@
+{
+    "ID": "1027791",
+    "Type": "STR",
+    "Class": "Extreme",
+    "Name": "Towa",
+    "Rarity": "ur",
+    "Min Level": 80,
+    "Max Level": 100,
+    "Categories": [
+        "Dragon Ball Heroes",
+        "Peppy Gals",
+        "Resurrected Warriors",
+        "Time Travelers",
+        "Siblings' Bond",
+        "Terrifying Conquerors",
+        "Battle of Wits",
+        "Crossover",
+        "Demonic Power"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Demonic Power",
+        "Solid Support",
+        "Battlefield Diva",
+        "Master of Magic",
+        "Thirst for Conquest",
+        "Scientist"
+    ],
+    "Resource ID": 1027790,
+    "Passive": {
+        "3935": {
+            "ID": 3935,
+            "Timing": "Start of turn",
+            "ATK": 120,
+            "DEF": 120,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 120%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1003935": {
+            "ID": 1003935,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 80,
+            "DEF": 80,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2881 )",
+                "Causalities": {
+                    "2881": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2881\", \"compiled\": 2881}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 80%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "2003935": {
+            "ID": 2003935,
+            "Timing": "Start of turn",
+            "ATK": 20,
+            "DEF": 20,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 2882 )",
+                "Causalities": {
+                    "2882": {
+                        "Button": {
+                            "Name": "Is there 4 or more Extreme class allies on the team on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Extreme class allies on the team on this turn?",
+                            "Logic": ">=4",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 4 or more Extreme class allies on the team"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"2882\", \"compiled\": 2882}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 20%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK and DEF 20%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "When there are 4 or more Extreme class allies on the team"
+        },
+        "3003935": {
+            "ID": 3003935,
+            "Timing": "Start of turn",
+            "Ki Change": {
+                "From": "AGL",
+                "To": "STR",
+                "Style": "Single"
+            },
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3696 )",
+                "Causalities": {
+                    "3696": {
+                        "Button": {
+                            "Name": "Are all allies \"Dragon Ball Heroes\" Category characters on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many \"Dragon Ball Heroes\" characters allies are there on this turn?",
+                            "Logic": null
+                        },
+                        "Paragraph Title": "When all allies are \"Dragon Ball Heroes\" Category characters"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3696\", \"compiled\": 3696}",
+            "Type": "Single activator",
+            "Brief effect description": "Changes AGL Ki Spheres to STR Ki Spheres ",
+            "Line description": "Changes AGL Ki Spheres to STR Ki Spheres ",
+            "Paragraph Title": "When all allies are \"Dragon Ball Heroes\" Category characters"
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- ATK & DEF 120%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 80%{passiveImg:up_g}\n*When another 3 or more Extreme Class allies are on the\nteam*\n- All allies' ATK & DEF 20%{passiveImg:up_g}\n*When all allies are \"Dragon Ball Heroes\" Category\ncharacters*\n- Changes Ki Spheres: AGL to STR",
+    "Max Attacks": 2,
+    "Max Super Attacks": 2,
+    "Stats at levels": {
+        "80": {
+            "HP": 6678,
+            "ATK": 5206,
+            "DEF": 6516
+        },
+        "81": {
+            "HP": 6685,
+            "ATK": 5214,
+            "DEF": 6523
+        },
+        "82": {
+            "HP": 6692,
+            "ATK": 5221,
+            "DEF": 6530
+        },
+        "83": {
+            "HP": 6699,
+            "ATK": 5228,
+            "DEF": 6537
+        },
+        "84": {
+            "HP": 6706,
+            "ATK": 5235,
+            "DEF": 6544
+        },
+        "85": {
+            "HP": 6713,
+            "ATK": 5242,
+            "DEF": 6551
+        },
+        "86": {
+            "HP": 6721,
+            "ATK": 5250,
+            "DEF": 6558
+        },
+        "87": {
+            "HP": 6728,
+            "ATK": 5257,
+            "DEF": 6565
+        },
+        "88": {
+            "HP": 6735,
+            "ATK": 5264,
+            "DEF": 6572
+        },
+        "89": {
+            "HP": 6742,
+            "ATK": 5271,
+            "DEF": 6579
+        },
+        "90": {
+            "HP": 6749,
+            "ATK": 5278,
+            "DEF": 6586
+        },
+        "91": {
+            "HP": 6756,
+            "ATK": 5286,
+            "DEF": 6593
+        },
+        "92": {
+            "HP": 6763,
+            "ATK": 5293,
+            "DEF": 6600
+        },
+        "93": {
+            "HP": 6770,
+            "ATK": 5300,
+            "DEF": 6607
+        },
+        "94": {
+            "HP": 6777,
+            "ATK": 5307,
+            "DEF": 6614
+        },
+        "95": {
+            "HP": 6784,
+            "ATK": 5314,
+            "DEF": 6621
+        },
+        "96": {
+            "HP": 6791,
+            "ATK": 5322,
+            "DEF": 6629
+        },
+        "97": {
+            "HP": 6798,
+            "ATK": 5329,
+            "DEF": 6636
+        },
+        "98": {
+            "HP": 6805,
+            "ATK": 5336,
+            "DEF": 6643
+        },
+        "99": {
+            "HP": 6812,
+            "ATK": 5343,
+            "DEF": 6650
+        },
+        "100": {
+            "HP": 6820,
+            "ATK": 5351,
+            "DEF": 6657
+        }
+    },
+    "Leader Skill": {
+        "Name": "Dark Factor Retrieval",
+        "10277900": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 2
+        },
+        "10277901": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Dragon Ball Heroes"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 30,
+            "DEF": 30,
+            "HP": 30,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 1200,
+            "ATK": 1200,
+            "DEF": 1200,
+            "Additional": 0,
+            "Crit": 5,
+            "Evasion": 0,
+            "Type ATK": 6,
+            "Type DEF": 5,
+            "Super Attack boost": 6,
+            "Recovery boost": 6
+        },
+        "1": {
+            "HP": 180,
+            "ATK": 180,
+            "DEF": 180,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "2": {
+            "HP": 186,
+            "ATK": 420,
+            "DEF": 186,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 2,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "3": {
+            "HP": 414,
+            "ATK": 180,
+            "DEF": 414,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 2,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        },
+        "4": {
+            "HP": 1020,
+            "ATK": 1260,
+            "DEF": 780,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 1,
+            "Type DEF": 1,
+            "Super Attack boost": 1,
+            "Recovery boost": 1
+        }
+    },
+    "Super Attack": {
+        "5021": {
+            "superID": "5021",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Hellish Surprise",
+            "superDescription": "Raises ATK for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "5021": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "30"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp2619"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 65.0,
+        "1": 70.41666666666667,
+        "2": 75.83333333333333,
+        "3": 81.25,
+        "4": 86.66666666666666,
+        "5": 92.08333333333334,
+        "6": 97.5,
+        "7": 102.91666666666667,
+        "8": 108.33333333333333,
+        "9": 113.75,
+        "10": 119.16666666666667,
+        "11": 124.58333333333333,
+        "12": 130.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "5021",
+    "Max Leader Skill": {
+        "HP": 401,
+        "ATK": 318,
+        "DEF": 318,
+        "Ki": 4
+    }
+}
