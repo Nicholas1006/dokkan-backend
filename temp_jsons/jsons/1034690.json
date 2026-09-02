@@ -1,0 +1,1783 @@
+{
+    "ID": "1034690",
+    "Type": "STR",
+    "Class": "Extreme",
+    "Name": "Ginyu (Goku)",
+    "Rarity": "ur",
+    "Min Level": 1,
+    "Max Level": 100,
+    "Categories": [
+        "Planet Namek Saga",
+        "Ginyu Force",
+        "Dragon Ball Seekers",
+        "Terrifying Conquerors",
+        "Special Pose",
+        "Space-Traveling Warriors",
+        "Corroded Body and Mind",
+        "Mission Execution"
+    ],
+    "Can EZA": false,
+    "Can SEZA": false,
+    "Eza Level": "none",
+    "Links": [
+        "Respect",
+        "The Ginyu Force",
+        "Frieza's Army",
+        "Loyalty",
+        "Signature Pose",
+        "Frieza's Minion",
+        "Shattering the Limit"
+    ],
+    "Resource ID": 1034690,
+    "Passive": {
+        "5047": {
+            "ID": 5047,
+            "Timing": "Start of turn",
+            "ATK": 250,
+            "DEF": 250,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 250%{passiveImg:up_g} ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "1005047": {
+            "ID": 1005047,
+            "Timing": "Start of turn",
+            "Ki": 2,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Ki +2 ",
+            "Line description": "Ki +2 ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "2005047": {
+            "ID": 2005047,
+            "Dodge Chance": 50,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +50% ",
+            "Line description": "Chance of evading enemy attacks +50% ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "3005047": {
+            "ID": 3005047,
+            "Timing": "Start of turn",
+            "ATK": 30,
+            "DEF": 30,
+            "Target": {
+                "Target": "allies"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "CausalityLogic": null,
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 30%{passiveImg:up_g} for all allies ",
+            "Line description": "ATK and DEF 30%{passiveImg:up_g} for all allies ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "4005047": {
+            "ID": 4005047,
+            "Timing": "Start of turn",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 100,
+                "Stat Per Proc": 10,
+                "Cause": {
+                    "Cause": "Start of turn"
+                },
+                "Slider": "How many turns has this character been on?"
+            },
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ({currentValue} / 100%) based on 'How many turns has this character been on' ",
+            "Line description": "{passiveImg:forever}Chance of performing a critical hit +10%{passiveImg:up_g} ({currentValue} / 100%) based on 'How many turns has this character been on' ",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "5005047": {
+            "ID": 5005047,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 150,
+            "DEF": 150,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 46 )",
+                "Causalities": {
+                    "46": {
+                        "Button": {
+                            "Name": "Is Ki at least 12 on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How much ki is there on this turn?",
+                            "Logic": ">=12",
+                            "Min": 0,
+                            "Max": 12
+                        },
+                        "Paragraph Title": "When Ki is 12 or more"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"46\", \"compiled\": 46}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Line description": "ATK and DEF 150%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When Ki is 12 or more"
+        },
+        "6005047": {
+            "ID": 6005047,
+            "Timing": "Start of turn",
+            "Guard": true,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1636 || 804 )",
+                "Causalities": {
+                    "1636": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "804": {
+                        "Button": {
+                            "Name": "Is there 1 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1636|804\", \"compiled\": [\"|\", 1636, 804]}",
+            "Type": "Single activator",
+            "Brief effect description": "Guards all attacks ",
+            "Line description": "Guards all attacks ",
+            "Paragraph Title": "When there are less than 2 enemies or there are 1 or more Super class enemies "
+        },
+        "7005047": {
+            "ID": 7005047,
+            "Timing": "Start of turn",
+            "DR": 40,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1636 || 804 )",
+                "Causalities": {
+                    "1636": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "804": {
+                        "Button": {
+                            "Name": "Is there 1 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1636|804\", \"compiled\": [\"|\", 1636, 804]}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 40%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 40%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are less than 2 enemies or there are 1 or more Super class enemies "
+        },
+        "8005047": {
+            "ID": 8005047,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 50,
+                "Chance of another additional": 100
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1636 || 804 )",
+                "Causalities": {
+                    "1636": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "804": {
+                        "Button": {
+                            "Name": "Is there 1 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1636|804\", \"compiled\": [\"|\", 1636, 804]}",
+            "Type": "Single activator",
+            "Brief effect description": "None",
+            "Line description": "None",
+            "Paragraph Title": "When there are less than 2 enemies or there are 1 or more Super class enemies "
+        },
+        "9005047": {
+            "ID": 9005047,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3593 )",
+                "Causalities": {
+                    "3593": {
+                        "Button": {
+                            "Name": "Are there 1 or more Planet Namek Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Planet Namek Saga category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Planet Namek Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3593\", \"compiled\": 3593}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Planet Namek Saga Category allies "
+        },
+        "10005047": {
+            "ID": 10005047,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 960 )",
+                "Causalities": {
+                    "960": {
+                        "Button": {
+                            "Name": "Are there 2 or more Planet Namek Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Planet Namek Saga category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Planet Namek Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"960\", \"compiled\": 960}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Planet Namek Saga Category allies "
+        },
+        "11005047": {
+            "ID": 11005047,
+            "Timing": "Start of turn",
+            "ATK": 100,
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3690 )",
+                "Causalities": {
+                    "3690": {
+                        "Button": {
+                            "Name": "Are there 3 or more Planet Namek Saga category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Planet Namek Saga category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Planet Namek Saga Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3690\", \"compiled\": 3690}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 100%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Planet Namek Saga Category allies "
+        },
+        "12005047": {
+            "ID": 12005047,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 99999,
+                "Stat Per Proc": 30,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "ATK": 30,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "ATK 30%{passiveImg:up_g} ({currentValue} / 99999%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}ATK 30%{passiveImg:up_g} ({currentValue} / 99999%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "13005047": {
+            "ID": 13005047,
+            "Timing": "Right after attack",
+            "Building Stat": {
+                "Min": 0,
+                "Max": 99999,
+                "Stat Per Proc": 20,
+                "Cause": {
+                    "Cause": "Attacks performed"
+                },
+                "Slider": "How many attacks has this character performed in battle?"
+            },
+            "DEF": 20,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 99,
+            "CausalityLogic": null,
+            "Type": "Building Stat",
+            "Brief effect description": "DEF 20%{passiveImg:up_g} ({currentValue} / 99999%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Line description": "{passiveImg:forever}DEF 20%{passiveImg:up_g} ({currentValue} / 99999%) based on 'How many attacks has this character performed in battle' after attacking",
+            "Paragraph Title": "Basic effect(s)"
+        },
+        "14005047": {
+            "ID": 14005047,
+            "Timing": "Start of turn",
+            "ATK": 180,
+            "DEF": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 982 )",
+                "Causalities": {
+                    "982": {
+                        "Button": {
+                            "Name": "Are there 1 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"982\", \"compiled\": 982}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 180%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 180%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Ginyu Force Category allies "
+        },
+        "15005047": {
+            "ID": 15005047,
+            "Timing": "Start of turn",
+            "ATK": 180,
+            "DEF": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 983 )",
+                "Causalities": {
+                    "983": {
+                        "Button": {
+                            "Name": "Are there 2 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"983\", \"compiled\": 983}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 180%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 180%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Ginyu Force Category allies "
+        },
+        "16005047": {
+            "ID": 16005047,
+            "Timing": "Start of turn",
+            "ATK": 180,
+            "DEF": 180,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 984 )",
+                "Causalities": {
+                    "984": {
+                        "Button": {
+                            "Name": "Are there 3 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"984\", \"compiled\": 984}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK and DEF 180%{passiveImg:up_g} ",
+            "Line description": "ATK and DEF 180%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Ginyu Force Category allies "
+        },
+        "17005047": {
+            "ID": 17005047,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 982 )",
+                "Causalities": {
+                    "982": {
+                        "Button": {
+                            "Name": "Are there 1 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"982\", \"compiled\": 982}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Ginyu Force Category allies "
+        },
+        "18005047": {
+            "ID": 18005047,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 983 )",
+                "Causalities": {
+                    "983": {
+                        "Button": {
+                            "Name": "Are there 2 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"983\", \"compiled\": 983}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Ginyu Force Category allies "
+        },
+        "19005047": {
+            "ID": 19005047,
+            "Timing": "Start of turn",
+            "Crit Chance": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 984 )",
+                "Causalities": {
+                    "984": {
+                        "Button": {
+                            "Name": "Are there 3 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"984\", \"compiled\": 984}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Line description": "Chance of performing a critical hit +10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Ginyu Force Category allies "
+        },
+        "20005047": {
+            "ID": 20005047,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 982 )",
+                "Causalities": {
+                    "982": {
+                        "Button": {
+                            "Name": "Are there 1 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"982\", \"compiled\": 982}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 1 or more Ginyu Force Category allies "
+        },
+        "21005047": {
+            "ID": 21005047,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 983 )",
+                "Causalities": {
+                    "983": {
+                        "Button": {
+                            "Name": "Are there 2 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=2",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 2 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"983\", \"compiled\": 983}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 2 or more Ginyu Force Category allies "
+        },
+        "22005047": {
+            "ID": 22005047,
+            "Timing": "Start of turn",
+            "DR": 10,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 984 )",
+                "Causalities": {
+                    "984": {
+                        "Button": {
+                            "Name": "Are there 3 or more Ginyu Force category allies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Ginyu Force category allies on this turn?",
+                            "Logic": ">=3",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 3 or more Ginyu Force Category allies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"984\", \"compiled\": 984}",
+            "Type": "Single activator",
+            "Brief effect description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Line description": "Damage Reduction Rate 10%{passiveImg:up_g} ",
+            "Paragraph Title": "When there are 3 or more Ginyu Force Category allies "
+        },
+        "23005047": {
+            "ID": 23005047,
+            "Effective Against All": true,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1005 )",
+                "Causalities": {
+                    "1005": {
+                        "Button": {
+                            "Name": "Are there 1 or more Planet Namek Saga category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Planet Namek Saga category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Planet Namek Saga Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1005\", \"compiled\": 1005}",
+            "Type": "Single activator",
+            "Brief effect description": "Attacks effective against all Types ",
+            "Line description": "Attacks effective against all Types ",
+            "Paragraph Title": "When there are 1 or more Planet Namek Saga Category enemies "
+        },
+        "24005047": {
+            "ID": 24005047,
+            "Additional Attack": {
+                "Activated": true,
+                "Chance of super": 100,
+                "Chance of another additional": "0"
+            },
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1005 )",
+                "Causalities": {
+                    "1005": {
+                        "Button": {
+                            "Name": "Are there 1 or more Planet Namek Saga category enemies  on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Planet Namek Saga category enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Planet Namek Saga Category enemies "
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1005\", \"compiled\": 1005}",
+            "Type": "Single activator",
+            "Brief effect description": "Performs an additional super attack ",
+            "Line description": "Performs an additional super attack ",
+            "Paragraph Title": "When there are 1 or more Planet Namek Saga Category enemies "
+        },
+        "25005047": {
+            "ID": 25005047,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3737 )",
+                "Causalities": {
+                    "3737": {
+                        "Button": {
+                            "Name": "Is there 2 or more LOST allies in the same group on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many LOST allies are are in the same group on this turn?",
+                            "Logic": ">2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When there are 2 or more LOST allies in the same group"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3737\", \"compiled\": 3737}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When there are 2 or more LOST allies in the same group"
+        },
+        "26005047": {
+            "ID": 26005047,
+            "Timing": "Right before attack(MOT stat)",
+            "ATK": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3738 )",
+                "Causalities": {
+                    "3738": {
+                        "Button": {
+                            "Name": "Is there 1 or more LOST allies in the same group on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many LOST allies are are in the same group on this turn?",
+                            "Logic": ">1",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When there are 1 or more LOST allies in the same group"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3738\", \"compiled\": 3738}",
+            "Type": "Single activator",
+            "Brief effect description": "ATK 100%{passiveImg:up_g} when attacking",
+            "Line description": "ATK 100%{passiveImg:up_g} when attacking",
+            "Paragraph Title": "When there are 1 or more LOST allies in the same group"
+        },
+        "27005047": {
+            "ID": 27005047,
+            "Timing": "Right before being hit",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3737 )",
+                "Causalities": {
+                    "3737": {
+                        "Button": {
+                            "Name": "Is there 2 or more LOST allies in the same group on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many LOST allies are are in the same group on this turn?",
+                            "Logic": ">2",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When there are 2 or more LOST allies in the same group"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3737\", \"compiled\": 3737}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 100%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When there are 2 or more LOST allies in the same group"
+        },
+        "28005047": {
+            "ID": 28005047,
+            "Timing": "Right before being hit",
+            "DEF": 100,
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 3738 )",
+                "Causalities": {
+                    "3738": {
+                        "Button": {
+                            "Name": "Is there 1 or more LOST allies in the same group on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many LOST allies are are in the same group on this turn?",
+                            "Logic": ">1",
+                            "Min": 0,
+                            "Max": 2
+                        },
+                        "Paragraph Title": "When there are 1 or more LOST allies in the same group"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"3738\", \"compiled\": 3738}",
+            "Type": "Single activator",
+            "Brief effect description": "DEF 100%{passiveImg:up_g} right before being hit",
+            "Line description": "DEF 100%{passiveImg:up_g} right before being hit",
+            "Paragraph Title": "When there are 1 or more LOST allies in the same group"
+        },
+        "29005047": {
+            "ID": 29005047,
+            "Dodge Chance": 20,
+            "Timing": "Start of turn",
+            "Target": {
+                "Target": "Self"
+            },
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Length": 1,
+            "Condition": {
+                "Logic": "( 1636 || 804 )",
+                "Causalities": {
+                    "1636": {
+                        "Button": {
+                            "Name": "Is there less than 2 enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many enemies are there on this turn?",
+                            "Logic": "<2",
+                            "Min": 1,
+                            "Max": 7
+                        },
+                        "Paragraph Title": "When there are less than 2 enemies"
+                    },
+                    "804": {
+                        "Button": {
+                            "Name": "Is there 1 or more Super class enemies on this turn?"
+                        },
+                        "Slider": {
+                            "Name": "How many Super class enemies on this turn?",
+                            "Logic": ">=1",
+                            "Max": 7,
+                            "Min": 0
+                        },
+                        "Paragraph Title": "When there are 1 or more Super class enemies"
+                    }
+                }
+            },
+            "CausalityLogic": "{\"source\": \"1636|804\", \"compiled\": [\"|\", 1636, 804]}",
+            "Type": "Single activator",
+            "Brief effect description": "Chance of evading enemy attacks +20% ",
+            "Line description": "Chance of evading enemy attacks +20% ",
+            "Paragraph Title": "When there are less than 2 enemies or there are 1 or more Super class enemies "
+        }
+    },
+    "Itemized Passive Description": "*Basic effect(s)*\n- Ki +2 and ATK & DEF 250%{passiveImg:up_g}\n- High chance of evading enemy's attack\n- All allies' ATK & DEF 30%{passiveImg:up_g}\n*At the start of each turn*\n- {passiveImg:forever}Chance of performing a critical hit 10%{passiveImg:up_g}\n*When attacking with 12 or more Ki*\n- ATK & DEF 150%{passiveImg:up_g}",
+    "Max Attacks": 5,
+    "Max Super Attacks": 5,
+    "Stats at levels": {
+        "1": {
+            "HP": 4179,
+            "ATK": 2374,
+            "DEF": 1038
+        },
+        "2": {
+            "HP": 4277,
+            "ATK": 2429,
+            "DEF": 1062
+        },
+        "3": {
+            "HP": 4375,
+            "ATK": 2485,
+            "DEF": 1086
+        },
+        "4": {
+            "HP": 4473,
+            "ATK": 2541,
+            "DEF": 1111
+        },
+        "5": {
+            "HP": 4571,
+            "ATK": 2596,
+            "DEF": 1135
+        },
+        "6": {
+            "HP": 4673,
+            "ATK": 2655,
+            "DEF": 1160
+        },
+        "7": {
+            "HP": 4771,
+            "ATK": 2710,
+            "DEF": 1185
+        },
+        "8": {
+            "HP": 4869,
+            "ATK": 2766,
+            "DEF": 1209
+        },
+        "9": {
+            "HP": 4967,
+            "ATK": 2822,
+            "DEF": 1233
+        },
+        "10": {
+            "HP": 5065,
+            "ATK": 2877,
+            "DEF": 1258
+        },
+        "11": {
+            "HP": 5163,
+            "ATK": 2933,
+            "DEF": 1282
+        },
+        "12": {
+            "HP": 5261,
+            "ATK": 2989,
+            "DEF": 1306
+        },
+        "13": {
+            "HP": 5359,
+            "ATK": 3044,
+            "DEF": 1331
+        },
+        "14": {
+            "HP": 5457,
+            "ATK": 3100,
+            "DEF": 1355
+        },
+        "15": {
+            "HP": 5555,
+            "ATK": 3156,
+            "DEF": 1380
+        },
+        "16": {
+            "HP": 5658,
+            "ATK": 3214,
+            "DEF": 1405
+        },
+        "17": {
+            "HP": 5756,
+            "ATK": 3270,
+            "DEF": 1429
+        },
+        "18": {
+            "HP": 5854,
+            "ATK": 3326,
+            "DEF": 1454
+        },
+        "19": {
+            "HP": 5952,
+            "ATK": 3381,
+            "DEF": 1478
+        },
+        "20": {
+            "HP": 6050,
+            "ATK": 3437,
+            "DEF": 1502
+        },
+        "21": {
+            "HP": 6148,
+            "ATK": 3493,
+            "DEF": 1527
+        },
+        "22": {
+            "HP": 6246,
+            "ATK": 3548,
+            "DEF": 1551
+        },
+        "23": {
+            "HP": 6344,
+            "ATK": 3604,
+            "DEF": 1575
+        },
+        "24": {
+            "HP": 6442,
+            "ATK": 3660,
+            "DEF": 1600
+        },
+        "25": {
+            "HP": 6540,
+            "ATK": 3715,
+            "DEF": 1624
+        },
+        "26": {
+            "HP": 6643,
+            "ATK": 3774,
+            "DEF": 1650
+        },
+        "27": {
+            "HP": 6741,
+            "ATK": 3829,
+            "DEF": 1674
+        },
+        "28": {
+            "HP": 6839,
+            "ATK": 3885,
+            "DEF": 1698
+        },
+        "29": {
+            "HP": 6937,
+            "ATK": 3941,
+            "DEF": 1723
+        },
+        "30": {
+            "HP": 7035,
+            "ATK": 3997,
+            "DEF": 1747
+        },
+        "31": {
+            "HP": 7133,
+            "ATK": 4052,
+            "DEF": 1771
+        },
+        "32": {
+            "HP": 7231,
+            "ATK": 4108,
+            "DEF": 1796
+        },
+        "33": {
+            "HP": 7329,
+            "ATK": 4164,
+            "DEF": 1820
+        },
+        "34": {
+            "HP": 7427,
+            "ATK": 4219,
+            "DEF": 1844
+        },
+        "35": {
+            "HP": 7525,
+            "ATK": 4275,
+            "DEF": 1869
+        },
+        "36": {
+            "HP": 7628,
+            "ATK": 4333,
+            "DEF": 1894
+        },
+        "37": {
+            "HP": 7726,
+            "ATK": 4389,
+            "DEF": 1919
+        },
+        "38": {
+            "HP": 7824,
+            "ATK": 4445,
+            "DEF": 1943
+        },
+        "39": {
+            "HP": 7922,
+            "ATK": 4500,
+            "DEF": 1967
+        },
+        "40": {
+            "HP": 8020,
+            "ATK": 4556,
+            "DEF": 1992
+        },
+        "41": {
+            "HP": 8118,
+            "ATK": 4612,
+            "DEF": 2016
+        },
+        "42": {
+            "HP": 8216,
+            "ATK": 4667,
+            "DEF": 2040
+        },
+        "43": {
+            "HP": 8314,
+            "ATK": 4723,
+            "DEF": 2065
+        },
+        "44": {
+            "HP": 8412,
+            "ATK": 4779,
+            "DEF": 2089
+        },
+        "45": {
+            "HP": 8510,
+            "ATK": 4834,
+            "DEF": 2113
+        },
+        "46": {
+            "HP": 8613,
+            "ATK": 4893,
+            "DEF": 2139
+        },
+        "47": {
+            "HP": 8711,
+            "ATK": 4949,
+            "DEF": 2163
+        },
+        "48": {
+            "HP": 8809,
+            "ATK": 5004,
+            "DEF": 2188
+        },
+        "49": {
+            "HP": 8907,
+            "ATK": 5060,
+            "DEF": 2212
+        },
+        "50": {
+            "HP": 9005,
+            "ATK": 5116,
+            "DEF": 2236
+        },
+        "51": {
+            "HP": 9103,
+            "ATK": 5171,
+            "DEF": 2261
+        },
+        "52": {
+            "HP": 9201,
+            "ATK": 5227,
+            "DEF": 2285
+        },
+        "53": {
+            "HP": 9299,
+            "ATK": 5283,
+            "DEF": 2309
+        },
+        "54": {
+            "HP": 9397,
+            "ATK": 5338,
+            "DEF": 2334
+        },
+        "55": {
+            "HP": 9495,
+            "ATK": 5394,
+            "DEF": 2358
+        },
+        "56": {
+            "HP": 9598,
+            "ATK": 5453,
+            "DEF": 2384
+        },
+        "57": {
+            "HP": 9696,
+            "ATK": 5508,
+            "DEF": 2408
+        },
+        "58": {
+            "HP": 9794,
+            "ATK": 5564,
+            "DEF": 2432
+        },
+        "59": {
+            "HP": 9892,
+            "ATK": 5620,
+            "DEF": 2457
+        },
+        "60": {
+            "HP": 9990,
+            "ATK": 5675,
+            "DEF": 2481
+        },
+        "61": {
+            "HP": 10088,
+            "ATK": 5731,
+            "DEF": 2505
+        },
+        "62": {
+            "HP": 10186,
+            "ATK": 5787,
+            "DEF": 2530
+        },
+        "63": {
+            "HP": 10284,
+            "ATK": 5842,
+            "DEF": 2554
+        },
+        "64": {
+            "HP": 10382,
+            "ATK": 5898,
+            "DEF": 2578
+        },
+        "65": {
+            "HP": 10480,
+            "ATK": 5954,
+            "DEF": 2603
+        },
+        "66": {
+            "HP": 10583,
+            "ATK": 6012,
+            "DEF": 2628
+        },
+        "67": {
+            "HP": 10681,
+            "ATK": 6068,
+            "DEF": 2653
+        },
+        "68": {
+            "HP": 10779,
+            "ATK": 6123,
+            "DEF": 2677
+        },
+        "69": {
+            "HP": 10877,
+            "ATK": 6179,
+            "DEF": 2701
+        },
+        "70": {
+            "HP": 10975,
+            "ATK": 6235,
+            "DEF": 2726
+        },
+        "71": {
+            "HP": 11073,
+            "ATK": 6290,
+            "DEF": 2750
+        },
+        "72": {
+            "HP": 11171,
+            "ATK": 6346,
+            "DEF": 2774
+        },
+        "73": {
+            "HP": 11269,
+            "ATK": 6402,
+            "DEF": 2799
+        },
+        "74": {
+            "HP": 11367,
+            "ATK": 6458,
+            "DEF": 2823
+        },
+        "75": {
+            "HP": 11465,
+            "ATK": 6513,
+            "DEF": 2847
+        },
+        "76": {
+            "HP": 11568,
+            "ATK": 6572,
+            "DEF": 2873
+        },
+        "77": {
+            "HP": 11666,
+            "ATK": 6627,
+            "DEF": 2897
+        },
+        "78": {
+            "HP": 11764,
+            "ATK": 6683,
+            "DEF": 2922
+        },
+        "79": {
+            "HP": 11862,
+            "ATK": 6739,
+            "DEF": 2946
+        },
+        "80": {
+            "HP": 11960,
+            "ATK": 6794,
+            "DEF": 2970
+        },
+        "81": {
+            "HP": 12058,
+            "ATK": 6850,
+            "DEF": 2995
+        },
+        "82": {
+            "HP": 12156,
+            "ATK": 6906,
+            "DEF": 3019
+        },
+        "83": {
+            "HP": 12254,
+            "ATK": 6961,
+            "DEF": 3043
+        },
+        "84": {
+            "HP": 12352,
+            "ATK": 7017,
+            "DEF": 3068
+        },
+        "85": {
+            "HP": 12450,
+            "ATK": 7073,
+            "DEF": 3092
+        },
+        "86": {
+            "HP": 12553,
+            "ATK": 7131,
+            "DEF": 3117
+        },
+        "87": {
+            "HP": 12651,
+            "ATK": 7187,
+            "DEF": 3142
+        },
+        "88": {
+            "HP": 12749,
+            "ATK": 7243,
+            "DEF": 3166
+        },
+        "89": {
+            "HP": 12847,
+            "ATK": 7298,
+            "DEF": 3191
+        },
+        "90": {
+            "HP": 12945,
+            "ATK": 7354,
+            "DEF": 3215
+        },
+        "91": {
+            "HP": 13043,
+            "ATK": 7410,
+            "DEF": 3239
+        },
+        "92": {
+            "HP": 13141,
+            "ATK": 7465,
+            "DEF": 3264
+        },
+        "93": {
+            "HP": 13239,
+            "ATK": 7521,
+            "DEF": 3288
+        },
+        "94": {
+            "HP": 13337,
+            "ATK": 7577,
+            "DEF": 3312
+        },
+        "95": {
+            "HP": 13435,
+            "ATK": 7632,
+            "DEF": 3337
+        },
+        "96": {
+            "HP": 13537,
+            "ATK": 7691,
+            "DEF": 3362
+        },
+        "97": {
+            "HP": 13635,
+            "ATK": 7746,
+            "DEF": 3386
+        },
+        "98": {
+            "HP": 13733,
+            "ATK": 7802,
+            "DEF": 3411
+        },
+        "99": {
+            "HP": 13831,
+            "ATK": 7858,
+            "DEF": 3435
+        },
+        "100": {
+            "HP": 13930,
+            "ATK": 7914,
+            "DEF": 3460
+        }
+    },
+    "Leader Skill": {
+        "Name": "Chaos-Bringing Secret Technique",
+        "10346900": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Planet Namek Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 100,
+            "DEF": 100,
+            "HP": 100,
+            "Ki": 0
+        },
+        "10346901": {
+            "Buff": {
+                "Type": "Raw stats",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Planet Namek Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 0,
+            "DEF": 0,
+            "HP": 0,
+            "Ki": 3
+        },
+        "10346902": {
+            "Buff": {
+                "Type": "Percentage",
+                "+ or -": "+"
+            },
+            "Target": {
+                "Category": [
+                    "Planet Namek Saga"
+                ],
+                "Excluded Category": [],
+                "Name": [],
+                "Excluded Name": [],
+                "Class": [
+                    "Extreme"
+                ],
+                "Type": [],
+                "allies or enemies": "allies"
+            },
+            "ATK": 70,
+            "DEF": 70,
+            "HP": 70,
+            "Ki": 0
+        }
+    },
+    "Hidden Potential": {
+        "0": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "1": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "2": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "3": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        },
+        "4": {
+            "HP": 0,
+            "ATK": 0,
+            "DEF": 0,
+            "Additional": 0,
+            "Crit": 0,
+            "Evasion": 0,
+            "Type ATK": 0,
+            "Type DEF": 0,
+            "Super Attack boost": 0,
+            "Recovery boost": 0
+        }
+    },
+    "Super Attack": {
+        "9165": {
+            "superID": "9165",
+            "Type": "Ki blast",
+            "special_name_no": "0",
+            "superName": "Milky Cannon",
+            "superDescription": "Greatly raises ATK & DEF for 1 turn and \ncauses supreme damage to enemy",
+            "superMinKi": "12",
+            "superPriority": "0.0",
+            "superStyle": "Normal",
+            "superMinLVL": "0",
+            "superCausality": "",
+            "superAimTarget": "0",
+            "superBuffs": {
+                "9165": {
+                    "Type": "NormalEfficacySpecial",
+                    "Chance": "100",
+                    "Duration": "1",
+                    "Buff": {
+                        "Type": "Percentage",
+                        "+ or -": "+"
+                    },
+                    "Target": "Self",
+                    "ATK": "50",
+                    "DEF": "50"
+                }
+            },
+            "superIsInactive": "0",
+            "SpecialBonus": {
+                "ID": "0"
+            },
+            "Multiplier": 430,
+            "relevantLua": [
+                "sp3070"
+            ]
+        }
+    },
+    "Active Skill": null,
+    "Standby Skill": null,
+    "Finish Skill": null,
+    "Transforms from": [],
+    "Transformations": [],
+    "Max Appearances In Form": 50,
+    "Dokkan awakenings": [],
+    "Dokkan Reverse awakenings": [],
+    "Orbs": {
+        "gold": {
+            "HP": 900,
+            "ATK": 1200,
+            "DEF": 1200
+        },
+        "silver": {
+            "HP": 200,
+            "ATK": 1400,
+            "DEF": 1400
+        },
+        "bronze": {
+            "HP": 700,
+            "ATK": 1100,
+            "DEF": 1100
+        },
+        "overall": {
+            "HP": 1800,
+            "ATK": 3700,
+            "DEF": 3700
+        }
+    },
+    "Ki Multiplier": {
+        "0": 70.0,
+        "1": 75.83333333333333,
+        "2": 81.66666666666667,
+        "3": 87.5,
+        "4": 93.33333333333333,
+        "5": 99.16666666666667,
+        "6": 105.0,
+        "7": 110.83333333333334,
+        "8": 116.66666666666666,
+        "9": 122.5,
+        "10": 128.33333333333334,
+        "11": 134.16666666666666,
+        "12": 140.0
+    },
+    "Ki Circle Segments": {},
+    "SuperMinKi": null,
+    "AdditionalSuperID": "9165",
+    "Max Leader Skill": {
+        "HP": 100,
+        "ATK": 100,
+        "DEF": 100,
+        "Ki": 3
+    }
+}

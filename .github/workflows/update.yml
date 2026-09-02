@@ -83,13 +83,13 @@ jobs:
         shell: pwsh
 
       - name: Reset GlbAssetVersion to 0 if new assets were found
-        if: steps.check_changes.outputs.changed == 'true'
+        if: steps.check_changes.outputs.changed == 'true' && false
         run: |
           python resetAssetTime.py
         shell: cmd
 
       - name: reDownload all assets
-        if: steps.check_changes.outputs.changed == 'true'
+        if: steps.check_changes.outputs.changed == 'true' && false
         run: |
           cd "Dokkan_Asset_Downloader"  || exit /b 1
           (
