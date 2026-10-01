@@ -98,21 +98,6 @@ jobs:
           ) | Dokkan_Asset_Downloader_v2.8.0_WIN_x64.exe
         shell: cmd
 
-      - name: Configure AWS Credentials
-        if: steps.check_changes.outputs.changed == 'true'
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-
-      - name: Upload Assets to S3
-        if: steps.check_changes.outputs.changed == 'true'
-        run: |
-          # Upload binary assets to S3
-          aws s3 sync "Dokkan_Asset_Downloader\card_assets" s3://dokkan-calc-assets
-        shell: pwsh
-
       - name: Set up Python
         if: steps.check_changes.outputs.changed == 'true'
         uses: actions/setup-python@v4
