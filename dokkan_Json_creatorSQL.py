@@ -67,9 +67,10 @@ linksTime=0.0
 circleTime=0.0
 backtrackTime=0.0
 highestLeaderTime=0.0
+
 multiplierTime=0.0
 
-cardIDsToCheck=["4033770"]
+cardIDsToCheck=["1034561","1034551","1034121","1034091"]
 #cardIDsToCheck=["4026911","4025741","4028381","4026401","4027631","4027301","4025781","4026541"]
 
 cardsToCheck=[]

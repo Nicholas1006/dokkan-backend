@@ -680,6 +680,8 @@ def parseSpecials(specialRow,DEVEXCEPTIONS=False):
         output["Status"]="Effective Against All"
     elif(specialRow[3]=="84"):
         output["Heals"]=specialRow[9]
+    elif(specialRow[3]=="87"):
+        output["Type ATK boost"]=specialRow[9]
     elif(specialRow[3]=="90"):
         output["Crit Chance"]=specialRow[9]
     elif(specialRow[3]=="91"):
@@ -1757,6 +1759,9 @@ def shortenPassiveDictionary(oldPassiveDictionary):
     if( "Has Animation" in passiveDictionary):
         if passiveDictionary["Has Animation"]==False:
             passiveDictionary.pop("Has Animation")
+    if("Nullify dodge cancel" in passiveDictionary):
+        if passiveDictionary["Nullify dodge cancel"]==False:
+            passiveDictionary.pop("Nullify dodge cancel")
 
 
     return(passiveDictionary)
@@ -2413,6 +2418,7 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             }
         },
         "Forsee Super Attack": False,
+        "Nullify dodge cancel": False,
         "Guaranteed Hit": False,
         "Dodge Chance": 0,
         "Effective Against All": False,
@@ -2930,9 +2936,30 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
             effects["Counter"]["DR from normals"]=passiveskill[13]
     elif(passiveskill[4]==128):
         effects["Counter"]={"Activated":True, "Multiplier":passiveskill[14], "Cause":"Evaded attack"}
+    elif(passiveskill[4]==129):
+        effects["Nullify dodge cancel"]=True
     elif(passiveskill[4]==131):
         effects["Reversible exchange"]["Activated"]=True
         effects["Reversible exchange"]["Unit"]=passiveskill[13]
+
+
+
+    elif(passiveskill[4]==1009):
+        if(passiveskill[15]==0):
+            effects["ATK"]+=passiveskill[14]
+        elif(passiveskill[15]==1):
+            effects["DEF"]+=passiveskill[14]
+        else:
+            print("UNKNOWN COMMULATIVE AMOUNT")
+            if(DEVEXCEPTIONS==True):
+                raise Exception("Unknown accumulated type")
+        effects["Building Stat"]["Stat Per Proc"]= passiveskill[13]
+        effects["Building Stat"]["Cause"]={"Cause":"Accumulated amount", "Type":"Accumulated"}
+        effects["Building Stat"]["Max"]+=passiveskill[14]
+        effects["Building Stat"]["Min"]+=0
+        effects["Building Stat"]["Slider"]="How many times has this run?"
+    elif(passiveskill[4]==1011):
+        print("target mechanic WIP")
         
     else:
         if(DEVEXCEPTIONS==True):
@@ -2970,6 +2997,8 @@ def extractPassiveLineSQL(unit,passiveskill,printing=False,DEVEXCEPTIONS=False):
         effects["Timing"]="When final blow delivered"
     elif passiveskill[2]==15:
         effects["Timing"]="When ki spheres collected"
+    elif passiveskill[2]==20:
+        effects["Timing"]="When ally is being attacked"
     else:
         print("UNKNOWN TRIGGER",end=" ")
         if(DEVEXCEPTIONS==True):
@@ -5454,6 +5483,8 @@ def passiveBriefEffectDescription(parsedLine,DEVEXCEPTIONS=False):
             output+="after the final blow is delivered"
         elif(parsedLine["Timing"]=="Activating standby"):
             output+="when activating standby"
+        elif(parsedLine["Timing"]=="When ally is being attacked"):
+            output+="when ally is being attacked"
         else:
             print("UNKNOWN EFFECT",parsedLine)
             if(DEVEXCEPTIONS):
@@ -6686,6 +6717,9 @@ def parseActiveSkill(unit,DEVEXCEPTIONS=False):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Redirect attacks to me"
             elif(line[5]=="129"):
                 output["Effects"][line[0]]["Effect"]["Buff"]="Nullifies attacks that are guaranteed to hit"
+
+            elif(line[5]=="1010"):
+                output["Effects"][line[0]]["Effect"]["Buff"]="Grants the accumulated ATK & DEF boosts to the 2nd attacker in the turn in battle, and resets the character's accumulated boosts"
             else:
                 print("UNKNOWN ACTIVE EFFECT")
                 if(DEVEXCEPTIONS):
