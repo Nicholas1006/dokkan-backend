@@ -3,7 +3,7 @@ id,name,description,exec_timing_type,turn,is_once,probability,causality_conditio
 2,Regeneration,Recovers HP,0,0,0,0,,0,0,0,0,0,2,184.0,4.0,0.0,{},0.0
 3,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,3,200.0,,,{},0.0
 4,Turn Into Candy!,Changes Ki Spheres into sweet treats,1,0,0,80,,1,0,0,0,0,4,63.0,448.0,,{},0.0
-5,Recover,Recover HP,0,0,0,0,,0,0,0,0,0,2,100.0,,0.0,{},0.0
+5,Recover,Recovers HP,0,0,0,0,,0,0,0,0,0,2,100.0,,0.0,{},0.0
 6,Boss,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,3,220.0,,,{},0.0
 7,Super Saiyan,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,3,140.0,,,{},0.0
 8,Space Distortion,Randomly changes all Ki Spheres,1,0,0,80,,1,0,0,0,0,6,,,,{},0.0
@@ -52,7 +52,7 @@ id,name,description,exec_timing_type,turn,is_once,probability,causality_conditio
 1240,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,3,220.0,,,{},0.0
 1250,Coercion,Locks character switching,1,0,0,70,,11,55,30,15,0,5,,,,{},0.0
 1260,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,3,220.0,,,{},0.0
-1270,Recover,Recover HP,0,0,0,0,,0,0,0,0,0,2,100.0,5.0,0.0,{},0.0
+1270,Recover,Recovers HP,0,0,0,0,,0,0,0,0,0,2,100.0,5.0,0.0,{},0.0
 1300,Penetration,Increases damage dealt to enemies,0,0,0,0,,0,0,0,0,0,3,150.0,,,{},0.0
 1310,Damage Reduction,Reduces damage received,0,0,0,0,,0,0,0,0,0,7,20.0,,,{},0.0
 1320,Damage Reduction,Reduces damage received,0,0,0,0,,0,0,0,0,0,7,30.0,,,{},0.0
@@ -10401,6 +10401,10 @@ from the character's entry turn",1,-1,0,100,"{""source"": ""3444"", ""compiled""
 535400,Turn Into Candy!,Changes Ki Spheres into sweet treats,1,0,0,100,,1,0,0,0,0,4,63.0,448.0,,{},0.0
 535410,Majin Cells,Grants immunity to being stunned,0,-1,0,100,,1,0,0,0,0,10,0.0,0.0,0.0,{},0.0
 535420,Dreadful Strength,Nullifies Super Attack sealing effect,0,-1,0,100,,1,0,0,0,0,14,0.0,0.0,0.0,{},0.0
+535500,ATK Boost,ATK +5% with each attack received (up to 100%),5,-1,0,100,"{""source"": ""24"", ""compiled"": 24}",1,0,0,0,0,25,5.0,100.0,0.0,{},2.0
+535510,ATK Boost,ATK +30% with each turn passed,1,-1,0,100,,1,0,0,0,0,25,30.0,9999.0,0.0,{},2.0
+535520,ATK Boost,ATK +50% starting from the 2nd turn,1,-1,0,100,"{""source"": ""3338"", ""compiled"": 3338}",1,0,0,0,0,23,50.0,0.0,0.0,{},2.0
+535530,ATK Boost,ATK +50% with each Super Attack performed,6,-1,0,100,"{""source"": ""2125"", ""compiled"": 2125}",1,0,0,0,0,25,50.0,9999.0,0.0,{},2.0
 536140,ATK Boost,ATK +50% with each turn passed (up to 150%),1,-1,0,100,,1,0,0,0,0,25,50.0,150.0,,{},2.0
 536150,ATK Boost,ATK +100% when HP is 50% or less,1,1,0,100,"{""source"": ""27"", ""compiled"": 27}",1,0,0,0,0,23,100.0,0.0,0.0,{},2.0
 536160,ATK Boost,ATK +10% with each attack received (up to 150%),5,-1,0,100,"{""source"": ""24"", ""compiled"": 24}",1,0,0,0,0,25,10.0,150.0,0.0,{},2.0
@@ -12450,3 +12454,29 @@ Super AGL or Extreme AGL Type enemy",11,1,0,100,,2,0,0,0,1126,1000,0.0,0.0,0.0,{
 2002430,Damage Negation,Reduces damage below a certain amount to 0,1,1,0,100,,1,0,0,0,0,20,3.0,3000000.0,0.0,{},0.0
 2002440,Barrier,Nullifies damage from Ki Blast Super Attacks,4,1,0,100,"{""source"": ""1410"", ""compiled"": 1410}",1,0,0,0,0,21,0.0,0.0,11.0,{},0.0
 2002441,Barrier,,5,1,0,100,,1,0,0,0,0,22,10.0,2002440.0,1.0,{},0.0
+2002450,ATK Boost,ATK +50% with each turn passed (up to 500%),1,-1,0,100,,1,0,0,0,0,25,50.0,500.0,,{},2.0
+2002460,Damage Skill,"Deals 30% of enemy's max HP as damage 
+to the enemy every turn 
+(will not be KO'd due to receiving this damage)",1,1,0,100,,19,100,0,0,0,28,30.0,,,{},2.0
+2002470,ATK Boost & Lowered DEF,"ATK +100% and DEF -50% 
+when HP is 80% or less",1,1,0,100,"{""source"": ""458"", ""compiled"": 458}",1,0,0,0,0,23,100.0,-50.0,0.0,{},2.0
+2002480,ATK Boost,ATK +100% when HP is 50% or less,1,1,0,100,"{""source"": ""27"", ""compiled"": 27}",1,0,0,0,0,23,100.0,0.0,0.0,{},2.0
+2002490,Regeneration,Recovers HP,0,0,0,0,,0,0,0,0,0,2,100.0,,0.0,{},0.0
+2002500,ATK Boost,ATK +20% with each attack received (up to 400%),5,-1,0,100,"{""source"": ""24"", ""compiled"": 24}",1,0,0,0,0,25,20.0,400.0,0.0,{},2.0
+2002510,Guaranteed Hit,Disables Evasion and attacks guaranteed to hit,1,0,0,100,,1,0,0,0,0,9,,,,{},0.0
+2002520,ATK & DEF Boost,All allies' ATK & DEF +30%,1,-1,0,100,,4,0,0,0,0,23,30.0,30.0,,{},2.0
+2002530,Lowered ATK,"ATK -25% for the enemy who is 
+the 2nd attacker at the start of turn",1,-1,0,100,,20,100,0,0,0,23,25.0,0.0,,{},3.0
+2002540,ATK Boost,ATK +50% with each turn passed (up to 200%),1,-1,0,100,,1,0,0,0,0,25,50.0,200.0,,{},2.0
+2002550,ATK Boost,ATK +10% with each attack received (up to 200%),5,-1,0,100,"{""source"": ""24"", ""compiled"": 24}",1,0,0,0,0,25,10.0,200.0,0.0,{},2.0
+2002560,Lowered DEF,"DEF -5% with each attack received 
+(no more than -50%)",5,-1,0,100,"{""source"": ""24"", ""compiled"": 24}",1,0,0,0,0,25,5.0,50.0,1.0,{},3.0
+2002570,ATK Boost,"ATK +100% on the 2nd turn 
+from the character's entry turn",1,-1,0,100,"{""source"": ""3338"", ""compiled"": 3338}",1,0,0,0,0,23,100.0,0.0,0.0,{},2.0
+2002580,Damage Reduction,Reduces damage received,1,99,0,100,,1,0,0,0,0,24,165.0,0.0,0.0,{},0.0
+2002590,Lowered Damage Reduction Rate,"Damage reduction rate -3% with 
+each turn passed (no more than -15%)",1,99,0,100,,1,0,0,0,0,25,-3.0,-15.0,4.0,{},0.0
+2002610,ATK Boost,ATK +150% when HP is 50% or less,1,1,0,100,"{""source"": ""27"", ""compiled"": 27}",1,0,0,0,0,23,150.0,0.0,0.0,{},2.0
+2003670,Change Ki Spheres (Random),Randomly changes all Ki Spheres,1,0,0,100,,1,0,0,0,0,6,,,,{},0.0
+2003680,Hee hee...!,"ATK +50% on the 2nd turn 
+from the character's entry turn",1,-1,0,100,"{""source"": ""3338"", ""compiled"": 3338}",1,0,0,0,0,23,50.0,0.0,0.0,{},2.0
