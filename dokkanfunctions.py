@@ -3040,6 +3040,8 @@ def KiOrbType(kiOrbNumber, DEVEXCEPTIONS=False):
 def extractClassType(classTypeNumber, DEVEXCEPTIONS=False):
     outputClass=[]
     outputType=[]
+    if(classTypeNumber==""):
+        classTypeNumber=0
     classTypeNumber=int(classTypeNumber)
     binaryclassTypeNumber=bin(int(classTypeNumber))[2:]
     binaryclassTypeNumber=binaryclassTypeNumber.zfill(32)
