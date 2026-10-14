@@ -6560,6 +6560,16 @@ def removeLookElseWhere(parsedLine,DEVECXEPTION=True):
         del output["Condition"]
         output["Building Stat"]["Cause"]["Cause"]="Attacks recievede with "+causalities[0][9]+" or more Extreme class allies attacking on the turn"
         output["Building Stat"]["Slider"]="How many attacks have been recieved with "+causalities[0][9]+" or more Extreme class allies attacking on this turn?"
+    elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:23]=="Is it within the first " and causalities[0][-41:]==" turn(s) from the character's entry turn?"):
+        del output["Condition"]
+        turns=causalities[0][23:-41]
+        output["Building Stat"]["Cause"]["Cause"]="Attacks performed during the first "+turns+" turn(s)?"
+        output["Building Stat"]["Slider"]="How many attacks have been performed during the first "+turns+" turn(s)?"
+    elif(parsedLine["Timing"]=="Right after attack" and len(causalities)==1 and causalities[0][:28]=='Is it on or after the first ' and causalities[0][-39:]==' turns from this characters entry turn?'):
+            del output["Condition"]
+            turns=causalities[0][28:-39]
+            output["Building Stat"]["Cause"]["Cause"]="Attacks performed during or after the "+turns+"th turn from the start of turn?"
+            output["Building Stat"]["Slider"]="How many attacks have been performed during or after the "+turns+"th turn from the start of turn?"
     else:
         print("LOOK ELSEWHERE NOT ACCOUNTED FOR",parsedLine,causalities)
         if(DEVECXEPTION):
